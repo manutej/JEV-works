@@ -13,7 +13,7 @@ Durable record of this session's state. Chat is ephemeral; this file is not. New
 ## In flight
 - [x] feat/jev-selector U2: JEV-works ed9a7f1 (pin jev-1.13.0, answeredBy, lib/harness.ts, local-ornith ported + verified);
       ~/jev-playground now git (main b653de8), feat/jev-selector 96e77b1 (vendored lib/jev*, 6 scripts, tsc + vitest 4/4, 01-hello → jev-1.13.0)
-- [ ] U6 drift suite: background agent "drift-suite" → program/drift.ts, program/DRIFT.md (new files only)
+- [x] U6 drift suite: no drift; jev-latest = jev-1.13.0; P4 band is question-shaped (committed)
 - [ ] e3-team (background agent) → ~/JEV-works-wt/e3/program/E3-PROGRESS.md
 - [x] U9 part 1: leads U5 → L35, L36, P18, NETER ledger (287f404)
 - [ ] U9 part 2: E3 result, drift result
