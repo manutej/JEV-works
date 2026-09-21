@@ -78,11 +78,11 @@ Status: `ready` · `blocked-on:Ux` · `HUMAN` · `done` · `failed`
 | id | intent | outputs | done (MachineCheck unless marked) | failure / blast radius | status |
 |---|---|---|---|---|---|
 | **U0** | Manu approves this checkpoint list | approval line in §10, `recorded_by: Manu` | HumanCheck: Manu | none | see §9 |
-| **U1** | local git baseline for JEV-works + ~/jev-playground (no remote, no push) | `.git`, `.gitignore`, first commit | `git status --porcelain` empty; `git check-ignore .env.local .vercel node_modules` all ignored; `git grep -c "$(key-prefix)"` = 0 | idempotent; rollback `rm -rf .git`; radius: none | ready |
+| **U1** | local git baseline for JEV-works + ~/jev-playground (no remote, no push) | `.git`, `.gitignore`, first commit | `git status --porcelain` empty; `git check-ignore .env.local .vercel node_modules` all ignored; `git grep -c "$(key-prefix)"` = 0 | idempotent; rollback `rm -rf .git`; radius: none | **done** be1429b (JEV-works only) |
 | **U2** | route every remaining hardcoded `typesafe-ai/jev` through a selector | edited scripts; `lib/jev*.ts` available to jev-playground | `grep -rn "typesafe-ai/jev"` returns only lib/ + docs; tsc green in both; `probe-jev.mjs` + `01-hello.ts` run on direct | reversible via git (after U1); radius: none | blocked-on:U1 |
-| **U3** | fix leads bug 1: name collisions in `generate-corpus.ts` | generator + regenerated `leads-42.json`/`truth-42.json` | distinct names ≥ 600 − planted dups; same seed gives a byte-identical file on 2 runs | radius: invalidates the old leads results (kept via git) | blocked-on:U1 |
-| **U4** | fix leads bug 2: no name-only dedup fallback in `code-gates.ts` | code-gates.ts + test | dedup merges = planted dups ± 5% on the new corpus; "Acme Corp" with 3 contacts and no domain stays 3 | reversible | blocked-on:U3 |
-| **U5** | re-run leads pipeline + evaluate vs 91.7% baseline | `leads/results/pipeline-42.json`, eval output | ≥ 95% of leads reach a verdict; report has n, baseline, result, delta, falsified? (I5, I6) | cost ~1.8k calls; UK1 | blocked-on:U4 |
+| **U3** | fix leads bug 1: name collisions in `generate-corpus.ts` | generator + regenerated `leads-42.json`/`truth-42.json` | distinct names ≥ 600 − planted dups; same seed gives a byte-identical file on 2 runs | radius: invalidates the old leads results (kept via git) | **OWNED BY session b4f08e** (worktree feat/leads-pipeline) |
+| **U4** | fix leads bug 2: no name-only dedup fallback in `code-gates.ts` | code-gates.ts + test | dedup merges = planted dups ± 5% on the new corpus; "Acme Corp" with 3 contacts and no domain stays 3 | reversible | **OWNED BY session b4f08e** (worktree feat/leads-pipeline) |
+| **U5** | re-run leads pipeline + evaluate vs 91.7% baseline | `leads/results/pipeline-42.json`, eval output | ≥ 95% of leads reach a verdict; report has n, baseline, result, delta, falsified? (I5, I6) | cost ~1.8k calls; UK1 | **OWNED BY session b4f08e** (worktree feat/leads-pipeline) |
 | **U6** | NETER window 5 (version drift): stability suite pinned via the direct response `model` field | `program/drift.ts`, `program/results/drift-*.json` | 2 runs produce a diff table; flags any Δ ≥ 0.11 (I6) | reversible | blocked-on:U2 |
 | **U10** | read-only survey of `~/jev/*`: Jev usage, path, pinned version | `SIBLINGS.md` table | 6 rows, each cites file:line or "no Jev calls" | zero writes to ~/jev; any proposed change goes to Manu | ready |
 | **U7** | **E3 blind test**: fit on 80, run **once** on the 39 holdout | `program/e3-blind.ts`, `program/results/e3-blind.json` | PROGRAM reporting contract; keyword baseline alongside; holdout hash recorded before the run | **irreversible: the holdout is spent after one look** → HUMAN gate before the run step | HUMAN (fit part: blocked-on:U2) |
@@ -100,7 +100,8 @@ U10 (read-only, depends on U0 only)
 ```
 - **Critical path:** U1 → U3 → U4 → U5 → U9. The two known bugs block the only experiment with a live baseline to beat.
 - **Parallel lanes (for a future multi-agent run):** {U2, U3-chain, U10} pass criteria a–c; (d) fan-in is U9; (e) contended resources: **TypeSafe rate limit** (U5, U6, U7) and **the shared working tree / concurrent session**, so all registry writes go through U9. The current loop runs **serially**; this analysis is recorded, not exercised.
-- **Loop order:** U1 → U10 → U2 → U3 → U4 → U5 → U9 → U6 → U9 → U8 → U7(fit) → HALT for Manu.
+- **Multi-tenant split (2026-09-21):** leads/ (U3–U5) belongs to session b4f08e in `~/JEV-works-wt/leads-pipeline`; this session owns main-tree shared files and is the single registry writer (U9). Worktrees, not branch switching; rebase on main before merge, one at a time.
+- **Loop order (this session):** U1 ✅ → [branch per Manu's pick] → U9 on results received from b4f08e.
 
 ## 6 · Anti-pattern watchlist (domain-derived first)
 - Fitting a threshold on the data being reported (violates I2).
@@ -170,3 +171,4 @@ parallel lane-sets exercised: 0 (serial loop); external stakeholders: none beyon
 - *MERCURIO (truth/ethics):* found an **irreversible edge**: E3's holdout inspection. Now a HUMAN gate. Another: the `~/CETI` data is owned elsewhere, so it's read-only (I10). Approval deviation disclosed in §9. Every number in §2 has a command behind it this session.
 - *Spawned fresh-agent probe:* on U7 (highest blast radius). Result recorded below.
 - DEFERRED: Tier 3 audit if lanes are ever parallelized.
+- 2026-09-21 U1 done — JEV-works git main @ be1429b, secret scan 0 hits; U3–U5 reassigned to session b4f08e by agreement.
