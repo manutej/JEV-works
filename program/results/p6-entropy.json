@@ -1,0 +1,3771 @@
+{
+  "experiment": "P6",
+  "prereg": "program/P6-PREREG.md",
+  "hypothesis": "Normalised choice entropy ranks garbage above clean input (test AUC ≥ 0.85) and beats 1−topP by ≥ 0.05 AUC.",
+  "JEV_ID": "jev-1.13.0 (direct)",
+  "answeredBy": [
+    "jev-1.13.0"
+  ],
+  "disjointness": {
+    "hashOverlap": 0,
+    "idOverlap": 0
+  },
+  "n": {
+    "total": 214,
+    "answered": 214,
+    "errors": 0,
+    "fit": {
+      "clean": 49,
+      "garbage": 61
+    },
+    "test": {
+      "clean": 55,
+      "garbage": 49
+    }
+  },
+  "insufficientData": false,
+  "baseline": {
+    "name": "length: −(non-whitespace chars), i.e. \"short input is garbage\"",
+    "testAuc": 0.8521,
+    "ci95": [
+      0.7746,
+      0.9182
+    ],
+    "gate": {
+      "fitThreshold": -269,
+      "fitYoudenJ": 0.6444,
+      "fitHalf": {
+        "garbageCaught": 0.8689,
+        "cleanFlagged": 0.2245,
+        "balancedAccuracy": 0.8222
+      },
+      "testHalf": {
+        "garbageCaught": 0.8571,
+        "cleanFlagged": 0.4,
+        "balancedAccuracy": 0.7286
+      }
+    }
+  },
+  "result": {
+    "entropy": {
+      "testAuc": 0.9779,
+      "ci95": [
+        0.9532,
+        0.9955
+      ],
+      "gate": {
+        "fitThreshold": 0.1432,
+        "fitYoudenJ": 0.7384,
+        "fitHalf": {
+          "garbageCaught": 0.9016,
+          "cleanFlagged": 0.1633,
+          "balancedAccuracy": 0.8692
+        },
+        "testHalf": {
+          "garbageCaught": 0.9592,
+          "cleanFlagged": 0.1818,
+          "balancedAccuracy": 0.8887
+        }
+      }
+    },
+    "oneMinusTopP": {
+      "testAuc": 0.9523,
+      "ci95": [
+        0.9133,
+        0.9841
+      ],
+      "gate": {
+        "fitThreshold": 0.04,
+        "fitYoudenJ": 0.7344,
+        "fitHalf": {
+          "garbageCaught": 0.918,
+          "cleanFlagged": 0.1837,
+          "balancedAccuracy": 0.8672
+        },
+        "testHalf": {
+          "garbageCaught": 0.9388,
+          "cleanFlagged": 0.2364,
+          "balancedAccuracy": 0.8512
+        }
+      }
+    },
+    "oneMinusOnTopic": {
+      "testAuc": 0.9013,
+      "ci95": [
+        0.8325,
+        0.9555
+      ],
+      "gate": {
+        "fitThreshold": 0.48,
+        "fitYoudenJ": 0.7869,
+        "fitHalf": {
+          "garbageCaught": 0.7869,
+          "cleanFlagged": 0,
+          "balancedAccuracy": 0.8934
+        },
+        "testHalf": {
+          "garbageCaught": 0.7959,
+          "cleanFlagged": 0.0727,
+          "balancedAccuracy": 0.8616
+        }
+      },
+      "note": "secondary: the bank's own abstain gate"
+    },
+    "entropyByClass": {
+      "garbage": {
+        "median": 0.6383,
+        "p5": 0.226,
+        "min": 0.111,
+        "max": 1
+      },
+      "clean": {
+        "median": 0,
+        "p95": 0.2689,
+        "min": 0,
+        "max": 0.5411
+      },
+      "marginP5GarbageMinusP95Clean": -0.0429,
+      "medianRatio": null
+    }
+  },
+  "delta": {
+    "entropyMinusTopP": 0.0256,
+    "entropyMinusTopPci95": [
+      0.0074,
+      0.0488
+    ],
+    "entropyMinusBaseline": 0.1258,
+    "belowP4NoiseFloor": true
+  },
+  "falsified": true,
+  "because": "F2: AUC(entropy) − AUC(1−topP) = 0.026 < 0.05",
+  "flags": {
+    "I5_baselineAsGood": false,
+    "wordingRangesDisjoint": false
+  },
+  "descriptive": {
+    "perQuestion": {
+      "toolKind": {
+        "n": {
+          "clean": 40,
+          "garbage": 23
+        },
+        "insufficientData": true,
+        "auc": {
+          "entropy": 0.9685,
+          "oneMinusTopP": 0.9533,
+          "lengthBaseline": 0.8625,
+          "oneMinusOnTopic": 0.8821
+        }
+      },
+      "docGenre": {
+        "n": {
+          "clean": 15,
+          "garbage": 26
+        },
+        "insufficientData": true,
+        "auc": {
+          "entropy": 0.9936,
+          "oneMinusTopP": 0.9936,
+          "lengthBaseline": 0.9051,
+          "oneMinusOnTopic": 0.9756
+        }
+      }
+    },
+    "perGarbageKind": {
+      "whitespace": {
+        "n": 4,
+        "entropyMedian": 0.649,
+        "entropyRange": [
+          0.5359,
+          0.8813
+        ],
+        "topPMedian": 0.69,
+        "aucVsAllClean": {
+          "entropy": 0.9909,
+          "oneMinusTopP": 0.9773,
+          "lengthBaseline": 1,
+          "oneMinusOnTopic": 1
+        }
+      },
+      "emoji": {
+        "n": 7,
+        "entropyMedian": 0.6343,
+        "entropyRange": [
+          0.4999,
+          0.784
+        ],
+        "topPMedian": 0.84,
+        "aucVsAllClean": {
+          "entropy": 0.9948,
+          "oneMinusTopP": 0.9675,
+          "lengthBaseline": 1,
+          "oneMinusOnTopic": 0.9922
+        }
+      },
+      "fragment": {
+        "n": 8,
+        "entropyMedian": 0.65,
+        "entropyRange": [
+          0.3659,
+          1
+        ],
+        "topPMedian": 0.635,
+        "aucVsAllClean": {
+          "entropy": 0.9955,
+          "oneMinusTopP": 0.9739,
+          "lengthBaseline": 1,
+          "oneMinusOnTopic": 1
+        }
+      },
+      "foreign-noise": {
+        "n": 6,
+        "entropyMedian": 0.6944,
+        "entropyRange": [
+          0.6282,
+          0.8072
+        ],
+        "topPMedian": 0.56,
+        "aucVsAllClean": {
+          "entropy": 1,
+          "oneMinusTopP": 0.9848,
+          "lengthBaseline": 1,
+          "oneMinusOnTopic": 0.9909
+        }
+      },
+      "lorem": {
+        "n": 8,
+        "entropyMedian": 0.9635,
+        "entropyRange": [
+          0.3271,
+          1
+        ],
+        "topPMedian": 0.6,
+        "aucVsAllClean": {
+          "entropy": 0.9864,
+          "oneMinusTopP": 0.9807,
+          "lengthBaseline": 0.8182,
+          "oneMinusOnTopic": 1
+        }
+      },
+      "off-topic": {
+        "n": 8,
+        "entropyMedian": 0.3957,
+        "entropyRange": [
+          0.1944,
+          0.9648
+        ],
+        "topPMedian": 0.845,
+        "aucVsAllClean": {
+          "entropy": 0.9693,
+          "oneMinusTopP": 0.9239,
+          "lengthBaseline": 0.8568,
+          "oneMinusOnTopic": 0.8239
+        }
+      },
+      "wrong-set": {
+        "n": 8,
+        "entropyMedian": 0.3443,
+        "entropyRange": [
+          0.111,
+          0.9648
+        ],
+        "topPMedian": 0.915,
+        "aucVsAllClean": {
+          "entropy": 0.9227,
+          "oneMinusTopP": 0.8807,
+          "lengthBaseline": 0.4193,
+          "oneMinusOnTopic": 0.5852
+        }
+      }
+    },
+    "cleanAccuracy": {
+      "all": 0.8558,
+      "n": 104,
+      "correct": 89
+    },
+    "testAucCleanCorrectOnly": {
+      "n": {
+        "clean": 49,
+        "garbage": 49
+      },
+      "auc": {
+        "entropy": 0.9831,
+        "oneMinusTopP": 0.9648,
+        "lengthBaseline": 0.8403,
+        "oneMinusOnTopic": 0.895
+      }
+    },
+    "vendorConfidenceReturned": 214,
+    "testAucVendorConfidence": 0.9583
+  },
+  "calls": {
+    "attempts": 214,
+    "budget": 600,
+    "wallClockMs": 7587
+  },
+  "readings": [
+    {
+      "id": "toolKind:clean:9",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_contents": 0.04,
+        "file_changed": 0,
+        "shell_output": 0.96,
+        "message_receipt": 0
+      },
+      "entropy": 0.1211,
+      "topP": 0.96,
+      "onTopicP": 0.74,
+      "vendorConfidence": 0.94,
+      "answeredBy": "jev-1.13.0",
+      "ms": 272,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:10",
+      "choice": "shell_output",
+      "probabilities": {
+        "shell_output": 0.88,
+        "file_changed": 0,
+        "file_contents": 0.12,
+        "message_receipt": 0
+      },
+      "entropy": 0.2647,
+      "topP": 0.88,
+      "onTopicP": 0.87,
+      "vendorConfidence": 0.83,
+      "answeredBy": "jev-1.13.0",
+      "ms": 212,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:11",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_changed": 0,
+        "file_contents": 0,
+        "message_receipt": 0,
+        "shell_output": 1
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.69,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 214,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:12",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_changed": 0.02,
+        "shell_output": 0.96,
+        "message_receipt": 0.02,
+        "file_contents": 0
+      },
+      "entropy": 0.1411,
+      "topP": 0.96,
+      "onTopicP": 0.63,
+      "vendorConfidence": 0.95,
+      "answeredBy": "jev-1.13.0",
+      "ms": 214,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:13",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_contents": 0.03,
+        "message_receipt": 0,
+        "shell_output": 0.97,
+        "file_changed": 0
+      },
+      "entropy": 0.0972,
+      "topP": 0.97,
+      "onTopicP": 0.59,
+      "vendorConfidence": 0.95,
+      "answeredBy": "jev-1.13.0",
+      "ms": 220,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:14",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_changed": 0,
+        "file_contents": 0,
+        "shell_output": 1,
+        "message_receipt": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.88,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 97,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:15",
+      "choice": "file_contents",
+      "probabilities": {
+        "shell_output": 0.07,
+        "message_receipt": 0,
+        "file_contents": 0.93,
+        "file_changed": 0
+      },
+      "entropy": 0.183,
+      "topP": 0.93,
+      "onTopicP": 0.86,
+      "vendorConfidence": 0.9,
+      "answeredBy": "jev-1.13.0",
+      "ms": 191,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:16",
+      "choice": "file_contents",
+      "probabilities": {
+        "file_contents": 0.56,
+        "message_receipt": 0,
+        "file_changed": 0,
+        "shell_output": 0.44
+      },
+      "entropy": 0.4948,
+      "topP": 0.56,
+      "onTopicP": 0.81,
+      "vendorConfidence": 0.41,
+      "answeredBy": "jev-1.13.0",
+      "ms": 163,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:17",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_changed": 0,
+        "shell_output": 0.95,
+        "message_receipt": 0,
+        "file_contents": 0.05
+      },
+      "entropy": 0.1432,
+      "topP": 0.95,
+      "onTopicP": 0.78,
+      "vendorConfidence": 0.93,
+      "answeredBy": "jev-1.13.0",
+      "ms": 111,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:18",
+      "choice": "file_contents",
+      "probabilities": {
+        "message_receipt": 0,
+        "file_changed": 0,
+        "shell_output": 0,
+        "file_contents": 1
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.88,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 106,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:19",
+      "choice": "shell_output",
+      "probabilities": {
+        "message_receipt": 0,
+        "file_changed": 0,
+        "file_contents": 0.06,
+        "shell_output": 0.94
+      },
+      "entropy": 0.1637,
+      "topP": 0.94,
+      "onTopicP": 0.48,
+      "vendorConfidence": 0.92,
+      "answeredBy": "jev-1.13.0",
+      "ms": 114,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:20",
+      "choice": "shell_output",
+      "probabilities": {
+        "message_receipt": 0,
+        "file_contents": 0.43,
+        "shell_output": 0.56,
+        "file_changed": 0.01
+      },
+      "entropy": 0.5292,
+      "topP": 0.56,
+      "onTopicP": 0.69,
+      "vendorConfidence": 0.41,
+      "answeredBy": "jev-1.13.0",
+      "ms": 164,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:21",
+      "choice": "file_changed",
+      "probabilities": {
+        "file_contents": 0,
+        "message_receipt": 0,
+        "file_changed": 1,
+        "shell_output": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.66,
+      "vendorConfidence": 0.99,
+      "answeredBy": "jev-1.13.0",
+      "ms": 139,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:22",
+      "choice": "file_changed",
+      "probabilities": {
+        "file_contents": 0,
+        "shell_output": 0,
+        "message_receipt": 0,
+        "file_changed": 1
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.57,
+      "vendorConfidence": 0.99,
+      "answeredBy": "jev-1.13.0",
+      "ms": 116,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:23",
+      "choice": "file_changed",
+      "probabilities": {
+        "message_receipt": 0,
+        "file_changed": 1,
+        "shell_output": 0,
+        "file_contents": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.63,
+      "vendorConfidence": 0.99,
+      "answeredBy": "jev-1.13.0",
+      "ms": 100,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:24",
+      "choice": "shell_output",
+      "probabilities": {
+        "shell_output": 1,
+        "message_receipt": 0,
+        "file_changed": 0,
+        "file_contents": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.57,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 174,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:25",
+      "choice": "shell_output",
+      "probabilities": {
+        "message_receipt": 0,
+        "shell_output": 0.98,
+        "file_contents": 0.02,
+        "file_changed": 0
+      },
+      "entropy": 0.0707,
+      "topP": 0.98,
+      "onTopicP": 0.88,
+      "vendorConfidence": 0.97,
+      "answeredBy": "jev-1.13.0",
+      "ms": 170,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:26",
+      "choice": "file_changed",
+      "probabilities": {
+        "shell_output": 0,
+        "file_changed": 1,
+        "message_receipt": 0,
+        "file_contents": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.6,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 154,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:27",
+      "choice": "shell_output",
+      "probabilities": {
+        "message_receipt": 0,
+        "file_changed": 0,
+        "file_contents": 0.01,
+        "shell_output": 0.99
+      },
+      "entropy": 0.0404,
+      "topP": 0.99,
+      "onTopicP": 0.58,
+      "vendorConfidence": 0.98,
+      "answeredBy": "jev-1.13.0",
+      "ms": 115,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:28",
+      "choice": "shell_output",
+      "probabilities": {
+        "message_receipt": 0,
+        "file_changed": 0.01,
+        "file_contents": 0.23,
+        "shell_output": 0.76
+      },
+      "entropy": 0.4275,
+      "topP": 0.76,
+      "onTopicP": 0.75,
+      "vendorConfidence": 0.69,
+      "answeredBy": "jev-1.13.0",
+      "ms": 110,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:29",
+      "choice": "file_contents",
+      "probabilities": {
+        "file_contents": 0.99,
+        "shell_output": 0.01,
+        "message_receipt": 0,
+        "file_changed": 0
+      },
+      "entropy": 0.0404,
+      "topP": 0.99,
+      "onTopicP": 0.77,
+      "vendorConfidence": 0.98,
+      "answeredBy": "jev-1.13.0",
+      "ms": 98,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:30",
+      "choice": "file_contents",
+      "probabilities": {
+        "message_receipt": 0,
+        "shell_output": 0,
+        "file_changed": 0,
+        "file_contents": 1
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.86,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 105,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:31",
+      "choice": "file_contents",
+      "probabilities": {
+        "file_contents": 1,
+        "shell_output": 0,
+        "file_changed": 0,
+        "message_receipt": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.68,
+      "vendorConfidence": 0.99,
+      "answeredBy": "jev-1.13.0",
+      "ms": 143,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:32",
+      "choice": "file_changed",
+      "probabilities": {
+        "message_receipt": 0,
+        "file_changed": 1,
+        "file_contents": 0,
+        "shell_output": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.61,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 154,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:33",
+      "choice": "file_changed",
+      "probabilities": {
+        "file_contents": 0,
+        "shell_output": 0,
+        "message_receipt": 0,
+        "file_changed": 1
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.61,
+      "vendorConfidence": 0.99,
+      "answeredBy": "jev-1.13.0",
+      "ms": 111,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:34",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_changed": 0,
+        "file_contents": 0,
+        "shell_output": 1,
+        "message_receipt": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.75,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 135,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:37",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_changed": 0,
+        "file_contents": 0,
+        "shell_output": 1,
+        "message_receipt": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.74,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 106,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:38",
+      "choice": "file_changed",
+      "probabilities": {
+        "shell_output": 0.01,
+        "file_changed": 0.99,
+        "file_contents": 0,
+        "message_receipt": 0
+      },
+      "entropy": 0.0404,
+      "topP": 0.99,
+      "onTopicP": 0.58,
+      "vendorConfidence": 0.99,
+      "answeredBy": "jev-1.13.0",
+      "ms": 106,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:39",
+      "choice": "shell_output",
+      "probabilities": {
+        "shell_output": 0.87,
+        "message_receipt": 0,
+        "file_contents": 0.13,
+        "file_changed": 0
+      },
+      "entropy": 0.2787,
+      "topP": 0.87,
+      "onTopicP": 0.62,
+      "vendorConfidence": 0.83,
+      "answeredBy": "jev-1.13.0",
+      "ms": 122,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:41",
+      "choice": "shell_output",
+      "probabilities": {
+        "message_receipt": 0,
+        "file_changed": 0,
+        "shell_output": 1,
+        "file_contents": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.65,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 88,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:43",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_contents": 0,
+        "file_changed": 0,
+        "message_receipt": 0,
+        "shell_output": 1
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.52,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 134,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:45",
+      "choice": "file_contents",
+      "probabilities": {
+        "message_receipt": 0,
+        "file_contents": 1,
+        "file_changed": 0,
+        "shell_output": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.8,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 132,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:47",
+      "choice": "file_contents",
+      "probabilities": {
+        "file_contents": 1,
+        "message_receipt": 0,
+        "file_changed": 0,
+        "shell_output": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.73,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 104,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:48",
+      "choice": "file_contents",
+      "probabilities": {
+        "file_contents": 1,
+        "shell_output": 0,
+        "message_receipt": 0,
+        "file_changed": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.88,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 122,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:49",
+      "choice": "file_contents",
+      "probabilities": {
+        "file_contents": 1,
+        "file_changed": 0,
+        "shell_output": 0,
+        "message_receipt": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.84,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 147,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:50",
+      "choice": "file_contents",
+      "probabilities": {
+        "message_receipt": 0,
+        "file_changed": 0,
+        "shell_output": 0.04,
+        "file_contents": 0.96
+      },
+      "entropy": 0.1211,
+      "topP": 0.96,
+      "onTopicP": 0.81,
+      "vendorConfidence": 0.95,
+      "answeredBy": "jev-1.13.0",
+      "ms": 122,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:51",
+      "choice": "file_contents",
+      "probabilities": {
+        "file_changed": 0,
+        "file_contents": 1,
+        "message_receipt": 0,
+        "shell_output": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.9,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 97,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:52",
+      "choice": "file_changed",
+      "probabilities": {
+        "file_changed": 0.99,
+        "message_receipt": 0,
+        "shell_output": 0.01,
+        "file_contents": 0
+      },
+      "entropy": 0.0404,
+      "topP": 0.99,
+      "onTopicP": 0.33,
+      "vendorConfidence": 0.99,
+      "answeredBy": "jev-1.13.0",
+      "ms": 96,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:53",
+      "choice": "file_changed",
+      "probabilities": {
+        "file_changed": 1,
+        "file_contents": 0,
+        "message_receipt": 0,
+        "shell_output": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.44,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 101,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:54",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_changed": 0,
+        "file_contents": 0,
+        "shell_output": 1,
+        "message_receipt": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.71,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 108,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:59",
+      "choice": "shell_output",
+      "probabilities": {
+        "shell_output": 1,
+        "file_changed": 0,
+        "file_contents": 0,
+        "message_receipt": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.68,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 268,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:62",
+      "choice": "file_changed",
+      "probabilities": {
+        "message_receipt": 0,
+        "file_changed": 1,
+        "shell_output": 0,
+        "file_contents": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.63,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 176,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:64",
+      "choice": "file_changed",
+      "probabilities": {
+        "file_contents": 0,
+        "message_receipt": 0,
+        "file_changed": 1,
+        "shell_output": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.55,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 126,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:65",
+      "choice": "file_changed",
+      "probabilities": {
+        "file_changed": 1,
+        "shell_output": 0,
+        "message_receipt": 0,
+        "file_contents": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.6,
+      "vendorConfidence": 0.99,
+      "answeredBy": "jev-1.13.0",
+      "ms": 107,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:70",
+      "choice": "shell_output",
+      "probabilities": {
+        "shell_output": 0.99,
+        "file_changed": 0,
+        "file_contents": 0.01,
+        "message_receipt": 0
+      },
+      "entropy": 0.0404,
+      "topP": 0.99,
+      "onTopicP": 0.76,
+      "vendorConfidence": 0.98,
+      "answeredBy": "jev-1.13.0",
+      "ms": 108,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:72",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_contents": 0,
+        "file_changed": 0.02,
+        "message_receipt": 0,
+        "shell_output": 0.98
+      },
+      "entropy": 0.0707,
+      "topP": 0.98,
+      "onTopicP": 0.75,
+      "vendorConfidence": 0.97,
+      "answeredBy": "jev-1.13.0",
+      "ms": 107,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:74",
+      "choice": "message_receipt",
+      "probabilities": {
+        "shell_output": 0,
+        "file_changed": 0,
+        "file_contents": 0,
+        "message_receipt": 1
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.59,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 90,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:75",
+      "choice": "message_receipt",
+      "probabilities": {
+        "file_changed": 0,
+        "shell_output": 0,
+        "message_receipt": 1,
+        "file_contents": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.58,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 106,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:76",
+      "choice": "message_receipt",
+      "probabilities": {
+        "message_receipt": 1,
+        "file_changed": 0,
+        "shell_output": 0,
+        "file_contents": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.64,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 124,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:77",
+      "choice": "message_receipt",
+      "probabilities": {
+        "file_changed": 0,
+        "file_contents": 0,
+        "message_receipt": 1,
+        "shell_output": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.62,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 112,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:78",
+      "choice": "shell_output",
+      "probabilities": {
+        "shell_output": 1,
+        "file_changed": 0,
+        "message_receipt": 0,
+        "file_contents": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.78,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 103,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:79",
+      "choice": "shell_output",
+      "probabilities": {
+        "shell_output": 0.92,
+        "message_receipt": 0.03,
+        "file_contents": 0,
+        "file_changed": 0.05
+      },
+      "entropy": 0.2393,
+      "topP": 0.92,
+      "onTopicP": 0.57,
+      "vendorConfidence": 0.89,
+      "answeredBy": "jev-1.13.0",
+      "ms": 106,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:80",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_contents": 0.13,
+        "message_receipt": 0,
+        "shell_output": 0.87,
+        "file_changed": 0
+      },
+      "entropy": 0.2787,
+      "topP": 0.87,
+      "onTopicP": 0.68,
+      "vendorConfidence": 0.83,
+      "answeredBy": "jev-1.13.0",
+      "ms": 144,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:81",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_changed": 0,
+        "file_contents": 0,
+        "message_receipt": 0,
+        "shell_output": 1
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.73,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 100,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:82",
+      "choice": "shell_output",
+      "probabilities": {
+        "message_receipt": 0,
+        "file_changed": 0,
+        "shell_output": 1,
+        "file_contents": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.78,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 96,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:84",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_contents": 0.11,
+        "message_receipt": 0.15,
+        "file_changed": 0,
+        "shell_output": 0.74
+      },
+      "entropy": 0.5411,
+      "topP": 0.74,
+      "onTopicP": 0.86,
+      "vendorConfidence": 0.65,
+      "answeredBy": "jev-1.13.0",
+      "ms": 95,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:87",
+      "choice": "message_receipt",
+      "probabilities": {
+        "message_receipt": 1,
+        "file_contents": 0,
+        "file_changed": 0,
+        "shell_output": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.57,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 105,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:88",
+      "choice": "message_receipt",
+      "probabilities": {
+        "shell_output": 0,
+        "file_changed": 0,
+        "message_receipt": 1,
+        "file_contents": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.58,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 101,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:89",
+      "choice": "message_receipt",
+      "probabilities": {
+        "message_receipt": 1,
+        "file_contents": 0,
+        "file_changed": 0,
+        "shell_output": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.58,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 88,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:90",
+      "choice": "message_receipt",
+      "probabilities": {
+        "file_contents": 0,
+        "message_receipt": 1,
+        "file_changed": 0,
+        "shell_output": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.62,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 136,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:95",
+      "choice": "shell_output",
+      "probabilities": {
+        "message_receipt": 0.01,
+        "file_contents": 0,
+        "shell_output": 0.99,
+        "file_changed": 0
+      },
+      "entropy": 0.0404,
+      "topP": 0.99,
+      "onTopicP": 0.58,
+      "vendorConfidence": 0.99,
+      "answeredBy": "jev-1.13.0",
+      "ms": 98,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:97",
+      "choice": "shell_output",
+      "probabilities": {
+        "message_receipt": 0.03,
+        "file_contents": 0,
+        "file_changed": 0.05,
+        "shell_output": 0.92
+      },
+      "entropy": 0.2393,
+      "topP": 0.92,
+      "onTopicP": 0.58,
+      "vendorConfidence": 0.89,
+      "answeredBy": "jev-1.13.0",
+      "ms": 127,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:98",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_contents": 0.02,
+        "file_changed": 0.02,
+        "message_receipt": 0,
+        "shell_output": 0.96
+      },
+      "entropy": 0.1411,
+      "topP": 0.96,
+      "onTopicP": 0.73,
+      "vendorConfidence": 0.95,
+      "answeredBy": "jev-1.13.0",
+      "ms": 151,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:99",
+      "choice": "file_contents",
+      "probabilities": {
+        "file_contents": 0.97,
+        "shell_output": 0.03,
+        "message_receipt": 0,
+        "file_changed": 0
+      },
+      "entropy": 0.0972,
+      "topP": 0.97,
+      "onTopicP": 0.88,
+      "vendorConfidence": 0.95,
+      "answeredBy": "jev-1.13.0",
+      "ms": 162,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:100",
+      "choice": "file_contents",
+      "probabilities": {
+        "file_contents": 1,
+        "message_receipt": 0,
+        "shell_output": 0,
+        "file_changed": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.83,
+      "vendorConfidence": 0.99,
+      "answeredBy": "jev-1.13.0",
+      "ms": 90,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:101",
+      "choice": "file_contents",
+      "probabilities": {
+        "message_receipt": 0,
+        "shell_output": 0,
+        "file_contents": 1,
+        "file_changed": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.84,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 94,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:102",
+      "choice": "file_contents",
+      "probabilities": {
+        "file_changed": 0,
+        "shell_output": 0,
+        "message_receipt": 0,
+        "file_contents": 1
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.9,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 122,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:105",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_contents": 0,
+        "message_receipt": 0,
+        "shell_output": 1,
+        "file_changed": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.68,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 189,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:106",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_contents": 0,
+        "shell_output": 0.96,
+        "message_receipt": 0.01,
+        "file_changed": 0.03
+      },
+      "entropy": 0.1374,
+      "topP": 0.96,
+      "onTopicP": 0.65,
+      "vendorConfidence": 0.94,
+      "answeredBy": "jev-1.13.0",
+      "ms": 93,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:107",
+      "choice": "file_contents",
+      "probabilities": {
+        "shell_output": 0.45,
+        "message_receipt": 0,
+        "file_contents": 0.55,
+        "file_changed": 0
+      },
+      "entropy": 0.4964,
+      "topP": 0.55,
+      "onTopicP": 0.92,
+      "vendorConfidence": 0.39,
+      "answeredBy": "jev-1.13.0",
+      "ms": 136,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:clean:108",
+      "choice": "shell_output",
+      "probabilities": {
+        "shell_output": 1,
+        "file_changed": 0,
+        "message_receipt": 0,
+        "file_contents": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.86,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 118,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:doc0",
+      "choice": "library_docs",
+      "probabilities": {
+        "research_note": 0,
+        "library_docs": 1
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.89,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 145,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:doc1",
+      "choice": "library_docs",
+      "probabilities": {
+        "research_note": 0,
+        "library_docs": 1
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.88,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 111,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:doc2",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 0.78,
+        "library_docs": 0.22
+      },
+      "entropy": 0.7602,
+      "topP": 0.78,
+      "onTopicP": 0.87,
+      "vendorConfidence": 0.56,
+      "answeredBy": "jev-1.13.0",
+      "ms": 104,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:doc3",
+      "choice": "library_docs",
+      "probabilities": {
+        "research_note": 0,
+        "library_docs": 1
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.87,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 134,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:doc4",
+      "choice": "library_docs",
+      "probabilities": {
+        "research_note": 0,
+        "library_docs": 1
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.86,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 131,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:doc5",
+      "choice": "library_docs",
+      "probabilities": {
+        "library_docs": 0.73,
+        "research_note": 0.27
+      },
+      "entropy": 0.8415,
+      "topP": 0.73,
+      "onTopicP": 0.93,
+      "vendorConfidence": 0.46,
+      "answeredBy": "jev-1.13.0",
+      "ms": 101,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:doc6",
+      "choice": "library_docs",
+      "probabilities": {
+        "library_docs": 1,
+        "research_note": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.85,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 100,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:doc7",
+      "choice": "library_docs",
+      "probabilities": {
+        "library_docs": 1,
+        "research_note": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.89,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 111,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:doc8",
+      "choice": "library_docs",
+      "probabilities": {
+        "library_docs": 1,
+        "research_note": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.93,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 104,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:doc9",
+      "choice": "library_docs",
+      "probabilities": {
+        "library_docs": 1,
+        "research_note": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.84,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 123,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:doc10",
+      "choice": "library_docs",
+      "probabilities": {
+        "library_docs": 1,
+        "research_note": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.88,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 99,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:doc11",
+      "choice": "library_docs",
+      "probabilities": {
+        "research_note": 0,
+        "library_docs": 1
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.88,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 143,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:doc12",
+      "choice": "library_docs",
+      "probabilities": {
+        "library_docs": 0.98,
+        "research_note": 0.02
+      },
+      "entropy": 0.1414,
+      "topP": 0.98,
+      "onTopicP": 0.89,
+      "vendorConfidence": 0.95,
+      "answeredBy": "jev-1.13.0",
+      "ms": 168,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:doc13",
+      "choice": "library_docs",
+      "probabilities": {
+        "research_note": 0,
+        "library_docs": 1
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.85,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 129,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:doc14",
+      "choice": "library_docs",
+      "probabilities": {
+        "library_docs": 1,
+        "research_note": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.85,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 97,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:doc15",
+      "choice": "library_docs",
+      "probabilities": {
+        "research_note": 0,
+        "library_docs": 1
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.83,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 113,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:doc16",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.12,
+        "research_note": 0.88
+      },
+      "entropy": 0.5294,
+      "topP": 0.88,
+      "onTopicP": 0.91,
+      "vendorConfidence": 0.76,
+      "answeredBy": "jev-1.13.0",
+      "ms": 110,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:doc17",
+      "choice": "library_docs",
+      "probabilities": {
+        "research_note": 0,
+        "library_docs": 1
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.84,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 176,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:course0",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0,
+        "research_note": 1
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.77,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 132,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:course1",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 1,
+        "library_docs": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.73,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 111,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:course2",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0,
+        "research_note": 1
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.86,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 107,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:course3",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.02,
+        "research_note": 0.98
+      },
+      "entropy": 0.1414,
+      "topP": 0.98,
+      "onTopicP": 0.8,
+      "vendorConfidence": 0.96,
+      "answeredBy": "jev-1.13.0",
+      "ms": 140,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:course4",
+      "choice": "library_docs",
+      "probabilities": {
+        "research_note": 0.03,
+        "library_docs": 0.97
+      },
+      "entropy": 0.1944,
+      "topP": 0.97,
+      "onTopicP": 0.79,
+      "vendorConfidence": 0.94,
+      "answeredBy": "jev-1.13.0",
+      "ms": 123,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:course5",
+      "choice": "library_docs",
+      "probabilities": {
+        "library_docs": 0.67,
+        "research_note": 0.33
+      },
+      "entropy": 0.9149,
+      "topP": 0.67,
+      "onTopicP": 0.82,
+      "vendorConfidence": 0.33,
+      "answeredBy": "jev-1.13.0",
+      "ms": 104,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:course6",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.02,
+        "research_note": 0.98
+      },
+      "entropy": 0.1414,
+      "topP": 0.98,
+      "onTopicP": 0.82,
+      "vendorConfidence": 0.95,
+      "answeredBy": "jev-1.13.0",
+      "ms": 104,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:course7",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.01,
+        "research_note": 0.99
+      },
+      "entropy": 0.0808,
+      "topP": 0.99,
+      "onTopicP": 0.76,
+      "vendorConfidence": 0.98,
+      "answeredBy": "jev-1.13.0",
+      "ms": 136,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:course8",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 1,
+        "library_docs": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.76,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 129,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:course9",
+      "choice": "library_docs",
+      "probabilities": {
+        "library_docs": 1,
+        "research_note": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.77,
+      "vendorConfidence": 0.99,
+      "answeredBy": "jev-1.13.0",
+      "ms": 99,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:course10",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0,
+        "research_note": 1
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.8,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 106,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:course11",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0,
+        "research_note": 1
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.91,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 119,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:course13",
+      "choice": "library_docs",
+      "probabilities": {
+        "library_docs": 1,
+        "research_note": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.86,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 111,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:course14",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 1,
+        "library_docs": 0
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.71,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 102,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:clean:course15",
+      "choice": "library_docs",
+      "probabilities": {
+        "library_docs": 0.98,
+        "research_note": 0.02
+      },
+      "entropy": 0.1414,
+      "topP": 0.98,
+      "onTopicP": 0.77,
+      "vendorConfidence": 0.96,
+      "answeredBy": "jev-1.13.0",
+      "ms": 110,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:empty:0",
+      "choice": "file_contents",
+      "probabilities": {
+        "message_receipt": 0.05,
+        "file_changed": 0.03,
+        "file_contents": 0.7,
+        "shell_output": 0.22
+      },
+      "entropy": 0.6043,
+      "topP": 0.7,
+      "onTopicP": 0.04,
+      "vendorConfidence": 0.59,
+      "answeredBy": "jev-1.13.0",
+      "ms": 206,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:whitespace:1",
+      "choice": "file_contents",
+      "probabilities": {
+        "shell_output": 0.29,
+        "file_changed": 0.01,
+        "file_contents": 0.68,
+        "message_receipt": 0.02
+      },
+      "entropy": 0.5378,
+      "topP": 0.68,
+      "onTopicP": 0.04,
+      "vendorConfidence": 0.56,
+      "answeredBy": "jev-1.13.0",
+      "ms": 205,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:whitespace:2",
+      "choice": "file_contents",
+      "probabilities": {
+        "message_receipt": 0.02,
+        "file_changed": 0.02,
+        "shell_output": 0.23,
+        "file_contents": 0.73
+      },
+      "entropy": 0.5224,
+      "topP": 0.73,
+      "onTopicP": 0.04,
+      "vendorConfidence": 0.65,
+      "answeredBy": "jev-1.13.0",
+      "ms": 197,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:whitespace:3",
+      "choice": "file_contents",
+      "probabilities": {
+        "message_receipt": 0.02,
+        "shell_output": 0.28,
+        "file_contents": 0.68,
+        "file_changed": 0.01
+      },
+      "entropy": 0.5359,
+      "topP": 0.68,
+      "onTopicP": 0.03,
+      "vendorConfidence": 0.58,
+      "answeredBy": "jev-1.13.0",
+      "ms": 282,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:emoji:4",
+      "choice": "shell_output",
+      "probabilities": {
+        "message_receipt": 0.28,
+        "file_changed": 0.01,
+        "shell_output": 0.59,
+        "file_contents": 0.12
+      },
+      "entropy": 0.6984,
+      "topP": 0.59,
+      "onTopicP": 0.48,
+      "vendorConfidence": 0.45,
+      "answeredBy": "jev-1.13.0",
+      "ms": 147,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:emoji:5",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_changed": 0.01,
+        "shell_output": 0.59,
+        "message_receipt": 0.29,
+        "file_contents": 0.11
+      },
+      "entropy": 0.6919,
+      "topP": 0.59,
+      "onTopicP": 0.2,
+      "vendorConfidence": 0.46,
+      "answeredBy": "jev-1.13.0",
+      "ms": 116,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:emoji:6",
+      "choice": "shell_output",
+      "probabilities": {
+        "message_receipt": 0.2,
+        "file_changed": 0.04,
+        "shell_output": 0.67,
+        "file_contents": 0.09
+      },
+      "entropy": 0.6749,
+      "topP": 0.67,
+      "onTopicP": 0.39,
+      "vendorConfidence": 0.57,
+      "answeredBy": "jev-1.13.0",
+      "ms": 268,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:emoji:7",
+      "choice": "shell_output",
+      "probabilities": {
+        "shell_output": 0.71,
+        "message_receipt": 0.2,
+        "file_contents": 0.08,
+        "file_changed": 0.01
+      },
+      "entropy": 0.5866,
+      "topP": 0.71,
+      "onTopicP": 0.41,
+      "vendorConfidence": 0.61,
+      "answeredBy": "jev-1.13.0",
+      "ms": 166,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:emoji:8",
+      "choice": "shell_output",
+      "probabilities": {
+        "message_receipt": 0.33,
+        "file_changed": 0.01,
+        "file_contents": 0.1,
+        "shell_output": 0.56
+      },
+      "entropy": 0.6974,
+      "topP": 0.56,
+      "onTopicP": 0.09,
+      "vendorConfidence": 0.42,
+      "answeredBy": "jev-1.13.0",
+      "ms": 145,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:emoji:9",
+      "choice": "message_receipt",
+      "probabilities": {
+        "file_contents": 0.18,
+        "shell_output": 0.4,
+        "file_changed": 0.01,
+        "message_receipt": 0.41
+      },
+      "entropy": 0.784,
+      "topP": 0.41,
+      "onTopicP": 0.22,
+      "vendorConfidence": 0.22,
+      "answeredBy": "jev-1.13.0",
+      "ms": 115,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:emoji:10",
+      "choice": "shell_output",
+      "probabilities": {
+        "message_receipt": 0.25,
+        "file_changed": 0.01,
+        "file_contents": 0.2,
+        "shell_output": 0.54
+      },
+      "entropy": 0.7554,
+      "topP": 0.54,
+      "onTopicP": 0.35,
+      "vendorConfidence": 0.38,
+      "answeredBy": "jev-1.13.0",
+      "ms": 350,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:emoji:11",
+      "choice": "message_receipt",
+      "probabilities": {
+        "message_receipt": 0.48,
+        "shell_output": 0.36,
+        "file_changed": 0.02,
+        "file_contents": 0.14
+      },
+      "entropy": 0.7744,
+      "topP": 0.48,
+      "onTopicP": 0.3,
+      "vendorConfidence": 0.31,
+      "answeredBy": "jev-1.13.0",
+      "ms": 351,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:fragment:12",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_contents": 0.16,
+        "shell_output": 0.74,
+        "file_changed": 0.03,
+        "message_receipt": 0.07
+      },
+      "entropy": 0.5824,
+      "topP": 0.74,
+      "onTopicP": 0.11,
+      "vendorConfidence": 0.65,
+      "answeredBy": "jev-1.13.0",
+      "ms": 335,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:fragment:13",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_contents": 0.27,
+        "shell_output": 0.64,
+        "file_changed": 0.01,
+        "message_receipt": 0.08
+      },
+      "entropy": 0.64,
+      "topP": 0.64,
+      "onTopicP": 0.15,
+      "vendorConfidence": 0.51,
+      "answeredBy": "jev-1.13.0",
+      "ms": 345,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:fragment:14",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_contents": 0.24,
+        "shell_output": 0.67,
+        "file_changed": 0.06,
+        "message_receipt": 0.03
+      },
+      "entropy": 0.6383,
+      "topP": 0.67,
+      "onTopicP": 0.25,
+      "vendorConfidence": 0.56,
+      "answeredBy": "jev-1.13.0",
+      "ms": 143,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:fragment:15",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_contents": 0.44,
+        "shell_output": 0.52,
+        "message_receipt": 0.03,
+        "file_changed": 0.01
+      },
+      "entropy": 0.615,
+      "topP": 0.52,
+      "onTopicP": 0.1,
+      "vendorConfidence": 0.38,
+      "answeredBy": "jev-1.13.0",
+      "ms": 121,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:fragment:16",
+      "choice": "shell_output",
+      "probabilities": {
+        "message_receipt": 0.07,
+        "shell_output": 0.58,
+        "file_contents": 0.34,
+        "file_changed": 0.01
+      },
+      "entropy": 0.66,
+      "topP": 0.58,
+      "onTopicP": 0.19,
+      "vendorConfidence": 0.45,
+      "answeredBy": "jev-1.13.0",
+      "ms": 122,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:fragment:17",
+      "choice": "shell_output",
+      "probabilities": {
+        "shell_output": 0.86,
+        "file_changed": 0,
+        "file_contents": 0.09,
+        "message_receipt": 0.05
+      },
+      "entropy": 0.3579,
+      "topP": 0.86,
+      "onTopicP": 0.08,
+      "vendorConfidence": 0.82,
+      "answeredBy": "jev-1.13.0",
+      "ms": 125,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:fragment:18",
+      "choice": "shell_output",
+      "probabilities": {
+        "message_receipt": 0.21,
+        "file_changed": 0.02,
+        "file_contents": 0.06,
+        "shell_output": 0.71
+      },
+      "entropy": 0.59,
+      "topP": 0.71,
+      "onTopicP": 0.15,
+      "vendorConfidence": 0.62,
+      "answeredBy": "jev-1.13.0",
+      "ms": 268,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:fragment:19",
+      "choice": "shell_output",
+      "probabilities": {
+        "shell_output": 0.99,
+        "file_changed": 0,
+        "file_contents": 0.01,
+        "message_receipt": 0
+      },
+      "entropy": 0.0404,
+      "topP": 0.99,
+      "onTopicP": 0.33,
+      "vendorConfidence": 0.99,
+      "answeredBy": "jev-1.13.0",
+      "ms": 95,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:foreign-noise:20",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_contents": 0.17,
+        "file_changed": 0.01,
+        "shell_output": 0.6,
+        "message_receipt": 0.22
+      },
+      "entropy": 0.7119,
+      "topP": 0.6,
+      "onTopicP": 0.16,
+      "vendorConfidence": 0.46,
+      "answeredBy": "jev-1.13.0",
+      "ms": 111,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:foreign-noise:21",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_contents": 0.36,
+        "shell_output": 0.38,
+        "message_receipt": 0.25,
+        "file_changed": 0.01
+      },
+      "entropy": 0.8138,
+      "topP": 0.38,
+      "onTopicP": 0.17,
+      "vendorConfidence": 0.18,
+      "answeredBy": "jev-1.13.0",
+      "ms": 93,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:foreign-noise:22",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_contents": 0.43,
+        "file_changed": 0.01,
+        "message_receipt": 0.06,
+        "shell_output": 0.5
+      },
+      "entropy": 0.6668,
+      "topP": 0.5,
+      "onTopicP": 0.21,
+      "vendorConfidence": 0.34,
+      "answeredBy": "jev-1.13.0",
+      "ms": 269,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:foreign-noise:23",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_changed": 0.01,
+        "shell_output": 0.6,
+        "message_receipt": 0.03,
+        "file_contents": 0.36
+      },
+      "entropy": 0.5955,
+      "topP": 0.6,
+      "onTopicP": 0.11,
+      "vendorConfidence": 0.47,
+      "answeredBy": "jev-1.13.0",
+      "ms": 168,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:foreign-noise:24",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_contents": 0.39,
+        "shell_output": 0.55,
+        "message_receipt": 0.04,
+        "file_changed": 0.01
+      },
+      "entropy": 0.6282,
+      "topP": 0.55,
+      "onTopicP": 0.2,
+      "vendorConfidence": 0.4,
+      "answeredBy": "jev-1.13.0",
+      "ms": 246,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:foreign-noise:25",
+      "choice": "shell_output",
+      "probabilities": {
+        "message_receipt": 0.23,
+        "file_changed": 0.1,
+        "file_contents": 0.1,
+        "shell_output": 0.57
+      },
+      "entropy": 0.8072,
+      "topP": 0.57,
+      "onTopicP": 0.5,
+      "vendorConfidence": 0.44,
+      "answeredBy": "jev-1.13.0",
+      "ms": 155,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:foreign-noise:26",
+      "choice": "shell_output",
+      "probabilities": {
+        "file_changed": 0.03,
+        "file_contents": 0.34,
+        "message_receipt": 0.13,
+        "shell_output": 0.5
+      },
+      "entropy": 0.7818,
+      "topP": 0.5,
+      "onTopicP": 0.29,
+      "vendorConfidence": 0.33,
+      "answeredBy": "jev-1.13.0",
+      "ms": 154,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:foreign-noise:27",
+      "choice": "shell_output",
+      "probabilities": {
+        "shell_output": 0.62,
+        "file_changed": 0.02,
+        "message_receipt": 0.17,
+        "file_contents": 0.19
+      },
+      "entropy": 0.7151,
+      "topP": 0.62,
+      "onTopicP": 0.21,
+      "vendorConfidence": 0.5,
+      "answeredBy": "jev-1.13.0",
+      "ms": 130,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:lorem:28",
+      "choice": "file_contents",
+      "probabilities": {
+        "file_changed": 0.01,
+        "shell_output": 0.09,
+        "message_receipt": 0.02,
+        "file_contents": 0.88
+      },
+      "entropy": 0.3271,
+      "topP": 0.88,
+      "onTopicP": 0.17,
+      "vendorConfidence": 0.84,
+      "answeredBy": "jev-1.13.0",
+      "ms": 194,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:lorem:29",
+      "choice": "file_contents",
+      "probabilities": {
+        "file_changed": 0.01,
+        "file_contents": 0.83,
+        "message_receipt": 0.05,
+        "shell_output": 0.11
+      },
+      "entropy": 0.428,
+      "topP": 0.83,
+      "onTopicP": 0.19,
+      "vendorConfidence": 0.78,
+      "answeredBy": "jev-1.13.0",
+      "ms": 167,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:lorem:30",
+      "choice": "file_contents",
+      "probabilities": {
+        "message_receipt": 0.03,
+        "file_changed": 0.01,
+        "shell_output": 0.14,
+        "file_contents": 0.82
+      },
+      "entropy": 0.425,
+      "topP": 0.82,
+      "onTopicP": 0.12,
+      "vendorConfidence": 0.76,
+      "answeredBy": "jev-1.13.0",
+      "ms": 91,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:lorem:31",
+      "choice": "file_contents",
+      "probabilities": {
+        "message_receipt": 0.04,
+        "file_changed": 0.01,
+        "shell_output": 0.15,
+        "file_contents": 0.8
+      },
+      "entropy": 0.4601,
+      "topP": 0.8,
+      "onTopicP": 0.16,
+      "vendorConfidence": 0.73,
+      "answeredBy": "jev-1.13.0",
+      "ms": 106,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:lorem:32",
+      "choice": "file_contents",
+      "probabilities": {
+        "shell_output": 0.14,
+        "message_receipt": 0.01,
+        "file_contents": 0.84,
+        "file_changed": 0.01
+      },
+      "entropy": 0.3706,
+      "topP": 0.84,
+      "onTopicP": 0.17,
+      "vendorConfidence": 0.79,
+      "answeredBy": "jev-1.13.0",
+      "ms": 285,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:lorem:33",
+      "choice": "file_contents",
+      "probabilities": {
+        "shell_output": 0.1,
+        "file_changed": 0.01,
+        "message_receipt": 0.02,
+        "file_contents": 0.87
+      },
+      "entropy": 0.3432,
+      "topP": 0.87,
+      "onTopicP": 0.08,
+      "vendorConfidence": 0.84,
+      "answeredBy": "jev-1.13.0",
+      "ms": 122,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:lorem:34",
+      "choice": "file_contents",
+      "probabilities": {
+        "message_receipt": 0.02,
+        "file_contents": 0.89,
+        "shell_output": 0.08,
+        "file_changed": 0.01
+      },
+      "entropy": 0.3102,
+      "topP": 0.89,
+      "onTopicP": 0.09,
+      "vendorConfidence": 0.86,
+      "answeredBy": "jev-1.13.0",
+      "ms": 125,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:lorem:35",
+      "choice": "file_contents",
+      "probabilities": {
+        "message_receipt": 0.01,
+        "file_contents": 0.91,
+        "file_changed": 0.01,
+        "shell_output": 0.07
+      },
+      "entropy": 0.2626,
+      "topP": 0.91,
+      "onTopicP": 0.12,
+      "vendorConfidence": 0.87,
+      "answeredBy": "jev-1.13.0",
+      "ms": 138,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:off-topic:36",
+      "choice": "file_contents",
+      "probabilities": {
+        "message_receipt": 0.07,
+        "file_contents": 0.9,
+        "file_changed": 0.01,
+        "shell_output": 0.02
+      },
+      "entropy": 0.2923,
+      "topP": 0.9,
+      "onTopicP": 0.59,
+      "vendorConfidence": 0.87,
+      "answeredBy": "jev-1.13.0",
+      "ms": 93,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:off-topic:37",
+      "choice": "file_contents",
+      "probabilities": {
+        "shell_output": 0.09,
+        "file_changed": 0.01,
+        "message_receipt": 0.11,
+        "file_contents": 0.79
+      },
+      "entropy": 0.499,
+      "topP": 0.79,
+      "onTopicP": 0.7,
+      "vendorConfidence": 0.71,
+      "answeredBy": "jev-1.13.0",
+      "ms": 129,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:off-topic:38",
+      "choice": "file_contents",
+      "probabilities": {
+        "message_receipt": 0.4,
+        "file_contents": 0.52,
+        "file_changed": 0.02,
+        "shell_output": 0.06
+      },
+      "entropy": 0.6879,
+      "topP": 0.52,
+      "onTopicP": 0.29,
+      "vendorConfidence": 0.37,
+      "answeredBy": "jev-1.13.0",
+      "ms": 107,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:off-topic:39",
+      "choice": "message_receipt",
+      "probabilities": {
+        "file_changed": 0.02,
+        "file_contents": 0.43,
+        "shell_output": 0.04,
+        "message_receipt": 0.51
+      },
+      "entropy": 0.6588,
+      "topP": 0.51,
+      "onTopicP": 0.41,
+      "vendorConfidence": 0.35,
+      "answeredBy": "jev-1.13.0",
+      "ms": 118,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:off-topic:40",
+      "choice": "file_contents",
+      "probabilities": {
+        "file_contents": 0.91,
+        "shell_output": 0.02,
+        "message_receipt": 0.05,
+        "file_changed": 0.02
+      },
+      "entropy": 0.2828,
+      "topP": 0.91,
+      "onTopicP": 0.4,
+      "vendorConfidence": 0.88,
+      "answeredBy": "jev-1.13.0",
+      "ms": 109,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:off-topic:41",
+      "choice": "file_contents",
+      "probabilities": {
+        "message_receipt": 0.14,
+        "file_changed": 0.01,
+        "shell_output": 0.07,
+        "file_contents": 0.78
+      },
+      "entropy": 0.5058,
+      "topP": 0.78,
+      "onTopicP": 0.61,
+      "vendorConfidence": 0.7,
+      "answeredBy": "jev-1.13.0",
+      "ms": 148,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:off-topic:42",
+      "choice": "file_contents",
+      "probabilities": {
+        "shell_output": 0.08,
+        "file_changed": 0.01,
+        "message_receipt": 0.41,
+        "file_contents": 0.5
+      },
+      "entropy": 0.6927,
+      "topP": 0.5,
+      "onTopicP": 0.25,
+      "vendorConfidence": 0.33,
+      "answeredBy": "jev-1.13.0",
+      "ms": 112,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:off-topic:43",
+      "choice": "file_contents",
+      "probabilities": {
+        "file_changed": 0.01,
+        "message_receipt": 0.4,
+        "shell_output": 0.06,
+        "file_contents": 0.53
+      },
+      "entropy": 0.6621,
+      "topP": 0.53,
+      "onTopicP": 0.3,
+      "vendorConfidence": 0.37,
+      "answeredBy": "jev-1.13.0",
+      "ms": 89,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:off-topic:44",
+      "choice": "file_contents",
+      "probabilities": {
+        "file_changed": 0.04,
+        "shell_output": 0.16,
+        "file_contents": 0.7,
+        "message_receipt": 0.1
+      },
+      "entropy": 0.6506,
+      "topP": 0.7,
+      "onTopicP": 0.34,
+      "vendorConfidence": 0.59,
+      "answeredBy": "jev-1.13.0",
+      "ms": 107,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:off-topic:45",
+      "choice": "file_contents",
+      "probabilities": {
+        "message_receipt": 0.15,
+        "file_changed": 0.01,
+        "file_contents": 0.73,
+        "shell_output": 0.11
+      },
+      "entropy": 0.5794,
+      "topP": 0.73,
+      "onTopicP": 0.35,
+      "vendorConfidence": 0.64,
+      "answeredBy": "jev-1.13.0",
+      "ms": 126,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:wrong-set:46",
+      "choice": "file_contents",
+      "probabilities": {
+        "message_receipt": 0.01,
+        "file_changed": 0,
+        "file_contents": 0.98,
+        "shell_output": 0.01
+      },
+      "entropy": 0.0807,
+      "topP": 0.98,
+      "onTopicP": 0.94,
+      "vendorConfidence": 0.97,
+      "answeredBy": "jev-1.13.0",
+      "ms": 94,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:wrong-set:47",
+      "choice": "file_contents",
+      "probabilities": {
+        "file_contents": 0.97,
+        "file_changed": 0,
+        "shell_output": 0.02,
+        "message_receipt": 0.01
+      },
+      "entropy": 0.111,
+      "topP": 0.97,
+      "onTopicP": 0.89,
+      "vendorConfidence": 0.96,
+      "answeredBy": "jev-1.13.0",
+      "ms": 90,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:wrong-set:48",
+      "choice": "file_contents",
+      "probabilities": {
+        "file_changed": 0,
+        "message_receipt": 0,
+        "shell_output": 0.05,
+        "file_contents": 0.95
+      },
+      "entropy": 0.1432,
+      "topP": 0.95,
+      "onTopicP": 0.94,
+      "vendorConfidence": 0.92,
+      "answeredBy": "jev-1.13.0",
+      "ms": 101,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:wrong-set:49",
+      "choice": "file_contents",
+      "probabilities": {
+        "file_contents": 0.96,
+        "shell_output": 0.03,
+        "message_receipt": 0.01,
+        "file_changed": 0
+      },
+      "entropy": 0.1374,
+      "topP": 0.96,
+      "onTopicP": 0.86,
+      "vendorConfidence": 0.95,
+      "answeredBy": "jev-1.13.0",
+      "ms": 101,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:wrong-set:50",
+      "choice": "file_contents",
+      "probabilities": {
+        "shell_output": 0.06,
+        "file_changed": 0.01,
+        "file_contents": 0.91,
+        "message_receipt": 0.02
+      },
+      "entropy": 0.2733,
+      "topP": 0.91,
+      "onTopicP": 0.78,
+      "vendorConfidence": 0.87,
+      "answeredBy": "jev-1.13.0",
+      "ms": 102,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:wrong-set:51",
+      "choice": "shell_output",
+      "probabilities": {
+        "message_receipt": 0.05,
+        "shell_output": 0.73,
+        "file_changed": 0.01,
+        "file_contents": 0.21
+      },
+      "entropy": 0.5434,
+      "topP": 0.73,
+      "onTopicP": 0.73,
+      "vendorConfidence": 0.64,
+      "answeredBy": "jev-1.13.0",
+      "ms": 153,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:wrong-set:52",
+      "choice": "shell_output",
+      "probabilities": {
+        "shell_output": 0.55,
+        "file_contents": 0.43,
+        "message_receipt": 0.01,
+        "file_changed": 0.01
+      },
+      "entropy": 0.5654,
+      "topP": 0.55,
+      "onTopicP": 0.86,
+      "vendorConfidence": 0.4,
+      "answeredBy": "jev-1.13.0",
+      "ms": 96,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:wrong-set:53",
+      "choice": "file_contents",
+      "probabilities": {
+        "message_receipt": 0.08,
+        "file_changed": 0.26,
+        "file_contents": 0.47,
+        "shell_output": 0.19
+      },
+      "entropy": 0.882,
+      "topP": 0.47,
+      "onTopicP": 0.76,
+      "vendorConfidence": 0.29,
+      "answeredBy": "jev-1.13.0",
+      "ms": 88,
+      "attempts": 1
+    },
+    {
+      "id": "toolKind:garbage:wrong-set:54",
+      "choice": "file_contents",
+      "probabilities": {
+        "message_receipt": 0.12,
+        "file_changed": 0.01,
+        "file_contents": 0.58,
+        "shell_output": 0.29
+      },
+      "entropy": 0.7036,
+      "topP": 0.58,
+      "onTopicP": 0.8,
+      "vendorConfidence": 0.44,
+      "answeredBy": "jev-1.13.0",
+      "ms": 148,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:empty:0",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.25,
+        "research_note": 0.75
+      },
+      "entropy": 0.8113,
+      "topP": 0.75,
+      "onTopicP": 0.04,
+      "vendorConfidence": 0.5,
+      "answeredBy": "jev-1.13.0",
+      "ms": 125,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:whitespace:1",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 0.7,
+        "library_docs": 0.3
+      },
+      "entropy": 0.8813,
+      "topP": 0.7,
+      "onTopicP": 0.04,
+      "vendorConfidence": 0.41,
+      "answeredBy": "jev-1.13.0",
+      "ms": 114,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:whitespace:2",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.19,
+        "research_note": 0.81
+      },
+      "entropy": 0.7015,
+      "topP": 0.81,
+      "onTopicP": 0.04,
+      "vendorConfidence": 0.62,
+      "answeredBy": "jev-1.13.0",
+      "ms": 87,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:whitespace:3",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 0.78,
+        "library_docs": 0.22
+      },
+      "entropy": 0.7602,
+      "topP": 0.78,
+      "onTopicP": 0.04,
+      "vendorConfidence": 0.56,
+      "answeredBy": "jev-1.13.0",
+      "ms": 119,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:emoji:4",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 0.9,
+        "library_docs": 0.1
+      },
+      "entropy": 0.469,
+      "topP": 0.9,
+      "onTopicP": 0.16,
+      "vendorConfidence": 0.81,
+      "answeredBy": "jev-1.13.0",
+      "ms": 179,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:emoji:5",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.16,
+        "research_note": 0.84
+      },
+      "entropy": 0.6343,
+      "topP": 0.84,
+      "onTopicP": 0.27,
+      "vendorConfidence": 0.69,
+      "answeredBy": "jev-1.13.0",
+      "ms": 121,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:emoji:6",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.12,
+        "research_note": 0.88
+      },
+      "entropy": 0.5294,
+      "topP": 0.88,
+      "onTopicP": 0.12,
+      "vendorConfidence": 0.76,
+      "answeredBy": "jev-1.13.0",
+      "ms": 122,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:emoji:7",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.06,
+        "research_note": 0.94
+      },
+      "entropy": 0.3274,
+      "topP": 0.94,
+      "onTopicP": 0.17,
+      "vendorConfidence": 0.88,
+      "answeredBy": "jev-1.13.0",
+      "ms": 148,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:emoji:8",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 0.86,
+        "library_docs": 0.14
+      },
+      "entropy": 0.5842,
+      "topP": 0.86,
+      "onTopicP": 0.51,
+      "vendorConfidence": 0.71,
+      "answeredBy": "jev-1.13.0",
+      "ms": 128,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:emoji:9",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.14,
+        "research_note": 0.86
+      },
+      "entropy": 0.5842,
+      "topP": 0.86,
+      "onTopicP": 0.45,
+      "vendorConfidence": 0.71,
+      "answeredBy": "jev-1.13.0",
+      "ms": 122,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:emoji:10",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.11,
+        "research_note": 0.89
+      },
+      "entropy": 0.4999,
+      "topP": 0.89,
+      "onTopicP": 0.21,
+      "vendorConfidence": 0.78,
+      "answeredBy": "jev-1.13.0",
+      "ms": 139,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:emoji:11",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.16,
+        "research_note": 0.84
+      },
+      "entropy": 0.6343,
+      "topP": 0.84,
+      "onTopicP": 0.3,
+      "vendorConfidence": 0.67,
+      "answeredBy": "jev-1.13.0",
+      "ms": 168,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:fragment:12",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.37,
+        "research_note": 0.63
+      },
+      "entropy": 0.9507,
+      "topP": 0.63,
+      "onTopicP": 0.1,
+      "vendorConfidence": 0.26,
+      "answeredBy": "jev-1.13.0",
+      "ms": 112,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:fragment:13",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 0.93,
+        "library_docs": 0.07
+      },
+      "entropy": 0.3659,
+      "topP": 0.93,
+      "onTopicP": 0.29,
+      "vendorConfidence": 0.86,
+      "answeredBy": "jev-1.13.0",
+      "ms": 109,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:fragment:14",
+      "choice": "library_docs",
+      "probabilities": {
+        "library_docs": 0.64,
+        "research_note": 0.36
+      },
+      "entropy": 0.9427,
+      "topP": 0.64,
+      "onTopicP": 0.17,
+      "vendorConfidence": 0.28,
+      "answeredBy": "jev-1.13.0",
+      "ms": 98,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:fragment:15",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 0.52,
+        "library_docs": 0.48
+      },
+      "entropy": 0.9988,
+      "topP": 0.52,
+      "onTopicP": 0.19,
+      "vendorConfidence": 0.04,
+      "answeredBy": "jev-1.13.0",
+      "ms": 122,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:fragment:16",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.42,
+        "research_note": 0.58
+      },
+      "entropy": 0.9815,
+      "topP": 0.58,
+      "onTopicP": 0.07,
+      "vendorConfidence": 0.15,
+      "answeredBy": "jev-1.13.0",
+      "ms": 109,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:fragment:17",
+      "choice": "library_docs",
+      "probabilities": {
+        "research_note": 0.48,
+        "library_docs": 0.52
+      },
+      "entropy": 0.9988,
+      "topP": 0.52,
+      "onTopicP": 0.06,
+      "vendorConfidence": 0.03,
+      "answeredBy": "jev-1.13.0",
+      "ms": 108,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:fragment:18",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.46,
+        "research_note": 0.54
+      },
+      "entropy": 0.9954,
+      "topP": 0.54,
+      "onTopicP": 0.14,
+      "vendorConfidence": 0.08,
+      "answeredBy": "jev-1.13.0",
+      "ms": 120,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:fragment:19",
+      "choice": "library_docs",
+      "probabilities": {
+        "research_note": 0.5,
+        "library_docs": 0.5
+      },
+      "entropy": 1,
+      "topP": 0.5,
+      "onTopicP": 0.32,
+      "vendorConfidence": 0.01,
+      "answeredBy": "jev-1.13.0",
+      "ms": 132,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:foreign-noise:20",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.18,
+        "research_note": 0.82
+      },
+      "entropy": 0.6801,
+      "topP": 0.82,
+      "onTopicP": 0.22,
+      "vendorConfidence": 0.65,
+      "answeredBy": "jev-1.13.0",
+      "ms": 90,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:foreign-noise:21",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.17,
+        "research_note": 0.83
+      },
+      "entropy": 0.6577,
+      "topP": 0.83,
+      "onTopicP": 0.13,
+      "vendorConfidence": 0.66,
+      "answeredBy": "jev-1.13.0",
+      "ms": 116,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:foreign-noise:22",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.13,
+        "research_note": 0.87
+      },
+      "entropy": 0.5574,
+      "topP": 0.87,
+      "onTopicP": 0.13,
+      "vendorConfidence": 0.74,
+      "answeredBy": "jev-1.13.0",
+      "ms": 102,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:foreign-noise:23",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 0.8,
+        "library_docs": 0.2
+      },
+      "entropy": 0.7219,
+      "topP": 0.8,
+      "onTopicP": 0.14,
+      "vendorConfidence": 0.61,
+      "answeredBy": "jev-1.13.0",
+      "ms": 135,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:foreign-noise:24",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 0.65,
+        "library_docs": 0.35
+      },
+      "entropy": 0.9341,
+      "topP": 0.65,
+      "onTopicP": 0.24,
+      "vendorConfidence": 0.3,
+      "answeredBy": "jev-1.13.0",
+      "ms": 198,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:foreign-noise:25",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.15,
+        "research_note": 0.85
+      },
+      "entropy": 0.6098,
+      "topP": 0.85,
+      "onTopicP": 0.24,
+      "vendorConfidence": 0.7,
+      "answeredBy": "jev-1.13.0",
+      "ms": 133,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:foreign-noise:26",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.45,
+        "research_note": 0.55
+      },
+      "entropy": 0.9928,
+      "topP": 0.55,
+      "onTopicP": 0.44,
+      "vendorConfidence": 0.11,
+      "answeredBy": "jev-1.13.0",
+      "ms": 91,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:foreign-noise:27",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 0.84,
+        "library_docs": 0.16
+      },
+      "entropy": 0.6343,
+      "topP": 0.84,
+      "onTopicP": 0.16,
+      "vendorConfidence": 0.68,
+      "answeredBy": "jev-1.13.0",
+      "ms": 144,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:lorem:28",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.47,
+        "research_note": 0.53
+      },
+      "entropy": 0.9974,
+      "topP": 0.53,
+      "onTopicP": 0.09,
+      "vendorConfidence": 0.07,
+      "answeredBy": "jev-1.13.0",
+      "ms": 92,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:lorem:29",
+      "choice": "library_docs",
+      "probabilities": {
+        "research_note": 0.39,
+        "library_docs": 0.61
+      },
+      "entropy": 0.9648,
+      "topP": 0.61,
+      "onTopicP": 0.12,
+      "vendorConfidence": 0.22,
+      "answeredBy": "jev-1.13.0",
+      "ms": 85,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:lorem:30",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 0.54,
+        "library_docs": 0.46
+      },
+      "entropy": 0.9954,
+      "topP": 0.54,
+      "onTopicP": 0.12,
+      "vendorConfidence": 0.08,
+      "answeredBy": "jev-1.13.0",
+      "ms": 152,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:lorem:31",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 0.55,
+        "library_docs": 0.45
+      },
+      "entropy": 0.9928,
+      "topP": 0.55,
+      "onTopicP": 0.14,
+      "vendorConfidence": 0.11,
+      "answeredBy": "jev-1.13.0",
+      "ms": 173,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:lorem:32",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 0.65,
+        "library_docs": 0.35
+      },
+      "entropy": 0.9341,
+      "topP": 0.65,
+      "onTopicP": 0.15,
+      "vendorConfidence": 0.3,
+      "answeredBy": "jev-1.13.0",
+      "ms": 99,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:lorem:33",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 0.55,
+        "library_docs": 0.45
+      },
+      "entropy": 0.9928,
+      "topP": 0.55,
+      "onTopicP": 0.11,
+      "vendorConfidence": 0.1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 139,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:lorem:34",
+      "choice": "library_docs",
+      "probabilities": {
+        "library_docs": 0.54,
+        "research_note": 0.46
+      },
+      "entropy": 0.9954,
+      "topP": 0.54,
+      "onTopicP": 0.11,
+      "vendorConfidence": 0.08,
+      "answeredBy": "jev-1.13.0",
+      "ms": 83,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:lorem:35",
+      "choice": "library_docs",
+      "probabilities": {
+        "research_note": 0.5,
+        "library_docs": 0.5
+      },
+      "entropy": 1,
+      "topP": 0.5,
+      "onTopicP": 0.08,
+      "vendorConfidence": 0,
+      "answeredBy": "jev-1.13.0",
+      "ms": 103,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:off-topic:36",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 0.93,
+        "library_docs": 0.07
+      },
+      "entropy": 0.3659,
+      "topP": 0.93,
+      "onTopicP": 0.39,
+      "vendorConfidence": 0.85,
+      "answeredBy": "jev-1.13.0",
+      "ms": 236,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:off-topic:37",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 0.96,
+        "library_docs": 0.04
+      },
+      "entropy": 0.2423,
+      "topP": 0.96,
+      "onTopicP": 0.35,
+      "vendorConfidence": 0.92,
+      "answeredBy": "jev-1.13.0",
+      "ms": 126,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:off-topic:38",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.07,
+        "research_note": 0.93
+      },
+      "entropy": 0.3659,
+      "topP": 0.93,
+      "onTopicP": 0.7,
+      "vendorConfidence": 0.86,
+      "answeredBy": "jev-1.13.0",
+      "ms": 112,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:off-topic:39",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 0.95,
+        "library_docs": 0.05
+      },
+      "entropy": 0.2864,
+      "topP": 0.95,
+      "onTopicP": 0.68,
+      "vendorConfidence": 0.89,
+      "answeredBy": "jev-1.13.0",
+      "ms": 139,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:off-topic:40",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.05,
+        "research_note": 0.95
+      },
+      "entropy": 0.2864,
+      "topP": 0.95,
+      "onTopicP": 0.26,
+      "vendorConfidence": 0.9,
+      "answeredBy": "jev-1.13.0",
+      "ms": 109,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:off-topic:41",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.02,
+        "research_note": 0.98
+      },
+      "entropy": 0.1414,
+      "topP": 0.98,
+      "onTopicP": 0.52,
+      "vendorConfidence": 0.97,
+      "answeredBy": "jev-1.13.0",
+      "ms": 122,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:off-topic:42",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 0.61,
+        "library_docs": 0.39
+      },
+      "entropy": 0.9648,
+      "topP": 0.61,
+      "onTopicP": 0.66,
+      "vendorConfidence": 0.22,
+      "answeredBy": "jev-1.13.0",
+      "ms": 473,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:off-topic:43",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.05,
+        "research_note": 0.95
+      },
+      "entropy": 0.2864,
+      "topP": 0.95,
+      "onTopicP": 0.29,
+      "vendorConfidence": 0.91,
+      "answeredBy": "jev-1.13.0",
+      "ms": 110,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:off-topic:44",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 0.93,
+        "library_docs": 0.07
+      },
+      "entropy": 0.3659,
+      "topP": 0.93,
+      "onTopicP": 0.39,
+      "vendorConfidence": 0.86,
+      "answeredBy": "jev-1.13.0",
+      "ms": 187,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:off-topic:45",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.03,
+        "research_note": 0.97
+      },
+      "entropy": 0.1944,
+      "topP": 0.97,
+      "onTopicP": 0.65,
+      "vendorConfidence": 0.95,
+      "answeredBy": "jev-1.13.0",
+      "ms": 130,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:wrong-set:46",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.08,
+        "research_note": 0.92
+      },
+      "entropy": 0.4022,
+      "topP": 0.92,
+      "onTopicP": 0.87,
+      "vendorConfidence": 0.84,
+      "answeredBy": "jev-1.13.0",
+      "ms": 99,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:wrong-set:47",
+      "choice": "library_docs",
+      "probabilities": {
+        "research_note": 0.39,
+        "library_docs": 0.61
+      },
+      "entropy": 0.9648,
+      "topP": 0.61,
+      "onTopicP": 0.52,
+      "vendorConfidence": 0.22,
+      "answeredBy": "jev-1.13.0",
+      "ms": 113,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:wrong-set:48",
+      "choice": "library_docs",
+      "probabilities": {
+        "library_docs": 0.99,
+        "research_note": 0.01
+      },
+      "entropy": 0.0808,
+      "topP": 0.99,
+      "onTopicP": 0.81,
+      "vendorConfidence": 0.98,
+      "answeredBy": "jev-1.13.0",
+      "ms": 98,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:wrong-set:49",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.32,
+        "research_note": 0.68
+      },
+      "entropy": 0.9044,
+      "topP": 0.68,
+      "onTopicP": 0.58,
+      "vendorConfidence": 0.37,
+      "answeredBy": "jev-1.13.0",
+      "ms": 216,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:wrong-set:50",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 0.63,
+        "library_docs": 0.37
+      },
+      "entropy": 0.9507,
+      "topP": 0.63,
+      "onTopicP": 0.57,
+      "vendorConfidence": 0.25,
+      "answeredBy": "jev-1.13.0",
+      "ms": 132,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:wrong-set:51",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.14,
+        "research_note": 0.86
+      },
+      "entropy": 0.5842,
+      "topP": 0.86,
+      "onTopicP": 0.65,
+      "vendorConfidence": 0.72,
+      "answeredBy": "jev-1.13.0",
+      "ms": 138,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:wrong-set:52",
+      "choice": "library_docs",
+      "probabilities": {
+        "research_note": 0,
+        "library_docs": 1
+      },
+      "entropy": 0,
+      "topP": 1,
+      "onTopicP": 0.79,
+      "vendorConfidence": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 116,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:wrong-set:53",
+      "choice": "research_note",
+      "probabilities": {
+        "library_docs": 0.05,
+        "research_note": 0.95
+      },
+      "entropy": 0.2864,
+      "topP": 0.95,
+      "onTopicP": 0.46,
+      "vendorConfidence": 0.89,
+      "answeredBy": "jev-1.13.0",
+      "ms": 95,
+      "attempts": 1
+    },
+    {
+      "id": "docGenre:garbage:wrong-set:54",
+      "choice": "research_note",
+      "probabilities": {
+        "research_note": 0.98,
+        "library_docs": 0.02
+      },
+      "entropy": 0.1414,
+      "topP": 0.98,
+      "onTopicP": 0.66,
+      "vendorConfidence": 0.97,
+      "answeredBy": "jev-1.13.0",
+      "ms": 340,
+      "attempts": 1
+    }
+  ]
+}
