@@ -205,13 +205,17 @@ async function main() {
     try {
       const s1 = await runStage(lead.id, stage1State(lead), STAGE1_ACQUISITION.questions);
       const a1 = s1.answers as any;
-      const coreTrue = ['isRealBusiness', 'hasNamedCompany', 'inboundSubstantive', 'onTopicParseable'].map(
+      // isRealBusiness can reject but cannot hold a lead back: "does this entity exist" is not
+      // answerable from one record (P18), and on seed 42 it sat mid-band for 503/540 leads, so
+      // requiring it confident-true escalated every clean in-ICP lead. The literal questions admit.
+      const coreTrue = ['hasNamedCompany', 'inboundSubstantive', 'onTopicParseable'].map(
         n => boolVerdict(a1[n].probability),
       );
+      const realBusiness = boolVerdict(a1.isRealBusiness.probability);
       const emptyVerdict = boolVerdict(a1.isEmptyOrMarkup.probability);
       let outcome1: Stage1Outcome;
-      if (coreTrue.every(v => v === 'true') && emptyVerdict === 'false') outcome1 = 'admit';
-      else if (coreTrue.some(v => v === 'false') || emptyVerdict === 'true') outcome1 = 'reject';
+      if (realBusiness === 'false' || coreTrue.some(v => v === 'false') || emptyVerdict === 'true') outcome1 = 'reject';
+      else if (coreTrue.every(v => v === 'true') && emptyVerdict === 'false') outcome1 = 'admit';
       else outcome1 = 'escalate';
 
       const stage1Result = { ...s1, outcome: outcome1 };
