@@ -16,6 +16,7 @@ Durable record of this session's state. Chat is ephemeral; this file is not. New
 - [x] U6 drift suite: no drift; jev-latest = jev-1.13.0; P4 band is question-shaped (committed)
 - [x] E3: VOID (holdout = fit subset, 39/39, re-verified). Orchestrator error: brief forbade the L31 check. Branch feat/e3-blind-test @59964b0; dashboard ~/JEV-works-wt/e3/program/e3-review.html
 - [x] U9 part 1: leads U5 → L35, L36, P18, NETER ledger (287f404)
+- [ ] U8 P6 entropy at n≈200: background agent "p6-entropy" (pre-registered, new program/p6-* files only)
 - [x] U9 part 2: drift (dc1cd80), E3 void + L31 amendment + P24 + PROGRAM E3/E4 notes (df34df8)
 - [ ] Manu to open 4 sessions from handoffs/*.md
 

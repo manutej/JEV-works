@@ -175,3 +175,4 @@ parallel lane-sets exercised: 0 (serial loop); external stakeholders: none beyon
 - 2026-09-21 U2 done (ed9a7f1 JEV-works, 96e77b1 jev-playground); U9 part 1 done (287f404); E3 + U6 running as background agent teams; E3 approved by Manu verbatim (PROGRESS.md).
 - 2026-09-21 U6 done (no drift). U7/E3 VOID: holdout ⊂ fit. Retro: a lesson (L31) existed and the orchestrator brief overrode it. Plan edit: invariant I2 now reads "disjointness check (overlap count only) before declaring a holdout; it is not inspection".
 
+- 2026-09-21 loop tick: dashboard rebuilt (4074056); U8 dispatched to agent p6-entropy (pre-registered, fit/test split with a disjointness check). U10 now belongs to the siblings-survey session.
