@@ -15,7 +15,7 @@ declare `{corpus, questions, baseline, holdout, gate}` → get a Reporting-contr
 1. `evals/spec.ts`: a typed `EvalSpec`: corpus path + label field, question set, baseline (keyword/majority), holdout split declared up front (hash recorded), gate policy, seed.
 2. `evals/run.ts`: executes a spec through `lib/jev.ts` with RunLog telemetry; writes `evals/results/<name>.json` per PROGRAM.md's reporting contract (n, baseline, result, delta, falsified + because, coverage AND accuracy both).
 3. `evals/report.ts` → self-contained HTML (light/dark, phone width) with a per-item review table.
-4. Guardrails as code, not prose: refuse to run without a baseline; refuse to fit on the holdout; `INSUFFICIENT-DATA` below n=8; flag any AND-of-confidences gate (the lesson from leads and triage).
+4. Guardrails as code, not prose: refuse to run without a baseline; **refuse to declare a holdout until a disjointness check passes** (id + normalised-text hash intersection with the fit set, print only the overlap count, block if > 0; this is what voided E3, see LESSONS L31); refuse to fit on the holdout; `INSUFFICIENT-DATA` below n=8; flag any AND-of-confidences gate (the lesson from leads and triage).
 5. Port **one** existing experiment (triage is cheapest: 119 items, ~$0.006) and show it reproduces the committed numbers within 0.11.
 
 ## Done-check

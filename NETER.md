@@ -63,6 +63,7 @@ disagrees with the claim) · **open** (no evidence either way yet).
 | P19 | **CJK accuracy is lower** per the docs; English instructions recommended. Our single Japanese case routed correctly at p=1.00, which contradicts nothing at n=1. | docs + our n=1 | **open** |
 | P20 | **Calibration on your own data is unavoidable.** No independent large-scale calibration study exists. Vendor thresholds are not reproduced. | field | **open** |
 | P21 | **Relational questions are outside its competence, and it tells you so in the distribution.** Asked nine questions over the same 119 states, per-question confidence orders cleanly by question *type*: literal single-state questions reach the ends (`oneTimeSetupSettled` 82% of items at the ends, mean confidence 0.79), while questions requiring reasoning across a goal and a file manifest do not (`supersededByDurableFile` 26%; **`neededForGoal` 7% of items at the ends, never once exceeding p=0.67**). Diagnostic worth reusing: **run your candidate questions over one corpus and rank them by mean confidence — the ones that never leave the mid band are the ones to move into code.** | our run, 119 items × 9 questions | **measured here** |
+| P24 | **Option wording is the dominant lever on Choice accuracy (lead, in-sample only).** Same Jev, same 80 CETI hooks: option descriptions from E1 scored **0.375**; rewritten from E1's unanimous-but-wrong items, **0.725**. `halbert-a-pile` went 0/6 → 5/6 once the description said what the class means (Halbert's A-pile, a personal-looking subject line) instead of its surface ("pile imagery"). Jev chose the same option on 38/39 items across two runs. The held-out comparison is VOID (L31), so this is a lead, not a generalisation claim. | E3 fit runs, n=80, `jev-latest (direct)`; branch feat/e3-blind-test | **measured here, in-sample** |
 
 ---
 
@@ -272,4 +273,8 @@ latency, question count does not.
   (91.7% was on the broken corpus; 93.2% on fixed seed 42). Seed 7 is spent. Summary: `program/results/leads-u5-summary.md`.
 - **Drift suite (U6, `program/drift.ts`).** 150 direct calls, $0.004. `jev-latest` ≡ `jev-1.13.0` today. The P4 band is
   question-shaped (addendum). Verdict rule tightened after a false positive on the A/A null; disclosed in DRIFT.md and window 5.
+- **E3 blind test: VOID.** The "holdout" was the fit set's approved subset (L31, which already warned of this and was
+  bypassed by the orchestrator's brief). As-run numbers are kept, not reported as results: Jev 0.744 vs keyword 0.897
+  on the in-sample 39. What survives is P24 (option wording). E4 inherits the defect. Branch `feat/e3-blind-test`,
+  review dashboard `program/e3-review.html` there.
 

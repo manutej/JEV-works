@@ -382,6 +382,17 @@ confirm the labels were assigned independently. A separate file is not a separat
 independent sample exists, split one yourself and say the n is halved — a thin honest holdout beats a
 fat fake one.
 *Attached to:* `program/PROGRAM.md` E3, now void as written.
+**Recurred, 2026-09-21.** E3 was run anyway, by the orchestrator's own agent team, and came back VOID
+(39/39 ids and texts of the "holdout" are the fit set's `status=approved` rows; re-verified independently).
+The lesson did not stop it because it lived only here. `PROGRAM.md` still said "never inspected until the
+run", and the orchestrator's brief, copying PROGRAM, **forbade opening the holdout before the run**,
+which is the one action this lesson requires. A lesson that exists only in prose loses to the next
+prompt that contradicts it.
+**Rule, sharpened.** A disjointness check (id and normalised-text hash intersection, printing only the
+overlap *count*) is not inspection and must run before a holdout is declared. It belongs in code that
+blocks the run: `evals/` guardrail (eval-system brief). And fix the source document when a lesson
+contradicts it: correcting PROGRAM.md is part of learning the lesson.
+
 
 ### L32 · An ensemble that matches its best member is not an ensemble
 **Happened.** Five model families voting by plurality scored **48.75%**; the best single member

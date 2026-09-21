@@ -109,6 +109,11 @@ claim.
 
 ## E3 · Blind test: fit on consensus, validate on untouched real labels
 
+> **VOID as designed (2026-09-21).** `ceti-silver-hooks-approved.json` is not a holdout: all 39 rows are the
+> fit set's `status=approved` rows (ids and texts 39/39; see LESSONS L31). E3 was run and is void; results
+> are kept on branch `feat/e3-blind-test` (`program/results/e3-blind.json`, `validity` block). **E4 names the
+> same 39 and has the same defect.** Re-running either needs a disjoint, independently labelled set.
+
 *Corpora.* Fit on `ceti-silver-hooks.json` (80). Blind-validate on
 `ceti-silver-hooks-approved.json` (39) — same schema, **never inspected until the run**.
 
@@ -125,6 +130,11 @@ a keyword baseline built on the same 80.
 ---
 
 ## E4 · Concept probes versus type matching
+
+> **VOID as designed (2026-09-21).** `ceti-silver-hooks-approved.json` is not a holdout: all 39 rows are the
+> fit set's `status=approved` rows (ids and texts 39/39; see LESSONS L31). E3 was run and is void; results
+> are kept on branch `feat/e3-blind-test` (`program/results/e3-blind.json`, `validity` block). **E4 names the
+> same 39 and has the same defect.** Re-running either needs a disjoint, independently labelled set.
 
 **The experiment that tests the programme's central claim.**
 
