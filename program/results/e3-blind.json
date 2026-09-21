@@ -1,0 +1,501 @@
+{
+  "experiment": "E3",
+  "hypothesis": "Holdout accuracy drops less than 5 points from fit, and beats the baseline.",
+  "falsifier": "Falsified if the drop exceeds 5 points (overfitting to the fit set) or the baseline wins.",
+  "readings": {
+    "drop": "fit accuracy − holdout accuracy of the PRIMARY system; falsified if > 0.05 (applied as written, below P4's 0.11; see E3-PROGRESS A3)",
+    "baseline": "E3 keyword baseline fitted on the same 80. Jev beats it if holdout Δ ≥ 0.11; it wins if Δ ≤ −0.11; else a tie (P4)",
+    "primarySystem": "Jev choice argmax with the frozen variant. The τ-hybrid is secondary and never decides the verdict."
+  },
+  "approval": {
+    "by": "Manu (human-of-record)",
+    "date": "2026-09-21",
+    "question": "Pre-approve the one-shot holdout run?",
+    "answer": "Run evaluation upon the questions and move forward with consensus but also create an html dashboard for manual review. NO stopping, keep going in the meantime and track the logs and results and assumptions."
+  },
+  "model": "typesafe-ai/jev (gateway)",
+  "holdoutCustody": {
+    "path": "/Users/manu/CETI/PISCES-MARKETING/assets/ceti-silver-hooks-approved.json",
+    "sha256": "3948c5b38d1b48efdfc745021ea03fc689039a2ae2143161e3852b6e52a099c1",
+    "items": 39,
+    "recordedAt": "2026-09-21T21:24:05Z",
+    "inspectedBeforeRun": false
+  },
+  "frozen": {
+    "frozenAt": "2026-09-21T21:27:36.087Z",
+    "codeCommit": "0afc3ddbdc0717903645a9389bce02ab6eeedf83",
+    "codeFiles": [
+      "program/e3-blind.ts",
+      "program/e3-questions.ts",
+      "program/e3-keyword-baseline.ts",
+      "program/keyword-baseline.ts",
+      "program/formulas.ts",
+      "lib/jev.ts",
+      "lib/jev-direct.ts"
+    ],
+    "variant": "v2",
+    "selectionRule": "highest fit accuracy; tie → higher macro recall; tie → earlier variant",
+    "variantRanking": [
+      {
+        "variant": "v2",
+        "accuracy": 0.725,
+        "macroRecall": 0.7611
+      },
+      {
+        "variant": "v3",
+        "accuracy": 0.6875,
+        "macroRecall": 0.7074
+      },
+      {
+        "variant": "v1",
+        "accuracy": 0.375,
+        "macroRecall": 0.3362
+      }
+    ],
+    "question": {
+      "instructions": "Which single mechanism does this marketing hook rely on most?",
+      "criteria": {
+        "deprivation-moment": "Evokes a specific, recognisable moment of the reader's current frustration or loss — a late-night desk, a Sunday rewrite, a tab closed in defeat, the fear of being left behind — as a scene, a pointed question, or a short aphorism, without offering a method, a number or proof.",
+        "number-outcome-time": "Carries its payload in figures: a before→after transformation (\"6 hr → 90 min\", \"17 tabs → 1 brief\"), a price, a count of seats or files, a duration, or a named deadline or day.",
+        "call-out": "Tells a particular kind of reader \"this is for you\": names the audience (\"For solo consultants:\"), greets them personally (\"[NAME] —\"), or positions the reader against what others do or offer (\"They demo cats. You need your deck read.\").",
+        "how-to-without": "Promises the desired result while removing a cost, effort or prerequisite — \"how to X without Y\", or an imperative swap that drops the old burden for the new outcome (\"Stop reading 40-page reports. Get a 1-page brief.\", \"You don't need another course — you need…\").",
+        "halbert-a-pile": "Reads like a personal email subject line from someone the reader knows: a short, usually lowercase fragment referring to a specific shared item (\"re: the deck you sent Thursday\", \"that clause on page 12\"), with no visible pitch, offer or selling language.",
+        "damaging-admission": "Volunteers something unflattering or risky up front: an admission that something failed or was not enough, a disclosed limitation (\"AI is in the mix\"), a concession that the reader may walk away (\"if week one flops, you walk\"), or what an unhappy customer said.",
+        "adjective-good": "Names the offer itself as a characterful thing with an evaluative adjective or image (\"A free AI win\", \"The lazy proposal-reader\", \"Furnished room, not another empty chat tab\"), selling by how the thing is described rather than by numbers, method or proof.",
+        "mistakes": "Warns that the reader is doing something wrong or falling behind: named mistakes or bad habits, an error they may have missed, or a warning that others have already moved on without them.",
+        "receipt": "Points to proof or credentials instead of making a claim: a receipt, citations, a comparison with an elite or named benchmark (a Fortune 500 standard, a named competitor and its price), or evidence already earned."
+      }
+    },
+    "hybridTau": 0.85,
+    "tauCurve": [
+      {
+        "tau": 0,
+        "accuracy": 0.725
+      },
+      {
+        "tau": 0.2,
+        "accuracy": 0.725
+      },
+      {
+        "tau": 0.25,
+        "accuracy": 0.725
+      },
+      {
+        "tau": 0.3,
+        "accuracy": 0.725
+      },
+      {
+        "tau": 0.35,
+        "accuracy": 0.7375
+      },
+      {
+        "tau": 0.4,
+        "accuracy": 0.7625
+      },
+      {
+        "tau": 0.45,
+        "accuracy": 0.775
+      },
+      {
+        "tau": 0.5,
+        "accuracy": 0.8
+      },
+      {
+        "tau": 0.55,
+        "accuracy": 0.8
+      },
+      {
+        "tau": 0.6,
+        "accuracy": 0.825
+      },
+      {
+        "tau": 0.65,
+        "accuracy": 0.825
+      },
+      {
+        "tau": 0.7,
+        "accuracy": 0.8125
+      },
+      {
+        "tau": 0.75,
+        "accuracy": 0.8125
+      },
+      {
+        "tau": 0.8,
+        "accuracy": 0.8125
+      },
+      {
+        "tau": 0.85,
+        "accuracy": 0.8375
+      },
+      {
+        "tau": 0.9,
+        "accuracy": 0.8375
+      }
+    ],
+    "concurrency": 4,
+    "maxRetries": 2
+  },
+  "fit": {
+    "n": 80,
+    "primary": {
+      "n": 80,
+      "correct": 58,
+      "accuracy": 0.725,
+      "macroRecall": 0.7611,
+      "perClass": {
+        "number-outcome-time": {
+          "n": 15,
+          "correct": 15,
+          "recall": 1,
+          "insufficientData": false
+        },
+        "receipt": {
+          "n": 4,
+          "correct": 3,
+          "recall": 0.75,
+          "insufficientData": true
+        },
+        "damaging-admission": {
+          "n": 5,
+          "correct": 4,
+          "recall": 0.8,
+          "insufficientData": true
+        },
+        "deprivation-moment": {
+          "n": 21,
+          "correct": 13,
+          "recall": 0.619,
+          "insufficientData": false
+        },
+        "adjective-good": {
+          "n": 5,
+          "correct": 4,
+          "recall": 0.8,
+          "insufficientData": true
+        },
+        "mistakes": {
+          "n": 5,
+          "correct": 5,
+          "recall": 1,
+          "insufficientData": true
+        },
+        "how-to-without": {
+          "n": 7,
+          "correct": 5,
+          "recall": 0.7143,
+          "insufficientData": true
+        },
+        "call-out": {
+          "n": 12,
+          "correct": 4,
+          "recall": 0.3333,
+          "insufficientData": false
+        },
+        "halbert-a-pile": {
+          "n": 6,
+          "correct": 5,
+          "recall": 0.8333,
+          "insufficientData": true
+        }
+      }
+    },
+    "hybrid": {
+      "n": 80,
+      "correct": 67,
+      "accuracy": 0.8375,
+      "macroRecall": 0.8037,
+      "perClass": {
+        "number-outcome-time": {
+          "n": 15,
+          "correct": 15,
+          "recall": 1,
+          "insufficientData": false
+        },
+        "receipt": {
+          "n": 4,
+          "correct": 3,
+          "recall": 0.75,
+          "insufficientData": true
+        },
+        "damaging-admission": {
+          "n": 5,
+          "correct": 5,
+          "recall": 1,
+          "insufficientData": true
+        },
+        "deprivation-moment": {
+          "n": 21,
+          "correct": 20,
+          "recall": 0.9524,
+          "insufficientData": false
+        },
+        "adjective-good": {
+          "n": 5,
+          "correct": 3,
+          "recall": 0.6,
+          "insufficientData": true
+        },
+        "mistakes": {
+          "n": 5,
+          "correct": 4,
+          "recall": 0.8,
+          "insufficientData": true
+        },
+        "how-to-without": {
+          "n": 7,
+          "correct": 5,
+          "recall": 0.7143,
+          "insufficientData": true
+        },
+        "call-out": {
+          "n": 12,
+          "correct": 7,
+          "recall": 0.5833,
+          "insufficientData": false
+        },
+        "halbert-a-pile": {
+          "n": 6,
+          "correct": 5,
+          "recall": 0.8333,
+          "insufficientData": true
+        }
+      }
+    },
+    "baselines": {
+      "e3Keyword": {
+        "n": 80,
+        "correct": 69,
+        "accuracy": 0.8625,
+        "macroRecall": 0.8479,
+        "perClass": {
+          "number-outcome-time": {
+            "n": 15,
+            "correct": 14,
+            "recall": 0.9333,
+            "insufficientData": false
+          },
+          "receipt": {
+            "n": 4,
+            "correct": 4,
+            "recall": 1,
+            "insufficientData": true
+          },
+          "damaging-admission": {
+            "n": 5,
+            "correct": 5,
+            "recall": 1,
+            "insufficientData": true
+          },
+          "deprivation-moment": {
+            "n": 21,
+            "correct": 21,
+            "recall": 1,
+            "insufficientData": false
+          },
+          "adjective-good": {
+            "n": 5,
+            "correct": 3,
+            "recall": 0.6,
+            "insufficientData": true
+          },
+          "mistakes": {
+            "n": 5,
+            "correct": 4,
+            "recall": 0.8,
+            "insufficientData": true
+          },
+          "how-to-without": {
+            "n": 7,
+            "correct": 5,
+            "recall": 0.7143,
+            "insufficientData": true
+          },
+          "call-out": {
+            "n": 12,
+            "correct": 7,
+            "recall": 0.5833,
+            "insufficientData": false
+          },
+          "halbert-a-pile": {
+            "n": 6,
+            "correct": 6,
+            "recall": 1,
+            "insufficientData": true
+          }
+        }
+      },
+      "e1Keyword": {
+        "n": 80,
+        "correct": 25,
+        "accuracy": 0.3125,
+        "macroRecall": 0.1929,
+        "perClass": {
+          "number-outcome-time": {
+            "n": 15,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": false
+          },
+          "receipt": {
+            "n": 4,
+            "correct": 1,
+            "recall": 0.25,
+            "insufficientData": true
+          },
+          "damaging-admission": {
+            "n": 5,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "deprivation-moment": {
+            "n": 21,
+            "correct": 21,
+            "recall": 1,
+            "insufficientData": false
+          },
+          "adjective-good": {
+            "n": 5,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "mistakes": {
+            "n": 5,
+            "correct": 1,
+            "recall": 0.2,
+            "insufficientData": true
+          },
+          "how-to-without": {
+            "n": 7,
+            "correct": 2,
+            "recall": 0.2857,
+            "insufficientData": true
+          },
+          "call-out": {
+            "n": 12,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": false
+          },
+          "halbert-a-pile": {
+            "n": 6,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          }
+        }
+      },
+      "majorityClass": {
+        "guess": "deprivation-moment",
+        "n": 80,
+        "correct": 21,
+        "accuracy": 0.2625,
+        "macroRecall": 0.1111,
+        "perClass": {
+          "number-outcome-time": {
+            "n": 15,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": false
+          },
+          "receipt": {
+            "n": 4,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "damaging-admission": {
+            "n": 5,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "deprivation-moment": {
+            "n": 21,
+            "correct": 21,
+            "recall": 1,
+            "insufficientData": false
+          },
+          "adjective-good": {
+            "n": 5,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "mistakes": {
+            "n": 5,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "how-to-without": {
+            "n": 7,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "call-out": {
+            "n": 12,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": false
+          },
+          "halbert-a-pile": {
+            "n": 6,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          }
+        }
+      }
+    },
+    "confusion": {
+      "number-outcome-time": {
+        "number-outcome-time": 15
+      },
+      "receipt": {
+        "receipt": 3,
+        "number-outcome-time": 1
+      },
+      "damaging-admission": {
+        "damaging-admission": 4,
+        "number-outcome-time": 1
+      },
+      "deprivation-moment": {
+        "halbert-a-pile": 4,
+        "deprivation-moment": 13,
+        "number-outcome-time": 1,
+        "mistakes": 1,
+        "how-to-without": 1,
+        "damaging-admission": 1
+      },
+      "adjective-good": {
+        "adjective-good": 4,
+        "how-to-without": 1
+      },
+      "mistakes": {
+        "mistakes": 5
+      },
+      "how-to-without": {
+        "how-to-without": 5,
+        "mistakes": 1,
+        "(failed)": 1
+      },
+      "call-out": {
+        "number-outcome-time": 2,
+        "deprivation-moment": 1,
+        "halbert-a-pile": 1,
+        "how-to-without": 2,
+        "call-out": 4,
+        "adjective-good": 1,
+        "receipt": 1
+      },
+      "halbert-a-pile": {
+        "halbert-a-pile": 5,
+        "mistakes": 1
+      }
+    }
+  }
+}

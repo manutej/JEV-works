@@ -109,3 +109,18 @@ human taxonomy at all. The labellers were not noisy; they were faithfully answer
 ## Log
 
 - 2026-09-21 21:24Z holdout sha256 + count recorded; SolutionSketch written.
+- 2026-09-21 code committed `0afc3dd` (runner, variants, fitted keyword baseline). tsc green.
+- 2026-09-21 fitted keyword baseline on the 80: **0.8625 in-sample** (69/80). Rules were written by reading
+  the labelled fit set, so this number is expected to be inflated; stopped at 11 misses rather than
+  memorising individual lines.
+- 2026-09-21 fit runs on the 80 (`jev-latest (direct)`, concurrency 4, 0 rate-limit retries):
+  v1 (E1 wording) **0.375** / macro 0.336 · v2 (consensus-informed) **0.725** / macro 0.761 · v3 (v2 + rules) 0.6875 / 0.707.
+  Rewriting the option descriptions from E1's failures nearly doubled fit accuracy; adding explicit
+  disambiguation rules did not help further. E1 keyword 0.3125, majority 0.2625.
+- **A8** One v2 fit call (h76) failed with the SDK's "did not select a highest-probability option" — the
+  direct API rounds to 2dp, so a top-probability tie is rejected by `evaluate()` core. Counted as a wrong
+  answer (never dropped), same rule on the holdout. Not patched: the fix would touch frozen code for one item.
+- **A9** `costFromUsage` needs gateway credentials that this direct-backend run doesn't have, so `cost.totalUsd`
+  is NaN; the RunLog estimate (input tokens × $0.042/M) is in each `telemetry.dollars` (~$0.003 per 80 calls).
+- 2026-09-21 freeze: **v2 selected** (rule: fit accuracy). Hybrid τ fitted = 0.85 (fit 0.8375 — at that τ
+  it mostly defers to the in-sample keyword rules; secondary only). Frozen against commit `0afc3dd`.

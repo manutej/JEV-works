@@ -1,0 +1,4561 @@
+{
+  "variants": {
+    "v1": {
+      "ranAt": "2026-09-21T21:27:11.025Z",
+      "question": {
+        "instructions": "Which single mechanism does this marketing hook rely on most?",
+        "criteria": {
+          "deprivation-moment": "Withholds one specific, desirable detail the reader wants resolved, creating a felt gap rather than stating the outcome.",
+          "number-outcome-time": "Pairs a concrete quantified result with a bounded time frame, so the outcome and its speed are both made specific.",
+          "call-out": "Directly addresses a named audience segment so a reader in that segment recognises themselves as the intended recipient.",
+          "how-to-without": "Promises a method for reaching a desired result while explicitly removing a common cost, effort, or prerequisite normally assumed necessary.",
+          "halbert-a-pile": "Uses vivid, concrete stacking or quantity imagery (piles, stacks, mountains) to make an abstract volume feel physically large.",
+          "damaging-admission": "Opens with a self-directed confession of a failure or fault, trading a moment of credibility-risk for unexpected candour.",
+          "adjective-good": "Strings together evaluative adjectives to characterise the offer or outcome as unambiguously positive, with little concrete, checkable detail.",
+          "mistakes": "Centers on errors, misconceptions, or wrong approaches the reader may currently be taking, framed as a warning to correct course.",
+          "receipt": "Presents a verifiable, dated, sourced, or literally-quoted piece of evidence (a screenshot, a quote, an exact figure) offered as proof rather than as a claim."
+        }
+      },
+      "score": {
+        "n": 80,
+        "correct": 30,
+        "accuracy": 0.375,
+        "macroRecall": 0.3362,
+        "perClass": {
+          "number-outcome-time": {
+            "n": 15,
+            "correct": 10,
+            "recall": 0.6667,
+            "insufficientData": false
+          },
+          "receipt": {
+            "n": 4,
+            "correct": 1,
+            "recall": 0.25,
+            "insufficientData": true
+          },
+          "damaging-admission": {
+            "n": 5,
+            "correct": 1,
+            "recall": 0.2,
+            "insufficientData": true
+          },
+          "deprivation-moment": {
+            "n": 21,
+            "correct": 5,
+            "recall": 0.2381,
+            "insufficientData": false
+          },
+          "adjective-good": {
+            "n": 5,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "mistakes": {
+            "n": 5,
+            "correct": 3,
+            "recall": 0.6,
+            "insufficientData": true
+          },
+          "how-to-without": {
+            "n": 7,
+            "correct": 4,
+            "recall": 0.5714,
+            "insufficientData": true
+          },
+          "call-out": {
+            "n": 12,
+            "correct": 6,
+            "recall": 0.5,
+            "insufficientData": false
+          },
+          "halbert-a-pile": {
+            "n": 6,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          }
+        }
+      },
+      "errors": 0,
+      "meanEntropy": 0.3609,
+      "cost": {
+        "totalUsd": null,
+        "byModel": {}
+      },
+      "telemetry": {
+        "completed": 80,
+        "failed": 0,
+        "retried": [],
+        "p50": 126,
+        "p95": 389,
+        "tokens": 53744,
+        "dollars": 0.00226,
+        "drift": []
+      },
+      "wallClockMs": 3315,
+      "preds": [
+        {
+          "id": "h01",
+          "formula": "number-outcome-time",
+          "text": "Companies pay $3,000 a seat for this. Once, it's $499.",
+          "choice": "receipt",
+          "probabilities": {
+            "halbert-a-pile": 0.01,
+            "how-to-without": 0.22,
+            "call-out": 0.07,
+            "receipt": 0.45,
+            "damaging-admission": 0.01,
+            "mistakes": 0,
+            "number-outcome-time": 0.13,
+            "deprivation-moment": 0.11,
+            "adjective-good": 0
+          }
+        },
+        {
+          "id": "h02",
+          "formula": "receipt",
+          "text": "The one pitch I'll send this list all year — and the receipt that earned it",
+          "choice": "receipt",
+          "probabilities": {
+            "call-out": 0,
+            "damaging-admission": 0,
+            "deprivation-moment": 0.07,
+            "receipt": 0.92,
+            "mistakes": 0,
+            "adjective-good": 0,
+            "how-to-without": 0,
+            "number-outcome-time": 0.01,
+            "halbert-a-pile": 0
+          }
+        },
+        {
+          "id": "h03",
+          "formula": "damaging-admission",
+          "text": "What a logistics C-suite told Manu after they'd already paid",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "damaging-admission": 0.05,
+            "adjective-good": 0,
+            "receipt": 0.04,
+            "call-out": 0.16,
+            "deprivation-moment": 0.64,
+            "how-to-without": 0.03,
+            "halbert-a-pile": 0,
+            "number-outcome-time": 0,
+            "mistakes": 0.08
+          }
+        },
+        {
+          "id": "h04",
+          "formula": "deprivation-moment",
+          "text": "that proposal you rewrote Sunday night",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "adjective-good": 0,
+            "number-outcome-time": 0.02,
+            "call-out": 0.25,
+            "receipt": 0.31,
+            "halbert-a-pile": 0,
+            "damaging-admission": 0.02,
+            "how-to-without": 0.01,
+            "deprivation-moment": 0.38,
+            "mistakes": 0.01
+          }
+        },
+        {
+          "id": "h05",
+          "formula": "number-outcome-time",
+          "text": "Try this on one of your own documents — takes five minutes",
+          "choice": "how-to-without",
+          "probabilities": {
+            "adjective-good": 0,
+            "number-outcome-time": 0.22,
+            "halbert-a-pile": 0,
+            "damaging-admission": 0,
+            "mistakes": 0,
+            "deprivation-moment": 0.01,
+            "how-to-without": 0.68,
+            "call-out": 0.09,
+            "receipt": 0
+          }
+        },
+        {
+          "id": "h06",
+          "formula": "adjective-good",
+          "text": "A free AI win you can do before lunch today",
+          "choice": "how-to-without",
+          "probabilities": {
+            "call-out": 0,
+            "number-outcome-time": 0.22,
+            "mistakes": 0,
+            "how-to-without": 0.75,
+            "adjective-good": 0.01,
+            "receipt": 0,
+            "deprivation-moment": 0.02,
+            "halbert-a-pile": 0,
+            "damaging-admission": 0
+          }
+        },
+        {
+          "id": "h07",
+          "formula": "deprivation-moment",
+          "text": "Remember learning SEO when Google was brand new?",
+          "choice": "call-out",
+          "probabilities": {
+            "damaging-admission": 0.01,
+            "deprivation-moment": 0.13,
+            "receipt": 0.01,
+            "halbert-a-pile": 0,
+            "adjective-good": 0,
+            "mistakes": 0.01,
+            "how-to-without": 0.01,
+            "number-outcome-time": 0,
+            "call-out": 0.83
+          }
+        },
+        {
+          "id": "h08",
+          "formula": "mistakes",
+          "text": "The people who moved early on this are already gone",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "receipt": 0.01,
+            "deprivation-moment": 0.77,
+            "halbert-a-pile": 0,
+            "how-to-without": 0,
+            "damaging-admission": 0.01,
+            "mistakes": 0.14,
+            "adjective-good": 0,
+            "call-out": 0.05,
+            "number-outcome-time": 0.02
+          }
+        },
+        {
+          "id": "h09",
+          "formula": "number-outcome-time",
+          "text": "12 seats left before Tuesday — then it closes",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "damaging-admission": 0,
+            "call-out": 0,
+            "number-outcome-time": 0.98,
+            "receipt": 0,
+            "halbert-a-pile": 0,
+            "mistakes": 0,
+            "deprivation-moment": 0.02,
+            "how-to-without": 0,
+            "adjective-good": 0
+          }
+        },
+        {
+          "id": "h10",
+          "formula": "number-outcome-time",
+          "text": "Last call: CETI Silver closes Tuesday, price goes up after",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "receipt": 0,
+            "how-to-without": 0,
+            "deprivation-moment": 0.28,
+            "number-outcome-time": 0.6,
+            "call-out": 0.08,
+            "mistakes": 0,
+            "adjective-good": 0.04,
+            "halbert-a-pile": 0,
+            "damaging-admission": 0
+          }
+        },
+        {
+          "id": "h11",
+          "formula": "number-outcome-time",
+          "text": "Get 5 to 10 hours a week back — in six weeks",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "how-to-without": 0,
+            "number-outcome-time": 1,
+            "halbert-a-pile": 0,
+            "mistakes": 0,
+            "call-out": 0,
+            "damaging-admission": 0,
+            "receipt": 0,
+            "adjective-good": 0,
+            "deprivation-moment": 0
+          }
+        },
+        {
+          "id": "h12",
+          "formula": "how-to-without",
+          "text": "How to put AI on your docs without six months of trial and error",
+          "choice": "how-to-without",
+          "probabilities": {
+            "adjective-good": 0,
+            "halbert-a-pile": 0,
+            "mistakes": 0,
+            "how-to-without": 1,
+            "receipt": 0,
+            "deprivation-moment": 0,
+            "number-outcome-time": 0,
+            "call-out": 0,
+            "damaging-admission": 0
+          }
+        },
+        {
+          "id": "h13",
+          "formula": "call-out",
+          "text": "For solo consultants: six weeks, $499, your own proposals",
+          "choice": "call-out",
+          "probabilities": {
+            "how-to-without": 0.02,
+            "deprivation-moment": 0.01,
+            "halbert-a-pile": 0,
+            "number-outcome-time": 0.25,
+            "adjective-good": 0,
+            "call-out": 0.72,
+            "receipt": 0,
+            "mistakes": 0,
+            "damaging-admission": 0
+          }
+        },
+        {
+          "id": "h14",
+          "formula": "deprivation-moment",
+          "text": "You don't get replaced by the sword",
+          "choice": "how-to-without",
+          "probabilities": {
+            "mistakes": 0.34,
+            "adjective-good": 0,
+            "call-out": 0.07,
+            "damaging-admission": 0,
+            "receipt": 0,
+            "number-outcome-time": 0,
+            "halbert-a-pile": 0,
+            "how-to-without": 0.45,
+            "deprivation-moment": 0.14
+          }
+        },
+        {
+          "id": "h15",
+          "formula": "deprivation-moment",
+          "text": "The wave doesn't wait for anyone",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "halbert-a-pile": 0,
+            "damaging-admission": 0,
+            "deprivation-moment": 0.63,
+            "receipt": 0,
+            "adjective-good": 0.02,
+            "mistakes": 0.28,
+            "number-outcome-time": 0.04,
+            "how-to-without": 0.01,
+            "call-out": 0.02
+          }
+        },
+        {
+          "id": "h16",
+          "formula": "deprivation-moment",
+          "text": "Remember SEO when Google was new?",
+          "choice": "call-out",
+          "probabilities": {
+            "mistakes": 0.04,
+            "how-to-without": 0,
+            "call-out": 0.69,
+            "receipt": 0,
+            "deprivation-moment": 0.25,
+            "damaging-admission": 0.01,
+            "adjective-good": 0.01,
+            "number-outcome-time": 0,
+            "halbert-a-pile": 0
+          }
+        },
+        {
+          "id": "h17",
+          "formula": "number-outcome-time",
+          "text": "Six weeks to get 5 hours back on your own proposals",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "halbert-a-pile": 0,
+            "damaging-admission": 0,
+            "deprivation-moment": 0,
+            "receipt": 0,
+            "adjective-good": 0,
+            "number-outcome-time": 1,
+            "mistakes": 0,
+            "how-to-without": 0,
+            "call-out": 0
+          }
+        },
+        {
+          "id": "h18",
+          "formula": "mistakes",
+          "text": "4 mistakes keeping your AI tab closed while the desk fills",
+          "choice": "mistakes",
+          "probabilities": {
+            "number-outcome-time": 0,
+            "call-out": 0,
+            "receipt": 0,
+            "mistakes": 1,
+            "deprivation-moment": 0,
+            "halbert-a-pile": 0,
+            "how-to-without": 0,
+            "damaging-admission": 0,
+            "adjective-good": 0
+          }
+        },
+        {
+          "id": "h19",
+          "formula": "adjective-good",
+          "text": "The lazy proposal-reader that runs in 4 minutes",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "mistakes": 0,
+            "how-to-without": 0.24,
+            "call-out": 0.33,
+            "deprivation-moment": 0.01,
+            "receipt": 0,
+            "damaging-admission": 0.03,
+            "adjective-good": 0.01,
+            "number-outcome-time": 0.38,
+            "halbert-a-pile": 0
+          }
+        },
+        {
+          "id": "h20",
+          "formula": "how-to-without",
+          "text": "How to ship AI on client docs without losing your voice, even if you're not technical",
+          "choice": "how-to-without",
+          "probabilities": {
+            "receipt": 0,
+            "damaging-admission": 0,
+            "how-to-without": 1,
+            "deprivation-moment": 0,
+            "adjective-good": 0,
+            "number-outcome-time": 0,
+            "mistakes": 0,
+            "call-out": 0,
+            "halbert-a-pile": 0
+          }
+        },
+        {
+          "id": "h21",
+          "formula": "call-out",
+          "text": "For freelance devs: stop donating Sundays to rewrites",
+          "choice": "call-out",
+          "probabilities": {
+            "call-out": 0.74,
+            "adjective-good": 0,
+            "deprivation-moment": 0,
+            "how-to-without": 0.01,
+            "mistakes": 0.25,
+            "halbert-a-pile": 0,
+            "receipt": 0,
+            "number-outcome-time": 0,
+            "damaging-admission": 0
+          }
+        },
+        {
+          "id": "h22",
+          "formula": "deprivation-moment",
+          "text": "It's 11pm. You're finishing the document you told yourself you'd start at 9am. AI was supposed to make this the easy part. It's still the part keeping you at the desk.",
+          "choice": "damaging-admission",
+          "probabilities": {
+            "number-outcome-time": 0.01,
+            "adjective-good": 0,
+            "how-to-without": 0.03,
+            "halbert-a-pile": 0,
+            "deprivation-moment": 0.06,
+            "damaging-admission": 0.68,
+            "receipt": 0,
+            "mistakes": 0.13,
+            "call-out": 0.08
+          }
+        },
+        {
+          "id": "h23",
+          "formula": "deprivation-moment",
+          "text": "You opened an AI tab this month, got a wall of text, and closed it. The work still sits on your desk.",
+          "choice": "mistakes",
+          "probabilities": {
+            "number-outcome-time": 0,
+            "receipt": 0,
+            "deprivation-moment": 0.02,
+            "halbert-a-pile": 0.13,
+            "how-to-without": 0.02,
+            "call-out": 0.19,
+            "adjective-good": 0,
+            "mistakes": 0.47,
+            "damaging-admission": 0.17
+          }
+        },
+        {
+          "id": "h24",
+          "formula": "call-out",
+          "text": "[NAME] — random question. That proposal you grind through every month: still building it by hand?",
+          "choice": "call-out",
+          "probabilities": {
+            "number-outcome-time": 0,
+            "adjective-good": 0,
+            "damaging-admission": 0.01,
+            "halbert-a-pile": 0,
+            "how-to-without": 0.18,
+            "deprivation-moment": 0.12,
+            "mistakes": 0.18,
+            "call-out": 0.51,
+            "receipt": 0
+          }
+        },
+        {
+          "id": "h25",
+          "formula": "deprivation-moment",
+          "text": "6 proposals before lunch — one of them is yours",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "number-outcome-time": 0.76,
+            "receipt": 0,
+            "deprivation-moment": 0.18,
+            "halbert-a-pile": 0.01,
+            "how-to-without": 0,
+            "call-out": 0.05,
+            "adjective-good": 0,
+            "damaging-admission": 0,
+            "mistakes": 0
+          }
+        },
+        {
+          "id": "h26",
+          "formula": "call-out",
+          "text": "Marcus: 14 extensions due Monday, staff still copy-pasting",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "call-out": 0.02,
+            "receipt": 0.01,
+            "number-outcome-time": 0.7,
+            "how-to-without": 0.01,
+            "damaging-admission": 0.01,
+            "deprivation-moment": 0.01,
+            "mistakes": 0.22,
+            "halbert-a-pile": 0.02,
+            "adjective-good": 0
+          }
+        },
+        {
+          "id": "h27",
+          "formula": "deprivation-moment",
+          "text": "Linda Googled Claude under the table — sound familiar?",
+          "choice": "call-out",
+          "probabilities": {
+            "number-outcome-time": 0,
+            "how-to-without": 0.01,
+            "receipt": 0,
+            "deprivation-moment": 0.12,
+            "halbert-a-pile": 0,
+            "mistakes": 0.2,
+            "damaging-admission": 0.04,
+            "adjective-good": 0,
+            "call-out": 0.63
+          }
+        },
+        {
+          "id": "h28",
+          "formula": "deprivation-moment",
+          "text": "Maya: that quick favor became a 12-slide appendix",
+          "choice": "halbert-a-pile",
+          "probabilities": {
+            "adjective-good": 0,
+            "halbert-a-pile": 0.43,
+            "call-out": 0,
+            "number-outcome-time": 0.16,
+            "damaging-admission": 0.31,
+            "how-to-without": 0.01,
+            "mistakes": 0.06,
+            "deprivation-moment": 0.02,
+            "receipt": 0.01
+          }
+        },
+        {
+          "id": "h29",
+          "formula": "number-outcome-time",
+          "text": "Your contract in 90 sec — 3 risky clauses flagged",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "adjective-good": 0,
+            "mistakes": 0.04,
+            "halbert-a-pile": 0,
+            "receipt": 0,
+            "how-to-without": 0,
+            "call-out": 0,
+            "number-outcome-time": 0.94,
+            "damaging-admission": 0,
+            "deprivation-moment": 0.02
+          }
+        },
+        {
+          "id": "h30",
+          "formula": "number-outcome-time",
+          "text": "47-email thread → one memo you keep",
+          "choice": "how-to-without",
+          "probabilities": {
+            "adjective-good": 0,
+            "damaging-admission": 0,
+            "call-out": 0,
+            "mistakes": 0,
+            "receipt": 0,
+            "how-to-without": 0.51,
+            "number-outcome-time": 0.11,
+            "halbert-a-pile": 0.36,
+            "deprivation-moment": 0.02
+          }
+        },
+        {
+          "id": "h31",
+          "formula": "how-to-without",
+          "text": "Your team sounds like 6 writers — lock one voice",
+          "choice": "mistakes",
+          "probabilities": {
+            "mistakes": 0.68,
+            "receipt": 0,
+            "call-out": 0.25,
+            "damaging-admission": 0.01,
+            "adjective-good": 0,
+            "number-outcome-time": 0,
+            "halbert-a-pile": 0.04,
+            "how-to-without": 0.02,
+            "deprivation-moment": 0
+          }
+        },
+        {
+          "id": "h32",
+          "formula": "how-to-without",
+          "text": "You don't need another course — you need 5 tools that stay",
+          "choice": "how-to-without",
+          "probabilities": {
+            "adjective-good": 0,
+            "how-to-without": 0.94,
+            "mistakes": 0.06,
+            "halbert-a-pile": 0,
+            "receipt": 0,
+            "deprivation-moment": 0,
+            "number-outcome-time": 0,
+            "call-out": 0,
+            "damaging-admission": 0
+          }
+        },
+        {
+          "id": "h33",
+          "formula": "number-outcome-time",
+          "text": "$499 — five work files you keep, not tuition",
+          "choice": "how-to-without",
+          "probabilities": {
+            "damaging-admission": 0,
+            "call-out": 0,
+            "deprivation-moment": 0,
+            "receipt": 0,
+            "mistakes": 0,
+            "adjective-good": 0,
+            "number-outcome-time": 0.01,
+            "halbert-a-pile": 0.02,
+            "how-to-without": 0.97
+          }
+        },
+        {
+          "id": "h34",
+          "formula": "adjective-good",
+          "text": "The buyer who kills deals — on your side before you pitch",
+          "choice": "mistakes",
+          "probabilities": {
+            "how-to-without": 0,
+            "number-outcome-time": 0,
+            "receipt": 0,
+            "mistakes": 0.6,
+            "call-out": 0.35,
+            "damaging-admission": 0.01,
+            "halbert-a-pile": 0,
+            "adjective-good": 0,
+            "deprivation-moment": 0.04
+          }
+        },
+        {
+          "id": "h35",
+          "formula": "mistakes",
+          "text": "Signed a clause you missed? 90-sec reader catches it first",
+          "choice": "mistakes",
+          "probabilities": {
+            "call-out": 0,
+            "deprivation-moment": 0,
+            "damaging-admission": 0,
+            "number-outcome-time": 0.45,
+            "how-to-without": 0.01,
+            "receipt": 0,
+            "halbert-a-pile": 0,
+            "adjective-good": 0,
+            "mistakes": 0.54
+          }
+        },
+        {
+          "id": "h36",
+          "formula": "deprivation-moment",
+          "text": "Still rewriting the same memo 3 times?",
+          "choice": "mistakes",
+          "probabilities": {
+            "call-out": 0.22,
+            "receipt": 0,
+            "number-outcome-time": 0,
+            "how-to-without": 0,
+            "damaging-admission": 0,
+            "deprivation-moment": 0.01,
+            "mistakes": 0.76,
+            "halbert-a-pile": 0.01,
+            "adjective-good": 0
+          }
+        },
+        {
+          "id": "h37",
+          "formula": "deprivation-moment",
+          "text": "Are you using AI on my project?",
+          "choice": "call-out",
+          "probabilities": {
+            "number-outcome-time": 0,
+            "adjective-good": 0,
+            "halbert-a-pile": 0,
+            "mistakes": 0.11,
+            "damaging-admission": 0.02,
+            "deprivation-moment": 0.3,
+            "how-to-without": 0.01,
+            "call-out": 0.56,
+            "receipt": 0
+          }
+        },
+        {
+          "id": "h38",
+          "formula": "deprivation-moment",
+          "text": "This proposal sounds like last week's",
+          "choice": "mistakes",
+          "probabilities": {
+            "adjective-good": 0.09,
+            "damaging-admission": 0.13,
+            "deprivation-moment": 0.25,
+            "how-to-without": 0,
+            "number-outcome-time": 0.01,
+            "call-out": 0.02,
+            "receipt": 0.04,
+            "halbert-a-pile": 0,
+            "mistakes": 0.46
+          }
+        },
+        {
+          "id": "h39",
+          "formula": "call-out",
+          "text": "I bill deliverables — not another course",
+          "choice": "how-to-without",
+          "probabilities": {
+            "halbert-a-pile": 0,
+            "how-to-without": 0.76,
+            "call-out": 0.04,
+            "damaging-admission": 0,
+            "receipt": 0,
+            "mistakes": 0.19,
+            "number-outcome-time": 0,
+            "deprivation-moment": 0.01,
+            "adjective-good": 0
+          }
+        },
+        {
+          "id": "h40",
+          "formula": "damaging-admission",
+          "text": "We tried ChatGPT on our docs. It wasn't enough.",
+          "choice": "damaging-admission",
+          "probabilities": {
+            "how-to-without": 0,
+            "halbert-a-pile": 0,
+            "deprivation-moment": 0.04,
+            "damaging-admission": 0.79,
+            "adjective-good": 0,
+            "call-out": 0.01,
+            "receipt": 0,
+            "mistakes": 0.16,
+            "number-outcome-time": 0
+          }
+        },
+        {
+          "id": "h41",
+          "formula": "damaging-admission",
+          "text": "AI is in the mix — clients pay for the finished brief",
+          "choice": "how-to-without",
+          "probabilities": {
+            "deprivation-moment": 0.07,
+            "number-outcome-time": 0,
+            "damaging-admission": 0.02,
+            "call-out": 0.2,
+            "halbert-a-pile": 0,
+            "how-to-without": 0.66,
+            "adjective-good": 0.02,
+            "receipt": 0.01,
+            "mistakes": 0.02
+          }
+        },
+        {
+          "id": "h42",
+          "formula": "deprivation-moment",
+          "text": "How do you price work when AI did part of the lift?",
+          "choice": "how-to-without",
+          "probabilities": {
+            "adjective-good": 0,
+            "halbert-a-pile": 0,
+            "call-out": 0.16,
+            "mistakes": 0.04,
+            "receipt": 0,
+            "deprivation-moment": 0.22,
+            "number-outcome-time": 0,
+            "damaging-admission": 0,
+            "how-to-without": 0.58
+          }
+        },
+        {
+          "id": "h43",
+          "formula": "halbert-a-pile",
+          "text": "that clause on page 12",
+          "choice": "receipt",
+          "probabilities": {
+            "adjective-good": 0,
+            "number-outcome-time": 0,
+            "deprivation-moment": 0.3,
+            "damaging-admission": 0,
+            "mistakes": 0,
+            "how-to-without": 0,
+            "call-out": 0.02,
+            "halbert-a-pile": 0,
+            "receipt": 0.68
+          }
+        },
+        {
+          "id": "h44",
+          "formula": "halbert-a-pile",
+          "text": "re: the deck you sent Thursday",
+          "choice": "receipt",
+          "probabilities": {
+            "halbert-a-pile": 0,
+            "how-to-without": 0,
+            "call-out": 0.28,
+            "damaging-admission": 0,
+            "receipt": 0.51,
+            "mistakes": 0,
+            "number-outcome-time": 0,
+            "deprivation-moment": 0.21,
+            "adjective-good": 0
+          }
+        },
+        {
+          "id": "h45",
+          "formula": "halbert-a-pile",
+          "text": "wrong question about AI",
+          "choice": "mistakes",
+          "probabilities": {
+            "how-to-without": 0,
+            "number-outcome-time": 0,
+            "receipt": 0,
+            "mistakes": 0.99,
+            "call-out": 0,
+            "damaging-admission": 0.01,
+            "halbert-a-pile": 0,
+            "adjective-good": 0,
+            "deprivation-moment": 0
+          }
+        },
+        {
+          "id": "h46",
+          "formula": "halbert-a-pile",
+          "text": "you were right about the deck",
+          "choice": "damaging-admission",
+          "probabilities": {
+            "number-outcome-time": 0,
+            "receipt": 0.14,
+            "how-to-without": 0.01,
+            "call-out": 0.07,
+            "damaging-admission": 0.33,
+            "adjective-good": 0.02,
+            "deprivation-moment": 0.24,
+            "halbert-a-pile": 0,
+            "mistakes": 0.19
+          }
+        },
+        {
+          "id": "h47",
+          "formula": "halbert-a-pile",
+          "text": "that thread from last March",
+          "choice": "receipt",
+          "probabilities": {
+            "halbert-a-pile": 0,
+            "how-to-without": 0,
+            "call-out": 0.03,
+            "receipt": 0.66,
+            "damaging-admission": 0,
+            "mistakes": 0,
+            "number-outcome-time": 0.02,
+            "deprivation-moment": 0.29,
+            "adjective-good": 0
+          }
+        },
+        {
+          "id": "h48",
+          "formula": "halbert-a-pile",
+          "text": "your voice on page 3",
+          "choice": "receipt",
+          "probabilities": {
+            "damaging-admission": 0,
+            "adjective-good": 0,
+            "call-out": 0.16,
+            "receipt": 0.58,
+            "deprivation-moment": 0.25,
+            "how-to-without": 0,
+            "halbert-a-pile": 0,
+            "number-outcome-time": 0.01,
+            "mistakes": 0
+          }
+        },
+        {
+          "id": "h49",
+          "formula": "damaging-admission",
+          "text": "if week one flops, you walk — no form",
+          "choice": "how-to-without",
+          "probabilities": {
+            "number-outcome-time": 0.17,
+            "adjective-good": 0,
+            "halbert-a-pile": 0,
+            "deprivation-moment": 0.03,
+            "damaging-admission": 0.01,
+            "how-to-without": 0.78,
+            "mistakes": 0.01,
+            "call-out": 0,
+            "receipt": 0
+          }
+        },
+        {
+          "id": "h50",
+          "formula": "mistakes",
+          "text": "For consultants: 3 YouTube habits, proposal still mush",
+          "choice": "call-out",
+          "probabilities": {
+            "adjective-good": 0,
+            "receipt": 0,
+            "how-to-without": 0.01,
+            "number-outcome-time": 0.01,
+            "damaging-admission": 0.03,
+            "call-out": 0.6,
+            "mistakes": 0.32,
+            "deprivation-moment": 0.03,
+            "halbert-a-pile": 0
+          }
+        },
+        {
+          "id": "h51",
+          "formula": "call-out",
+          "text": "For freelance devs: prompt packs don't ship your specs",
+          "choice": "mistakes",
+          "probabilities": {
+            "adjective-good": 0,
+            "halbert-a-pile": 0,
+            "mistakes": 0.63,
+            "how-to-without": 0.01,
+            "receipt": 0,
+            "deprivation-moment": 0,
+            "call-out": 0.36,
+            "number-outcome-time": 0,
+            "damaging-admission": 0
+          }
+        },
+        {
+          "id": "h52",
+          "formula": "call-out",
+          "text": "Everyone else teaches prompts. This week you ship yours.",
+          "choice": "call-out",
+          "probabilities": {
+            "halbert-a-pile": 0,
+            "damaging-admission": 0,
+            "deprivation-moment": 0.07,
+            "how-to-without": 0.14,
+            "number-outcome-time": 0.26,
+            "call-out": 0.38,
+            "receipt": 0,
+            "mistakes": 0.15,
+            "adjective-good": 0
+          }
+        },
+        {
+          "id": "h53",
+          "formula": "call-out",
+          "text": "They demo cats. You need your deck read.",
+          "choice": "call-out",
+          "probabilities": {
+            "call-out": 0.31,
+            "deprivation-moment": 0.31,
+            "damaging-admission": 0.01,
+            "number-outcome-time": 0,
+            "how-to-without": 0.18,
+            "receipt": 0,
+            "halbert-a-pile": 0.01,
+            "adjective-good": 0.03,
+            "mistakes": 0.15
+          }
+        },
+        {
+          "id": "h54",
+          "formula": "deprivation-moment",
+          "text": "Certificate on the wall. Report synthesizer still empty.",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "number-outcome-time": 0,
+            "halbert-a-pile": 0,
+            "receipt": 0.21,
+            "damaging-admission": 0.3,
+            "mistakes": 0.01,
+            "how-to-without": 0.03,
+            "call-out": 0,
+            "adjective-good": 0,
+            "deprivation-moment": 0.45
+          }
+        },
+        {
+          "id": "h55",
+          "formula": "call-out",
+          "text": "Homework should be client work, not worksheets",
+          "choice": "mistakes",
+          "probabilities": {
+            "damaging-admission": 0,
+            "call-out": 0.01,
+            "how-to-without": 0.07,
+            "receipt": 0,
+            "mistakes": 0.92,
+            "adjective-good": 0,
+            "deprivation-moment": 0,
+            "number-outcome-time": 0,
+            "halbert-a-pile": 0
+          }
+        },
+        {
+          "id": "h56",
+          "formula": "receipt",
+          "text": "First cohort outside a Fortune 500 wall — 20 seats",
+          "choice": "call-out",
+          "probabilities": {
+            "halbert-a-pile": 0.01,
+            "mistakes": 0,
+            "number-outcome-time": 0.17,
+            "adjective-good": 0,
+            "damaging-admission": 0,
+            "call-out": 0.39,
+            "receipt": 0.08,
+            "deprivation-moment": 0.25,
+            "how-to-without": 0.1
+          }
+        },
+        {
+          "id": "h57",
+          "formula": "receipt",
+          "text": "Ascendient charges $3k/seat. July 14 it's your desk.",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "mistakes": 0,
+            "deprivation-moment": 0.06,
+            "halbert-a-pile": 0,
+            "number-outcome-time": 0.86,
+            "adjective-good": 0,
+            "call-out": 0.04,
+            "receipt": 0.04,
+            "how-to-without": 0,
+            "damaging-admission": 0
+          }
+        },
+        {
+          "id": "h58",
+          "formula": "damaging-admission",
+          "text": "See week one before you're committed — that's the trial",
+          "choice": "how-to-without",
+          "probabilities": {
+            "halbert-a-pile": 0,
+            "mistakes": 0.15,
+            "number-outcome-time": 0.1,
+            "adjective-good": 0,
+            "damaging-admission": 0,
+            "call-out": 0,
+            "receipt": 0,
+            "deprivation-moment": 0.04,
+            "how-to-without": 0.71
+          }
+        },
+        {
+          "id": "h59",
+          "formula": "number-outcome-time",
+          "text": "Wednesday he builds one live — on a real document",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "call-out": 0,
+            "deprivation-moment": 0.12,
+            "damaging-admission": 0,
+            "number-outcome-time": 0.68,
+            "how-to-without": 0.08,
+            "receipt": 0.1,
+            "halbert-a-pile": 0,
+            "adjective-good": 0.01,
+            "mistakes": 0
+          }
+        },
+        {
+          "id": "h60",
+          "formula": "how-to-without",
+          "text": "Stop reading 40-page reports. Get a 1-page brief.",
+          "choice": "how-to-without",
+          "probabilities": {
+            "receipt": 0,
+            "number-outcome-time": 0.01,
+            "how-to-without": 0.91,
+            "deprivation-moment": 0,
+            "call-out": 0,
+            "mistakes": 0.07,
+            "adjective-good": 0,
+            "halbert-a-pile": 0.01,
+            "damaging-admission": 0
+          }
+        },
+        {
+          "id": "h61",
+          "formula": "deprivation-moment",
+          "text": "Sunday 9:47pm — still alone before Monday's room?",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "adjective-good": 0,
+            "number-outcome-time": 0.01,
+            "mistakes": 0,
+            "halbert-a-pile": 0,
+            "receipt": 0.02,
+            "call-out": 0.31,
+            "damaging-admission": 0.01,
+            "deprivation-moment": 0.65,
+            "how-to-without": 0
+          }
+        },
+        {
+          "id": "h62",
+          "formula": "number-outcome-time",
+          "text": "Linda: 17 tabs → 1 brief",
+          "choice": "how-to-without",
+          "probabilities": {
+            "adjective-good": 0,
+            "number-outcome-time": 0.34,
+            "deprivation-moment": 0.04,
+            "damaging-admission": 0.01,
+            "mistakes": 0,
+            "how-to-without": 0.43,
+            "call-out": 0,
+            "halbert-a-pile": 0.17,
+            "receipt": 0.01
+          }
+        },
+        {
+          "id": "h63",
+          "formula": "number-outcome-time",
+          "text": "Email 30 min → 2 min",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "damaging-admission": 0,
+            "adjective-good": 0,
+            "call-out": 0,
+            "receipt": 0,
+            "deprivation-moment": 0,
+            "how-to-without": 0.02,
+            "number-outcome-time": 0.98,
+            "halbert-a-pile": 0,
+            "mistakes": 0
+          }
+        },
+        {
+          "id": "h64",
+          "formula": "number-outcome-time",
+          "text": "Deck 2 hr → 30 min",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "adjective-good": 0,
+            "number-outcome-time": 0.98,
+            "how-to-without": 0.02,
+            "deprivation-moment": 0,
+            "mistakes": 0,
+            "call-out": 0,
+            "receipt": 0,
+            "halbert-a-pile": 0,
+            "damaging-admission": 0
+          }
+        },
+        {
+          "id": "h65",
+          "formula": "deprivation-moment",
+          "text": "Week three: stop opening ChatGPT in incognito",
+          "choice": "mistakes",
+          "probabilities": {
+            "call-out": 0,
+            "deprivation-moment": 0,
+            "number-outcome-time": 0.03,
+            "receipt": 0,
+            "damaging-admission": 0.01,
+            "how-to-without": 0.01,
+            "mistakes": 0.95,
+            "halbert-a-pile": 0,
+            "adjective-good": 0
+          }
+        },
+        {
+          "id": "h66",
+          "formula": "adjective-good",
+          "text": "Furnished room, not another empty chat tab",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "deprivation-moment": 0.34,
+            "damaging-admission": 0.01,
+            "halbert-a-pile": 0.01,
+            "number-outcome-time": 0,
+            "how-to-without": 0.1,
+            "adjective-good": 0.15,
+            "call-out": 0.11,
+            "receipt": 0,
+            "mistakes": 0.28
+          }
+        },
+        {
+          "id": "h67",
+          "formula": "receipt",
+          "text": "Citations you can defend in Monday's room",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "number-outcome-time": 0.07,
+            "receipt": 0.19,
+            "how-to-without": 0.03,
+            "call-out": 0.32,
+            "damaging-admission": 0,
+            "adjective-good": 0.03,
+            "deprivation-moment": 0.34,
+            "halbert-a-pile": 0,
+            "mistakes": 0.02
+          }
+        },
+        {
+          "id": "h68",
+          "formula": "mistakes",
+          "text": "Approve before embarrass — every send",
+          "choice": "mistakes",
+          "probabilities": {
+            "halbert-a-pile": 0,
+            "how-to-without": 0.01,
+            "mistakes": 0.99,
+            "receipt": 0,
+            "damaging-admission": 0,
+            "adjective-good": 0,
+            "number-outcome-time": 0,
+            "call-out": 0,
+            "deprivation-moment": 0
+          }
+        },
+        {
+          "id": "h69",
+          "formula": "number-outcome-time",
+          "text": "Sarah: client proposal 6 hr → 90 min",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "number-outcome-time": 0.95,
+            "damaging-admission": 0,
+            "deprivation-moment": 0,
+            "mistakes": 0,
+            "halbert-a-pile": 0,
+            "adjective-good": 0,
+            "how-to-without": 0.05,
+            "receipt": 0,
+            "call-out": 0
+          }
+        },
+        {
+          "id": "h70",
+          "formula": "number-outcome-time",
+          "text": "Maya: board-pack 6 hr → 90 min",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "adjective-good": 0,
+            "halbert-a-pile": 0,
+            "call-out": 0,
+            "damaging-admission": 0,
+            "how-to-without": 0.05,
+            "mistakes": 0,
+            "receipt": 0,
+            "deprivation-moment": 0,
+            "number-outcome-time": 0.95
+          }
+        },
+        {
+          "id": "h71",
+          "formula": "deprivation-moment",
+          "text": "Tuesday stops starting from zero",
+          "choice": "how-to-without",
+          "probabilities": {
+            "adjective-good": 0,
+            "number-outcome-time": 0.01,
+            "deprivation-moment": 0.07,
+            "damaging-admission": 0,
+            "mistakes": 0.03,
+            "how-to-without": 0.88,
+            "call-out": 0.01,
+            "receipt": 0,
+            "halbert-a-pile": 0
+          }
+        },
+        {
+          "id": "h72",
+          "formula": "how-to-without",
+          "text": "Stop prompt lottery. Load the room.",
+          "choice": "mistakes",
+          "probabilities": {
+            "deprivation-moment": 0.06,
+            "damaging-admission": 0,
+            "number-outcome-time": 0,
+            "adjective-good": 0,
+            "mistakes": 0.53,
+            "how-to-without": 0.36,
+            "call-out": 0.02,
+            "receipt": 0,
+            "halbert-a-pile": 0.03
+          }
+        },
+        {
+          "id": "h73",
+          "formula": "call-out",
+          "text": "The login your compliance person can nod at",
+          "choice": "call-out",
+          "probabilities": {
+            "how-to-without": 0.03,
+            "damaging-admission": 0,
+            "mistakes": 0,
+            "halbert-a-pile": 0,
+            "receipt": 0.01,
+            "number-outcome-time": 0,
+            "call-out": 0.78,
+            "deprivation-moment": 0.04,
+            "adjective-good": 0.14
+          }
+        },
+        {
+          "id": "h74",
+          "formula": "call-out",
+          "text": "Generic AI voice? Not in this house.",
+          "choice": "mistakes",
+          "probabilities": {
+            "receipt": 0,
+            "damaging-admission": 0,
+            "deprivation-moment": 0.01,
+            "adjective-good": 0.03,
+            "how-to-without": 0.04,
+            "mistakes": 0.73,
+            "halbert-a-pile": 0,
+            "call-out": 0.19,
+            "number-outcome-time": 0
+          }
+        },
+        {
+          "id": "h75",
+          "formula": "call-out",
+          "text": "Your client doc is the mat — two black belts, live Tuesday",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "deprivation-moment": 0.02,
+            "call-out": 0.12,
+            "mistakes": 0,
+            "number-outcome-time": 0.75,
+            "halbert-a-pile": 0.01,
+            "damaging-admission": 0,
+            "how-to-without": 0.01,
+            "adjective-good": 0.01,
+            "receipt": 0.08
+          }
+        },
+        {
+          "id": "h76",
+          "formula": "how-to-without",
+          "text": "Governed send path needs running buddies, not solo tabs",
+          "choice": "mistakes",
+          "probabilities": {
+            "how-to-without": 0.03,
+            "number-outcome-time": 0,
+            "receipt": 0,
+            "mistakes": 0.9,
+            "call-out": 0.060000000000000005,
+            "damaging-admission": 0,
+            "halbert-a-pile": 0,
+            "adjective-good": 0,
+            "deprivation-moment": 0.01
+          }
+        },
+        {
+          "id": "h77",
+          "formula": "deprivation-moment",
+          "text": "Scar tissue from solo AI — drill on your real doc Friday",
+          "choice": "mistakes",
+          "probabilities": {
+            "how-to-without": 0.09,
+            "call-out": 0.04,
+            "deprivation-moment": 0.18,
+            "damaging-admission": 0.15,
+            "number-outcome-time": 0.03,
+            "adjective-good": 0,
+            "receipt": 0.01,
+            "halbert-a-pile": 0,
+            "mistakes": 0.5
+          }
+        },
+        {
+          "id": "h78",
+          "formula": "deprivation-moment",
+          "text": "It's a dojo, not a solo climb — 11pm desk",
+          "choice": "mistakes",
+          "probabilities": {
+            "receipt": 0,
+            "damaging-admission": 0,
+            "deprivation-moment": 0.03,
+            "how-to-without": 0.12,
+            "adjective-good": 0,
+            "mistakes": 0.72,
+            "halbert-a-pile": 0,
+            "call-out": 0.09,
+            "number-outcome-time": 0.04
+          }
+        },
+        {
+          "id": "h79",
+          "formula": "deprivation-moment",
+          "text": "The reflex before you open the generic ChatGPT tab",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "call-out": 0.09,
+            "deprivation-moment": 0.45,
+            "adjective-good": 0,
+            "how-to-without": 0.13,
+            "mistakes": 0.32,
+            "halbert-a-pile": 0,
+            "receipt": 0,
+            "damaging-admission": 0.01,
+            "number-outcome-time": 0
+          }
+        },
+        {
+          "id": "h80",
+          "formula": "adjective-good",
+          "text": "That Monday chore? Schedule it and walk.",
+          "choice": "how-to-without",
+          "probabilities": {
+            "adjective-good": 0,
+            "deprivation-moment": 0.05,
+            "number-outcome-time": 0.01,
+            "damaging-admission": 0,
+            "mistakes": 0,
+            "how-to-without": 0.83,
+            "call-out": 0.11,
+            "receipt": 0,
+            "halbert-a-pile": 0
+          }
+        }
+      ]
+    },
+    "v2": {
+      "ranAt": "2026-09-21T21:27:13.880Z",
+      "question": {
+        "instructions": "Which single mechanism does this marketing hook rely on most?",
+        "criteria": {
+          "deprivation-moment": "Evokes a specific, recognisable moment of the reader's current frustration or loss — a late-night desk, a Sunday rewrite, a tab closed in defeat, the fear of being left behind — as a scene, a pointed question, or a short aphorism, without offering a method, a number or proof.",
+          "number-outcome-time": "Carries its payload in figures: a before→after transformation (\"6 hr → 90 min\", \"17 tabs → 1 brief\"), a price, a count of seats or files, a duration, or a named deadline or day.",
+          "call-out": "Tells a particular kind of reader \"this is for you\": names the audience (\"For solo consultants:\"), greets them personally (\"[NAME] —\"), or positions the reader against what others do or offer (\"They demo cats. You need your deck read.\").",
+          "how-to-without": "Promises the desired result while removing a cost, effort or prerequisite — \"how to X without Y\", or an imperative swap that drops the old burden for the new outcome (\"Stop reading 40-page reports. Get a 1-page brief.\", \"You don't need another course — you need…\").",
+          "halbert-a-pile": "Reads like a personal email subject line from someone the reader knows: a short, usually lowercase fragment referring to a specific shared item (\"re: the deck you sent Thursday\", \"that clause on page 12\"), with no visible pitch, offer or selling language.",
+          "damaging-admission": "Volunteers something unflattering or risky up front: an admission that something failed or was not enough, a disclosed limitation (\"AI is in the mix\"), a concession that the reader may walk away (\"if week one flops, you walk\"), or what an unhappy customer said.",
+          "adjective-good": "Names the offer itself as a characterful thing with an evaluative adjective or image (\"A free AI win\", \"The lazy proposal-reader\", \"Furnished room, not another empty chat tab\"), selling by how the thing is described rather than by numbers, method or proof.",
+          "mistakes": "Warns that the reader is doing something wrong or falling behind: named mistakes or bad habits, an error they may have missed, or a warning that others have already moved on without them.",
+          "receipt": "Points to proof or credentials instead of making a claim: a receipt, citations, a comparison with an elite or named benchmark (a Fortune 500 standard, a named competitor and its price), or evidence already earned."
+        }
+      },
+      "score": {
+        "n": 80,
+        "correct": 58,
+        "accuracy": 0.725,
+        "macroRecall": 0.7611,
+        "perClass": {
+          "number-outcome-time": {
+            "n": 15,
+            "correct": 15,
+            "recall": 1,
+            "insufficientData": false
+          },
+          "receipt": {
+            "n": 4,
+            "correct": 3,
+            "recall": 0.75,
+            "insufficientData": true
+          },
+          "damaging-admission": {
+            "n": 5,
+            "correct": 4,
+            "recall": 0.8,
+            "insufficientData": true
+          },
+          "deprivation-moment": {
+            "n": 21,
+            "correct": 13,
+            "recall": 0.619,
+            "insufficientData": false
+          },
+          "adjective-good": {
+            "n": 5,
+            "correct": 4,
+            "recall": 0.8,
+            "insufficientData": true
+          },
+          "mistakes": {
+            "n": 5,
+            "correct": 5,
+            "recall": 1,
+            "insufficientData": true
+          },
+          "how-to-without": {
+            "n": 7,
+            "correct": 5,
+            "recall": 0.7143,
+            "insufficientData": true
+          },
+          "call-out": {
+            "n": 12,
+            "correct": 4,
+            "recall": 0.3333,
+            "insufficientData": false
+          },
+          "halbert-a-pile": {
+            "n": 6,
+            "correct": 5,
+            "recall": 0.8333,
+            "insufficientData": true
+          }
+        }
+      },
+      "errors": 1,
+      "meanEntropy": 0.2461,
+      "cost": {
+        "totalUsd": null,
+        "byModel": {}
+      },
+      "telemetry": {
+        "completed": 79,
+        "failed": 1,
+        "retried": [],
+        "p50": 115,
+        "p95": 224,
+        "tokens": 72348,
+        "dollars": 0.00304,
+        "drift": [
+          "1 items produced no answer and are excluded from every rate below"
+        ]
+      },
+      "wallClockMs": 2655,
+      "preds": [
+        {
+          "id": "h01",
+          "formula": "number-outcome-time",
+          "text": "Companies pay $3,000 a seat for this. Once, it's $499.",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "receipt": 0.14,
+            "damaging-admission": 0,
+            "deprivation-moment": 0,
+            "halbert-a-pile": 0,
+            "number-outcome-time": 0.86,
+            "mistakes": 0,
+            "how-to-without": 0,
+            "call-out": 0,
+            "adjective-good": 0
+          }
+        },
+        {
+          "id": "h02",
+          "formula": "receipt",
+          "text": "The one pitch I'll send this list all year — and the receipt that earned it",
+          "choice": "receipt",
+          "probabilities": {
+            "adjective-good": 0,
+            "mistakes": 0,
+            "halbert-a-pile": 0,
+            "receipt": 0.99,
+            "how-to-without": 0,
+            "call-out": 0,
+            "number-outcome-time": 0.01,
+            "damaging-admission": 0,
+            "deprivation-moment": 0
+          }
+        },
+        {
+          "id": "h03",
+          "formula": "damaging-admission",
+          "text": "What a logistics C-suite told Manu after they'd already paid",
+          "choice": "damaging-admission",
+          "probabilities": {
+            "damaging-admission": 0.54,
+            "adjective-good": 0,
+            "deprivation-moment": 0.08,
+            "how-to-without": 0.01,
+            "mistakes": 0.03,
+            "number-outcome-time": 0,
+            "receipt": 0.17,
+            "call-out": 0.11,
+            "halbert-a-pile": 0.05
+          }
+        },
+        {
+          "id": "h04",
+          "formula": "deprivation-moment",
+          "text": "that proposal you rewrote Sunday night",
+          "choice": "halbert-a-pile",
+          "probabilities": {
+            "damaging-admission": 0,
+            "adjective-good": 0,
+            "receipt": 0,
+            "call-out": 0,
+            "deprivation-moment": 0.15,
+            "how-to-without": 0,
+            "halbert-a-pile": 0.84,
+            "number-outcome-time": 0.01,
+            "mistakes": 0
+          }
+        },
+        {
+          "id": "h05",
+          "formula": "number-outcome-time",
+          "text": "Try this on one of your own documents — takes five minutes",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "mistakes": 0,
+            "how-to-without": 0.03,
+            "call-out": 0.03,
+            "adjective-good": 0,
+            "receipt": 0,
+            "halbert-a-pile": 0,
+            "deprivation-moment": 0,
+            "damaging-admission": 0,
+            "number-outcome-time": 0.94
+          }
+        },
+        {
+          "id": "h06",
+          "formula": "adjective-good",
+          "text": "A free AI win you can do before lunch today",
+          "choice": "adjective-good",
+          "probabilities": {
+            "halbert-a-pile": 0,
+            "number-outcome-time": 0.27,
+            "receipt": 0,
+            "damaging-admission": 0,
+            "mistakes": 0,
+            "how-to-without": 0.02,
+            "adjective-good": 0.71,
+            "call-out": 0,
+            "deprivation-moment": 0
+          }
+        },
+        {
+          "id": "h07",
+          "formula": "deprivation-moment",
+          "text": "Remember learning SEO when Google was brand new?",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "damaging-admission": 0,
+            "call-out": 0.06,
+            "how-to-without": 0,
+            "receipt": 0.02,
+            "mistakes": 0.01,
+            "adjective-good": 0,
+            "number-outcome-time": 0,
+            "halbert-a-pile": 0.16,
+            "deprivation-moment": 0.75
+          }
+        },
+        {
+          "id": "h08",
+          "formula": "mistakes",
+          "text": "The people who moved early on this are already gone",
+          "choice": "mistakes",
+          "probabilities": {
+            "mistakes": 0.88,
+            "damaging-admission": 0,
+            "call-out": 0,
+            "deprivation-moment": 0.12,
+            "number-outcome-time": 0,
+            "how-to-without": 0,
+            "receipt": 0,
+            "adjective-good": 0,
+            "halbert-a-pile": 0
+          }
+        },
+        {
+          "id": "h09",
+          "formula": "number-outcome-time",
+          "text": "12 seats left before Tuesday — then it closes",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "adjective-good": 0,
+            "receipt": 0,
+            "damaging-admission": 0,
+            "halbert-a-pile": 0,
+            "deprivation-moment": 0,
+            "call-out": 0,
+            "mistakes": 0,
+            "how-to-without": 0,
+            "number-outcome-time": 1
+          }
+        },
+        {
+          "id": "h10",
+          "formula": "number-outcome-time",
+          "text": "Last call: CETI Silver closes Tuesday, price goes up after",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "deprivation-moment": 0.05,
+            "damaging-admission": 0,
+            "adjective-good": 0,
+            "number-outcome-time": 0.94,
+            "mistakes": 0.01,
+            "how-to-without": 0,
+            "call-out": 0,
+            "receipt": 0,
+            "halbert-a-pile": 0
+          }
+        },
+        {
+          "id": "h11",
+          "formula": "number-outcome-time",
+          "text": "Get 5 to 10 hours a week back — in six weeks",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "adjective-good": 0,
+            "halbert-a-pile": 0,
+            "how-to-without": 0,
+            "damaging-admission": 0,
+            "call-out": 0,
+            "mistakes": 0,
+            "receipt": 0,
+            "deprivation-moment": 0,
+            "number-outcome-time": 1
+          }
+        },
+        {
+          "id": "h12",
+          "formula": "how-to-without",
+          "text": "How to put AI on your docs without six months of trial and error",
+          "choice": "how-to-without",
+          "probabilities": {
+            "receipt": 0,
+            "damaging-admission": 0,
+            "deprivation-moment": 0,
+            "mistakes": 0,
+            "how-to-without": 1,
+            "adjective-good": 0,
+            "halbert-a-pile": 0,
+            "call-out": 0,
+            "number-outcome-time": 0
+          }
+        },
+        {
+          "id": "h13",
+          "formula": "call-out",
+          "text": "For solo consultants: six weeks, $499, your own proposals",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "adjective-good": 0,
+            "number-outcome-time": 0.84,
+            "call-out": 0.16,
+            "receipt": 0,
+            "halbert-a-pile": 0,
+            "damaging-admission": 0,
+            "deprivation-moment": 0,
+            "how-to-without": 0,
+            "mistakes": 0
+          }
+        },
+        {
+          "id": "h14",
+          "formula": "deprivation-moment",
+          "text": "You don't get replaced by the sword",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "halbert-a-pile": 0,
+            "damaging-admission": 0,
+            "deprivation-moment": 0.5,
+            "mistakes": 0.17,
+            "call-out": 0.02,
+            "adjective-good": 0.01,
+            "number-outcome-time": 0,
+            "how-to-without": 0.3,
+            "receipt": 0
+          }
+        },
+        {
+          "id": "h15",
+          "formula": "deprivation-moment",
+          "text": "The wave doesn't wait for anyone",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "mistakes": 0.23,
+            "damaging-admission": 0,
+            "deprivation-moment": 0.77,
+            "how-to-without": 0,
+            "number-outcome-time": 0,
+            "call-out": 0,
+            "receipt": 0,
+            "halbert-a-pile": 0,
+            "adjective-good": 0
+          }
+        },
+        {
+          "id": "h16",
+          "formula": "deprivation-moment",
+          "text": "Remember SEO when Google was new?",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "halbert-a-pile": 0.13,
+            "mistakes": 0.01,
+            "adjective-good": 0,
+            "number-outcome-time": 0,
+            "receipt": 0,
+            "call-out": 0.03,
+            "damaging-admission": 0,
+            "deprivation-moment": 0.83,
+            "how-to-without": 0
+          }
+        },
+        {
+          "id": "h17",
+          "formula": "number-outcome-time",
+          "text": "Six weeks to get 5 hours back on your own proposals",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "call-out": 0,
+            "receipt": 0,
+            "halbert-a-pile": 0,
+            "adjective-good": 0,
+            "damaging-admission": 0,
+            "how-to-without": 0,
+            "mistakes": 0,
+            "number-outcome-time": 0.99,
+            "deprivation-moment": 0.01
+          }
+        },
+        {
+          "id": "h18",
+          "formula": "mistakes",
+          "text": "4 mistakes keeping your AI tab closed while the desk fills",
+          "choice": "mistakes",
+          "probabilities": {
+            "call-out": 0,
+            "receipt": 0,
+            "halbert-a-pile": 0,
+            "adjective-good": 0,
+            "damaging-admission": 0,
+            "how-to-without": 0,
+            "mistakes": 0.9,
+            "number-outcome-time": 0,
+            "deprivation-moment": 0.1
+          }
+        },
+        {
+          "id": "h19",
+          "formula": "adjective-good",
+          "text": "The lazy proposal-reader that runs in 4 minutes",
+          "choice": "adjective-good",
+          "probabilities": {
+            "receipt": 0,
+            "mistakes": 0,
+            "damaging-admission": 0,
+            "number-outcome-time": 0.29,
+            "how-to-without": 0.01,
+            "call-out": 0.02,
+            "deprivation-moment": 0,
+            "halbert-a-pile": 0,
+            "adjective-good": 0.68
+          }
+        },
+        {
+          "id": "h20",
+          "formula": "how-to-without",
+          "text": "How to ship AI on client docs without losing your voice, even if you're not technical",
+          "choice": "how-to-without",
+          "probabilities": {
+            "adjective-good": 0,
+            "halbert-a-pile": 0,
+            "call-out": 0,
+            "damaging-admission": 0,
+            "how-to-without": 1,
+            "receipt": 0,
+            "mistakes": 0,
+            "deprivation-moment": 0,
+            "number-outcome-time": 0
+          }
+        },
+        {
+          "id": "h21",
+          "formula": "call-out",
+          "text": "For freelance devs: stop donating Sundays to rewrites",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "adjective-good": 0,
+            "deprivation-moment": 0.49,
+            "number-outcome-time": 0.01,
+            "damaging-admission": 0,
+            "mistakes": 0.04,
+            "how-to-without": 0.22,
+            "call-out": 0.24,
+            "receipt": 0,
+            "halbert-a-pile": 0
+          }
+        },
+        {
+          "id": "h22",
+          "formula": "deprivation-moment",
+          "text": "It's 11pm. You're finishing the document you told yourself you'd start at 9am. AI was supposed to make this the easy part. It's still the part keeping you at the desk.",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "receipt": 0,
+            "how-to-without": 0,
+            "number-outcome-time": 0,
+            "damaging-admission": 0.01,
+            "halbert-a-pile": 0,
+            "mistakes": 0,
+            "deprivation-moment": 0.99,
+            "adjective-good": 0,
+            "call-out": 0
+          }
+        },
+        {
+          "id": "h23",
+          "formula": "deprivation-moment",
+          "text": "You opened an AI tab this month, got a wall of text, and closed it. The work still sits on your desk.",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "receipt": 0,
+            "deprivation-moment": 1,
+            "halbert-a-pile": 0,
+            "number-outcome-time": 0,
+            "damaging-admission": 0,
+            "adjective-good": 0,
+            "how-to-without": 0,
+            "mistakes": 0,
+            "call-out": 0
+          }
+        },
+        {
+          "id": "h24",
+          "formula": "call-out",
+          "text": "[NAME] — random question. That proposal you grind through every month: still building it by hand?",
+          "choice": "halbert-a-pile",
+          "probabilities": {
+            "halbert-a-pile": 0.37,
+            "number-outcome-time": 0,
+            "adjective-good": 0,
+            "mistakes": 0.01,
+            "receipt": 0,
+            "call-out": 0.3,
+            "damaging-admission": 0,
+            "deprivation-moment": 0.32,
+            "how-to-without": 0
+          }
+        },
+        {
+          "id": "h25",
+          "formula": "deprivation-moment",
+          "text": "6 proposals before lunch — one of them is yours",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "how-to-without": 0,
+            "adjective-good": 0,
+            "deprivation-moment": 0,
+            "mistakes": 0,
+            "halbert-a-pile": 0,
+            "damaging-admission": 0,
+            "number-outcome-time": 0.97,
+            "call-out": 0.03,
+            "receipt": 0
+          }
+        },
+        {
+          "id": "h26",
+          "formula": "call-out",
+          "text": "Marcus: 14 extensions due Monday, staff still copy-pasting",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "receipt": 0,
+            "call-out": 0,
+            "mistakes": 0.06,
+            "deprivation-moment": 0.05,
+            "halbert-a-pile": 0.08,
+            "number-outcome-time": 0.81,
+            "damaging-admission": 0,
+            "how-to-without": 0,
+            "adjective-good": 0
+          }
+        },
+        {
+          "id": "h27",
+          "formula": "deprivation-moment",
+          "text": "Linda Googled Claude under the table — sound familiar?",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "receipt": 0.02,
+            "damaging-admission": 0.01,
+            "mistakes": 0.07,
+            "deprivation-moment": 0.71,
+            "adjective-good": 0,
+            "number-outcome-time": 0,
+            "how-to-without": 0,
+            "halbert-a-pile": 0.07,
+            "call-out": 0.12
+          }
+        },
+        {
+          "id": "h28",
+          "formula": "deprivation-moment",
+          "text": "Maya: that quick favor became a 12-slide appendix",
+          "choice": "halbert-a-pile",
+          "probabilities": {
+            "number-outcome-time": 0.27,
+            "how-to-without": 0,
+            "adjective-good": 0,
+            "halbert-a-pile": 0.43,
+            "damaging-admission": 0.1,
+            "deprivation-moment": 0.2,
+            "mistakes": 0,
+            "receipt": 0,
+            "call-out": 0
+          }
+        },
+        {
+          "id": "h29",
+          "formula": "number-outcome-time",
+          "text": "Your contract in 90 sec — 3 risky clauses flagged",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "number-outcome-time": 0.81,
+            "how-to-without": 0,
+            "adjective-good": 0,
+            "damaging-admission": 0,
+            "halbert-a-pile": 0,
+            "mistakes": 0.19,
+            "deprivation-moment": 0,
+            "receipt": 0,
+            "call-out": 0
+          }
+        },
+        {
+          "id": "h30",
+          "formula": "number-outcome-time",
+          "text": "47-email thread → one memo you keep",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "adjective-good": 0,
+            "halbert-a-pile": 0,
+            "how-to-without": 0,
+            "damaging-admission": 0,
+            "call-out": 0,
+            "receipt": 0,
+            "mistakes": 0,
+            "deprivation-moment": 0,
+            "number-outcome-time": 1
+          }
+        },
+        {
+          "id": "h31",
+          "formula": "how-to-without",
+          "text": "Your team sounds like 6 writers — lock one voice",
+          "choice": "mistakes",
+          "probabilities": {
+            "call-out": 0.08,
+            "halbert-a-pile": 0.02,
+            "receipt": 0,
+            "adjective-good": 0,
+            "damaging-admission": 0.03,
+            "how-to-without": 0.03,
+            "mistakes": 0.55,
+            "number-outcome-time": 0.2,
+            "deprivation-moment": 0.09
+          }
+        },
+        {
+          "id": "h32",
+          "formula": "how-to-without",
+          "text": "You don't need another course — you need 5 tools that stay",
+          "choice": "how-to-without",
+          "probabilities": {
+            "halbert-a-pile": 0,
+            "damaging-admission": 0,
+            "mistakes": 0,
+            "adjective-good": 0,
+            "number-outcome-time": 0,
+            "deprivation-moment": 0,
+            "how-to-without": 1,
+            "call-out": 0,
+            "receipt": 0
+          }
+        },
+        {
+          "id": "h33",
+          "formula": "number-outcome-time",
+          "text": "$499 — five work files you keep, not tuition",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "deprivation-moment": 0,
+            "damaging-admission": 0,
+            "number-outcome-time": 0.51,
+            "adjective-good": 0.01,
+            "mistakes": 0,
+            "receipt": 0,
+            "call-out": 0,
+            "how-to-without": 0.48,
+            "halbert-a-pile": 0
+          }
+        },
+        {
+          "id": "h34",
+          "formula": "adjective-good",
+          "text": "The buyer who kills deals — on your side before you pitch",
+          "choice": "adjective-good",
+          "probabilities": {
+            "number-outcome-time": 0,
+            "damaging-admission": 0.01,
+            "mistakes": 0.3,
+            "deprivation-moment": 0.1,
+            "halbert-a-pile": 0,
+            "adjective-good": 0.37,
+            "how-to-without": 0,
+            "receipt": 0,
+            "call-out": 0.22
+          }
+        },
+        {
+          "id": "h35",
+          "formula": "mistakes",
+          "text": "Signed a clause you missed? 90-sec reader catches it first",
+          "choice": "mistakes",
+          "probabilities": {
+            "halbert-a-pile": 0,
+            "number-outcome-time": 0.29,
+            "receipt": 0,
+            "damaging-admission": 0,
+            "mistakes": 0.67,
+            "how-to-without": 0,
+            "adjective-good": 0,
+            "call-out": 0,
+            "deprivation-moment": 0.04
+          }
+        },
+        {
+          "id": "h36",
+          "formula": "deprivation-moment",
+          "text": "Still rewriting the same memo 3 times?",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "halbert-a-pile": 0,
+            "mistakes": 0.06,
+            "adjective-good": 0,
+            "receipt": 0,
+            "how-to-without": 0,
+            "damaging-admission": 0,
+            "number-outcome-time": 0.01,
+            "call-out": 0,
+            "deprivation-moment": 0.93
+          }
+        },
+        {
+          "id": "h37",
+          "formula": "deprivation-moment",
+          "text": "Are you using AI on my project?",
+          "choice": "halbert-a-pile",
+          "probabilities": {
+            "receipt": 0,
+            "damaging-admission": 0.28,
+            "deprivation-moment": 0.21,
+            "mistakes": 0.01,
+            "adjective-good": 0,
+            "how-to-without": 0,
+            "halbert-a-pile": 0.38,
+            "call-out": 0.12,
+            "number-outcome-time": 0
+          }
+        },
+        {
+          "id": "h38",
+          "formula": "deprivation-moment",
+          "text": "This proposal sounds like last week's",
+          "choice": "halbert-a-pile",
+          "probabilities": {
+            "deprivation-moment": 0.07,
+            "number-outcome-time": 0.04,
+            "damaging-admission": 0.25,
+            "call-out": 0.01,
+            "halbert-a-pile": 0.43,
+            "how-to-without": 0,
+            "adjective-good": 0.01,
+            "receipt": 0,
+            "mistakes": 0.19
+          }
+        },
+        {
+          "id": "h39",
+          "formula": "call-out",
+          "text": "I bill deliverables — not another course",
+          "choice": "how-to-without",
+          "probabilities": {
+            "receipt": 0,
+            "call-out": 0.02,
+            "halbert-a-pile": 0,
+            "deprivation-moment": 0,
+            "mistakes": 0,
+            "number-outcome-time": 0,
+            "damaging-admission": 0,
+            "how-to-without": 0.97,
+            "adjective-good": 0.01
+          }
+        },
+        {
+          "id": "h40",
+          "formula": "damaging-admission",
+          "text": "We tried ChatGPT on our docs. It wasn't enough.",
+          "choice": "damaging-admission",
+          "probabilities": {
+            "mistakes": 0,
+            "adjective-good": 0,
+            "damaging-admission": 1,
+            "receipt": 0,
+            "call-out": 0,
+            "number-outcome-time": 0,
+            "halbert-a-pile": 0,
+            "how-to-without": 0,
+            "deprivation-moment": 0
+          }
+        },
+        {
+          "id": "h41",
+          "formula": "damaging-admission",
+          "text": "AI is in the mix — clients pay for the finished brief",
+          "choice": "damaging-admission",
+          "probabilities": {
+            "receipt": 0,
+            "adjective-good": 0,
+            "halbert-a-pile": 0,
+            "deprivation-moment": 0,
+            "call-out": 0,
+            "number-outcome-time": 0.01,
+            "damaging-admission": 0.91,
+            "how-to-without": 0.08,
+            "mistakes": 0
+          }
+        },
+        {
+          "id": "h42",
+          "formula": "deprivation-moment",
+          "text": "How do you price work when AI did part of the lift?",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "adjective-good": 0,
+            "receipt": 0,
+            "damaging-admission": 0.25,
+            "deprivation-moment": 0.64,
+            "halbert-a-pile": 0,
+            "call-out": 0.01,
+            "mistakes": 0,
+            "how-to-without": 0.1,
+            "number-outcome-time": 0
+          }
+        },
+        {
+          "id": "h43",
+          "formula": "halbert-a-pile",
+          "text": "that clause on page 12",
+          "choice": "halbert-a-pile",
+          "probabilities": {
+            "deprivation-moment": 0,
+            "damaging-admission": 0,
+            "how-to-without": 0,
+            "number-outcome-time": 0,
+            "halbert-a-pile": 1,
+            "call-out": 0,
+            "adjective-good": 0,
+            "receipt": 0,
+            "mistakes": 0
+          }
+        },
+        {
+          "id": "h44",
+          "formula": "halbert-a-pile",
+          "text": "re: the deck you sent Thursday",
+          "choice": "halbert-a-pile",
+          "probabilities": {
+            "deprivation-moment": 0,
+            "number-outcome-time": 0,
+            "damaging-admission": 0,
+            "call-out": 0,
+            "halbert-a-pile": 1,
+            "how-to-without": 0,
+            "adjective-good": 0,
+            "receipt": 0,
+            "mistakes": 0
+          }
+        },
+        {
+          "id": "h45",
+          "formula": "halbert-a-pile",
+          "text": "wrong question about AI",
+          "choice": "mistakes",
+          "probabilities": {
+            "deprivation-moment": 0.02,
+            "mistakes": 0.96,
+            "call-out": 0,
+            "number-outcome-time": 0,
+            "halbert-a-pile": 0,
+            "receipt": 0,
+            "how-to-without": 0,
+            "adjective-good": 0,
+            "damaging-admission": 0.02
+          }
+        },
+        {
+          "id": "h46",
+          "formula": "halbert-a-pile",
+          "text": "you were right about the deck",
+          "choice": "halbert-a-pile",
+          "probabilities": {
+            "call-out": 0,
+            "receipt": 0.03,
+            "halbert-a-pile": 0.95,
+            "adjective-good": 0,
+            "damaging-admission": 0.02,
+            "how-to-without": 0,
+            "mistakes": 0,
+            "number-outcome-time": 0,
+            "deprivation-moment": 0
+          }
+        },
+        {
+          "id": "h47",
+          "formula": "halbert-a-pile",
+          "text": "that thread from last March",
+          "choice": "halbert-a-pile",
+          "probabilities": {
+            "how-to-without": 0,
+            "call-out": 0,
+            "deprivation-moment": 0,
+            "damaging-admission": 0,
+            "number-outcome-time": 0,
+            "adjective-good": 0,
+            "receipt": 0,
+            "halbert-a-pile": 1,
+            "mistakes": 0
+          }
+        },
+        {
+          "id": "h48",
+          "formula": "halbert-a-pile",
+          "text": "your voice on page 3",
+          "choice": "halbert-a-pile",
+          "probabilities": {
+            "receipt": 0.08,
+            "deprivation-moment": 0,
+            "halbert-a-pile": 0.83,
+            "how-to-without": 0,
+            "damaging-admission": 0,
+            "mistakes": 0,
+            "number-outcome-time": 0.05,
+            "adjective-good": 0,
+            "call-out": 0.04
+          }
+        },
+        {
+          "id": "h49",
+          "formula": "damaging-admission",
+          "text": "if week one flops, you walk — no form",
+          "choice": "damaging-admission",
+          "probabilities": {
+            "how-to-without": 0.02,
+            "damaging-admission": 0.96,
+            "adjective-good": 0,
+            "receipt": 0,
+            "mistakes": 0,
+            "number-outcome-time": 0.02,
+            "call-out": 0,
+            "deprivation-moment": 0,
+            "halbert-a-pile": 0
+          }
+        },
+        {
+          "id": "h50",
+          "formula": "mistakes",
+          "text": "For consultants: 3 YouTube habits, proposal still mush",
+          "choice": "mistakes",
+          "probabilities": {
+            "call-out": 0.43,
+            "how-to-without": 0.01,
+            "number-outcome-time": 0.04,
+            "deprivation-moment": 0.02,
+            "mistakes": 0.44,
+            "adjective-good": 0,
+            "receipt": 0,
+            "halbert-a-pile": 0,
+            "damaging-admission": 0.06
+          }
+        },
+        {
+          "id": "h51",
+          "formula": "call-out",
+          "text": "For freelance devs: prompt packs don't ship your specs",
+          "choice": "call-out",
+          "probabilities": {
+            "halbert-a-pile": 0,
+            "mistakes": 0.35,
+            "adjective-good": 0,
+            "receipt": 0,
+            "how-to-without": 0.03,
+            "damaging-admission": 0.02,
+            "number-outcome-time": 0,
+            "call-out": 0.55,
+            "deprivation-moment": 0.05
+          }
+        },
+        {
+          "id": "h52",
+          "formula": "call-out",
+          "text": "Everyone else teaches prompts. This week you ship yours.",
+          "choice": "call-out",
+          "probabilities": {
+            "receipt": 0,
+            "halbert-a-pile": 0,
+            "adjective-good": 0,
+            "number-outcome-time": 0.05,
+            "mistakes": 0.03,
+            "call-out": 0.89,
+            "damaging-admission": 0,
+            "how-to-without": 0.02,
+            "deprivation-moment": 0.01
+          }
+        },
+        {
+          "id": "h53",
+          "formula": "call-out",
+          "text": "They demo cats. You need your deck read.",
+          "choice": "call-out",
+          "probabilities": {
+            "receipt": 0,
+            "halbert-a-pile": 0,
+            "call-out": 0.98,
+            "number-outcome-time": 0,
+            "mistakes": 0.01,
+            "adjective-good": 0,
+            "damaging-admission": 0,
+            "how-to-without": 0.01,
+            "deprivation-moment": 0
+          }
+        },
+        {
+          "id": "h54",
+          "formula": "deprivation-moment",
+          "text": "Certificate on the wall. Report synthesizer still empty.",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "halbert-a-pile": 0.05,
+            "mistakes": 0,
+            "adjective-good": 0.01,
+            "receipt": 0.34,
+            "how-to-without": 0,
+            "damaging-admission": 0.16,
+            "number-outcome-time": 0,
+            "call-out": 0,
+            "deprivation-moment": 0.44
+          }
+        },
+        {
+          "id": "h55",
+          "formula": "call-out",
+          "text": "Homework should be client work, not worksheets",
+          "choice": "how-to-without",
+          "probabilities": {
+            "adjective-good": 0.05,
+            "mistakes": 0.2,
+            "number-outcome-time": 0,
+            "halbert-a-pile": 0,
+            "damaging-admission": 0,
+            "call-out": 0.02,
+            "receipt": 0,
+            "deprivation-moment": 0.04,
+            "how-to-without": 0.69
+          }
+        },
+        {
+          "id": "h56",
+          "formula": "receipt",
+          "text": "First cohort outside a Fortune 500 wall — 20 seats",
+          "choice": "receipt",
+          "probabilities": {
+            "how-to-without": 0,
+            "halbert-a-pile": 0,
+            "mistakes": 0,
+            "receipt": 0.72,
+            "damaging-admission": 0,
+            "adjective-good": 0,
+            "number-outcome-time": 0.26,
+            "call-out": 0.02,
+            "deprivation-moment": 0
+          }
+        },
+        {
+          "id": "h57",
+          "formula": "receipt",
+          "text": "Ascendient charges $3k/seat. July 14 it's your desk.",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "call-out": 0,
+            "receipt": 0,
+            "how-to-without": 0,
+            "deprivation-moment": 0.01,
+            "mistakes": 0,
+            "halbert-a-pile": 0.01,
+            "number-outcome-time": 0.98,
+            "damaging-admission": 0,
+            "adjective-good": 0
+          }
+        },
+        {
+          "id": "h58",
+          "formula": "damaging-admission",
+          "text": "See week one before you're committed — that's the trial",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "adjective-good": 0,
+            "deprivation-moment": 0.01,
+            "number-outcome-time": 0.57,
+            "receipt": 0,
+            "how-to-without": 0.11,
+            "call-out": 0,
+            "damaging-admission": 0.29,
+            "mistakes": 0.02,
+            "halbert-a-pile": 0
+          }
+        },
+        {
+          "id": "h59",
+          "formula": "number-outcome-time",
+          "text": "Wednesday he builds one live — on a real document",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "call-out": 0,
+            "mistakes": 0,
+            "receipt": 0.02,
+            "deprivation-moment": 0,
+            "how-to-without": 0,
+            "number-outcome-time": 0.96,
+            "halbert-a-pile": 0.01,
+            "damaging-admission": 0,
+            "adjective-good": 0.01
+          }
+        },
+        {
+          "id": "h60",
+          "formula": "how-to-without",
+          "text": "Stop reading 40-page reports. Get a 1-page brief.",
+          "choice": "how-to-without",
+          "probabilities": {
+            "number-outcome-time": 0.01,
+            "how-to-without": 0.99,
+            "receipt": 0,
+            "deprivation-moment": 0,
+            "halbert-a-pile": 0,
+            "mistakes": 0,
+            "damaging-admission": 0,
+            "adjective-good": 0,
+            "call-out": 0
+          }
+        },
+        {
+          "id": "h61",
+          "formula": "deprivation-moment",
+          "text": "Sunday 9:47pm — still alone before Monday's room?",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "deprivation-moment": 1,
+            "damaging-admission": 0,
+            "number-outcome-time": 0,
+            "adjective-good": 0,
+            "mistakes": 0,
+            "receipt": 0,
+            "call-out": 0,
+            "how-to-without": 0,
+            "halbert-a-pile": 0
+          }
+        },
+        {
+          "id": "h62",
+          "formula": "number-outcome-time",
+          "text": "Linda: 17 tabs → 1 brief",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "receipt": 0,
+            "deprivation-moment": 0,
+            "halbert-a-pile": 0,
+            "how-to-without": 0,
+            "damaging-admission": 0,
+            "mistakes": 0,
+            "adjective-good": 0,
+            "call-out": 0,
+            "number-outcome-time": 1
+          }
+        },
+        {
+          "id": "h63",
+          "formula": "number-outcome-time",
+          "text": "Email 30 min → 2 min",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "damaging-admission": 0,
+            "call-out": 0,
+            "number-outcome-time": 1,
+            "deprivation-moment": 0,
+            "receipt": 0,
+            "mistakes": 0,
+            "halbert-a-pile": 0,
+            "how-to-without": 0,
+            "adjective-good": 0
+          }
+        },
+        {
+          "id": "h64",
+          "formula": "number-outcome-time",
+          "text": "Deck 2 hr → 30 min",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "receipt": 0,
+            "call-out": 0,
+            "how-to-without": 0,
+            "deprivation-moment": 0,
+            "mistakes": 0,
+            "adjective-good": 0,
+            "number-outcome-time": 1,
+            "damaging-admission": 0,
+            "halbert-a-pile": 0
+          }
+        },
+        {
+          "id": "h65",
+          "formula": "deprivation-moment",
+          "text": "Week three: stop opening ChatGPT in incognito",
+          "choice": "mistakes",
+          "probabilities": {
+            "call-out": 0,
+            "deprivation-moment": 0.02,
+            "damaging-admission": 0.01,
+            "number-outcome-time": 0.18,
+            "how-to-without": 0.2,
+            "receipt": 0,
+            "halbert-a-pile": 0,
+            "adjective-good": 0,
+            "mistakes": 0.59
+          }
+        },
+        {
+          "id": "h66",
+          "formula": "adjective-good",
+          "text": "Furnished room, not another empty chat tab",
+          "choice": "adjective-good",
+          "probabilities": {
+            "damaging-admission": 0,
+            "deprivation-moment": 0.08,
+            "adjective-good": 0.89,
+            "how-to-without": 0.03,
+            "mistakes": 0,
+            "halbert-a-pile": 0,
+            "receipt": 0,
+            "call-out": 0,
+            "number-outcome-time": 0
+          }
+        },
+        {
+          "id": "h67",
+          "formula": "receipt",
+          "text": "Citations you can defend in Monday's room",
+          "choice": "receipt",
+          "probabilities": {
+            "damaging-admission": 0,
+            "call-out": 0,
+            "number-outcome-time": 0.2,
+            "halbert-a-pile": 0.01,
+            "deprivation-moment": 0.1,
+            "mistakes": 0,
+            "receipt": 0.68,
+            "how-to-without": 0,
+            "adjective-good": 0.01
+          }
+        },
+        {
+          "id": "h68",
+          "formula": "mistakes",
+          "text": "Approve before embarrass — every send",
+          "choice": "mistakes",
+          "probabilities": {
+            "number-outcome-time": 0,
+            "call-out": 0,
+            "adjective-good": 0,
+            "deprivation-moment": 0.16,
+            "halbert-a-pile": 0,
+            "receipt": 0,
+            "how-to-without": 0.02,
+            "damaging-admission": 0,
+            "mistakes": 0.81
+          }
+        },
+        {
+          "id": "h69",
+          "formula": "number-outcome-time",
+          "text": "Sarah: client proposal 6 hr → 90 min",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "adjective-good": 0,
+            "mistakes": 0,
+            "halbert-a-pile": 0,
+            "receipt": 0,
+            "how-to-without": 0,
+            "damaging-admission": 0,
+            "number-outcome-time": 1,
+            "call-out": 0,
+            "deprivation-moment": 0
+          }
+        },
+        {
+          "id": "h70",
+          "formula": "number-outcome-time",
+          "text": "Maya: board-pack 6 hr → 90 min",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "how-to-without": 0,
+            "damaging-admission": 0,
+            "adjective-good": 0,
+            "receipt": 0,
+            "mistakes": 0,
+            "number-outcome-time": 1,
+            "call-out": 0,
+            "halbert-a-pile": 0,
+            "deprivation-moment": 0
+          }
+        },
+        {
+          "id": "h71",
+          "formula": "deprivation-moment",
+          "text": "Tuesday stops starting from zero",
+          "choice": "how-to-without",
+          "probabilities": {
+            "halbert-a-pile": 0,
+            "damaging-admission": 0,
+            "deprivation-moment": 0.4,
+            "receipt": 0,
+            "mistakes": 0.02,
+            "number-outcome-time": 0.12,
+            "adjective-good": 0,
+            "how-to-without": 0.46,
+            "call-out": 0
+          }
+        },
+        {
+          "id": "h72",
+          "formula": "how-to-without",
+          "text": "Stop prompt lottery. Load the room.",
+          "choice": "how-to-without",
+          "probabilities": {
+            "halbert-a-pile": 0,
+            "number-outcome-time": 0,
+            "receipt": 0,
+            "damaging-admission": 0,
+            "mistakes": 0.08,
+            "how-to-without": 0.8,
+            "adjective-good": 0.03,
+            "call-out": 0,
+            "deprivation-moment": 0.09
+          }
+        },
+        {
+          "id": "h73",
+          "formula": "call-out",
+          "text": "The login your compliance person can nod at",
+          "choice": "adjective-good",
+          "probabilities": {
+            "deprivation-moment": 0.02,
+            "call-out": 0.16,
+            "mistakes": 0,
+            "number-outcome-time": 0,
+            "halbert-a-pile": 0,
+            "receipt": 0.12,
+            "how-to-without": 0,
+            "adjective-good": 0.6900000000000001,
+            "damaging-admission": 0
+          }
+        },
+        {
+          "id": "h74",
+          "formula": "call-out",
+          "text": "Generic AI voice? Not in this house.",
+          "choice": "call-out",
+          "probabilities": {
+            "adjective-good": 0.13,
+            "damaging-admission": 0.01,
+            "how-to-without": 0.09,
+            "call-out": 0.51,
+            "number-outcome-time": 0,
+            "deprivation-moment": 0.1,
+            "receipt": 0,
+            "mistakes": 0.16,
+            "halbert-a-pile": 0
+          }
+        },
+        {
+          "id": "h75",
+          "formula": "call-out",
+          "text": "Your client doc is the mat — two black belts, live Tuesday",
+          "choice": "receipt",
+          "probabilities": {
+            "mistakes": 0,
+            "receipt": 0.51,
+            "how-to-without": 0,
+            "number-outcome-time": 0.41,
+            "damaging-admission": 0,
+            "call-out": 0.02,
+            "deprivation-moment": 0,
+            "halbert-a-pile": 0.03,
+            "adjective-good": 0.03
+          }
+        },
+        {
+          "id": "h76",
+          "formula": "how-to-without",
+          "text": "Governed send path needs running buddies, not solo tabs",
+          "choice": null,
+          "error": "Question \"formula\" did not select a highest-probability option."
+        },
+        {
+          "id": "h77",
+          "formula": "deprivation-moment",
+          "text": "Scar tissue from solo AI — drill on your real doc Friday",
+          "choice": "damaging-admission",
+          "probabilities": {
+            "halbert-a-pile": 0.1,
+            "mistakes": 0.12,
+            "adjective-good": 0.01,
+            "receipt": 0,
+            "how-to-without": 0.02,
+            "damaging-admission": 0.33999999999999997,
+            "number-outcome-time": 0.33,
+            "call-out": 0.05,
+            "deprivation-moment": 0.03
+          }
+        },
+        {
+          "id": "h78",
+          "formula": "deprivation-moment",
+          "text": "It's a dojo, not a solo climb — 11pm desk",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "call-out": 0.01,
+            "how-to-without": 0,
+            "adjective-good": 0.04,
+            "deprivation-moment": 0.95,
+            "mistakes": 0,
+            "number-outcome-time": 0,
+            "receipt": 0,
+            "halbert-a-pile": 0,
+            "damaging-admission": 0
+          }
+        },
+        {
+          "id": "h79",
+          "formula": "deprivation-moment",
+          "text": "The reflex before you open the generic ChatGPT tab",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "call-out": 0.02,
+            "halbert-a-pile": 0,
+            "adjective-good": 0.02,
+            "mistakes": 0.06,
+            "receipt": 0,
+            "deprivation-moment": 0.82,
+            "number-outcome-time": 0,
+            "damaging-admission": 0,
+            "how-to-without": 0.08
+          }
+        },
+        {
+          "id": "h80",
+          "formula": "adjective-good",
+          "text": "That Monday chore? Schedule it and walk.",
+          "choice": "how-to-without",
+          "probabilities": {
+            "receipt": 0,
+            "how-to-without": 0.38,
+            "deprivation-moment": 0.28,
+            "number-outcome-time": 0.18,
+            "call-out": 0.01,
+            "mistakes": 0,
+            "adjective-good": 0,
+            "halbert-a-pile": 0.14,
+            "damaging-admission": 0.01
+          }
+        }
+      ]
+    },
+    "v3": {
+      "ranAt": "2026-09-21T21:27:17.302Z",
+      "question": {
+        "instructions": "Which single mechanism does this marketing hook rely on most?\nJudge the dominant device, and resolve these common overlaps as follows:\n- A short, lowercase, subject-line fragment about a specific shared item is halbert-a-pile, whatever its topic.\n- A question or scene about the reader's current pain is deprivation-moment unless it explicitly names who the audience is (then call-out).\n- \"Stop X. Do Y.\" that swaps a burden for a result is how-to-without, not mistakes.\n- A price, seat count, deadline or before→after figure as the main payload is number-outcome-time, unless it compares against a named competitor or elite benchmark offered as proof (then receipt).\n- A promise that the reader can walk away if it fails is damaging-admission, not how-to-without.",
+        "criteria": {
+          "deprivation-moment": "Evokes a specific, recognisable moment of the reader's current frustration or loss — a late-night desk, a Sunday rewrite, a tab closed in defeat, the fear of being left behind — as a scene, a pointed question, or a short aphorism, without offering a method, a number or proof.",
+          "number-outcome-time": "Carries its payload in figures: a before→after transformation (\"6 hr → 90 min\", \"17 tabs → 1 brief\"), a price, a count of seats or files, a duration, or a named deadline or day.",
+          "call-out": "Tells a particular kind of reader \"this is for you\": names the audience (\"For solo consultants:\"), greets them personally (\"[NAME] —\"), or positions the reader against what others do or offer (\"They demo cats. You need your deck read.\").",
+          "how-to-without": "Promises the desired result while removing a cost, effort or prerequisite — \"how to X without Y\", or an imperative swap that drops the old burden for the new outcome (\"Stop reading 40-page reports. Get a 1-page brief.\", \"You don't need another course — you need…\").",
+          "halbert-a-pile": "Reads like a personal email subject line from someone the reader knows: a short, usually lowercase fragment referring to a specific shared item (\"re: the deck you sent Thursday\", \"that clause on page 12\"), with no visible pitch, offer or selling language.",
+          "damaging-admission": "Volunteers something unflattering or risky up front: an admission that something failed or was not enough, a disclosed limitation (\"AI is in the mix\"), a concession that the reader may walk away (\"if week one flops, you walk\"), or what an unhappy customer said.",
+          "adjective-good": "Names the offer itself as a characterful thing with an evaluative adjective or image (\"A free AI win\", \"The lazy proposal-reader\", \"Furnished room, not another empty chat tab\"), selling by how the thing is described rather than by numbers, method or proof.",
+          "mistakes": "Warns that the reader is doing something wrong or falling behind: named mistakes or bad habits, an error they may have missed, or a warning that others have already moved on without them.",
+          "receipt": "Points to proof or credentials instead of making a claim: a receipt, citations, a comparison with an elite or named benchmark (a Fortune 500 standard, a named competitor and its price), or evidence already earned."
+        }
+      },
+      "score": {
+        "n": 80,
+        "correct": 55,
+        "accuracy": 0.6875,
+        "macroRecall": 0.7074,
+        "perClass": {
+          "number-outcome-time": {
+            "n": 15,
+            "correct": 15,
+            "recall": 1,
+            "insufficientData": false
+          },
+          "receipt": {
+            "n": 4,
+            "correct": 3,
+            "recall": 0.75,
+            "insufficientData": true
+          },
+          "damaging-admission": {
+            "n": 5,
+            "correct": 5,
+            "recall": 1,
+            "insufficientData": true
+          },
+          "deprivation-moment": {
+            "n": 21,
+            "correct": 13,
+            "recall": 0.619,
+            "insufficientData": false
+          },
+          "adjective-good": {
+            "n": 5,
+            "correct": 3,
+            "recall": 0.6,
+            "insufficientData": true
+          },
+          "mistakes": {
+            "n": 5,
+            "correct": 3,
+            "recall": 0.6,
+            "insufficientData": true
+          },
+          "how-to-without": {
+            "n": 7,
+            "correct": 5,
+            "recall": 0.7143,
+            "insufficientData": true
+          },
+          "call-out": {
+            "n": 12,
+            "correct": 3,
+            "recall": 0.25,
+            "insufficientData": false
+          },
+          "halbert-a-pile": {
+            "n": 6,
+            "correct": 5,
+            "recall": 0.8333,
+            "insufficientData": true
+          }
+        }
+      },
+      "errors": 0,
+      "meanEntropy": 0.2404,
+      "cost": {
+        "totalUsd": null,
+        "byModel": {}
+      },
+      "telemetry": {
+        "completed": 80,
+        "failed": 0,
+        "retried": [],
+        "p50": 116,
+        "p95": 307,
+        "tokens": 85904,
+        "dollars": 0.00361,
+        "drift": []
+      },
+      "wallClockMs": 3217,
+      "preds": [
+        {
+          "id": "h01",
+          "formula": "number-outcome-time",
+          "text": "Companies pay $3,000 a seat for this. Once, it's $499.",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "halbert-a-pile": 0,
+            "number-outcome-time": 0.99,
+            "receipt": 0.01,
+            "damaging-admission": 0,
+            "mistakes": 0,
+            "how-to-without": 0,
+            "call-out": 0,
+            "adjective-good": 0,
+            "deprivation-moment": 0
+          }
+        },
+        {
+          "id": "h02",
+          "formula": "receipt",
+          "text": "The one pitch I'll send this list all year — and the receipt that earned it",
+          "choice": "receipt",
+          "probabilities": {
+            "receipt": 0.99,
+            "deprivation-moment": 0,
+            "halbert-a-pile": 0,
+            "adjective-good": 0,
+            "number-outcome-time": 0.01,
+            "damaging-admission": 0,
+            "how-to-without": 0,
+            "mistakes": 0,
+            "call-out": 0
+          }
+        },
+        {
+          "id": "h03",
+          "formula": "damaging-admission",
+          "text": "What a logistics C-suite told Manu after they'd already paid",
+          "choice": "damaging-admission",
+          "probabilities": {
+            "number-outcome-time": 0,
+            "deprivation-moment": 0.18,
+            "damaging-admission": 0.3,
+            "call-out": 0.23,
+            "halbert-a-pile": 0.02,
+            "how-to-without": 0,
+            "adjective-good": 0.01,
+            "receipt": 0.24,
+            "mistakes": 0.02
+          }
+        },
+        {
+          "id": "h04",
+          "formula": "deprivation-moment",
+          "text": "that proposal you rewrote Sunday night",
+          "choice": "halbert-a-pile",
+          "probabilities": {
+            "mistakes": 0,
+            "number-outcome-time": 0,
+            "receipt": 0,
+            "how-to-without": 0,
+            "call-out": 0,
+            "halbert-a-pile": 0.99,
+            "deprivation-moment": 0.01,
+            "damaging-admission": 0,
+            "adjective-good": 0
+          }
+        },
+        {
+          "id": "h05",
+          "formula": "number-outcome-time",
+          "text": "Try this on one of your own documents — takes five minutes",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "deprivation-moment": 0,
+            "damaging-admission": 0,
+            "halbert-a-pile": 0.01,
+            "number-outcome-time": 0.93,
+            "how-to-without": 0.05,
+            "adjective-good": 0,
+            "call-out": 0.01,
+            "receipt": 0,
+            "mistakes": 0
+          }
+        },
+        {
+          "id": "h06",
+          "formula": "adjective-good",
+          "text": "A free AI win you can do before lunch today",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "deprivation-moment": 0,
+            "call-out": 0,
+            "damaging-admission": 0,
+            "number-outcome-time": 0.54,
+            "how-to-without": 0.01,
+            "receipt": 0,
+            "halbert-a-pile": 0,
+            "adjective-good": 0.45,
+            "mistakes": 0
+          }
+        },
+        {
+          "id": "h07",
+          "formula": "deprivation-moment",
+          "text": "Remember learning SEO when Google was brand new?",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "receipt": 0.01,
+            "deprivation-moment": 0.66,
+            "number-outcome-time": 0,
+            "how-to-without": 0,
+            "call-out": 0.02,
+            "mistakes": 0.01,
+            "adjective-good": 0.01,
+            "halbert-a-pile": 0.29,
+            "damaging-admission": 0
+          }
+        },
+        {
+          "id": "h08",
+          "formula": "mistakes",
+          "text": "The people who moved early on this are already gone",
+          "choice": "mistakes",
+          "probabilities": {
+            "mistakes": 0.86,
+            "deprivation-moment": 0.1,
+            "halbert-a-pile": 0,
+            "number-outcome-time": 0.01,
+            "adjective-good": 0,
+            "call-out": 0.02,
+            "receipt": 0.01,
+            "how-to-without": 0,
+            "damaging-admission": 0
+          }
+        },
+        {
+          "id": "h09",
+          "formula": "number-outcome-time",
+          "text": "12 seats left before Tuesday — then it closes",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "adjective-good": 0,
+            "damaging-admission": 0,
+            "how-to-without": 0,
+            "mistakes": 0,
+            "receipt": 0,
+            "deprivation-moment": 0,
+            "number-outcome-time": 1,
+            "halbert-a-pile": 0,
+            "call-out": 0
+          }
+        },
+        {
+          "id": "h10",
+          "formula": "number-outcome-time",
+          "text": "Last call: CETI Silver closes Tuesday, price goes up after",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "mistakes": 0,
+            "adjective-good": 0,
+            "call-out": 0,
+            "how-to-without": 0,
+            "receipt": 0,
+            "halbert-a-pile": 0.01,
+            "damaging-admission": 0,
+            "deprivation-moment": 0,
+            "number-outcome-time": 0.99
+          }
+        },
+        {
+          "id": "h11",
+          "formula": "number-outcome-time",
+          "text": "Get 5 to 10 hours a week back — in six weeks",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "mistakes": 0,
+            "how-to-without": 0,
+            "call-out": 0,
+            "receipt": 0,
+            "deprivation-moment": 0,
+            "damaging-admission": 0,
+            "adjective-good": 0,
+            "number-outcome-time": 1,
+            "halbert-a-pile": 0
+          }
+        },
+        {
+          "id": "h12",
+          "formula": "how-to-without",
+          "text": "How to put AI on your docs without six months of trial and error",
+          "choice": "how-to-without",
+          "probabilities": {
+            "call-out": 0,
+            "number-outcome-time": 0,
+            "mistakes": 0,
+            "how-to-without": 1,
+            "adjective-good": 0,
+            "receipt": 0,
+            "deprivation-moment": 0,
+            "halbert-a-pile": 0,
+            "damaging-admission": 0
+          }
+        },
+        {
+          "id": "h13",
+          "formula": "call-out",
+          "text": "For solo consultants: six weeks, $499, your own proposals",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "halbert-a-pile": 0,
+            "adjective-good": 0,
+            "mistakes": 0,
+            "damaging-admission": 0,
+            "number-outcome-time": 0.95,
+            "deprivation-moment": 0,
+            "how-to-without": 0,
+            "call-out": 0.05,
+            "receipt": 0
+          }
+        },
+        {
+          "id": "h14",
+          "formula": "deprivation-moment",
+          "text": "You don't get replaced by the sword",
+          "choice": "how-to-without",
+          "probabilities": {
+            "how-to-without": 0.38,
+            "number-outcome-time": 0,
+            "halbert-a-pile": 0.01,
+            "mistakes": 0.23,
+            "call-out": 0.02,
+            "damaging-admission": 0,
+            "receipt": 0,
+            "adjective-good": 0.06,
+            "deprivation-moment": 0.3
+          }
+        },
+        {
+          "id": "h15",
+          "formula": "deprivation-moment",
+          "text": "The wave doesn't wait for anyone",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "adjective-good": 0.01,
+            "halbert-a-pile": 0,
+            "how-to-without": 0,
+            "number-outcome-time": 0.01,
+            "damaging-admission": 0,
+            "call-out": 0,
+            "mistakes": 0.2,
+            "deprivation-moment": 0.78,
+            "receipt": 0
+          }
+        },
+        {
+          "id": "h16",
+          "formula": "deprivation-moment",
+          "text": "Remember SEO when Google was new?",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "mistakes": 0.01,
+            "how-to-without": 0,
+            "call-out": 0.01,
+            "deprivation-moment": 0.6,
+            "receipt": 0,
+            "damaging-admission": 0,
+            "number-outcome-time": 0,
+            "adjective-good": 0.01,
+            "halbert-a-pile": 0.37
+          }
+        },
+        {
+          "id": "h17",
+          "formula": "number-outcome-time",
+          "text": "Six weeks to get 5 hours back on your own proposals",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "receipt": 0,
+            "damaging-admission": 0,
+            "deprivation-moment": 0,
+            "mistakes": 0,
+            "adjective-good": 0,
+            "how-to-without": 0,
+            "halbert-a-pile": 0,
+            "call-out": 0,
+            "number-outcome-time": 1
+          }
+        },
+        {
+          "id": "h18",
+          "formula": "mistakes",
+          "text": "4 mistakes keeping your AI tab closed while the desk fills",
+          "choice": "mistakes",
+          "probabilities": {
+            "adjective-good": 0,
+            "number-outcome-time": 0,
+            "halbert-a-pile": 0,
+            "mistakes": 0.93,
+            "damaging-admission": 0,
+            "deprivation-moment": 0.07,
+            "how-to-without": 0,
+            "call-out": 0,
+            "receipt": 0
+          }
+        },
+        {
+          "id": "h19",
+          "formula": "adjective-good",
+          "text": "The lazy proposal-reader that runs in 4 minutes",
+          "choice": "adjective-good",
+          "probabilities": {
+            "receipt": 0,
+            "deprivation-moment": 0,
+            "halbert-a-pile": 0,
+            "adjective-good": 0.58,
+            "number-outcome-time": 0.41,
+            "damaging-admission": 0,
+            "how-to-without": 0,
+            "mistakes": 0,
+            "call-out": 0.01
+          }
+        },
+        {
+          "id": "h20",
+          "formula": "how-to-without",
+          "text": "How to ship AI on client docs without losing your voice, even if you're not technical",
+          "choice": "how-to-without",
+          "probabilities": {
+            "how-to-without": 0.99,
+            "adjective-good": 0,
+            "damaging-admission": 0,
+            "number-outcome-time": 0,
+            "halbert-a-pile": 0,
+            "receipt": 0,
+            "mistakes": 0,
+            "deprivation-moment": 0,
+            "call-out": 0.01
+          }
+        },
+        {
+          "id": "h21",
+          "formula": "call-out",
+          "text": "For freelance devs: stop donating Sundays to rewrites",
+          "choice": "how-to-without",
+          "probabilities": {
+            "how-to-without": 0.48,
+            "adjective-good": 0,
+            "damaging-admission": 0,
+            "number-outcome-time": 0.01,
+            "halbert-a-pile": 0,
+            "receipt": 0,
+            "mistakes": 0.03,
+            "deprivation-moment": 0.07,
+            "call-out": 0.41
+          }
+        },
+        {
+          "id": "h22",
+          "formula": "deprivation-moment",
+          "text": "It's 11pm. You're finishing the document you told yourself you'd start at 9am. AI was supposed to make this the easy part. It's still the part keeping you at the desk.",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "mistakes": 0,
+            "adjective-good": 0,
+            "call-out": 0,
+            "receipt": 0,
+            "damaging-admission": 0,
+            "number-outcome-time": 0,
+            "halbert-a-pile": 0,
+            "how-to-without": 0,
+            "deprivation-moment": 1
+          }
+        },
+        {
+          "id": "h23",
+          "formula": "deprivation-moment",
+          "text": "You opened an AI tab this month, got a wall of text, and closed it. The work still sits on your desk.",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "call-out": 0,
+            "halbert-a-pile": 0,
+            "adjective-good": 0,
+            "mistakes": 0,
+            "receipt": 0,
+            "deprivation-moment": 1,
+            "number-outcome-time": 0,
+            "damaging-admission": 0,
+            "how-to-without": 0
+          }
+        },
+        {
+          "id": "h24",
+          "formula": "call-out",
+          "text": "[NAME] — random question. That proposal you grind through every month: still building it by hand?",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "adjective-good": 0,
+            "mistakes": 0,
+            "halbert-a-pile": 0.17,
+            "receipt": 0,
+            "how-to-without": 0,
+            "damaging-admission": 0,
+            "number-outcome-time": 0,
+            "call-out": 0.3,
+            "deprivation-moment": 0.53
+          }
+        },
+        {
+          "id": "h25",
+          "formula": "deprivation-moment",
+          "text": "6 proposals before lunch — one of them is yours",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "adjective-good": 0,
+            "deprivation-moment": 0,
+            "number-outcome-time": 0.98,
+            "damaging-admission": 0,
+            "mistakes": 0,
+            "how-to-without": 0,
+            "call-out": 0.01,
+            "receipt": 0.01,
+            "halbert-a-pile": 0
+          }
+        },
+        {
+          "id": "h26",
+          "formula": "call-out",
+          "text": "Marcus: 14 extensions due Monday, staff still copy-pasting",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "how-to-without": 0,
+            "halbert-a-pile": 0.3,
+            "deprivation-moment": 0.03,
+            "damaging-admission": 0,
+            "receipt": 0,
+            "call-out": 0.01,
+            "mistakes": 0.01,
+            "adjective-good": 0,
+            "number-outcome-time": 0.65
+          }
+        },
+        {
+          "id": "h27",
+          "formula": "deprivation-moment",
+          "text": "Linda Googled Claude under the table — sound familiar?",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "how-to-without": 0,
+            "damaging-admission": 0,
+            "adjective-good": 0,
+            "call-out": 0.07,
+            "deprivation-moment": 0.77,
+            "receipt": 0.03,
+            "halbert-a-pile": 0.11,
+            "mistakes": 0.02,
+            "number-outcome-time": 0
+          }
+        },
+        {
+          "id": "h28",
+          "formula": "deprivation-moment",
+          "text": "Maya: that quick favor became a 12-slide appendix",
+          "choice": "halbert-a-pile",
+          "probabilities": {
+            "deprivation-moment": 0.23,
+            "number-outcome-time": 0.27,
+            "call-out": 0,
+            "receipt": 0,
+            "damaging-admission": 0.04,
+            "adjective-good": 0,
+            "how-to-without": 0,
+            "mistakes": 0,
+            "halbert-a-pile": 0.46
+          }
+        },
+        {
+          "id": "h29",
+          "formula": "number-outcome-time",
+          "text": "Your contract in 90 sec — 3 risky clauses flagged",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "deprivation-moment": 0,
+            "halbert-a-pile": 0.01,
+            "mistakes": 0.05,
+            "number-outcome-time": 0.93,
+            "how-to-without": 0,
+            "receipt": 0,
+            "call-out": 0,
+            "adjective-good": 0,
+            "damaging-admission": 0
+          }
+        },
+        {
+          "id": "h30",
+          "formula": "number-outcome-time",
+          "text": "47-email thread → one memo you keep",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "mistakes": 0,
+            "adjective-good": 0,
+            "damaging-admission": 0,
+            "receipt": 0,
+            "call-out": 0,
+            "number-outcome-time": 0.99,
+            "halbert-a-pile": 0.01,
+            "how-to-without": 0,
+            "deprivation-moment": 0
+          }
+        },
+        {
+          "id": "h31",
+          "formula": "how-to-without",
+          "text": "Your team sounds like 6 writers — lock one voice",
+          "choice": "mistakes",
+          "probabilities": {
+            "receipt": 0,
+            "damaging-admission": 0,
+            "deprivation-moment": 0.22,
+            "mistakes": 0.36,
+            "adjective-good": 0.01,
+            "how-to-without": 0.05,
+            "halbert-a-pile": 0.03,
+            "call-out": 0.1,
+            "number-outcome-time": 0.23
+          }
+        },
+        {
+          "id": "h32",
+          "formula": "how-to-without",
+          "text": "You don't need another course — you need 5 tools that stay",
+          "choice": "how-to-without",
+          "probabilities": {
+            "how-to-without": 1,
+            "number-outcome-time": 0,
+            "receipt": 0,
+            "mistakes": 0,
+            "call-out": 0,
+            "damaging-admission": 0,
+            "halbert-a-pile": 0,
+            "adjective-good": 0,
+            "deprivation-moment": 0
+          }
+        },
+        {
+          "id": "h33",
+          "formula": "number-outcome-time",
+          "text": "$499 — five work files you keep, not tuition",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "mistakes": 0,
+            "deprivation-moment": 0,
+            "halbert-a-pile": 0,
+            "number-outcome-time": 0.97,
+            "adjective-good": 0,
+            "call-out": 0,
+            "receipt": 0,
+            "damaging-admission": 0,
+            "how-to-without": 0.03
+          }
+        },
+        {
+          "id": "h34",
+          "formula": "adjective-good",
+          "text": "The buyer who kills deals — on your side before you pitch",
+          "choice": "adjective-good",
+          "probabilities": {
+            "call-out": 0.19,
+            "how-to-without": 0,
+            "receipt": 0,
+            "mistakes": 0.19,
+            "damaging-admission": 0,
+            "adjective-good": 0.46,
+            "halbert-a-pile": 0.01,
+            "deprivation-moment": 0.15,
+            "number-outcome-time": 0
+          }
+        },
+        {
+          "id": "h35",
+          "formula": "mistakes",
+          "text": "Signed a clause you missed? 90-sec reader catches it first",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "halbert-a-pile": 0,
+            "call-out": 0,
+            "deprivation-moment": 0.52,
+            "damaging-admission": 0,
+            "number-outcome-time": 0.29,
+            "adjective-good": 0,
+            "receipt": 0,
+            "how-to-without": 0,
+            "mistakes": 0.19
+          }
+        },
+        {
+          "id": "h36",
+          "formula": "deprivation-moment",
+          "text": "Still rewriting the same memo 3 times?",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "deprivation-moment": 1,
+            "call-out": 0,
+            "mistakes": 0,
+            "number-outcome-time": 0,
+            "halbert-a-pile": 0,
+            "how-to-without": 0,
+            "receipt": 0,
+            "adjective-good": 0,
+            "damaging-admission": 0
+          }
+        },
+        {
+          "id": "h37",
+          "formula": "deprivation-moment",
+          "text": "Are you using AI on my project?",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "receipt": 0,
+            "damaging-admission": 0.15,
+            "deprivation-moment": 0.43,
+            "how-to-without": 0,
+            "mistakes": 0,
+            "adjective-good": 0,
+            "halbert-a-pile": 0.33,
+            "call-out": 0.09,
+            "number-outcome-time": 0
+          }
+        },
+        {
+          "id": "h38",
+          "formula": "deprivation-moment",
+          "text": "This proposal sounds like last week's",
+          "choice": "halbert-a-pile",
+          "probabilities": {
+            "halbert-a-pile": 0.67,
+            "number-outcome-time": 0.03,
+            "receipt": 0.01,
+            "damaging-admission": 0.07,
+            "mistakes": 0.12,
+            "how-to-without": 0,
+            "call-out": 0,
+            "adjective-good": 0.03,
+            "deprivation-moment": 0.07
+          }
+        },
+        {
+          "id": "h39",
+          "formula": "call-out",
+          "text": "I bill deliverables — not another course",
+          "choice": "how-to-without",
+          "probabilities": {
+            "deprivation-moment": 0.01,
+            "damaging-admission": 0,
+            "adjective-good": 0.05,
+            "number-outcome-time": 0,
+            "mistakes": 0,
+            "receipt": 0,
+            "call-out": 0.03,
+            "how-to-without": 0.91,
+            "halbert-a-pile": 0
+          }
+        },
+        {
+          "id": "h40",
+          "formula": "damaging-admission",
+          "text": "We tried ChatGPT on our docs. It wasn't enough.",
+          "choice": "damaging-admission",
+          "probabilities": {
+            "call-out": 0,
+            "receipt": 0.02,
+            "how-to-without": 0,
+            "deprivation-moment": 0.01,
+            "mistakes": 0,
+            "halbert-a-pile": 0.01,
+            "number-outcome-time": 0,
+            "damaging-admission": 0.96,
+            "adjective-good": 0
+          }
+        },
+        {
+          "id": "h41",
+          "formula": "damaging-admission",
+          "text": "AI is in the mix — clients pay for the finished brief",
+          "choice": "damaging-admission",
+          "probabilities": {
+            "call-out": 0.01,
+            "deprivation-moment": 0,
+            "damaging-admission": 0.86,
+            "number-outcome-time": 0.08,
+            "how-to-without": 0.04,
+            "receipt": 0,
+            "halbert-a-pile": 0.01,
+            "adjective-good": 0,
+            "mistakes": 0
+          }
+        },
+        {
+          "id": "h42",
+          "formula": "deprivation-moment",
+          "text": "How do you price work when AI did part of the lift?",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "receipt": 0,
+            "mistakes": 0,
+            "how-to-without": 0.03,
+            "number-outcome-time": 0,
+            "damaging-admission": 0.01,
+            "call-out": 0,
+            "deprivation-moment": 0.96,
+            "halbert-a-pile": 0,
+            "adjective-good": 0
+          }
+        },
+        {
+          "id": "h43",
+          "formula": "halbert-a-pile",
+          "text": "that clause on page 12",
+          "choice": "halbert-a-pile",
+          "probabilities": {
+            "deprivation-moment": 0,
+            "damaging-admission": 0,
+            "how-to-without": 0,
+            "number-outcome-time": 0,
+            "halbert-a-pile": 1,
+            "call-out": 0,
+            "adjective-good": 0,
+            "receipt": 0,
+            "mistakes": 0
+          }
+        },
+        {
+          "id": "h44",
+          "formula": "halbert-a-pile",
+          "text": "re: the deck you sent Thursday",
+          "choice": "halbert-a-pile",
+          "probabilities": {
+            "how-to-without": 0,
+            "deprivation-moment": 0,
+            "halbert-a-pile": 1,
+            "number-outcome-time": 0,
+            "adjective-good": 0,
+            "call-out": 0,
+            "receipt": 0,
+            "damaging-admission": 0,
+            "mistakes": 0
+          }
+        },
+        {
+          "id": "h45",
+          "formula": "halbert-a-pile",
+          "text": "wrong question about AI",
+          "choice": "mistakes",
+          "probabilities": {
+            "call-out": 0,
+            "halbert-a-pile": 0.05,
+            "adjective-good": 0,
+            "mistakes": 0.87,
+            "receipt": 0,
+            "deprivation-moment": 0.07,
+            "number-outcome-time": 0,
+            "damaging-admission": 0.01,
+            "how-to-without": 0
+          }
+        },
+        {
+          "id": "h46",
+          "formula": "halbert-a-pile",
+          "text": "you were right about the deck",
+          "choice": "halbert-a-pile",
+          "probabilities": {
+            "number-outcome-time": 0,
+            "halbert-a-pile": 1,
+            "receipt": 0,
+            "mistakes": 0,
+            "damaging-admission": 0,
+            "adjective-good": 0,
+            "how-to-without": 0,
+            "deprivation-moment": 0,
+            "call-out": 0
+          }
+        },
+        {
+          "id": "h47",
+          "formula": "halbert-a-pile",
+          "text": "that thread from last March",
+          "choice": "halbert-a-pile",
+          "probabilities": {
+            "adjective-good": 0,
+            "how-to-without": 0,
+            "mistakes": 0,
+            "halbert-a-pile": 1,
+            "receipt": 0,
+            "deprivation-moment": 0,
+            "call-out": 0,
+            "number-outcome-time": 0,
+            "damaging-admission": 0
+          }
+        },
+        {
+          "id": "h48",
+          "formula": "halbert-a-pile",
+          "text": "your voice on page 3",
+          "choice": "halbert-a-pile",
+          "probabilities": {
+            "damaging-admission": 0,
+            "deprivation-moment": 0,
+            "halbert-a-pile": 0.93,
+            "number-outcome-time": 0.02,
+            "adjective-good": 0,
+            "call-out": 0.01,
+            "receipt": 0.03,
+            "mistakes": 0,
+            "how-to-without": 0
+          }
+        },
+        {
+          "id": "h49",
+          "formula": "damaging-admission",
+          "text": "if week one flops, you walk — no form",
+          "choice": "damaging-admission",
+          "probabilities": {
+            "halbert-a-pile": 0,
+            "call-out": 0,
+            "deprivation-moment": 0,
+            "damaging-admission": 1,
+            "number-outcome-time": 0,
+            "adjective-good": 0,
+            "receipt": 0,
+            "how-to-without": 0,
+            "mistakes": 0
+          }
+        },
+        {
+          "id": "h50",
+          "formula": "mistakes",
+          "text": "For consultants: 3 YouTube habits, proposal still mush",
+          "choice": "call-out",
+          "probabilities": {
+            "adjective-good": 0.01,
+            "call-out": 0.53,
+            "mistakes": 0.33,
+            "deprivation-moment": 0.01,
+            "halbert-a-pile": 0.09,
+            "receipt": 0,
+            "how-to-without": 0,
+            "damaging-admission": 0.01,
+            "number-outcome-time": 0.02
+          }
+        },
+        {
+          "id": "h51",
+          "formula": "call-out",
+          "text": "For freelance devs: prompt packs don't ship your specs",
+          "choice": "call-out",
+          "probabilities": {
+            "damaging-admission": 0,
+            "deprivation-moment": 0.01,
+            "how-to-without": 0.01,
+            "call-out": 0.79,
+            "receipt": 0,
+            "adjective-good": 0,
+            "mistakes": 0.19,
+            "halbert-a-pile": 0,
+            "number-outcome-time": 0
+          }
+        },
+        {
+          "id": "h52",
+          "formula": "call-out",
+          "text": "Everyone else teaches prompts. This week you ship yours.",
+          "choice": "call-out",
+          "probabilities": {
+            "mistakes": 0.01,
+            "number-outcome-time": 0.06,
+            "receipt": 0,
+            "call-out": 0.87,
+            "how-to-without": 0.05,
+            "halbert-a-pile": 0,
+            "damaging-admission": 0,
+            "deprivation-moment": 0.01,
+            "adjective-good": 0
+          }
+        },
+        {
+          "id": "h53",
+          "formula": "call-out",
+          "text": "They demo cats. You need your deck read.",
+          "choice": "call-out",
+          "probabilities": {
+            "call-out": 0.97,
+            "halbert-a-pile": 0.01,
+            "receipt": 0,
+            "adjective-good": 0,
+            "damaging-admission": 0,
+            "how-to-without": 0,
+            "mistakes": 0.01,
+            "number-outcome-time": 0,
+            "deprivation-moment": 0.01
+          }
+        },
+        {
+          "id": "h54",
+          "formula": "deprivation-moment",
+          "text": "Certificate on the wall. Report synthesizer still empty.",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "call-out": 0,
+            "halbert-a-pile": 0.06,
+            "receipt": 0.18,
+            "adjective-good": 0.01,
+            "damaging-admission": 0.02,
+            "how-to-without": 0,
+            "mistakes": 0.01,
+            "number-outcome-time": 0,
+            "deprivation-moment": 0.72
+          }
+        },
+        {
+          "id": "h55",
+          "formula": "call-out",
+          "text": "Homework should be client work, not worksheets",
+          "choice": "how-to-without",
+          "probabilities": {
+            "adjective-good": 0.1,
+            "halbert-a-pile": 0,
+            "call-out": 0.02,
+            "damaging-admission": 0,
+            "how-to-without": 0.48,
+            "receipt": 0,
+            "mistakes": 0.36,
+            "deprivation-moment": 0.04,
+            "number-outcome-time": 0
+          }
+        },
+        {
+          "id": "h56",
+          "formula": "receipt",
+          "text": "First cohort outside a Fortune 500 wall — 20 seats",
+          "choice": "receipt",
+          "probabilities": {
+            "how-to-without": 0,
+            "mistakes": 0,
+            "receipt": 0.58,
+            "deprivation-moment": 0,
+            "call-out": 0,
+            "damaging-admission": 0,
+            "halbert-a-pile": 0,
+            "number-outcome-time": 0.42,
+            "adjective-good": 0
+          }
+        },
+        {
+          "id": "h57",
+          "formula": "receipt",
+          "text": "Ascendient charges $3k/seat. July 14 it's your desk.",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "call-out": 0,
+            "how-to-without": 0,
+            "number-outcome-time": 0.99,
+            "receipt": 0,
+            "damaging-admission": 0,
+            "deprivation-moment": 0,
+            "mistakes": 0,
+            "halbert-a-pile": 0.01,
+            "adjective-good": 0
+          }
+        },
+        {
+          "id": "h58",
+          "formula": "damaging-admission",
+          "text": "See week one before you're committed — that's the trial",
+          "choice": "damaging-admission",
+          "probabilities": {
+            "call-out": 0,
+            "how-to-without": 0.02,
+            "number-outcome-time": 0.43,
+            "deprivation-moment": 0,
+            "mistakes": 0.01,
+            "adjective-good": 0,
+            "receipt": 0,
+            "halbert-a-pile": 0,
+            "damaging-admission": 0.54
+          }
+        },
+        {
+          "id": "h59",
+          "formula": "number-outcome-time",
+          "text": "Wednesday he builds one live — on a real document",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "how-to-without": 0,
+            "damaging-admission": 0,
+            "halbert-a-pile": 0.03,
+            "receipt": 0.04,
+            "mistakes": 0,
+            "number-outcome-time": 0.91,
+            "deprivation-moment": 0.01,
+            "adjective-good": 0.01,
+            "call-out": 0
+          }
+        },
+        {
+          "id": "h60",
+          "formula": "how-to-without",
+          "text": "Stop reading 40-page reports. Get a 1-page brief.",
+          "choice": "how-to-without",
+          "probabilities": {
+            "deprivation-moment": 0,
+            "call-out": 0,
+            "mistakes": 0,
+            "number-outcome-time": 0,
+            "halbert-a-pile": 0,
+            "receipt": 0,
+            "how-to-without": 1,
+            "adjective-good": 0,
+            "damaging-admission": 0
+          }
+        },
+        {
+          "id": "h61",
+          "formula": "deprivation-moment",
+          "text": "Sunday 9:47pm — still alone before Monday's room?",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "receipt": 0,
+            "deprivation-moment": 0.98,
+            "halbert-a-pile": 0.01,
+            "adjective-good": 0,
+            "number-outcome-time": 0.01,
+            "damaging-admission": 0,
+            "how-to-without": 0,
+            "mistakes": 0,
+            "call-out": 0
+          }
+        },
+        {
+          "id": "h62",
+          "formula": "number-outcome-time",
+          "text": "Linda: 17 tabs → 1 brief",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "how-to-without": 0,
+            "halbert-a-pile": 0,
+            "deprivation-moment": 0,
+            "damaging-admission": 0,
+            "adjective-good": 0,
+            "call-out": 0,
+            "receipt": 0,
+            "mistakes": 0,
+            "number-outcome-time": 1
+          }
+        },
+        {
+          "id": "h63",
+          "formula": "number-outcome-time",
+          "text": "Email 30 min → 2 min",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "receipt": 0,
+            "deprivation-moment": 0,
+            "halbert-a-pile": 0,
+            "damaging-admission": 0,
+            "adjective-good": 0,
+            "number-outcome-time": 1,
+            "how-to-without": 0,
+            "mistakes": 0,
+            "call-out": 0
+          }
+        },
+        {
+          "id": "h64",
+          "formula": "number-outcome-time",
+          "text": "Deck 2 hr → 30 min",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "how-to-without": 0,
+            "damaging-admission": 0,
+            "mistakes": 0,
+            "halbert-a-pile": 0,
+            "receipt": 0,
+            "number-outcome-time": 1,
+            "call-out": 0,
+            "deprivation-moment": 0,
+            "adjective-good": 0
+          }
+        },
+        {
+          "id": "h65",
+          "formula": "deprivation-moment",
+          "text": "Week three: stop opening ChatGPT in incognito",
+          "choice": "mistakes",
+          "probabilities": {
+            "how-to-without": 0.17,
+            "halbert-a-pile": 0.09,
+            "mistakes": 0.45999999999999996,
+            "receipt": 0,
+            "damaging-admission": 0.01,
+            "adjective-good": 0,
+            "number-outcome-time": 0.25,
+            "call-out": 0,
+            "deprivation-moment": 0.02
+          }
+        },
+        {
+          "id": "h66",
+          "formula": "adjective-good",
+          "text": "Furnished room, not another empty chat tab",
+          "choice": "adjective-good",
+          "probabilities": {
+            "halbert-a-pile": 0,
+            "damaging-admission": 0,
+            "deprivation-moment": 0.09,
+            "receipt": 0,
+            "adjective-good": 0.9,
+            "mistakes": 0,
+            "number-outcome-time": 0,
+            "how-to-without": 0.01,
+            "call-out": 0
+          }
+        },
+        {
+          "id": "h67",
+          "formula": "receipt",
+          "text": "Citations you can defend in Monday's room",
+          "choice": "receipt",
+          "probabilities": {
+            "adjective-good": 0.04,
+            "damaging-admission": 0,
+            "deprivation-moment": 0.03,
+            "halbert-a-pile": 0.18,
+            "number-outcome-time": 0.21,
+            "mistakes": 0,
+            "receipt": 0.54,
+            "how-to-without": 0,
+            "call-out": 0
+          }
+        },
+        {
+          "id": "h68",
+          "formula": "mistakes",
+          "text": "Approve before embarrass — every send",
+          "choice": "mistakes",
+          "probabilities": {
+            "adjective-good": 0,
+            "halbert-a-pile": 0,
+            "call-out": 0,
+            "number-outcome-time": 0,
+            "damaging-admission": 0,
+            "how-to-without": 0.16,
+            "mistakes": 0.62,
+            "deprivation-moment": 0.22,
+            "receipt": 0
+          }
+        },
+        {
+          "id": "h69",
+          "formula": "number-outcome-time",
+          "text": "Sarah: client proposal 6 hr → 90 min",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "adjective-good": 0,
+            "number-outcome-time": 0.99,
+            "call-out": 0,
+            "receipt": 0,
+            "halbert-a-pile": 0.01,
+            "damaging-admission": 0,
+            "deprivation-moment": 0,
+            "how-to-without": 0,
+            "mistakes": 0
+          }
+        },
+        {
+          "id": "h70",
+          "formula": "number-outcome-time",
+          "text": "Maya: board-pack 6 hr → 90 min",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "how-to-without": 0,
+            "number-outcome-time": 0.98,
+            "receipt": 0,
+            "mistakes": 0,
+            "call-out": 0,
+            "damaging-admission": 0,
+            "halbert-a-pile": 0.02,
+            "adjective-good": 0,
+            "deprivation-moment": 0
+          }
+        },
+        {
+          "id": "h71",
+          "formula": "deprivation-moment",
+          "text": "Tuesday stops starting from zero",
+          "choice": "how-to-without",
+          "probabilities": {
+            "number-outcome-time": 0.16,
+            "receipt": 0,
+            "how-to-without": 0.55,
+            "call-out": 0,
+            "damaging-admission": 0,
+            "adjective-good": 0,
+            "deprivation-moment": 0.19,
+            "halbert-a-pile": 0.01,
+            "mistakes": 0.08
+          }
+        },
+        {
+          "id": "h72",
+          "formula": "how-to-without",
+          "text": "Stop prompt lottery. Load the room.",
+          "choice": "how-to-without",
+          "probabilities": {
+            "adjective-good": 0,
+            "deprivation-moment": 0,
+            "how-to-without": 0.99,
+            "receipt": 0,
+            "number-outcome-time": 0,
+            "call-out": 0,
+            "damaging-admission": 0,
+            "halbert-a-pile": 0.01,
+            "mistakes": 0
+          }
+        },
+        {
+          "id": "h73",
+          "formula": "call-out",
+          "text": "The login your compliance person can nod at",
+          "choice": "adjective-good",
+          "probabilities": {
+            "receipt": 0.08,
+            "how-to-without": 0,
+            "adjective-good": 0.77,
+            "damaging-admission": 0,
+            "halbert-a-pile": 0.01,
+            "mistakes": 0,
+            "deprivation-moment": 0.04,
+            "number-outcome-time": 0,
+            "call-out": 0.1
+          }
+        },
+        {
+          "id": "h74",
+          "formula": "call-out",
+          "text": "Generic AI voice? Not in this house.",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "adjective-good": 0.26,
+            "receipt": 0,
+            "call-out": 0.22,
+            "number-outcome-time": 0,
+            "halbert-a-pile": 0,
+            "damaging-admission": 0.01,
+            "deprivation-moment": 0.35,
+            "how-to-without": 0.04,
+            "mistakes": 0.12
+          }
+        },
+        {
+          "id": "h75",
+          "formula": "call-out",
+          "text": "Your client doc is the mat — two black belts, live Tuesday",
+          "choice": "receipt",
+          "probabilities": {
+            "how-to-without": 0,
+            "deprivation-moment": 0,
+            "halbert-a-pile": 0.11,
+            "number-outcome-time": 0.27,
+            "adjective-good": 0.06,
+            "call-out": 0.02,
+            "receipt": 0.54,
+            "damaging-admission": 0,
+            "mistakes": 0
+          }
+        },
+        {
+          "id": "h76",
+          "formula": "how-to-without",
+          "text": "Governed send path needs running buddies, not solo tabs",
+          "choice": "adjective-good",
+          "probabilities": {
+            "receipt": 0,
+            "adjective-good": 0.5,
+            "mistakes": 0.24,
+            "deprivation-moment": 0.19,
+            "call-out": 0.04,
+            "number-outcome-time": 0,
+            "damaging-admission": 0,
+            "how-to-without": 0.02,
+            "halbert-a-pile": 0.01
+          }
+        },
+        {
+          "id": "h77",
+          "formula": "deprivation-moment",
+          "text": "Scar tissue from solo AI — drill on your real doc Friday",
+          "choice": "number-outcome-time",
+          "probabilities": {
+            "adjective-good": 0.01,
+            "halbert-a-pile": 0.28,
+            "mistakes": 0.03,
+            "how-to-without": 0.03,
+            "receipt": 0,
+            "deprivation-moment": 0.03,
+            "number-outcome-time": 0.47,
+            "call-out": 0.03,
+            "damaging-admission": 0.12
+          }
+        },
+        {
+          "id": "h78",
+          "formula": "deprivation-moment",
+          "text": "It's a dojo, not a solo climb — 11pm desk",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "call-out": 0.01,
+            "how-to-without": 0,
+            "number-outcome-time": 0,
+            "deprivation-moment": 0.91,
+            "mistakes": 0.01,
+            "adjective-good": 0.07,
+            "receipt": 0,
+            "halbert-a-pile": 0,
+            "damaging-admission": 0
+          }
+        },
+        {
+          "id": "h79",
+          "formula": "deprivation-moment",
+          "text": "The reflex before you open the generic ChatGPT tab",
+          "choice": "deprivation-moment",
+          "probabilities": {
+            "how-to-without": 0.01,
+            "number-outcome-time": 0,
+            "halbert-a-pile": 0.02,
+            "mistakes": 0.02,
+            "call-out": 0.01,
+            "damaging-admission": 0,
+            "receipt": 0.03,
+            "adjective-good": 0.07,
+            "deprivation-moment": 0.84
+          }
+        },
+        {
+          "id": "h80",
+          "formula": "adjective-good",
+          "text": "That Monday chore? Schedule it and walk.",
+          "choice": "how-to-without",
+          "probabilities": {
+            "how-to-without": 0.48,
+            "damaging-admission": 0,
+            "mistakes": 0,
+            "halbert-a-pile": 0.12,
+            "receipt": 0,
+            "number-outcome-time": 0.09,
+            "call-out": 0,
+            "deprivation-moment": 0.31,
+            "adjective-good": 0
+          }
+        }
+      ]
+    }
+  },
+  "model": "jev-latest (direct)",
+  "n": 80,
+  "baselines": {
+    "e3Keyword": {
+      "n": 80,
+      "correct": 69,
+      "accuracy": 0.8625,
+      "macroRecall": 0.8479,
+      "perClass": {
+        "number-outcome-time": {
+          "n": 15,
+          "correct": 14,
+          "recall": 0.9333,
+          "insufficientData": false
+        },
+        "receipt": {
+          "n": 4,
+          "correct": 4,
+          "recall": 1,
+          "insufficientData": true
+        },
+        "damaging-admission": {
+          "n": 5,
+          "correct": 5,
+          "recall": 1,
+          "insufficientData": true
+        },
+        "deprivation-moment": {
+          "n": 21,
+          "correct": 21,
+          "recall": 1,
+          "insufficientData": false
+        },
+        "adjective-good": {
+          "n": 5,
+          "correct": 3,
+          "recall": 0.6,
+          "insufficientData": true
+        },
+        "mistakes": {
+          "n": 5,
+          "correct": 4,
+          "recall": 0.8,
+          "insufficientData": true
+        },
+        "how-to-without": {
+          "n": 7,
+          "correct": 5,
+          "recall": 0.7143,
+          "insufficientData": true
+        },
+        "call-out": {
+          "n": 12,
+          "correct": 7,
+          "recall": 0.5833,
+          "insufficientData": false
+        },
+        "halbert-a-pile": {
+          "n": 6,
+          "correct": 6,
+          "recall": 1,
+          "insufficientData": true
+        }
+      }
+    },
+    "e1Keyword": {
+      "n": 80,
+      "correct": 25,
+      "accuracy": 0.3125,
+      "macroRecall": 0.1929,
+      "perClass": {
+        "number-outcome-time": {
+          "n": 15,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": false
+        },
+        "receipt": {
+          "n": 4,
+          "correct": 1,
+          "recall": 0.25,
+          "insufficientData": true
+        },
+        "damaging-admission": {
+          "n": 5,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        },
+        "deprivation-moment": {
+          "n": 21,
+          "correct": 21,
+          "recall": 1,
+          "insufficientData": false
+        },
+        "adjective-good": {
+          "n": 5,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        },
+        "mistakes": {
+          "n": 5,
+          "correct": 1,
+          "recall": 0.2,
+          "insufficientData": true
+        },
+        "how-to-without": {
+          "n": 7,
+          "correct": 2,
+          "recall": 0.2857,
+          "insufficientData": true
+        },
+        "call-out": {
+          "n": 12,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": false
+        },
+        "halbert-a-pile": {
+          "n": 6,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        }
+      }
+    },
+    "majorityClass": {
+      "guess": "deprivation-moment",
+      "n": 80,
+      "correct": 21,
+      "accuracy": 0.2625,
+      "macroRecall": 0.1111,
+      "perClass": {
+        "number-outcome-time": {
+          "n": 15,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": false
+        },
+        "receipt": {
+          "n": 4,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        },
+        "damaging-admission": {
+          "n": 5,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        },
+        "deprivation-moment": {
+          "n": 21,
+          "correct": 21,
+          "recall": 1,
+          "insufficientData": false
+        },
+        "adjective-good": {
+          "n": 5,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        },
+        "mistakes": {
+          "n": 5,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        },
+        "how-to-without": {
+          "n": 7,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        },
+        "call-out": {
+          "n": 12,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": false
+        },
+        "halbert-a-pile": {
+          "n": 6,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        }
+      }
+    }
+  }
+}
