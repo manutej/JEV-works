@@ -97,6 +97,8 @@ interface StageRun<A> {
   latencyMs: number;
   tokens: Usage;
   estimatedStateTokens: number;
+  /** The version that actually answered (response `model`), e.g. jev-1.13.0 behind jev-latest. */
+  resolvedModel: string;
 }
 
 type Stage1Outcome = 'admit' | 'reject' | 'escalate';
@@ -154,6 +156,7 @@ async function runStage<Q extends Record<string, unknown>>(
     latencyMs,
     tokens: result.usage,
     estimatedStateTokens,
+    resolvedModel: result.response.modelId,
   };
 }
 
@@ -291,13 +294,17 @@ async function main() {
     reachedStage3: results.filter(r => r.stoppedAt === 'stage3').length,
     errors: results.filter(r => r.error !== null).length,
   };
+  // Every version that answered any call — more than one means the alias moved mid-run.
+  const resolvedModels = [
+    ...new Set(results.flatMap(r => [r.stage1, r.stage2, r.stage3].flatMap(s => (s ? [s.resolvedModel] : [])))),
+  ].sort();
 
   const outDir = new URL('./results/', import.meta.url);
   await mkdir(outDir, { recursive: true });
   const outPath = new URL(`./pipeline-${SEED}.json`, outDir);
   await writeFile(
     outPath,
-    JSON.stringify({ seed: SEED, model: MODEL, wallMs, savings, results }, null, 2) + '\n',
+    JSON.stringify({ seed: SEED, model: MODEL, resolvedModels, wallMs, savings, results }, null, 2) + '\n',
   );
 
   console.log(`\nwrote ${results.length} lead results -> ${outPath.pathname}`);
