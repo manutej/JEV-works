@@ -13,7 +13,7 @@
     "question": "Pre-approve the one-shot holdout run?",
     "answer": "Run evaluation upon the questions and move forward with consensus but also create an html dashboard for manual review. NO stopping, keep going in the meantime and track the logs and results and assumptions."
   },
-  "model": "typesafe-ai/jev (gateway)",
+  "model": "jev-latest (direct)",
   "holdoutCustody": {
     "path": "/Users/manu/CETI/PISCES-MARKETING/assets/ceti-silver-hooks-approved.json",
     "sha256": "3948c5b38d1b48efdfc745021ea03fc689039a2ae2143161e3852b6e52a099c1",
@@ -1885,5 +1885,13 @@
       "unfittedComparison": "The only fitting-free comparison on these items: E1 wording (v1) vs E1 unfitted keyword baseline — see results/e3-fit.json v1 and fit.baselines.e1Keyword."
     },
     "neededToTestE3": "A labelled hook set disjoint from the 80 (by id and normalised text), checked blind — by hashing texts and printing only the overlap count — BEFORE the run."
-  }
+  },
+  "corrections": [
+    {
+      "field": "model",
+      "recordedAtFreeze": "typesafe-ai/jev (gateway)",
+      "corrected": "jev-latest (direct)",
+      "why": "freeze ran without TYPESAFE_API_KEY so JEV_ID resolved to the gateway; freeze makes no calls. Fit runs record jev-latest (direct) and the holdout RunLog announced \"model jev-latest (direct)\" (p50 124 ms, consistent with direct)."
+    }
+  ]
 }

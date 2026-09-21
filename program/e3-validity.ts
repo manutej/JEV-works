@@ -35,6 +35,22 @@ async function main() {
   const rows: Array<{ id: string; choice: string | null }> = out.holdout.rows;
   const sameChoice = rows.filter(r => fitPreds.get(r.id) === r.choice).length;
 
+  // freeze stamped JEV_ID from its own process, which ran without TYPESAFE_API_KEY and so resolved to the
+  // gateway id. freeze makes no model calls; the fit and holdout runs went through direct (e3-fit.json
+  // `model`, and the holdout RunLog announce). Corrected here, with the wrong value kept.
+  const fitModel: string = (await readJson(FIT_OUT)).model;
+  if (out.model !== fitModel) {
+    out.corrections ??= [];
+    if (!out.corrections.some((c: any) => c.field === 'model'))
+      out.corrections.push({
+        field: 'model',
+        recordedAtFreeze: out.model,
+        corrected: fitModel,
+        why: 'freeze ran without TYPESAFE_API_KEY so JEV_ID resolved to the gateway; freeze makes no calls. Fit runs record jev-latest (direct) and the holdout RunLog announced "model jev-latest (direct)" (p50 124 ms, consistent with direct).',
+      });
+    out.model = fitModel;
+  }
+
   const valid = sameId.length === 0;
   out.headlineAsRun ??= out.headline;
   out.headline = valid
