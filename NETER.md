@@ -44,7 +44,7 @@ disagrees with the claim) · **open** (no evidence either way yet).
 | P1 | **Batching is effectively free up to about 32 questions, then it is not.** 32 questions cost 0.91× the latency of 1 (245ms vs 269ms p50) and 2.5× the cost; marginal ~17 input tokens per question. But at **100 questions p50 doubled to 495ms**, and the question set itself consumed ~7,500 of the ~8,200 tokens per call — so past a few dozen questions you stop paying P1's free lunch and start paying P2's state-size cost with your own questions. The 32K budget is shared by state AND questions; a large question set is a large state. | our runs at 1–32 and at 100 | **measured here** |
 | P2 | **State scales sub-linearly.** 613 tok → 422ms; 24,299 tok → 610ms. 40× state for 1.45× latency. | our run | **measured here** |
 | P3 | **The context ceiling is a cliff, not a slope.** ~31K-token state returns `GatewayResponseError` / HTTP 500 / *"Invalid error response format"* — no 413, no typed size error, indistinguishable from provider flakiness. **You must count tokens before the call.** | our run | **measured here** |
-| P4 | **The argmax is stable; the probabilities are not.** 20 identical calls: choice never flipped (20/20), but the selected probability moved across a **0.11 band** (sd 0.025) and a 0–3 score moved 0.18. Two thresholds within 0.11 of each other are the same threshold. | our run, n=20 | **measured here** |
+| P4 | **The argmax is stable; the probabilities are not.** 20 identical calls: choice never flipped (20/20), but the selected probability moved across a **0.11 band** (sd 0.025) and a 0–3 score moved 0.18. Two thresholds within 0.11 of each other are the same threshold. **Addendum (2026-09-21, A/A n=50 states):** the band is question-shaped: booleans/scores p95 ≤ 0.07, a flat 5-way choice reaches 0.15. Argmax flipped on 2/16 choice states, only where the top-2 margin was ≤ 0.04; no confident answer flipped. | our run, n=20; drift suite A/A n=50 | **measured here** |
 | P5 | **It does not abstain.** On inputs with no correct answer — empty string, whitespace, lone emoji, off-topic text — it answered confidently (p 0.82–0.91), all on the same wrong option. A top-probability gate does not protect you. | our run, n=4 cases | **measured here** |
 | P6 | **Distribution entropy is the usable uncertainty signal.** Normalised entropy separated garbage (0.30–0.61) from unambiguous input (0.00–0.05) with a ~6× margin, where top-probability did not. | our run, n=10 cases | **measured here, small n** |
 | P7 | **Transient failures are real and the default hides them.** ~1 timeout in 30 calls with `maxRetries: 0`. The SDK default of 2 retries absorbs them silently. Measure with retries off; ship with them on. | our run | **measured here** |
@@ -109,7 +109,11 @@ Each is a question a cheap experiment could close. These feed pass 1.
 2. **Does entropy separation (P6) hold at n=200?** Ten cases is not a threshold.
 3. **Does a batch contaminate itself?** If rewording one option description moves answers to the other eleven questions, "fan out freely" has a hidden cost — and every criteria edit needs a regression suite.
 4. **Where is the real prunable mass in a transcript?** Iteration 1 says it is not staleness within a session (see ledger). Hypothesis: it is **duplicate reads across parallel subagents** — which Jev cannot see, because it evaluates one state at a time. Needs content hashing in code plus Jev for the near-duplicate judgement.
-5. **What does version drift cost?** `typesafe-ai/jev` on Gateway is unpinned. Re-run the stability suite weekly and diff.
+5. **What does version drift cost?** Instrumented, not yet answered: `program/drift.ts` (weekly, ~$0.004).
+   2026-09-21: `jev-latest` resolves to `jev-1.13.0` (50/50 calls), so pinned-vs-latest was an A/A test: no drift.
+   A/A noise p95 |Δp| 0.04, max 0.15 (choice); booleans/scores ≤ 0.07. This window closes the first week
+   `latestResolvedToChanged` is true. **Caveat:** the "≥3 flips over noise" verdict rule was set *after* a first run
+   called this A/A null "drift detected". It was calibrated on today's data, so next week's run is its first honest test.
 6. **Does the cheap baseline win on our tasks?** Unanswered and uncomfortable until measured.
 
 ---
@@ -266,4 +270,6 @@ latency, question count does not.
   resolved version **not captured** (L36): verdict rate 69.7% vs ≥95% required → **FAIL**. Jev 67.8% over all
   leads vs regex **92.2%** (Δ −24.4 pts); 97.4% on its own verdicts. The regex bar is seed-dependent
   (91.7% was on the broken corpus; 93.2% on fixed seed 42). Seed 7 is spent. Summary: `program/results/leads-u5-summary.md`.
+- **Drift suite (U6, `program/drift.ts`).** 150 direct calls, $0.004. `jev-latest` ≡ `jev-1.13.0` today. The P4 band is
+  question-shaped (addendum). Verdict rule tightened after a false positive on the A/A null; disclosed in DRIFT.md and window 5.
 

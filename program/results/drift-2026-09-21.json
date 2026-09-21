@@ -1,0 +1,5038 @@
+{
+  "headline": "U6 drift 2026-09-21: no drift — jev-latest→jev-1.13.0; p95 |Δp| latest 0.040 vs noise 0.040",
+  "experiment": "U6 / NETER window 5",
+  "date": "2026-09-21",
+  "verdict": "no drift",
+  "verdictNote": "jev-latest resolved to jev-1.13.0 on every call — an A/A comparison, so drift is impossible by construction today; any moved question is a false positive of the rule",
+  "movedQuestions": [],
+  "rule": {
+    "noiseFloorP4": 0.11,
+    "moved": "pinnedVsLatest.p95Dp >= 0.11 AND > pinnedVsPinned.p95Dp, OR pinnedVsLatest.flips - pinnedVsPinned.flips >= 3",
+    "thresholdsFitted": false,
+    "dp": "boolean |Δprobability|; choice/score L∞ over the returned distribution",
+    "flip": "boolean: side of 0.5; choice: chosen option; score: argmax level (not the expected-value scalar)"
+  },
+  "versions": {
+    "requested": [
+      "jev-1.13.0",
+      "jev-latest"
+    ],
+    "resolvedCounts": {
+      "jev-1.13.0": {
+        "jev-1.13.0": 100
+      },
+      "jev-latest": {
+        "jev-1.13.0": 50
+      }
+    },
+    "latestResolvedTo": [
+      "jev-1.13.0"
+    ],
+    "pinnedResolvedTo": [
+      "jev-1.13.0"
+    ],
+    "latestIsPinned": true
+  },
+  "n": {
+    "states": 50,
+    "sets": [
+      "DOC_RELEVANCE",
+      "COURSE_QA",
+      "GRAPH_EDGES"
+    ],
+    "callsAnnounced": 150,
+    "callsCompleted": 150,
+    "callsFailed": 0,
+    "retried": 0
+  },
+  "overall": {
+    "pinnedVsPinned": {
+      "n": 170,
+      "medianDp": 0.01,
+      "p95Dp": 0.04,
+      "maxDp": 0.15,
+      "flips": 2,
+      "flipRate": 0.0118,
+      "meanScoreDelta": 0.0138
+    },
+    "pinnedVsLatest": {
+      "n": 170,
+      "medianDp": 0.01,
+      "p95Dp": 0.04,
+      "maxDp": 0.15,
+      "flips": 4,
+      "flipRate": 0.0235,
+      "meanScoreDelta": 0.0185
+    }
+  },
+  "choiceFlipRate": {
+    "pinnedVsPinned": 0.125,
+    "pinnedVsLatest": 0.125
+  },
+  "perQuestion": [
+    {
+      "question": "DOC_RELEVANCE.answersTheQuestion",
+      "pinnedVsPinned": {
+        "n": 18,
+        "medianDp": 0,
+        "p95Dp": 0.0145,
+        "maxDp": 0.04,
+        "flips": 0,
+        "flipRate": 0
+      },
+      "pinnedVsLatest": {
+        "n": 18,
+        "medianDp": 0,
+        "p95Dp": 0.013,
+        "maxDp": 0.03,
+        "flips": 0,
+        "flipRate": 0
+      },
+      "moved": false,
+      "movedBecause": {
+        "p95AboveFloorAndNoise": false,
+        "moreFlipsThanNoise": false
+      }
+    },
+    {
+      "question": "DOC_RELEVANCE.isApiSurface",
+      "pinnedVsPinned": {
+        "n": 18,
+        "medianDp": 0.005,
+        "p95Dp": 0.02,
+        "maxDp": 0.02,
+        "flips": 0,
+        "flipRate": 0
+      },
+      "pinnedVsLatest": {
+        "n": 18,
+        "medianDp": 0.01,
+        "p95Dp": 0.0215,
+        "maxDp": 0.03,
+        "flips": 1,
+        "flipRate": 0.0556
+      },
+      "moved": false,
+      "movedBecause": {
+        "p95AboveFloorAndNoise": false,
+        "moreFlipsThanNoise": false
+      }
+    },
+    {
+      "question": "DOC_RELEVANCE.isRunnableExample",
+      "pinnedVsPinned": {
+        "n": 18,
+        "medianDp": 0.005,
+        "p95Dp": 0.036,
+        "maxDp": 0.07,
+        "flips": 0,
+        "flipRate": 0
+      },
+      "pinnedVsLatest": {
+        "n": 18,
+        "medianDp": 0.015,
+        "p95Dp": 0.033,
+        "maxDp": 0.05,
+        "flips": 0,
+        "flipRate": 0
+      },
+      "moved": false,
+      "movedBecause": {
+        "p95AboveFloorAndNoise": false,
+        "moreFlipsThanNoise": false
+      }
+    },
+    {
+      "question": "DOC_RELEVANCE.versionRisk",
+      "pinnedVsPinned": {
+        "n": 18,
+        "medianDp": 0.005,
+        "p95Dp": 0.0315,
+        "maxDp": 0.04,
+        "flips": 0,
+        "flipRate": 0
+      },
+      "pinnedVsLatest": {
+        "n": 18,
+        "medianDp": 0.01,
+        "p95Dp": 0.02,
+        "maxDp": 0.02,
+        "flips": 0,
+        "flipRate": 0
+      },
+      "moved": false,
+      "movedBecause": {
+        "p95AboveFloorAndNoise": false,
+        "moreFlipsThanNoise": false
+      }
+    },
+    {
+      "question": "DOC_RELEVANCE.specificity",
+      "pinnedVsPinned": {
+        "n": 18,
+        "medianDp": 0.01,
+        "p95Dp": 0.05,
+        "maxDp": 0.05,
+        "flips": 0,
+        "flipRate": 0,
+        "meanScoreDelta": 0.0206
+      },
+      "pinnedVsLatest": {
+        "n": 18,
+        "medianDp": 0.01,
+        "p95Dp": 0.043,
+        "maxDp": 0.06,
+        "flips": 0,
+        "flipRate": 0,
+        "meanScoreDelta": 0.0278
+      },
+      "moved": false,
+      "movedBecause": {
+        "p95AboveFloorAndNoise": false,
+        "moreFlipsThanNoise": false
+      }
+    },
+    {
+      "question": "COURSE_QA.teachesOneThing",
+      "pinnedVsPinned": {
+        "n": 16,
+        "medianDp": 0.01,
+        "p95Dp": 0.03,
+        "maxDp": 0.03,
+        "flips": 0,
+        "flipRate": 0
+      },
+      "pinnedVsLatest": {
+        "n": 16,
+        "medianDp": 0.01,
+        "p95Dp": 0.0425,
+        "maxDp": 0.05,
+        "flips": 1,
+        "flipRate": 0.0625
+      },
+      "moved": false,
+      "movedBecause": {
+        "p95AboveFloorAndNoise": false,
+        "moreFlipsThanNoise": false
+      }
+    },
+    {
+      "question": "COURSE_QA.assumesUndefinedTerm",
+      "pinnedVsPinned": {
+        "n": 16,
+        "medianDp": 0.005,
+        "p95Dp": 0.03,
+        "maxDp": 0.03,
+        "flips": 0,
+        "flipRate": 0
+      },
+      "pinnedVsLatest": {
+        "n": 16,
+        "medianDp": 0.01,
+        "p95Dp": 0.015,
+        "maxDp": 0.03,
+        "flips": 0,
+        "flipRate": 0
+      },
+      "moved": false,
+      "movedBecause": {
+        "p95AboveFloorAndNoise": false,
+        "moreFlipsThanNoise": false
+      }
+    },
+    {
+      "question": "COURSE_QA.hasConcreteExample",
+      "pinnedVsPinned": {
+        "n": 16,
+        "medianDp": 0.01,
+        "p95Dp": 0.0125,
+        "maxDp": 0.02,
+        "flips": 0,
+        "flipRate": 0
+      },
+      "pinnedVsLatest": {
+        "n": 16,
+        "medianDp": 0.01,
+        "p95Dp": 0.02,
+        "maxDp": 0.02,
+        "flips": 0,
+        "flipRate": 0
+      },
+      "moved": false,
+      "movedBecause": {
+        "p95AboveFloorAndNoise": false,
+        "moreFlipsThanNoise": false
+      }
+    },
+    {
+      "question": "COURSE_QA.plainLanguage",
+      "pinnedVsPinned": {
+        "n": 16,
+        "medianDp": 0.005,
+        "p95Dp": 0.0225,
+        "maxDp": 0.03,
+        "flips": 0,
+        "flipRate": 0,
+        "meanScoreDelta": 0.0062
+      },
+      "pinnedVsLatest": {
+        "n": 16,
+        "medianDp": 0.01,
+        "p95Dp": 0.0325,
+        "maxDp": 0.04,
+        "flips": 0,
+        "flipRate": 0,
+        "meanScoreDelta": 0.0081
+      },
+      "moved": false,
+      "movedBecause": {
+        "p95AboveFloorAndNoise": false,
+        "moreFlipsThanNoise": false
+      }
+    },
+    {
+      "question": "GRAPH_EDGES.relationship",
+      "pinnedVsPinned": {
+        "n": 16,
+        "medianDp": 0.025,
+        "p95Dp": 0.135,
+        "maxDp": 0.15,
+        "flips": 2,
+        "flipRate": 0.125
+      },
+      "pinnedVsLatest": {
+        "n": 16,
+        "medianDp": 0.025,
+        "p95Dp": 0.1125,
+        "maxDp": 0.15,
+        "flips": 2,
+        "flipRate": 0.125
+      },
+      "moved": false,
+      "movedBecause": {
+        "p95AboveFloorAndNoise": false,
+        "moreFlipsThanNoise": false
+      }
+    }
+  ],
+  "latency": {
+    "pinnedA": {
+      "n": 50,
+      "p50": 120,
+      "p95": 239.75
+    },
+    "latest": {
+      "n": 50,
+      "p50": 115,
+      "p95": 258.15
+    },
+    "pinnedB": {
+      "n": 50,
+      "p50": 115,
+      "p95": 291.85
+    }
+  },
+  "sincePrevious": {
+    "file": "drift-2026-09-21.json",
+    "previousDate": "2026-09-21",
+    "previousLatestResolvedTo": [
+      "jev-1.13.0"
+    ],
+    "latestResolvedToChanged": false,
+    "previousVerdict": "drift detected",
+    "statesMatched": 50,
+    "latestThenVsNow": {
+      "n": 170,
+      "medianDp": 0.01,
+      "p95Dp": 0.05,
+      "maxDp": 0.12,
+      "flips": 6,
+      "flipRate": 0.0353,
+      "meanScoreDelta": 0.0188
+    },
+    "pinnedThenVsNow": {
+      "n": 170,
+      "medianDp": 0.01,
+      "p95Dp": 0.04,
+      "maxDp": 0.15,
+      "flips": 2,
+      "flipRate": 0.0118,
+      "meanScoreDelta": 0.0121
+    },
+    "perQuestionLatestThenVsNow": {
+      "DOC_RELEVANCE.answersTheQuestion": {
+        "n": 18,
+        "medianDp": 0,
+        "p95Dp": 0.01,
+        "maxDp": 0.01,
+        "flips": 0,
+        "flipRate": 0
+      },
+      "DOC_RELEVANCE.isApiSurface": {
+        "n": 18,
+        "medianDp": 0.01,
+        "p95Dp": 0.0315,
+        "maxDp": 0.04,
+        "flips": 1,
+        "flipRate": 0.0556
+      },
+      "DOC_RELEVANCE.isRunnableExample": {
+        "n": 18,
+        "medianDp": 0.015,
+        "p95Dp": 0.0545,
+        "maxDp": 0.08,
+        "flips": 1,
+        "flipRate": 0.0556
+      },
+      "DOC_RELEVANCE.versionRisk": {
+        "n": 18,
+        "medianDp": 0.005,
+        "p95Dp": 0.0245,
+        "maxDp": 0.05,
+        "flips": 0,
+        "flipRate": 0
+      },
+      "DOC_RELEVANCE.specificity": {
+        "n": 18,
+        "medianDp": 0.01,
+        "p95Dp": 0.0415,
+        "maxDp": 0.05,
+        "flips": 0,
+        "flipRate": 0,
+        "meanScoreDelta": 0.0256
+      },
+      "COURSE_QA.teachesOneThing": {
+        "n": 16,
+        "medianDp": 0.01,
+        "p95Dp": 0.025,
+        "maxDp": 0.04,
+        "flips": 1,
+        "flipRate": 0.0625
+      },
+      "COURSE_QA.assumesUndefinedTerm": {
+        "n": 16,
+        "medianDp": 0.01,
+        "p95Dp": 0.02,
+        "maxDp": 0.02,
+        "flips": 0,
+        "flipRate": 0
+      },
+      "COURSE_QA.hasConcreteExample": {
+        "n": 16,
+        "medianDp": 0.01,
+        "p95Dp": 0.02,
+        "maxDp": 0.02,
+        "flips": 0,
+        "flipRate": 0
+      },
+      "COURSE_QA.plainLanguage": {
+        "n": 16,
+        "medianDp": 0.01,
+        "p95Dp": 0.0275,
+        "maxDp": 0.05,
+        "flips": 0,
+        "flipRate": 0,
+        "meanScoreDelta": 0.0113
+      },
+      "GRAPH_EDGES.relationship": {
+        "n": 16,
+        "medianDp": 0.025,
+        "p95Dp": 0.0825,
+        "maxDp": 0.12,
+        "flips": 3,
+        "flipRate": 0.1875
+      }
+    }
+  },
+  "wallClockMs": 5600,
+  "rows": [
+    {
+      "id": "DOC_RELEVANCE#0",
+      "set": "DOC_RELEVANCE",
+      "order": [
+        "pinnedA",
+        "pinnedB",
+        "latest"
+      ],
+      "calls": {
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 251,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.96
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.84
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.43
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.91
+            },
+            "specificity": {
+              "type": "score",
+              "score": 3,
+              "probabilities": {
+                "0": 0,
+                "1": 0,
+                "2": 0,
+                "3": 1
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 127,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.97
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.84
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.45
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.9
+            },
+            "specificity": {
+              "type": "score",
+              "score": 3,
+              "probabilities": {
+                "0": 0,
+                "1": 0,
+                "2": 0,
+                "3": 1
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 109,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.96
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.84
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.42
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.9
+            },
+            "specificity": {
+              "type": "score",
+              "score": 3,
+              "probabilities": {
+                "0": 0,
+                "1": 0,
+                "2": 0,
+                "3": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "DOC_RELEVANCE#1",
+      "set": "DOC_RELEVANCE",
+      "order": [
+        "pinnedB",
+        "pinnedA",
+        "latest"
+      ],
+      "calls": {
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 249,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.04
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.64
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.4
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.11
+            },
+            "specificity": {
+              "type": "score",
+              "score": 1.11,
+              "probabilities": {
+                "0": 0.48,
+                "1": 0.2,
+                "2": 0.05,
+                "3": 0.27
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 126,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.03
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.65
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.4
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.11
+            },
+            "specificity": {
+              "type": "score",
+              "score": 1.14,
+              "probabilities": {
+                "0": 0.49,
+                "1": 0.17,
+                "2": 0.04,
+                "3": 0.3
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 112,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.03
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.64
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.43
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.11
+            },
+            "specificity": {
+              "type": "score",
+              "score": 1.07,
+              "probabilities": {
+                "0": 0.51,
+                "1": 0.19,
+                "2": 0.04,
+                "3": 0.26
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "DOC_RELEVANCE#2",
+      "set": "DOC_RELEVANCE",
+      "order": [
+        "pinnedA",
+        "pinnedB",
+        "latest"
+      ],
+      "calls": {
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 226,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.92
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.02
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.02
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.08
+            },
+            "specificity": {
+              "type": "score",
+              "score": 0.94,
+              "probabilities": {
+                "0": 0.18,
+                "1": 0.7,
+                "2": 0.12,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 145,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.92
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.02
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.02
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.08
+            },
+            "specificity": {
+              "type": "score",
+              "score": 0.96,
+              "probabilities": {
+                "0": 0.18,
+                "1": 0.68,
+                "2": 0.14,
+                "3": 0
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 111,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.92
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.02
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.02
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.08
+            },
+            "specificity": {
+              "type": "score",
+              "score": 0.96,
+              "probabilities": {
+                "0": 0.17,
+                "1": 0.7,
+                "2": 0.13,
+                "3": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "DOC_RELEVANCE#3",
+      "set": "DOC_RELEVANCE",
+      "order": [
+        "pinnedA",
+        "pinnedB",
+        "latest"
+      ],
+      "calls": {
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 217,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.02
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.59
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.85
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.17
+            },
+            "specificity": {
+              "type": "score",
+              "score": 2.75,
+              "probabilities": {
+                "0": 0.06,
+                "1": 0.03,
+                "2": 0,
+                "3": 0.91
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 255,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.02
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.6
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.82
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.21
+            },
+            "specificity": {
+              "type": "score",
+              "score": 2.75,
+              "probabilities": {
+                "0": 0.06,
+                "1": 0.04,
+                "2": 0,
+                "3": 0.9
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 147,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.02
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.57
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.84
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.18
+            },
+            "specificity": {
+              "type": "score",
+              "score": 2.67,
+              "probabilities": {
+                "0": 0.08,
+                "1": 0.04,
+                "2": 0,
+                "3": 0.88
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "DOC_RELEVANCE#4",
+      "set": "DOC_RELEVANCE",
+      "order": [
+        "latest",
+        "pinnedB",
+        "pinnedA"
+      ],
+      "calls": {
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 129,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.96
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.88
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.73
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.14
+            },
+            "specificity": {
+              "type": "score",
+              "score": 3,
+              "probabilities": {
+                "0": 0,
+                "1": 0,
+                "2": 0,
+                "3": 1
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 112,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.96
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.86
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.7
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.15
+            },
+            "specificity": {
+              "type": "score",
+              "score": 3,
+              "probabilities": {
+                "0": 0,
+                "1": 0,
+                "2": 0,
+                "3": 1
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 125,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.96
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.87
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.7
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.14
+            },
+            "specificity": {
+              "type": "score",
+              "score": 3,
+              "probabilities": {
+                "0": 0,
+                "1": 0,
+                "2": 0,
+                "3": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "DOC_RELEVANCE#5",
+      "set": "DOC_RELEVANCE",
+      "order": [
+        "latest",
+        "pinnedB",
+        "pinnedA"
+      ],
+      "calls": {
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 135,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.03
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.04
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.01
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.05
+            },
+            "specificity": {
+              "type": "score",
+              "score": 0.45,
+              "probabilities": {
+                "0": 0.56,
+                "1": 0.44,
+                "2": 0,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 143,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.03
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.04
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.01
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.05
+            },
+            "specificity": {
+              "type": "score",
+              "score": 0.4,
+              "probabilities": {
+                "0": 0.61,
+                "1": 0.39,
+                "2": 0,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 135,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.03
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.03
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.01
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.05
+            },
+            "specificity": {
+              "type": "score",
+              "score": 0.38,
+              "probabilities": {
+                "0": 0.62,
+                "1": 0.38,
+                "2": 0,
+                "3": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "DOC_RELEVANCE#6",
+      "set": "DOC_RELEVANCE",
+      "order": [
+        "pinnedA",
+        "latest",
+        "pinnedB"
+      ],
+      "calls": {
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 120,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.97
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.79
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.16
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.14
+            },
+            "specificity": {
+              "type": "score",
+              "score": 3,
+              "probabilities": {
+                "0": 0,
+                "1": 0,
+                "2": 0,
+                "3": 1
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 108,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.96
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.8
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.17
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.14
+            },
+            "specificity": {
+              "type": "score",
+              "score": 3,
+              "probabilities": {
+                "0": 0,
+                "1": 0,
+                "2": 0,
+                "3": 1
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 122,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.96
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.79
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.15
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.14
+            },
+            "specificity": {
+              "type": "score",
+              "score": 3,
+              "probabilities": {
+                "0": 0,
+                "1": 0,
+                "2": 0,
+                "3": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "DOC_RELEVANCE#7",
+      "set": "DOC_RELEVANCE",
+      "order": [
+        "pinnedB",
+        "latest",
+        "pinnedA"
+      ],
+      "calls": {
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 133,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.15
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.8
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.34
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.11
+            },
+            "specificity": {
+              "type": "score",
+              "score": 2.87,
+              "probabilities": {
+                "0": 0.01,
+                "1": 0.05,
+                "2": 0.01,
+                "3": 0.93
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 106,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.13
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.8
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.37
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.12
+            },
+            "specificity": {
+              "type": "score",
+              "score": 2.83,
+              "probabilities": {
+                "0": 0.01,
+                "1": 0.06,
+                "2": 0.02,
+                "3": 0.91
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 167,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.16
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.82
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.35
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.11
+            },
+            "specificity": {
+              "type": "score",
+              "score": 2.82,
+              "probabilities": {
+                "0": 0.01,
+                "1": 0.07,
+                "2": 0.02,
+                "3": 0.9
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "DOC_RELEVANCE#8",
+      "set": "DOC_RELEVANCE",
+      "order": [
+        "pinnedA",
+        "pinnedB",
+        "latest"
+      ],
+      "calls": {
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 111,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.98
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.13
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.14
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.12
+            },
+            "specificity": {
+              "type": "score",
+              "score": 2.65,
+              "probabilities": {
+                "0": 0.01,
+                "1": 0.09,
+                "2": 0.16,
+                "3": 0.74
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 135,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.98
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.12
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.14
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.12
+            },
+            "specificity": {
+              "type": "score",
+              "score": 2.63,
+              "probabilities": {
+                "0": 0.01,
+                "1": 0.09,
+                "2": 0.17,
+                "3": 0.73
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 91,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.98
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.12
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.16
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.11
+            },
+            "specificity": {
+              "type": "score",
+              "score": 2.65,
+              "probabilities": {
+                "0": 0.01,
+                "1": 0.09,
+                "2": 0.16,
+                "3": 0.74
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "DOC_RELEVANCE#9",
+      "set": "DOC_RELEVANCE",
+      "order": [
+        "latest",
+        "pinnedB",
+        "pinnedA"
+      ],
+      "calls": {
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 151,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.05
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.18
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.1
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.15
+            },
+            "specificity": {
+              "type": "score",
+              "score": 1.67,
+              "probabilities": {
+                "0": 0.07,
+                "1": 0.36,
+                "2": 0.41,
+                "3": 0.16
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 106,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.05
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.18
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.11
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.14
+            },
+            "specificity": {
+              "type": "score",
+              "score": 1.62,
+              "probabilities": {
+                "0": 0.08,
+                "1": 0.37,
+                "2": 0.4,
+                "3": 0.15
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 107,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.05
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.18
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.12
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.14
+            },
+            "specificity": {
+              "type": "score",
+              "score": 1.73,
+              "probabilities": {
+                "0": 0.07,
+                "1": 0.32,
+                "2": 0.42,
+                "3": 0.19
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "DOC_RELEVANCE#10",
+      "set": "DOC_RELEVANCE",
+      "order": [
+        "latest",
+        "pinnedA",
+        "pinnedB"
+      ],
+      "calls": {
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 115,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.96
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.91
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.73
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.69
+            },
+            "specificity": {
+              "type": "score",
+              "score": 3,
+              "probabilities": {
+                "0": 0,
+                "1": 0,
+                "2": 0,
+                "3": 1
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 149,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.96
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.92
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.76
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.68
+            },
+            "specificity": {
+              "type": "score",
+              "score": 3,
+              "probabilities": {
+                "0": 0,
+                "1": 0,
+                "2": 0,
+                "3": 1
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 104,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.96
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.92
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.76
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.71
+            },
+            "specificity": {
+              "type": "score",
+              "score": 3,
+              "probabilities": {
+                "0": 0,
+                "1": 0,
+                "2": 0,
+                "3": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "DOC_RELEVANCE#11",
+      "set": "DOC_RELEVANCE",
+      "order": [
+        "pinnedB",
+        "pinnedA",
+        "latest"
+      ],
+      "calls": {
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 79,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.08
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.91
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.58
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.68
+            },
+            "specificity": {
+              "type": "score",
+              "score": 2.71,
+              "probabilities": {
+                "0": 0.05,
+                "1": 0.07,
+                "2": 0.01,
+                "3": 0.87
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 127,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.08
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.91
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.58
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.68
+            },
+            "specificity": {
+              "type": "score",
+              "score": 2.7,
+              "probabilities": {
+                "0": 0.04,
+                "1": 0.09,
+                "2": 0.01,
+                "3": 0.86
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 104,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.08
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.91
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.57
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.69
+            },
+            "specificity": {
+              "type": "score",
+              "score": 2.71,
+              "probabilities": {
+                "0": 0.04,
+                "1": 0.07,
+                "2": 0.01,
+                "3": 0.88
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "DOC_RELEVANCE#12",
+      "set": "DOC_RELEVANCE",
+      "order": [
+        "latest",
+        "pinnedA",
+        "pinnedB"
+      ],
+      "calls": {
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 114,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.87
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.12
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.04
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.08
+            },
+            "specificity": {
+              "type": "score",
+              "score": 1.69,
+              "probabilities": {
+                "0": 0.01,
+                "1": 0.31,
+                "2": 0.65,
+                "3": 0.03
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 116,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.88
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.12
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.04
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.07
+            },
+            "specificity": {
+              "type": "score",
+              "score": 1.68,
+              "probabilities": {
+                "0": 0.01,
+                "1": 0.33,
+                "2": 0.63,
+                "3": 0.03
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 144,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.87
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.13
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.04
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.08
+            },
+            "specificity": {
+              "type": "score",
+              "score": 1.72,
+              "probabilities": {
+                "0": 0.01,
+                "1": 0.29,
+                "2": 0.67,
+                "3": 0.03
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "DOC_RELEVANCE#13",
+      "set": "DOC_RELEVANCE",
+      "order": [
+        "pinnedB",
+        "latest",
+        "pinnedA"
+      ],
+      "calls": {
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 112,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.13
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.8
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.29
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.79
+            },
+            "specificity": {
+              "type": "score",
+              "score": 2.81,
+              "probabilities": {
+                "0": 0.01,
+                "1": 0.07,
+                "2": 0.02,
+                "3": 0.9
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 196,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.16
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.79
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.29
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.78
+            },
+            "specificity": {
+              "type": "score",
+              "score": 2.77,
+              "probabilities": {
+                "0": 0.02,
+                "1": 0.08,
+                "2": 0.02,
+                "3": 0.88
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 129,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.17
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.79
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.31
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.8
+            },
+            "specificity": {
+              "type": "score",
+              "score": 2.83,
+              "probabilities": {
+                "0": 0.01,
+                "1": 0.06,
+                "2": 0.02,
+                "3": 0.91
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "DOC_RELEVANCE#14",
+      "set": "DOC_RELEVANCE",
+      "order": [
+        "pinnedB",
+        "pinnedA",
+        "latest"
+      ],
+      "calls": {
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 115,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.97
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.87
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.32
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.12
+            },
+            "specificity": {
+              "type": "score",
+              "score": 3,
+              "probabilities": {
+                "0": 0,
+                "1": 0,
+                "2": 0,
+                "3": 1
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 113,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.97
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.87
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.31
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.11
+            },
+            "specificity": {
+              "type": "score",
+              "score": 3,
+              "probabilities": {
+                "0": 0,
+                "1": 0,
+                "2": 0,
+                "3": 1
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 112,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.97
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.87
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.29
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.13
+            },
+            "specificity": {
+              "type": "score",
+              "score": 3,
+              "probabilities": {
+                "0": 0,
+                "1": 0,
+                "2": 0,
+                "3": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "DOC_RELEVANCE#15",
+      "set": "DOC_RELEVANCE",
+      "order": [
+        "pinnedB",
+        "pinnedA",
+        "latest"
+      ],
+      "calls": {
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 121,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.03
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.5
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.4
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.19
+            },
+            "specificity": {
+              "type": "score",
+              "score": 2.63,
+              "probabilities": {
+                "0": 0.08,
+                "1": 0.05,
+                "2": 0.04,
+                "3": 0.83
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 90,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.03
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.5
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.47
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.19
+            },
+            "specificity": {
+              "type": "score",
+              "score": 2.63,
+              "probabilities": {
+                "0": 0.08,
+                "1": 0.05,
+                "2": 0.05,
+                "3": 0.82
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 118,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.03
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.49
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.42
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.21
+            },
+            "specificity": {
+              "type": "score",
+              "score": 2.59,
+              "probabilities": {
+                "0": 0.08,
+                "1": 0.06,
+                "2": 0.04,
+                "3": 0.82
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "DOC_RELEVANCE#16",
+      "set": "DOC_RELEVANCE",
+      "order": [
+        "pinnedA",
+        "pinnedB",
+        "latest"
+      ],
+      "calls": {
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 113,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.94
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.04
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.02
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.05
+            },
+            "specificity": {
+              "type": "score",
+              "score": 1.58,
+              "probabilities": {
+                "0": 0.12,
+                "1": 0.17,
+                "2": 0.71,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 117,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.94
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.04
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.02
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.06
+            },
+            "specificity": {
+              "type": "score",
+              "score": 1.63,
+              "probabilities": {
+                "0": 0.12,
+                "1": 0.12,
+                "2": 0.76,
+                "3": 0
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 130,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.94
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.04
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.02
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.05
+            },
+            "specificity": {
+              "type": "score",
+              "score": 1.64,
+              "probabilities": {
+                "0": 0.11,
+                "1": 0.14,
+                "2": 0.75,
+                "3": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "DOC_RELEVANCE#17",
+      "set": "DOC_RELEVANCE",
+      "order": [
+        "pinnedA",
+        "latest",
+        "pinnedB"
+      ],
+      "calls": {
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 114,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.96
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.74
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.77
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.35
+            },
+            "specificity": {
+              "type": "score",
+              "score": 2.98,
+              "probabilities": {
+                "0": 0,
+                "1": 0,
+                "2": 0.01,
+                "3": 0.99
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 110,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.96
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.71
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.77
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.36
+            },
+            "specificity": {
+              "type": "score",
+              "score": 2.99,
+              "probabilities": {
+                "0": 0,
+                "1": 0,
+                "2": 0.01,
+                "3": 0.99
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 113,
+          "answers": {
+            "answersTheQuestion": {
+              "type": "boolean",
+              "probability": 0.96
+            },
+            "isApiSurface": {
+              "type": "boolean",
+              "probability": 0.72
+            },
+            "isRunnableExample": {
+              "type": "boolean",
+              "probability": 0.76
+            },
+            "versionRisk": {
+              "type": "boolean",
+              "probability": 0.38
+            },
+            "specificity": {
+              "type": "score",
+              "score": 2.98,
+              "probabilities": {
+                "0": 0,
+                "1": 0,
+                "2": 0.01,
+                "3": 0.99
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "COURSE_QA#0",
+      "set": "COURSE_QA",
+      "order": [
+        "latest",
+        "pinnedA",
+        "pinnedB"
+      ],
+      "calls": {
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 114,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.19
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.87
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.97
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1.01,
+              "probabilities": {
+                "0": 0.01,
+                "1": 0.97,
+                "2": 0.02,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 99,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.18
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.87
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.98
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1.01,
+              "probabilities": {
+                "0": 0.01,
+                "1": 0.97,
+                "2": 0.02,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 116,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.18
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.88
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.98
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1.02,
+              "probabilities": {
+                "0": 0.01,
+                "1": 0.97,
+                "2": 0.02,
+                "3": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "COURSE_QA#1",
+      "set": "COURSE_QA",
+      "order": [
+        "pinnedA",
+        "latest",
+        "pinnedB"
+      ],
+      "calls": {
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 107,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.46
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.91
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.96
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1.01,
+              "probabilities": {
+                "0": 0.04,
+                "1": 0.92,
+                "2": 0.04,
+                "3": 0
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 105,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.5
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.92
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.96
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1.03,
+              "probabilities": {
+                "0": 0.03,
+                "1": 0.92,
+                "2": 0.05,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 107,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.49
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.91
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.95
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1.01,
+              "probabilities": {
+                "0": 0.04,
+                "1": 0.92,
+                "2": 0.04,
+                "3": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "COURSE_QA#2",
+      "set": "COURSE_QA",
+      "order": [
+        "pinnedB",
+        "latest",
+        "pinnedA"
+      ],
+      "calls": {
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 98,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.4
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.85
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.87
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 0.94,
+              "probabilities": {
+                "0": 0.08,
+                "1": 0.9,
+                "2": 0.02,
+                "3": 0
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 148,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.39
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.86
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.87
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 0.95,
+              "probabilities": {
+                "0": 0.06,
+                "1": 0.92,
+                "2": 0.02,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 97,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.39
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.85
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.86
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 0.95,
+              "probabilities": {
+                "0": 0.07,
+                "1": 0.91,
+                "2": 0.02,
+                "3": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "COURSE_QA#3",
+      "set": "COURSE_QA",
+      "order": [
+        "latest",
+        "pinnedA",
+        "pinnedB"
+      ],
+      "calls": {
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 114,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.13
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.85
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.88
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1.02,
+              "probabilities": {
+                "0": 0.02,
+                "1": 0.94,
+                "2": 0.04,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 107,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.12
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.85
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.87
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1.02,
+              "probabilities": {
+                "0": 0.02,
+                "1": 0.94,
+                "2": 0.04,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 92,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.13
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.86
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.88
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1.02,
+              "probabilities": {
+                "0": 0.03,
+                "1": 0.93,
+                "2": 0.04,
+                "3": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "COURSE_QA#4",
+      "set": "COURSE_QA",
+      "order": [
+        "pinnedB",
+        "pinnedA",
+        "latest"
+      ],
+      "calls": {
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 103,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.18
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.8
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.2
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1,
+              "probabilities": {
+                "0": 0.03,
+                "1": 0.95,
+                "2": 0.02,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 123,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.17
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.8
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.21
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1,
+              "probabilities": {
+                "0": 0.02,
+                "1": 0.96,
+                "2": 0.02,
+                "3": 0
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 123,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.16
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.8
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.2
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 0.99,
+              "probabilities": {
+                "0": 0.03,
+                "1": 0.95,
+                "2": 0.02,
+                "3": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "COURSE_QA#5",
+      "set": "COURSE_QA",
+      "order": [
+        "latest",
+        "pinnedB",
+        "pinnedA"
+      ],
+      "calls": {
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 158,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.09
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.81
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.89
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 0.96,
+              "probabilities": {
+                "0": 0.04,
+                "1": 0.96,
+                "2": 0,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 103,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.09
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.81
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.87
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 0.95,
+              "probabilities": {
+                "0": 0.05,
+                "1": 0.95,
+                "2": 0,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 106,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.09
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.82
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.88
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 0.96,
+              "probabilities": {
+                "0": 0.05,
+                "1": 0.95,
+                "2": 0,
+                "3": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "COURSE_QA#6",
+      "set": "COURSE_QA",
+      "order": [
+        "pinnedA",
+        "latest",
+        "pinnedB"
+      ],
+      "calls": {
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 123,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.37
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.92
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.84
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 0.74,
+              "probabilities": {
+                "0": 0.26,
+                "1": 0.74,
+                "2": 0,
+                "3": 0
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 117,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.36
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.91
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.84
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 0.74,
+              "probabilities": {
+                "0": 0.26,
+                "1": 0.74,
+                "2": 0,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 137,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.37
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.92
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.86
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 0.73,
+              "probabilities": {
+                "0": 0.27,
+                "1": 0.73,
+                "2": 0,
+                "3": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "COURSE_QA#7",
+      "set": "COURSE_QA",
+      "order": [
+        "latest",
+        "pinnedB",
+        "pinnedA"
+      ],
+      "calls": {
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 115,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.32
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.72
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.94
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1,
+              "probabilities": {
+                "0": 0.04,
+                "1": 0.93,
+                "2": 0.03,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 134,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.32
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.7
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.94
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1,
+              "probabilities": {
+                "0": 0.03,
+                "1": 0.94,
+                "2": 0.03,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 99,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.33
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.73
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.94
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1,
+              "probabilities": {
+                "0": 0.04,
+                "1": 0.92,
+                "2": 0.04,
+                "3": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "COURSE_QA#8",
+      "set": "COURSE_QA",
+      "order": [
+        "latest",
+        "pinnedB",
+        "pinnedA"
+      ],
+      "calls": {
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 106,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.45
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.86
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.95
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1.01,
+              "probabilities": {
+                "0": 0.02,
+                "1": 0.95,
+                "2": 0.03,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 97,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.44
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.85
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.95
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1.03,
+              "probabilities": {
+                "0": 0.01,
+                "1": 0.95,
+                "2": 0.04,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 125,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.44
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.85
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.95
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1.03,
+              "probabilities": {
+                "0": 0.01,
+                "1": 0.95,
+                "2": 0.04,
+                "3": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "COURSE_QA#9",
+      "set": "COURSE_QA",
+      "order": [
+        "pinnedA",
+        "pinnedB",
+        "latest"
+      ],
+      "calls": {
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 155,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.17
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.91
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.89
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 0.94,
+              "probabilities": {
+                "0": 0.06,
+                "1": 0.94,
+                "2": 0,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 98,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.18
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.92
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.89
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 0.95,
+              "probabilities": {
+                "0": 0.05,
+                "1": 0.95,
+                "2": 0,
+                "3": 0
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 93,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.17
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.91
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.89
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 0.94,
+              "probabilities": {
+                "0": 0.06,
+                "1": 0.94,
+                "2": 0,
+                "3": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "COURSE_QA#10",
+      "set": "COURSE_QA",
+      "order": [
+        "latest",
+        "pinnedA",
+        "pinnedB"
+      ],
+      "calls": {
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 99,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.33
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.65
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.9
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1.79,
+              "probabilities": {
+                "0": 0,
+                "1": 0.21,
+                "2": 0.79,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 100,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.36
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.62
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.89
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1.8,
+              "probabilities": {
+                "0": 0,
+                "1": 0.2,
+                "2": 0.8,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 141,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.35
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.63
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.88
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1.77,
+              "probabilities": {
+                "0": 0,
+                "1": 0.23,
+                "2": 0.77,
+                "3": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "COURSE_QA#11",
+      "set": "COURSE_QA",
+      "order": [
+        "pinnedB",
+        "pinnedA",
+        "latest"
+      ],
+      "calls": {
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 139,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.16
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.91
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.96
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 0.93,
+              "probabilities": {
+                "0": 0.08,
+                "1": 0.91,
+                "2": 0.01,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 111,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.15
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.91
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.96
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 0.93,
+              "probabilities": {
+                "0": 0.08,
+                "1": 0.91,
+                "2": 0.01,
+                "3": 0
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 101,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.15
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.91
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.95
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 0.93,
+              "probabilities": {
+                "0": 0.08,
+                "1": 0.91,
+                "2": 0.01,
+                "3": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "COURSE_QA#12",
+      "set": "COURSE_QA",
+      "order": [
+        "pinnedB",
+        "latest",
+        "pinnedA"
+      ],
+      "calls": {
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 109,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.74
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.76
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.82
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1.97,
+              "probabilities": {
+                "0": 0,
+                "1": 0.05,
+                "2": 0.93,
+                "3": 0.02
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 110,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.75
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.77
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.81
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1.97,
+              "probabilities": {
+                "0": 0,
+                "1": 0.05,
+                "2": 0.93,
+                "3": 0.02
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 192,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.72
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.78
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.83
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1.97,
+              "probabilities": {
+                "0": 0,
+                "1": 0.05,
+                "2": 0.93,
+                "3": 0.02
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "COURSE_QA#13",
+      "set": "COURSE_QA",
+      "order": [
+        "latest",
+        "pinnedA",
+        "pinnedB"
+      ],
+      "calls": {
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 111,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.43
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.36
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.98
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1.57,
+              "probabilities": {
+                "0": 0,
+                "1": 0.45,
+                "2": 0.53,
+                "3": 0.02
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 128,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.38
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.35
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.98
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1.61,
+              "probabilities": {
+                "0": 0,
+                "1": 0.41,
+                "2": 0.57,
+                "3": 0.02
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 103,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.41
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.38
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.98
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 1.61,
+              "probabilities": {
+                "0": 0,
+                "1": 0.41,
+                "2": 0.5700000000000001,
+                "3": 0.02
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "COURSE_QA#14",
+      "set": "COURSE_QA",
+      "order": [
+        "latest",
+        "pinnedA",
+        "pinnedB"
+      ],
+      "calls": {
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 93,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.15
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.93
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.7
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 0.73,
+              "probabilities": {
+                "0": 0.27,
+                "1": 0.73,
+                "2": 0,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 113,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.15
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.93
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.68
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 0.73,
+              "probabilities": {
+                "0": 0.27,
+                "1": 0.73,
+                "2": 0,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 98,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.16
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.93
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.68
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 0.73,
+              "probabilities": {
+                "0": 0.27,
+                "1": 0.73,
+                "2": 0,
+                "3": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "COURSE_QA#15",
+      "set": "COURSE_QA",
+      "order": [
+        "pinnedB",
+        "pinnedA",
+        "latest"
+      ],
+      "calls": {
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 126,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.11
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.96
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.85
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 0.67,
+              "probabilities": {
+                "0": 0.33,
+                "1": 0.67,
+                "2": 0,
+                "3": 0
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 295,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.11
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.96
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.86
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 0.69,
+              "probabilities": {
+                "0": 0.31,
+                "1": 0.69,
+                "2": 0,
+                "3": 0
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 199,
+          "answers": {
+            "teachesOneThing": {
+              "type": "boolean",
+              "probability": 0.1
+            },
+            "assumesUndefinedTerm": {
+              "type": "boolean",
+              "probability": 0.96
+            },
+            "hasConcreteExample": {
+              "type": "boolean",
+              "probability": 0.86
+            },
+            "plainLanguage": {
+              "type": "score",
+              "score": 0.72,
+              "probabilities": {
+                "0": 0.28,
+                "1": 0.72,
+                "2": 0,
+                "3": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "GRAPH_EDGES#0",
+      "set": "GRAPH_EDGES",
+      "order": [
+        "pinnedA",
+        "pinnedB",
+        "latest"
+      ],
+      "calls": {
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 112,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "depends_on",
+              "probabilities": {
+                "specialises": 0.01,
+                "mentions": 0.32,
+                "contradicts": 0.24,
+                "unrelated": 0,
+                "depends_on": 0.43
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 111,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "depends_on",
+              "probabilities": {
+                "depends_on": 0.46,
+                "specialises": 0.01,
+                "unrelated": 0,
+                "mentions": 0.33,
+                "contradicts": 0.2
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 91,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "depends_on",
+              "probabilities": {
+                "contradicts": 0.26,
+                "specialises": 0.01,
+                "unrelated": 0,
+                "depends_on": 0.39,
+                "mentions": 0.34
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "GRAPH_EDGES#1",
+      "set": "GRAPH_EDGES",
+      "order": [
+        "pinnedA",
+        "latest",
+        "pinnedB"
+      ],
+      "calls": {
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 113,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "specialises",
+              "probabilities": {
+                "mentions": 0.31,
+                "contradicts": 0.07,
+                "depends_on": 0.09,
+                "specialises": 0.51,
+                "unrelated": 0.02
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 131,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "specialises",
+              "probabilities": {
+                "specialises": 0.45,
+                "mentions": 0.31,
+                "unrelated": 0.02,
+                "depends_on": 0.12,
+                "contradicts": 0.1
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 100,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "specialises",
+              "probabilities": {
+                "specialises": 0.5,
+                "contradicts": 0.09,
+                "unrelated": 0.03,
+                "mentions": 0.3,
+                "depends_on": 0.08
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "GRAPH_EDGES#2",
+      "set": "GRAPH_EDGES",
+      "order": [
+        "latest",
+        "pinnedA",
+        "pinnedB"
+      ],
+      "calls": {
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 110,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "depends_on",
+              "probabilities": {
+                "specialises": 0.16,
+                "mentions": 0.4,
+                "unrelated": 0.01,
+                "depends_on": 0.41,
+                "contradicts": 0.02
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 327,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "mentions",
+              "probabilities": {
+                "mentions": 0.42,
+                "specialises": 0.16,
+                "unrelated": 0.01,
+                "contradicts": 0.01,
+                "depends_on": 0.4
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 138,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "mentions",
+              "probabilities": {
+                "contradicts": 0.01,
+                "specialises": 0.17,
+                "mentions": 0.45999999999999996,
+                "unrelated": 0.01,
+                "depends_on": 0.35
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "GRAPH_EDGES#3",
+      "set": "GRAPH_EDGES",
+      "order": [
+        "pinnedA",
+        "pinnedB",
+        "latest"
+      ],
+      "calls": {
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 209,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "contradicts",
+              "probabilities": {
+                "contradicts": 0.46,
+                "mentions": 0.07,
+                "unrelated": 0.25,
+                "specialises": 0.2,
+                "depends_on": 0.02
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 106,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "contradicts",
+              "probabilities": {
+                "mentions": 0.07,
+                "depends_on": 0.02,
+                "specialises": 0.17,
+                "unrelated": 0.27,
+                "contradicts": 0.47
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 158,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "contradicts",
+              "probabilities": {
+                "specialises": 0.22,
+                "depends_on": 0.02,
+                "contradicts": 0.43,
+                "unrelated": 0.26,
+                "mentions": 0.07
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "GRAPH_EDGES#4",
+      "set": "GRAPH_EDGES",
+      "order": [
+        "latest",
+        "pinnedB",
+        "pinnedA"
+      ],
+      "calls": {
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 218,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "depends_on",
+              "probabilities": {
+                "mentions": 0.08,
+                "unrelated": 0.26,
+                "contradicts": 0.01,
+                "depends_on": 0.35,
+                "specialises": 0.3
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 83,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "depends_on",
+              "probabilities": {
+                "contradicts": 0.01,
+                "unrelated": 0.29,
+                "mentions": 0.09,
+                "depends_on": 0.33,
+                "specialises": 0.28
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 120,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "unrelated",
+              "probabilities": {
+                "mentions": 0.11,
+                "specialises": 0.34,
+                "unrelated": 0.33999999999999997,
+                "contradicts": 0.01,
+                "depends_on": 0.2
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "GRAPH_EDGES#5",
+      "set": "GRAPH_EDGES",
+      "order": [
+        "pinnedA",
+        "pinnedB",
+        "latest"
+      ],
+      "calls": {
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 99,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "unrelated",
+              "probabilities": {
+                "specialises": 0.02,
+                "depends_on": 0.34,
+                "mentions": 0.18,
+                "unrelated": 0.46,
+                "contradicts": 0
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 322,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "unrelated",
+              "probabilities": {
+                "depends_on": 0.36,
+                "contradicts": 0,
+                "mentions": 0.17,
+                "specialises": 0.01,
+                "unrelated": 0.46
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 291,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "unrelated",
+              "probabilities": {
+                "mentions": 0.15,
+                "unrelated": 0.42,
+                "contradicts": 0,
+                "depends_on": 0.41,
+                "specialises": 0.02
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "GRAPH_EDGES#6",
+      "set": "GRAPH_EDGES",
+      "order": [
+        "pinnedB",
+        "latest",
+        "pinnedA"
+      ],
+      "calls": {
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 446,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "unrelated",
+              "probabilities": {
+                "unrelated": 0.68,
+                "specialises": 0.07,
+                "mentions": 0.01,
+                "depends_on": 0,
+                "contradicts": 0.24
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 128,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "unrelated",
+              "probabilities": {
+                "unrelated": 0.73,
+                "specialises": 0.07,
+                "depends_on": 0,
+                "contradicts": 0.19,
+                "mentions": 0.01
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 165,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "unrelated",
+              "probabilities": {
+                "unrelated": 0.81,
+                "specialises": 0.08,
+                "mentions": 0.01,
+                "depends_on": 0,
+                "contradicts": 0.09
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "GRAPH_EDGES#7",
+      "set": "GRAPH_EDGES",
+      "order": [
+        "latest",
+        "pinnedB",
+        "pinnedA"
+      ],
+      "calls": {
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 442,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "unrelated",
+              "probabilities": {
+                "contradicts": 0,
+                "unrelated": 1,
+                "mentions": 0,
+                "depends_on": 0,
+                "specialises": 0
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 108,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "unrelated",
+              "probabilities": {
+                "contradicts": 0,
+                "specialises": 0,
+                "mentions": 0,
+                "depends_on": 0,
+                "unrelated": 1
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 157,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "unrelated",
+              "probabilities": {
+                "depends_on": 0,
+                "contradicts": 0,
+                "unrelated": 1,
+                "mentions": 0,
+                "specialises": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "GRAPH_EDGES#8",
+      "set": "GRAPH_EDGES",
+      "order": [
+        "latest",
+        "pinnedA",
+        "pinnedB"
+      ],
+      "calls": {
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 1414,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "unrelated",
+              "probabilities": {
+                "contradicts": 0,
+                "mentions": 0,
+                "unrelated": 0.99,
+                "specialises": 0.01,
+                "depends_on": 0
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 94,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "unrelated",
+              "probabilities": {
+                "mentions": 0,
+                "depends_on": 0,
+                "contradicts": 0,
+                "unrelated": 0.98,
+                "specialises": 0.02
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 123,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "unrelated",
+              "probabilities": {
+                "mentions": 0,
+                "depends_on": 0,
+                "contradicts": 0,
+                "unrelated": 0.98,
+                "specialises": 0.02
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "GRAPH_EDGES#9",
+      "set": "GRAPH_EDGES",
+      "order": [
+        "pinnedB",
+        "pinnedA",
+        "latest"
+      ],
+      "calls": {
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 99,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "specialises",
+              "probabilities": {
+                "unrelated": 0.25,
+                "specialises": 0.6799999999999999,
+                "mentions": 0.05,
+                "depends_on": 0.01,
+                "contradicts": 0.01
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 132,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "specialises",
+              "probabilities": {
+                "depends_on": 0.01,
+                "specialises": 0.71,
+                "contradicts": 0.01,
+                "mentions": 0.04,
+                "unrelated": 0.23
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 110,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "specialises",
+              "probabilities": {
+                "depends_on": 0.01,
+                "specialises": 0.6799999999999999,
+                "unrelated": 0.26,
+                "mentions": 0.04,
+                "contradicts": 0.01
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "GRAPH_EDGES#10",
+      "set": "GRAPH_EDGES",
+      "order": [
+        "latest",
+        "pinnedA",
+        "pinnedB"
+      ],
+      "calls": {
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 91,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "mentions",
+              "probabilities": {
+                "unrelated": 0,
+                "specialises": 0,
+                "depends_on": 0.03,
+                "mentions": 0.97,
+                "contradicts": 0
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 120,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "mentions",
+              "probabilities": {
+                "contradicts": 0,
+                "unrelated": 0,
+                "depends_on": 0.05,
+                "mentions": 0.95,
+                "specialises": 0
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 90,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "mentions",
+              "probabilities": {
+                "specialises": 0,
+                "unrelated": 0,
+                "contradicts": 0,
+                "mentions": 0.97,
+                "depends_on": 0.03
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "GRAPH_EDGES#11",
+      "set": "GRAPH_EDGES",
+      "order": [
+        "pinnedB",
+        "latest",
+        "pinnedA"
+      ],
+      "calls": {
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 97,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "unrelated",
+              "probabilities": {
+                "mentions": 0,
+                "specialises": 0,
+                "unrelated": 1,
+                "contradicts": 0,
+                "depends_on": 0
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 118,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "unrelated",
+              "probabilities": {
+                "contradicts": 0,
+                "depends_on": 0,
+                "unrelated": 1,
+                "specialises": 0,
+                "mentions": 0
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 101,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "unrelated",
+              "probabilities": {
+                "specialises": 0,
+                "mentions": 0,
+                "contradicts": 0,
+                "unrelated": 1,
+                "depends_on": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "GRAPH_EDGES#12",
+      "set": "GRAPH_EDGES",
+      "order": [
+        "pinnedA",
+        "pinnedB",
+        "latest"
+      ],
+      "calls": {
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 127,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "specialises",
+              "probabilities": {
+                "unrelated": 0.02,
+                "specialises": 0.59,
+                "mentions": 0.12,
+                "contradicts": 0.18,
+                "depends_on": 0.09
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 116,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "specialises",
+              "probabilities": {
+                "contradicts": 0.18,
+                "mentions": 0.11,
+                "unrelated": 0.02,
+                "depends_on": 0.15,
+                "specialises": 0.54
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 118,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "specialises",
+              "probabilities": {
+                "contradicts": 0.16,
+                "specialises": 0.56,
+                "unrelated": 0.02,
+                "mentions": 0.14,
+                "depends_on": 0.12
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "GRAPH_EDGES#13",
+      "set": "GRAPH_EDGES",
+      "order": [
+        "pinnedB",
+        "pinnedA",
+        "latest"
+      ],
+      "calls": {
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 118,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "mentions",
+              "probabilities": {
+                "depends_on": 0.16,
+                "specialises": 0.37,
+                "unrelated": 0.05,
+                "mentions": 0.39,
+                "contradicts": 0.03
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 128,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "specialises",
+              "probabilities": {
+                "specialises": 0.41,
+                "contradicts": 0.02,
+                "mentions": 0.37,
+                "unrelated": 0.04,
+                "depends_on": 0.16
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 130,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "specialises",
+              "probabilities": {
+                "depends_on": 0.15,
+                "mentions": 0.38,
+                "contradicts": 0.02,
+                "specialises": 0.41,
+                "unrelated": 0.04
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "GRAPH_EDGES#14",
+      "set": "GRAPH_EDGES",
+      "order": [
+        "pinnedB",
+        "latest",
+        "pinnedA"
+      ],
+      "calls": {
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 329,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "unrelated",
+              "probabilities": {
+                "depends_on": 0,
+                "specialises": 0,
+                "unrelated": 1,
+                "mentions": 0,
+                "contradicts": 0
+              }
+            }
+          }
+        },
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 199,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "unrelated",
+              "probabilities": {
+                "unrelated": 1,
+                "specialises": 0,
+                "mentions": 0,
+                "depends_on": 0,
+                "contradicts": 0
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 103,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "unrelated",
+              "probabilities": {
+                "depends_on": 0,
+                "contradicts": 0,
+                "mentions": 0,
+                "unrelated": 1,
+                "specialises": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "GRAPH_EDGES#15",
+      "set": "GRAPH_EDGES",
+      "order": [
+        "latest",
+        "pinnedB",
+        "pinnedA"
+      ],
+      "calls": {
+        "latest": {
+          "requested": "jev-latest",
+          "answeredBy": "jev-1.13.0",
+          "ms": 116,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "unrelated",
+              "probabilities": {
+                "unrelated": 0.93,
+                "depends_on": 0,
+                "mentions": 0,
+                "contradicts": 0,
+                "specialises": 0.07
+              }
+            }
+          }
+        },
+        "pinnedB": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 115,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "unrelated",
+              "probabilities": {
+                "contradicts": 0,
+                "mentions": 0,
+                "unrelated": 0.92,
+                "depends_on": 0,
+                "specialises": 0.08
+              }
+            }
+          }
+        },
+        "pinnedA": {
+          "requested": "jev-1.13.0",
+          "answeredBy": "jev-1.13.0",
+          "ms": 118,
+          "answers": {
+            "relationship": {
+              "type": "choice",
+              "choice": "unrelated",
+              "probabilities": {
+                "mentions": 0,
+                "depends_on": 0,
+                "specialises": 0.07,
+                "unrelated": 0.93,
+                "contradicts": 0
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}
