@@ -91,9 +91,9 @@
     <span class="label">JEV-works · regenerated from result files on disk</span>
     <h1>Experiment tracker</h1>
     <div class="runline">
-      <span>2026-09-21 14:01</span>
-      <span>29 properties</span>
-      <span>34 lessons</span>
+      <span>2026-09-21 14:56</span>
+      <span>30 properties</span>
+      <span>36 lessons</span>
       <span>6 runs measured</span>
       <span>23 labelled targets</span>
     </div>
@@ -102,11 +102,11 @@
   </header>
 
   <section class="counters">
-    <div class="counter"><b style="color:var(--confirmed)">14</b><span class="label">measured here</span></div>
+    <div class="counter"><b style="color:var(--confirmed)">15</b><span class="label">measured here</span></div>
     <div class="counter"><b style="color:var(--indigo)">6</b><span class="label">corroborated</span></div>
-    <div class="counter"><b style="color:var(--caution)">3</b><span class="label">vendor claim only</span></div>
+    <div class="counter"><b style="color:var(--caution)">2</b><span class="label">vendor claim only</span></div>
     <div class="counter"><b style="color:var(--notrun)">3</b><span class="label">open</span></div>
-    <div class="counter"><b style="color:var(--failed)">34</b><span class="label">lessons banked</span></div>
+    <div class="counter"><b style="color:var(--failed)">36</b><span class="label">lessons banked</span></div>
   </section>
 
   <section>
@@ -185,7 +185,7 @@
     <h2>Runs measured</h2>
     <div class="tw"><table>
       <thead><tr><th>run</th><th class="num">n</th><th>result</th><th>state</th><th>properties</th></tr></thead>
-      <tbody><tr class="confirmed"><td>batch scaling</td><td class="num">6 sizes, 1→32 questions</td><td>p50 flat: 269.2ms at 1q → 244.9ms at 32q</td><td><span class="pill confirmed">confirmed</span></td><td class="mono">P1</td></tr><tr class="confirmed"><td>state scaling</td><td class="num">6 sizes up to 24299 tokens</td><td>422.4ms → 610.5ms; ceiling = opaque GatewayResponseError</td><td><span class="pill confirmed">confirmed</span></td><td class="mono">P2 · P3</td></tr><tr class="confirmed"><td>determinism</td><td class="num">n=20 identical calls</td><td>argmax stable; noise floor 0.110 on probabilities</td><td><span class="pill confirmed">confirmed</span></td><td class="mono">P4</td></tr><tr class="failed"><td>adversarial input</td><td class="num">10 pathological cases</td><td>confident on 4/4 unanswerable inputs; entropy separated them</td><td><span class="pill failed">failed</span></td><td class="mono">P5 · P6</td></tr><tr class="caution"><td>context triage</td><td class="num">151 tool outputs</td><td>drop 57 items / 2,983 tokens · escalate 79</td><td><span class="pill caution">caution</span></td><td class="mono">P21</td></tr><tr class="caution"><td>window scoring</td><td class="num">14 windows × 100 questions</td><td>anchors PASS; but planted control ranked #1 — instrument defect</td><td><span class="pill caution">caution</span></td><td class="mono">L19 · L20</td></tr></tbody>
+      <tbody><tr class="confirmed"><td>batch scaling</td><td class="num">6 sizes, 1→32 questions</td><td>p50 flat: 269.2ms at 1q → 244.9ms at 32q</td><td><span class="pill confirmed">confirmed</span></td><td class="mono">P1</td></tr><tr class="confirmed"><td>state scaling</td><td class="num">6 sizes up to 24299 tokens</td><td>422.4ms → 610.5ms; ceiling = opaque GatewayResponseError</td><td><span class="pill confirmed">confirmed</span></td><td class="mono">P2 · P3</td></tr><tr class="confirmed"><td>determinism</td><td class="num">n=20 identical calls</td><td>argmax stable; noise floor 0.110 on probabilities</td><td><span class="pill confirmed">confirmed</span></td><td class="mono">P4</td></tr><tr class="failed"><td>adversarial input</td><td class="num">10 pathological cases</td><td>confident on 4/4 unanswerable inputs; entropy separated them</td><td><span class="pill failed">failed</span></td><td class="mono">P5 · P6</td></tr><tr class="caution"><td>context triage</td><td class="num">119 tool outputs</td><td>drop 20 items / 573 tokens · escalate 61</td><td><span class="pill caution">caution</span></td><td class="mono">P21</td></tr><tr class="caution"><td>window scoring</td><td class="num">14 windows × 100 questions</td><td>anchors PASS; but planted control ranked #1 — instrument defect</td><td><span class="pill caution">caution</span></td><td class="mono">L19 · L20</td></tr></tbody>
     </table></div>
   </section>
 
