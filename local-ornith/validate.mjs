@@ -7,6 +7,7 @@ import { readFileSync } from 'node:fs';
 import { experimental_evaluate as evaluate } from 'ai';
 import { FLEET_ROUTING } from './bank.mjs';
 import { route, entropy as entropyOf, LOCAL_AT, MAX_ENTROPY, HARD_AT } from './route.mjs';
+import { JEV } from '../lib/jev.ts';
 
 const LOCAL_CTX = 131072;
 const { cases } = JSON.parse(readFileSync(new URL('./golden.json', import.meta.url)));
@@ -15,7 +16,7 @@ const t0 = Date.now();
 const results = [];
 for (const c of cases) {
   const { answers } = await evaluate({
-    model: 'typesafe-ai/jev',
+    model: JEV,
     state: { request: c.text },
     questions: FLEET_ROUTING.questions,
     providerOptions: { gateway: { zeroDataRetention: true } },

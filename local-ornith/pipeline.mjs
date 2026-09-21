@@ -14,6 +14,7 @@ import { readFileSync } from 'node:fs';
 import { experimental_evaluate as evaluate } from 'ai';
 import { STAGE1_TRIAGE, STAGE2_CAPABILITY, STAGE3_ARTIFACT } from './questions.mjs';
 import { route, entropy, grade } from './route.mjs';
+import { JEV, JEV_ID } from '../lib/jev.ts';
 
 const NO_COLOR = process.argv.includes('--no-color') || process.env.NO_COLOR;
 const C = NO_COLOR
@@ -88,7 +89,7 @@ const { cases } = JSON.parse(readFileSync(new URL(corpusPath, import.meta.url)))
 const LOCAL_CTX = Number(arg('--local-ctx', '65536'));
 
 console.log(C.bold(`\n═══ STAGE ${stageNo}: ${stage.context}`));
-console.log(C.dim(`    model typesafe-ai/jev · ${Object.keys(stage.questions).length} questions ` +
+console.log(C.dim(`    model ${JEV_ID} · ${Object.keys(stage.questions).length} questions ` +
   `· ${cases.length} items · retries off · zeroDataRetention on`));
 console.log(C.dim(`    ends: TRUE >= ${END_HI}, FALSE <= ${END_LO} (hand-set; noise floor ±0.11 per NETER P4)`));
 
@@ -102,7 +103,7 @@ for (const c of cases) {
   showState(state);
 
   const { answers } = await evaluate({
-    model: 'typesafe-ai/jev',
+    model: JEV,
     state,
     questions: stage.questions,
     providerOptions: { gateway: { zeroDataRetention: true } },
