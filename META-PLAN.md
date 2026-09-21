@@ -46,7 +46,7 @@ Free variables (the parts that change for sibling tasks): `{repo_set, corpus, qu
 
 **Invariants** (sourced: PROGRAM.md §Ground rules, NETER, README; plus I9–I11 from this session)
 - I1 A cheap baseline runs in every experiment.
-- I2 Holdouts are declared before fitting and **never inspected before the run**.
+- I2 Holdouts are declared before fitting and **never inspected before the run**. A disjointness check (id/text-hash overlap *count* only) is not inspection and is **required** before declaring one (L31; E3 was voided by skipping it).
 - I3 No verdict below 8 observations.
 - I4 Polarity is declared per question; never average a cost with a benefit.
 - I5 Report losses. If the regex wins, that is the result.
@@ -173,3 +173,5 @@ parallel lane-sets exercised: 0 (serial loop); external stakeholders: none beyon
 - DEFERRED: Tier 3 audit if lanes are ever parallelized.
 - 2026-09-21 U1 done — JEV-works git main @ be1429b, secret scan 0 hits; U3–U5 reassigned to session b4f08e by agreement.
 - 2026-09-21 U2 done (ed9a7f1 JEV-works, 96e77b1 jev-playground); U9 part 1 done (287f404); E3 + U6 running as background agent teams; E3 approved by Manu verbatim (PROGRESS.md).
+- 2026-09-21 U6 done (no drift). U7/E3 VOID: holdout ⊂ fit. Retro: a lesson (L31) existed and the orchestrator brief overrode it. Plan edit: invariant I2 now reads "disjointness check (overlap count only) before declaring a holdout; it is not inspection".
+

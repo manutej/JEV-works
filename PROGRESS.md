@@ -14,13 +14,14 @@ Durable record of this session's state. Chat is ephemeral; this file is not. New
 - [x] feat/jev-selector U2: JEV-works ed9a7f1 (pin jev-1.13.0, answeredBy, lib/harness.ts, local-ornith ported + verified);
       ~/jev-playground now git (main b653de8), feat/jev-selector 96e77b1 (vendored lib/jev*, 6 scripts, tsc + vitest 4/4, 01-hello → jev-1.13.0)
 - [x] U6 drift suite: no drift; jev-latest = jev-1.13.0; P4 band is question-shaped (committed)
-- [ ] e3-team (background agent) → ~/JEV-works-wt/e3/program/E3-PROGRESS.md
+- [x] E3: VOID (holdout = fit subset, 39/39, re-verified). Orchestrator error: brief forbade the L31 check. Branch feat/e3-blind-test @59964b0; dashboard ~/JEV-works-wt/e3/program/e3-review.html
 - [x] U9 part 1: leads U5 → L35, L36, P18, NETER ledger (287f404)
-- [ ] U9 part 2: E3 result, drift result
+- [x] U9 part 2: drift (dc1cd80), E3 void + L31 amendment + P24 + PROGRAM E3/E4 notes (df34df8)
 - [ ] Manu to open 4 sessions from handoffs/*.md
 
 ## Waiting on Manu
-- Approve merges: feat/leads-pipeline → main first (b4f08e is holding it for Manu), then feat/jev-selector (rebased).
+- Approve merges: feat/leads-pipeline → main first (b4f08e is holding it for Manu), then feat/jev-selector (rebased), then feat/e3-blind-test (void result + dashboard, kept for the record).
+- E3/E4 need a disjoint, independently labelled CETI set. Does one exist (e.g. wave2/wave3 files)? Check disjointness first.
 - Open the 4 sessions from handoffs/*.md.
 
 ## Assumptions
