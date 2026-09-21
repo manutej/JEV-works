@@ -424,3 +424,25 @@ convenience rather than from anyone's intent.
 and leave it out of the type system until someone with authority picks one. An invented
 reconciliation is worse than an acknowledged gap, because it looks settled.
 *Attached to:* `TIER_DEFINITIONS_CONFLICT` in `hekat/hotkeys.ts`.
+
+### L35 · The all-confident gate came back in a new place
+**Happened.** After the leads dedup bug was fixed, stage 1 still admitted almost nothing: the gate required
+*every* boolean to be confident-true, and `isRealBusiness` sat mid-band on 503/540 items, so 454 were escalated,
+including every clean in-ICP lead. The seed-42 eval then printed "jev 100% vs regex 93.2%", at **14.3% coverage**.
+**Why.** It is the same conjunction that escalated 94% of triage items in iteration 1 (the `min(confidence)`
+gate). A rule learned in one module is not inherited by the next module that someone writes from scratch.
+**Rule.** Treat any AND-of-confidences gate as a bug until shown otherwise. A signal that is rarely decisive
+may *reject* but must not *block admission*. And never report accuracy without coverage: 97.4% on its own
+verdicts was 67.8% over all leads.
+*Attached to:* leads/ commit 651db1f (feat/leads-pipeline); `program/results/leads-u5-summary.md`.
+
+### L36 · Record the version that answered, not the alias you asked for
+**Happened.** The seed-7 leads run recorded `model: "jev-latest (direct)"`. A later message asserted it had run
+on `jev-1.13.0`, which was unchecked and then retracted: `pipeline.ts` never saved the response `model` field, so the
+resolved version of that run is unrecoverable.
+**Why.** `jev-latest` resolves server-side and will change. A result pinned to an alias cannot be diffed against a
+later run, which is exactly what version-drift work (NETER window 5) needs.
+**Rule.** Save `answeredBy(result)` (lib/jev.ts) next to `JEV_ID` in every result file. Ship on the pinned
+`jev-1.13.0`, the direct default since feat/jev-selector.
+*Attached to:* `lib/jev.ts` `answeredBy`; leads fix owned by feat/leads-pipeline.
+

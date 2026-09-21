@@ -59,7 +59,7 @@ disagrees with the claim) · **open** (no evidence either way yet).
 | P15 | **Text only.** No images, audio, video, or PDF; Base64 does not sneak through — tested independently on 19 Sep with a digital PDF and a PNG, both unread. OCR first. | independent test | **corroborated** |
 | P16 | **Choice caps at 255 options.** Beyond that the documented pattern is hierarchical Choice with confidence back-off. | official docs | **vendor claim** |
 | P17 | **It reads literally.** Double negatives and implied conditions must be spelled out in the instructions. | official failure-mode list | **vendor claim** |
-| P18 | **Never ask it to count or do arithmetic.** Dates, tallies, numeric comparisons belong in code. | official failure-mode list | **vendor claim** |
+| P18 | **Never ask it to count or do arithmetic.** Dates, tallies, numeric comparisons belong in code. | official failure-mode list; leads seed 7: `inboundSubstantive` ("real, specific content…") mid-band on 72/73 escalated out-of-ICP leads, a degree judgement that never became decisive (see L35) | **vendor claim, corroborated here for degree judgements** |
 | P19 | **CJK accuracy is lower** per the docs; English instructions recommended. Our single Japanese case routed correctly at p=1.00, which contradicts nothing at n=1. | docs + our n=1 | **open** |
 | P20 | **Calibration on your own data is unavoidable.** No independent large-scale calibration study exists. Vendor thresholds are not reproduced. | field | **open** |
 | P21 | **Relational questions are outside its competence, and it tells you so in the distribution.** Asked nine questions over the same 119 states, per-question confidence orders cleanly by question *type*: literal single-state questions reach the ends (`oneTimeSetupSettled` 82% of items at the ends, mean confidence 0.79), while questions requiring reasoning across a goal and a file manifest do not (`supersededByDurableFile` 26%; **`neededForGoal` 7% of items at the ends, never once exceeding p=0.67**). Diagnostic worth reusing: **run your candidate questions over one corpus and rank them by mean confidence — the ones that never leave the mid band are the ones to move into code.** | our run, 119 items × 9 questions | **measured here** |
@@ -261,4 +261,9 @@ latency, question count does not.
   `TYPESAFE_API_KEY` is set; the OIDC 12h expiry no longer stops runs.
 - **Resolved P10** (was *contradicted / unexplained*): the hop is ~2× latency; outputs agree within
   P4's noise. Two KEEP→ESCALATE flips, both near threshold.
+- **Leads pipeline re-run (session b4f08e, feat/leads-pipeline).** Three instrument bugs fixed (name collisions,
+  name-only dedup, all-confident admission gate: L35). Pre-registered on fresh seed 7, n=600, `jev-latest (direct)`,
+  resolved version **not captured** (L36): verdict rate 69.7% vs ≥95% required → **FAIL**. Jev 67.8% over all
+  leads vs regex **92.2%** (Δ −24.4 pts); 97.4% on its own verdicts. The regex bar is seed-dependent
+  (91.7% was on the broken corpus; 93.2% on fixed seed 42). Seed 7 is spent. Summary: `program/results/leads-u5-summary.md`.
 

@@ -22,7 +22,8 @@ and keeps `PROGRESS.md` in its own area. Registries (`NETER.md`, `LESSONS.md`, `
 5. Re-read a file right before editing it. Before any shared-file write, run `find <dir> -mmin -10` to check for writes from other sessions.
 6. Use an agent team inside your session. Subagents write results to files and return short summaries, which keeps your context lean.
 7. Rebase on `main` before merging; merges happen one at a time, and you tell the other sessions after each merge.
-8. When a session finishes or pauses, it writes a `HANDOFF` section in its `PROGRESS.md`: state, commits, open questions, next step.
+8. Worktrees of JEV-works share `node_modules` by symlink (same manifest, so L21 does not apply). **Never `npm install` in a worktree**: it would change every worktree's dependencies. Ask the main session.
+9. When a session finishes or pauses, it writes a `HANDOFF` section in its `PROGRESS.md`: state, commits, open questions, next step.
 
 ## How to start a session
 Open a new terminal and run `cd <where> && claude`, then paste the brief's **Kickoff prompt** block.
