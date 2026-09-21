@@ -1,0 +1,4867 @@
+{
+  "model": "typesafe-ai/jev",
+  "LEVEL_GATE": 2,
+  "meanConf": 0.7075452716297786,
+  "decisive": 56,
+  "midband": 12,
+  "rows": [
+    {
+      "window": "duplicate-read-dedup",
+      "perQuestion": {
+        "notesDescribeGroundTruthSource": {
+          "p": 0.1
+        },
+        "decisionLeavesObservableTrace": {
+          "p": 0.59
+        },
+        "outcomeObservableWithoutHuman": {
+          "p": 0.91
+        },
+        "proxySignalStrength": {
+          "level": 2
+        },
+        "currentMechanismOutputUsableAsWeakLabel": {
+          "p": 0.56
+        },
+        "decisionHasCheckableInvariant": {
+          "p": 0.89
+        },
+        "outputIsDiscreteValue": {
+          "p": 0.94
+        },
+        "downstreamEffectIsMachineObservable": {
+          "p": 0.89
+        },
+        "mechanismDeterminismLevel": {
+          "level": 0
+        },
+        "notesNameExistingTestOrAssertion": {
+          "p": 0.11
+        },
+        "functionNameIsConcrete": {
+          "p": 0.08
+        },
+        "fileIsSingleConcretePath": {
+          "p": 0.92
+        },
+        "decisionOutputStatedPlainly": {
+          "p": 0.44
+        },
+        "mechanismIsNamedSpecifically": {
+          "p": 0.96
+        },
+        "stateCompletenessForThisWindow": {
+          "level": 2.69
+        },
+        "callVolumeIsStated": {
+          "p": 0.89
+        },
+        "callVolumeBand": {
+          "level": 2.99
+        },
+        "mechanismRecurringAcrossCallSites": {
+          "p": 0.05
+        },
+        "sampleCollectionDescribed": {
+          "p": 0.15
+        },
+        "corpusGrowsPassively": {
+          "p": 0.7
+        },
+        "outputSpaceIsEnumerable": {
+          "p": 0.95
+        },
+        "outputIsSingleValue": {
+          "p": 0.92
+        },
+        "optionCountBand": {
+          "level": 0.02
+        },
+        "sameOutputTypeAcrossCalls": {
+          "p": 0.93
+        },
+        "decisionIsAtomic": {
+          "p": 0.94
+        },
+        "inputsNamedExplicitly": {
+          "p": 0.62
+        },
+        "decisionUsesOnlyCurrentInput": {
+          "p": 0.05
+        },
+        "requiresCrossItemComparison": {
+          "p": 0.94
+        },
+        "requiresCounterfactualReasoning": {
+          "p": 0.09
+        },
+        "decisionDependsOnGoalOrIntent": {
+          "p": 0.04
+        },
+        "mechanismCombinesMultipleConditions": {
+          "p": 0.16
+        },
+        "subConditionsAreNameable": {
+          "p": 0.36
+        },
+        "whatItDecidesReadsAsOneQuestion": {
+          "p": 0.85
+        },
+        "notesSuggestEdgeCases": {
+          "p": 0.05
+        },
+        "edgeCaseCountBand": {
+          "level": 0.05
+        },
+        "mechanismCounts": {
+          "p": 0.27
+        },
+        "mechanismDoesArithmetic": {
+          "p": 0.34
+        },
+        "mechanismComparesMagnitudes": {
+          "p": 0.54
+        },
+        "decisionRequiresGeneration": {
+          "p": 0.04
+        },
+        "mechanismRequiresRankingOrSorting": {
+          "p": 0.07
+        },
+        "mechanismShape": {
+          "key": "other",
+          "h": 0.2153020841882613
+        },
+        "mechanismAgeOrOriginStated": {
+          "p": 0.13
+        },
+        "mechanismLivesInline": {
+          "p": 0.6
+        },
+        "mechanismHasNamedConstants": {
+          "p": 0.08
+        },
+        "mechanismComplexityLevel": {
+          "level": 0.26
+        },
+        "notesDescribeKnownFailureMode": {
+          "p": 0.04
+        },
+        "failureDirection": {
+          "key": "not_stated",
+          "h": 0.1832231322266888
+        },
+        "workaroundBurdenLevel": {
+          "level": 0
+        },
+        "failureIsSilent": {
+          "p": 0.08
+        },
+        "failureFrequencyBand": {
+          "level": 0.01
+        },
+        "mechanismAlreadyCheap": {
+          "p": 0.83
+        },
+        "baselineHasBeenTuned": {
+          "p": 0.05
+        },
+        "baselineAccuracyDescription": {
+          "key": "works_well",
+          "h": 0
+        },
+        "simplerFixAlreadyConsidered": {
+          "p": 0.05
+        },
+        "baselineWasCopiedFromElsewhere": {
+          "p": 0.03
+        },
+        "decisionVisibilityScope": {
+          "key": "not_stated",
+          "h": 0.5427546886505256
+        },
+        "changeWouldRequireApproval": {
+          "p": 0.03
+        },
+        "decisionHasExistingMonitoring": {
+          "p": 0.04
+        },
+        "mechanismIsDocumentedElsewhere": {
+          "p": 0.06
+        },
+        "noticeabilityBand": {
+          "level": 1.16
+        },
+        "volumeTrendStatedAsGrowing": {
+          "p": 0.03
+        },
+        "decisionRunsOnHotPath": {
+          "p": 0.85
+        },
+        "volumeImpactBand": {
+          "level": 2.89
+        },
+        "improvementScalesWithVolume": {
+          "p": 0.65
+        },
+        "volumeCadencePattern": {
+          "key": "not_stated",
+          "h": 0.04039656794795559
+        },
+        "mechanismRunsSynchronously": {
+          "p": 0.13
+        },
+        "mechanismIsOnCriticalPath": {
+          "p": 0.05
+        },
+        "currentMechanismHasKnownCost": {
+          "p": 0.03
+        },
+        "fasterDecisionWouldRelieveBottleneck": {
+          "p": 0.23
+        },
+        "costReliefBand": {
+          "level": 0.04
+        },
+        "currentMechanismCannotHandleCase": {
+          "p": 0.03
+        },
+        "richerJudgmentWouldChangeOutcome": {
+          "p": 0.05
+        },
+        "capabilityIsNetNewOrRestoring": {
+          "key": "incremental_improvement_only",
+          "h": 0.5593945182775654
+        },
+        "blockingSeverityLevel": {
+          "level": 0.01
+        },
+        "improvementIsQualityNotSpeed": {
+          "p": 0.06
+        },
+        "mechanismPatternNamedAsCommon": {
+          "p": 0.04
+        },
+        "reuseScopeBand": {
+          "key": "single_site_only",
+          "h": 0.21744481021131037
+        },
+        "fixTransferabilityLevel": {
+          "level": 2.66
+        },
+        "domainGeneralityLevel": {
+          "level": 2.47
+        },
+        "sharedUtilityMaturity": {
+          "level": 0.19
+        },
+        "decisionOutputIsPersisted": {
+          "p": 0.05
+        },
+        "decisionCanBeOverriddenLater": {
+          "p": 0.04
+        },
+        "decisionTriggersIrreversibleAction": {
+          "p": 0.22
+        },
+        "reversalEffortLevel": {
+          "key": "automatic_no_trace",
+          "h": 0.596200144038824
+        },
+        "reversibilityStatedExplicitness": {
+          "level": 0.23
+        },
+        "effectIsScopedToSingleItem": {
+          "p": 0.12
+        },
+        "effectPropagatesDownstream": {
+          "p": 0.09
+        },
+        "effectReachesExternalParty": {
+          "p": 0.05
+        },
+        "effectInvolvesMoneyOrData": {
+          "p": 0.06
+        },
+        "blastRadiusBand": {
+          "level": 0.97
+        },
+        "wrongAnswerProducesVisibleError": {
+          "p": 0.06
+        },
+        "wrongAnswerLooksLikeSuccess": {
+          "p": 0.26
+        },
+        "existingAlertingCoversThis": {
+          "p": 0.05
+        },
+        "wrongAnswerDiscoveredDownstream": {
+          "p": 0.03
+        },
+        "detectionTimingBand": {
+          "key": "effectively_invisible",
+          "h": 0.8812642118719787
+        },
+        "humanInvolvementLevel": {
+          "key": "fully_automated_no_human",
+          "h": 0.04039656794795559
+        },
+        "removingHumanIsExplicitGoal": {
+          "p": 0.07
+        },
+        "humanReviewIsBottleneck": {
+          "p": 0.03
+        },
+        "reviewerFeedbackIsRecorded": {
+          "p": 0.03
+        },
+        "reviewEffortLevel": {
+          "level": 0.04
+        }
+      },
+      "subScores": {
+        "1.1": 0.632,
+        "1.2": 0.5660000000000001,
+        "1.3": 0.6799999999999999,
+        "1.4": 0.558,
+        "2.1": 0.748,
+        "2.2": 0.348,
+        "2.3": 0.28400000000000003,
+        "2.4": 0.25200000000000006,
+        "3.1": 0.20249999999999999,
+        "3.2": 0.03,
+        "3.3": 0.24000000000000002,
+        "3.4": 0.0325,
+        "4.1": 0.6325,
+        "4.2": 0.088,
+        "4.3": 0.035,
+        "4.4": 0.51,
+        "5.1": 0.0775,
+        "5.2": 0.064,
+        "5.3": 0.1,
+        "5.4": 0.0325
+      },
+      "topScores": {
+        "TRACTABILITY": 0.609,
+        "FIT": 0.40800000000000003,
+        "INCUMBENT": 0.12625,
+        "PAYOFF": 0.31637499999999996,
+        "EXPOSURE": 0.0685
+      },
+      "composite": 1.138625,
+      "ms": 390.83475,
+      "inputTokens": 8205
+    },
+    {
+      "window": "jupiter-pattern-match",
+      "perQuestion": {
+        "notesDescribeGroundTruthSource": {
+          "p": 0.05
+        },
+        "decisionLeavesObservableTrace": {
+          "p": 0.66
+        },
+        "outcomeObservableWithoutHuman": {
+          "p": 0.81
+        },
+        "proxySignalStrength": {
+          "level": 1
+        },
+        "currentMechanismOutputUsableAsWeakLabel": {
+          "p": 0.39
+        },
+        "decisionHasCheckableInvariant": {
+          "p": 0.54
+        },
+        "outputIsDiscreteValue": {
+          "p": 0.82
+        },
+        "downstreamEffectIsMachineObservable": {
+          "p": 0.66
+        },
+        "mechanismDeterminismLevel": {
+          "level": 0.66
+        },
+        "notesNameExistingTestOrAssertion": {
+          "p": 0.09
+        },
+        "functionNameIsConcrete": {
+          "p": 0.97
+        },
+        "fileIsSingleConcretePath": {
+          "p": 0.98
+        },
+        "decisionOutputStatedPlainly": {
+          "p": 0.38
+        },
+        "mechanismIsNamedSpecifically": {
+          "p": 0.95
+        },
+        "stateCompletenessForThisWindow": {
+          "level": 2.08
+        },
+        "callVolumeIsStated": {
+          "p": 0.53
+        },
+        "callVolumeBand": {
+          "level": 2.97
+        },
+        "mechanismRecurringAcrossCallSites": {
+          "p": 0.11
+        },
+        "sampleCollectionDescribed": {
+          "p": 0.06
+        },
+        "corpusGrowsPassively": {
+          "p": 0.26
+        },
+        "outputSpaceIsEnumerable": {
+          "p": 0.89
+        },
+        "outputIsSingleValue": {
+          "p": 0.77
+        },
+        "optionCountBand": {
+          "level": 0.19
+        },
+        "sameOutputTypeAcrossCalls": {
+          "p": 0.87
+        },
+        "decisionIsAtomic": {
+          "p": 0.95
+        },
+        "inputsNamedExplicitly": {
+          "p": 0.51
+        },
+        "decisionUsesOnlyCurrentInput": {
+          "p": 0.9
+        },
+        "requiresCrossItemComparison": {
+          "p": 0.56
+        },
+        "requiresCounterfactualReasoning": {
+          "p": 0.08
+        },
+        "decisionDependsOnGoalOrIntent": {
+          "p": 0.04
+        },
+        "mechanismCombinesMultipleConditions": {
+          "p": 0.9
+        },
+        "subConditionsAreNameable": {
+          "p": 0.85
+        },
+        "whatItDecidesReadsAsOneQuestion": {
+          "p": 0.93
+        },
+        "notesSuggestEdgeCases": {
+          "p": 0.05
+        },
+        "edgeCaseCountBand": {
+          "level": 0.14
+        },
+        "mechanismCounts": {
+          "p": 0.1
+        },
+        "mechanismDoesArithmetic": {
+          "p": 0.87
+        },
+        "mechanismComparesMagnitudes": {
+          "p": 0.27
+        },
+        "decisionRequiresGeneration": {
+          "p": 0.04
+        },
+        "mechanismRequiresRankingOrSorting": {
+          "p": 0.25
+        },
+        "mechanismShape": {
+          "key": "fixedThreshold",
+          "h": 0.18797731851609137
+        },
+        "mechanismAgeOrOriginStated": {
+          "p": 0.07
+        },
+        "mechanismLivesInline": {
+          "p": 0.58
+        },
+        "mechanismHasNamedConstants": {
+          "p": 0.14
+        },
+        "mechanismComplexityLevel": {
+          "level": 0.98
+        },
+        "notesDescribeKnownFailureMode": {
+          "p": 0.04
+        },
+        "failureDirection": {
+          "key": "not_stated",
+          "h": 0.08072027127091033
+        },
+        "workaroundBurdenLevel": {
+          "level": 0.01
+        },
+        "failureIsSilent": {
+          "p": 0.09
+        },
+        "failureFrequencyBand": {
+          "level": 0.02
+        },
+        "mechanismAlreadyCheap": {
+          "p": 0.28
+        },
+        "baselineHasBeenTuned": {
+          "p": 0.03
+        },
+        "baselineAccuracyDescription": {
+          "key": "not_stated",
+          "h": 0
+        },
+        "simplerFixAlreadyConsidered": {
+          "p": 0.05
+        },
+        "baselineWasCopiedFromElsewhere": {
+          "p": 0.03
+        },
+        "decisionVisibilityScope": {
+          "key": "downstream_systems_only",
+          "h": 0.3896037431552768
+        },
+        "changeWouldRequireApproval": {
+          "p": 0.04
+        },
+        "decisionHasExistingMonitoring": {
+          "p": 0.04
+        },
+        "mechanismIsDocumentedElsewhere": {
+          "p": 0.05
+        },
+        "noticeabilityBand": {
+          "level": 2.6
+        },
+        "volumeTrendStatedAsGrowing": {
+          "p": 0.04
+        },
+        "decisionRunsOnHotPath": {
+          "p": 0.73
+        },
+        "volumeImpactBand": {
+          "level": 2.93
+        },
+        "improvementScalesWithVolume": {
+          "p": 0.73
+        },
+        "volumeCadencePattern": {
+          "key": "not_stated",
+          "h": 0.04039656794795559
+        },
+        "mechanismRunsSynchronously": {
+          "p": 0.38
+        },
+        "mechanismIsOnCriticalPath": {
+          "p": 0.69
+        },
+        "currentMechanismHasKnownCost": {
+          "p": 0.33
+        },
+        "fasterDecisionWouldRelieveBottleneck": {
+          "p": 0.8
+        },
+        "costReliefBand": {
+          "level": 2
+        },
+        "currentMechanismCannotHandleCase": {
+          "p": 0.07
+        },
+        "richerJudgmentWouldChangeOutcome": {
+          "p": 0.36
+        },
+        "capabilityIsNetNewOrRestoring": {
+          "key": "not_stated",
+          "h": 0.5123783660260753
+        },
+        "blockingSeverityLevel": {
+          "level": 0.12
+        },
+        "improvementIsQualityNotSpeed": {
+          "p": 0.12
+        },
+        "mechanismPatternNamedAsCommon": {
+          "p": 0.05
+        },
+        "reuseScopeBand": {
+          "key": "single_site_only",
+          "h": 0.30368177794258344
+        },
+        "fixTransferabilityLevel": {
+          "level": 1.42
+        },
+        "domainGeneralityLevel": {
+          "level": 2.47
+        },
+        "sharedUtilityMaturity": {
+          "level": 0.29
+        },
+        "decisionOutputIsPersisted": {
+          "p": 0.05
+        },
+        "decisionCanBeOverriddenLater": {
+          "p": 0.06
+        },
+        "decisionTriggersIrreversibleAction": {
+          "p": 0.05
+        },
+        "reversalEffortLevel": {
+          "key": "reversible_with_followup_action",
+          "h": 0.8357127821496207
+        },
+        "reversibilityStatedExplicitness": {
+          "level": 0.22
+        },
+        "effectIsScopedToSingleItem": {
+          "p": 0.09
+        },
+        "effectPropagatesDownstream": {
+          "p": 0.93
+        },
+        "effectReachesExternalParty": {
+          "p": 0.07
+        },
+        "effectInvolvesMoneyOrData": {
+          "p": 0.04
+        },
+        "blastRadiusBand": {
+          "level": 2.19
+        },
+        "wrongAnswerProducesVisibleError": {
+          "p": 0.07
+        },
+        "wrongAnswerLooksLikeSuccess": {
+          "p": 0.12
+        },
+        "existingAlertingCoversThis": {
+          "p": 0.05
+        },
+        "wrongAnswerDiscoveredDownstream": {
+          "p": 0.05
+        },
+        "detectionTimingBand": {
+          "key": "soon_in_normal_operation",
+          "h": 0.6553496664211537
+        },
+        "humanInvolvementLevel": {
+          "key": "fully_automated_no_human",
+          "h": 0.12114609454120741
+        },
+        "removingHumanIsExplicitGoal": {
+          "p": 0.03
+        },
+        "humanReviewIsBottleneck": {
+          "p": 0.03
+        },
+        "reviewerFeedbackIsRecorded": {
+          "p": 0.04
+        },
+        "reviewEffortLevel": {
+          "level": 1.42
+        }
+      },
+      "subScores": {
+        "1.1": 0.382,
+        "1.2": 0.422,
+        "1.3": 0.8560000000000001,
+        "1.4": 0.392,
+        "2.1": 0.6960000000000001,
+        "2.2": 0.41800000000000004,
+        "2.3": 0.546,
+        "2.4": 0.306,
+        "3.1": 0.19749999999999998,
+        "3.2": 0.0325,
+        "3.3": 0.0975,
+        "3.4": 0.2825,
+        "4.1": 0.625,
+        "4.2": 0.64,
+        "4.3": 0.1375,
+        "4.4": 0.2625,
+        "5.1": 0.04,
+        "5.2": 0.426,
+        "5.3": 0.0725,
+        "5.4": 0.025
+      },
+      "topScores": {
+        "TRACTABILITY": 0.513,
+        "FIT": 0.49150000000000005,
+        "INCUMBENT": 0.1525,
+        "PAYOFF": 0.41625,
+        "EXPOSURE": 0.140875
+      },
+      "composite": 1.127375,
+      "ms": 524.7314170000002,
+      "inputTokens": 8177
+    },
+    {
+      "window": "context-triage-keep-drop",
+      "perQuestion": {
+        "notesDescribeGroundTruthSource": {
+          "p": 0.25
+        },
+        "decisionLeavesObservableTrace": {
+          "p": 0.96
+        },
+        "outcomeObservableWithoutHuman": {
+          "p": 0.8
+        },
+        "proxySignalStrength": {
+          "level": 2.03
+        },
+        "currentMechanismOutputUsableAsWeakLabel": {
+          "p": 0.82
+        },
+        "decisionHasCheckableInvariant": {
+          "p": 0.55
+        },
+        "outputIsDiscreteValue": {
+          "p": 0.92
+        },
+        "downstreamEffectIsMachineObservable": {
+          "p": 0.8
+        },
+        "mechanismDeterminismLevel": {
+          "level": 0.2
+        },
+        "notesNameExistingTestOrAssertion": {
+          "p": 0.18
+        },
+        "functionNameIsConcrete": {
+          "p": 0.97
+        },
+        "fileIsSingleConcretePath": {
+          "p": 0.96
+        },
+        "decisionOutputStatedPlainly": {
+          "p": 0.53
+        },
+        "mechanismIsNamedSpecifically": {
+          "p": 0.87
+        },
+        "stateCompletenessForThisWindow": {
+          "level": 2.16
+        },
+        "callVolumeIsStated": {
+          "p": 0.97
+        },
+        "callVolumeBand": {
+          "level": 2.65
+        },
+        "mechanismRecurringAcrossCallSites": {
+          "p": 0.05
+        },
+        "sampleCollectionDescribed": {
+          "p": 0.39
+        },
+        "corpusGrowsPassively": {
+          "p": 0.43
+        },
+        "outputSpaceIsEnumerable": {
+          "p": 0.96
+        },
+        "outputIsSingleValue": {
+          "p": 0.77
+        },
+        "optionCountBand": {
+          "level": 1
+        },
+        "sameOutputTypeAcrossCalls": {
+          "p": 0.53
+        },
+        "decisionIsAtomic": {
+          "p": 0.62
+        },
+        "inputsNamedExplicitly": {
+          "p": 0.29
+        },
+        "decisionUsesOnlyCurrentInput": {
+          "p": 0.66
+        },
+        "requiresCrossItemComparison": {
+          "p": 0.12
+        },
+        "requiresCounterfactualReasoning": {
+          "p": 0.13
+        },
+        "decisionDependsOnGoalOrIntent": {
+          "p": 0.06
+        },
+        "mechanismCombinesMultipleConditions": {
+          "p": 0.96
+        },
+        "subConditionsAreNameable": {
+          "p": 0.89
+        },
+        "whatItDecidesReadsAsOneQuestion": {
+          "p": 0.59
+        },
+        "notesSuggestEdgeCases": {
+          "p": 0.1
+        },
+        "edgeCaseCountBand": {
+          "level": 0.91
+        },
+        "mechanismCounts": {
+          "p": 0.45
+        },
+        "mechanismDoesArithmetic": {
+          "p": 0.96
+        },
+        "mechanismComparesMagnitudes": {
+          "p": 0.76
+        },
+        "decisionRequiresGeneration": {
+          "p": 0.05
+        },
+        "mechanismRequiresRankingOrSorting": {
+          "p": 0.17
+        },
+        "mechanismShape": {
+          "key": "other",
+          "h": 0.37573203750691037
+        },
+        "mechanismAgeOrOriginStated": {
+          "p": 0.1
+        },
+        "mechanismLivesInline": {
+          "p": 0.76
+        },
+        "mechanismHasNamedConstants": {
+          "p": 0.1
+        },
+        "mechanismComplexityLevel": {
+          "level": 1.4
+        },
+        "notesDescribeKnownFailureMode": {
+          "p": 0.06
+        },
+        "failureDirection": {
+          "key": "false_negative",
+          "h": 0.7935997539737307
+        },
+        "workaroundBurdenLevel": {
+          "level": 0.04
+        },
+        "failureIsSilent": {
+          "p": 0.09
+        },
+        "failureFrequencyBand": {
+          "level": 0.7
+        },
+        "mechanismAlreadyCheap": {
+          "p": 0.79
+        },
+        "baselineHasBeenTuned": {
+          "p": 0.67
+        },
+        "baselineAccuracyDescription": {
+          "key": "works_well",
+          "h": 0.4515849675378141
+        },
+        "simplerFixAlreadyConsidered": {
+          "p": 0.07
+        },
+        "baselineWasCopiedFromElsewhere": {
+          "p": 0.03
+        },
+        "decisionVisibilityScope": {
+          "key": "not_stated",
+          "h": 0.7427710693019957
+        },
+        "changeWouldRequireApproval": {
+          "p": 0.03
+        },
+        "decisionHasExistingMonitoring": {
+          "p": 0.33
+        },
+        "mechanismIsDocumentedElsewhere": {
+          "p": 0.08
+        },
+        "noticeabilityBand": {
+          "level": 1.09
+        },
+        "volumeTrendStatedAsGrowing": {
+          "p": 0.03
+        },
+        "decisionRunsOnHotPath": {
+          "p": 0.82
+        },
+        "volumeImpactBand": {
+          "level": 2.52
+        },
+        "improvementScalesWithVolume": {
+          "p": 0.35
+        },
+        "volumeCadencePattern": {
+          "key": "not_stated",
+          "h": 0.19372245957723813
+        },
+        "mechanismRunsSynchronously": {
+          "p": 0.16
+        },
+        "mechanismIsOnCriticalPath": {
+          "p": 0.21
+        },
+        "currentMechanismHasKnownCost": {
+          "p": 0.03
+        },
+        "fasterDecisionWouldRelieveBottleneck": {
+          "p": 0.07
+        },
+        "costReliefBand": {
+          "level": 0.11
+        },
+        "currentMechanismCannotHandleCase": {
+          "p": 0.06
+        },
+        "richerJudgmentWouldChangeOutcome": {
+          "p": 0.17
+        },
+        "capabilityIsNetNewOrRestoring": {
+          "key": "not_stated",
+          "h": 0.38900565177326885
+        },
+        "blockingSeverityLevel": {
+          "level": 0.02
+        },
+        "improvementIsQualityNotSpeed": {
+          "p": 0.58
+        },
+        "mechanismPatternNamedAsCommon": {
+          "p": 0.04
+        },
+        "reuseScopeBand": {
+          "key": "single_site_only",
+          "h": 0.1774722434193448
+        },
+        "fixTransferabilityLevel": {
+          "level": 0.92
+        },
+        "domainGeneralityLevel": {
+          "level": 2.2
+        },
+        "sharedUtilityMaturity": {
+          "level": 0.17
+        },
+        "decisionOutputIsPersisted": {
+          "p": 0.42
+        },
+        "decisionCanBeOverriddenLater": {
+          "p": 0.64
+        },
+        "decisionTriggersIrreversibleAction": {
+          "p": 0.03
+        },
+        "reversalEffortLevel": {
+          "key": "reversible_with_followup_action",
+          "h": 0.0971959289157881
+        },
+        "reversibilityStatedExplicitness": {
+          "level": 1.99
+        },
+        "effectIsScopedToSingleItem": {
+          "p": 0.6
+        },
+        "effectPropagatesDownstream": {
+          "p": 0.25
+        },
+        "effectReachesExternalParty": {
+          "p": 0.06
+        },
+        "effectInvolvesMoneyOrData": {
+          "p": 0.06
+        },
+        "blastRadiusBand": {
+          "level": 0.8
+        },
+        "wrongAnswerProducesVisibleError": {
+          "p": 0.08
+        },
+        "wrongAnswerLooksLikeSuccess": {
+          "p": 0.13
+        },
+        "existingAlertingCoversThis": {
+          "p": 0.08
+        },
+        "wrongAnswerDiscoveredDownstream": {
+          "p": 0.04
+        },
+        "detectionTimingBand": {
+          "key": "only_with_deliberate_inspection",
+          "h": 0.5827995226842635
+        },
+        "humanInvolvementLevel": {
+          "key": "fully_automated_no_human",
+          "h": 0.4275060148322434
+        },
+        "removingHumanIsExplicitGoal": {
+          "p": 0.03
+        },
+        "humanReviewIsBottleneck": {
+          "p": 0.03
+        },
+        "reviewerFeedbackIsRecorded": {
+          "p": 0.04
+        },
+        "reviewEffortLevel": {
+          "level": 0.48
+        }
+      },
+      "subScores": {
+        "1.1": 0.7659999999999999,
+        "1.2": 0.4900000000000001,
+        "1.3": 0.866,
+        "1.4": 0.5680000000000001,
+        "2.1": 0.576,
+        "2.2": 0.25199999999999995,
+        "2.3": 0.508,
+        "2.4": 0.4779999999999999,
+        "3.1": 0.24,
+        "3.2": 0.0375,
+        "3.3": 0.39,
+        "3.4": 0.11,
+        "4.1": 0.55,
+        "4.2": 0.094,
+        "4.3": 0.20249999999999999,
+        "4.4": 0.26,
+        "5.1": 0.2725,
+        "5.2": 0.194,
+        "5.3": 0.0825,
+        "5.4": 0.025
+      },
+      "topScores": {
+        "TRACTABILITY": 0.6725,
+        "FIT": 0.45349999999999996,
+        "INCUMBENT": 0.194375,
+        "PAYOFF": 0.276625,
+        "EXPOSURE": 0.14350000000000002
+      },
+      "composite": 1.06475,
+      "ms": 523.3164579999998,
+      "inputTokens": 8219
+    },
+    {
+      "window": "tool-call-gate",
+      "perQuestion": {
+        "notesDescribeGroundTruthSource": {
+          "p": 0.46
+        },
+        "decisionLeavesObservableTrace": {
+          "p": 0.59
+        },
+        "outcomeObservableWithoutHuman": {
+          "p": 0.63
+        },
+        "proxySignalStrength": {
+          "level": 2
+        },
+        "currentMechanismOutputUsableAsWeakLabel": {
+          "p": 0.64
+        },
+        "decisionHasCheckableInvariant": {
+          "p": 0.42
+        },
+        "outputIsDiscreteValue": {
+          "p": 0.94
+        },
+        "downstreamEffectIsMachineObservable": {
+          "p": 0.29
+        },
+        "mechanismDeterminismLevel": {
+          "level": 0.01
+        },
+        "notesNameExistingTestOrAssertion": {
+          "p": 0.09
+        },
+        "functionNameIsConcrete": {
+          "p": 0.93
+        },
+        "fileIsSingleConcretePath": {
+          "p": 0.95
+        },
+        "decisionOutputStatedPlainly": {
+          "p": 0.67
+        },
+        "mechanismIsNamedSpecifically": {
+          "p": 0.87
+        },
+        "stateCompletenessForThisWindow": {
+          "level": 2.05
+        },
+        "callVolumeIsStated": {
+          "p": 0.86
+        },
+        "callVolumeBand": {
+          "level": 3
+        },
+        "mechanismRecurringAcrossCallSites": {
+          "p": 0.04
+        },
+        "sampleCollectionDescribed": {
+          "p": 0.59
+        },
+        "corpusGrowsPassively": {
+          "p": 0.64
+        },
+        "outputSpaceIsEnumerable": {
+          "p": 0.96
+        },
+        "outputIsSingleValue": {
+          "p": 0.83
+        },
+        "optionCountBand": {
+          "level": 1
+        },
+        "sameOutputTypeAcrossCalls": {
+          "p": 0.7
+        },
+        "decisionIsAtomic": {
+          "p": 0.79
+        },
+        "inputsNamedExplicitly": {
+          "p": 0.43
+        },
+        "decisionUsesOnlyCurrentInput": {
+          "p": 0.55
+        },
+        "requiresCrossItemComparison": {
+          "p": 0.12
+        },
+        "requiresCounterfactualReasoning": {
+          "p": 0.35
+        },
+        "decisionDependsOnGoalOrIntent": {
+          "p": 0.05
+        },
+        "mechanismCombinesMultipleConditions": {
+          "p": 0.8
+        },
+        "subConditionsAreNameable": {
+          "p": 0.84
+        },
+        "whatItDecidesReadsAsOneQuestion": {
+          "p": 0.66
+        },
+        "notesSuggestEdgeCases": {
+          "p": 0.16
+        },
+        "edgeCaseCountBand": {
+          "level": 1.7
+        },
+        "mechanismCounts": {
+          "p": 0.05
+        },
+        "mechanismDoesArithmetic": {
+          "p": 0.05
+        },
+        "mechanismComparesMagnitudes": {
+          "p": 0.07
+        },
+        "decisionRequiresGeneration": {
+          "p": 0.04
+        },
+        "mechanismRequiresRankingOrSorting": {
+          "p": 0.06
+        },
+        "mechanismShape": {
+          "key": "allowlistOrDenylist",
+          "h": 0.28941787294445387
+        },
+        "mechanismAgeOrOriginStated": {
+          "p": 0.09
+        },
+        "mechanismLivesInline": {
+          "p": 0.16
+        },
+        "mechanismHasNamedConstants": {
+          "p": 0.37
+        },
+        "mechanismComplexityLevel": {
+          "level": 0.96
+        },
+        "notesDescribeKnownFailureMode": {
+          "p": 0.1
+        },
+        "failureDirection": {
+          "key": "false_negative",
+          "h": 0.8922327136979946
+        },
+        "workaroundBurdenLevel": {
+          "level": 0.26
+        },
+        "failureIsSilent": {
+          "p": 0.18
+        },
+        "failureFrequencyBand": {
+          "level": 0.24
+        },
+        "mechanismAlreadyCheap": {
+          "p": 0.94
+        },
+        "baselineHasBeenTuned": {
+          "p": 0.45
+        },
+        "baselineAccuracyDescription": {
+          "key": "works_well",
+          "h": 0.7390244845800163
+        },
+        "simplerFixAlreadyConsidered": {
+          "p": 0.07
+        },
+        "baselineWasCopiedFromElsewhere": {
+          "p": 0.03
+        },
+        "decisionVisibilityScope": {
+          "key": "external_user",
+          "h": 0.5546585556531145
+        },
+        "changeWouldRequireApproval": {
+          "p": 0.03
+        },
+        "decisionHasExistingMonitoring": {
+          "p": 0.09
+        },
+        "mechanismIsDocumentedElsewhere": {
+          "p": 0.09
+        },
+        "noticeabilityBand": {
+          "level": 2.49
+        },
+        "volumeTrendStatedAsGrowing": {
+          "p": 0.04
+        },
+        "decisionRunsOnHotPath": {
+          "p": 0.85
+        },
+        "volumeImpactBand": {
+          "level": 2.68
+        },
+        "improvementScalesWithVolume": {
+          "p": 0.48
+        },
+        "volumeCadencePattern": {
+          "key": "not_stated",
+          "h": 0.07072027127091034
+        },
+        "mechanismRunsSynchronously": {
+          "p": 0.62
+        },
+        "mechanismIsOnCriticalPath": {
+          "p": 0.32
+        },
+        "currentMechanismHasKnownCost": {
+          "p": 0.03
+        },
+        "fasterDecisionWouldRelieveBottleneck": {
+          "p": 0.16
+        },
+        "costReliefBand": {
+          "level": 0.65
+        },
+        "currentMechanismCannotHandleCase": {
+          "p": 0.13
+        },
+        "richerJudgmentWouldChangeOutcome": {
+          "p": 0.53
+        },
+        "capabilityIsNetNewOrRestoring": {
+          "key": "incremental_improvement_only",
+          "h": 0.5582119917380515
+        },
+        "blockingSeverityLevel": {
+          "level": 0.24
+        },
+        "improvementIsQualityNotSpeed": {
+          "p": 0.76
+        },
+        "mechanismPatternNamedAsCommon": {
+          "p": 0.05
+        },
+        "reuseScopeBand": {
+          "key": "single_site_only",
+          "h": 0.11097036642660545
+        },
+        "fixTransferabilityLevel": {
+          "level": 1.43
+        },
+        "domainGeneralityLevel": {
+          "level": 2.63
+        },
+        "sharedUtilityMaturity": {
+          "level": 0.23
+        },
+        "decisionOutputIsPersisted": {
+          "p": 0.05
+        },
+        "decisionCanBeOverriddenLater": {
+          "p": 0.06
+        },
+        "decisionTriggersIrreversibleAction": {
+          "p": 0.56
+        },
+        "reversalEffortLevel": {
+          "key": "not_reversible",
+          "h": 0.4938928715545482
+        },
+        "reversibilityStatedExplicitness": {
+          "level": 0.78
+        },
+        "effectIsScopedToSingleItem": {
+          "p": 0.56
+        },
+        "effectPropagatesDownstream": {
+          "p": 0.12
+        },
+        "effectReachesExternalParty": {
+          "p": 0.07
+        },
+        "effectInvolvesMoneyOrData": {
+          "p": 0.06
+        },
+        "blastRadiusBand": {
+          "level": 2.56
+        },
+        "wrongAnswerProducesVisibleError": {
+          "p": 0.24
+        },
+        "wrongAnswerLooksLikeSuccess": {
+          "p": 0.3
+        },
+        "existingAlertingCoversThis": {
+          "p": 0.07
+        },
+        "wrongAnswerDiscoveredDownstream": {
+          "p": 0.08
+        },
+        "detectionTimingBand": {
+          "key": "effectively_invisible",
+          "h": 0.9908022046887615
+        },
+        "humanInvolvementLevel": {
+          "key": "exception_only_review",
+          "h": 0.38662619564111206
+        },
+        "removingHumanIsExplicitGoal": {
+          "p": 0.11
+        },
+        "humanReviewIsBottleneck": {
+          "p": 0.11
+        },
+        "reviewerFeedbackIsRecorded": {
+          "p": 0.04
+        },
+        "reviewEffortLevel": {
+          "level": 1.5
+        }
+      },
+      "subScores": {
+        "1.1": 0.664,
+        "1.2": 0.348,
+        "1.3": 0.884,
+        "1.4": 0.626,
+        "2.1": 0.656,
+        "2.2": 0.30000000000000004,
+        "2.3": 0.4920000000000001,
+        "2.4": 0.054000000000000006,
+        "3.1": 0.155,
+        "3.2": 0.07,
+        "3.3": 0.3725,
+        "3.4": 0.3025,
+        "4.1": 0.5925,
+        "4.2": 0.22599999999999998,
+        "4.3": 0.355,
+        "4.4": 0.2625,
+        "5.1": 0.1675,
+        "5.2": 0.362,
+        "5.3": 0.17250000000000001,
+        "5.4": 0.065
+      },
+      "topScores": {
+        "TRACTABILITY": 0.6305,
+        "FIT": 0.37550000000000006,
+        "INCUMBENT": 0.225,
+        "PAYOFF": 0.359,
+        "EXPOSURE": 0.19174999999999998
+      },
+      "composite": 0.9482500000000001,
+      "ms": 439.8437090000007,
+      "inputTokens": 8206
+    },
+    {
+      "window": "jupiter-symmetry",
+      "perQuestion": {
+        "notesDescribeGroundTruthSource": {
+          "p": 0.07
+        },
+        "decisionLeavesObservableTrace": {
+          "p": 0.84
+        },
+        "outcomeObservableWithoutHuman": {
+          "p": 0.41
+        },
+        "proxySignalStrength": {
+          "level": 0.75
+        },
+        "currentMechanismOutputUsableAsWeakLabel": {
+          "p": 0.3
+        },
+        "decisionHasCheckableInvariant": {
+          "p": 0.15
+        },
+        "outputIsDiscreteValue": {
+          "p": 0.93
+        },
+        "downstreamEffectIsMachineObservable": {
+          "p": 0.47
+        },
+        "mechanismDeterminismLevel": {
+          "level": 0.07
+        },
+        "notesNameExistingTestOrAssertion": {
+          "p": 0.06
+        },
+        "functionNameIsConcrete": {
+          "p": 0.97
+        },
+        "fileIsSingleConcretePath": {
+          "p": 0.97
+        },
+        "decisionOutputStatedPlainly": {
+          "p": 0.64
+        },
+        "mechanismIsNamedSpecifically": {
+          "p": 0.97
+        },
+        "stateCompletenessForThisWindow": {
+          "level": 1.95
+        },
+        "callVolumeIsStated": {
+          "p": 0.95
+        },
+        "callVolumeBand": {
+          "level": 1.9
+        },
+        "mechanismRecurringAcrossCallSites": {
+          "p": 0.05
+        },
+        "sampleCollectionDescribed": {
+          "p": 0.06
+        },
+        "corpusGrowsPassively": {
+          "p": 0.38
+        },
+        "outputSpaceIsEnumerable": {
+          "p": 0.95
+        },
+        "outputIsSingleValue": {
+          "p": 0.91
+        },
+        "optionCountBand": {
+          "level": 0.01
+        },
+        "sameOutputTypeAcrossCalls": {
+          "p": 0.88
+        },
+        "decisionIsAtomic": {
+          "p": 0.93
+        },
+        "inputsNamedExplicitly": {
+          "p": 0.4
+        },
+        "decisionUsesOnlyCurrentInput": {
+          "p": 0.88
+        },
+        "requiresCrossItemComparison": {
+          "p": 0.94
+        },
+        "requiresCounterfactualReasoning": {
+          "p": 0.11
+        },
+        "decisionDependsOnGoalOrIntent": {
+          "p": 0.04
+        },
+        "mechanismCombinesMultipleConditions": {
+          "p": 0.71
+        },
+        "subConditionsAreNameable": {
+          "p": 0.78
+        },
+        "whatItDecidesReadsAsOneQuestion": {
+          "p": 0.92
+        },
+        "notesSuggestEdgeCases": {
+          "p": 0.21
+        },
+        "edgeCaseCountBand": {
+          "level": 0.59
+        },
+        "mechanismCounts": {
+          "p": 0.06
+        },
+        "mechanismDoesArithmetic": {
+          "p": 0.95
+        },
+        "mechanismComparesMagnitudes": {
+          "p": 0.47
+        },
+        "decisionRequiresGeneration": {
+          "p": 0.04
+        },
+        "mechanismRequiresRankingOrSorting": {
+          "p": 0.05
+        },
+        "mechanismShape": {
+          "key": "fixedThreshold",
+          "h": 0.42156953595687496
+        },
+        "mechanismAgeOrOriginStated": {
+          "p": 0.13
+        },
+        "mechanismLivesInline": {
+          "p": 0.76
+        },
+        "mechanismHasNamedConstants": {
+          "p": 0.07
+        },
+        "mechanismComplexityLevel": {
+          "level": 0.83
+        },
+        "notesDescribeKnownFailureMode": {
+          "p": 0.16
+        },
+        "failureDirection": {
+          "key": "not_stated",
+          "h": 0.18124668093016216
+        },
+        "workaroundBurdenLevel": {
+          "level": 0.04
+        },
+        "failureIsSilent": {
+          "p": 0.17
+        },
+        "failureFrequencyBand": {
+          "level": 1.19
+        },
+        "mechanismAlreadyCheap": {
+          "p": 0.91
+        },
+        "baselineHasBeenTuned": {
+          "p": 0.03
+        },
+        "baselineAccuracyDescription": {
+          "key": "not_stated",
+          "h": 0.5566109199708826
+        },
+        "simplerFixAlreadyConsidered": {
+          "p": 0.06
+        },
+        "baselineWasCopiedFromElsewhere": {
+          "p": 0.04
+        },
+        "decisionVisibilityScope": {
+          "key": "external_user",
+          "h": 0.788903294939951
+        },
+        "changeWouldRequireApproval": {
+          "p": 0.03
+        },
+        "decisionHasExistingMonitoring": {
+          "p": 0.05
+        },
+        "mechanismIsDocumentedElsewhere": {
+          "p": 0.07
+        },
+        "noticeabilityBand": {
+          "level": 2.42
+        },
+        "volumeTrendStatedAsGrowing": {
+          "p": 0.03
+        },
+        "decisionRunsOnHotPath": {
+          "p": 0.35
+        },
+        "volumeImpactBand": {
+          "level": 1.34
+        },
+        "improvementScalesWithVolume": {
+          "p": 0.59
+        },
+        "volumeCadencePattern": {
+          "key": "not_stated",
+          "h": 0.28059420153900866
+        },
+        "mechanismRunsSynchronously": {
+          "p": 0.11
+        },
+        "mechanismIsOnCriticalPath": {
+          "p": 0.14
+        },
+        "currentMechanismHasKnownCost": {
+          "p": 0.02
+        },
+        "fasterDecisionWouldRelieveBottleneck": {
+          "p": 0.11
+        },
+        "costReliefBand": {
+          "level": 0.25
+        },
+        "currentMechanismCannotHandleCase": {
+          "p": 0.45
+        },
+        "richerJudgmentWouldChangeOutcome": {
+          "p": 0.69
+        },
+        "capabilityIsNetNewOrRestoring": {
+          "key": "not_stated",
+          "h": 0.676268922810546
+        },
+        "blockingSeverityLevel": {
+          "level": 1.38
+        },
+        "improvementIsQualityNotSpeed": {
+          "p": 0.56
+        },
+        "mechanismPatternNamedAsCommon": {
+          "p": 0.39
+        },
+        "reuseScopeBand": {
+          "key": "single_site_only",
+          "h": 0.647730922119161
+        },
+        "fixTransferabilityLevel": {
+          "level": 1.4
+        },
+        "domainGeneralityLevel": {
+          "level": 2.31
+        },
+        "sharedUtilityMaturity": {
+          "level": 0.01
+        },
+        "decisionOutputIsPersisted": {
+          "p": 0.07
+        },
+        "decisionCanBeOverriddenLater": {
+          "p": 0.04
+        },
+        "decisionTriggersIrreversibleAction": {
+          "p": 0.04
+        },
+        "reversalEffortLevel": {
+          "key": "reversible_with_followup_action",
+          "h": 0.9272491709727708
+        },
+        "reversibilityStatedExplicitness": {
+          "level": 0.06
+        },
+        "effectIsScopedToSingleItem": {
+          "p": 0.29
+        },
+        "effectPropagatesDownstream": {
+          "p": 0.92
+        },
+        "effectReachesExternalParty": {
+          "p": 0.15
+        },
+        "effectInvolvesMoneyOrData": {
+          "p": 0.05
+        },
+        "blastRadiusBand": {
+          "level": 1.47
+        },
+        "wrongAnswerProducesVisibleError": {
+          "p": 0.11
+        },
+        "wrongAnswerLooksLikeSuccess": {
+          "p": 0.28
+        },
+        "existingAlertingCoversThis": {
+          "p": 0.33
+        },
+        "wrongAnswerDiscoveredDownstream": {
+          "p": 0.31
+        },
+        "detectionTimingBand": {
+          "key": "soon_in_normal_operation",
+          "h": 0.7330096726561712
+        },
+        "humanInvolvementLevel": {
+          "key": "fully_automated_no_human",
+          "h": 0.0971959289157881
+        },
+        "removingHumanIsExplicitGoal": {
+          "p": 0.03
+        },
+        "humanReviewIsBottleneck": {
+          "p": 0.03
+        },
+        "reviewerFeedbackIsRecorded": {
+          "p": 0.03
+        },
+        "reviewEffortLevel": {
+          "level": 1.45
+        }
+      },
+      "subScores": {
+        "1.1": 0.32399999999999995,
+        "1.2": 0.322,
+        "1.3": 0.71,
+        "1.4": 0.288,
+        "2.1": 0.734,
+        "2.2": 0.4739999999999999,
+        "2.3": 0.524,
+        "2.4": 0.314,
+        "3.1": 0.24,
+        "3.2": 0.0825,
+        "3.3": 0.26,
+        "3.4": 0.2875,
+        "4.1": 0.2425,
+        "4.2": 0.076,
+        "4.3": 0.425,
+        "4.4": 0.34750000000000003,
+        "5.1": 0.037500000000000006,
+        "5.2": 0.282,
+        "5.3": 0.2575,
+        "5.4": 0.0225
+      },
+      "topScores": {
+        "TRACTABILITY": 0.411,
+        "FIT": 0.5115,
+        "INCUMBENT": 0.2175,
+        "PAYOFF": 0.27275000000000005,
+        "EXPOSURE": 0.14987499999999998
+      },
+      "composite": 0.8278749999999999,
+      "ms": 384.24479099999996,
+      "inputTokens": 8178
+    },
+    {
+      "window": "jupiter-rule-check",
+      "perQuestion": {
+        "notesDescribeGroundTruthSource": {
+          "p": 0.09
+        },
+        "decisionLeavesObservableTrace": {
+          "p": 0.94
+        },
+        "outcomeObservableWithoutHuman": {
+          "p": 0.84
+        },
+        "proxySignalStrength": {
+          "level": 1.41
+        },
+        "currentMechanismOutputUsableAsWeakLabel": {
+          "p": 0.34
+        },
+        "decisionHasCheckableInvariant": {
+          "p": 0.9
+        },
+        "outputIsDiscreteValue": {
+          "p": 0.95
+        },
+        "downstreamEffectIsMachineObservable": {
+          "p": 0.31
+        },
+        "mechanismDeterminismLevel": {
+          "level": 0
+        },
+        "notesNameExistingTestOrAssertion": {
+          "p": 0.17
+        },
+        "functionNameIsConcrete": {
+          "p": 0.97
+        },
+        "fileIsSingleConcretePath": {
+          "p": 0.94
+        },
+        "decisionOutputStatedPlainly": {
+          "p": 0.33
+        },
+        "mechanismIsNamedSpecifically": {
+          "p": 0.96
+        },
+        "stateCompletenessForThisWindow": {
+          "level": 2.26
+        },
+        "callVolumeIsStated": {
+          "p": 0.95
+        },
+        "callVolumeBand": {
+          "level": 2.03
+        },
+        "mechanismRecurringAcrossCallSites": {
+          "p": 0.07
+        },
+        "sampleCollectionDescribed": {
+          "p": 0.06
+        },
+        "corpusGrowsPassively": {
+          "p": 0.11
+        },
+        "outputSpaceIsEnumerable": {
+          "p": 0.96
+        },
+        "outputIsSingleValue": {
+          "p": 0.92
+        },
+        "optionCountBand": {
+          "level": 0.01
+        },
+        "sameOutputTypeAcrossCalls": {
+          "p": 0.91
+        },
+        "decisionIsAtomic": {
+          "p": 0.95
+        },
+        "inputsNamedExplicitly": {
+          "p": 0.58
+        },
+        "decisionUsesOnlyCurrentInput": {
+          "p": 0.95
+        },
+        "requiresCrossItemComparison": {
+          "p": 0.04
+        },
+        "requiresCounterfactualReasoning": {
+          "p": 0.08
+        },
+        "decisionDependsOnGoalOrIntent": {
+          "p": 0.04
+        },
+        "mechanismCombinesMultipleConditions": {
+          "p": 0.14
+        },
+        "subConditionsAreNameable": {
+          "p": 0.93
+        },
+        "whatItDecidesReadsAsOneQuestion": {
+          "p": 0.9
+        },
+        "notesSuggestEdgeCases": {
+          "p": 0.23
+        },
+        "edgeCaseCountBand": {
+          "level": 1.58
+        },
+        "mechanismCounts": {
+          "p": 0.07
+        },
+        "mechanismDoesArithmetic": {
+          "p": 0.04
+        },
+        "mechanismComparesMagnitudes": {
+          "p": 0.04
+        },
+        "decisionRequiresGeneration": {
+          "p": 0.04
+        },
+        "mechanismRequiresRankingOrSorting": {
+          "p": 0.04
+        },
+        "mechanismShape": {
+          "key": "regex",
+          "h": 0
+        },
+        "mechanismAgeOrOriginStated": {
+          "p": 0.05
+        },
+        "mechanismLivesInline": {
+          "p": 0.78
+        },
+        "mechanismHasNamedConstants": {
+          "p": 0.06
+        },
+        "mechanismComplexityLevel": {
+          "level": 0.52
+        },
+        "notesDescribeKnownFailureMode": {
+          "p": 0.69
+        },
+        "failureDirection": {
+          "key": "false_negative",
+          "h": 0
+        },
+        "workaroundBurdenLevel": {
+          "level": 0.18
+        },
+        "failureIsSilent": {
+          "p": 0.25
+        },
+        "failureFrequencyBand": {
+          "level": 1.25
+        },
+        "mechanismAlreadyCheap": {
+          "p": 0.97
+        },
+        "baselineHasBeenTuned": {
+          "p": 0.03
+        },
+        "baselineAccuracyDescription": {
+          "key": "mixed_results",
+          "h": 0.04039656794795559
+        },
+        "simplerFixAlreadyConsidered": {
+          "p": 0.05
+        },
+        "baselineWasCopiedFromElsewhere": {
+          "p": 0.03
+        },
+        "decisionVisibilityScope": {
+          "key": "external_user",
+          "h": 0
+        },
+        "changeWouldRequireApproval": {
+          "p": 0.03
+        },
+        "decisionHasExistingMonitoring": {
+          "p": 0.2
+        },
+        "mechanismIsDocumentedElsewhere": {
+          "p": 0.06
+        },
+        "noticeabilityBand": {
+          "level": 2.63
+        },
+        "volumeTrendStatedAsGrowing": {
+          "p": 0.03
+        },
+        "decisionRunsOnHotPath": {
+          "p": 0.44
+        },
+        "volumeImpactBand": {
+          "level": 1.78
+        },
+        "improvementScalesWithVolume": {
+          "p": 0.45
+        },
+        "volumeCadencePattern": {
+          "key": "not_stated",
+          "h": 0.28950944366190023
+        },
+        "mechanismRunsSynchronously": {
+          "p": 0.2
+        },
+        "mechanismIsOnCriticalPath": {
+          "p": 0.15
+        },
+        "currentMechanismHasKnownCost": {
+          "p": 0.05
+        },
+        "fasterDecisionWouldRelieveBottleneck": {
+          "p": 0.05
+        },
+        "costReliefBand": {
+          "level": 0.05
+        },
+        "currentMechanismCannotHandleCase": {
+          "p": 0.39
+        },
+        "richerJudgmentWouldChangeOutcome": {
+          "p": 0.51
+        },
+        "capabilityIsNetNewOrRestoring": {
+          "key": "incremental_improvement_only",
+          "h": 0.2335407200795017
+        },
+        "blockingSeverityLevel": {
+          "level": 1
+        },
+        "improvementIsQualityNotSpeed": {
+          "p": 0.92
+        },
+        "mechanismPatternNamedAsCommon": {
+          "p": 0.04
+        },
+        "reuseScopeBand": {
+          "key": "single_site_only",
+          "h": 0.292119405821428
+        },
+        "fixTransferabilityLevel": {
+          "level": 1.37
+        },
+        "domainGeneralityLevel": {
+          "level": 2.23
+        },
+        "sharedUtilityMaturity": {
+          "level": 0.01
+        },
+        "decisionOutputIsPersisted": {
+          "p": 0.06
+        },
+        "decisionCanBeOverriddenLater": {
+          "p": 0.06
+        },
+        "decisionTriggersIrreversibleAction": {
+          "p": 0.12
+        },
+        "reversalEffortLevel": {
+          "key": "automatic_no_trace",
+          "h": 0.7585662478589057
+        },
+        "reversibilityStatedExplicitness": {
+          "level": 0.2
+        },
+        "effectIsScopedToSingleItem": {
+          "p": 0.81
+        },
+        "effectPropagatesDownstream": {
+          "p": 0.43
+        },
+        "effectReachesExternalParty": {
+          "p": 0.71
+        },
+        "effectInvolvesMoneyOrData": {
+          "p": 0.04
+        },
+        "blastRadiusBand": {
+          "level": 1.03
+        },
+        "wrongAnswerProducesVisibleError": {
+          "p": 0.46
+        },
+        "wrongAnswerLooksLikeSuccess": {
+          "p": 0.24
+        },
+        "existingAlertingCoversThis": {
+          "p": 0.06
+        },
+        "wrongAnswerDiscoveredDownstream": {
+          "p": 0.04
+        },
+        "detectionTimingBand": {
+          "key": "soon_in_normal_operation",
+          "h": 0.3641499241498961
+        },
+        "humanInvolvementLevel": {
+          "key": "fully_automated_no_human",
+          "h": 0.11097036642660545
+        },
+        "removingHumanIsExplicitGoal": {
+          "p": 0.03
+        },
+        "humanReviewIsBottleneck": {
+          "p": 0.02
+        },
+        "reviewerFeedbackIsRecorded": {
+          "p": 0.03
+        },
+        "reviewEffortLevel": {
+          "level": 0.46
+        }
+      },
+      "subScores": {
+        "1.1": 0.442,
+        "1.2": 0.466,
+        "1.3": 0.8399999999999999,
+        "1.4": 0.438,
+        "2.1": 0.748,
+        "2.2": 0.33799999999999997,
+        "2.3": 0.44000000000000006,
+        "2.4": 0.046000000000000006,
+        "3.1": 0.22250000000000003,
+        "3.2": 0.235,
+        "3.3": 0.27,
+        "3.4": 0.3225,
+        "4.1": 0.22999999999999998,
+        "4.2": 0.09,
+        "4.3": 0.455,
+        "4.4": 0.26,
+        "5.1": 0.06,
+        "5.2": 0.398,
+        "5.3": 0.2,
+        "5.4": 0.02
+      },
+      "topScores": {
+        "TRACTABILITY": 0.5465,
+        "FIT": 0.39299999999999996,
+        "INCUMBENT": 0.2625,
+        "PAYOFF": 0.25875,
+        "EXPOSURE": 0.1695
+      },
+      "composite": 0.7662500000000001,
+      "ms": 644.279542,
+      "inputTokens": 8217
+    },
+    {
+      "window": "doc-chunk-relevance",
+      "perQuestion": {
+        "notesDescribeGroundTruthSource": {
+          "p": 0.2
+        },
+        "decisionLeavesObservableTrace": {
+          "p": 0.54
+        },
+        "outcomeObservableWithoutHuman": {
+          "p": 0.25
+        },
+        "proxySignalStrength": {
+          "level": 1.8
+        },
+        "currentMechanismOutputUsableAsWeakLabel": {
+          "p": 0.11
+        },
+        "decisionHasCheckableInvariant": {
+          "p": 0.1
+        },
+        "outputIsDiscreteValue": {
+          "p": 0.95
+        },
+        "downstreamEffectIsMachineObservable": {
+          "p": 0.14
+        },
+        "mechanismDeterminismLevel": {
+          "level": 0.1
+        },
+        "notesNameExistingTestOrAssertion": {
+          "p": 0.11
+        },
+        "functionNameIsConcrete": {
+          "p": 0.91
+        },
+        "fileIsSingleConcretePath": {
+          "p": 0.96
+        },
+        "decisionOutputStatedPlainly": {
+          "p": 0.63
+        },
+        "mechanismIsNamedSpecifically": {
+          "p": 0.05
+        },
+        "stateCompletenessForThisWindow": {
+          "level": 2.05
+        },
+        "callVolumeIsStated": {
+          "p": 0.84
+        },
+        "callVolumeBand": {
+          "level": 2.7
+        },
+        "mechanismRecurringAcrossCallSites": {
+          "p": 0.05
+        },
+        "sampleCollectionDescribed": {
+          "p": 0.06
+        },
+        "corpusGrowsPassively": {
+          "p": 0.17
+        },
+        "outputSpaceIsEnumerable": {
+          "p": 0.93
+        },
+        "outputIsSingleValue": {
+          "p": 0.92
+        },
+        "optionCountBand": {
+          "level": 0.02
+        },
+        "sameOutputTypeAcrossCalls": {
+          "p": 0.91
+        },
+        "decisionIsAtomic": {
+          "p": 0.95
+        },
+        "inputsNamedExplicitly": {
+          "p": 0.15
+        },
+        "decisionUsesOnlyCurrentInput": {
+          "p": 0.84
+        },
+        "requiresCrossItemComparison": {
+          "p": 0.07
+        },
+        "requiresCounterfactualReasoning": {
+          "p": 0.17
+        },
+        "decisionDependsOnGoalOrIntent": {
+          "p": 0.07
+        },
+        "mechanismCombinesMultipleConditions": {
+          "p": 0.05
+        },
+        "subConditionsAreNameable": {
+          "p": 0.19
+        },
+        "whatItDecidesReadsAsOneQuestion": {
+          "p": 0.93
+        },
+        "notesSuggestEdgeCases": {
+          "p": 0.44
+        },
+        "edgeCaseCountBand": {
+          "level": 1.54
+        },
+        "mechanismCounts": {
+          "p": 0.05
+        },
+        "mechanismDoesArithmetic": {
+          "p": 0.04
+        },
+        "mechanismComparesMagnitudes": {
+          "p": 0.05
+        },
+        "decisionRequiresGeneration": {
+          "p": 0.04
+        },
+        "mechanismRequiresRankingOrSorting": {
+          "p": 0.04
+        },
+        "mechanismShape": {
+          "key": "other",
+          "h": 0.03479570968360693
+        },
+        "mechanismAgeOrOriginStated": {
+          "p": 0.07
+        },
+        "mechanismLivesInline": {
+          "p": 0.41
+        },
+        "mechanismHasNamedConstants": {
+          "p": 0.03
+        },
+        "mechanismComplexityLevel": {
+          "level": 0
+        },
+        "notesDescribeKnownFailureMode": {
+          "p": 0.23
+        },
+        "failureDirection": {
+          "key": "false_negative",
+          "h": 0.7127075406163972
+        },
+        "workaroundBurdenLevel": {
+          "level": 0.82
+        },
+        "failureIsSilent": {
+          "p": 0.55
+        },
+        "failureFrequencyBand": {
+          "level": 1.89
+        },
+        "mechanismAlreadyCheap": {
+          "p": 0.8
+        },
+        "baselineHasBeenTuned": {
+          "p": 0.16
+        },
+        "baselineAccuracyDescription": {
+          "key": "not_stated",
+          "h": 0.7039318034013047
+        },
+        "simplerFixAlreadyConsidered": {
+          "p": 0.04
+        },
+        "baselineWasCopiedFromElsewhere": {
+          "p": 0.03
+        },
+        "decisionVisibilityScope": {
+          "key": "external_user",
+          "h": 0.7767410289638468
+        },
+        "changeWouldRequireApproval": {
+          "p": 0.03
+        },
+        "decisionHasExistingMonitoring": {
+          "p": 0.04
+        },
+        "mechanismIsDocumentedElsewhere": {
+          "p": 0.07
+        },
+        "noticeabilityBand": {
+          "level": 1.38
+        },
+        "volumeTrendStatedAsGrowing": {
+          "p": 0.03
+        },
+        "decisionRunsOnHotPath": {
+          "p": 0.74
+        },
+        "volumeImpactBand": {
+          "level": 2.1
+        },
+        "improvementScalesWithVolume": {
+          "p": 0.44
+        },
+        "volumeCadencePattern": {
+          "key": "not_stated",
+          "h": 0
+        },
+        "mechanismRunsSynchronously": {
+          "p": 0.15
+        },
+        "mechanismIsOnCriticalPath": {
+          "p": 0.48
+        },
+        "currentMechanismHasKnownCost": {
+          "p": 0.04
+        },
+        "fasterDecisionWouldRelieveBottleneck": {
+          "p": 0.11
+        },
+        "costReliefBand": {
+          "level": 0.17
+        },
+        "currentMechanismCannotHandleCase": {
+          "p": 0.22
+        },
+        "richerJudgmentWouldChangeOutcome": {
+          "p": 0.3
+        },
+        "capabilityIsNetNewOrRestoring": {
+          "key": "new_capability",
+          "h": 0.3980661047736536
+        },
+        "blockingSeverityLevel": {
+          "level": 1.81
+        },
+        "improvementIsQualityNotSpeed": {
+          "p": 0.38
+        },
+        "mechanismPatternNamedAsCommon": {
+          "p": 0.03
+        },
+        "reuseScopeBand": {
+          "key": "single_site_only",
+          "h": 0.07072027127091034
+        },
+        "fixTransferabilityLevel": {
+          "level": 1.54
+        },
+        "domainGeneralityLevel": {
+          "level": 2.87
+        },
+        "sharedUtilityMaturity": {
+          "level": 0.02
+        },
+        "decisionOutputIsPersisted": {
+          "p": 0.06
+        },
+        "decisionCanBeOverriddenLater": {
+          "p": 0.05
+        },
+        "decisionTriggersIrreversibleAction": {
+          "p": 0.14
+        },
+        "reversalEffortLevel": {
+          "key": "not_reversible",
+          "h": 0.9853583027476799
+        },
+        "reversibilityStatedExplicitness": {
+          "level": 0.29
+        },
+        "effectIsScopedToSingleItem": {
+          "p": 0.48
+        },
+        "effectPropagatesDownstream": {
+          "p": 0.81
+        },
+        "effectReachesExternalParty": {
+          "p": 0.12
+        },
+        "effectInvolvesMoneyOrData": {
+          "p": 0.05
+        },
+        "blastRadiusBand": {
+          "level": 1.11
+        },
+        "wrongAnswerProducesVisibleError": {
+          "p": 0.13
+        },
+        "wrongAnswerLooksLikeSuccess": {
+          "p": 0.43
+        },
+        "existingAlertingCoversThis": {
+          "p": 0.08
+        },
+        "wrongAnswerDiscoveredDownstream": {
+          "p": 0.11
+        },
+        "detectionTimingBand": {
+          "key": "effectively_invisible",
+          "h": 0.19372245957723813
+        },
+        "humanInvolvementLevel": {
+          "key": "fully_automated_no_human",
+          "h": 0.21823490853205144
+        },
+        "removingHumanIsExplicitGoal": {
+          "p": 0.03
+        },
+        "humanReviewIsBottleneck": {
+          "p": 0.03
+        },
+        "reviewerFeedbackIsRecorded": {
+          "p": 0.04
+        },
+        "reviewEffortLevel": {
+          "level": 0.75
+        }
+      },
+      "subScores": {
+        "1.1": 0.22000000000000003,
+        "1.2": 0.26,
+        "1.3": 0.71,
+        "1.4": 0.42400000000000004,
+        "2.1": 0.742,
+        "2.2": 0.26,
+        "2.3": 0.32199999999999995,
+        "2.4": 0.044000000000000004,
+        "3.1": 0.1275,
+        "3.2": 0.195,
+        "3.3": 0.2575,
+        "3.4": 0.035,
+        "4.1": 0.5525,
+        "4.2": 0.156,
+        "4.3": 0.225,
+        "4.4": 0.2575,
+        "5.1": 0.0625,
+        "5.2": 0.29200000000000004,
+        "5.3": 0.1875,
+        "5.4": 0.025
+      },
+      "topScores": {
+        "TRACTABILITY": 0.40349999999999997,
+        "FIT": 0.34199999999999997,
+        "INCUMBENT": 0.15375000000000003,
+        "PAYOFF": 0.29775,
+        "EXPOSURE": 0.14175000000000001
+      },
+      "composite": 0.7477499999999999,
+      "ms": 2752.9646250000005,
+      "inputTokens": 8206
+    },
+    {
+      "window": "jupiter-approval-ready",
+      "perQuestion": {
+        "notesDescribeGroundTruthSource": {
+          "p": 0.09
+        },
+        "decisionLeavesObservableTrace": {
+          "p": 0.69
+        },
+        "outcomeObservableWithoutHuman": {
+          "p": 0.83
+        },
+        "proxySignalStrength": {
+          "level": 1.84
+        },
+        "currentMechanismOutputUsableAsWeakLabel": {
+          "p": 0.45
+        },
+        "decisionHasCheckableInvariant": {
+          "p": 0.86
+        },
+        "outputIsDiscreteValue": {
+          "p": 0.97
+        },
+        "downstreamEffectIsMachineObservable": {
+          "p": 0.41
+        },
+        "mechanismDeterminismLevel": {
+          "level": 0
+        },
+        "notesNameExistingTestOrAssertion": {
+          "p": 0.12
+        },
+        "functionNameIsConcrete": {
+          "p": 0.98
+        },
+        "fileIsSingleConcretePath": {
+          "p": 0.96
+        },
+        "decisionOutputStatedPlainly": {
+          "p": 0.49
+        },
+        "mechanismIsNamedSpecifically": {
+          "p": 0.89
+        },
+        "stateCompletenessForThisWindow": {
+          "level": 2.26
+        },
+        "callVolumeIsStated": {
+          "p": 0.97
+        },
+        "callVolumeBand": {
+          "level": 0.28
+        },
+        "mechanismRecurringAcrossCallSites": {
+          "p": 0.03
+        },
+        "sampleCollectionDescribed": {
+          "p": 0.07
+        },
+        "corpusGrowsPassively": {
+          "p": 0.12
+        },
+        "outputSpaceIsEnumerable": {
+          "p": 0.98
+        },
+        "outputIsSingleValue": {
+          "p": 0.89
+        },
+        "optionCountBand": {
+          "level": 0
+        },
+        "sameOutputTypeAcrossCalls": {
+          "p": 0.95
+        },
+        "decisionIsAtomic": {
+          "p": 0.97
+        },
+        "inputsNamedExplicitly": {
+          "p": 0.57
+        },
+        "decisionUsesOnlyCurrentInput": {
+          "p": 0.83
+        },
+        "requiresCrossItemComparison": {
+          "p": 0.04
+        },
+        "requiresCounterfactualReasoning": {
+          "p": 0.06
+        },
+        "decisionDependsOnGoalOrIntent": {
+          "p": 0.06
+        },
+        "mechanismCombinesMultipleConditions": {
+          "p": 0.06
+        },
+        "subConditionsAreNameable": {
+          "p": 0.21
+        },
+        "whatItDecidesReadsAsOneQuestion": {
+          "p": 0.92
+        },
+        "notesSuggestEdgeCases": {
+          "p": 0.05
+        },
+        "edgeCaseCountBand": {
+          "level": 0.68
+        },
+        "mechanismCounts": {
+          "p": 0.87
+        },
+        "mechanismDoesArithmetic": {
+          "p": 0.44
+        },
+        "mechanismComparesMagnitudes": {
+          "p": 0.06
+        },
+        "decisionRequiresGeneration": {
+          "p": 0.03
+        },
+        "mechanismRequiresRankingOrSorting": {
+          "p": 0.04
+        },
+        "mechanismShape": {
+          "key": "fixedThreshold",
+          "h": 0.03479570968360693
+        },
+        "mechanismAgeOrOriginStated": {
+          "p": 0.06
+        },
+        "mechanismLivesInline": {
+          "p": 0.7
+        },
+        "mechanismHasNamedConstants": {
+          "p": 0.06
+        },
+        "mechanismComplexityLevel": {
+          "level": 0
+        },
+        "notesDescribeKnownFailureMode": {
+          "p": 0.07
+        },
+        "failureDirection": {
+          "key": "both",
+          "h": 0.47533604634353294
+        },
+        "workaroundBurdenLevel": {
+          "level": 0.06
+        },
+        "failureIsSilent": {
+          "p": 0.11
+        },
+        "failureFrequencyBand": {
+          "level": 0.14
+        },
+        "mechanismAlreadyCheap": {
+          "p": 0.94
+        },
+        "baselineHasBeenTuned": {
+          "p": 0.03
+        },
+        "baselineAccuracyDescription": {
+          "key": "not_stated",
+          "h": 0.43538268354146836
+        },
+        "simplerFixAlreadyConsidered": {
+          "p": 0.04
+        },
+        "baselineWasCopiedFromElsewhere": {
+          "p": 0.02
+        },
+        "decisionVisibilityScope": {
+          "key": "internal_team_only",
+          "h": 0.6910285136385068
+        },
+        "changeWouldRequireApproval": {
+          "p": 0.03
+        },
+        "decisionHasExistingMonitoring": {
+          "p": 0.04
+        },
+        "mechanismIsDocumentedElsewhere": {
+          "p": 0.08
+        },
+        "noticeabilityBand": {
+          "level": 2.08
+        },
+        "volumeTrendStatedAsGrowing": {
+          "p": 0.02
+        },
+        "decisionRunsOnHotPath": {
+          "p": 0.09
+        },
+        "volumeImpactBand": {
+          "level": 0.72
+        },
+        "improvementScalesWithVolume": {
+          "p": 0.09
+        },
+        "volumeCadencePattern": {
+          "key": "not_stated",
+          "h": 0.6170668249161013
+        },
+        "mechanismRunsSynchronously": {
+          "p": 0.47
+        },
+        "mechanismIsOnCriticalPath": {
+          "p": 0.98
+        },
+        "currentMechanismHasKnownCost": {
+          "p": 0.02
+        },
+        "fasterDecisionWouldRelieveBottleneck": {
+          "p": 0.1
+        },
+        "costReliefBand": {
+          "level": 0.01
+        },
+        "currentMechanismCannotHandleCase": {
+          "p": 0.08
+        },
+        "richerJudgmentWouldChangeOutcome": {
+          "p": 0.37
+        },
+        "capabilityIsNetNewOrRestoring": {
+          "key": "not_stated",
+          "h": 0.4056390622295664
+        },
+        "blockingSeverityLevel": {
+          "level": 0.28
+        },
+        "improvementIsQualityNotSpeed": {
+          "p": 0.34
+        },
+        "mechanismPatternNamedAsCommon": {
+          "p": 0.04
+        },
+        "reuseScopeBand": {
+          "key": "single_site_only",
+          "h": 0.1832231322266888
+        },
+        "fixTransferabilityLevel": {
+          "level": 1.86
+        },
+        "domainGeneralityLevel": {
+          "level": 2.27
+        },
+        "sharedUtilityMaturity": {
+          "level": 0.05
+        },
+        "decisionOutputIsPersisted": {
+          "p": 0.06
+        },
+        "decisionCanBeOverriddenLater": {
+          "p": 0.05
+        },
+        "decisionTriggersIrreversibleAction": {
+          "p": 0.14
+        },
+        "reversalEffortLevel": {
+          "key": "reversible_with_followup_action",
+          "h": 0.5605730472706036
+        },
+        "reversibilityStatedExplicitness": {
+          "level": 0.13
+        },
+        "effectIsScopedToSingleItem": {
+          "p": 0.65
+        },
+        "effectPropagatesDownstream": {
+          "p": 0.63
+        },
+        "effectReachesExternalParty": {
+          "p": 0.11
+        },
+        "effectInvolvesMoneyOrData": {
+          "p": 0.05
+        },
+        "blastRadiusBand": {
+          "level": 2.1
+        },
+        "wrongAnswerProducesVisibleError": {
+          "p": 0.23
+        },
+        "wrongAnswerLooksLikeSuccess": {
+          "p": 0.11
+        },
+        "existingAlertingCoversThis": {
+          "p": 0.05
+        },
+        "wrongAnswerDiscoveredDownstream": {
+          "p": 0.04
+        },
+        "detectionTimingBand": {
+          "key": "soon_in_normal_operation",
+          "h": 0.5676467660355674
+        },
+        "humanInvolvementLevel": {
+          "key": "fully_automated_no_human",
+          "h": 0.6391739341916081
+        },
+        "removingHumanIsExplicitGoal": {
+          "p": 0.03
+        },
+        "humanReviewIsBottleneck": {
+          "p": 0.03
+        },
+        "reviewerFeedbackIsRecorded": {
+          "p": 0.03
+        },
+        "reviewEffortLevel": {
+          "level": 0.04
+        }
+      },
+      "subScores": {
+        "1.1": 0.41200000000000003,
+        "1.2": 0.4720000000000001,
+        "1.3": 0.8640000000000001,
+        "1.4": 0.238,
+        "2.1": 0.758,
+        "2.2": 0.312,
+        "2.3": 0.248,
+        "2.4": 0.28800000000000003,
+        "3.1": 0.20500000000000002,
+        "3.2": 0.045,
+        "3.3": 0.2575,
+        "3.4": 0.2875,
+        "4.1": 0.05,
+        "4.2": 0.314,
+        "4.3": 0.1975,
+        "4.4": 0.26,
+        "5.1": 0.0625,
+        "5.2": 0.4880000000000001,
+        "5.3": 0.1075,
+        "5.4": 0.0225
+      },
+      "topScores": {
+        "TRACTABILITY": 0.49650000000000005,
+        "FIT": 0.4015,
+        "INCUMBENT": 0.19875,
+        "PAYOFF": 0.205375,
+        "EXPOSURE": 0.17012500000000003
+      },
+      "composite": 0.7345000000000002,
+      "ms": 357.417375,
+      "inputTokens": 8164
+    },
+    {
+      "window": "jupiter-rank-suggestions",
+      "perQuestion": {
+        "notesDescribeGroundTruthSource": {
+          "p": 0.03
+        },
+        "decisionLeavesObservableTrace": {
+          "p": 0.72
+        },
+        "outcomeObservableWithoutHuman": {
+          "p": 0.35
+        },
+        "proxySignalStrength": {
+          "level": 0.27
+        },
+        "currentMechanismOutputUsableAsWeakLabel": {
+          "p": 0.27
+        },
+        "decisionHasCheckableInvariant": {
+          "p": 0.1
+        },
+        "outputIsDiscreteValue": {
+          "p": 0.22
+        },
+        "downstreamEffectIsMachineObservable": {
+          "p": 0.17
+        },
+        "mechanismDeterminismLevel": {
+          "level": 0.5
+        },
+        "notesNameExistingTestOrAssertion": {
+          "p": 0.03
+        },
+        "functionNameIsConcrete": {
+          "p": 0.97
+        },
+        "fileIsSingleConcretePath": {
+          "p": 0.98
+        },
+        "decisionOutputStatedPlainly": {
+          "p": 0.8
+        },
+        "mechanismIsNamedSpecifically": {
+          "p": 0.92
+        },
+        "stateCompletenessForThisWindow": {
+          "level": 2.07
+        },
+        "callVolumeIsStated": {
+          "p": 0.95
+        },
+        "callVolumeBand": {
+          "level": 0.71
+        },
+        "mechanismRecurringAcrossCallSites": {
+          "p": 0.04
+        },
+        "sampleCollectionDescribed": {
+          "p": 0.06
+        },
+        "corpusGrowsPassively": {
+          "p": 0.17
+        },
+        "outputSpaceIsEnumerable": {
+          "p": 0.23
+        },
+        "outputIsSingleValue": {
+          "p": 0.26
+        },
+        "optionCountBand": {
+          "level": 2.95
+        },
+        "sameOutputTypeAcrossCalls": {
+          "p": 0.88
+        },
+        "decisionIsAtomic": {
+          "p": 0.94
+        },
+        "inputsNamedExplicitly": {
+          "p": 0.15
+        },
+        "decisionUsesOnlyCurrentInput": {
+          "p": 0.49
+        },
+        "requiresCrossItemComparison": {
+          "p": 0.95
+        },
+        "requiresCounterfactualReasoning": {
+          "p": 0.09
+        },
+        "decisionDependsOnGoalOrIntent": {
+          "p": 0.05
+        },
+        "mechanismCombinesMultipleConditions": {
+          "p": 0.69
+        },
+        "subConditionsAreNameable": {
+          "p": 0.76
+        },
+        "whatItDecidesReadsAsOneQuestion": {
+          "p": 0.76
+        },
+        "notesSuggestEdgeCases": {
+          "p": 0.08
+        },
+        "edgeCaseCountBand": {
+          "level": 0.54
+        },
+        "mechanismCounts": {
+          "p": 0.07
+        },
+        "mechanismDoesArithmetic": {
+          "p": 0.88
+        },
+        "mechanismComparesMagnitudes": {
+          "p": 0.25
+        },
+        "decisionRequiresGeneration": {
+          "p": 0.08
+        },
+        "mechanismRequiresRankingOrSorting": {
+          "p": 0.38
+        },
+        "mechanismShape": {
+          "key": "other",
+          "h": 0.03479570968360693
+        },
+        "mechanismAgeOrOriginStated": {
+          "p": 0.08
+        },
+        "mechanismLivesInline": {
+          "p": 0.76
+        },
+        "mechanismHasNamedConstants": {
+          "p": 0.07
+        },
+        "mechanismComplexityLevel": {
+          "level": 0.88
+        },
+        "notesDescribeKnownFailureMode": {
+          "p": 0.19
+        },
+        "failureDirection": {
+          "key": "not_stated",
+          "h": 0.04039656794795559
+        },
+        "workaroundBurdenLevel": {
+          "level": 0.11
+        },
+        "failureIsSilent": {
+          "p": 0.16
+        },
+        "failureFrequencyBand": {
+          "level": 0.65
+        },
+        "mechanismAlreadyCheap": {
+          "p": 0.85
+        },
+        "baselineHasBeenTuned": {
+          "p": 0.02
+        },
+        "baselineAccuracyDescription": {
+          "key": "not_stated",
+          "h": 0.07072027127091034
+        },
+        "simplerFixAlreadyConsidered": {
+          "p": 0.04
+        },
+        "baselineWasCopiedFromElsewhere": {
+          "p": 0.02
+        },
+        "decisionVisibilityScope": {
+          "key": "external_user",
+          "h": 0
+        },
+        "changeWouldRequireApproval": {
+          "p": 0.03
+        },
+        "decisionHasExistingMonitoring": {
+          "p": 0.07
+        },
+        "mechanismIsDocumentedElsewhere": {
+          "p": 0.04
+        },
+        "noticeabilityBand": {
+          "level": 2.75
+        },
+        "volumeTrendStatedAsGrowing": {
+          "p": 0.03
+        },
+        "decisionRunsOnHotPath": {
+          "p": 0.36
+        },
+        "volumeImpactBand": {
+          "level": 0.92
+        },
+        "improvementScalesWithVolume": {
+          "p": 0.16
+        },
+        "volumeCadencePattern": {
+          "key": "not_stated",
+          "h": 0.786428220507143
+        },
+        "mechanismRunsSynchronously": {
+          "p": 0.15
+        },
+        "mechanismIsOnCriticalPath": {
+          "p": 0.07
+        },
+        "currentMechanismHasKnownCost": {
+          "p": 0.03
+        },
+        "fasterDecisionWouldRelieveBottleneck": {
+          "p": 0.05
+        },
+        "costReliefBand": {
+          "level": 0.11
+        },
+        "currentMechanismCannotHandleCase": {
+          "p": 0.72
+        },
+        "richerJudgmentWouldChangeOutcome": {
+          "p": 0.34
+        },
+        "capabilityIsNetNewOrRestoring": {
+          "key": "not_stated",
+          "h": 0.7367106259868403
+        },
+        "blockingSeverityLevel": {
+          "level": 1.2
+        },
+        "improvementIsQualityNotSpeed": {
+          "p": 0.27
+        },
+        "mechanismPatternNamedAsCommon": {
+          "p": 0.03
+        },
+        "reuseScopeBand": {
+          "key": "single_site_only",
+          "h": 0.5151043904903995
+        },
+        "fixTransferabilityLevel": {
+          "level": 1.18
+        },
+        "domainGeneralityLevel": {
+          "level": 2.23
+        },
+        "sharedUtilityMaturity": {
+          "level": 0
+        },
+        "decisionOutputIsPersisted": {
+          "p": 0.04
+        },
+        "decisionCanBeOverriddenLater": {
+          "p": 0.05
+        },
+        "decisionTriggersIrreversibleAction": {
+          "p": 0.04
+        },
+        "reversalEffortLevel": {
+          "key": "automatic_no_trace",
+          "h": 0.6885454490962442
+        },
+        "reversibilityStatedExplicitness": {
+          "level": 0.07
+        },
+        "effectIsScopedToSingleItem": {
+          "p": 0.13
+        },
+        "effectPropagatesDownstream": {
+          "p": 0.08
+        },
+        "effectReachesExternalParty": {
+          "p": 0.9
+        },
+        "effectInvolvesMoneyOrData": {
+          "p": 0.05
+        },
+        "blastRadiusBand": {
+          "level": 1.2
+        },
+        "wrongAnswerProducesVisibleError": {
+          "p": 0.06
+        },
+        "wrongAnswerLooksLikeSuccess": {
+          "p": 0.29
+        },
+        "existingAlertingCoversThis": {
+          "p": 0.03
+        },
+        "wrongAnswerDiscoveredDownstream": {
+          "p": 0.07
+        },
+        "detectionTimingBand": {
+          "key": "soon_in_normal_operation",
+          "h": 0.69152559198891
+        },
+        "humanInvolvementLevel": {
+          "key": "fully_automated_no_human",
+          "h": 0.2010895951011364
+        },
+        "removingHumanIsExplicitGoal": {
+          "p": 0.03
+        },
+        "humanReviewIsBottleneck": {
+          "p": 0.02
+        },
+        "reviewerFeedbackIsRecorded": {
+          "p": 0.02
+        },
+        "reviewEffortLevel": {
+          "level": 1.5
+        }
+      },
+      "subScores": {
+        "1.1": 0.274,
+        "1.2": 0.10400000000000001,
+        "1.3": 0.9339999999999999,
+        "1.4": 0.244,
+        "2.1": 0.662,
+        "2.2": 0.346,
+        "2.3": 0.458,
+        "2.4": 0.332,
+        "3.1": 0.22749999999999998,
+        "3.2": 0.0875,
+        "3.3": 0.2325,
+        "3.4": 0.28500000000000003,
+        "4.1": 0.1375,
+        "4.2": 0.06,
+        "4.3": 0.3325,
+        "4.4": 0.2575,
+        "5.1": 0.0325,
+        "5.2": 0.23200000000000004,
+        "5.3": 0.1125,
+        "5.4": 0.0175
+      },
+      "topScores": {
+        "TRACTABILITY": 0.38899999999999996,
+        "FIT": 0.4495,
+        "INCUMBENT": 0.208125,
+        "PAYOFF": 0.19687500000000002,
+        "EXPOSURE": 0.09862500000000002
+      },
+      "composite": 0.7286250000000001,
+      "ms": 494.7797089999999,
+      "inputTokens": 8182
+    },
+    {
+      "window": "jupiter-priority-order",
+      "perQuestion": {
+        "notesDescribeGroundTruthSource": {
+          "p": 0.04
+        },
+        "decisionLeavesObservableTrace": {
+          "p": 0.56
+        },
+        "outcomeObservableWithoutHuman": {
+          "p": 0.31
+        },
+        "proxySignalStrength": {
+          "level": 0.36
+        },
+        "currentMechanismOutputUsableAsWeakLabel": {
+          "p": 0.24
+        },
+        "decisionHasCheckableInvariant": {
+          "p": 0.51
+        },
+        "outputIsDiscreteValue": {
+          "p": 0.39
+        },
+        "downstreamEffectIsMachineObservable": {
+          "p": 0.15
+        },
+        "mechanismDeterminismLevel": {
+          "level": 0
+        },
+        "notesNameExistingTestOrAssertion": {
+          "p": 0.04
+        },
+        "functionNameIsConcrete": {
+          "p": 0.97
+        },
+        "fileIsSingleConcretePath": {
+          "p": 0.98
+        },
+        "decisionOutputStatedPlainly": {
+          "p": 0.77
+        },
+        "mechanismIsNamedSpecifically": {
+          "p": 0.91
+        },
+        "stateCompletenessForThisWindow": {
+          "level": 2.25
+        },
+        "callVolumeIsStated": {
+          "p": 0.96
+        },
+        "callVolumeBand": {
+          "level": 0.81
+        },
+        "mechanismRecurringAcrossCallSites": {
+          "p": 0.04
+        },
+        "sampleCollectionDescribed": {
+          "p": 0.03
+        },
+        "corpusGrowsPassively": {
+          "p": 0.11
+        },
+        "outputSpaceIsEnumerable": {
+          "p": 0.39
+        },
+        "outputIsSingleValue": {
+          "p": 0.53
+        },
+        "optionCountBand": {
+          "level": 1.53
+        },
+        "sameOutputTypeAcrossCalls": {
+          "p": 0.89
+        },
+        "decisionIsAtomic": {
+          "p": 0.96
+        },
+        "inputsNamedExplicitly": {
+          "p": 0.37
+        },
+        "decisionUsesOnlyCurrentInput": {
+          "p": 0.89
+        },
+        "requiresCrossItemComparison": {
+          "p": 0.94
+        },
+        "requiresCounterfactualReasoning": {
+          "p": 0.1
+        },
+        "decisionDependsOnGoalOrIntent": {
+          "p": 0.06
+        },
+        "mechanismCombinesMultipleConditions": {
+          "p": 0.15
+        },
+        "subConditionsAreNameable": {
+          "p": 0.68
+        },
+        "whatItDecidesReadsAsOneQuestion": {
+          "p": 0.86
+        },
+        "notesSuggestEdgeCases": {
+          "p": 0.05
+        },
+        "edgeCaseCountBand": {
+          "level": 0.08
+        },
+        "mechanismCounts": {
+          "p": 0.04
+        },
+        "mechanismDoesArithmetic": {
+          "p": 0.05
+        },
+        "mechanismComparesMagnitudes": {
+          "p": 0.09
+        },
+        "decisionRequiresGeneration": {
+          "p": 0.07
+        },
+        "mechanismRequiresRankingOrSorting": {
+          "p": 0.93
+        },
+        "mechanismShape": {
+          "key": "other",
+          "h": 0.5887943508443829
+        },
+        "mechanismAgeOrOriginStated": {
+          "p": 0.12
+        },
+        "mechanismLivesInline": {
+          "p": 0.6
+        },
+        "mechanismHasNamedConstants": {
+          "p": 0.13
+        },
+        "mechanismComplexityLevel": {
+          "level": 0.23
+        },
+        "notesDescribeKnownFailureMode": {
+          "p": 0.04
+        },
+        "failureDirection": {
+          "key": "not_stated",
+          "h": 0.11097036642660543
+        },
+        "workaroundBurdenLevel": {
+          "level": 0.01
+        },
+        "failureIsSilent": {
+          "p": 0.23
+        },
+        "failureFrequencyBand": {
+          "level": 0.75
+        },
+        "mechanismAlreadyCheap": {
+          "p": 0.92
+        },
+        "baselineHasBeenTuned": {
+          "p": 0.1
+        },
+        "baselineAccuracyDescription": {
+          "key": "works_well",
+          "h": 0
+        },
+        "simplerFixAlreadyConsidered": {
+          "p": 0.04
+        },
+        "baselineWasCopiedFromElsewhere": {
+          "p": 0.03
+        },
+        "decisionVisibilityScope": {
+          "key": "external_user",
+          "h": 0.40314077846293517
+        },
+        "changeWouldRequireApproval": {
+          "p": 0.03
+        },
+        "decisionHasExistingMonitoring": {
+          "p": 0.03
+        },
+        "mechanismIsDocumentedElsewhere": {
+          "p": 0.08
+        },
+        "noticeabilityBand": {
+          "level": 1.47
+        },
+        "volumeTrendStatedAsGrowing": {
+          "p": 0.02
+        },
+        "decisionRunsOnHotPath": {
+          "p": 0.23
+        },
+        "volumeImpactBand": {
+          "level": 0.44
+        },
+        "improvementScalesWithVolume": {
+          "p": 0.11
+        },
+        "volumeCadencePattern": {
+          "key": "not_stated",
+          "h": 0.5305241650044774
+        },
+        "mechanismRunsSynchronously": {
+          "p": 0.05
+        },
+        "mechanismIsOnCriticalPath": {
+          "p": 0.05
+        },
+        "currentMechanismHasKnownCost": {
+          "p": 0.02
+        },
+        "fasterDecisionWouldRelieveBottleneck": {
+          "p": 0.03
+        },
+        "costReliefBand": {
+          "level": 0
+        },
+        "currentMechanismCannotHandleCase": {
+          "p": 0.05
+        },
+        "richerJudgmentWouldChangeOutcome": {
+          "p": 0.14
+        },
+        "capabilityIsNetNewOrRestoring": {
+          "key": "incremental_improvement_only",
+          "h": 0.04039656794795559
+        },
+        "blockingSeverityLevel": {
+          "level": 0.04
+        },
+        "improvementIsQualityNotSpeed": {
+          "p": 0.18
+        },
+        "mechanismPatternNamedAsCommon": {
+          "p": 0.03
+        },
+        "reuseScopeBand": {
+          "key": "single_site_only",
+          "h": 0.04039656794795559
+        },
+        "fixTransferabilityLevel": {
+          "level": 1.75
+        },
+        "domainGeneralityLevel": {
+          "level": 2.54
+        },
+        "sharedUtilityMaturity": {
+          "level": 0.01
+        },
+        "decisionOutputIsPersisted": {
+          "p": 0.05
+        },
+        "decisionCanBeOverriddenLater": {
+          "p": 0.04
+        },
+        "decisionTriggersIrreversibleAction": {
+          "p": 0.03
+        },
+        "reversalEffortLevel": {
+          "key": "automatic_no_trace",
+          "h": 0.2174448102113104
+        },
+        "reversibilityStatedExplicitness": {
+          "level": 0.43
+        },
+        "effectIsScopedToSingleItem": {
+          "p": 0.37
+        },
+        "effectPropagatesDownstream": {
+          "p": 0.05
+        },
+        "effectReachesExternalParty": {
+          "p": 0.24
+        },
+        "effectInvolvesMoneyOrData": {
+          "p": 0.04
+        },
+        "blastRadiusBand": {
+          "level": 0.72
+        },
+        "wrongAnswerProducesVisibleError": {
+          "p": 0.05
+        },
+        "wrongAnswerLooksLikeSuccess": {
+          "p": 0.53
+        },
+        "existingAlertingCoversThis": {
+          "p": 0.04
+        },
+        "wrongAnswerDiscoveredDownstream": {
+          "p": 0.04
+        },
+        "detectionTimingBand": {
+          "key": "effectively_invisible",
+          "h": 0.7919828455030632
+        },
+        "humanInvolvementLevel": {
+          "key": "fully_automated_no_human",
+          "h": 0.0971959289157881
+        },
+        "removingHumanIsExplicitGoal": {
+          "p": 0.03
+        },
+        "humanReviewIsBottleneck": {
+          "p": 0.02
+        },
+        "reviewerFeedbackIsRecorded": {
+          "p": 0.02
+        },
+        "reviewEffortLevel": {
+          "level": 0.06
+        }
+      },
+      "subScores": {
+        "1.1": 0.23000000000000004,
+        "1.2": 0.21800000000000003,
+        "1.3": 0.9259999999999999,
+        "1.4": 0.22800000000000004,
+        "2.1": 0.554,
+        "2.2": 0.4720000000000001,
+        "2.3": 0.348,
+        "2.4": 0.23600000000000004,
+        "3.1": 0.2125,
+        "3.2": 0.0675,
+        "3.3": 0.2725,
+        "3.4": 0.035,
+        "4.1": 0.09,
+        "4.2": 0.030000000000000006,
+        "4.3": 0.0925,
+        "4.4": 0.2575,
+        "5.1": 0.03,
+        "5.2": 0.13999999999999999,
+        "5.3": 0.16500000000000004,
+        "5.4": 0.0175
+      },
+      "topScores": {
+        "TRACTABILITY": 0.4005,
+        "FIT": 0.4025,
+        "INCUMBENT": 0.146875,
+        "PAYOFF": 0.1175,
+        "EXPOSURE": 0.08812500000000001
+      },
+      "composite": 0.6855,
+      "ms": 523.2728749999997,
+      "inputTokens": 8171
+    },
+    {
+      "window": "course-section-qa",
+      "perQuestion": {
+        "notesDescribeGroundTruthSource": {
+          "p": 0.24
+        },
+        "decisionLeavesObservableTrace": {
+          "p": 0.8
+        },
+        "outcomeObservableWithoutHuman": {
+          "p": 0.24
+        },
+        "proxySignalStrength": {
+          "level": 2.06
+        },
+        "currentMechanismOutputUsableAsWeakLabel": {
+          "p": 0.06
+        },
+        "decisionHasCheckableInvariant": {
+          "p": 0.11
+        },
+        "outputIsDiscreteValue": {
+          "p": 0.89
+        },
+        "downstreamEffectIsMachineObservable": {
+          "p": 0.09
+        },
+        "mechanismDeterminismLevel": {
+          "level": 2.43
+        },
+        "notesNameExistingTestOrAssertion": {
+          "p": 0.09
+        },
+        "functionNameIsConcrete": {
+          "p": 0.92
+        },
+        "fileIsSingleConcretePath": {
+          "p": 0.96
+        },
+        "decisionOutputStatedPlainly": {
+          "p": 0.54
+        },
+        "mechanismIsNamedSpecifically": {
+          "p": 0.04
+        },
+        "stateCompletenessForThisWindow": {
+          "level": 1.89
+        },
+        "callVolumeIsStated": {
+          "p": 0.96
+        },
+        "callVolumeBand": {
+          "level": 1.04
+        },
+        "mechanismRecurringAcrossCallSites": {
+          "p": 0.03
+        },
+        "sampleCollectionDescribed": {
+          "p": 0.07
+        },
+        "corpusGrowsPassively": {
+          "p": 0.29
+        },
+        "outputSpaceIsEnumerable": {
+          "p": 0.93
+        },
+        "outputIsSingleValue": {
+          "p": 0.69
+        },
+        "optionCountBand": {
+          "level": 1
+        },
+        "sameOutputTypeAcrossCalls": {
+          "p": 0.63
+        },
+        "decisionIsAtomic": {
+          "p": 0.53
+        },
+        "inputsNamedExplicitly": {
+          "p": 0.07
+        },
+        "decisionUsesOnlyCurrentInput": {
+          "p": 0.81
+        },
+        "requiresCrossItemComparison": {
+          "p": 0.09
+        },
+        "requiresCounterfactualReasoning": {
+          "p": 0.14
+        },
+        "decisionDependsOnGoalOrIntent": {
+          "p": 0.07
+        },
+        "mechanismCombinesMultipleConditions": {
+          "p": 0.06
+        },
+        "subConditionsAreNameable": {
+          "p": 0.39
+        },
+        "whatItDecidesReadsAsOneQuestion": {
+          "p": 0.45
+        },
+        "notesSuggestEdgeCases": {
+          "p": 0.17
+        },
+        "edgeCaseCountBand": {
+          "level": 1.23
+        },
+        "mechanismCounts": {
+          "p": 0.04
+        },
+        "mechanismDoesArithmetic": {
+          "p": 0.04
+        },
+        "mechanismComparesMagnitudes": {
+          "p": 0.04
+        },
+        "decisionRequiresGeneration": {
+          "p": 0.06
+        },
+        "mechanismRequiresRankingOrSorting": {
+          "p": 0.03
+        },
+        "mechanismShape": {
+          "key": "other",
+          "h": 0
+        },
+        "mechanismAgeOrOriginStated": {
+          "p": 0.16
+        },
+        "mechanismLivesInline": {
+          "p": 0.15
+        },
+        "mechanismHasNamedConstants": {
+          "p": 0.03
+        },
+        "mechanismComplexityLevel": {
+          "level": 0
+        },
+        "notesDescribeKnownFailureMode": {
+          "p": 0.06
+        },
+        "failureDirection": {
+          "key": "not_stated",
+          "h": 0.27413031336294724
+        },
+        "workaroundBurdenLevel": {
+          "level": 0.16
+        },
+        "failureIsSilent": {
+          "p": 0.14
+        },
+        "failureFrequencyBand": {
+          "level": 0.02
+        },
+        "mechanismAlreadyCheap": {
+          "p": 0.32
+        },
+        "baselineHasBeenTuned": {
+          "p": 0.21
+        },
+        "baselineAccuracyDescription": {
+          "key": "not_stated",
+          "h": 0.6324093524865151
+        },
+        "simplerFixAlreadyConsidered": {
+          "p": 0.04
+        },
+        "baselineWasCopiedFromElsewhere": {
+          "p": 0.03
+        },
+        "decisionVisibilityScope": {
+          "key": "external_user",
+          "h": 0
+        },
+        "changeWouldRequireApproval": {
+          "p": 0.04
+        },
+        "decisionHasExistingMonitoring": {
+          "p": 0.04
+        },
+        "mechanismIsDocumentedElsewhere": {
+          "p": 0.05
+        },
+        "noticeabilityBand": {
+          "level": 2.17
+        },
+        "volumeTrendStatedAsGrowing": {
+          "p": 0.03
+        },
+        "decisionRunsOnHotPath": {
+          "p": 0.51
+        },
+        "volumeImpactBand": {
+          "level": 1.17
+        },
+        "improvementScalesWithVolume": {
+          "p": 0.44
+        },
+        "volumeCadencePattern": {
+          "key": "not_stated",
+          "h": 0.34459107382959153
+        },
+        "mechanismRunsSynchronously": {
+          "p": 0.48
+        },
+        "mechanismIsOnCriticalPath": {
+          "p": 0.92
+        },
+        "currentMechanismHasKnownCost": {
+          "p": 0.02
+        },
+        "fasterDecisionWouldRelieveBottleneck": {
+          "p": 0.06
+        },
+        "costReliefBand": {
+          "level": 0.1
+        },
+        "currentMechanismCannotHandleCase": {
+          "p": 0.72
+        },
+        "richerJudgmentWouldChangeOutcome": {
+          "p": 0.26
+        },
+        "capabilityIsNetNewOrRestoring": {
+          "key": "new_capability",
+          "h": 0
+        },
+        "blockingSeverityLevel": {
+          "level": 0.94
+        },
+        "improvementIsQualityNotSpeed": {
+          "p": 0.42
+        },
+        "mechanismPatternNamedAsCommon": {
+          "p": 0.04
+        },
+        "reuseScopeBand": {
+          "key": "single_site_only",
+          "h": 0.07072027127091034
+        },
+        "fixTransferabilityLevel": {
+          "level": 1.24
+        },
+        "domainGeneralityLevel": {
+          "level": 2.5
+        },
+        "sharedUtilityMaturity": {
+          "level": 0
+        },
+        "decisionOutputIsPersisted": {
+          "p": 0.08
+        },
+        "decisionCanBeOverriddenLater": {
+          "p": 0.05
+        },
+        "decisionTriggersIrreversibleAction": {
+          "p": 0.29
+        },
+        "reversalEffortLevel": {
+          "key": "reversible_with_manual_effort",
+          "h": 0.8830090133967226
+        },
+        "reversibilityStatedExplicitness": {
+          "level": 0.43
+        },
+        "effectIsScopedToSingleItem": {
+          "p": 0.44
+        },
+        "effectPropagatesDownstream": {
+          "p": 0.18
+        },
+        "effectReachesExternalParty": {
+          "p": 0.89
+        },
+        "effectInvolvesMoneyOrData": {
+          "p": 0.05
+        },
+        "blastRadiusBand": {
+          "level": 1.86
+        },
+        "wrongAnswerProducesVisibleError": {
+          "p": 0.09
+        },
+        "wrongAnswerLooksLikeSuccess": {
+          "p": 0.33
+        },
+        "existingAlertingCoversThis": {
+          "p": 0.08
+        },
+        "wrongAnswerDiscoveredDownstream": {
+          "p": 0.06
+        },
+        "detectionTimingBand": {
+          "key": "soon_in_normal_operation",
+          "h": 0.6807709666679638
+        },
+        "humanInvolvementLevel": {
+          "key": "not_stated",
+          "h": 0.6370011448349984
+        },
+        "removingHumanIsExplicitGoal": {
+          "p": 0.03
+        },
+        "humanReviewIsBottleneck": {
+          "p": 0.03
+        },
+        "reviewerFeedbackIsRecorded": {
+          "p": 0.03
+        },
+        "reviewEffortLevel": {
+          "level": 0.83
+        }
+      },
+      "subScores": {
+        "1.1": 0.4680000000000001,
+        "1.2": 0.43599999999999994,
+        "1.3": 0.492,
+        "1.4": 0.27,
+        "2.1": 0.556,
+        "2.2": 0.23600000000000004,
+        "2.3": 0.21400000000000002,
+        "2.4": 0.041999999999999996,
+        "3.1": 0.08499999999999999,
+        "3.2": 0.05,
+        "3.3": 0.15000000000000002,
+        "3.4": 0.2825,
+        "4.1": 0.245,
+        "4.2": 0.296,
+        "4.3": 0.35,
+        "4.4": 0.26,
+        "5.1": 0.105,
+        "5.2": 0.312,
+        "5.3": 0.14,
+        "5.4": 0.0225
+      },
+      "topScores": {
+        "TRACTABILITY": 0.4165,
+        "FIT": 0.262,
+        "INCUMBENT": 0.141875,
+        "PAYOFF": 0.28774999999999995,
+        "EXPOSURE": 0.14487499999999998
+      },
+      "composite": 0.6795,
+      "ms": 427.1605419999996,
+      "inputTokens": 8174
+    },
+    {
+      "window": "jupiter-impedance-severity",
+      "perQuestion": {
+        "notesDescribeGroundTruthSource": {
+          "p": 0.04
+        },
+        "decisionLeavesObservableTrace": {
+          "p": 0.57
+        },
+        "outcomeObservableWithoutHuman": {
+          "p": 0.48
+        },
+        "proxySignalStrength": {
+          "level": 0.61
+        },
+        "currentMechanismOutputUsableAsWeakLabel": {
+          "p": 0.39
+        },
+        "decisionHasCheckableInvariant": {
+          "p": 0.17
+        },
+        "outputIsDiscreteValue": {
+          "p": 0.97
+        },
+        "downstreamEffectIsMachineObservable": {
+          "p": 0.63
+        },
+        "mechanismDeterminismLevel": {
+          "level": 0.41
+        },
+        "notesNameExistingTestOrAssertion": {
+          "p": 0.04
+        },
+        "functionNameIsConcrete": {
+          "p": 0.89
+        },
+        "fileIsSingleConcretePath": {
+          "p": 0.97
+        },
+        "decisionOutputStatedPlainly": {
+          "p": 0.67
+        },
+        "mechanismIsNamedSpecifically": {
+          "p": 0.97
+        },
+        "stateCompletenessForThisWindow": {
+          "level": 1.94
+        },
+        "callVolumeIsStated": {
+          "p": 0.82
+        },
+        "callVolumeBand": {
+          "level": 1.56
+        },
+        "mechanismRecurringAcrossCallSites": {
+          "p": 0.09
+        },
+        "sampleCollectionDescribed": {
+          "p": 0.07
+        },
+        "corpusGrowsPassively": {
+          "p": 0.29
+        },
+        "outputSpaceIsEnumerable": {
+          "p": 0.98
+        },
+        "outputIsSingleValue": {
+          "p": 0.92
+        },
+        "optionCountBand": {
+          "level": 1
+        },
+        "sameOutputTypeAcrossCalls": {
+          "p": 0.94
+        },
+        "decisionIsAtomic": {
+          "p": 0.9
+        },
+        "inputsNamedExplicitly": {
+          "p": 0.47
+        },
+        "decisionUsesOnlyCurrentInput": {
+          "p": 0.86
+        },
+        "requiresCrossItemComparison": {
+          "p": 0.7
+        },
+        "requiresCounterfactualReasoning": {
+          "p": 0.07
+        },
+        "decisionDependsOnGoalOrIntent": {
+          "p": 0.05
+        },
+        "mechanismCombinesMultipleConditions": {
+          "p": 0.7
+        },
+        "subConditionsAreNameable": {
+          "p": 0.8
+        },
+        "whatItDecidesReadsAsOneQuestion": {
+          "p": 0.91
+        },
+        "notesSuggestEdgeCases": {
+          "p": 0.05
+        },
+        "edgeCaseCountBand": {
+          "level": 0.1
+        },
+        "mechanismCounts": {
+          "p": 0.06
+        },
+        "mechanismDoesArithmetic": {
+          "p": 0.06
+        },
+        "mechanismComparesMagnitudes": {
+          "p": 0.19
+        },
+        "decisionRequiresGeneration": {
+          "p": 0.03
+        },
+        "mechanismRequiresRankingOrSorting": {
+          "p": 0.08
+        },
+        "mechanismShape": {
+          "key": "ruleChain",
+          "h": 0.11832550485337405
+        },
+        "mechanismAgeOrOriginStated": {
+          "p": 0.04
+        },
+        "mechanismLivesInline": {
+          "p": 0.68
+        },
+        "mechanismHasNamedConstants": {
+          "p": 0.23
+        },
+        "mechanismComplexityLevel": {
+          "level": 1.02
+        },
+        "notesDescribeKnownFailureMode": {
+          "p": 0.05
+        },
+        "failureDirection": {
+          "key": "not_stated",
+          "h": 0
+        },
+        "workaroundBurdenLevel": {
+          "level": 0.02
+        },
+        "failureIsSilent": {
+          "p": 0.1
+        },
+        "failureFrequencyBand": {
+          "level": 0.01
+        },
+        "mechanismAlreadyCheap": {
+          "p": 0.9
+        },
+        "baselineHasBeenTuned": {
+          "p": 0.03
+        },
+        "baselineAccuracyDescription": {
+          "key": "not_stated",
+          "h": 0
+        },
+        "simplerFixAlreadyConsidered": {
+          "p": 0.04
+        },
+        "baselineWasCopiedFromElsewhere": {
+          "p": 0.03
+        },
+        "decisionVisibilityScope": {
+          "key": "not_stated",
+          "h": 0.7465946443376059
+        },
+        "changeWouldRequireApproval": {
+          "p": 0.03
+        },
+        "decisionHasExistingMonitoring": {
+          "p": 0.04
+        },
+        "mechanismIsDocumentedElsewhere": {
+          "p": 0.06
+        },
+        "noticeabilityBand": {
+          "level": 2.35
+        },
+        "volumeTrendStatedAsGrowing": {
+          "p": 0.02
+        },
+        "decisionRunsOnHotPath": {
+          "p": 0.5
+        },
+        "volumeImpactBand": {
+          "level": 1.54
+        },
+        "improvementScalesWithVolume": {
+          "p": 0.5
+        },
+        "volumeCadencePattern": {
+          "key": "not_stated",
+          "h": 0.14319847855797813
+        },
+        "mechanismRunsSynchronously": {
+          "p": 0.18
+        },
+        "mechanismIsOnCriticalPath": {
+          "p": 0.96
+        },
+        "currentMechanismHasKnownCost": {
+          "p": 0.02
+        },
+        "fasterDecisionWouldRelieveBottleneck": {
+          "p": 0.06
+        },
+        "costReliefBand": {
+          "level": 0.14
+        },
+        "currentMechanismCannotHandleCase": {
+          "p": 0.1
+        },
+        "richerJudgmentWouldChangeOutcome": {
+          "p": 0.26
+        },
+        "capabilityIsNetNewOrRestoring": {
+          "key": "not_stated",
+          "h": 0.16372245957723813
+        },
+        "blockingSeverityLevel": {
+          "level": 0.26
+        },
+        "improvementIsQualityNotSpeed": {
+          "p": 0.27
+        },
+        "mechanismPatternNamedAsCommon": {
+          "p": 0.03
+        },
+        "reuseScopeBand": {
+          "key": "single_site_only",
+          "h": 0.3789955935892812
+        },
+        "fixTransferabilityLevel": {
+          "level": 1.1
+        },
+        "domainGeneralityLevel": {
+          "level": 1.83
+        },
+        "sharedUtilityMaturity": {
+          "level": 0.17
+        },
+        "decisionOutputIsPersisted": {
+          "p": 0.05
+        },
+        "decisionCanBeOverriddenLater": {
+          "p": 0.05
+        },
+        "decisionTriggersIrreversibleAction": {
+          "p": 0.07
+        },
+        "reversalEffortLevel": {
+          "key": "reversible_with_followup_action",
+          "h": 0.8584563440057393
+        },
+        "reversibilityStatedExplicitness": {
+          "level": 0.05
+        },
+        "effectIsScopedToSingleItem": {
+          "p": 0.57
+        },
+        "effectPropagatesDownstream": {
+          "p": 0.84
+        },
+        "effectReachesExternalParty": {
+          "p": 0.11
+        },
+        "effectInvolvesMoneyOrData": {
+          "p": 0.1
+        },
+        "blastRadiusBand": {
+          "level": 2.32
+        },
+        "wrongAnswerProducesVisibleError": {
+          "p": 0.08
+        },
+        "wrongAnswerLooksLikeSuccess": {
+          "p": 0.19
+        },
+        "existingAlertingCoversThis": {
+          "p": 0.04
+        },
+        "wrongAnswerDiscoveredDownstream": {
+          "p": 0.06
+        },
+        "detectionTimingBand": {
+          "key": "soon_in_normal_operation",
+          "h": 0.7065245624128861
+        },
+        "humanInvolvementLevel": {
+          "key": "fully_automated_no_human",
+          "h": 0.14319847855797813
+        },
+        "removingHumanIsExplicitGoal": {
+          "p": 0.03
+        },
+        "humanReviewIsBottleneck": {
+          "p": 0.03
+        },
+        "reviewerFeedbackIsRecorded": {
+          "p": 0.03
+        },
+        "reviewEffortLevel": {
+          "level": 1.2
+        }
+      },
+      "subScores": {
+        "1.1": 0.296,
+        "1.2": 0.362,
+        "1.3": 0.7,
+        "1.4": 0.254,
+        "2.1": 0.748,
+        "2.2": 0.43,
+        "2.3": 0.492,
+        "2.4": 0.08399999999999999,
+        "3.1": 0.23750000000000002,
+        "3.2": 0.037500000000000006,
+        "3.3": 0.25,
+        "3.4": 0.2825,
+        "4.1": 0.255,
+        "4.2": 0.244,
+        "4.3": 0.1575,
+        "4.4": 0.0075,
+        "5.1": 0.0425,
+        "5.2": 0.524,
+        "5.3": 0.0925,
+        "5.4": 0.0225
+      },
+      "topScores": {
+        "TRACTABILITY": 0.40299999999999997,
+        "FIT": 0.4385,
+        "INCUMBENT": 0.201875,
+        "PAYOFF": 0.16599999999999998,
+        "EXPOSURE": 0.170375
+      },
+      "composite": 0.6352499999999999,
+      "ms": 420.8167500000002,
+      "inputTokens": 8180
+    },
+    {
+      "window": "graph-edge-typing",
+      "perQuestion": {
+        "notesDescribeGroundTruthSource": {
+          "p": 0.13
+        },
+        "decisionLeavesObservableTrace": {
+          "p": 0.83
+        },
+        "outcomeObservableWithoutHuman": {
+          "p": 0.29
+        },
+        "proxySignalStrength": {
+          "level": 2.16
+        },
+        "currentMechanismOutputUsableAsWeakLabel": {
+          "p": 0.12
+        },
+        "decisionHasCheckableInvariant": {
+          "p": 0.1
+        },
+        "outputIsDiscreteValue": {
+          "p": 0.63
+        },
+        "downstreamEffectIsMachineObservable": {
+          "p": 0.27
+        },
+        "mechanismDeterminismLevel": {
+          "level": 2.73
+        },
+        "notesNameExistingTestOrAssertion": {
+          "p": 0.1
+        },
+        "functionNameIsConcrete": {
+          "p": 0.93
+        },
+        "fileIsSingleConcretePath": {
+          "p": 0.97
+        },
+        "decisionOutputStatedPlainly": {
+          "p": 0.59
+        },
+        "mechanismIsNamedSpecifically": {
+          "p": 0.04
+        },
+        "stateCompletenessForThisWindow": {
+          "level": 2.05
+        },
+        "callVolumeIsStated": {
+          "p": 0.9
+        },
+        "callVolumeBand": {
+          "level": 1.74
+        },
+        "mechanismRecurringAcrossCallSites": {
+          "p": 0.06
+        },
+        "sampleCollectionDescribed": {
+          "p": 0.1
+        },
+        "corpusGrowsPassively": {
+          "p": 0.18
+        },
+        "outputSpaceIsEnumerable": {
+          "p": 0.58
+        },
+        "outputIsSingleValue": {
+          "p": 0.43
+        },
+        "optionCountBand": {
+          "level": 1.32
+        },
+        "sameOutputTypeAcrossCalls": {
+          "p": 0.68
+        },
+        "decisionIsAtomic": {
+          "p": 0.13
+        },
+        "inputsNamedExplicitly": {
+          "p": 0.12
+        },
+        "decisionUsesOnlyCurrentInput": {
+          "p": 0.85
+        },
+        "requiresCrossItemComparison": {
+          "p": 0.77
+        },
+        "requiresCounterfactualReasoning": {
+          "p": 0.09
+        },
+        "decisionDependsOnGoalOrIntent": {
+          "p": 0.04
+        },
+        "mechanismCombinesMultipleConditions": {
+          "p": 0.5
+        },
+        "subConditionsAreNameable": {
+          "p": 0.5
+        },
+        "whatItDecidesReadsAsOneQuestion": {
+          "p": 0.07
+        },
+        "notesSuggestEdgeCases": {
+          "p": 0.12
+        },
+        "edgeCaseCountBand": {
+          "level": 1.46
+        },
+        "mechanismCounts": {
+          "p": 0.05
+        },
+        "mechanismDoesArithmetic": {
+          "p": 0.05
+        },
+        "mechanismComparesMagnitudes": {
+          "p": 0.06
+        },
+        "decisionRequiresGeneration": {
+          "p": 0.09
+        },
+        "mechanismRequiresRankingOrSorting": {
+          "p": 0.05
+        },
+        "mechanismShape": {
+          "key": "other",
+          "h": 0
+        },
+        "mechanismAgeOrOriginStated": {
+          "p": 0.17
+        },
+        "mechanismLivesInline": {
+          "p": 0.56
+        },
+        "mechanismHasNamedConstants": {
+          "p": 0.04
+        },
+        "mechanismComplexityLevel": {
+          "level": 0.01
+        },
+        "notesDescribeKnownFailureMode": {
+          "p": 0.71
+        },
+        "failureDirection": {
+          "key": "false_negative",
+          "h": 0.7278478268650851
+        },
+        "workaroundBurdenLevel": {
+          "level": 0.32
+        },
+        "failureIsSilent": {
+          "p": 0.14
+        },
+        "failureFrequencyBand": {
+          "level": 2.98
+        },
+        "mechanismAlreadyCheap": {
+          "p": 0.41
+        },
+        "baselineHasBeenTuned": {
+          "p": 0.12
+        },
+        "baselineAccuracyDescription": {
+          "key": "frequently_wrong",
+          "h": 0.32885238937210975
+        },
+        "simplerFixAlreadyConsidered": {
+          "p": 0.05
+        },
+        "baselineWasCopiedFromElsewhere": {
+          "p": 0.03
+        },
+        "decisionVisibilityScope": {
+          "key": "downstream_systems_only",
+          "h": 0.37074136996563684
+        },
+        "changeWouldRequireApproval": {
+          "p": 0.03
+        },
+        "decisionHasExistingMonitoring": {
+          "p": 0.05
+        },
+        "mechanismIsDocumentedElsewhere": {
+          "p": 0.07
+        },
+        "noticeabilityBand": {
+          "level": 1.15
+        },
+        "volumeTrendStatedAsGrowing": {
+          "p": 0.03
+        },
+        "decisionRunsOnHotPath": {
+          "p": 0.28
+        },
+        "volumeImpactBand": {
+          "level": 1.28
+        },
+        "improvementScalesWithVolume": {
+          "p": 0.5
+        },
+        "volumeCadencePattern": {
+          "key": "not_stated",
+          "h": 0.3019692958352992
+        },
+        "mechanismRunsSynchronously": {
+          "p": 0.14
+        },
+        "mechanismIsOnCriticalPath": {
+          "p": 0.15
+        },
+        "currentMechanismHasKnownCost": {
+          "p": 0.03
+        },
+        "fasterDecisionWouldRelieveBottleneck": {
+          "p": 0.07
+        },
+        "costReliefBand": {
+          "level": 0.18
+        },
+        "currentMechanismCannotHandleCase": {
+          "p": 0.17
+        },
+        "richerJudgmentWouldChangeOutcome": {
+          "p": 0.7
+        },
+        "capabilityIsNetNewOrRestoring": {
+          "key": "not_stated",
+          "h": 0.3400385228641399
+        },
+        "blockingSeverityLevel": {
+          "level": 1.34
+        },
+        "improvementIsQualityNotSpeed": {
+          "p": 0.55
+        },
+        "mechanismPatternNamedAsCommon": {
+          "p": 0.03
+        },
+        "reuseScopeBand": {
+          "key": "single_site_only",
+          "h": 0.08072027127091033
+        },
+        "fixTransferabilityLevel": {
+          "level": 1.67
+        },
+        "domainGeneralityLevel": {
+          "level": 2.94
+        },
+        "sharedUtilityMaturity": {
+          "level": 0
+        },
+        "decisionOutputIsPersisted": {
+          "p": 0.21
+        },
+        "decisionCanBeOverriddenLater": {
+          "p": 0.05
+        },
+        "decisionTriggersIrreversibleAction": {
+          "p": 0.1
+        },
+        "reversalEffortLevel": {
+          "key": "reversible_with_manual_effort",
+          "h": 0.7916320863663631
+        },
+        "reversibilityStatedExplicitness": {
+          "level": 0.02
+        },
+        "effectIsScopedToSingleItem": {
+          "p": 0.06
+        },
+        "effectPropagatesDownstream": {
+          "p": 0.73
+        },
+        "effectReachesExternalParty": {
+          "p": 0.08
+        },
+        "effectInvolvesMoneyOrData": {
+          "p": 0.05
+        },
+        "blastRadiusBand": {
+          "level": 1.96
+        },
+        "wrongAnswerProducesVisibleError": {
+          "p": 0.1
+        },
+        "wrongAnswerLooksLikeSuccess": {
+          "p": 0.34
+        },
+        "existingAlertingCoversThis": {
+          "p": 0.06
+        },
+        "wrongAnswerDiscoveredDownstream": {
+          "p": 0.07
+        },
+        "detectionTimingBand": {
+          "key": "effectively_invisible",
+          "h": 0.6135943132723909
+        },
+        "humanInvolvementLevel": {
+          "key": "not_stated",
+          "h": 0.35906475947475236
+        },
+        "removingHumanIsExplicitGoal": {
+          "p": 0.03
+        },
+        "humanReviewIsBottleneck": {
+          "p": 0.03
+        },
+        "reviewerFeedbackIsRecorded": {
+          "p": 0.04
+        },
+        "reviewEffortLevel": {
+          "level": 1.63
+        }
+      },
+      "subScores": {
+        "1.1": 0.47400000000000003,
+        "1.2": 0.42000000000000004,
+        "1.3": 0.706,
+        "1.4": 0.248,
+        "2.1": 0.364,
+        "2.2": 0.374,
+        "2.3": 0.238,
+        "2.4": 0.06,
+        "3.1": 0.19250000000000003,
+        "3.2": 0.4625,
+        "3.3": 0.15250000000000002,
+        "3.4": 0.037500000000000006,
+        "4.1": 0.2025,
+        "4.2": 0.07800000000000001,
+        "4.3": 0.355,
+        "4.4": 0.2575,
+        "5.1": 0.09,
+        "5.2": 0.184,
+        "5.3": 0.14250000000000002,
+        "5.4": 0.025
+      },
+      "topScores": {
+        "TRACTABILITY": 0.462,
+        "FIT": 0.259,
+        "INCUMBENT": 0.21125000000000002,
+        "PAYOFF": 0.22325,
+        "EXPOSURE": 0.11037500000000001
+      },
+      "composite": 0.6226250000000001,
+      "ms": 525.6455829999995,
+      "inputTokens": 8192
+    },
+    {
+      "window": "jupiter-recommendation",
+      "perQuestion": {
+        "notesDescribeGroundTruthSource": {
+          "p": 0.04
+        },
+        "decisionLeavesObservableTrace": {
+          "p": 0.83
+        },
+        "outcomeObservableWithoutHuman": {
+          "p": 0.43
+        },
+        "proxySignalStrength": {
+          "level": 0.78
+        },
+        "currentMechanismOutputUsableAsWeakLabel": {
+          "p": 0.4
+        },
+        "decisionHasCheckableInvariant": {
+          "p": 0.26
+        },
+        "outputIsDiscreteValue": {
+          "p": 0.95
+        },
+        "downstreamEffectIsMachineObservable": {
+          "p": 0.17
+        },
+        "mechanismDeterminismLevel": {
+          "level": 0.02
+        },
+        "notesNameExistingTestOrAssertion": {
+          "p": 0.04
+        },
+        "functionNameIsConcrete": {
+          "p": 0.97
+        },
+        "fileIsSingleConcretePath": {
+          "p": 0.97
+        },
+        "decisionOutputStatedPlainly": {
+          "p": 0.71
+        },
+        "mechanismIsNamedSpecifically": {
+          "p": 0.93
+        },
+        "stateCompletenessForThisWindow": {
+          "level": 1.86
+        },
+        "callVolumeIsStated": {
+          "p": 0.96
+        },
+        "callVolumeBand": {
+          "level": 1.79
+        },
+        "mechanismRecurringAcrossCallSites": {
+          "p": 0.05
+        },
+        "sampleCollectionDescribed": {
+          "p": 0.06
+        },
+        "corpusGrowsPassively": {
+          "p": 0.21
+        },
+        "outputSpaceIsEnumerable": {
+          "p": 0.97
+        },
+        "outputIsSingleValue": {
+          "p": 0.91
+        },
+        "optionCountBand": {
+          "level": 1
+        },
+        "sameOutputTypeAcrossCalls": {
+          "p": 0.82
+        },
+        "decisionIsAtomic": {
+          "p": 0.75
+        },
+        "inputsNamedExplicitly": {
+          "p": 0.16
+        },
+        "decisionUsesOnlyCurrentInput": {
+          "p": 0.77
+        },
+        "requiresCrossItemComparison": {
+          "p": 0.07
+        },
+        "requiresCounterfactualReasoning": {
+          "p": 0.11
+        },
+        "decisionDependsOnGoalOrIntent": {
+          "p": 0.05
+        },
+        "mechanismCombinesMultipleConditions": {
+          "p": 0.41
+        },
+        "subConditionsAreNameable": {
+          "p": 0.76
+        },
+        "whatItDecidesReadsAsOneQuestion": {
+          "p": 0.36
+        },
+        "notesSuggestEdgeCases": {
+          "p": 0.07
+        },
+        "edgeCaseCountBand": {
+          "level": 0.63
+        },
+        "mechanismCounts": {
+          "p": 0.05
+        },
+        "mechanismDoesArithmetic": {
+          "p": 0.18
+        },
+        "mechanismComparesMagnitudes": {
+          "p": 0.12
+        },
+        "decisionRequiresGeneration": {
+          "p": 0.05
+        },
+        "mechanismRequiresRankingOrSorting": {
+          "p": 0.05
+        },
+        "mechanismShape": {
+          "key": "fixedThreshold",
+          "h": 0.3889741189937414
+        },
+        "mechanismAgeOrOriginStated": {
+          "p": 0.05
+        },
+        "mechanismLivesInline": {
+          "p": 0.79
+        },
+        "mechanismHasNamedConstants": {
+          "p": 0.15
+        },
+        "mechanismComplexityLevel": {
+          "level": 0.86
+        },
+        "notesDescribeKnownFailureMode": {
+          "p": 0.12
+        },
+        "failureDirection": {
+          "key": "not_stated",
+          "h": 0.07072027127091034
+        },
+        "workaroundBurdenLevel": {
+          "level": 0.03
+        },
+        "failureIsSilent": {
+          "p": 0.1
+        },
+        "failureFrequencyBand": {
+          "level": 0.11
+        },
+        "mechanismAlreadyCheap": {
+          "p": 0.92
+        },
+        "baselineHasBeenTuned": {
+          "p": 0.03
+        },
+        "baselineAccuracyDescription": {
+          "key": "not_stated",
+          "h": 0.14319847855797813
+        },
+        "simplerFixAlreadyConsidered": {
+          "p": 0.05
+        },
+        "baselineWasCopiedFromElsewhere": {
+          "p": 0.03
+        },
+        "decisionVisibilityScope": {
+          "key": "external_user",
+          "h": 0
+        },
+        "changeWouldRequireApproval": {
+          "p": 0.03
+        },
+        "decisionHasExistingMonitoring": {
+          "p": 0.05
+        },
+        "mechanismIsDocumentedElsewhere": {
+          "p": 0.04
+        },
+        "noticeabilityBand": {
+          "level": 2.96
+        },
+        "volumeTrendStatedAsGrowing": {
+          "p": 0.02
+        },
+        "decisionRunsOnHotPath": {
+          "p": 0.44
+        },
+        "volumeImpactBand": {
+          "level": 1.49
+        },
+        "improvementScalesWithVolume": {
+          "p": 0.44
+        },
+        "volumeCadencePattern": {
+          "key": "not_stated",
+          "h": 0.2010895951011364
+        },
+        "mechanismRunsSynchronously": {
+          "p": 0.15
+        },
+        "mechanismIsOnCriticalPath": {
+          "p": 0.15
+        },
+        "currentMechanismHasKnownCost": {
+          "p": 0.02
+        },
+        "fasterDecisionWouldRelieveBottleneck": {
+          "p": 0.11
+        },
+        "costReliefBand": {
+          "level": 0.04
+        },
+        "currentMechanismCannotHandleCase": {
+          "p": 0.15
+        },
+        "richerJudgmentWouldChangeOutcome": {
+          "p": 0.29
+        },
+        "capabilityIsNetNewOrRestoring": {
+          "key": "not_stated",
+          "h": 0.32885238937210975
+        },
+        "blockingSeverityLevel": {
+          "level": 0.87
+        },
+        "improvementIsQualityNotSpeed": {
+          "p": 0.84
+        },
+        "mechanismPatternNamedAsCommon": {
+          "p": 0.05
+        },
+        "reuseScopeBand": {
+          "key": "single_site_only",
+          "h": 0.0971959289157881
+        },
+        "fixTransferabilityLevel": {
+          "level": 0.85
+        },
+        "domainGeneralityLevel": {
+          "level": 1.58
+        },
+        "sharedUtilityMaturity": {
+          "level": 0.18
+        },
+        "decisionOutputIsPersisted": {
+          "p": 0.05
+        },
+        "decisionCanBeOverriddenLater": {
+          "p": 0.05
+        },
+        "decisionTriggersIrreversibleAction": {
+          "p": 0.06
+        },
+        "reversalEffortLevel": {
+          "key": "reversible_with_followup_action",
+          "h": 0.9353446544333776
+        },
+        "reversibilityStatedExplicitness": {
+          "level": 0.04
+        },
+        "effectIsScopedToSingleItem": {
+          "p": 0.58
+        },
+        "effectPropagatesDownstream": {
+          "p": 0.12
+        },
+        "effectReachesExternalParty": {
+          "p": 0.91
+        },
+        "effectInvolvesMoneyOrData": {
+          "p": 0.08
+        },
+        "blastRadiusBand": {
+          "level": 1.86
+        },
+        "wrongAnswerProducesVisibleError": {
+          "p": 0.08
+        },
+        "wrongAnswerLooksLikeSuccess": {
+          "p": 0.34
+        },
+        "existingAlertingCoversThis": {
+          "p": 0.04
+        },
+        "wrongAnswerDiscoveredDownstream": {
+          "p": 0.08
+        },
+        "detectionTimingBand": {
+          "key": "soon_in_normal_operation",
+          "h": 0.6772780354990727
+        },
+        "humanInvolvementLevel": {
+          "key": "fully_automated_no_human",
+          "h": 0.07072027127091034
+        },
+        "removingHumanIsExplicitGoal": {
+          "p": 0.03
+        },
+        "humanReviewIsBottleneck": {
+          "p": 0.03
+        },
+        "reviewerFeedbackIsRecorded": {
+          "p": 0.03
+        },
+        "reviewEffortLevel": {
+          "level": 1.01
+        }
+      },
+      "subScores": {
+        "1.1": 0.34,
+        "1.2": 0.284,
+        "1.3": 0.716,
+        "1.4": 0.256,
+        "2.1": 0.69,
+        "2.2": 0.23200000000000004,
+        "2.3": 0.31999999999999995,
+        "2.4": 0.09,
+        "3.1": 0.24750000000000003,
+        "3.2": 0.055,
+        "3.3": 0.2575,
+        "3.4": 0.28,
+        "4.1": 0.225,
+        "4.2": 0.086,
+        "4.3": 0.31999999999999995,
+        "4.4": 0.0125,
+        "5.1": 0.04,
+        "5.2": 0.33799999999999997,
+        "5.3": 0.135,
+        "5.4": 0.0225
+      },
+      "topScores": {
+        "TRACTABILITY": 0.39899999999999997,
+        "FIT": 0.333,
+        "INCUMBENT": 0.21000000000000002,
+        "PAYOFF": 0.160875,
+        "EXPOSURE": 0.13387499999999997
+      },
+      "composite": 0.549,
+      "ms": 428.16670799999997,
+      "inputTokens": 8183
+    }
+  ]
+}

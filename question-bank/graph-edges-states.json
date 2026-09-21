@@ -1,0 +1,66 @@
+[
+  {
+    "first": "Iteration 2 was prompted by a challenge to iteration 1's conclusion: \"Why would this be the wrong session? We don't necessarily need all those outputs to go forward.\" It was correct, and iteration 1's diagnosis was wrong. The question set was the defect, not the corpus.",
+    "second": "Iteration 1 built triage/ — Jev as a context-pruning classifier. Seven narrow questions per tool output, recombined in code, three-way keep / drop / escalate. 119 outputs from a live session, 6.6s, $0.00565 to decide. With the corrected policy: 96% KEEP, 12 items dropped, 101 tokens reclaimed out of 41,678."
+  },
+  {
+    "first": "\"Cannot hallucinate\" is a type guarantee only. It cannot emit a label you did not declare. It can pick the wrong one, confidently — see P5. Conceded by the vendor on the launch thread.",
+    "second": "It does not abstain. On inputs with no correct answer — empty string, whitespace, lone emoji, off-topic text — it answered confidently (p 0.82–0.91), all on the same wrong option. A top-probability gate does not protect you."
+  },
+  {
+    "first": "Does entropy separation (P6) hold at n=200? Ten cases is not a threshold.",
+    "second": "Distribution entropy is the usable uncertainty signal. Normalised entropy separated garbage (0.30–0.61) from unambiguous input (0.00–0.05) with a ~6× margin, where top-probability did not."
+  },
+  {
+    "first": "Field median latency through TypeSafe direct API is 76ms (n=333, direct measurement from a four-day field aggregation of 12,759 launch-window posts).",
+    "second": "Our own measurement via Vercel AI Gateway put latency at 245–274ms p50 for the same kind of call — roughly 3× the field median, with the gap unexplained."
+  },
+  {
+    "first": "embedMany embeds many values at once, useful when preparing a data store for retrieval-augmented generation. It returns an array of embedding objects sorted in the same order as the input values.",
+    "second": "embed embeds a single value, useful for tasks such as finding similar words or phrases or clustering text."
+  },
+  {
+    "first": "generateText and streamText both accept a tools parameter, an object mapping tool names to tool definitions with description, inputSchema, and an optional execute function.",
+    "second": "toolChoice supports auto, required, none, or a specific tool name, and controls when a tool is selected once tools are available to the model."
+  },
+  {
+    "first": "Both embed and embedMany accept an optional maxRetries parameter of type number, defaulting to 2 retries (3 attempts total). Set it to 0 to disable retries.",
+    "second": "Jev is a filter, not an oracle. It is a zero-shot classifier with a typed interface. It returns a pick, a level, or a probability; branching, retries, arithmetic, and side effects stay in your code."
+  },
+  {
+    "first": "The onAbort callback is called when a stream is aborted via AbortSignal, but onEnd is not called.",
+    "second": "MongoDB-backed persistent memory provides five structured tiers: Session, Semantic, Procedural, Episodic, and Scratchpad, retrieved via Atlas Vector Search using any AI SDK embedding model."
+  },
+  {
+    "first": "extractReasoningMiddleware extracts reasoning information from generated text using special tags like <think> and </think>, and exposes it as a reasoning property on the result.",
+    "second": "extractJsonMiddleware strips markdown code fences like triple-backtick-json blocks from a model's response, making it compatible with Output.object()."
+  },
+  {
+    "first": "01-hello.ts is the smallest possible call: two boolean questions on a support ticket, reporting latency and token usage.",
+    "second": "04-vs-llm.ts runs the same task via generateObject, timed and priced side by side against Jev."
+  },
+  {
+    "first": "The older needsApproval property on tool() definitions is deprecated. Existing code still works, but new code should move approval logic to toolApproval.",
+    "second": "toolApproval can be either a GenericToolApprovalFunction for all tool calls, or a per-tool map of statuses and/or SingleToolApprovalFunction callbacks."
+  },
+  {
+    "first": "Some providers include tool definitions in the cached portion of a request. Use toolOrder when you want a stable provider request shape for caching or debugging.",
+    "second": "Choice caps at 255 options. Beyond that the documented pattern is hierarchical Choice with confidence back-off."
+  },
+  {
+    "first": "The argmax is stable; the probabilities are not. 20 identical calls: choice never flipped (20/20), but the selected probability moved across a 0.11 band (sd 0.025).",
+    "second": "Two thresholds within 0.11 of each other are the same threshold, because repeated identical calls show the selected probability drifting by about that much even when the chosen option never changes."
+  },
+  {
+    "first": "Recombine on the aggregate, never on a conjunction of per-question confidences, which escalates everything.",
+    "second": "Gating on min(confidence) across five driver questions escalated 94% of items: with a 0.11 noise floor, requiring every signal to be confident is a near-impossible conjunction."
+  },
+  {
+    "first": "Streaming is using backpressure and only generates tokens as they are requested. You need to consume the stream in order for it to finish.",
+    "second": "Letta provides agents with persistent long-term memory. You create an agent on Letta's platform, configure its memory there, and use the AI SDK provider to interact with it."
+  },
+  {
+    "first": "route-ticket.ts is the pattern worth copying: model injected, thresholds in plain code.",
+    "second": "Turned P21 into a reusable tool (question-bank/measure-confidence.ts). Rank any question set by confidence over any corpus, no labels required."
+  }
+]

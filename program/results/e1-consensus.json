@@ -1,0 +1,1303 @@
+{
+  "headline": "E1: unanimous acc 73% (n=26) — FALSIFIED",
+  "experiment": "E1",
+  "hypothesis": "Unanimous (5/5) items are >=95% accurate; falsified also if 4/5 is no worse than 5/5 (gap < 0.11).",
+  "falsified": true,
+  "falsifiedBecause": {
+    "unanimousAccuracyBelow95": true,
+    "fourFifthsNoWorseThanFiveFifths": false,
+    "gapFiveFour": 0.4451
+  },
+  "n": 80,
+  "labellers": [
+    "openai/gpt-5.6-luna",
+    "deepseek/deepseek-v4-pro",
+    "alibaba/qwen3.7-plus",
+    "meta/llama-4-maverick",
+    "anthropic/claude-haiku-4.5"
+  ],
+  "labellerErrors": {
+    "openai/gpt-5.6-luna": 0,
+    "deepseek/deepseek-v4-pro": 0,
+    "alibaba/qwen3.7-plus": 0,
+    "meta/llama-4-maverick": 0,
+    "anthropic/claude-haiku-4.5": 0
+  },
+  "perBucket": {
+    "5/5": {
+      "n": 26,
+      "correct": 19,
+      "accuracy": 0.7308,
+      "insufficientData": false
+    },
+    "4/5": {
+      "n": 21,
+      "correct": 6,
+      "accuracy": 0.2857,
+      "insufficientData": false
+    },
+    "3/5": {
+      "n": 17,
+      "correct": 7,
+      "accuracy": 0.4118,
+      "insufficientData": false
+    },
+    "≤2/5": {
+      "n": 16,
+      "correct": 7,
+      "accuracy": 0.4375,
+      "insufficientData": false
+    }
+  },
+  "unanimityRate": 0.325,
+  "overallConsensusAccuracy": 0.4875,
+  "perModelAccuracy": {
+    "openai/gpt-5.6-luna": 0.4375,
+    "deepseek/deepseek-v4-pro": 0.4125,
+    "alibaba/qwen3.7-plus": 0.4125,
+    "meta/llama-4-maverick": 0.4625,
+    "anthropic/claude-haiku-4.5": 0.5
+  },
+  "baselines": {
+    "majorityClass": {
+      "guess": "deprivation-moment",
+      "accuracy": 0.2625
+    },
+    "keywordMatcher": {
+      "accuracy": 0.3125
+    }
+  },
+  "cost": {
+    "totalUsd": 0.41925842,
+    "byModel": {
+      "meta/llama-4-maverick": {
+        "inputTokens": 28549,
+        "outputTokens": 1006,
+        "usd": 0.007827579999999999
+      },
+      "openai/gpt-5.6-luna": {
+        "inputTokens": 34222,
+        "outputTokens": 3156,
+        "usd": 0.0106316
+      },
+      "anthropic/claude-haiku-4.5": {
+        "inputTokens": 52181,
+        "outputTokens": 984,
+        "usd": 0.057101
+      },
+      "deepseek/deepseek-v4-pro": {
+        "inputTokens": 44340,
+        "outputTokens": 73088,
+        "usd": 0.17397864
+      },
+      "alibaba/qwen3.7-plus": {
+        "inputTokens": 41335,
+        "outputTokens": 95741,
+        "usd": 0.1697196
+      }
+    }
+  },
+  "wallClockMs": 235573,
+  "hookResults": [
+    {
+      "id": "h01",
+      "formula": "number-outcome-time",
+      "votes": {
+        "meta/llama-4-maverick": "number-outcome-time",
+        "openai/gpt-5.6-luna": "number-outcome-time",
+        "anthropic/claude-haiku-4.5": "number-outcome-time",
+        "deepseek/deepseek-v4-pro": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "deprivation-moment"
+      },
+      "plurality": "number-outcome-time",
+      "pluralityCount": 3,
+      "bucket": "3/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h02",
+      "formula": "receipt",
+      "votes": {
+        "meta/llama-4-maverick": "receipt",
+        "anthropic/claude-haiku-4.5": "receipt",
+        "openai/gpt-5.6-luna": "receipt",
+        "deepseek/deepseek-v4-pro": "receipt",
+        "alibaba/qwen3.7-plus": "receipt"
+      },
+      "plurality": "receipt",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h03",
+      "formula": "damaging-admission",
+      "votes": {
+        "openai/gpt-5.6-luna": "receipt",
+        "meta/llama-4-maverick": "receipt",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "deprivation-moment"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 3,
+      "bucket": "3/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h04",
+      "formula": "deprivation-moment",
+      "votes": {
+        "meta/llama-4-maverick": "call-out",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "openai/gpt-5.6-luna": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "call-out",
+        "deepseek/deepseek-v4-pro": "deprivation-moment"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 3,
+      "bucket": "3/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h05",
+      "formula": "number-outcome-time",
+      "votes": {
+        "openai/gpt-5.6-luna": "how-to-without",
+        "meta/llama-4-maverick": "number-outcome-time",
+        "anthropic/claude-haiku-4.5": "how-to-without",
+        "deepseek/deepseek-v4-pro": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "number-outcome-time"
+      },
+      "plurality": "how-to-without",
+      "pluralityCount": 2,
+      "bucket": "≤2/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h06",
+      "formula": "adjective-good",
+      "votes": {
+        "openai/gpt-5.6-luna": "number-outcome-time",
+        "meta/llama-4-maverick": "number-outcome-time",
+        "anthropic/claude-haiku-4.5": "number-outcome-time",
+        "deepseek/deepseek-v4-pro": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "number-outcome-time"
+      },
+      "plurality": "number-outcome-time",
+      "pluralityCount": 4,
+      "bucket": "4/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h07",
+      "formula": "deprivation-moment",
+      "votes": {
+        "openai/gpt-5.6-luna": "call-out",
+        "meta/llama-4-maverick": "call-out",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "call-out",
+        "alibaba/qwen3.7-plus": "call-out"
+      },
+      "plurality": "call-out",
+      "pluralityCount": 4,
+      "bucket": "4/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h08",
+      "formula": "mistakes",
+      "votes": {
+        "openai/gpt-5.6-luna": "deprivation-moment",
+        "meta/llama-4-maverick": "deprivation-moment",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "deprivation-moment"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h09",
+      "formula": "number-outcome-time",
+      "votes": {
+        "openai/gpt-5.6-luna": "number-outcome-time",
+        "meta/llama-4-maverick": "deprivation-moment",
+        "anthropic/claude-haiku-4.5": "number-outcome-time",
+        "deepseek/deepseek-v4-pro": "number-outcome-time",
+        "alibaba/qwen3.7-plus": "number-outcome-time"
+      },
+      "plurality": "number-outcome-time",
+      "pluralityCount": 4,
+      "bucket": "4/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h10",
+      "formula": "number-outcome-time",
+      "votes": {
+        "openai/gpt-5.6-luna": "deprivation-moment",
+        "meta/llama-4-maverick": "deprivation-moment",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "number-outcome-time",
+        "alibaba/qwen3.7-plus": "deprivation-moment"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 4,
+      "bucket": "4/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h11",
+      "formula": "number-outcome-time",
+      "votes": {
+        "openai/gpt-5.6-luna": "number-outcome-time",
+        "meta/llama-4-maverick": "number-outcome-time",
+        "deepseek/deepseek-v4-pro": "number-outcome-time",
+        "anthropic/claude-haiku-4.5": "number-outcome-time",
+        "alibaba/qwen3.7-plus": "number-outcome-time"
+      },
+      "plurality": "number-outcome-time",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h12",
+      "formula": "how-to-without",
+      "votes": {
+        "openai/gpt-5.6-luna": "how-to-without",
+        "meta/llama-4-maverick": "how-to-without",
+        "deepseek/deepseek-v4-pro": "how-to-without",
+        "anthropic/claude-haiku-4.5": "how-to-without",
+        "alibaba/qwen3.7-plus": "how-to-without"
+      },
+      "plurality": "how-to-without",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h13",
+      "formula": "call-out",
+      "votes": {
+        "openai/gpt-5.6-luna": "number-outcome-time",
+        "meta/llama-4-maverick": "call-out",
+        "anthropic/claude-haiku-4.5": "call-out",
+        "deepseek/deepseek-v4-pro": "call-out",
+        "alibaba/qwen3.7-plus": "call-out"
+      },
+      "plurality": "call-out",
+      "pluralityCount": 4,
+      "bucket": "4/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h14",
+      "formula": "deprivation-moment",
+      "votes": {
+        "openai/gpt-5.6-luna": "deprivation-moment",
+        "meta/llama-4-maverick": "mistakes",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "mistakes"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 3,
+      "bucket": "3/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h15",
+      "formula": "deprivation-moment",
+      "votes": {
+        "openai/gpt-5.6-luna": "deprivation-moment",
+        "meta/llama-4-maverick": "deprivation-moment",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "deprivation-moment"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h16",
+      "formula": "deprivation-moment",
+      "votes": {
+        "openai/gpt-5.6-luna": "call-out",
+        "meta/llama-4-maverick": "deprivation-moment",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "call-out",
+        "alibaba/qwen3.7-plus": "deprivation-moment"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 3,
+      "bucket": "3/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h17",
+      "formula": "number-outcome-time",
+      "votes": {
+        "openai/gpt-5.6-luna": "number-outcome-time",
+        "deepseek/deepseek-v4-pro": "number-outcome-time",
+        "meta/llama-4-maverick": "number-outcome-time",
+        "anthropic/claude-haiku-4.5": "number-outcome-time",
+        "alibaba/qwen3.7-plus": "number-outcome-time"
+      },
+      "plurality": "number-outcome-time",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h18",
+      "formula": "mistakes",
+      "votes": {
+        "openai/gpt-5.6-luna": "mistakes",
+        "meta/llama-4-maverick": "mistakes",
+        "anthropic/claude-haiku-4.5": "mistakes",
+        "deepseek/deepseek-v4-pro": "mistakes",
+        "alibaba/qwen3.7-plus": "mistakes"
+      },
+      "plurality": "mistakes",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h19",
+      "formula": "adjective-good",
+      "votes": {
+        "openai/gpt-5.6-luna": "how-to-without",
+        "anthropic/claude-haiku-4.5": "number-outcome-time",
+        "meta/llama-4-maverick": "call-out",
+        "alibaba/qwen3.7-plus": "how-to-without",
+        "deepseek/deepseek-v4-pro": "call-out"
+      },
+      "plurality": "call-out",
+      "pluralityCount": 2,
+      "bucket": "≤2/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h20",
+      "formula": "how-to-without",
+      "votes": {
+        "openai/gpt-5.6-luna": "how-to-without",
+        "deepseek/deepseek-v4-pro": "how-to-without",
+        "meta/llama-4-maverick": "how-to-without",
+        "anthropic/claude-haiku-4.5": "how-to-without",
+        "alibaba/qwen3.7-plus": "how-to-without"
+      },
+      "plurality": "how-to-without",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h21",
+      "formula": "call-out",
+      "votes": {
+        "openai/gpt-5.6-luna": "call-out",
+        "meta/llama-4-maverick": "call-out",
+        "deepseek/deepseek-v4-pro": "call-out",
+        "anthropic/claude-haiku-4.5": "call-out",
+        "alibaba/qwen3.7-plus": "call-out"
+      },
+      "plurality": "call-out",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h22",
+      "formula": "deprivation-moment",
+      "votes": {
+        "meta/llama-4-maverick": "deprivation-moment",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "openai/gpt-5.6-luna": "mistakes",
+        "deepseek/deepseek-v4-pro": "call-out",
+        "alibaba/qwen3.7-plus": "mistakes"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 2,
+      "bucket": "≤2/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h23",
+      "formula": "deprivation-moment",
+      "votes": {
+        "openai/gpt-5.6-luna": "call-out",
+        "meta/llama-4-maverick": "mistakes",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "call-out",
+        "alibaba/qwen3.7-plus": "mistakes"
+      },
+      "plurality": "call-out",
+      "pluralityCount": 2,
+      "bucket": "≤2/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h24",
+      "formula": "call-out",
+      "votes": {
+        "openai/gpt-5.6-luna": "call-out",
+        "meta/llama-4-maverick": "call-out",
+        "anthropic/claude-haiku-4.5": "call-out",
+        "deepseek/deepseek-v4-pro": "call-out",
+        "alibaba/qwen3.7-plus": "call-out"
+      },
+      "plurality": "call-out",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h25",
+      "formula": "deprivation-moment",
+      "votes": {
+        "openai/gpt-5.6-luna": "number-outcome-time",
+        "meta/llama-4-maverick": "number-outcome-time",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "number-outcome-time",
+        "alibaba/qwen3.7-plus": "number-outcome-time"
+      },
+      "plurality": "number-outcome-time",
+      "pluralityCount": 4,
+      "bucket": "4/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h26",
+      "formula": "call-out",
+      "votes": {
+        "openai/gpt-5.6-luna": "call-out",
+        "meta/llama-4-maverick": "damaging-admission",
+        "anthropic/claude-haiku-4.5": "call-out",
+        "deepseek/deepseek-v4-pro": "receipt",
+        "alibaba/qwen3.7-plus": "receipt"
+      },
+      "plurality": "call-out",
+      "pluralityCount": 2,
+      "bucket": "≤2/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h27",
+      "formula": "deprivation-moment",
+      "votes": {
+        "openai/gpt-5.6-luna": "call-out",
+        "meta/llama-4-maverick": "call-out",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "call-out",
+        "deepseek/deepseek-v4-pro": "call-out"
+      },
+      "plurality": "call-out",
+      "pluralityCount": 4,
+      "bucket": "4/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h28",
+      "formula": "deprivation-moment",
+      "votes": {
+        "openai/gpt-5.6-luna": "halbert-a-pile",
+        "meta/llama-4-maverick": "deprivation-moment",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "receipt",
+        "alibaba/qwen3.7-plus": "receipt"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 2,
+      "bucket": "≤2/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h29",
+      "formula": "number-outcome-time",
+      "votes": {
+        "openai/gpt-5.6-luna": "number-outcome-time",
+        "meta/llama-4-maverick": "number-outcome-time",
+        "anthropic/claude-haiku-4.5": "number-outcome-time",
+        "deepseek/deepseek-v4-pro": "number-outcome-time",
+        "alibaba/qwen3.7-plus": "number-outcome-time"
+      },
+      "plurality": "number-outcome-time",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h30",
+      "formula": "number-outcome-time",
+      "votes": {
+        "openai/gpt-5.6-luna": "halbert-a-pile",
+        "meta/llama-4-maverick": "halbert-a-pile",
+        "anthropic/claude-haiku-4.5": "number-outcome-time",
+        "deepseek/deepseek-v4-pro": "how-to-without",
+        "alibaba/qwen3.7-plus": "number-outcome-time"
+      },
+      "plurality": "halbert-a-pile",
+      "pluralityCount": 2,
+      "bucket": "≤2/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h31",
+      "formula": "how-to-without",
+      "votes": {
+        "openai/gpt-5.6-luna": "number-outcome-time",
+        "meta/llama-4-maverick": "call-out",
+        "anthropic/claude-haiku-4.5": "call-out",
+        "deepseek/deepseek-v4-pro": "call-out",
+        "alibaba/qwen3.7-plus": "mistakes"
+      },
+      "plurality": "call-out",
+      "pluralityCount": 3,
+      "bucket": "3/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h32",
+      "formula": "how-to-without",
+      "votes": {
+        "openai/gpt-5.6-luna": "how-to-without",
+        "meta/llama-4-maverick": "mistakes",
+        "anthropic/claude-haiku-4.5": "how-to-without",
+        "deepseek/deepseek-v4-pro": "how-to-without",
+        "alibaba/qwen3.7-plus": "how-to-without"
+      },
+      "plurality": "how-to-without",
+      "pluralityCount": 4,
+      "bucket": "4/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h33",
+      "formula": "number-outcome-time",
+      "votes": {
+        "meta/llama-4-maverick": "number-outcome-time",
+        "openai/gpt-5.6-luna": "adjective-good",
+        "anthropic/claude-haiku-4.5": "how-to-without",
+        "deepseek/deepseek-v4-pro": "how-to-without",
+        "alibaba/qwen3.7-plus": "deprivation-moment"
+      },
+      "plurality": "how-to-without",
+      "pluralityCount": 2,
+      "bucket": "≤2/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h34",
+      "formula": "adjective-good",
+      "votes": {
+        "openai/gpt-5.6-luna": "call-out",
+        "meta/llama-4-maverick": "mistakes",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "deprivation-moment"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 3,
+      "bucket": "3/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h35",
+      "formula": "mistakes",
+      "votes": {
+        "openai/gpt-5.6-luna": "number-outcome-time",
+        "meta/llama-4-maverick": "mistakes",
+        "anthropic/claude-haiku-4.5": "number-outcome-time",
+        "deepseek/deepseek-v4-pro": "mistakes",
+        "alibaba/qwen3.7-plus": "number-outcome-time"
+      },
+      "plurality": "number-outcome-time",
+      "pluralityCount": 3,
+      "bucket": "3/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h36",
+      "formula": "deprivation-moment",
+      "votes": {
+        "openai/gpt-5.6-luna": "mistakes",
+        "deepseek/deepseek-v4-pro": "mistakes",
+        "meta/llama-4-maverick": "mistakes",
+        "anthropic/claude-haiku-4.5": "call-out",
+        "alibaba/qwen3.7-plus": "mistakes"
+      },
+      "plurality": "mistakes",
+      "pluralityCount": 4,
+      "bucket": "4/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h37",
+      "formula": "deprivation-moment",
+      "votes": {
+        "openai/gpt-5.6-luna": "call-out",
+        "meta/llama-4-maverick": "call-out",
+        "anthropic/claude-haiku-4.5": "call-out",
+        "deepseek/deepseek-v4-pro": "call-out",
+        "alibaba/qwen3.7-plus": "call-out"
+      },
+      "plurality": "call-out",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h38",
+      "formula": "deprivation-moment",
+      "votes": {
+        "openai/gpt-5.6-luna": "damaging-admission",
+        "meta/llama-4-maverick": "mistakes",
+        "anthropic/claude-haiku-4.5": "mistakes",
+        "deepseek/deepseek-v4-pro": "damaging-admission",
+        "alibaba/qwen3.7-plus": "deprivation-moment"
+      },
+      "plurality": "damaging-admission",
+      "pluralityCount": 2,
+      "bucket": "≤2/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h39",
+      "formula": "call-out",
+      "votes": {
+        "openai/gpt-5.6-luna": "how-to-without",
+        "meta/llama-4-maverick": "deprivation-moment",
+        "anthropic/claude-haiku-4.5": "how-to-without",
+        "alibaba/qwen3.7-plus": "how-to-without",
+        "deepseek/deepseek-v4-pro": "how-to-without"
+      },
+      "plurality": "how-to-without",
+      "pluralityCount": 4,
+      "bucket": "4/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h40",
+      "formula": "damaging-admission",
+      "votes": {
+        "openai/gpt-5.6-luna": "damaging-admission",
+        "meta/llama-4-maverick": "damaging-admission",
+        "deepseek/deepseek-v4-pro": "damaging-admission",
+        "anthropic/claude-haiku-4.5": "damaging-admission",
+        "alibaba/qwen3.7-plus": "damaging-admission"
+      },
+      "plurality": "damaging-admission",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h41",
+      "formula": "damaging-admission",
+      "votes": {
+        "openai/gpt-5.6-luna": "how-to-without",
+        "meta/llama-4-maverick": "deprivation-moment",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "damaging-admission",
+        "alibaba/qwen3.7-plus": "damaging-admission"
+      },
+      "plurality": "damaging-admission",
+      "pluralityCount": 2,
+      "bucket": "≤2/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h42",
+      "formula": "deprivation-moment",
+      "votes": {
+        "openai/gpt-5.6-luna": "deprivation-moment",
+        "meta/llama-4-maverick": "deprivation-moment",
+        "anthropic/claude-haiku-4.5": "call-out",
+        "deepseek/deepseek-v4-pro": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "deprivation-moment"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 4,
+      "bucket": "4/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h43",
+      "formula": "halbert-a-pile",
+      "votes": {
+        "openai/gpt-5.6-luna": "deprivation-moment",
+        "meta/llama-4-maverick": "deprivation-moment",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "deprivation-moment"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h44",
+      "formula": "halbert-a-pile",
+      "votes": {
+        "openai/gpt-5.6-luna": "receipt",
+        "meta/llama-4-maverick": "call-out",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "receipt"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 2,
+      "bucket": "≤2/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h45",
+      "formula": "halbert-a-pile",
+      "votes": {
+        "openai/gpt-5.6-luna": "mistakes",
+        "meta/llama-4-maverick": "mistakes",
+        "deepseek/deepseek-v4-pro": "mistakes",
+        "anthropic/claude-haiku-4.5": "mistakes",
+        "alibaba/qwen3.7-plus": "mistakes"
+      },
+      "plurality": "mistakes",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h46",
+      "formula": "halbert-a-pile",
+      "votes": {
+        "openai/gpt-5.6-luna": "receipt",
+        "meta/llama-4-maverick": "damaging-admission",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "damaging-admission",
+        "alibaba/qwen3.7-plus": "deprivation-moment"
+      },
+      "plurality": "damaging-admission",
+      "pluralityCount": 2,
+      "bucket": "≤2/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h47",
+      "formula": "halbert-a-pile",
+      "votes": {
+        "openai/gpt-5.6-luna": "deprivation-moment",
+        "meta/llama-4-maverick": "deprivation-moment",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "receipt",
+        "alibaba/qwen3.7-plus": "deprivation-moment"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 4,
+      "bucket": "4/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h48",
+      "formula": "halbert-a-pile",
+      "votes": {
+        "openai/gpt-5.6-luna": "deprivation-moment",
+        "meta/llama-4-maverick": "deprivation-moment",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "deprivation-moment"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h49",
+      "formula": "damaging-admission",
+      "votes": {
+        "openai/gpt-5.6-luna": "how-to-without",
+        "meta/llama-4-maverick": "how-to-without",
+        "anthropic/claude-haiku-4.5": "how-to-without",
+        "alibaba/qwen3.7-plus": "how-to-without",
+        "deepseek/deepseek-v4-pro": "how-to-without"
+      },
+      "plurality": "how-to-without",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h50",
+      "formula": "mistakes",
+      "votes": {
+        "openai/gpt-5.6-luna": "call-out",
+        "deepseek/deepseek-v4-pro": "call-out",
+        "meta/llama-4-maverick": "call-out",
+        "anthropic/claude-haiku-4.5": "call-out",
+        "alibaba/qwen3.7-plus": "call-out"
+      },
+      "plurality": "call-out",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h51",
+      "formula": "call-out",
+      "votes": {
+        "openai/gpt-5.6-luna": "call-out",
+        "meta/llama-4-maverick": "call-out",
+        "anthropic/claude-haiku-4.5": "call-out",
+        "deepseek/deepseek-v4-pro": "call-out",
+        "alibaba/qwen3.7-plus": "call-out"
+      },
+      "plurality": "call-out",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h52",
+      "formula": "call-out",
+      "votes": {
+        "openai/gpt-5.6-luna": "deprivation-moment",
+        "meta/llama-4-maverick": "deprivation-moment",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "number-outcome-time",
+        "deepseek/deepseek-v4-pro": "call-out"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 3,
+      "bucket": "3/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h53",
+      "formula": "call-out",
+      "votes": {
+        "openai/gpt-5.6-luna": "call-out",
+        "meta/llama-4-maverick": "call-out",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "call-out",
+        "deepseek/deepseek-v4-pro": "call-out"
+      },
+      "plurality": "call-out",
+      "pluralityCount": 4,
+      "bucket": "4/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h54",
+      "formula": "deprivation-moment",
+      "votes": {
+        "openai/gpt-5.6-luna": "damaging-admission",
+        "meta/llama-4-maverick": "deprivation-moment",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "damaging-admission",
+        "alibaba/qwen3.7-plus": "deprivation-moment"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 3,
+      "bucket": "3/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h55",
+      "formula": "call-out",
+      "votes": {
+        "openai/gpt-5.6-luna": "adjective-good",
+        "meta/llama-4-maverick": "mistakes",
+        "deepseek/deepseek-v4-pro": "mistakes",
+        "anthropic/claude-haiku-4.5": "mistakes",
+        "alibaba/qwen3.7-plus": "mistakes"
+      },
+      "plurality": "mistakes",
+      "pluralityCount": 4,
+      "bucket": "4/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h56",
+      "formula": "receipt",
+      "votes": {
+        "openai/gpt-5.6-luna": "deprivation-moment",
+        "meta/llama-4-maverick": "halbert-a-pile",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "deprivation-moment"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 4,
+      "bucket": "4/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h57",
+      "formula": "receipt",
+      "votes": {
+        "meta/llama-4-maverick": "number-outcome-time",
+        "anthropic/claude-haiku-4.5": "number-outcome-time",
+        "openai/gpt-5.6-luna": "receipt",
+        "deepseek/deepseek-v4-pro": "number-outcome-time",
+        "alibaba/qwen3.7-plus": "number-outcome-time"
+      },
+      "plurality": "number-outcome-time",
+      "pluralityCount": 4,
+      "bucket": "4/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h58",
+      "formula": "damaging-admission",
+      "votes": {
+        "openai/gpt-5.6-luna": "how-to-without",
+        "meta/llama-4-maverick": "how-to-without",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "how-to-without",
+        "alibaba/qwen3.7-plus": "how-to-without"
+      },
+      "plurality": "how-to-without",
+      "pluralityCount": 4,
+      "bucket": "4/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h59",
+      "formula": "number-outcome-time",
+      "votes": {
+        "openai/gpt-5.6-luna": "deprivation-moment",
+        "meta/llama-4-maverick": "receipt",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "deprivation-moment"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 4,
+      "bucket": "4/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h60",
+      "formula": "how-to-without",
+      "votes": {
+        "openai/gpt-5.6-luna": "how-to-without",
+        "meta/llama-4-maverick": "how-to-without",
+        "anthropic/claude-haiku-4.5": "how-to-without",
+        "deepseek/deepseek-v4-pro": "how-to-without",
+        "alibaba/qwen3.7-plus": "how-to-without"
+      },
+      "plurality": "how-to-without",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h61",
+      "formula": "deprivation-moment",
+      "votes": {
+        "openai/gpt-5.6-luna": "deprivation-moment",
+        "meta/llama-4-maverick": "deprivation-moment",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "call-out",
+        "alibaba/qwen3.7-plus": "call-out"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 3,
+      "bucket": "3/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h62",
+      "formula": "number-outcome-time",
+      "votes": {
+        "openai/gpt-5.6-luna": "halbert-a-pile",
+        "meta/llama-4-maverick": "number-outcome-time",
+        "anthropic/claude-haiku-4.5": "number-outcome-time",
+        "deepseek/deepseek-v4-pro": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "receipt"
+      },
+      "plurality": "number-outcome-time",
+      "pluralityCount": 2,
+      "bucket": "≤2/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h63",
+      "formula": "number-outcome-time",
+      "votes": {
+        "openai/gpt-5.6-luna": "number-outcome-time",
+        "meta/llama-4-maverick": "number-outcome-time",
+        "anthropic/claude-haiku-4.5": "number-outcome-time",
+        "deepseek/deepseek-v4-pro": "number-outcome-time",
+        "alibaba/qwen3.7-plus": "number-outcome-time"
+      },
+      "plurality": "number-outcome-time",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h64",
+      "formula": "number-outcome-time",
+      "votes": {
+        "openai/gpt-5.6-luna": "number-outcome-time",
+        "meta/llama-4-maverick": "number-outcome-time",
+        "anthropic/claude-haiku-4.5": "number-outcome-time",
+        "deepseek/deepseek-v4-pro": "number-outcome-time",
+        "alibaba/qwen3.7-plus": "number-outcome-time"
+      },
+      "plurality": "number-outcome-time",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h65",
+      "formula": "deprivation-moment",
+      "votes": {
+        "openai/gpt-5.6-luna": "mistakes",
+        "meta/llama-4-maverick": "deprivation-moment",
+        "anthropic/claude-haiku-4.5": "mistakes",
+        "deepseek/deepseek-v4-pro": "mistakes",
+        "alibaba/qwen3.7-plus": "mistakes"
+      },
+      "plurality": "mistakes",
+      "pluralityCount": 4,
+      "bucket": "4/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h66",
+      "formula": "adjective-good",
+      "votes": {
+        "openai/gpt-5.6-luna": "adjective-good",
+        "meta/llama-4-maverick": "deprivation-moment",
+        "anthropic/claude-haiku-4.5": "how-to-without",
+        "deepseek/deepseek-v4-pro": "how-to-without",
+        "alibaba/qwen3.7-plus": "mistakes"
+      },
+      "plurality": "how-to-without",
+      "pluralityCount": 2,
+      "bucket": "≤2/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h67",
+      "formula": "receipt",
+      "votes": {
+        "openai/gpt-5.6-luna": "receipt",
+        "meta/llama-4-maverick": "call-out",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "deprivation-moment"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 3,
+      "bucket": "3/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h68",
+      "formula": "mistakes",
+      "votes": {
+        "openai/gpt-5.6-luna": "mistakes",
+        "meta/llama-4-maverick": "deprivation-moment",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "mistakes",
+        "alibaba/qwen3.7-plus": "mistakes"
+      },
+      "plurality": "mistakes",
+      "pluralityCount": 3,
+      "bucket": "3/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h69",
+      "formula": "number-outcome-time",
+      "votes": {
+        "openai/gpt-5.6-luna": "number-outcome-time",
+        "meta/llama-4-maverick": "number-outcome-time",
+        "anthropic/claude-haiku-4.5": "number-outcome-time",
+        "deepseek/deepseek-v4-pro": "number-outcome-time",
+        "alibaba/qwen3.7-plus": "number-outcome-time"
+      },
+      "plurality": "number-outcome-time",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h70",
+      "formula": "number-outcome-time",
+      "votes": {
+        "openai/gpt-5.6-luna": "number-outcome-time",
+        "meta/llama-4-maverick": "number-outcome-time",
+        "anthropic/claude-haiku-4.5": "number-outcome-time",
+        "deepseek/deepseek-v4-pro": "number-outcome-time",
+        "alibaba/qwen3.7-plus": "number-outcome-time"
+      },
+      "plurality": "number-outcome-time",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h71",
+      "formula": "deprivation-moment",
+      "votes": {
+        "openai/gpt-5.6-luna": "deprivation-moment",
+        "meta/llama-4-maverick": "deprivation-moment",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "deprivation-moment"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h72",
+      "formula": "how-to-without",
+      "votes": {
+        "openai/gpt-5.6-luna": "how-to-without",
+        "meta/llama-4-maverick": "mistakes",
+        "anthropic/claude-haiku-4.5": "how-to-without",
+        "deepseek/deepseek-v4-pro": "mistakes",
+        "alibaba/qwen3.7-plus": "mistakes"
+      },
+      "plurality": "mistakes",
+      "pluralityCount": 3,
+      "bucket": "3/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h73",
+      "formula": "call-out",
+      "votes": {
+        "openai/gpt-5.6-luna": "call-out",
+        "meta/llama-4-maverick": "call-out",
+        "anthropic/claude-haiku-4.5": "how-to-without",
+        "alibaba/qwen3.7-plus": "call-out",
+        "deepseek/deepseek-v4-pro": "call-out"
+      },
+      "plurality": "call-out",
+      "pluralityCount": 4,
+      "bucket": "4/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h74",
+      "formula": "call-out",
+      "votes": {
+        "openai/gpt-5.6-luna": "adjective-good",
+        "meta/llama-4-maverick": "call-out",
+        "anthropic/claude-haiku-4.5": "call-out",
+        "deepseek/deepseek-v4-pro": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "mistakes"
+      },
+      "plurality": "call-out",
+      "pluralityCount": 2,
+      "bucket": "≤2/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h75",
+      "formula": "call-out",
+      "votes": {
+        "openai/gpt-5.6-luna": "deprivation-moment",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "meta/llama-4-maverick": "call-out",
+        "deepseek/deepseek-v4-pro": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "call-out"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 3,
+      "bucket": "3/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h76",
+      "formula": "how-to-without",
+      "votes": {
+        "openai/gpt-5.6-luna": "mistakes",
+        "meta/llama-4-maverick": "mistakes",
+        "anthropic/claude-haiku-4.5": "call-out",
+        "deepseek/deepseek-v4-pro": "mistakes",
+        "alibaba/qwen3.7-plus": "mistakes"
+      },
+      "plurality": "mistakes",
+      "pluralityCount": 4,
+      "bucket": "4/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h77",
+      "formula": "deprivation-moment",
+      "votes": {
+        "meta/llama-4-maverick": "deprivation-moment",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "openai/gpt-5.6-luna": "mistakes",
+        "deepseek/deepseek-v4-pro": "damaging-admission",
+        "alibaba/qwen3.7-plus": "mistakes"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 2,
+      "bucket": "≤2/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h78",
+      "formula": "deprivation-moment",
+      "votes": {
+        "openai/gpt-5.6-luna": "deprivation-moment",
+        "meta/llama-4-maverick": "call-out",
+        "anthropic/claude-haiku-4.5": "call-out",
+        "deepseek/deepseek-v4-pro": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "call-out"
+      },
+      "plurality": "call-out",
+      "pluralityCount": 3,
+      "bucket": "3/5",
+      "consensusCorrect": false
+    },
+    {
+      "id": "h79",
+      "formula": "deprivation-moment",
+      "votes": {
+        "openai/gpt-5.6-luna": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "deprivation-moment",
+        "meta/llama-4-maverick": "deprivation-moment",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "alibaba/qwen3.7-plus": "deprivation-moment"
+      },
+      "plurality": "deprivation-moment",
+      "pluralityCount": 5,
+      "bucket": "5/5",
+      "consensusCorrect": true
+    },
+    {
+      "id": "h80",
+      "formula": "adjective-good",
+      "votes": {
+        "openai/gpt-5.6-luna": "how-to-without",
+        "meta/llama-4-maverick": "how-to-without",
+        "anthropic/claude-haiku-4.5": "deprivation-moment",
+        "deepseek/deepseek-v4-pro": "call-out",
+        "alibaba/qwen3.7-plus": "how-to-without"
+      },
+      "plurality": "how-to-without",
+      "pluralityCount": 3,
+      "bucket": "3/5",
+      "consensusCorrect": false
+    }
+  ]
+}

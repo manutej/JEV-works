@@ -1,0 +1,30 @@
+{
+  "note": "Labelled routing cases. `expect` is the clear answer a competent operator would give. Facts are code-side truths supplied per case, never asked of Jev.",
+  "cases": [
+    {"id":"sh-01","text":"Run `git status` in this repo and show me the output.","facts":{"estTokens":40,"needsWeb":false,"needsVision":false},"expect":"ornith-35b"},
+    {"id":"sh-02","text":"List every .log file under /var/log larger than 10MB, newest first.","facts":{"estTokens":50,"needsWeb":false,"needsVision":false},"expect":"ornith-35b"},
+    {"id":"sh-03","text":"What version of python3 is installed? Just the number.","facts":{"estTokens":30,"needsWeb":false,"needsVision":false},"expect":"ornith-35b"},
+    {"id":"sh-04","text":"Count the lines in src/main.py.","facts":{"estTokens":25,"needsWeb":false,"needsVision":false},"expect":"ornith-35b"},
+    {"id":"sh-05","text":"Show the last 20 lines of adapter.log.","facts":{"estTokens":25,"needsWeb":false,"needsVision":false},"expect":"ornith-35b"},
+
+    {"id":"ex-01","text":"Here is a stack trace: ZeroDivisionError at line 5 of average(). Explain in one sentence what it means.","facts":{"estTokens":80,"needsWeb":false,"needsVision":false},"expect":"ornith-35b"},
+    {"id":"ex-02","text":"Summarise this paragraph in two sentences: 'The adapter hoists system-role messages to the top of the request payload before forwarding.'","facts":{"estTokens":90,"needsWeb":false,"needsVision":false},"expect":"ornith-35b"},
+    {"id":"ex-03","text":"What does the -ngl flag do in llama.cpp? Answer from the text: '-ngl N: offload N layers to GPU'.","facts":{"estTokens":70,"needsWeb":false,"needsVision":false},"expect":"ornith-35b"},
+
+    {"id":"ed-01","text":"In utils.py, rename the function `calc` to `calculate_total`. Nothing else.","facts":{"estTokens":60,"needsWeb":false,"needsVision":false},"expect":"ornith-35b"},
+    {"id":"ed-02","text":"Add a docstring to the `route` function in route.mjs describing its two parameters.","facts":{"estTokens":70,"needsWeb":false,"needsVision":false},"expect":"ornith-35b"},
+
+    {"id":"web-01","text":"What is the current pricing per million tokens for qwen3.5-9b on OpenRouter?","facts":{"estTokens":40,"needsWeb":true,"needsVision":false},"expect":"sonnet"},
+    {"id":"web-02","text":"Find the latest release notes for llama.cpp and tell me if qwen35 support changed.","facts":{"estTokens":50,"needsWeb":true,"needsVision":false},"expect":"sonnet"},
+
+    {"id":"dbg-01","text":"The build fails intermittently on CI but passes locally. Figure out why.","facts":{"estTokens":60,"needsWeb":false,"needsVision":false},"expect":"sonnet"},
+    {"id":"dbg-02","text":"Requests to the adapter hang after about an hour. Diagnose it.","facts":{"estTokens":50,"needsWeb":false,"needsVision":false},"expect":"sonnet"},
+
+    {"id":"bld-01","text":"Design a multi-tenant billing system with usage metering, then implement the schema, the API and the reconciliation job.","facts":{"estTokens":90,"needsWeb":false,"needsVision":false},"expect":"opus"},
+    {"id":"bld-02","text":"Refactor this service into hexagonal architecture across all 14 files, keeping tests green.","facts":{"estTokens":80,"needsWeb":false,"needsVision":false},"expect":"opus"},
+
+    {"id":"vis-01","text":"Here is a screenshot of the dashboard. Describe which panel shows the error rate.","facts":{"estTokens":60,"needsWeb":false,"needsVision":true},"expect":"ornith-1.5-9b"},
+
+    {"id":"ctx-01","text":"Review this 400k-token monorepo diff and summarise the risky changes.","facts":{"estTokens":400000,"needsWeb":false,"needsVision":false},"expect":"sonnet[1m]"}
+  ]
+}

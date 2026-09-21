@@ -1,0 +1,1746 @@
+{
+  "headline": "E2: rho=-0.57 — med(uni)=0.19 vs med(split)=0.43 — FALSIFIED",
+  "experiment": "E2",
+  "hypothesis": "Entropy rises monotonically as agreement falls; falsified if |rho|<0.3 or unanimous/split entropy distributions overlap substantially.",
+  "falsified": true,
+  "falsifiedBecause": {
+    "weakCorrelation": false,
+    "distributionsOverlap": true,
+    "iqrIntersect": true,
+    "medianGapBelowNoiseFloor": false
+  },
+  "n": 80,
+  "nUsedForCorrelation": 80,
+  "droppedForMissingData": 0,
+  "spearmanRho": -0.5742,
+  "entropyByAgreement": {
+    "unanimous": {
+      "n": 26,
+      "median": 0.1891,
+      "iqr": [
+        0.056,
+        0.3672
+      ],
+      "insufficientData": false
+    },
+    "split": {
+      "n": 54,
+      "median": 0.4271,
+      "iqr": [
+        0.3569,
+        0.5531
+      ],
+      "insufficientData": false
+    }
+  },
+  "aucEntropyPredictsDisagreement": 0.7863,
+  "jev": {
+    "accuracy": 0.3375,
+    "errors": 0,
+    "vsMajorityClassBaseline": 0.075,
+    "vsKeywordBaseline": 0.025
+  },
+  "baselines": {
+    "majorityClass": {
+      "guess": "deprivation-moment",
+      "accuracy": 0.2625
+    },
+    "keywordMatcher": {
+      "accuracy": 0.3125
+    }
+  },
+  "cost": {
+    "totalUsd": 0.002257248,
+    "byModel": {
+      "typesafe-ai/jev": {
+        "inputTokens": 53744,
+        "outputTokens": 8603,
+        "usd": 0.002257248
+      }
+    }
+  },
+  "wallClockMs": 34318,
+  "errorsDetail": [],
+  "rows": [
+    {
+      "id": "h01",
+      "formula": "number-outcome-time",
+      "jevChoice": "receipt",
+      "distribution": {
+        "damaging-admission": 0.01,
+        "call-out": 0.07,
+        "mistakes": 0,
+        "adjective-good": 0,
+        "how-to-without": 0.22,
+        "receipt": 0.45999999999999996,
+        "number-outcome-time": 0.11,
+        "halbert-a-pile": 0.01,
+        "deprivation-moment": 0.12
+      },
+      "entropy": 0.6671,
+      "agreementCount": 3,
+      "agreementBucket": "3/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h02",
+      "formula": "receipt",
+      "jevChoice": "receipt",
+      "distribution": {
+        "damaging-admission": 0,
+        "halbert-a-pile": 0,
+        "receipt": 0.9,
+        "deprivation-moment": 0.09,
+        "number-outcome-time": 0.01,
+        "how-to-without": 0,
+        "mistakes": 0,
+        "call-out": 0,
+        "adjective-good": 0
+      },
+      "entropy": 0.1627,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": true
+    },
+    {
+      "id": "h03",
+      "formula": "damaging-admission",
+      "jevChoice": "deprivation-moment",
+      "distribution": {
+        "receipt": 0.03,
+        "how-to-without": 0.02,
+        "number-outcome-time": 0,
+        "deprivation-moment": 0.63,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0.06,
+        "adjective-good": 0,
+        "call-out": 0.17,
+        "mistakes": 0.09
+      },
+      "entropy": 0.5285,
+      "agreementCount": 3,
+      "agreementBucket": "3/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h04",
+      "formula": "deprivation-moment",
+      "jevChoice": "deprivation-moment",
+      "distribution": {
+        "receipt": 0.29,
+        "how-to-without": 0,
+        "number-outcome-time": 0.02,
+        "damaging-admission": 0.02,
+        "halbert-a-pile": 0,
+        "deprivation-moment": 0.43,
+        "call-out": 0.23,
+        "adjective-good": 0,
+        "mistakes": 0.01
+      },
+      "entropy": 0.5746,
+      "agreementCount": 3,
+      "agreementBucket": "3/5",
+      "unanimous": false,
+      "jevCorrect": true
+    },
+    {
+      "id": "h05",
+      "formula": "number-outcome-time",
+      "jevChoice": "how-to-without",
+      "distribution": {
+        "adjective-good": 0,
+        "mistakes": 0,
+        "how-to-without": 0.68,
+        "receipt": 0,
+        "halbert-a-pile": 0,
+        "call-out": 0.09,
+        "damaging-admission": 0,
+        "number-outcome-time": 0.22,
+        "deprivation-moment": 0.01
+      },
+      "entropy": 0.3905,
+      "agreementCount": 2,
+      "agreementBucket": "≤2/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h06",
+      "formula": "adjective-good",
+      "jevChoice": "how-to-without",
+      "distribution": {
+        "how-to-without": 0.73,
+        "deprivation-moment": 0.02,
+        "damaging-admission": 0,
+        "mistakes": 0,
+        "receipt": 0,
+        "halbert-a-pile": 0,
+        "adjective-good": 0.02,
+        "number-outcome-time": 0.23,
+        "call-out": 0
+      },
+      "entropy": 0.3296,
+      "agreementCount": 4,
+      "agreementBucket": "4/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h07",
+      "formula": "deprivation-moment",
+      "jevChoice": "call-out",
+      "distribution": {
+        "damaging-admission": 0.01,
+        "how-to-without": 0,
+        "number-outcome-time": 0,
+        "call-out": 0.85,
+        "mistakes": 0,
+        "deprivation-moment": 0.13,
+        "adjective-good": 0,
+        "receipt": 0.01,
+        "halbert-a-pile": 0
+      },
+      "entropy": 0.2255,
+      "agreementCount": 4,
+      "agreementBucket": "4/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h08",
+      "formula": "mistakes",
+      "jevChoice": "deprivation-moment",
+      "distribution": {
+        "call-out": 0.05,
+        "adjective-good": 0,
+        "mistakes": 0.16,
+        "how-to-without": 0,
+        "receipt": 0.01,
+        "deprivation-moment": 0.75,
+        "halbert-a-pile": 0,
+        "number-outcome-time": 0.02,
+        "damaging-admission": 0.01
+      },
+      "entropy": 0.3773,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": false
+    },
+    {
+      "id": "h09",
+      "formula": "number-outcome-time",
+      "jevChoice": "number-outcome-time",
+      "distribution": {
+        "receipt": 0,
+        "deprivation-moment": 0.02,
+        "adjective-good": 0,
+        "halbert-a-pile": 0,
+        "mistakes": 0,
+        "number-outcome-time": 0.98,
+        "damaging-admission": 0,
+        "call-out": 0,
+        "how-to-without": 0
+      },
+      "entropy": 0.0446,
+      "agreementCount": 4,
+      "agreementBucket": "4/5",
+      "unanimous": false,
+      "jevCorrect": true
+    },
+    {
+      "id": "h10",
+      "formula": "number-outcome-time",
+      "jevChoice": "number-outcome-time",
+      "distribution": {
+        "mistakes": 0,
+        "damaging-admission": 0,
+        "number-outcome-time": 0.65,
+        "deprivation-moment": 0.24,
+        "call-out": 0.07,
+        "halbert-a-pile": 0,
+        "how-to-without": 0,
+        "adjective-good": 0.04,
+        "receipt": 0
+      },
+      "entropy": 0.4266,
+      "agreementCount": 4,
+      "agreementBucket": "4/5",
+      "unanimous": false,
+      "jevCorrect": true
+    },
+    {
+      "id": "h11",
+      "formula": "number-outcome-time",
+      "jevChoice": "number-outcome-time",
+      "distribution": {
+        "damaging-admission": 0,
+        "number-outcome-time": 1,
+        "receipt": 0,
+        "deprivation-moment": 0,
+        "how-to-without": 0,
+        "mistakes": 0,
+        "call-out": 0,
+        "halbert-a-pile": 0,
+        "adjective-good": 0
+      },
+      "entropy": 0,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": true
+    },
+    {
+      "id": "h12",
+      "formula": "how-to-without",
+      "jevChoice": "how-to-without",
+      "distribution": {
+        "receipt": 0,
+        "deprivation-moment": 0,
+        "adjective-good": 0,
+        "halbert-a-pile": 0,
+        "mistakes": 0,
+        "number-outcome-time": 0,
+        "how-to-without": 1,
+        "call-out": 0,
+        "damaging-admission": 0
+      },
+      "entropy": 0,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": true
+    },
+    {
+      "id": "h13",
+      "formula": "call-out",
+      "jevChoice": "call-out",
+      "distribution": {
+        "damaging-admission": 0,
+        "how-to-without": 0.02,
+        "receipt": 0,
+        "halbert-a-pile": 0,
+        "number-outcome-time": 0.34,
+        "deprivation-moment": 0.01,
+        "mistakes": 0,
+        "call-out": 0.63,
+        "adjective-good": 0
+      },
+      "entropy": 0.356,
+      "agreementCount": 4,
+      "agreementBucket": "4/5",
+      "unanimous": false,
+      "jevCorrect": true
+    },
+    {
+      "id": "h14",
+      "formula": "deprivation-moment",
+      "jevChoice": "how-to-without",
+      "distribution": {
+        "deprivation-moment": 0.16,
+        "halbert-a-pile": 0,
+        "receipt": 0,
+        "how-to-without": 0.46,
+        "damaging-admission": 0,
+        "call-out": 0.05,
+        "number-outcome-time": 0,
+        "mistakes": 0.33,
+        "adjective-good": 0
+      },
+      "entropy": 0.5307,
+      "agreementCount": 3,
+      "agreementBucket": "3/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h15",
+      "formula": "deprivation-moment",
+      "jevChoice": "deprivation-moment",
+      "distribution": {
+        "mistakes": 0.22,
+        "deprivation-moment": 0.68,
+        "damaging-admission": 0,
+        "number-outcome-time": 0.04,
+        "receipt": 0,
+        "how-to-without": 0.01,
+        "adjective-good": 0.02,
+        "halbert-a-pile": 0,
+        "call-out": 0.03
+      },
+      "entropy": 0.434,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": true
+    },
+    {
+      "id": "h16",
+      "formula": "deprivation-moment",
+      "jevChoice": "call-out",
+      "distribution": {
+        "adjective-good": 0.01,
+        "number-outcome-time": 0,
+        "mistakes": 0.04,
+        "damaging-admission": 0.01,
+        "deprivation-moment": 0.31,
+        "receipt": 0,
+        "call-out": 0.62,
+        "how-to-without": 0.01,
+        "halbert-a-pile": 0
+      },
+      "entropy": 0.4216,
+      "agreementCount": 3,
+      "agreementBucket": "3/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h17",
+      "formula": "number-outcome-time",
+      "jevChoice": "number-outcome-time",
+      "distribution": {
+        "call-out": 0,
+        "how-to-without": 0,
+        "number-outcome-time": 1,
+        "mistakes": 0,
+        "halbert-a-pile": 0,
+        "deprivation-moment": 0,
+        "damaging-admission": 0,
+        "receipt": 0,
+        "adjective-good": 0
+      },
+      "entropy": 0,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": true
+    },
+    {
+      "id": "h18",
+      "formula": "mistakes",
+      "jevChoice": "mistakes",
+      "distribution": {
+        "mistakes": 1,
+        "damaging-admission": 0,
+        "halbert-a-pile": 0,
+        "how-to-without": 0,
+        "adjective-good": 0,
+        "deprivation-moment": 0,
+        "call-out": 0,
+        "receipt": 0,
+        "number-outcome-time": 0
+      },
+      "entropy": 0,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": true
+    },
+    {
+      "id": "h19",
+      "formula": "adjective-good",
+      "jevChoice": "call-out",
+      "distribution": {
+        "receipt": 0,
+        "damaging-admission": 0.02,
+        "number-outcome-time": 0.31,
+        "call-out": 0.34,
+        "deprivation-moment": 0,
+        "halbert-a-pile": 0,
+        "how-to-without": 0.32,
+        "mistakes": 0,
+        "adjective-good": 0.01
+      },
+      "entropy": 0.5547,
+      "agreementCount": 2,
+      "agreementBucket": "≤2/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h20",
+      "formula": "how-to-without",
+      "jevChoice": "how-to-without",
+      "distribution": {
+        "adjective-good": 0,
+        "mistakes": 0,
+        "receipt": 0,
+        "halbert-a-pile": 0,
+        "how-to-without": 1,
+        "number-outcome-time": 0,
+        "call-out": 0,
+        "damaging-admission": 0,
+        "deprivation-moment": 0
+      },
+      "entropy": 0,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": true
+    },
+    {
+      "id": "h21",
+      "formula": "call-out",
+      "jevChoice": "call-out",
+      "distribution": {
+        "damaging-admission": 0,
+        "number-outcome-time": 0,
+        "deprivation-moment": 0,
+        "adjective-good": 0,
+        "receipt": 0,
+        "halbert-a-pile": 0,
+        "call-out": 0.75,
+        "mistakes": 0.24,
+        "how-to-without": 0.01
+      },
+      "entropy": 0.275,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": true
+    },
+    {
+      "id": "h22",
+      "formula": "deprivation-moment",
+      "jevChoice": "damaging-admission",
+      "distribution": {
+        "receipt": 0,
+        "how-to-without": 0.04,
+        "number-outcome-time": 0.01,
+        "adjective-good": 0,
+        "call-out": 0.09,
+        "deprivation-moment": 0.07,
+        "damaging-admission": 0.67,
+        "mistakes": 0.12,
+        "halbert-a-pile": 0
+      },
+      "entropy": 0.5008,
+      "agreementCount": 2,
+      "agreementBucket": "≤2/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h23",
+      "formula": "deprivation-moment",
+      "jevChoice": "mistakes",
+      "distribution": {
+        "call-out": 0.19,
+        "adjective-good": 0,
+        "mistakes": 0.5,
+        "how-to-without": 0.02,
+        "receipt": 0,
+        "deprivation-moment": 0.02,
+        "halbert-a-pile": 0.1,
+        "number-outcome-time": 0,
+        "damaging-admission": 0.17
+      },
+      "entropy": 0.6144,
+      "agreementCount": 2,
+      "agreementBucket": "≤2/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h24",
+      "formula": "call-out",
+      "jevChoice": "call-out",
+      "distribution": {
+        "adjective-good": 0,
+        "halbert-a-pile": 0,
+        "how-to-without": 0.16,
+        "number-outcome-time": 0,
+        "receipt": 0,
+        "deprivation-moment": 0.11,
+        "mistakes": 0.18,
+        "call-out": 0.54,
+        "damaging-admission": 0.01
+      },
+      "entropy": 0.5568,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": true
+    },
+    {
+      "id": "h25",
+      "formula": "deprivation-moment",
+      "jevChoice": "number-outcome-time",
+      "distribution": {
+        "mistakes": 0,
+        "halbert-a-pile": 0.01,
+        "call-out": 0.05,
+        "damaging-admission": 0,
+        "deprivation-moment": 0.18,
+        "how-to-without": 0,
+        "number-outcome-time": 0.76,
+        "receipt": 0,
+        "adjective-good": 0
+      },
+      "entropy": 0.3245,
+      "agreementCount": 4,
+      "agreementBucket": "4/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h26",
+      "formula": "call-out",
+      "jevChoice": "number-outcome-time",
+      "distribution": {
+        "adjective-good": 0,
+        "number-outcome-time": 0.71,
+        "how-to-without": 0.01,
+        "halbert-a-pile": 0.02,
+        "receipt": 0.01,
+        "deprivation-moment": 0.01,
+        "mistakes": 0.21,
+        "call-out": 0.02,
+        "damaging-admission": 0.01
+      },
+      "entropy": 0.4149,
+      "agreementCount": 2,
+      "agreementBucket": "≤2/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h27",
+      "formula": "deprivation-moment",
+      "jevChoice": "call-out",
+      "distribution": {
+        "how-to-without": 0.01,
+        "deprivation-moment": 0.09,
+        "adjective-good": 0,
+        "halbert-a-pile": 0,
+        "number-outcome-time": 0,
+        "call-out": 0.67,
+        "mistakes": 0.19,
+        "damaging-admission": 0.04,
+        "receipt": 0
+      },
+      "entropy": 0.4439,
+      "agreementCount": 4,
+      "agreementBucket": "4/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h28",
+      "formula": "deprivation-moment",
+      "jevChoice": "halbert-a-pile",
+      "distribution": {
+        "deprivation-moment": 0.01,
+        "receipt": 0.01,
+        "halbert-a-pile": 0.4,
+        "adjective-good": 0,
+        "number-outcome-time": 0.16,
+        "call-out": 0,
+        "how-to-without": 0.01,
+        "damaging-admission": 0.37,
+        "mistakes": 0.04
+      },
+      "entropy": 0.5892,
+      "agreementCount": 2,
+      "agreementBucket": "≤2/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h29",
+      "formula": "number-outcome-time",
+      "jevChoice": "number-outcome-time",
+      "distribution": {
+        "call-out": 0,
+        "number-outcome-time": 0.93,
+        "how-to-without": 0,
+        "mistakes": 0.05,
+        "adjective-good": 0,
+        "halbert-a-pile": 0,
+        "deprivation-moment": 0.02,
+        "receipt": 0,
+        "damaging-admission": 0
+      },
+      "entropy": 0.1345,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": true
+    },
+    {
+      "id": "h30",
+      "formula": "number-outcome-time",
+      "jevChoice": "how-to-without",
+      "distribution": {
+        "how-to-without": 0.56,
+        "deprivation-moment": 0.02,
+        "damaging-admission": 0,
+        "mistakes": 0,
+        "halbert-a-pile": 0.36,
+        "receipt": 0,
+        "adjective-good": 0,
+        "number-outcome-time": 0.06,
+        "call-out": 0
+      },
+      "entropy": 0.4276,
+      "agreementCount": 2,
+      "agreementBucket": "≤2/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h31",
+      "formula": "how-to-without",
+      "jevChoice": "mistakes",
+      "distribution": {
+        "how-to-without": 0.02,
+        "mistakes": 0.73,
+        "halbert-a-pile": 0.07,
+        "receipt": 0,
+        "damaging-admission": 0.01,
+        "call-out": 0.17,
+        "deprivation-moment": 0,
+        "number-outcome-time": 0,
+        "adjective-good": 0
+      },
+      "entropy": 0.3829,
+      "agreementCount": 3,
+      "agreementBucket": "3/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h32",
+      "formula": "how-to-without",
+      "jevChoice": "how-to-without",
+      "distribution": {
+        "damaging-admission": 0,
+        "number-outcome-time": 0,
+        "deprivation-moment": 0,
+        "how-to-without": 0.95,
+        "receipt": 0,
+        "adjective-good": 0,
+        "call-out": 0,
+        "mistakes": 0.05,
+        "halbert-a-pile": 0
+      },
+      "entropy": 0.0903,
+      "agreementCount": 4,
+      "agreementBucket": "4/5",
+      "unanimous": false,
+      "jevCorrect": true
+    },
+    {
+      "id": "h33",
+      "formula": "number-outcome-time",
+      "jevChoice": "how-to-without",
+      "distribution": {
+        "damaging-admission": 0,
+        "halbert-a-pile": 0.02,
+        "number-outcome-time": 0.01,
+        "receipt": 0,
+        "how-to-without": 0.97,
+        "call-out": 0,
+        "mistakes": 0,
+        "adjective-good": 0,
+        "deprivation-moment": 0
+      },
+      "entropy": 0.07,
+      "agreementCount": 2,
+      "agreementBucket": "≤2/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h34",
+      "formula": "adjective-good",
+      "jevChoice": "mistakes",
+      "distribution": {
+        "call-out": 0.33,
+        "how-to-without": 0,
+        "mistakes": 0.63,
+        "deprivation-moment": 0.03,
+        "halbert-a-pile": 0,
+        "receipt": 0,
+        "number-outcome-time": 0,
+        "adjective-good": 0,
+        "damaging-admission": 0.01
+      },
+      "entropy": 0.3678,
+      "agreementCount": 3,
+      "agreementBucket": "3/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h35",
+      "formula": "mistakes",
+      "jevChoice": "number-outcome-time",
+      "distribution": {
+        "mistakes": 0.47,
+        "deprivation-moment": 0.01,
+        "damaging-admission": 0,
+        "number-outcome-time": 0.51,
+        "receipt": 0,
+        "how-to-without": 0,
+        "halbert-a-pile": 0,
+        "adjective-good": 0,
+        "call-out": 0.01
+      },
+      "entropy": 0.3597,
+      "agreementCount": 3,
+      "agreementBucket": "3/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h36",
+      "formula": "deprivation-moment",
+      "jevChoice": "mistakes",
+      "distribution": {
+        "deprivation-moment": 0,
+        "call-out": 0.17,
+        "mistakes": 0.81,
+        "damaging-admission": 0,
+        "halbert-a-pile": 0.01,
+        "how-to-without": 0,
+        "receipt": 0,
+        "adjective-good": 0,
+        "number-outcome-time": 0
+      },
+      "entropy": 0.2357,
+      "agreementCount": 4,
+      "agreementBucket": "4/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h37",
+      "formula": "deprivation-moment",
+      "jevChoice": "call-out",
+      "distribution": {
+        "mistakes": 0.14,
+        "damaging-admission": 0.01,
+        "number-outcome-time": 0,
+        "deprivation-moment": 0.28,
+        "call-out": 0.55,
+        "halbert-a-pile": 0,
+        "how-to-without": 0.01,
+        "adjective-good": 0,
+        "receipt": 0
+      },
+      "entropy": 0.4791,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": false
+    },
+    {
+      "id": "h38",
+      "formula": "deprivation-moment",
+      "jevChoice": "mistakes",
+      "distribution": {
+        "mistakes": 0.46,
+        "call-out": 0.02,
+        "halbert-a-pile": 0,
+        "adjective-good": 0.07,
+        "how-to-without": 0,
+        "number-outcome-time": 0.01,
+        "receipt": 0.03,
+        "deprivation-moment": 0.26,
+        "damaging-admission": 0.15
+      },
+      "entropy": 0.6406,
+      "agreementCount": 2,
+      "agreementBucket": "≤2/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h39",
+      "formula": "call-out",
+      "jevChoice": "how-to-without",
+      "distribution": {
+        "damaging-admission": 0,
+        "receipt": 0,
+        "number-outcome-time": 0,
+        "deprivation-moment": 0.01,
+        "how-to-without": 0.69,
+        "mistakes": 0.24,
+        "call-out": 0.06,
+        "halbert-a-pile": 0,
+        "adjective-good": 0
+      },
+      "entropy": 0.3702,
+      "agreementCount": 4,
+      "agreementBucket": "4/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h40",
+      "formula": "damaging-admission",
+      "jevChoice": "damaging-admission",
+      "distribution": {
+        "mistakes": 0.2,
+        "call-out": 0.01,
+        "halbert-a-pile": 0,
+        "adjective-good": 0,
+        "how-to-without": 0,
+        "number-outcome-time": 0,
+        "receipt": 0,
+        "deprivation-moment": 0.05,
+        "damaging-admission": 0.74
+      },
+      "entropy": 0.337,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": true
+    },
+    {
+      "id": "h41",
+      "formula": "damaging-admission",
+      "jevChoice": "how-to-without",
+      "distribution": {
+        "how-to-without": 0.64,
+        "adjective-good": 0.02,
+        "deprivation-moment": 0.06,
+        "halbert-a-pile": 0,
+        "call-out": 0.23,
+        "number-outcome-time": 0,
+        "mistakes": 0.02,
+        "damaging-admission": 0.02,
+        "receipt": 0.01
+      },
+      "entropy": 0.4884,
+      "agreementCount": 2,
+      "agreementBucket": "≤2/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h42",
+      "formula": "deprivation-moment",
+      "jevChoice": "how-to-without",
+      "distribution": {
+        "deprivation-moment": 0.29,
+        "damaging-admission": 0,
+        "call-out": 0.16,
+        "halbert-a-pile": 0,
+        "adjective-good": 0,
+        "number-outcome-time": 0,
+        "receipt": 0,
+        "how-to-without": 0.51,
+        "mistakes": 0.04
+      },
+      "entropy": 0.5117,
+      "agreementCount": 4,
+      "agreementBucket": "4/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h43",
+      "formula": "halbert-a-pile",
+      "jevChoice": "receipt",
+      "distribution": {
+        "receipt": 0.67,
+        "how-to-without": 0,
+        "number-outcome-time": 0,
+        "deprivation-moment": 0.31,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0,
+        "adjective-good": 0,
+        "call-out": 0.02,
+        "mistakes": 0
+      },
+      "entropy": 0.323,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": false
+    },
+    {
+      "id": "h44",
+      "formula": "halbert-a-pile",
+      "jevChoice": "receipt",
+      "distribution": {
+        "mistakes": 0,
+        "adjective-good": 0,
+        "damaging-admission": 0,
+        "halbert-a-pile": 0,
+        "deprivation-moment": 0.16,
+        "receipt": 0.56,
+        "number-outcome-time": 0.01,
+        "call-out": 0.27,
+        "how-to-without": 0
+      },
+      "entropy": 0.4631,
+      "agreementCount": 2,
+      "agreementBucket": "≤2/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h45",
+      "formula": "halbert-a-pile",
+      "jevChoice": "mistakes",
+      "distribution": {
+        "call-out": 0,
+        "adjective-good": 0,
+        "number-outcome-time": 0,
+        "damaging-admission": 0.01,
+        "deprivation-moment": 0,
+        "halbert-a-pile": 0,
+        "how-to-without": 0,
+        "mistakes": 0.99,
+        "receipt": 0
+      },
+      "entropy": 0.0255,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": false
+    },
+    {
+      "id": "h46",
+      "formula": "halbert-a-pile",
+      "jevChoice": "damaging-admission",
+      "distribution": {
+        "halbert-a-pile": 0,
+        "how-to-without": 0.01,
+        "mistakes": 0.18,
+        "call-out": 0.09,
+        "adjective-good": 0.01,
+        "receipt": 0.17,
+        "number-outcome-time": 0,
+        "deprivation-moment": 0.24,
+        "damaging-admission": 0.3
+      },
+      "entropy": 0.7384,
+      "agreementCount": 2,
+      "agreementBucket": "≤2/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h47",
+      "formula": "halbert-a-pile",
+      "jevChoice": "receipt",
+      "distribution": {
+        "mistakes": 0,
+        "damaging-admission": 0,
+        "receipt": 0.69,
+        "deprivation-moment": 0.26,
+        "call-out": 0.03,
+        "halbert-a-pile": 0,
+        "adjective-good": 0,
+        "how-to-without": 0,
+        "number-outcome-time": 0.02
+      },
+      "entropy": 0.3594,
+      "agreementCount": 4,
+      "agreementBucket": "4/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h48",
+      "formula": "halbert-a-pile",
+      "jevChoice": "receipt",
+      "distribution": {
+        "mistakes": 0,
+        "call-out": 0.15,
+        "halbert-a-pile": 0,
+        "number-outcome-time": 0.01,
+        "how-to-without": 0,
+        "adjective-good": 0,
+        "receipt": 0.7,
+        "deprivation-moment": 0.14,
+        "damaging-admission": 0
+      },
+      "entropy": 0.3894,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": false
+    },
+    {
+      "id": "h49",
+      "formula": "damaging-admission",
+      "jevChoice": "how-to-without",
+      "distribution": {
+        "halbert-a-pile": 0,
+        "call-out": 0,
+        "adjective-good": 0,
+        "damaging-admission": 0.01,
+        "deprivation-moment": 0.04,
+        "how-to-without": 0.83,
+        "number-outcome-time": 0.11,
+        "receipt": 0,
+        "mistakes": 0.01
+      },
+      "entropy": 0.2814,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": false
+    },
+    {
+      "id": "h50",
+      "formula": "mistakes",
+      "jevChoice": "call-out",
+      "distribution": {
+        "number-outcome-time": 0.01,
+        "damaging-admission": 0.03,
+        "halbert-a-pile": 0,
+        "how-to-without": 0.02,
+        "adjective-good": 0,
+        "deprivation-moment": 0.04,
+        "call-out": 0.71,
+        "receipt": 0,
+        "mistakes": 0.19
+      },
+      "entropy": 0.4173,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": false
+    },
+    {
+      "id": "h51",
+      "formula": "call-out",
+      "jevChoice": "mistakes",
+      "distribution": {
+        "deprivation-moment": 0,
+        "halbert-a-pile": 0,
+        "receipt": 0,
+        "how-to-without": 0.01,
+        "damaging-admission": 0,
+        "call-out": 0.41,
+        "number-outcome-time": 0,
+        "mistakes": 0.58,
+        "adjective-good": 0
+      },
+      "entropy": 0.3311,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": false
+    },
+    {
+      "id": "h52",
+      "formula": "call-out",
+      "jevChoice": "call-out",
+      "distribution": {
+        "adjective-good": 0,
+        "deprivation-moment": 0.09,
+        "how-to-without": 0.15,
+        "halbert-a-pile": 0,
+        "call-out": 0.32,
+        "number-outcome-time": 0.29,
+        "mistakes": 0.15,
+        "damaging-admission": 0,
+        "receipt": 0
+      },
+      "entropy": 0.687,
+      "agreementCount": 3,
+      "agreementBucket": "3/5",
+      "unanimous": false,
+      "jevCorrect": true
+    },
+    {
+      "id": "h53",
+      "formula": "call-out",
+      "jevChoice": "deprivation-moment",
+      "distribution": {
+        "mistakes": 0.08,
+        "number-outcome-time": 0,
+        "damaging-admission": 0,
+        "deprivation-moment": 0.38,
+        "receipt": 0,
+        "how-to-without": 0.14,
+        "adjective-good": 0.03,
+        "halbert-a-pile": 0.01,
+        "call-out": 0.36
+      },
+      "entropy": 0.6208,
+      "agreementCount": 4,
+      "agreementBucket": "4/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h54",
+      "formula": "deprivation-moment",
+      "jevChoice": "deprivation-moment",
+      "distribution": {
+        "call-out": 0,
+        "how-to-without": 0.03,
+        "number-outcome-time": 0,
+        "mistakes": 0.01,
+        "deprivation-moment": 0.45,
+        "damaging-admission": 0.28,
+        "halbert-a-pile": 0,
+        "receipt": 0.23,
+        "adjective-good": 0
+      },
+      "entropy": 0.5484,
+      "agreementCount": 3,
+      "agreementBucket": "3/5",
+      "unanimous": false,
+      "jevCorrect": true
+    },
+    {
+      "id": "h55",
+      "formula": "call-out",
+      "jevChoice": "mistakes",
+      "distribution": {
+        "adjective-good": 0,
+        "mistakes": 0.93,
+        "how-to-without": 0.06,
+        "receipt": 0,
+        "halbert-a-pile": 0,
+        "call-out": 0.01,
+        "damaging-admission": 0,
+        "number-outcome-time": 0,
+        "deprivation-moment": 0
+      },
+      "entropy": 0.1285,
+      "agreementCount": 4,
+      "agreementBucket": "4/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h56",
+      "formula": "receipt",
+      "jevChoice": "call-out",
+      "distribution": {
+        "receipt": 0.09,
+        "damaging-admission": 0,
+        "number-outcome-time": 0.19,
+        "call-out": 0.32,
+        "deprivation-moment": 0.25,
+        "halbert-a-pile": 0.01,
+        "how-to-without": 0.14,
+        "adjective-good": 0,
+        "mistakes": 0
+      },
+      "entropy": 0.7122,
+      "agreementCount": 4,
+      "agreementBucket": "4/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h57",
+      "formula": "receipt",
+      "jevChoice": "number-outcome-time",
+      "distribution": {
+        "mistakes": 0,
+        "damaging-admission": 0,
+        "halbert-a-pile": 0,
+        "how-to-without": 0,
+        "adjective-good": 0,
+        "deprivation-moment": 0.05,
+        "call-out": 0.04,
+        "receipt": 0.05,
+        "number-outcome-time": 0.86
+      },
+      "entropy": 0.254,
+      "agreementCount": 4,
+      "agreementBucket": "4/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h58",
+      "formula": "damaging-admission",
+      "jevChoice": "how-to-without",
+      "distribution": {
+        "adjective-good": 0,
+        "call-out": 0,
+        "mistakes": 0.14,
+        "how-to-without": 0.7,
+        "receipt": 0,
+        "deprivation-moment": 0.04,
+        "number-outcome-time": 0.12,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0
+      },
+      "entropy": 0.4133,
+      "agreementCount": 4,
+      "agreementBucket": "4/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h59",
+      "formula": "number-outcome-time",
+      "jevChoice": "number-outcome-time",
+      "distribution": {
+        "call-out": 0.01,
+        "how-to-without": 0.08,
+        "mistakes": 0,
+        "deprivation-moment": 0.15,
+        "halbert-a-pile": 0,
+        "receipt": 0.09,
+        "number-outcome-time": 0.65,
+        "adjective-good": 0.02,
+        "damaging-admission": 0
+      },
+      "entropy": 0.5041,
+      "agreementCount": 4,
+      "agreementBucket": "4/5",
+      "unanimous": false,
+      "jevCorrect": true
+    },
+    {
+      "id": "h60",
+      "formula": "how-to-without",
+      "jevChoice": "how-to-without",
+      "distribution": {
+        "how-to-without": 0.92,
+        "deprivation-moment": 0,
+        "damaging-admission": 0,
+        "mistakes": 0.06,
+        "halbert-a-pile": 0.01,
+        "adjective-good": 0,
+        "receipt": 0,
+        "number-outcome-time": 0.01,
+        "call-out": 0
+      },
+      "entropy": 0.1537,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": true
+    },
+    {
+      "id": "h61",
+      "formula": "deprivation-moment",
+      "jevChoice": "deprivation-moment",
+      "distribution": {
+        "receipt": 0.02,
+        "how-to-without": 0.01,
+        "number-outcome-time": 0,
+        "adjective-good": 0,
+        "call-out": 0.31,
+        "deprivation-moment": 0.64,
+        "damaging-admission": 0.02,
+        "mistakes": 0,
+        "halbert-a-pile": 0
+      },
+      "entropy": 0.3874,
+      "agreementCount": 3,
+      "agreementBucket": "3/5",
+      "unanimous": false,
+      "jevCorrect": true
+    },
+    {
+      "id": "h62",
+      "formula": "number-outcome-time",
+      "jevChoice": "how-to-without",
+      "distribution": {
+        "adjective-good": 0,
+        "number-outcome-time": 0.29,
+        "how-to-without": 0.43,
+        "halbert-a-pile": 0.23,
+        "receipt": 0.01,
+        "deprivation-moment": 0.03,
+        "mistakes": 0,
+        "call-out": 0,
+        "damaging-admission": 0.01
+      },
+      "entropy": 0.5722,
+      "agreementCount": 2,
+      "agreementBucket": "≤2/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h63",
+      "formula": "number-outcome-time",
+      "jevChoice": "number-outcome-time",
+      "distribution": {
+        "call-out": 0,
+        "number-outcome-time": 0.95,
+        "how-to-without": 0.04,
+        "mistakes": 0,
+        "deprivation-moment": 0.01,
+        "adjective-good": 0,
+        "damaging-admission": 0,
+        "receipt": 0,
+        "halbert-a-pile": 0
+      },
+      "entropy": 0.1017,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": true
+    },
+    {
+      "id": "h64",
+      "formula": "number-outcome-time",
+      "jevChoice": "number-outcome-time",
+      "distribution": {
+        "receipt": 0,
+        "how-to-without": 0.02,
+        "number-outcome-time": 0.98,
+        "deprivation-moment": 0,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0,
+        "call-out": 0,
+        "adjective-good": 0,
+        "mistakes": 0
+      },
+      "entropy": 0.0446,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": true
+    },
+    {
+      "id": "h65",
+      "formula": "deprivation-moment",
+      "jevChoice": "mistakes",
+      "distribution": {
+        "mistakes": 0.93,
+        "adjective-good": 0,
+        "damaging-admission": 0.02,
+        "halbert-a-pile": 0,
+        "deprivation-moment": 0,
+        "receipt": 0,
+        "number-outcome-time": 0.03,
+        "call-out": 0,
+        "how-to-without": 0.01
+      },
+      "entropy": 0.1352,
+      "agreementCount": 4,
+      "agreementBucket": "4/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h66",
+      "formula": "adjective-good",
+      "jevChoice": "mistakes",
+      "distribution": {
+        "halbert-a-pile": 0.01,
+        "damaging-admission": 0.01,
+        "number-outcome-time": 0,
+        "receipt": 0,
+        "how-to-without": 0.08,
+        "call-out": 0.13,
+        "adjective-good": 0.15,
+        "mistakes": 0.33999999999999997,
+        "deprivation-moment": 0.28
+      },
+      "entropy": 0.7133,
+      "agreementCount": 2,
+      "agreementBucket": "≤2/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h67",
+      "formula": "receipt",
+      "jevChoice": "call-out",
+      "distribution": {
+        "mistakes": 0.04,
+        "damaging-admission": 0,
+        "adjective-good": 0.04,
+        "halbert-a-pile": 0,
+        "call-out": 0.35,
+        "number-outcome-time": 0.06,
+        "deprivation-moment": 0.31,
+        "receipt": 0.17,
+        "how-to-without": 0.03
+      },
+      "entropy": 0.7115,
+      "agreementCount": 3,
+      "agreementBucket": "3/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h68",
+      "formula": "mistakes",
+      "jevChoice": "mistakes",
+      "distribution": {
+        "receipt": 0,
+        "how-to-without": 0.01,
+        "number-outcome-time": 0,
+        "deprivation-moment": 0,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0,
+        "call-out": 0,
+        "adjective-good": 0,
+        "mistakes": 0.99
+      },
+      "entropy": 0.0255,
+      "agreementCount": 3,
+      "agreementBucket": "3/5",
+      "unanimous": false,
+      "jevCorrect": true
+    },
+    {
+      "id": "h69",
+      "formula": "number-outcome-time",
+      "jevChoice": "number-outcome-time",
+      "distribution": {
+        "mistakes": 0,
+        "call-out": 0,
+        "halbert-a-pile": 0,
+        "number-outcome-time": 0.95,
+        "how-to-without": 0.05,
+        "adjective-good": 0,
+        "receipt": 0,
+        "deprivation-moment": 0,
+        "damaging-admission": 0
+      },
+      "entropy": 0.0903,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": true
+    },
+    {
+      "id": "h70",
+      "formula": "number-outcome-time",
+      "jevChoice": "number-outcome-time",
+      "distribution": {
+        "call-out": 0,
+        "number-outcome-time": 0.95,
+        "receipt": 0,
+        "halbert-a-pile": 0,
+        "how-to-without": 0.05,
+        "damaging-admission": 0,
+        "mistakes": 0,
+        "deprivation-moment": 0,
+        "adjective-good": 0
+      },
+      "entropy": 0.0903,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": true
+    },
+    {
+      "id": "h71",
+      "formula": "deprivation-moment",
+      "jevChoice": "how-to-without",
+      "distribution": {
+        "mistakes": 0.04,
+        "call-out": 0,
+        "deprivation-moment": 0.07,
+        "damaging-admission": 0,
+        "receipt": 0,
+        "how-to-without": 0.88,
+        "halbert-a-pile": 0,
+        "adjective-good": 0,
+        "number-outcome-time": 0.01
+      },
+      "entropy": 0.2155,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": false
+    },
+    {
+      "id": "h72",
+      "formula": "how-to-without",
+      "jevChoice": "mistakes",
+      "distribution": {
+        "call-out": 0.03,
+        "number-outcome-time": 0,
+        "adjective-good": 0,
+        "deprivation-moment": 0.06,
+        "damaging-admission": 0,
+        "mistakes": 0.51,
+        "how-to-without": 0.38,
+        "halbert-a-pile": 0.02,
+        "receipt": 0
+      },
+      "entropy": 0.4839,
+      "agreementCount": 3,
+      "agreementBucket": "3/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h73",
+      "formula": "call-out",
+      "jevChoice": "call-out",
+      "distribution": {
+        "damaging-admission": 0,
+        "halbert-a-pile": 0,
+        "number-outcome-time": 0,
+        "receipt": 0.01,
+        "how-to-without": 0.03,
+        "call-out": 0.75,
+        "adjective-good": 0.16,
+        "mistakes": 0.01,
+        "deprivation-moment": 0.04
+      },
+      "entropy": 0.38,
+      "agreementCount": 4,
+      "agreementBucket": "4/5",
+      "unanimous": false,
+      "jevCorrect": true
+    },
+    {
+      "id": "h74",
+      "formula": "call-out",
+      "jevChoice": "mistakes",
+      "distribution": {
+        "mistakes": 0.69,
+        "receipt": 0,
+        "damaging-admission": 0,
+        "deprivation-moment": 0.01,
+        "call-out": 0.22,
+        "halbert-a-pile": 0,
+        "adjective-good": 0.04,
+        "number-outcome-time": 0,
+        "how-to-without": 0.04
+      },
+      "entropy": 0.4063,
+      "agreementCount": 2,
+      "agreementBucket": "≤2/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h75",
+      "formula": "call-out",
+      "jevChoice": "number-outcome-time",
+      "distribution": {
+        "halbert-a-pile": 0.01,
+        "receipt": 0.07,
+        "deprivation-moment": 0.02,
+        "number-outcome-time": 0.7,
+        "call-out": 0.18,
+        "damaging-admission": 0,
+        "adjective-good": 0.01,
+        "mistakes": 0,
+        "how-to-without": 0.01
+      },
+      "entropy": 0.4373,
+      "agreementCount": 3,
+      "agreementBucket": "3/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h76",
+      "formula": "how-to-without",
+      "jevChoice": "mistakes",
+      "distribution": {
+        "adjective-good": 0,
+        "number-outcome-time": 0,
+        "how-to-without": 0.05,
+        "halbert-a-pile": 0,
+        "receipt": 0,
+        "deprivation-moment": 0.01,
+        "mistakes": 0.89,
+        "call-out": 0.05,
+        "damaging-admission": 0
+      },
+      "entropy": 0.2045,
+      "agreementCount": 4,
+      "agreementBucket": "4/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h77",
+      "formula": "deprivation-moment",
+      "jevChoice": "mistakes",
+      "distribution": {
+        "adjective-good": 0,
+        "mistakes": 0.52,
+        "receipt": 0.01,
+        "halbert-a-pile": 0,
+        "how-to-without": 0.07,
+        "number-outcome-time": 0.02,
+        "call-out": 0.03,
+        "damaging-admission": 0.2,
+        "deprivation-moment": 0.15
+      },
+      "entropy": 0.6199,
+      "agreementCount": 2,
+      "agreementBucket": "≤2/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h78",
+      "formula": "deprivation-moment",
+      "jevChoice": "mistakes",
+      "distribution": {
+        "halbert-a-pile": 0,
+        "damaging-admission": 0,
+        "number-outcome-time": 0.05,
+        "receipt": 0,
+        "how-to-without": 0.16,
+        "call-out": 0.06,
+        "mistakes": 0.7,
+        "adjective-good": 0,
+        "deprivation-moment": 0.03
+      },
+      "entropy": 0.44,
+      "agreementCount": 3,
+      "agreementBucket": "3/5",
+      "unanimous": false,
+      "jevCorrect": false
+    },
+    {
+      "id": "h79",
+      "formula": "deprivation-moment",
+      "jevChoice": "mistakes",
+      "distribution": {
+        "mistakes": 0.39,
+        "adjective-good": 0,
+        "damaging-admission": 0.01,
+        "halbert-a-pile": 0,
+        "deprivation-moment": 0.38,
+        "number-outcome-time": 0,
+        "receipt": 0,
+        "call-out": 0.07,
+        "how-to-without": 0.15
+      },
+      "entropy": 0.5697,
+      "agreementCount": 5,
+      "agreementBucket": "5/5",
+      "unanimous": true,
+      "jevCorrect": false
+    },
+    {
+      "id": "h80",
+      "formula": "adjective-good",
+      "jevChoice": "how-to-without",
+      "distribution": {
+        "receipt": 0,
+        "damaging-admission": 0,
+        "number-outcome-time": 0.01,
+        "call-out": 0.13,
+        "deprivation-moment": 0.05,
+        "halbert-a-pile": 0,
+        "how-to-without": 0.81,
+        "adjective-good": 0,
+        "mistakes": 0
+      },
+      "entropy": 0.2875,
+      "agreementCount": 3,
+      "agreementBucket": "3/5",
+      "unanimous": false,
+      "jevCorrect": false
+    }
+  ]
+}

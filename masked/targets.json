@@ -1,0 +1,1025 @@
+[
+ {
+  "file": "/Users/manu/Downloads/FAF6.0_State/FAF6.0_State.csv",
+  "kind": "csv",
+  "target": "dms_mode",
+  "rows": 599529,
+  "classes": 8,
+  "values": [
+   "1",
+   "4",
+   "5",
+   "2",
+   "7",
+   "3",
+   "6",
+   "8"
+  ],
+  "majorityShare": 0.328,
+  "inputCols": [],
+  "leakRate": 0,
+  "signal": 2821924.0
+ },
+ {
+  "file": "/Users/manu/Downloads/FAF6.0_State/FAF6.0_State.csv",
+  "kind": "csv",
+  "target": "trade_type",
+  "rows": 599529,
+  "classes": 3,
+  "values": [
+   "2",
+   "3",
+   "1"
+  ],
+  "majorityShare": 0.384,
+  "inputCols": [],
+  "leakRate": 0,
+  "signal": 738960.0
+ },
+ {
+  "file": "/Users/manu/Downloads/Wassenger Contacts export 2026-03-01 10_04.csv",
+  "kind": "csv",
+  "target": "Agenda contact",
+  "rows": 6413,
+  "classes": 2,
+  "values": [
+   "No",
+   "Yes"
+  ],
+  "majorityShare": 0.763,
+  "inputCols": [],
+  "leakRate": 0,
+  "signal": 1519.0
+ },
+ {
+  "file": "/Users/manu/Downloads/field-notebook-bundle/corpus-data/atlas.json",
+  "kind": "json",
+  "target": "T",
+  "rows": 140,
+  "classes": 12,
+  "values": [
+   "authorship",
+   "interaction",
+   "process",
+   "perception",
+   "composition",
+   "system",
+   "type",
+   "cognition",
+   "color",
+   "foundation",
+   "narrative",
+   "craft"
+  ],
+  "majorityShare": 0.129,
+  "inputCols": [],
+  "leakRate": 0,
+  "signal": 1342.0
+ },
+ {
+  "file": "/Users/manu/Downloads/Housing.csv",
+  "kind": "csv",
+  "target": "bedrooms",
+  "rows": 545,
+  "classes": 6,
+  "values": [
+   "3",
+   "2",
+   "4",
+   "5",
+   "6",
+   "1"
+  ],
+  "majorityShare": 0.55,
+  "inputCols": [],
+  "leakRate": 0,
+  "signal": 1225.0
+ },
+ {
+  "file": "/Users/manu/Downloads/field-notebook-bundle/corpus-data/corpus-full-with-relations.json",
+  "kind": "json",
+  "target": "tier",
+  "rows": 140,
+  "classes": 12,
+  "values": [
+   "authorship",
+   "interaction",
+   "process",
+   "perception",
+   "composition",
+   "system",
+   "type",
+   "cognition",
+   "color",
+   "foundation",
+   "narrative",
+   "craft"
+  ],
+  "majorityShare": 0.129,
+  "inputCols": [
+   "what",
+   "source",
+   "eyebrow"
+  ],
+  "leakRate": 0.292,
+  "signal": 950.6
+ },
+ {
+  "file": "/Users/manu/Downloads/Housing.csv",
+  "kind": "csv",
+  "target": "stories",
+  "rows": 545,
+  "classes": 4,
+  "values": [
+   "2",
+   "1",
+   "4",
+   "3"
+  ],
+  "majorityShare": 0.437,
+  "inputCols": [],
+  "leakRate": 0,
+  "signal": 921.0
+ },
+ {
+  "file": "/Users/manu/Downloads/Housing.csv",
+  "kind": "csv",
+  "target": "parking",
+  "rows": 545,
+  "classes": 4,
+  "values": [
+   "0",
+   "1",
+   "2",
+   "3"
+  ],
+  "majorityShare": 0.549,
+  "inputCols": [],
+  "leakRate": 0,
+  "signal": 738.0
+ },
+ {
+  "file": "/Users/manu/Downloads/Housing.csv",
+  "kind": "csv",
+  "target": "furnishingstatus",
+  "rows": 545,
+  "classes": 3,
+  "values": [
+   "semi-furnished",
+   "unfurnished",
+   "furnished"
+  ],
+  "majorityShare": 0.417,
+  "inputCols": [],
+  "leakRate": 0,
+  "signal": 636.0
+ },
+ {
+  "file": "/Users/manu/Downloads/TAROT-HERMETICO (1)/scraps/wada-combinations.json",
+  "kind": "json",
+  "target": "size",
+  "rows": 348,
+  "classes": 3,
+  "values": [
+   "2",
+   "3",
+   "4"
+  ],
+  "majorityShare": 0.345,
+  "inputCols": [],
+  "leakRate": 0,
+  "signal": 456.0
+ },
+ {
+  "file": "/Users/manu/CETI/PISCES-MARKETING/assets/ceti-silver-hooks.json",
+  "kind": "json",
+  "target": "formula",
+  "rows": 80,
+  "classes": 9,
+  "values": [
+   "deprivation-moment",
+   "number-outcome-time",
+   "call-out",
+   "how-to-without",
+   "halbert-a-pile",
+   "damaging-admission",
+   "adjective-good",
+   "mistakes",
+   "receipt"
+  ],
+  "majorityShare": 0.263,
+  "inputCols": [
+   "text",
+   "source"
+  ],
+  "leakRate": 0.037,
+  "signal": 454.3
+ },
+ {
+  "file": "/Users/manu/Downloads/Housing.csv",
+  "kind": "csv",
+  "target": "bathrooms",
+  "rows": 545,
+  "classes": 4,
+  "values": [
+   "1",
+   "2",
+   "3",
+   "4"
+  ],
+  "majorityShare": 0.736,
+  "inputCols": [],
+  "leakRate": 0,
+  "signal": 432.0
+ },
+ {
+  "file": "/Users/manu/Downloads/GAI-2106-1-GAI-2106-1771424636/LabFiles/task-decomposition/sample-reviews.csv",
+  "kind": "csv",
+  "target": "rating",
+  "rows": 100,
+  "classes": 5,
+  "values": [
+   "4",
+   "3",
+   "5",
+   "2",
+   "1"
+  ],
+  "majorityShare": 0.44,
+  "inputCols": [
+   "review_text"
+  ],
+  "leakRate": 0.0,
+  "signal": 224.0
+ },
+ {
+  "file": "/Users/manu/CETI/PISCES-MARKETING/assets/ceti-silver-hooks-approved.json",
+  "kind": "json",
+  "target": "formula",
+  "rows": 39,
+  "classes": 9,
+  "values": [
+   "number-outcome-time",
+   "deprivation-moment",
+   "how-to-without",
+   "call-out",
+   "adjective-good",
+   "damaging-admission",
+   "halbert-a-pile",
+   "receipt",
+   "mistakes"
+  ],
+  "majorityShare": 0.282,
+  "inputCols": [
+   "text",
+   "source"
+  ],
+  "leakRate": 0.026,
+  "signal": 218.3
+ },
+ {
+  "file": "/Users/manu/CETI/PISCES-MARKETING/assets/ceti-silver-hooks-wave2.json",
+  "kind": "json",
+  "target": "formula",
+  "rows": 36,
+  "classes": 9,
+  "values": [
+   "deprivation-moment",
+   "call-out",
+   "halbert-a-pile",
+   "number-outcome-time",
+   "damaging-admission",
+   "how-to-without",
+   "mistakes",
+   "receipt",
+   "adjective-good"
+  ],
+  "majorityShare": 0.222,
+  "inputCols": [
+   "text",
+   "source"
+  ],
+  "leakRate": 0.028,
+  "signal": 217.8
+ },
+ {
+  "file": "/Users/manu/Downloads/Housing.csv",
+  "kind": "csv",
+  "target": "basement",
+  "rows": 545,
+  "classes": 2,
+  "values": [
+   "no",
+   "yes"
+  ],
+  "majorityShare": 0.65,
+  "inputCols": [],
+  "leakRate": 0,
+  "signal": 191.0
+ },
+ {
+  "file": "/Users/manu/Downloads/Housing.csv",
+  "kind": "csv",
+  "target": "airconditioning",
+  "rows": 545,
+  "classes": 2,
+  "values": [
+   "no",
+   "yes"
+  ],
+  "majorityShare": 0.684,
+  "inputCols": [],
+  "leakRate": 0,
+  "signal": 172.0
+ },
+ {
+  "file": "/Users/manu/CETI/fable-prompts/dataset/records.jsonl",
+  "kind": "jsonl",
+  "target": "level",
+  "rows": 40,
+  "classes": 7,
+  "values": [
+   "L5",
+   "L4",
+   "L6",
+   "L7",
+   "L3",
+   "L2",
+   "L1"
+  ],
+  "majorityShare": 0.3,
+  "inputCols": [
+   "reasoning_trace",
+   "response",
+   "verification_gate"
+  ],
+  "leakRate": 0.05,
+  "signal": 159.6
+ },
+ {
+  "file": "/Users/manu/CETI/fable-prompts/dataset/records.csv",
+  "kind": "csv",
+  "target": "level",
+  "rows": 40,
+  "classes": 7,
+  "values": [
+   "L5",
+   "L4",
+   "L6",
+   "L7",
+   "L3",
+   "L2",
+   "L1"
+  ],
+  "majorityShare": 0.3,
+  "inputCols": [
+   "reasoning_trace",
+   "response",
+   "verification_gate"
+  ],
+  "leakRate": 0.05,
+  "signal": 159.6
+ },
+ {
+  "file": "/Users/manu/Downloads/Wassenger Contacts export 2026-03-01 10_04.csv",
+  "kind": "csv",
+  "target": "Contact Type",
+  "rows": 6413,
+  "classes": 2,
+  "values": [
+   "personal",
+   "business"
+  ],
+  "majorityShare": 0.975,
+  "inputCols": [],
+  "leakRate": 0,
+  "signal": 158.0
+ },
+ {
+  "file": "/Users/manu/Downloads/224415-GAI-2201 2/GAI-2201-1.0.3-Supporting/LabFiles/a-b-testing-strategy-pt2-evaluation/solutions/hotpot_dev_distractor_v1_sample.json",
+  "kind": "json",
+  "target": "type",
+  "rows": 822,
+  "classes": 2,
+  "values": [
+   "bridge",
+   "comparison"
+  ],
+  "majorityShare": 0.81,
+  "inputCols": [
+   "question"
+  ],
+  "leakRate": 0.0,
+  "signal": 156.0
+ },
+ {
+  "file": "/Users/manu/Downloads/GAI-2201-1-GAI-2201-1769885671/GAI-2201-1.0.3-Supporting/LabFiles/a-b-testing-strategy-pt2-evaluation/solutions/hotpot_dev_distractor_v1_sample.json",
+  "kind": "json",
+  "target": "type",
+  "rows": 822,
+  "classes": 2,
+  "values": [
+   "bridge",
+   "comparison"
+  ],
+  "majorityShare": 0.81,
+  "inputCols": [
+   "question"
+  ],
+  "leakRate": 0.0,
+  "signal": 156.0
+ },
+ {
+  "file": "/Users/manu/Downloads/Wassenger Contacts export 2026-03-01 10_04.csv",
+  "kind": "csv",
+  "target": "WhatsApp Business number?",
+  "rows": 6413,
+  "classes": 2,
+  "values": [
+   "No",
+   "Yes"
+  ],
+  "majorityShare": 0.976,
+  "inputCols": [],
+  "leakRate": 0,
+  "signal": 153.0
+ },
+ {
+  "file": "/Users/manu/Downloads/Housing.csv",
+  "kind": "csv",
+  "target": "prefarea",
+  "rows": 545,
+  "classes": 2,
+  "values": [
+   "no",
+   "yes"
+  ],
+  "majorityShare": 0.765,
+  "inputCols": [],
+  "leakRate": 0,
+  "signal": 128.0
+ },
+ {
+  "file": "/Users/manu/Downloads/training_data.json",
+  "kind": "json",
+  "target": "level",
+  "rows": 25,
+  "classes": 7,
+  "values": [
+   "L1",
+   "L2",
+   "L3",
+   "L4",
+   "L5",
+   "L6",
+   "L7"
+  ],
+  "majorityShare": 0.16,
+  "inputCols": [
+   "reasoning_trace",
+   "response",
+   "prompt"
+  ],
+  "leakRate": 0.0,
+  "signal": 126.0
+ },
+ {
+  "file": "/Users/manu/Downloads/Housing.csv",
+  "kind": "csv",
+  "target": "guestroom",
+  "rows": 545,
+  "classes": 2,
+  "values": [
+   "no",
+   "yes"
+  ],
+  "majorityShare": 0.822,
+  "inputCols": [],
+  "leakRate": 0,
+  "signal": 97.0
+ },
+ {
+  "file": "/Users/manu/Downloads/Wassenger Contacts export 2026-03-01 00_58.csv",
+  "kind": "csv",
+  "target": "Contact Type",
+  "rows": 6138,
+  "classes": 2,
+  "values": [
+   "personal",
+   "business"
+  ],
+  "majorityShare": 0.984,
+  "inputCols": [],
+  "leakRate": 0,
+  "signal": 96.0
+ },
+ {
+  "file": "/Users/manu/CETI/fable-prompts/dataset/records.jsonl",
+  "kind": "jsonl",
+  "target": "provenance.batch_id",
+  "rows": 40,
+  "classes": 4,
+  "values": [
+   "B01-marketing",
+   "B1b-marketing-deep",
+   "B2-sales",
+   "B2b-sales-deep"
+  ],
+  "majorityShare": 0.25,
+  "inputCols": [
+   "reasoning_trace",
+   "response",
+   "verification_gate"
+  ],
+  "leakRate": 0.0,
+  "signal": 90.0
+ },
+ {
+  "file": "/Users/manu/Downloads/training_data.json",
+  "kind": "json",
+  "target": "sampling_params.max_tokens",
+  "rows": 25,
+  "classes": 6,
+  "values": [
+   "1024",
+   "2048",
+   "3072",
+   "16384",
+   "32768",
+   "65536"
+  ],
+  "majorityShare": 0.32,
+  "inputCols": [
+   "reasoning_trace",
+   "response",
+   "prompt"
+  ],
+  "leakRate": 0.0,
+  "signal": 85.0
+ },
+ {
+  "file": "/Users/manu/CETI/PISCES-MARKETING/assets/ceti-silver-hooks-wave3.json",
+  "kind": "json",
+  "target": "formula",
+  "rows": 20,
+  "classes": 7,
+  "values": [
+   "deprivation-moment",
+   "number-outcome-time",
+   "call-out",
+   "adjective-good",
+   "how-to-without",
+   "receipt",
+   "mistakes"
+  ],
+  "majorityShare": 0.3,
+  "inputCols": [
+   "text",
+   "source"
+  ],
+  "leakRate": 0.0,
+  "signal": 84.0
+ },
+ {
+  "file": "/Users/manu/Downloads/Housing.csv",
+  "kind": "csv",
+  "target": "mainroad",
+  "rows": 545,
+  "classes": 2,
+  "values": [
+   "yes",
+   "no"
+  ],
+  "majorityShare": 0.859,
+  "inputCols": [],
+  "leakRate": 0,
+  "signal": 77.0
+ },
+ {
+  "file": "/Users/manu/Downloads/training_data.json",
+  "kind": "json",
+  "target": "predicates.StateManagement",
+  "rows": 25,
+  "classes": 5,
+  "values": [
+   "none",
+   "local",
+   "cross-step",
+   "cross-step, explicit ledger",
+   "cross-session (typed handoff packets)"
+  ],
+  "majorityShare": 0.32,
+  "inputCols": [
+   "reasoning_trace",
+   "response",
+   "prompt"
+  ],
+  "leakRate": 0.04,
+  "signal": 65.3
+ },
+ {
+  "file": "/Users/manu/Downloads/training_data.json",
+  "kind": "json",
+  "target": "predicates.VerificationDifficulty",
+  "rows": 25,
+  "classes": 6,
+  "values": [
+   "checkable",
+   "trivial",
+   "expert",
+   "expert + automated gate suite",
+   "adversarial (differential vs oracle)",
+   "adversarial (MMS + stability location)"
+  ],
+  "majorityShare": 0.48,
+  "inputCols": [
+   "reasoning_trace",
+   "response",
+   "prompt"
+  ],
+  "leakRate": 0.0,
+  "signal": 65.0
+ },
+ {
+  "file": "/Users/manu/CETI/ceti-silver/wave-flight/course/mosaic/silver-atlas/silver-v2/heroes/scene-meta.json",
+  "kind": "json",
+  "target": "size",
+  "rows": 24,
+  "classes": 7,
+  "values": [
+   "320\u00d7220",
+   "280\u00d7280",
+   "280\u00d7180",
+   "240\u00d7180",
+   "220\u00d7200",
+   "180\u00d7220",
+   "220\u00d7220"
+  ],
+  "majorityShare": 0.625,
+  "inputCols": [
+   "subject",
+   "motion",
+   "useFor"
+  ],
+  "leakRate": 0.0,
+  "signal": 54.0
+ },
+ {
+  "file": "/Users/manu/Downloads/training_data.json",
+  "kind": "json",
+  "target": "domain",
+  "rows": 25,
+  "classes": 4,
+  "values": [
+   "coding",
+   "business",
+   "artistic",
+   "scientific"
+  ],
+  "majorityShare": 0.28,
+  "inputCols": [
+   "reasoning_trace",
+   "response",
+   "prompt"
+  ],
+  "leakRate": 0.04,
+  "signal": 51.8
+ },
+ {
+  "file": "/Users/manu/Downloads/training_data.json",
+  "kind": "json",
+  "target": "predicates.HorizonLength",
+  "rows": 25,
+  "classes": 6,
+  "values": [
+   "1 turn",
+   "1 turn, long-CoT",
+   "multi-session (3 sessions, days-equiv)",
+   "multi-step episode (~1 workday-equiv)",
+   "multi-step episode (5 daily cycles)",
+   "multi-step episode"
+  ],
+  "majorityShare": 0.64,
+  "inputCols": [
+   "reasoning_trace",
+   "response",
+   "prompt"
+  ],
+  "leakRate": 0.0,
+  "signal": 45.0
+ },
+ {
+  "file": "/Users/manu/Downloads/training_data.json",
+  "kind": "json",
+  "target": "predicates.ToolUse",
+  "rows": 25,
+  "classes": 7,
+  "values": [
+   "none",
+   "simulated",
+   "required",
+   "required (CRM reads)",
+   "required (headless renderer)",
+   "required, multi-tool",
+   "required (numeric sandbox)"
+  ],
+  "majorityShare": 0.72,
+  "inputCols": [
+   "reasoning_trace",
+   "response",
+   "prompt"
+  ],
+  "leakRate": 0.04,
+  "signal": 40.3
+ },
+ {
+  "file": "/Users/manu/CETI/PISCES-MARKETING/assets/ceti-silver-hooks.json",
+  "kind": "json",
+  "target": "status",
+  "rows": 80,
+  "classes": 2,
+  "values": [
+   "killed",
+   "approved"
+  ],
+  "majorityShare": 0.512,
+  "inputCols": [
+   "text",
+   "source"
+  ],
+  "leakRate": 0.0,
+  "signal": 39.0
+ },
+ {
+  "file": "/Users/manu/Downloads/Housing.csv",
+  "kind": "csv",
+  "target": "hotwaterheating",
+  "rows": 545,
+  "classes": 2,
+  "values": [
+   "no",
+   "yes"
+  ],
+  "majorityShare": 0.954,
+  "inputCols": [],
+  "leakRate": 0,
+  "signal": 25.0
+ },
+ {
+  "file": "/Users/manu/Downloads/training_data.json",
+  "kind": "json",
+  "target": "sampling_params.temperature",
+  "rows": 25,
+  "classes": 3,
+  "values": [
+   "0.7",
+   "0.3",
+   "0.8"
+  ],
+  "majorityShare": 0.52,
+  "inputCols": [
+   "reasoning_trace",
+   "response",
+   "prompt"
+  ],
+  "leakRate": 0.12,
+  "signal": 21.1
+ },
+ {
+  "file": "/Users/manu/CETI/fable-prompts/dataset/records.jsonl",
+  "kind": "jsonl",
+  "target": "domain",
+  "rows": 40,
+  "classes": 2,
+  "values": [
+   "marketing",
+   "sales"
+  ],
+  "majorityShare": 0.5,
+  "inputCols": [
+   "reasoning_trace",
+   "response",
+   "verification_gate"
+  ],
+  "leakRate": 0.15,
+  "signal": 17.0
+ },
+ {
+  "file": "/Users/manu/CETI/fable-prompts/dataset/records.csv",
+  "kind": "csv",
+  "target": "domain",
+  "rows": 40,
+  "classes": 2,
+  "values": [
+   "marketing",
+   "sales"
+  ],
+  "majorityShare": 0.5,
+  "inputCols": [
+   "reasoning_trace",
+   "response",
+   "verification_gate"
+  ],
+  "leakRate": 0.15,
+  "signal": 17.0
+ },
+ {
+  "file": "/Users/manu/CETI/fable-prompts/dataset/records.jsonl",
+  "kind": "jsonl",
+  "target": "sampling_params.temperature",
+  "rows": 40,
+  "classes": 3,
+  "values": [
+   "1.0",
+   "0.7",
+   "0.3"
+  ],
+  "majorityShare": 0.625,
+  "inputCols": [
+   "reasoning_trace",
+   "response",
+   "verification_gate"
+  ],
+  "leakRate": 0.65,
+  "signal": 10.5
+ },
+ {
+  "file": "/Users/manu/Downloads/training_data.json",
+  "kind": "json",
+  "target": "predicates.DecompositionDepth",
+  "rows": 21,
+  "classes": 5,
+  "values": [
+   "4",
+   "3",
+   "1",
+   "2",
+   "5"
+  ],
+  "majorityShare": 0.286,
+  "inputCols": [
+   "reasoning_trace",
+   "response",
+   "prompt"
+  ],
+  "leakRate": 0.84,
+  "signal": 9.6
+ },
+ {
+  "file": "/Users/manu/CETI/PISCES-MARKETING/assets/ceti-silver-hooks.json",
+  "kind": "json",
+  "target": "channel",
+  "rows": 80,
+  "classes": 3,
+  "values": [
+   "email",
+   "linkedin",
+   "dm"
+  ],
+  "majorityShare": 0.963,
+  "inputCols": [
+   "text",
+   "source"
+  ],
+  "leakRate": 0.037,
+  "signal": 5.8
+ },
+ {
+  "file": "/Users/manu/Downloads/training_data.json",
+  "kind": "json",
+  "target": "sampling_params.n_samples",
+  "rows": 25,
+  "classes": 4,
+  "values": [
+   "4",
+   "2",
+   "16",
+   "3"
+  ],
+  "majorityShare": 0.44,
+  "inputCols": [
+   "reasoning_trace",
+   "response",
+   "prompt"
+  ],
+  "leakRate": 0.96,
+  "signal": 1.7
+ },
+ {
+  "file": "/Users/manu/Downloads/227730-WA3963-M365-Accounts-227730-WA3963 (2).csv",
+  "kind": "csv",
+  "target": "",
+  "rows": 24,
+  "classes": 2,
+  "values": [
+   "Kick!3877",
+   "Password"
+  ],
+  "majorityShare": 0.958,
+  "inputCols": [],
+  "leakRate": 0,
+  "signal": 1.0
+ },
+ {
+  "file": "/Users/manu/Downloads/227730-WA3963-M365-Accounts-227730-WA3963.csv",
+  "kind": "csv",
+  "target": "",
+  "rows": 24,
+  "classes": 2,
+  "values": [
+   "Kick!3877",
+   "Password"
+  ],
+  "majorityShare": 0.958,
+  "inputCols": [],
+  "leakRate": 0,
+  "signal": 1.0
+ },
+ {
+  "file": "/Users/manu/Downloads/227730-WA3963-M365-Accounts-227730-WA3963 (1).csv",
+  "kind": "csv",
+  "target": "",
+  "rows": 24,
+  "classes": 2,
+  "values": [
+   "Kick!3877",
+   "Password"
+  ],
+  "majorityShare": 0.958,
+  "inputCols": [],
+  "leakRate": 0,
+  "signal": 1.0
+ },
+ {
+  "file": "/Users/manu/CETI/ceti-silver/silver-canon/deploy/data/concepts.json",
+  "kind": "json",
+  "target": "skill",
+  "rows": 165,
+  "classes": 7,
+  "values": [
+   "verify-and-trust-ai-output",
+   "use-ai-under-a-compliance-policy",
+   "engineer-context-without-prompt-engineering",
+   "run-a-cross-app-cowork-loop",
+   "set-up-a-claude-project-as-a-workspace",
+   "delegate-a-repeatable-task",
+   "research-with-notebooklm"
+  ],
+  "majorityShare": 0.224,
+  "inputCols": [
+   "body",
+   "all_wikilinks",
+   "wikilinks"
+  ],
+  "leakRate": 1.0,
+  "signal": 0.0
+ },
+ {
+  "file": "/Users/manu/CETI/ceti-silver/silver-canon/deploy/data/entities.json",
+  "kind": "json",
+  "target": "type",
+  "rows": 27,
+  "classes": 11,
+  "values": [
+   "product / feature",
+   "feature",
+   "product",
+   "legal-standard",
+   "product / plan",
+   "legal-case",
+   "company",
+   "feature / meta",
+   "standard / protocol",
+   "meta",
+   "legal-standard / feature"
+  ],
+  "majorityShare": 0.296,
+  "inputCols": [
+   "body",
+   "all_wikilinks",
+   "referenced_by"
+  ],
+  "leakRate": 1.0,
+  "signal": 0.0
+ },
+ {
+  "file": "/Users/manu/CETI/fable-prompts/dataset/records.jsonl",
+  "kind": "jsonl",
+  "target": "sampling_params.n_samples",
+  "rows": 40,
+  "classes": 3,
+  "values": [
+   "4",
+   "1",
+   "2"
+  ],
+  "majorityShare": 0.525,
+  "inputCols": [
+   "reasoning_trace",
+   "response",
+   "verification_gate"
+  ],
+  "leakRate": 1.0,
+  "signal": 0.0
+ }
+]

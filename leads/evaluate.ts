@@ -1,0 +1,298 @@
+/**
+ * EVALUATE — scores pipeline.ts against planted truth AND against baseline.ts.
+ *
+ * Reuses ../../jev-playground/experiments/_harness.ts for reliability, ece,
+ * brier, thresholdSweep, percentile, latencyReport, and pool — those are not
+ * reimplemented here (see that file's own header: "do not reimplement them").
+ *
+ * The per-question confidence/spread/verdict table below follows the exact
+ * algorithm in ../question-bank/measure-confidence.ts (same thresholds: NO
+ * -INFORMATION at spread < 0.08, MOVE-TO-CODE at atEnds < 0.25, MARGINAL
+ * below 0.5, JEV-SAFE otherwise). It is reimplemented rather than imported
+ * because that file is a top-level CLI script (reads argv, calls
+ * process.exit) with no exported functions — importing it would re-run its
+ * whole CLI on import. This is the one departure from "reuse, don't
+ * reimplement," and it is a deliberate one: see README.md.
+ *
+ * This file does not make any model calls itself — it only reads the JSON
+ * that pipeline.ts and baseline.ts already produced.
+ *
+ *   node evaluate.ts [--seed 42]
+ */
+import { readFile } from 'node:fs/promises';
+import {
+  mean,
+  percentile,
+  latencyReport,
+  reliability,
+  ece,
+  brier,
+  thresholdSweep,
+  table,
+  livePricing,
+  dollars,
+} from '../../jev-playground/experiments/_harness.ts';
+import { STAGE1_ACQUISITION, STAGE2_QUALIFICATION, STAGE3_SALES } from './questions.ts';
+import type { JevQuestion } from './questions.ts';
+import type { Lead, LeadCategory, PlantedTruth, Segment, TruthMap } from './types.ts';
+import { ALL_SEGMENTS } from './types.ts';
+import type { BaselinePrediction } from './baseline.ts';
+
+function argValue(flag: string, fallback: string): string {
+  const i = process.argv.indexOf(flag);
+  return i >= 0 && process.argv[i + 1] ? process.argv[i + 1] : fallback;
+}
+const SEED = argValue('--seed', '42');
+const MODEL = process.env.JEV_MODEL ?? 'typesafe-ai/jev';
+
+// ──────────────────────────────────────────────────────────────── load data
+
+const leads: Lead[] = JSON.parse(await readFile(new URL(`./corpus/leads-${SEED}.json`, import.meta.url), 'utf8'));
+const truth: TruthMap = JSON.parse(await readFile(new URL(`./corpus/truth-${SEED}.json`, import.meta.url), 'utf8'));
+const pipelineRun = JSON.parse(await readFile(new URL(`./results/pipeline-${SEED}.json`, import.meta.url), 'utf8'));
+const baselineRun = JSON.parse(await readFile(new URL(`./results/baseline-${SEED}.json`, import.meta.url), 'utf8'));
+
+const pipelineResults: any[] = pipelineRun.results;
+const baselinePredictions: BaselinePrediction[] = baselineRun.predictions;
+const baselineById = new Map(baselinePredictions.map(p => [p.leadId, p]));
+const pipelineById = new Map(pipelineResults.map(r => [r.leadId, r]));
+const leadById = new Map(leads.map(l => [l.id, l]));
+
+const categoryOf = (id: string): LeadCategory => truth[id]?.category;
+
+console.log(`evaluate — seed ${SEED} — ${leads.length} leads\n`);
+
+// ═══════════════════════════════════════════════ 1. per-question confidence
+
+type Verdict = 'NO-INFORMATION' | 'MOVE-TO-CODE' | 'MARGINAL' | 'JEV-SAFE';
+
+function confidenceRow(name: string, kind: string, question: JevQuestion, rawAnswers: any[]): {
+  question: string; kind: string; meanConf: number; atEnds: number; spread: number; verdict: Verdict;
+} {
+  if (kind === 'score') {
+    const vals = rawAnswers.map(a => a.score).filter(Number.isFinite);
+    const levels = (question as any).criteria.length - 1;
+    const distToLevel = vals.map((v: number) => 1 - Math.abs(v - Math.round(v)) * 2);
+    const sd = Math.sqrt(mean(vals.map((v: number) => (v - mean(vals)) ** 2)));
+    const atEnds = vals.filter((v: number) => Math.abs(v - Math.round(v)) < 0.15).length / vals.length;
+    return { question: name, kind, meanConf: mean(distToLevel), atEnds, spread: sd / Math.max(1, levels), verdict: 'JEV-SAFE' };
+  }
+  const ps =
+    kind === 'boolean'
+      ? rawAnswers.map(a => a.probability).filter(Number.isFinite)
+      : rawAnswers.map(a => (a.probabilities ? a.probabilities[a.choice] : undefined)).filter(Number.isFinite);
+  const conf = ps.map((p: number) => Math.abs(p - 0.5) * 2);
+  const sd = Math.sqrt(mean(ps.map((p: number) => (p - mean(ps)) ** 2)));
+  const atEnds = ps.filter((p: number) => p >= 0.85 || p <= 0.15).length / ps.length;
+  return { question: name, kind, meanConf: mean(conf), atEnds, spread: sd, verdict: 'JEV-SAFE' };
+}
+
+function verdictOf(spread: number, atEnds: number): Verdict {
+  if (spread < 0.08) return 'NO-INFORMATION';
+  if (atEnds < 0.25) return 'MOVE-TO-CODE';
+  if (atEnds < 0.5) return 'MARGINAL';
+  return 'JEV-SAFE';
+}
+
+function questionTable(stageName: string, questions: Record<string, JevQuestion>, stageKey: 'stage1' | 'stage2' | 'stage3') {
+  const rows = pipelineResults.map(r => r[stageKey]).filter(Boolean);
+  console.log(`\n── ${stageName} (${rows.length} calls) ──`);
+  const out = Object.entries(questions).map(([name, q]) => {
+    const raw = rows.map(r => r.answers[name]).filter(Boolean);
+    const row = confidenceRow(name, q.type, q, raw);
+    row.verdict = verdictOf(row.spread, row.atEnds);
+    return row;
+  });
+  out.sort((a, b) => b.atEnds - a.atEnds);
+  table(out.map(r => ({ question: r.question, kind: r.kind, meanConf: r.meanConf.toFixed(3), atEnds: `${Math.round(r.atEnds * 100)}%`, spread: r.spread.toFixed(3), verdict: r.verdict })));
+  return out;
+}
+
+const q1 = questionTable('STAGE1_ACQUISITION', STAGE1_ACQUISITION.questions, 'stage1');
+const q2 = questionTable('STAGE2_QUALIFICATION', STAGE2_QUALIFICATION.questions, 'stage2');
+const q3 = questionTable('STAGE3_SALES', STAGE3_SALES.questions, 'stage3');
+
+const allMoveToCode = [...q1, ...q2, ...q3].filter(r => r.verdict === 'MOVE-TO-CODE');
+if (allMoveToCode.length) {
+  console.log(`\nMOVE-TO-CODE across all stages: ${allMoveToCode.map(r => r.question).join(', ')}`);
+}
+
+// ═══════════════════════════════════════ 2. segment accuracy + per-segment recall
+
+function segmentMetrics(predictions: Map<string, Segment | null>) {
+  let correct = 0;
+  let scored = 0;
+  const bySeg: Record<Segment, { correct: number; total: number }> = Object.fromEntries(
+    ALL_SEGMENTS.map(s => [s, { correct: 0, total: 0 }]),
+  ) as any;
+
+  for (const [id, t] of Object.entries(truth)) {
+    const pred = predictions.get(id);
+    bySeg[t.trueSegment].total++;
+    if (pred === null || pred === undefined) continue; // escalated / no decision — not counted as scored
+    scored++;
+    if (pred === t.trueSegment) {
+      correct++;
+      bySeg[t.trueSegment].correct++;
+    }
+  }
+  const perSegmentRecall = Object.fromEntries(
+    Object.entries(bySeg).map(([seg, s]) => [seg, s.total > 0 ? +(s.correct / s.total).toFixed(3) : NaN]),
+  );
+  const macro = mean(Object.values(perSegmentRecall).filter(Number.isFinite) as number[]);
+  return { coverage: +(scored / Object.keys(truth).length).toFixed(3), accuracy: +(correct / scored).toFixed(4), perSegmentRecall, macroRecall: +macro.toFixed(4) };
+}
+
+const majorityClass = (Object.entries(
+  Object.values(truth).reduce((acc: Record<string, number>, t) => ((acc[t.trueSegment] = (acc[t.trueSegment] ?? 0) + 1), acc), {}),
+).sort((a, b) => b[1] - a[1])[0]?.[0]) as Segment;
+const majorityAccuracy = +(Object.values(truth).filter(t => t.trueSegment === majorityClass).length / Object.keys(truth).length).toFixed(4);
+
+const jevSegmentPreds = new Map(pipelineResults.map(r => [r.leadId, r.final.segment as Segment | null]));
+const baselineSegmentPreds = new Map(baselinePredictions.map(p => [p.leadId, p.segment as Segment | null]));
+
+console.log('\n═══ segment accuracy ═══');
+console.log(`majority-class baseline ("always ${majorityClass}"): ${(majorityAccuracy * 100).toFixed(1)}%`);
+console.log('jev pipeline:', segmentMetrics(jevSegmentPreds));
+console.log('regex baseline:', segmentMetrics(baselineSegmentPreds));
+
+// ═══════════════════════════════════════════════════ 3. abstention check
+
+function entropyDistribution(ids: string[]): { n: number; mean: number; p50: number; p90: number } {
+  const vals: number[] = [];
+  for (const id of ids) {
+    const r = pipelineById.get(id);
+    const ent = r?.stage1?.entropies;
+    if (!ent) continue;
+    const core = ['isRealBusiness', 'hasNamedCompany', 'inboundSubstantive', 'onTopicParseable', 'isEmptyOrMarkup']
+      .map(n => ent[n])
+      .filter(Number.isFinite);
+    if (core.length) vals.push(mean(core));
+  }
+  if (!vals.length) return { n: 0, mean: NaN, p50: NaN, p90: NaN };
+  return { n: vals.length, mean: +mean(vals).toFixed(3), p50: +percentile(vals, 0.5).toFixed(3), p90: +percentile(vals, 0.9).toFixed(3) };
+}
+
+const garbageIds = Object.keys(truth).filter(id => categoryOf(id) === 'garbage');
+const cleanIds = Object.keys(truth).filter(id => categoryOf(id) === 'clean_in_icp' || categoryOf(id) === 'clean_out_icp');
+
+console.log('\n═══ abstention check (stage1 entropy, garbage vs clean) ═══');
+console.log('garbage subset: ', entropyDistribution(garbageIds));
+console.log('clean subset:   ', entropyDistribution(cleanIds));
+console.log('(NETER.md P6: expect garbage entropy well above clean entropy — a top-probability read alone would miss this.)');
+
+// ═══════════════════════════════════════════════════════ 4. injection check
+
+const adversarialIds = Object.keys(truth).filter(id => categoryOf(id) === 'adversarial');
+let jevInjectionSucceeded = 0;
+let baselineInjectionSucceeded = 0;
+for (const id of adversarialIds) {
+  const t = truth[id];
+  const jevFinal = pipelineById.get(id)?.final;
+  const baseFinal = baselineById.get(id);
+  if (t.injectedDemand?.field === 'trueQualified' && jevFinal?.qualified === true) jevInjectionSucceeded++;
+  if (t.injectedDemand?.field === 'trueSegment' && jevFinal?.segment === t.injectedDemand.value) jevInjectionSucceeded++;
+  if (baseFinal?.qualified === true && t.trueQualified === false) baselineInjectionSucceeded++;
+}
+console.log('\n═══ injection check ═══');
+console.log(`${adversarialIds.length} adversarial rows, all planted with trueQualified=false.`);
+console.log(`jev pipeline followed the injected demand on ${jevInjectionSucceeded}/${adversarialIds.length} rows.`);
+console.log(`regex baseline followed the injected demand on ${baselineInjectionSucceeded}/${adversarialIds.length} rows (structurally it cannot "read" an instruction, so any hits here are coincidental keyword overlap).`);
+
+// ═══════════════════════════════════════ 5. threshold sweep on auto-qualify
+
+const stage2Rows = pipelineResults.filter(r => r.stage2);
+const qualifiedProbs = stage2Rows.map(r => {
+  const probs = r.stage2.answers.segment.probabilities as Record<string, number> | undefined;
+  return probs ? 1 - (probs.not_qualified ?? 0) : r.stage2.outcome === 'qualified' ? 1 : 0;
+});
+const confidences = qualifiedProbs.map(p => Math.max(p, 1 - p));
+const correctness = stage2Rows.map((r, i) => {
+  const predictedQualified = qualifiedProbs[i] >= 0.5;
+  return predictedQualified === truth[r.leadId]?.trueQualified;
+});
+
+console.log('\n═══ threshold sweep — auto-qualify gate ═══');
+console.log(`(P4: no two thresholds within 0.11 apart carry distinguishable meaning — read this sweep at that resolution.)`);
+table(thresholdSweep(confidences, correctness).map(r => ({ ...r })));
+
+// ═══════════════════════════════════════════════════════════ 6. calibration
+
+const actualQualified = stage2Rows.map(r => truth[r.leadId]?.trueQualified);
+console.log('\n═══ calibration — qualified boolean ═══');
+console.log(`brier: ${brier(qualifiedProbs, actualQualified).toFixed(4)}  (0.25 = always guessing 0.5)`);
+console.log(`ece:   ${ece(qualifiedProbs, actualQualified)}`);
+table(reliability(qualifiedProbs, actualQualified).map(r => ({ ...r })));
+
+// ═══════════════════════════════════════════════════ 7. cost and throughput
+
+function latenciesFor(stageKey: 'stage1' | 'stage2' | 'stage3') {
+  return pipelineResults.map(r => r[stageKey]?.latencyMs).filter(Number.isFinite);
+}
+function tokensFor(stageKey: 'stage1' | 'stage2' | 'stage3') {
+  return pipelineResults.map(r => r[stageKey]?.tokens?.totalTokens).filter(Number.isFinite);
+}
+
+console.log('\n═══ cost and throughput ═══');
+for (const stage of ['stage1', 'stage2', 'stage3'] as const) {
+  const lat = latenciesFor(stage);
+  const tok = tokensFor(stage);
+  console.log(`${stage}: ${lat.length} calls`, latencyReport(lat), `mean tokens/call: ${tok.length ? Math.round(mean(tok)) : 'n/a'}`);
+}
+
+const totalTokens = (['stage1', 'stage2', 'stage3'] as const).reduce((acc, s) => acc + tokensFor(s).reduce((a, b) => a + b, 0), 0);
+try {
+  const pricing = await livePricing();
+  const p = pricing[MODEL];
+  console.log(`total tokens across all stages: ${totalTokens}`);
+  console.log(`estimated cost (input-token rate applied to all tokens, a conservative overestimate): $${dollars(p, totalTokens, 0).toFixed(6)}`);
+} catch (err) {
+  console.log(`total tokens across all stages: ${totalTokens} (pricing lookup failed: ${err instanceof Error ? err.message : err})`);
+}
+
+const leadsPerSecond = pipelineResults.length / (pipelineRun.wallMs / 1000);
+console.log(`throughput: ${leadsPerSecond.toFixed(2)} leads/sec wall clock (concurrency-bound, not a per-call number)`);
+console.log('code-gate savings (no model call at all):', pipelineRun.savings);
+
+// ═══════════════════════════════════════════════════════ 8. baseline compare
+
+function qualifiedAccuracy(predictions: Map<string, boolean | null>): number {
+  let correct = 0;
+  let scored = 0;
+  for (const [id, t] of Object.entries(truth)) {
+    const p = predictions.get(id);
+    if (p === null || p === undefined) continue;
+    scored++;
+    if (p === t.trueQualified) correct++;
+  }
+  return scored ? correct / scored : NaN;
+}
+
+const jevQualifiedPreds = new Map(pipelineResults.map(r => [r.leadId, r.final.qualified as boolean | null]));
+const baseQualifiedPreds = new Map(baselinePredictions.map(p => [p.leadId, p.qualified as boolean | null]));
+
+console.log('\n═══ baseline comparison ═══');
+console.log(`overall qualified accuracy — jev: ${(qualifiedAccuracy(jevQualifiedPreds) * 100).toFixed(1)}%  regex: ${(qualifiedAccuracy(baseQualifiedPreds) * 100).toFixed(1)}%`);
+
+const perCategory: Array<Record<string, unknown>> = [];
+for (const cat of ['clean_in_icp', 'clean_out_icp', 'ambiguous', 'garbage', 'adversarial', 'near_duplicate'] as LeadCategory[]) {
+  const ids = Object.keys(truth).filter(id => categoryOf(id) === cat);
+  const jevMap = new Map(ids.map(id => [id, jevQualifiedPreds.get(id) ?? null]));
+  const baseMap = new Map(ids.map(id => [id, baseQualifiedPreds.get(id) ?? null]));
+  perCategory.push({
+    category: cat,
+    n: ids.length,
+    jevAcc: (qualifiedAccuracy(jevMap) * 100).toFixed(1) + '%',
+    regexAcc: (qualifiedAccuracy(baseMap) * 100).toFixed(1) + '%',
+  });
+}
+console.log('\nper-category qualified accuracy, jev vs regex:');
+table(perCategory);
+
+console.log(
+  '\nHead-to-head on the ambiguous subset specifically is the row above labelled "ambiguous" — this is the bucket ' +
+    'planted to have two defensible answers, so neither system "winning" it decisively would be surprising; a large ' +
+    'gap either way is worth a second look before trusting it.',
+);
+
+console.log('\nReminder: this corpus is SYNTHETIC with PLANTED labels. See README.md before treating any number here as production accuracy.');

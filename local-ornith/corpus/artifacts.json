@@ -1,0 +1,40 @@
+{
+ "note": "Artifact-quality corpus. expect=keep|rebuild. Labels are the clear answers.",
+ "cases": [
+  {
+   "id": "art-good",
+   "expect": "keep",
+   "state": {
+    "artifact": "<!DOCTYPE html><html><head><title>Ornith Fleet Latency</title></head><body><h1>Ornith 35B-A3B: measured latency on M3 Pro</h1><p>Aggregate throughput saturates at 4 concurrent requests (53.7 tok/s). Median time-to-first-token holds under 1s through N=6, then collapses to 14.27s at N=8 as requests queue behind the server's 4 slots.</p><table><tr><th>N</th><th>agg tok/s</th><th>TTFT</th></tr><tr><td>1</td><td>9.0</td><td>16.40s</td></tr><tr><td>4</td><td>53.7</td><td>0.90s</td></tr><tr><td>8</td><td>55.9</td><td>14.27s</td></tr></table><p>RSS is not reported: llama.cpp mmaps its weights, so ps undercounts a 16GB model as 0.9GB.</p></body></html>"
+   }
+  },
+  {
+   "id": "art-placeholder",
+   "expect": "rebuild",
+   "state": {
+    "artifact": "<!DOCTYPE html><html><head><title>Dashboard</title></head><body><h1>Dashboard</h1><div class=card><h2>Metric One</h2><p>Lorem ipsum dolor sit amet.</p></div><div class=card><h2>Metric Two</h2><p>Lorem ipsum dolor sit amet.</p></div><div class=card><h2>Item 3</h2><p>TODO: add content</p></div><ul><li>Item 1</li><li>Item 2</li></ul></body></html>"
+   }
+  },
+  {
+   "id": "art-templated",
+   "expect": "rebuild",
+   "state": {
+    "artifact": "<!DOCTYPE html><html><head><title>Landing Page</title></head><body><h1>Welcome to Our Platform</h1><section><h2>Features</h2><p>Our solution provides best-in-class capabilities for modern teams.</p></section><section><h2>Benefits</h2><p>Increase productivity and streamline your workflow.</p></section><section><h2>Get Started</h2><p>Sign up today.</p></section></body></html>"
+   }
+  },
+  {
+   "id": "art-thin",
+   "expect": "rebuild",
+   "state": {
+    "artifact": "<!DOCTYPE html><html><head><title>Notes</title></head><body><h1>Notes</h1><p>Some notes about the project.</p></body></html>"
+   }
+  },
+  {
+   "id": "art-dense",
+   "expect": "keep",
+   "state": {
+    "artifact": "<!DOCTYPE html><html><head><title>GGUF Architecture Notes</title></head><body><h1>Why Ollama cannot load Ornith</h1><p>Ornith GGUFs declare <code>general.architecture = qwen35</code> (dense) or <code>qwen35moe</code> (MoE, 256 experts, 8 active). Ollama 0.13.5 bundles a llama.cpp that knows <code>qwen3</code> and <code>qwen3moe</code> only \u2014 the strings qwen35 and qwen35moe do not appear in its binary at all.</p><h2>Hybrid attention/SSM</h2><p>full_attention_interval=4 means one layer in four is full attention; the rest carry constant-size SSM state (ssm.state_size=128, conv_kernel=4). That is why 131k context costs a few GB rather than tens.</p><h2>MTP</h2><p>blk.N.nextn.* tensors are present but llama.cpp logs them as unused, so multi-token prediction gives no speculative speedup today.</p></body></html>"
+   }
+  }
+ ]
+}
