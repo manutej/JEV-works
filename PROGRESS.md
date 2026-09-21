@@ -21,7 +21,7 @@ Durable record of this session's state. Chat is ephemeral; this file is not. New
 
 ## Waiting on Manu
 - Approve merges: feat/leads-pipeline → main first (b4f08e is holding it for Manu), then feat/jev-selector (rebased), then feat/e3-blind-test (void result + dashboard, kept for the record).
-- E3/E4 need a disjoint, independently labelled CETI set. Does one exist (e.g. wave2/wave3 files)? Check disjointness first.
+- E3/E4 need a disjoint, independently labelled CETI set. **None exists locally:** wave2 (36/36) and wave3 (20/20) are also subsets of the 80-item fit file (checked 2026-09-21, counts only). Options: new hooks labelled by Manu, or a k-fold design on the 80 with the in-sample caveat stated.
 - Open the 4 sessions from handoffs/*.md.
 
 ## Assumptions
