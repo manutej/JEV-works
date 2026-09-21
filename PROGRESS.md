@@ -11,10 +11,17 @@ Durable record of this session's state. Chat is ephemeral; this file is not. New
 - Received U5 leads results → program/results/leads-u5-summary.md (FAILED pre-registered criterion; honest instrument).
 
 ## In flight
-- [ ] feat/jev-selector: U2 port (local-ornith, ~/jev-playground), pin default jev-1.13.0, repo-relative harness path, U6 drift suite
+- [x] feat/jev-selector U2: JEV-works ed9a7f1 (pin jev-1.13.0, answeredBy, lib/harness.ts, local-ornith ported + verified);
+      ~/jev-playground now git (main b653de8), feat/jev-selector 96e77b1 (vendored lib/jev*, 6 scripts, tsc + vitest 4/4, 01-hello → jev-1.13.0)
+- [ ] U6 drift suite: background agent "drift-suite" → program/drift.ts, program/DRIFT.md (new files only)
 - [ ] e3-team (background agent) → ~/JEV-works-wt/e3/program/E3-PROGRESS.md
-- [ ] U9 registry fan-in: leads U5 lessons, E3 result, drift result
+- [x] U9 part 1: leads U5 → L35, L36, P18, NETER ledger (287f404)
+- [ ] U9 part 2: E3 result, drift result
 - [ ] Manu to open 4 sessions from handoffs/*.md
+
+## Waiting on Manu
+- Approve merges: feat/leads-pipeline → main first (b4f08e is holding it for Manu), then feat/jev-selector (rebased).
+- Open the 4 sessions from handoffs/*.md.
 
 ## Assumptions
 - A1 Pinning jev-1.13.0 as the direct default matches the sibling repos' "never jev-latest in prod" rule. Falsifier: TypeSafe rejects the pinned id.

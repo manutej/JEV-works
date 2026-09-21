@@ -172,3 +172,4 @@ parallel lane-sets exercised: 0 (serial loop); external stakeholders: none beyon
 - *Spawned fresh-agent probe:* on U7 (highest blast radius). Result recorded below.
 - DEFERRED: Tier 3 audit if lanes are ever parallelized.
 - 2026-09-21 U1 done — JEV-works git main @ be1429b, secret scan 0 hits; U3–U5 reassigned to session b4f08e by agreement.
+- 2026-09-21 U2 done (ed9a7f1 JEV-works, 96e77b1 jev-playground); U9 part 1 done (287f404); E3 + U6 running as background agent teams; E3 approved by Manu verbatim (PROGRESS.md).
