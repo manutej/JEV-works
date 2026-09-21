@@ -33,25 +33,53 @@ export function extractDomain(text: string): string | null {
 
 export type DuplicateGroup = { key: string; leadIds: string[] };
 
+const normalizeText = (s: string): string => s.toLowerCase().replace(/\s+/g, ' ').trim();
+
 /**
- * Groups leads whose normalised company name (and domain, if either mentions
- * one) collide. Returns only groups with >1 member — singletons aren't
- * duplicates of anything. Deterministic, O(n) after normalisation.
+ * Groups leads that are the same INQUIRY submitted more than once — not merely the same
+ * company. Two records merge only when they agree on the firmographic fingerprint
+ * (normalised name, industry, band, country, website blurb) AND one inbound message
+ * contains the other (a verbatim resubmission, or a "following up on…" forward).
+ *
+ * There is deliberately no name-only fallback, and a shared domain is not enough either:
+ * "Acme Corp" with three contacts sending three different messages is three leads. The old
+ * name-only key merged 516 leads against 60 planted duplicates.
+ *
+ * Returns only groups with >1 member. Deterministic; O(n) bucketing, then pairwise within a
+ * fingerprint bucket, which is small because it is one company's records.
  */
 export function detectNearDuplicates(leads: readonly Lead[]): DuplicateGroup[] {
-  const groups = new Map<string, string[]>();
+  const buckets = new Map<string, Lead[]>();
   for (const lead of leads) {
     const normName = normalizeCompanyName(lead.companyName);
-    const domain = extractDomain(lead.websiteBlurb) ?? extractDomain(lead.inboundMessage);
-    const key = domain ? `${normName}::${domain}` : normName;
-    if (!key) continue; // empty company name is a garbage-corpus concern, not a dedup one
-    const bucket = groups.get(key) ?? [];
-    bucket.push(lead.id);
-    groups.set(key, bucket);
+    if (!normName) continue; // empty company name is a garbage-corpus concern, not a dedup one
+    const key = [normName, lead.industry, lead.employeeBand, lead.country, normalizeText(lead.websiteBlurb)].join('::');
+    const bucket = buckets.get(key) ?? [];
+    bucket.push(lead);
+    buckets.set(key, bucket);
   }
-  return [...groups.entries()]
-    .filter(([, ids]) => ids.length > 1)
-    .map(([key, leadIds]) => ({ key, leadIds }));
+
+  const groups: DuplicateGroup[] = [];
+  for (const [key, bucket] of buckets) {
+    if (bucket.length < 2) continue;
+    // Union-find over "one message contains the other"; an empty message proves nothing.
+    const parent = bucket.map((_, i) => i);
+    const root = (i: number): number => (parent[i] === i ? i : (parent[i] = root(parent[i])));
+    const messages = bucket.map(l => normalizeText(l.inboundMessage));
+    for (let i = 0; i < bucket.length; i++) {
+      for (let j = i + 1; j < bucket.length; j++) {
+        const [a, b] = [messages[i], messages[j]];
+        if (a && b && (a.includes(b) || b.includes(a))) parent[root(j)] = root(i);
+      }
+    }
+    const byRoot = new Map<number, string[]>();
+    bucket.forEach((lead, i) => byRoot.set(root(i), [...(byRoot.get(root(i)) ?? []), lead.id]));
+    let n = 0;
+    for (const leadIds of byRoot.values()) {
+      if (leadIds.length > 1) groups.push({ key: `${key}#${n++}`, leadIds });
+    }
+  }
+  return groups;
 }
 
 /** Given the groups above, picks one representative per group (first by id) and

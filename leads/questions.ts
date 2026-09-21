@@ -97,7 +97,7 @@ export const STAGE1_ACQUISITION: QuestionSet = {
   notForJev: [
     {
       judgement: 'Is this lead a near-duplicate of one already in the batch?',
-      instead: 'Deterministic: normalise company name (+ domain, if present) and group. See code-gates.ts detectNearDuplicates. Cross-record by definition — no single state contains "the other lead."',
+      instead: 'Deterministic: same firmographic fingerprint AND one message contains the other — never name alone. See code-gates.ts detectNearDuplicates. Cross-record by definition — no single state contains "the other lead."',
     },
     {
       judgement: 'Is this company on our exclusion / do-not-contact list?',
