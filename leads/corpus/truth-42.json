@@ -1,6 +1,6 @@
 {
   "lead-0001": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
@@ -9,28 +9,28 @@
   "lead-0002": {
     "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0003": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "auto_book_demo",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0004": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0005": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -49,51 +49,51 @@
     "category": "clean_in_icp"
   },
   "lead-0008": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "auto_book_demo",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0009": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0010": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0011": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "auto_book_demo",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0012": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0013": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "auto_book_demo",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0014": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -105,23 +105,23 @@
     "category": "clean_in_icp"
   },
   "lead-0016": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0017": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0018": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -140,28 +140,28 @@
     "category": "clean_in_icp"
   },
   "lead-0021": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0022": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "auto_book_demo",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0023": {
     "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
-  "lead-0023": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
-    "difficulty": "easy",
-    "category": "clean_in_icp"
-  },
   "lead-0024": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
@@ -177,28 +177,28 @@
   "lead-0026": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0027": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0028": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0029": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -212,35 +212,35 @@
   "lead-0031": {
     "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0032": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0033": {
     "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "auto_book_demo",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0034": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "auto_book_demo",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0035": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "auto_book_demo",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -252,16 +252,16 @@
     "category": "clean_in_icp"
   },
   "lead-0037": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0038": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "auto_book_demo",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -275,12 +275,12 @@
   "lead-0040": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0041": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
@@ -289,82 +289,82 @@
   "lead-0042": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "auto_book_demo",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0043": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "auto_book_demo",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0044": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0045": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "auto_book_demo",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0046": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0047": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0048": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0049": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0050": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0051": {
     "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
-  "lead-0050": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
-    "difficulty": "easy",
-    "category": "clean_in_icp"
-  },
-  "lead-0051": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
-    "difficulty": "easy",
-    "category": "clean_in_icp"
-  },
   "lead-0052": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "auto_book_demo",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0053": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
@@ -373,21 +373,21 @@
   "lead-0054": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0055": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0056": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "auto_book_demo",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -408,14 +408,14 @@
   "lead-0059": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0060": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -427,14 +427,14 @@
     "category": "clean_in_icp"
   },
   "lead-0062": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "auto_book_demo",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0063": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "auto_book_demo",
     "difficulty": "easy",
@@ -443,77 +443,77 @@
   "lead-0064": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0065": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0066": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0067": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0068": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0069": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0070": {
-    "trueSegment": "mid_market",
-    "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
-    "difficulty": "easy",
-    "category": "clean_in_icp"
-  },
-  "lead-0071": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
-    "difficulty": "easy",
-    "category": "clean_in_icp"
-  },
-  "lead-0072": {
-    "trueSegment": "mid_market",
-    "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
-    "difficulty": "easy",
-    "category": "clean_in_icp"
-  },
-  "lead-0073": {
     "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
-  "lead-0074": {
+  "lead-0071": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0072": {
     "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "auto_book_demo",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0073": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "auto_book_demo",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0074": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -525,9 +525,9 @@
     "category": "clean_in_icp"
   },
   "lead-0076": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -539,7 +539,7 @@
     "category": "clean_in_icp"
   },
   "lead-0078": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
@@ -548,12 +548,12 @@
   "lead-0079": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "auto_book_demo",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0080": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
@@ -562,14 +562,14 @@
   "lead-0081": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0082": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "auto_book_demo",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -581,37 +581,37 @@
     "category": "clean_in_icp"
   },
   "lead-0084": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "auto_book_demo",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0085": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
-    "difficulty": "easy",
-    "category": "clean_in_icp"
-  },
-  "lead-0086": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
-    "difficulty": "easy",
-    "category": "clean_in_icp"
-  },
-  "lead-0087": {
     "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
-  "lead-0088": {
+  "lead-0086": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0087": {
     "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "auto_book_demo",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0088": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -625,12 +625,12 @@
   "lead-0090": {
     "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0091": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
@@ -639,19 +639,19 @@
   "lead-0092": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "easy",
-    "category": "clean_in_icp"
-  },
-  "lead-0093": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
     "trueNextAction": "auto_book_demo",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
-  "lead-0094": {
+  "lead-0093": {
     "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0094": {
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
@@ -660,7 +660,7 @@
   "lead-0095": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "auto_book_demo",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -674,12 +674,12 @@
   "lead-0097": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0098": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
@@ -695,14 +695,14 @@
   "lead-0100": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "auto_book_demo",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0101": {
     "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -723,7 +723,7 @@
   "lead-0104": {
     "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -735,9 +735,9 @@
     "category": "clean_in_icp"
   },
   "lead-0106": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -749,7 +749,7 @@
     "category": "clean_in_icp"
   },
   "lead-0108": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
@@ -765,84 +765,84 @@
   "lead-0110": {
     "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0111": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0112": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0113": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0114": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "auto_book_demo",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0115": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0116": {
     "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "auto_book_demo",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0117": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "auto_book_demo",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0118": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0119": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "auto_book_demo",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0120": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0121": {
     "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -875,23 +875,23 @@
     "category": "clean_in_icp"
   },
   "lead-0126": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "auto_book_demo",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0127": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0128": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "auto_book_demo",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -905,28 +905,28 @@
   "lead-0130": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0131": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0132": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0133": {
     "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -938,70 +938,70 @@
     "category": "clean_in_icp"
   },
   "lead-0135": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0136": {
     "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "auto_book_demo",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0137": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0138": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0139": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
-    "difficulty": "easy",
-    "category": "clean_in_icp"
-  },
-  "lead-0140": {
-    "trueSegment": "mid_market",
-    "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
-    "difficulty": "easy",
-    "category": "clean_in_icp"
-  },
-  "lead-0141": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "easy",
-    "category": "clean_in_icp"
-  },
-  "lead-0142": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
-    "difficulty": "easy",
-    "category": "clean_in_icp"
-  },
-  "lead-0143": {
     "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "auto_book_demo",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
-  "lead-0144": {
+  "lead-0140": {
     "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0141": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0142": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0143": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0144": {
+    "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
@@ -1015,9 +1015,9 @@
     "category": "clean_in_icp"
   },
   "lead-0146": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -1029,7 +1029,7 @@
     "category": "clean_in_icp"
   },
   "lead-0148": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
@@ -1052,19 +1052,19 @@
   "lead-0151": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0152": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "auto_book_demo",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0153": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
@@ -1073,26 +1073,26 @@
   "lead-0154": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "auto_book_demo",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0155": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0156": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0157": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
@@ -1101,7 +1101,7 @@
   "lead-0158": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -1113,42 +1113,42 @@
     "category": "clean_in_icp"
   },
   "lead-0160": {
-    "trueSegment": "mid_market",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "easy",
-    "category": "clean_in_icp"
-  },
-  "lead-0161": {
-    "trueSegment": "mid_market",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "easy",
-    "category": "clean_in_icp"
-  },
-  "lead-0162": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "auto_book_demo",
-    "difficulty": "easy",
-    "category": "clean_in_icp"
-  },
-  "lead-0163": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "auto_book_demo",
-    "difficulty": "easy",
-    "category": "clean_in_icp"
-  },
-  "lead-0164": {
     "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
-  "lead-0165": {
+  "lead-0161": {
     "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0162": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0163": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0164": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0165": {
+    "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
@@ -1157,7 +1157,7 @@
   "lead-0166": {
     "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -1178,7 +1178,7 @@
   "lead-0169": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "auto_book_demo",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -1197,16 +1197,16 @@
     "category": "clean_in_icp"
   },
   "lead-0172": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "auto_book_demo",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0173": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "auto_book_demo",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -1220,28 +1220,28 @@
   "lead-0175": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "auto_book_demo",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0176": {
-    "trueSegment": "mid_market",
-    "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
-    "difficulty": "easy",
-    "category": "clean_in_icp"
-  },
-  "lead-0177": {
     "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "auto_book_demo",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
-  "lead-0178": {
-    "trueSegment": "mid_market",
+  "lead-0177": {
+    "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "auto_book_demo",
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0178": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -1253,35 +1253,35 @@
     "category": "clean_in_icp"
   },
   "lead-0180": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "auto_book_demo",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0181": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "auto_book_demo",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0182": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0183": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0184": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
@@ -1297,33 +1297,33 @@
   "lead-0186": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0187": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0188": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0189": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0190": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
@@ -1332,14 +1332,14 @@
   "lead-0191": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0192": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -1351,7 +1351,7 @@
     "category": "clean_in_icp"
   },
   "lead-0194": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
@@ -1365,7 +1365,7 @@
     "category": "clean_in_icp"
   },
   "lead-0196": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
@@ -1374,21 +1374,21 @@
   "lead-0197": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0198": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0199": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -1402,21 +1402,21 @@
   "lead-0201": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0202": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0203": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
@@ -1437,33 +1437,33 @@
   "lead-0206": {
     "trueSegment": "enterprise",
     "trueQualified": true,
-    "trueNextAction": "auto_book_demo",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0207": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "auto_book_demo",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0208": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0209": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "clean_in_icp"
   },
   "lead-0210": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
@@ -2520,22 +2520,22 @@
     "category": "clean_out_icp"
   },
   "lead-0361": {
-    "trueSegment": "enterprise",
+    "trueSegment": "mid_market",
     "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0362": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
+    "trueSegment": "smb",
+    "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0363": {
-    "trueSegment": "smb",
-    "trueQualified": false,
+    "trueSegment": "enterprise",
+    "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
@@ -2549,13 +2549,13 @@
   },
   "lead-0365": {
     "trueSegment": "smb",
-    "trueQualified": false,
+    "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0366": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
@@ -2563,34 +2563,34 @@
   },
   "lead-0367": {
     "trueSegment": "smb",
-    "trueQualified": true,
+    "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0368": {
     "trueSegment": "enterprise",
-    "trueQualified": true,
+    "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0369": {
     "trueSegment": "smb",
-    "trueQualified": true,
+    "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0370": {
-    "trueSegment": "smb",
+    "trueSegment": "mid_market",
     "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0371": {
-    "trueSegment": "enterprise",
+    "trueSegment": "smb",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
@@ -2604,14 +2604,14 @@
     "category": "ambiguous"
   },
   "lead-0373": {
-    "trueSegment": "smb",
+    "trueSegment": "enterprise",
     "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0374": {
-    "trueSegment": "smb",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
@@ -2619,27 +2619,27 @@
   },
   "lead-0375": {
     "trueSegment": "smb",
-    "trueQualified": false,
+    "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0376": {
+    "trueSegment": "enterprise",
+    "trueQualified": false,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0377": {
     "trueSegment": "smb",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
-  "lead-0377": {
-    "trueSegment": "enterprise",
-    "trueQualified": false,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "hard",
-    "category": "ambiguous"
-  },
   "lead-0378": {
-    "trueSegment": "enterprise",
+    "trueSegment": "smb",
     "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
@@ -2654,14 +2654,14 @@
   },
   "lead-0380": {
     "trueSegment": "smb",
-    "trueQualified": false,
+    "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0381": {
-    "trueSegment": "smb",
-    "trueQualified": false,
+    "trueSegment": "enterprise",
+    "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
@@ -2681,14 +2681,14 @@
     "category": "ambiguous"
   },
   "lead-0384": {
-    "trueSegment": "smb",
-    "trueQualified": true,
+    "trueSegment": "enterprise",
+    "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0385": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
@@ -2716,15 +2716,15 @@
     "category": "ambiguous"
   },
   "lead-0389": {
-    "trueSegment": "smb",
+    "trueSegment": "enterprise",
     "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0390": {
-    "trueSegment": "smb",
-    "trueQualified": true,
+    "trueSegment": "mid_market",
+    "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
@@ -2738,55 +2738,55 @@
   },
   "lead-0392": {
     "trueSegment": "smb",
-    "trueQualified": false,
+    "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0393": {
-    "trueSegment": "enterprise",
-    "trueQualified": false,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "hard",
-    "category": "ambiguous"
-  },
-  "lead-0394": {
     "trueSegment": "smb",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
-  "lead-0395": {
+  "lead-0394": {
     "trueSegment": "enterprise",
-    "trueQualified": true,
+    "trueQualified": false,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0395": {
+    "trueSegment": "smb",
+    "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0396": {
-    "trueSegment": "mid_market",
-    "trueQualified": false,
+    "trueSegment": "smb",
+    "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0397": {
     "trueSegment": "smb",
-    "trueQualified": false,
+    "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0398": {
-    "trueSegment": "smb",
+    "trueSegment": "enterprise",
     "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0399": {
-    "trueSegment": "smb",
+    "trueSegment": "mid_market",
     "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
@@ -2801,77 +2801,77 @@
   },
   "lead-0401": {
     "trueSegment": "smb",
-    "trueQualified": false,
+    "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0402": {
     "trueSegment": "smb",
-    "trueQualified": false,
+    "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0403": {
-    "trueSegment": "enterprise",
-    "trueQualified": false,
+    "trueSegment": "mid_market",
+    "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0404": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
+    "trueSegment": "smb",
+    "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0405": {
     "trueSegment": "smb",
-    "trueQualified": true,
+    "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0406": {
-    "trueSegment": "smb",
-    "trueQualified": false,
+    "trueSegment": "enterprise",
+    "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0407": {
     "trueSegment": "enterprise",
-    "trueQualified": false,
+    "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0408": {
-    "trueSegment": "smb",
+    "trueSegment": "enterprise",
     "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0409": {
-    "trueSegment": "enterprise",
-    "trueQualified": false,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "hard",
-    "category": "ambiguous"
-  },
-  "lead-0410": {
     "trueSegment": "smb",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
-  "lead-0411": {
+  "lead-0410": {
     "trueSegment": "enterprise",
-    "trueQualified": true,
+    "trueQualified": false,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0411": {
+    "trueSegment": "mid_market",
+    "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
@@ -2884,8 +2884,8 @@
     "category": "ambiguous"
   },
   "lead-0413": {
-    "trueSegment": "smb",
-    "trueQualified": false,
+    "trueSegment": "mid_market",
+    "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
@@ -2905,14 +2905,14 @@
     "category": "ambiguous"
   },
   "lead-0416": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
+    "trueSegment": "smb",
+    "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0417": {
-    "trueSegment": "enterprise",
+    "trueSegment": "smb",
     "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
@@ -2920,7 +2920,7 @@
   },
   "lead-0418": {
     "trueSegment": "smb",
-    "trueQualified": true,
+    "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
@@ -2941,34 +2941,34 @@
   },
   "lead-0421": {
     "trueSegment": "smb",
-    "trueQualified": false,
+    "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0422": {
     "trueSegment": "smb",
-    "trueQualified": false,
+    "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0423": {
-    "trueSegment": "smb",
+    "trueSegment": "enterprise",
     "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0424": {
-    "trueSegment": "smb",
-    "trueQualified": true,
+    "trueSegment": "enterprise",
+    "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0425": {
-    "trueSegment": "smb",
+    "trueSegment": "enterprise",
     "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
@@ -2982,15 +2982,15 @@
     "category": "ambiguous"
   },
   "lead-0427": {
-    "trueSegment": "smb",
+    "trueSegment": "mid_market",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0428": {
-    "trueSegment": "mid_market",
-    "trueQualified": false,
+    "trueSegment": "smb",
+    "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
@@ -3003,8 +3003,8 @@
     "category": "ambiguous"
   },
   "lead-0430": {
-    "trueSegment": "mid_market",
-    "trueQualified": true,
+    "trueSegment": "smb",
+    "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
@@ -3017,28 +3017,28 @@
     "category": "ambiguous"
   },
   "lead-0432": {
-    "trueSegment": "enterprise",
+    "trueSegment": "smb",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0433": {
-    "trueSegment": "smb",
-    "trueQualified": false,
+    "trueSegment": "enterprise",
+    "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0434": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0435": {
-    "trueSegment": "enterprise",
+    "trueSegment": "smb",
     "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
@@ -3052,43 +3052,43 @@
     "category": "ambiguous"
   },
   "lead-0437": {
-    "trueSegment": "smb",
-    "trueQualified": true,
+    "trueSegment": "mid_market",
+    "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0438": {
-    "trueSegment": "mid_market",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "hard",
-    "category": "ambiguous"
-  },
-  "lead-0439": {
-    "trueSegment": "smb",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "hard",
-    "category": "ambiguous"
-  },
-  "lead-0440": {
     "trueSegment": "enterprise",
     "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
+  "lead-0439": {
+    "trueSegment": "smb",
+    "trueQualified": false,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0440": {
+    "trueSegment": "smb",
+    "trueQualified": false,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
   "lead-0441": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0442": {
-    "trueSegment": "smb",
-    "trueQualified": true,
+    "trueSegment": "enterprise",
+    "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
@@ -3101,15 +3101,15 @@
     "category": "ambiguous"
   },
   "lead-0444": {
-    "trueSegment": "enterprise",
+    "trueSegment": "smb",
     "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0445": {
-    "trueSegment": "mid_market",
-    "trueQualified": true,
+    "trueSegment": "smb",
+    "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
@@ -3122,28 +3122,28 @@
     "category": "ambiguous"
   },
   "lead-0447": {
-    "trueSegment": "mid_market",
+    "trueSegment": "smb",
     "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0448": {
-    "trueSegment": "mid_market",
+    "trueSegment": "smb",
     "trueQualified": false,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0449": {
-    "trueSegment": "mid_market",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "ambiguous"
   },
   "lead-0450": {
-    "trueSegment": "smb",
+    "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
@@ -3576,8 +3576,8 @@
     "difficulty": "hard",
     "category": "adversarial",
     "injectedDemand": {
-      "field": "trueSegment",
-      "value": "enterprise"
+      "field": "trueQualified",
+      "value": "true"
     }
   },
   "lead-0512": {
@@ -3598,8 +3598,8 @@
     "difficulty": "hard",
     "category": "adversarial",
     "injectedDemand": {
-      "field": "trueQualified",
-      "value": "true"
+      "field": "trueSegment",
+      "value": "enterprise"
     }
   },
   "lead-0514": {
@@ -3609,8 +3609,8 @@
     "difficulty": "hard",
     "category": "adversarial",
     "injectedDemand": {
-      "field": "trueQualified",
-      "value": "true"
+      "field": "trueSegment",
+      "value": "enterprise"
     }
   },
   "lead-0515": {
@@ -3675,8 +3675,8 @@
     "difficulty": "hard",
     "category": "adversarial",
     "injectedDemand": {
-      "field": "trueQualified",
-      "value": "true"
+      "field": "trueSegment",
+      "value": "enterprise"
     }
   },
   "lead-0521": {
@@ -3697,8 +3697,8 @@
     "difficulty": "hard",
     "category": "adversarial",
     "injectedDemand": {
-      "field": "trueSegment",
-      "value": "enterprise"
+      "field": "trueQualified",
+      "value": "true"
     }
   },
   "lead-0523": {
@@ -3708,8 +3708,8 @@
     "difficulty": "hard",
     "category": "adversarial",
     "injectedDemand": {
-      "field": "trueQualified",
-      "value": "true"
+      "field": "trueSegment",
+      "value": "enterprise"
     }
   },
   "lead-0524": {
@@ -3741,8 +3741,8 @@
     "difficulty": "hard",
     "category": "adversarial",
     "injectedDemand": {
-      "field": "trueQualified",
-      "value": "true"
+      "field": "trueSegment",
+      "value": "enterprise"
     }
   },
   "lead-0527": {
@@ -3763,8 +3763,8 @@
     "difficulty": "hard",
     "category": "adversarial",
     "injectedDemand": {
-      "field": "trueQualified",
-      "value": "true"
+      "field": "trueSegment",
+      "value": "enterprise"
     }
   },
   "lead-0529": {
@@ -3774,8 +3774,8 @@
     "difficulty": "hard",
     "category": "adversarial",
     "injectedDemand": {
-      "field": "trueQualified",
-      "value": "true"
+      "field": "trueSegment",
+      "value": "enterprise"
     }
   },
   "lead-0530": {
@@ -3796,8 +3796,8 @@
     "difficulty": "hard",
     "category": "adversarial",
     "injectedDemand": {
-      "field": "trueQualified",
-      "value": "true"
+      "field": "trueSegment",
+      "value": "enterprise"
     }
   },
   "lead-0532": {
@@ -3807,8 +3807,8 @@
     "difficulty": "hard",
     "category": "adversarial",
     "injectedDemand": {
-      "field": "trueQualified",
-      "value": "true"
+      "field": "trueSegment",
+      "value": "enterprise"
     }
   },
   "lead-0533": {
@@ -3818,8 +3818,8 @@
     "difficulty": "hard",
     "category": "adversarial",
     "injectedDemand": {
-      "field": "trueQualified",
-      "value": "true"
+      "field": "trueSegment",
+      "value": "enterprise"
     }
   },
   "lead-0534": {
@@ -3829,8 +3829,8 @@
     "difficulty": "hard",
     "category": "adversarial",
     "injectedDemand": {
-      "field": "trueSegment",
-      "value": "enterprise"
+      "field": "trueQualified",
+      "value": "true"
     }
   },
   "lead-0535": {
@@ -3851,8 +3851,8 @@
     "difficulty": "hard",
     "category": "adversarial",
     "injectedDemand": {
-      "field": "trueQualified",
-      "value": "true"
+      "field": "trueSegment",
+      "value": "enterprise"
     }
   },
   "lead-0537": {
@@ -3895,403 +3895,27 @@
     "difficulty": "hard",
     "category": "adversarial",
     "injectedDemand": {
-      "field": "trueSegment",
-      "value": "enterprise"
+      "field": "trueQualified",
+      "value": "true"
     }
   },
   "lead-0541": {
-    "trueSegment": "not_qualified",
-    "trueQualified": false,
-    "trueNextAction": "disqualify",
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "near_duplicate",
-    "duplicateOf": "lead-0223"
+    "duplicateOf": "lead-0125"
   },
   "lead-0542": {
-    "trueSegment": "not_qualified",
-    "trueQualified": false,
-    "trueNextAction": "disqualify",
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "near_duplicate",
-    "duplicateOf": "lead-0294"
+    "duplicateOf": "lead-0155"
   },
   "lead-0543": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "hard",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0362"
-  },
-  "lead-0544": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0127"
-  },
-  "lead-0545": {
-    "trueSegment": "not_qualified",
-    "trueQualified": false,
-    "trueNextAction": "disqualify",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0230"
-  },
-  "lead-0546": {
-    "trueSegment": "not_qualified",
-    "trueQualified": false,
-    "trueNextAction": "disqualify",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0292"
-  },
-  "lead-0547": {
-    "trueSegment": "not_qualified",
-    "trueQualified": false,
-    "trueNextAction": "disqualify",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0351"
-  },
-  "lead-0548": {
-    "trueSegment": "not_qualified",
-    "trueQualified": false,
-    "trueNextAction": "disqualify",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0286"
-  },
-  "lead-0549": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0027"
-  },
-  "lead-0550": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0059"
-  },
-  "lead-0551": {
-    "trueSegment": "not_qualified",
-    "trueQualified": false,
-    "trueNextAction": "disqualify",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0230"
-  },
-  "lead-0552": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0052"
-  },
-  "lead-0553": {
-    "trueSegment": "mid_market",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "hard",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0430"
-  },
-  "lead-0554": {
-    "trueSegment": "not_qualified",
-    "trueQualified": false,
-    "trueNextAction": "disqualify",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0347"
-  },
-  "lead-0555": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "hard",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0411"
-  },
-  "lead-0556": {
-    "trueSegment": "not_qualified",
-    "trueQualified": false,
-    "trueNextAction": "disqualify",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0231"
-  },
-  "lead-0557": {
-    "trueSegment": "not_qualified",
-    "trueQualified": false,
-    "trueNextAction": "disqualify",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0318"
-  },
-  "lead-0558": {
-    "trueSegment": "smb",
-    "trueQualified": false,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "hard",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0421"
-  },
-  "lead-0559": {
-    "trueSegment": "mid_market",
-    "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0203"
-  },
-  "lead-0560": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0209"
-  },
-  "lead-0561": {
-    "trueSegment": "not_qualified",
-    "trueQualified": false,
-    "trueNextAction": "disqualify",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0294"
-  },
-  "lead-0562": {
-    "trueSegment": "not_qualified",
-    "trueQualified": false,
-    "trueNextAction": "disqualify",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0313"
-  },
-  "lead-0563": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0105"
-  },
-  "lead-0564": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0130"
-  },
-  "lead-0565": {
-    "trueSegment": "not_qualified",
-    "trueQualified": false,
-    "trueNextAction": "disqualify",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0348"
-  },
-  "lead-0566": {
-    "trueSegment": "mid_market",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0121"
-  },
-  "lead-0567": {
-    "trueSegment": "enterprise",
-    "trueQualified": false,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "hard",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0435"
-  },
-  "lead-0568": {
-    "trueSegment": "not_qualified",
-    "trueQualified": false,
-    "trueNextAction": "disqualify",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0257"
-  },
-  "lead-0569": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0198"
-  },
-  "lead-0570": {
-    "trueSegment": "smb",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "hard",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0390"
-  },
-  "lead-0571": {
-    "trueSegment": "enterprise",
-    "trueQualified": false,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "hard",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0407"
-  },
-  "lead-0572": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0156"
-  },
-  "lead-0573": {
-    "trueSegment": "mid_market",
-    "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0049"
-  },
-  "lead-0574": {
-    "trueSegment": "smb",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "hard",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0418"
-  },
-  "lead-0575": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "auto_book_demo",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0003"
-  },
-  "lead-0576": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0115"
-  },
-  "lead-0577": {
-    "trueSegment": "not_qualified",
-    "trueQualified": false,
-    "trueNextAction": "disqualify",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0217"
-  },
-  "lead-0578": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0032"
-  },
-  "lead-0579": {
-    "trueSegment": "smb",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "hard",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0383"
-  },
-  "lead-0580": {
-    "trueSegment": "smb",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "hard",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0384"
-  },
-  "lead-0581": {
-    "trueSegment": "mid_market",
-    "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0116"
-  },
-  "lead-0582": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0152"
-  },
-  "lead-0583": {
-    "trueSegment": "not_qualified",
-    "trueQualified": false,
-    "trueNextAction": "disqualify",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0255"
-  },
-  "lead-0584": {
-    "trueSegment": "mid_market",
-    "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0072"
-  },
-  "lead-0585": {
-    "trueSegment": "not_qualified",
-    "trueQualified": false,
-    "trueNextAction": "disqualify",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0280"
-  },
-  "lead-0586": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0105"
-  },
-  "lead-0587": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0141"
-  },
-  "lead-0588": {
-    "trueSegment": "not_qualified",
-    "trueQualified": false,
-    "trueNextAction": "disqualify",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0267"
-  },
-  "lead-0589": {
-    "trueSegment": "enterprise",
-    "trueQualified": true,
-    "trueNextAction": "nurture_sequence",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0050"
-  },
-  "lead-0590": {
     "trueSegment": "not_qualified",
     "trueQualified": false,
     "trueNextAction": "disqualify",
@@ -4299,37 +3923,413 @@
     "category": "near_duplicate",
     "duplicateOf": "lead-0270"
   },
-  "lead-0591": {
-    "trueSegment": "smb",
-    "trueQualified": false,
-    "trueNextAction": "route_to_ae",
-    "difficulty": "hard",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0433"
-  },
-  "lead-0592": {
-    "trueSegment": "enterprise",
+  "lead-0544": {
+    "trueSegment": "mid_market",
     "trueQualified": true,
-    "trueNextAction": "auto_book_demo",
+    "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "near_duplicate",
-    "duplicateOf": "lead-0093"
+    "duplicateOf": "lead-0118"
   },
-  "lead-0593": {
+  "lead-0545": {
     "trueSegment": "enterprise",
-    "trueQualified": false,
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0145"
+  },
+  "lead-0546": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0144"
+  },
+  "lead-0547": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "near_duplicate",
-    "duplicateOf": "lead-0436"
+    "duplicateOf": "lead-0449"
   },
-  "lead-0594": {
+  "lead-0548": {
     "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "near_duplicate",
+    "duplicateOf": "lead-0120"
+  },
+  "lead-0549": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0334"
+  },
+  "lead-0550": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0209"
+  },
+  "lead-0551": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0308"
+  },
+  "lead-0552": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0163"
+  },
+  "lead-0553": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0132"
+  },
+  "lead-0554": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0055"
+  },
+  "lead-0555": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "auto_book_demo",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0117"
+  },
+  "lead-0556": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "auto_book_demo",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0207"
+  },
+  "lead-0557": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "auto_book_demo",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0082"
+  },
+  "lead-0558": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0264"
+  },
+  "lead-0559": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0028"
+  },
+  "lead-0560": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0221"
+  },
+  "lead-0561": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0272"
+  },
+  "lead-0562": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0292"
+  },
+  "lead-0563": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0427"
+  },
+  "lead-0564": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0340"
+  },
+  "lead-0565": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "auto_book_demo",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0092"
+  },
+  "lead-0566": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0119"
+  },
+  "lead-0567": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0281"
+  },
+  "lead-0568": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0059"
+  },
+  "lead-0569": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0094"
+  },
+  "lead-0570": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0317"
+  },
+  "lead-0571": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0026"
+  },
+  "lead-0572": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0217"
+  },
+  "lead-0573": {
+    "trueSegment": "smb",
+    "trueQualified": false,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0378"
+  },
+  "lead-0574": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0252"
+  },
+  "lead-0575": {
+    "trueSegment": "smb",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0388"
+  },
+  "lead-0576": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0078"
+  },
+  "lead-0577": {
+    "trueSegment": "smb",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0409"
+  },
+  "lead-0578": {
+    "trueSegment": "smb",
+    "trueQualified": false,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0369"
+  },
+  "lead-0579": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0224"
+  },
+  "lead-0580": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0356"
+  },
+  "lead-0581": {
+    "trueSegment": "enterprise",
+    "trueQualified": false,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0373"
+  },
+  "lead-0582": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "auto_book_demo",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0175"
+  },
+  "lead-0583": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0282"
+  },
+  "lead-0584": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0137"
+  },
+  "lead-0585": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0070"
+  },
+  "lead-0586": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0250"
+  },
+  "lead-0587": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0119"
+  },
+  "lead-0588": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "auto_book_demo",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0174"
+  },
+  "lead-0589": {
+    "trueSegment": "mid_market",
+    "trueQualified": false,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0411"
+  },
+  "lead-0590": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0187"
+  },
+  "lead-0591": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
     "duplicateOf": "lead-0071"
+  },
+  "lead-0592": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0232"
+  },
+  "lead-0593": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0253"
+  },
+  "lead-0594": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "auto_book_demo",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0092"
   },
   "lead-0595": {
     "trueSegment": "enterprise",
@@ -4337,23 +4337,23 @@
     "trueNextAction": "route_to_ae",
     "difficulty": "hard",
     "category": "near_duplicate",
-    "duplicateOf": "lead-0377"
+    "duplicateOf": "lead-0384"
   },
   "lead-0596": {
-    "trueSegment": "mid_market",
-    "trueQualified": true,
-    "trueNextAction": "auto_book_demo",
-    "difficulty": "easy",
-    "category": "near_duplicate",
-    "duplicateOf": "lead-0056"
-  },
-  "lead-0597": {
     "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
     "difficulty": "easy",
     "category": "near_duplicate",
-    "duplicateOf": "lead-0149"
+    "duplicateOf": "lead-0056"
+  },
+  "lead-0597": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0346"
   },
   "lead-0598": {
     "trueSegment": "enterprise",
@@ -4361,22 +4361,22 @@
     "trueNextAction": "nurture_sequence",
     "difficulty": "easy",
     "category": "near_duplicate",
-    "duplicateOf": "lead-0157"
+    "duplicateOf": "lead-0158"
   },
   "lead-0599": {
-    "trueSegment": "mid_market",
-    "trueQualified": true,
-    "trueNextAction": "route_to_ae",
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
     "difficulty": "easy",
     "category": "near_duplicate",
-    "duplicateOf": "lead-0121"
+    "duplicateOf": "lead-0356"
   },
   "lead-0600": {
     "trueSegment": "enterprise",
     "trueQualified": true,
     "trueNextAction": "route_to_ae",
-    "difficulty": "easy",
+    "difficulty": "hard",
     "category": "near_duplicate",
-    "duplicateOf": "lead-0145"
+    "duplicateOf": "lead-0407"
   }
 }

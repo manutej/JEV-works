@@ -27,6 +27,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import type { EmployeeBand, Lead, LeadCategory, PlantedTruth, Segment, TruthMap } from './types.ts';
 import { ALL_ACTIONS } from './types.ts';
+import { EXCLUSION_LIST, normalizeCompanyName } from './code-gates.ts';
 
 // ─────────────────────────────────────────────────────────────── CLI args
 
@@ -107,8 +108,26 @@ const CURRENT_SOLUTIONS = ['a spreadsheet', 'an in-house script', 'Zapier', 'a l
 const QUARTERS = ['Q1', 'Q2', 'Q3', 'Q4'];
 const BUDGETS = ['$5k/mo', '$20k/mo', '$50k/mo', 'around $100k annually', 'not yet approved'];
 
+// Adjective × root × noun = 15 × 16 × 12 = 2880 names. Adjective × noun alone was 180 for a
+// 600-lead corpus, so collisions were certain and dedup merged strangers (231 distinct names).
+const NAME_ROOT = ['Harbor', 'Summit', 'Beacon', 'Quarry', 'Lantern', 'Orchard', 'Signal', 'Juniper', 'Keystone', 'Tidewater', 'Copperline', 'Foxglove', 'Granite', 'Willow', 'Parallax', 'Ember'];
+const usedNames = new Set<string>();
+
+/**
+ * Unique per corpus, compared the way code-gates.ts compares them (normalised), so no two
+ * independent leads look like one company to dedup. Near-duplicates reuse their source's
+ * name in buildNearDuplicate and never come through here.
+ */
 function companyName(): string {
-  return `${pick(NAME_ADJ)} ${pick(NAME_NOUN)}`;
+  for (let attempt = 0; attempt < 1000; attempt++) {
+    const name = `${pick(NAME_ADJ)} ${pick(NAME_ROOT)} ${pick(NAME_NOUN)}`;
+    const key = normalizeCompanyName(name);
+    if (!usedNames.has(key) && !EXCLUSION_LIST.has(key)) {
+      usedNames.add(key);
+      return name;
+    }
+  }
+  throw new Error(`companyName: name space exhausted after ${usedNames.size} names — grow the word pools`);
 }
 
 function contactName(): string {
