@@ -500,7 +500,7 @@
   },
   "holdoutRunStartedAt": "2026-09-21T21:27:52.452Z",
   "holdoutHeadAtRun": "e9e0ae3f982f441ec9f76d14421f750a86319b60",
-  "headline": "E3: holdout acc 74% vs keyword 90%, drop -2 pts — FALSIFIED",
+  "headline": "E3 VOID: holdout ⊂ fit set (39/39); as-run Jev 74% vs keyword 90% is in-sample",
   "n": {
     "fit": 80,
     "holdout": 39
@@ -1851,5 +1851,39 @@
         "inFitSet": true
       }
     ]
+  },
+  "headlineAsRun": "E3: holdout acc 74% vs keyword 90%, drop -2 pts — FALSIFIED",
+  "validity": {
+    "addedAfterRun": true,
+    "valid": false,
+    "verdict": "VOID — not a blind test; the pre-registered hypothesis could not be tested with this data",
+    "because": {
+      "holdoutIdsInFitSet": "39/39",
+      "identicalText": "39/39",
+      "identicalLabel": "39/39",
+      "holdoutStatus": {
+        "approved": 39
+      },
+      "fitStatus": {
+        "approved": 39,
+        "killed": 41
+      },
+      "explanation": "ceti-silver-hooks-approved.json is exactly the status=\"approved\" rows of ceti-silver-hooks.json. Both the v2 option descriptions and the E3 keyword rules were written by reading all 80 labelled fit items, so the \"holdout\" was seen during fitting by both systems."
+    },
+    "mechanicalOutcome": {
+      "falsified": true,
+      "falsifiedBecause": {
+        "dropExceeds5Points": false,
+        "baselineWins": true,
+        "drop": -0.0186,
+        "holdoutVsBaseline": -0.1538
+      },
+      "reading": "The falsifier fired (keyword − Jev = 0.15 ≥ 0.11) but on in-sample data: it shows hand-written regexes memorise 80 items harder than 9 option descriptions do, which says nothing about which transfers to unseen hooks."
+    },
+    "byProducts": {
+      "jevRepeatability": "38/39 identical choices between the fit run and the holdout run on the same items (direct backend, same question)",
+      "unfittedComparison": "The only fitting-free comparison on these items: E1 wording (v1) vs E1 unfitted keyword baseline — see results/e3-fit.json v1 and fit.baselines.e1Keyword."
+    },
+    "neededToTestE3": "A labelled hook set disjoint from the 80 (by id and normalised text), checked blind — by hashing texts and printing only the overlap count — BEFORE the run."
   }
 }
