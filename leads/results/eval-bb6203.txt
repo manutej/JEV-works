@@ -145,10 +145,17 @@ fit seeds [42, 7, 2718, p3001, p6029, 6011]: 30/600 messages seen (5.0%), 570 no
 ═══ claim gate (headline vs strata, policy v2) ═══
 REFUSE: headline claim no_difference (scope novel_wording, McNemar 101 vs 91, p = 0.516)
   failing E2-coverage: coverage 78.0% is below the declared 95%
-  finding: E5: headline shows no difference but stratum clean_in_icp (n=180) shows regex_better (p=1.11e-16); the pooled null hides it
-  finding: E5: headline shows no difference but stratum clean_out_icp (n=120) shows regex_better (p=0.0156); the pooled null hides it
-  finding: E5: headline shows no difference but stratum non_buyer (n=120) shows jev_better (p=1.06e-22); the pooled null hides it
+  finding: E5: headline shows no difference but stratum clean_in_icp (n=180) shows regex_better (p=1.11e-16, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested)
+  finding: E5: headline shows no difference but stratum non_buyer (n=120) shows jev_better (p=1.06e-22, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested)
   Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.
+
+═══ standard gates (kit/standard-gate.ts) ═══
+gates: REFUSE (refused by G4-coverage)
+  ✓ G3-text-disjoint               PASS   test items overlap fit items neither by id nor by normalised text: passed
+  ✗ G4-coverage                    REFUSE coverage 78.0% is below the declared 95%
+  ✓ G5-policy-predeclared          PASS   the scoring policy was fixed before the holdout existed: passed
+  ✓ G6-paired-test                 PASS   the headline is an exact paired test (McNemar) with n ≥ 8: passed
+  ! G7-strata-consistent           WARN   E5: headline shows no difference but stratum clean_in_icp (n=180) shows regex_better (p=1.11e-16, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested); E5: headline shows no difference but stratum non_buyer (n=120) shows jev_better (p=1.06e-22, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested)
 
 per-category qualified accuracy, jev vs regex (AccAll counts escalations as wrong; AccOwn is on own verdicts only):
 category        n    jevCoverage  jevAccAll  jevAccOwn  regexAccAll

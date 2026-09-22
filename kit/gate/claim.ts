@@ -154,10 +154,19 @@ export function gate(i: GateInput, settings: Partial<GateConfig> = {}): GateRepo
     if (!sig[k] || s.direction === NO_DIFFERENCE) return;
     if (claim !== NO_DIFFERENCE && s.direction !== claim) {
       failingEdges.push({ edge: 'E5-strata-consistent', code: 'G7.contradiction', why: `stratum ${s.name} (n=${s.n}, b+c=${s.b + s.c}) says ${s.direction}, the headline says ${claim} (Holm-corrected)` });
-    } else if (claim === NO_DIFFERENCE) {
-      findings.push(`E5: headline shows no difference but stratum ${s.name} (n=${s.n}) shows ${s.direction} (p=${s.p.toPrecision(3)}, Holm-significant); the pooled null hides it`);
     }
   });
+  // Findings are informational, so they cover EVERY stratum (in scope or not): a pooled null that hides
+  // opposite effects must be visible even when those strata cannot refute the claim.
+  if (claim === NO_DIFFERENCE) {
+    const all = strata.filter(s => s.direction !== 'too_small');
+    const sigAll = holm(all.map(s => s.p), cfg.alpha);
+    all.forEach((s, k) => {
+      if (!sigAll[k] || s.direction === NO_DIFFERENCE) return;
+      const where = inScope.includes(s) ? '' : ' (outside the claim scope: reported, not tested)';
+      findings.push(`E5: headline shows no difference but stratum ${s.name} (n=${s.n}) shows ${s.direction} (p=${s.p.toPrecision(3)}, Holm-significant); the pooled null hides it${where}`);
+    });
+  }
   if (scope === 'novel_wording') {
     const nv = strata.find(s => s.name === 'novel');
     if (!nv || nv.direction === 'too_small') failingEdges.push({ edge: 'E5-strata-consistent', code: 'G7.novel-too-small', why: `the claim is about new wording but the novel stratum has n=${nv?.n ?? 0}, b+c=${nv ? nv.b + nv.c : 0} (need n >= ${cfg.minStratum}, b+c >= ${cfg.minDiscordant})` });

@@ -180,3 +180,14 @@ test('G6: a headline with fewer than 8 discordant items is refused as undecidabl
   const ok = claimSuite(gate({ ...clean, headline: { name: 'all', n: 600, b: 8, c: 0 }, categories: [{ name: 'rest', n: 600, b: 8, c: 0 }] }));
   assert.notEqual(ok.results.find(r => r.id === 'G6-paired-test')!.verdict, 'REFUSE');
 });
+
+test('a pooled null still reports hidden strata outside a novel-wording scope (reported, not tested)', () => {
+  const r = gate({ ...clean, claimScope: 'novel_wording', headline: { name: 'all', n: 600, b: 60, c: 60 },
+    novel: { name: 'novel', n: 570, b: 57, c: 57 },
+    categories: [{ name: 'non_buyer', n: 120, b: 45, c: 0 }, { name: 'clean_in_icp', n: 180, b: 0, c: 45 }, { name: 'rest', n: 300, b: 15, c: 15 }] });
+  assert.equal(r.claim, 'no_difference');
+  const f = r.findings.join(' | ');
+  assert.match(f, /non_buyer .*outside the claim scope/);
+  assert.match(f, /clean_in_icp .*outside the claim scope/);
+  assert.ok(!r.failingEdges.some(e => e.edge === 'E5-strata-consistent'), 'out-of-scope strata never refuse');
+});
