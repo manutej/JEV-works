@@ -1,0 +1,65 @@
+{
+  "name": "craft:right-sized-design",
+  "description": "Is the structure sized to the problem: no abstraction without real callers, no speculative configuration, no pass-through layers? From the craft:right-sized-design skill.",
+  "artifact": { "type": "code hunk (one module, class or diff hunk)", "stateFields": ["code", "language", "filePath"] },
+  "modules": [
+    {
+      "name": "speculative-structure",
+      "purpose": "Every abstraction in the hunk does work for more than one concrete case.",
+      "questions": {
+        "declaresInterfaceOrBase": {
+          "type": "noul", "polarity": "neutral", "reads": ["code"],
+          "instructions": "Does this code declare an interface, abstract base class, factory, strategy or registry?",
+          "criteria": { "true": "At least one such construct is declared here.", "false": "None is declared here." }
+        },
+        "singleImplementationVisible": {
+          "type": "noul", "polarity": "bad-when-yes", "reads": ["code"],
+          "instructions": "Within this code, does a declared interface, base class or strategy have exactly one implementation?",
+          "criteria": { "true": "One implementation behind the abstraction is visible here.", "false": "Several implementations, or none declared here." }
+        },
+        "passThroughMethod": {
+          "type": "noul", "polarity": "bad-when-yes", "reads": ["code"],
+          "instructions": "Does this code contain a method whose body only forwards its arguments to another call and returns the result?",
+          "criteria": { "true": "A method adds nothing but a forwarding call.", "false": "Every method does some work of its own." }
+        }
+      },
+      "compose": {
+        "positive": "the structure is right-sized",
+        "rules": [
+          { "when": { "q": "passThroughMethod", "is": "yes" }, "then": false },
+          { "when": { "all": [ { "q": "declaresInterfaceOrBase", "is": "yes" }, { "q": "singleImplementationVisible", "is": "yes" } ] }, "then": false },
+          { "when": { "q": "declaresInterfaceOrBase", "is": "no" }, "then": true },
+          { "when": { "q": "singleImplementationVisible", "is": "no" }, "then": true }
+        ],
+        "default": "escalate"
+      },
+      "notForJev": [
+        { "judgement": "How many real call sites does this abstraction have across the codebase?", "instead": "Counting and cross-file: find references with the language server or grep, in code (P18/P21)." }
+      ]
+    },
+    {
+      "name": "speculative-configuration",
+      "purpose": "Options and flags exist because a caller varies them, not in case one might.",
+      "questions": {
+        "optionWithSingleValue": {
+          "type": "noul", "polarity": "bad-when-yes", "reads": ["code"],
+          "instructions": "Does this code add a parameter, option or flag that is only ever given one value within this code?",
+          "criteria": { "true": "A new knob with one value in sight.", "false": "Every new knob is given different values here, or none is added." }
+        },
+        "futureJustification": {
+          "type": "noul", "polarity": "bad-when-yes", "reads": ["code"],
+          "instructions": "Does a comment in this code justify a structure by a possible future need, such as \"in case\" or \"might need later\"?",
+          "criteria": { "true": "A comment defends structure by an imagined future use.", "false": "No such comment." }
+        }
+      },
+      "compose": {
+        "positive": "no speculative configuration",
+        "rules": [
+          { "when": { "any": [ { "q": "optionWithSingleValue", "is": "yes" }, { "q": "futureJustification", "is": "yes" } ] }, "then": false },
+          { "when": { "all": [ { "q": "optionWithSingleValue", "is": "no" }, { "q": "futureJustification", "is": "no" } ] }, "then": true }
+        ],
+        "default": "escalate"
+      }
+    }
+  ]
+}
