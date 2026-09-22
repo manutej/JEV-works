@@ -16,6 +16,7 @@ inboundSubstantive           boolean  0.751     67%     0.361   JEV-SAFE
 isRealBusiness               boolean  0.531     7%      0.199   MOVE-TO-CODE
 
 ── STAGE2_QUALIFICATION (460 calls) ──
+not asked in this run (no verdict): asksToBuy, offersToUs
 question                       kind     meanConf  atEnds  spread  verdict 
 ─────────────────────────────  ───────  ────────  ──────  ──────  ────────
 statedTimeline                 boolean  0.918     100%    0.456   JEV-SAFE
@@ -154,6 +155,8 @@ gates: REFUSE (refused by G3-text-disjoint)
   ✓ G5-policy-predeclared          PASS   the scoring policy was fixed before the holdout existed: passed
   ✓ G6-paired-test                 PASS   the headline is an exact paired test (McNemar) with n ≥ 8: passed
   ✓ G7-strata-consistent           PASS   every stratum large enough to judge agrees with the pooled headline: passed
+lint exceptions in the questions asked (1):
+  sales.mentionsCompetitorComparison M2-literal: asks whether THIS message compares the product to a competitor; one record answers it, no cross-record comparison
 
 per-category qualified accuracy, jev vs regex (AccAll counts escalations as wrong; AccOwn is on own verdicts only):
 category        n    jevCoverage  jevAccAll  jevAccOwn  regexAccAll

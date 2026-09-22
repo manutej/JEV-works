@@ -16,6 +16,7 @@ inboundSubstantive           boolean  0.754     68%     0.310   JEV-SAFE
 isRealBusiness               boolean  0.497     4%      0.151   MOVE-TO-CODE
 
 ── STAGE2_QUALIFICATION (492 calls) ──
+not asked in this run (no verdict): asksToBuy, offersToUs
 question                       kind     meanConf  atEnds  spread  verdict 
 ─────────────────────────────  ───────  ────────  ──────  ──────  ────────
 competitorNamed                boolean  0.927     98%     0.087   JEV-SAFE
@@ -158,6 +159,8 @@ gates: REFUSE (refused by G3-text-disjoint, G4-coverage, G7-strata-consistent)
   ✓ G5-policy-predeclared          PASS   the scoring policy was fixed before the holdout existed: passed
   ✓ G6-paired-test                 PASS   the headline is an exact paired test (McNemar) with n ≥ 8: passed
   ✗ G7-strata-consistent           REFUSE stratum clean_in_icp (n=180, b+c=9) says regex_better, the headline says jev_better (Holm-corrected)
+lint exceptions in the questions asked (1):
+  sales.mentionsCompetitorComparison M2-literal: asks whether THIS message compares the product to a competitor; one record answers it, no cross-record comparison
 
 per-category qualified accuracy, jev vs regex (AccAll counts escalations as wrong; AccOwn is on own verdicts only):
 category        n    jevCoverage  jevAccAll  jevAccOwn  regexAccAll

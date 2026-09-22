@@ -191,3 +191,12 @@ test('a pooled null still reports hidden strata outside a novel-wording scope (r
   assert.match(f, /clean_in_icp .*outside the claim scope/);
   assert.ok(!r.failingEdges.some(e => e.edge === 'E5-strata-consistent'), 'out-of-scope strata never refuse');
 });
+
+test('a positive headline still reports an opposite, significant stratum outside the scope (bd8101 gap)', () => {
+  const r = gate({ ...clean, claimScope: 'novel_wording', headline: { name: 'all', n: 600, b: 109, c: 50 },
+    novel: { name: 'novel', n: 570, b: 109, c: 50 },
+    categories: [{ name: 'clean_in_icp', n: 180, b: 0, c: 25 }, { name: 'non_buyer', n: 120, b: 76, c: 0 }, { name: 'rest', n: 300, b: 33, c: 25 }] });
+  assert.equal(r.claim, 'jev_better');
+  assert.match(r.findings.join(' | '), /hidden-stratum: headline says jev_better but stratum clean_in_icp .* regex_better .*outside the claim scope/);
+  assert.ok(!r.failingEdges.some(f => f.edge === 'E5-strata-consistent'), 'still never refuses from outside the scope');
+});
