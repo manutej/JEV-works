@@ -472,3 +472,12 @@ Escalation is scored as wrong. Scored as correct, the gap closes or reverses.
 wrong, or excluded. Changing it after seeing results is fitting the scorer to the data.
 *Attached to:* leads Q2 (seed 2718); a policy decision for Manu.
 
+### L39 · A routing threshold tuned on in-sample scores defers to the memoriser
+**Happened.** E3-K's hybrid (Jev if top-p ≥ τ, else a fold-fitted keyword model) chose τ on the training folds, where
+the keyword model scored 97–100% because it had just memorised them; held out it scored 25–44%. τ went to 0.85 and the
+hybrid (60.0%) lost to Jev alone (72.5%). The flaw was in the pre-registered design, and it is recorded as a finding;
+τ was not re-fitted after the fact.
+**Rule.** When a threshold routes between two systems, score *both* out-of-fold (nested CV) before tuning it. Otherwise
+the system that memorises wins the tuning and loses the test.
+*Attached to:* `feat/e3-blind-test` `program/E3-KFOLD-REPORT.md`.
+

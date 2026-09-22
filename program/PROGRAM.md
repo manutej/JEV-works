@@ -113,6 +113,8 @@ claim.
 > fit set's `status=approved` rows (ids and texts 39/39; see LESSONS L31). E3 was run and is void; results
 > are kept on branch `feat/e3-blind-test` (`program/results/e3-blind.json`, `validity` block). **E4 names the
 > same 39 and has the same defect.** Re-running either needs a disjoint, independently labelled set.
+> *K-fold rerun (2026-09-21, Manu: "k-fold on the 80, reported as in-sample"):* Jev v2 72.5% in-sample vs fold-held-out
+> keyword 35.0%. Asymmetric, so it is **not** a test of E3's hypothesis (P32; branch feat/e3-blind-test, `program/E3-KFOLD-REPORT.md`).
 
 *Corpora.* Fit on `ceti-silver-hooks.json` (80). Blind-validate on
 `ceti-silver-hooks-approved.json` (39) — same schema, **never inspected until the run**.
