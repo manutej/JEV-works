@@ -1,3 +1,5 @@
+> **Stale as of 2026-09-22 (MoE panel):** written before E5 (P33) and the cookbooks (P35) ran; see NETER window 6 for the current picture. Kept as the Q4 record.
+
 # Q4 · Does the cheap baseline win on our tasks? (NETER open window 6)
 
 Built 2026-09-21 from committed result files only. New numbers come from `program/q4-baselines.ts`,

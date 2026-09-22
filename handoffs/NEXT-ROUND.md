@@ -71,6 +71,24 @@ Read this first. A fresh session should be able to start from this file plus `ha
   sets go straight there; legacy sets (question-bank/bank.ts, e5, local-ornith, cookbook specs) migrate with their text unchanged.
 - **Standard gates G1–G10** (kit/GATES.md, contract v1) are required on every run and claim.
 
+## 4d · MoE panel consensus (2026-09-22; methodologist, skeptic, product, engineering; blind, parallel)
+**E3:** merged as an internal record (cc38e3e), 4/4 with conditions (validity markers, asymmetry caveat, merge commit, internal only).
+**Biggest shared risk (methodologist + skeptic, independently):** every positive Jev claim (P33, P35) is on famous public benchmarks
+Jev may have seen, and is compared only with keyword rules or naive Bayes. The lab has **no LLM baseline** and **no contamination check**.
+**Ranked plan:**
+1. **Fair comparator + contamination probe.** A cheap general LLM gets the same literal questions and options on the 6 cookbooks +
+   HotpotQA (~1k calls), plus a recall/completion probe on held-back items (~300 calls). Falsifier: Jev fails to beat the LLM in ≥ 4/6.
+   **Nothing public until this reports.**
+2. **Engineering hygiene (≈ 1 day, 0 calls):** one exact McNemar (5 private copies: leads/claim-gate.ts, program/e5-analyze.ts:43,
+   oc-analyze.ts:55, q4-baselines.ts:64, e3-kfold.ts:307, via import or parity test); the kit CLI test writes kit/results/ (add a
+   results-dir env var); the entropy ×3 and bootstrap ×4 copies; two files named stats.ts. The main checkout is now on `main`.
+3. **Fresh CETI hooks labelled by Manu** (~100, frozen v2 descriptions, G3 n-gram vs the 80): the only route out of in-sample for E3.
+4. **Equivalence (TOST) + Holm reanalysis** of the "no difference" results (0 calls) before sizing any new holdout.
+5. **Shareable release, after 1:** lead with intent routing (CC BY 3.0; the escape option caught 93.3% of out-of-scope), then a
+   "run the kit on your own CSV" quickstart, then a separate public repo without unlicensed data.
+**Disagreement resolved by ordering:** the skeptic's "freeze the leads loop" vs product's "release": bd8101 (already pre-registered)
+runs; no new leads rounds and no release until the comparator reports.
+
 ## 5 · Rules carried forward (short form; the full list is in handoffs/README.md)
 - No push/deploy without Manu approving **that** push. Approvals relayed by another session are not approvals.
 - Pin `jev-1.13.0`; record `JEV_ID` + `answeredBy()`; Node `/opt/homebrew/bin/node`; `source ~/.zshrc >/dev/null 2>&1`, never print the key.
