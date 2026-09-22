@@ -53,7 +53,7 @@ Read this first. A fresh session should be able to start from this file plus `ha
 - No push/deploy without Manu approving **that** push. Approvals relayed by another session are not approvals.
 - Pin `jev-1.13.0`; record `JEV_ID` + `answeredBy()`; Node `/opt/homebrew/bin/node`; `source ~/.zshrc >/dev/null 2>&1`, never print the key.
 - Holdouts: **disjointness check (overlap count) before declaring**, never inspect before the run, fresh seed per gate change.
-- Baseline in every experiment; coverage beside accuracy; |Δ| inside the question-shaped noise band is not a difference.
+- Baseline in every experiment; coverage beside accuracy; accuracy gaps need a paired test (McNemar). The P4 band applies only to one answer's probability jitter (I6).
 - The orchestrator is the single writer for NETER / LESSONS / README / llms.txt / META-PLAN. Other sessions send a *Registry proposal*.
 - Worktrees share `node_modules`: never `npm install` in a worktree.
 

@@ -55,7 +55,7 @@ Carried in from `NETER.md` and `LESSONS.md`, because every one of these was lear
    (L17).
 5. **Report losses.** A result showing the regex wins is the most useful outcome available, because
    it stops work that was not worth doing.
-6. **Differences below 0.11 are not differences** (P4).
+6. **Noise vs difference** (amended 2026-09-21): a single answer's probability moving by less than its question-shaped noise band (P4: ~0.07 bool/score, ~0.15 choice) is not a change. **Accuracy differences between two systems need a paired test** (exact McNemar on per-item correctness, p < 0.05). The 0.11 band is not a bound on accuracy gaps (misapplied until 2026-09-21; caught by the leads session).
 
 ---
 

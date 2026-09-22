@@ -32,12 +32,24 @@ type WireResponse = {
 
 const toWire = (q: Question) => (q.type === 'boolean' ? { ...q, type: 'noul' as const } : q);
 
+/**
+ * The API rounds probabilities to 2dp, so its `choice` can tie or lose to another option after rounding.
+ * AI SDK core rejects an answer whose choice is not a highest-probability option
+ * ("did not select a highest-probability option"). Keep the API's choice on a tie, else take the rounded argmax.
+ */
+function argmaxChoice(a: { choice: string; probabilities?: Record<string, number> }): string {
+  const p = a.probabilities;
+  if (!p || !(a.choice in p)) return a.choice;
+  const max = Math.max(...Object.values(p));
+  return p[a.choice] === max ? a.choice : Object.keys(p).find(k => p[k] === max)!;
+}
+
 function fromWire(a: WireAnswer): Answer {
   switch (a.type) {
     case 'noul':
       return { type: 'boolean', probability: a.noul };
     case 'choice':
-      return { type: 'choice', choice: a.choice, probabilities: a.probabilities };
+      return { type: 'choice', choice: argmaxChoice(a), probabilities: a.probabilities };
     case 'score':
       return { type: 'score', score: a.score, probabilities: a.probabilities };
   }
@@ -87,7 +99,13 @@ export function jevDirect(
         // Direct API rounds to 2dp; declaring it lets core tolerate distributions summing to 0.99/1.01.
         rounding: { probabilityDecimals: 2, scoreDecimals: 2 },
         usage: { inputTokens: body.usage?.input_tokens, outputTokens: body.usage?.output_tokens },
-        warnings: [],
+        // Every override of the API's own choice is surfaced, never silent.
+        warnings: Object.entries(body.answers)
+          .filter(([, a]) => a.type === 'choice' && argmaxChoice(a) !== a.choice)
+          .map(([id, a]) => ({
+            type: 'other' as const,
+            message: `typesafe: "${id}" choice "${(a as { choice: string }).choice}" is not the argmax of its 2dp-rounded probabilities; using "${argmaxChoice(a as { choice: string; probabilities?: Record<string, number> })}"`,
+          })),
         providerMetadata: { typesafe: { confidence } },
         response: { modelId: body.model, timestamp: new Date(), body },
       };

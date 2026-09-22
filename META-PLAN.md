@@ -50,7 +50,7 @@ Free variables (the parts that change for sibling tasks): `{repo_set, corpus, qu
 - I3 No verdict below 8 observations.
 - I4 Polarity is declared per question; never average a cost with a benefit.
 - I5 Report losses. If the regex wins, that is the result.
-- I6 A |Δ| below 0.11 is not a difference (P4).
+- I6 Noise vs difference: a single answer's probability moving by less than its question-shaped noise band (P4: ~0.07 bool/score, ~0.15 choice) is not a change. **Accuracy differences between two systems need a paired test** (exact McNemar on per-item correctness, p < 0.05). The 0.11 band is not a bound on accuracy gaps (misapplied until 2026-09-21; caught by the leads session).
 - I7 `npx tsc --noEmit` passes after every unit.
 - I8 Never print `TYPESAFE_API_KEY`; never commit `.env*` or `.vercel/`.
 - I9 **Concurrent sessions exist**: re-read any file right before editing it; `find -mmin -10` before registry writes.
@@ -80,6 +80,7 @@ Status: `ready` · `blocked-on:Ux` · `HUMAN` · `done` · `failed`
 | **U0** | Manu approves this checkpoint list | approval line in §10, `recorded_by: Manu` | HumanCheck: Manu | none | see §9 |
 | **U1** | local git baseline for JEV-works + ~/jev-playground (no remote, no push) | `.git`, `.gitignore`, first commit | `git status --porcelain` empty; `git check-ignore .env.local .vercel node_modules` all ignored; `git grep -c "$(key-prefix)"` = 0 | idempotent; rollback `rm -rf .git`; radius: none | **done** be1429b (JEV-works only) |
 | **U2** | route every remaining hardcoded `typesafe-ai/jev` through a selector | edited scripts; `lib/jev*.ts` available to jev-playground | `grep -rn "typesafe-ai/jev"` returns only lib/ + docs; tsc green in both; `probe-jev.mjs` + `01-hello.ts` run on direct | reversible via git (after U1); radius: none | blocked-on:U1 |
+| **Q2** | leads literal questions (session b4f08e) | pre-registered **seed 2718**, n=600, one run; prereg 365bcc0 + correction fc1c893 on feat/leads-literal-questions | (a) ≥ 95% verdicts; (b) accuracy over ALL leads vs regex + exact McNemar; (c) overlap with seeds 42/7 reported (full-record matches = 0) | fresh seed; dev on seed 42 is not evidence | **declared, logged 2026-09-21 before corpus generation** |
 | **U3** | fix leads bug 1: name collisions in `generate-corpus.ts` | generator + regenerated `leads-42.json`/`truth-42.json` | distinct normalised names = named non-duplicate leads (amended: "≥ 600 − dups" was unreachable because garbage leads have empty names by design; measured 512 = 572 named − 60 dups); same seed gives a byte-identical file on 2 runs | radius: invalidates the old leads results (kept via git) | **done**, merged main 0cefc2d (session b4f08e) |
 | **U4** | fix leads bug 2: no name-only dedup fallback in `code-gates.ts` | code-gates.ts + test | dedup merges = planted dups ± 5% on the new corpus; "Acme Corp" with 3 contacts and no domain stays 3 | reversible | **done**, merged main 0cefc2d (session b4f08e) |
 | **U5** | re-run leads pipeline + evaluate vs 91.7% baseline | `leads/results/pipeline-42.json`, eval output | ≥ 95% of leads reach a verdict; report has n, baseline, result, delta, falsified? (I5, I6) | cost ~1.8k calls; UK1 | **done**, merged main 0cefc2d (session b4f08e) |
@@ -182,3 +183,4 @@ parallel lane-sets exercised: 0 (serial loop); external stakeholders: none beyon
 
 - 2026-09-21 loop tick: dashboard rebuilt (4074056); U8 dispatched to agent p6-entropy (pre-registered, fit/test split with a disjointness check). U10 now belongs to the siblings-survey session.
 - 2026-09-21 leads merged to main 0cefc2d (Manu approved). feat/jev-selector rebased on it (tsc OK, leads tests 11/11). U9: six corrections from leads HANDOFF §6 applied; retro plan changes 1–4 adopted into §9.
+- 2026-09-21 Q2 holdout declared: seed 2718 (prereg 365bcc0, fc1c893), logged before corpus generation per §9.1. I6 reworded (accuracy gaps need a paired test). jev-direct: 2dp rounding-tie fix + regression test.
