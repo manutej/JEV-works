@@ -549,3 +549,13 @@ post-hoc, diagnostic only) and locate the new bottleneck by stage and stratum. T
 is REFUSE. The replay only says where to work next.
 *Attached to:* leads feat/leads-segment (bc7101), NETER ledger Q2d.
 
+### L47 · An instruction to a blind author can move the corpus outside the system's declared scope
+**Happened.** To avoid same-model convergence (L45), pool D's blind author was told to be original. It wrote mixed
+Spanish/English buyer messages. The pipeline's own stage-1 question defines another language as "not parseable", so all
+24 of those buyers stalled mid-band and holdout bd8101 failed coverage. The failure was a mismatch between corpus and spec,
+not a failure to read intent.
+**Rule.** Put the system's declared scope (language, channel, format) in every corpus author's brief, and state explicitly
+what is out of scope. When a holdout fails on inputs the spec excludes, the fix is a scope decision by a human, never a
+silent rule tweak.
+*Attached to:* leads feat/leads-intent (bd8101); NETER ledger Q2e.
+
