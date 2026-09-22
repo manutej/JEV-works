@@ -1,0 +1,308 @@
+{
+  "seed": "bc7101",
+  "claim": "no_difference",
+  "policy": "v2",
+  "headline": {
+    "name": "all",
+    "n": 600,
+    "b": 53,
+    "c": 70,
+    "p": 0.14881624623839793
+  },
+  "strata": [
+    {
+      "name": "seen",
+      "n": 30,
+      "b": 0,
+      "c": 0,
+      "p": 1,
+      "direction": "too_small"
+    },
+    {
+      "name": "novel",
+      "n": 570,
+      "b": 53,
+      "c": 70,
+      "p": 0.14881624623839793,
+      "direction": "no_difference"
+    },
+    {
+      "name": "clean_in_icp",
+      "n": 180,
+      "b": 0,
+      "c": 42,
+      "p": 4.5474735088646407e-13,
+      "direction": "regex_better"
+    },
+    {
+      "name": "clean_out_icp",
+      "n": 120,
+      "b": 0,
+      "c": 0,
+      "p": 1,
+      "direction": "too_small"
+    },
+    {
+      "name": "non_buyer",
+      "n": 120,
+      "b": 34,
+      "c": 0,
+      "p": 1.164153218269349e-10,
+      "direction": "jev_better"
+    },
+    {
+      "name": "ambiguous",
+      "n": 60,
+      "b": 11,
+      "c": 19,
+      "p": 0.20048842206597445,
+      "direction": "no_difference"
+    },
+    {
+      "name": "garbage",
+      "n": 30,
+      "b": 0,
+      "c": 0,
+      "p": 1,
+      "direction": "too_small"
+    },
+    {
+      "name": "adversarial",
+      "n": 30,
+      "b": 0,
+      "c": 0,
+      "p": 1,
+      "direction": "too_small"
+    },
+    {
+      "name": "near_duplicate",
+      "n": 60,
+      "b": 8,
+      "c": 9,
+      "p": 1,
+      "direction": "no_difference"
+    }
+  ],
+  "settings": {
+    "alpha": 0.05,
+    "minStratum": 8,
+    "minDiscordant": 8,
+    "seenShareLimit": 0.2
+  },
+  "systems": {
+    "a": "jev",
+    "b": "regex"
+  },
+  "caveat": "Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.",
+  "verdict": "REFUSE",
+  "claimScope": "novel_wording",
+  "failingEdges": [
+    {
+      "edge": "E2-coverage",
+      "code": "G4.below-minimum",
+      "why": "coverage 88.7% is below the declared 95%"
+    }
+  ],
+  "findings": [
+    "E5: hidden-stratum: headline shows no difference but stratum clean_in_icp (n=180) shows regex_better (p=4.55e-13, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested)",
+    "E5: hidden-stratum: headline shows no difference but stratum non_buyer (n=120) shows jev_better (p=1.16e-10, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested)"
+  ],
+  "standard": {
+    "contract": 1,
+    "verdict": "REFUSE",
+    "refusing": [
+      "G4-coverage"
+    ],
+    "warnings": [
+      "G7-strata-consistent"
+    ],
+    "codes": [
+      "G4.below-minimum"
+    ],
+    "settings": {
+      "alpha": 0.05,
+      "minStratum": 8,
+      "minDiscordant": 8,
+      "seenShareLimit": 0.2
+    },
+    "results": [
+      {
+        "id": "G3-text-disjoint",
+        "stage": "preflight",
+        "verdict": "PASS",
+        "why": "test items overlap fit items neither by id nor by normalised text: passed",
+        "evidence": {
+          "legacyEdge": "E1-text-disjoint",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          }
+        }
+      },
+      {
+        "id": "G4-coverage",
+        "stage": "run",
+        "verdict": "REFUSE",
+        "why": "coverage 88.7% is below the declared 95%",
+        "evidence": {
+          "legacyEdge": "E2-coverage",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          }
+        },
+        "code": "G4.below-minimum"
+      },
+      {
+        "id": "G5-policy-predeclared",
+        "stage": "claim",
+        "verdict": "PASS",
+        "why": "the scoring policy was fixed before the holdout existed: passed",
+        "evidence": {
+          "legacyEdge": "E3-policy-predeclared",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          }
+        }
+      },
+      {
+        "id": "G6-paired-test",
+        "stage": "claim",
+        "verdict": "PASS",
+        "why": "the headline is an exact paired test (McNemar) with n ≥ 8: passed",
+        "evidence": {
+          "legacyEdge": "E4-paired-test",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          },
+          "headline": {
+            "name": "all",
+            "n": 600,
+            "b": 53,
+            "c": 70,
+            "p": 0.14881624623839793
+          },
+          "claim": "no_difference",
+          "test": "exact McNemar"
+        }
+      },
+      {
+        "id": "G7-strata-consistent",
+        "stage": "claim",
+        "verdict": "WARN",
+        "why": "E5: hidden-stratum: headline shows no difference but stratum clean_in_icp (n=180) shows regex_better (p=4.55e-13, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested); E5: hidden-stratum: headline shows no difference but stratum non_buyer (n=120) shows jev_better (p=1.16e-10, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested)",
+        "evidence": {
+          "legacyEdge": "E5-strata-consistent",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          },
+          "findings": [
+            "E5: hidden-stratum: headline shows no difference but stratum clean_in_icp (n=180) shows regex_better (p=4.55e-13, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested)",
+            "E5: hidden-stratum: headline shows no difference but stratum non_buyer (n=120) shows jev_better (p=1.16e-10, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested)"
+          ],
+          "systems": [
+            "jev",
+            "regex"
+          ],
+          "correction": "holm",
+          "headline": {
+            "name": "all",
+            "n": 600,
+            "b": 53,
+            "c": 70,
+            "p": 0.14881624623839793,
+            "direction": "no_difference"
+          },
+          "strata": [
+            {
+              "name": "seen",
+              "n": 30,
+              "b": 0,
+              "c": 0,
+              "p": 1,
+              "direction": "too_small"
+            },
+            {
+              "name": "novel",
+              "n": 570,
+              "b": 53,
+              "c": 70,
+              "p": 0.14881624623839793,
+              "direction": "no_difference"
+            },
+            {
+              "name": "clean_in_icp",
+              "n": 180,
+              "b": 0,
+              "c": 42,
+              "p": 4.5474735088646407e-13,
+              "direction": "b_better"
+            },
+            {
+              "name": "clean_out_icp",
+              "n": 120,
+              "b": 0,
+              "c": 0,
+              "p": 1,
+              "direction": "too_small"
+            },
+            {
+              "name": "non_buyer",
+              "n": 120,
+              "b": 34,
+              "c": 0,
+              "p": 1.164153218269349e-10,
+              "direction": "a_better"
+            },
+            {
+              "name": "ambiguous",
+              "n": 60,
+              "b": 11,
+              "c": 19,
+              "p": 0.20048842206597445,
+              "direction": "no_difference"
+            },
+            {
+              "name": "garbage",
+              "n": 30,
+              "b": 0,
+              "c": 0,
+              "p": 1,
+              "direction": "too_small"
+            },
+            {
+              "name": "adversarial",
+              "n": 30,
+              "b": 0,
+              "c": 0,
+              "p": 1,
+              "direction": "too_small"
+            },
+            {
+              "name": "near_duplicate",
+              "n": 60,
+              "b": 8,
+              "c": 9,
+              "p": 1,
+              "direction": "no_difference"
+            }
+          ],
+          "scope": "novel_wording"
+        }
+      }
+    ]
+  }
+}
