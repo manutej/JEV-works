@@ -9,7 +9,7 @@ import { join } from 'node:path';
 
 const ROOT = join(import.meta.dirname, '..', '..');
 const tmp = mkdtempSync(join(tmpdir(), 'kit-cli-'));
-const env = { ...process.env, TYPESAFE_API_KEY: 'test-key-not-real', JEV_BACKEND: 'direct', FAKE_TYPESAFE_FAIL: '', FAKE_TYPESAFE_TIE: '' };
+const env = { ...process.env, TYPESAFE_API_KEY: 'test-key-not-real', JEV_BACKEND: 'direct', FAKE_TYPESAFE_FAIL: '', FAKE_TYPESAFE_TIE: '', JEV_RUNS_DIR: join(tmp, 'runs') };
 
 function run(args: string[], extraEnv: Record<string, string> = {}) {
   const r = spawnSync(process.execPath, ['--import', './kit/test/fake-typesafe.ts', 'kit/run.ts', ...args],

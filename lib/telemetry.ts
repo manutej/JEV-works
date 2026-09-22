@@ -30,7 +30,8 @@
 import { appendFileSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-const RUNS_DIR = join(import.meta.dirname ?? '.', '..', 'runs');
+/** JEV_RUNS_DIR overrides where run logs go, so tests never write into the repo's tracked runs/. */
+const RUNS_DIR = process.env.JEV_RUNS_DIR ?? join(import.meta.dirname ?? '.', '..', 'runs');
 
 export type Announcement = {
   /** Model id, verbatim. */
