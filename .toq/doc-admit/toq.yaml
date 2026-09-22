@@ -1,0 +1,26 @@
+# ToQ: DOC_RELEVANCE admit decision. Authored 2026-09-22 before any OC call. Mirrors bank.ts `recombine` for DOC_RELEVANCE.
+slug: doc-admit
+answer_space: {root: bool, equivalence: bool-exact-at-0.5}
+state: "{question, chunk} from question-bank/doc-relevance-states.json"
+root:
+  id: R
+  text: "Should this documentation chunk be put into the prompt to help answer the stated question?"
+  compose: M1 OR M2
+  children:
+    - id: M1
+      text: "Does this chunk contain the specific information the stated question asks for, rather than merely being about the same topic?"
+      compose: L1 AND L2
+      children:
+        - {id: L1, text: "Does the chunk mention the specific function, option, or concept the question names?"}
+        - {id: L2, text: "Does the chunk state a value, rule, or instruction that directly answers the question?"}
+    - id: M2
+      text: "Is this chunk a specific, usable reference: exact API details or runnable code for how to do the thing?"
+      compose: (L3 OR L4) AND L5
+      children:
+        - {id: L3, text: "Does this chunk define a callable surface: a signature, parameters, types, or return shape?"}
+        - {id: L4, text: "Does this chunk contain code that could be run or copied as-is?"}
+        - {id: L5, text: "Does this chunk give exact names, signatures, or code rather than a prose description?"}
+compose_witness: "admit <=> answers the question OR (is API/code AND specific) = bank.ts recombine."
+high_risk_edge: M1-R
+labels: none (label-free only)
+total_collapse_verified: true

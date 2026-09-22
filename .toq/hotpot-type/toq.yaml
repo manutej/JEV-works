@@ -1,0 +1,25 @@
+# ToQ: HotpotQA question type. Authored 2026-09-22 by the orchestrator (meta-operad TREE + COMPOSE moves), before any OC call.
+slug: hotpot-type
+answer_space: {root: bool, equivalence: bool-exact-at-0.5}   # all edges are colored bool; p >= 0.5 -> true
+state: "{question}  (question text only; never answer/context)"
+root:
+  id: R
+  text: "Does this question ask to compare two or more named things on one shared property (a comparison question), rather than asking for a fact reached by going through an intermediate entity (a bridge question)?"
+  compose: M1 AND M2
+  children:
+    - id: M1
+      text: "Does the question put two or more named things side by side as equals, rather than describing one through the other?"
+      compose: L1 AND L2
+      children:
+        - {id: L1, text: "Does the question mention two or more distinct named things (people, places, works, organisations)?"}
+        - {id: L2, text: "Are those named things joined by 'and', 'or', 'both' or 'either', rather than one being introduced as a description of the other?"}
+    - id: M2
+      text: "Does the question ask how those named things relate on a single shared property?"
+      compose: L3 OR L4
+      children:
+        - {id: L3, text: "Does the question contain a comparison word such as more, less, older, earlier, first, larger, same, both, either, or 'which of'?"}
+        - {id: L4, text: "Is the expected answer one of the things named in the question, or a yes/no, rather than some other entity?"}
+compose_witness: "comparison <=> (named things side by side) AND (asks their relation on a shared property); a bridge question fails M1 (one entity described through another)."
+high_risk_edge: M2-R   # L4 asks about the answer's type, the least literal leaf
+labels: gold `type` (comparison=true), used ONLY to log OC-vs-correctness, never to tune the tree
+total_collapse_verified: true

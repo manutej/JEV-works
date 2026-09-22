@@ -1,0 +1,31 @@
+# ToQ: leads "qualified". Authored 2026-09-22 before any OC call. Leaves reuse leads/questions.ts wording where literal (L37: noise before intent).
+slug: leads-qualified
+answer_space: {root: bool, equivalence: bool-exact-at-0.5}
+state: "lead record JSON (companyName, industry, employeeBand, country, contactTitle, inboundMessage, websiteBlurb)"
+root:
+  id: R
+  text: "Is this lead worth handing to sales now: a real company, in our target profile, with someone showing intent to buy?"
+  compose: M1 AND M2 AND M3
+  children:
+    - id: M1
+      text: "Is there a real, specific company behind this record?"
+      compose: L1 AND L2
+      children:
+        - {id: L1, text: "Is a specific, named company given, as opposed to a blank, a placeholder like 'N/A' or 'test', or a generic descriptor?"}
+        - {id: L2, text: "Does the inbound message contain at least one complete, readable sentence in which the sender tells you something about who they are, what they do, or what they want?"}
+    - id: M2
+      text: "Is this company in our target profile of B2B software, fintech, devtools, cybersecurity or cloud-infrastructure businesses with a real team?"
+      compose: L3 AND L4
+      children:
+        - {id: L3, text: "Is the company's stated industry one of: B2B software, fintech, developer tools, cybersecurity, or cloud infrastructure?"}
+        - {id: L4, text: "Does the stated employee band indicate more than ten employees?"}
+    - id: M3
+      text: "Does the person show intent to buy?"
+      compose: L5 OR L6
+      children:
+        - {id: L5, text: "Does the inbound message express an active intent to evaluate or purchase, rather than idle curiosity?"}
+        - {id: L6, text: "Does the message state or imply a timeframe by which a decision or rollout is wanted?"}
+compose_witness: "worth handing to sales <=> real company AND in profile AND buying intent (the three conjuncts of the leads pipeline's qualified rule)."
+high_risk_edge: M3-R   # intent is the degree judgement that failed before (L37, P18)
+labels: planted truth `qualified` from DEV seed 42 (leads/corpus/truth-42.json), for OC-vs-correctness logging only. Holdout seeds 7/2718/p6029/6011 are NOT used.
+total_collapse_verified: true
