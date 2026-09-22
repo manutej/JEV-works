@@ -293,6 +293,8 @@ const results = await pool(items, CONCURRENCY, async item => {
 });
 
 const summary = log.done();
+const wallMs = Math.round(performance.now() - t0);
+/** Per-call p50 latency. Not wall clock; P23: never conflate latency with throughput. */
 const ms = summary.p50;
 
 // --- report -----------------------------------------------------------------
@@ -322,7 +324,8 @@ console.log(`\nreclaimed outright        ${dropped.toLocaleString()} tokens (${M
 console.log(`sent to a text model      ${by('ESCALATE').length} items / ${toks(by('ESCALATE')).toLocaleString()} tokens`);
 console.log(`kept byte-exact           ${by('KEEP').length} items / ${toks(by('KEEP')).toLocaleString()} tokens`);
 console.log(`\ncost of deciding          ${inputTokens.toLocaleString()} input tokens = $${((inputTokens * 0.042) / 1e6).toFixed(5)}`);
-console.log(`wall clock                ${ms}ms for ${items.length} items (${Math.round(ms / items.length)}ms each, ${CONCURRENCY} concurrent)`);
+console.log(`wall clock                ${wallMs}ms for ${items.length} items (${(wallMs / items.length).toFixed(1)}ms/item throughput, ${CONCURRENCY} concurrent)`);
+console.log(`per-call latency          p50 ${ms}ms (a latency, not a throughput; P23)`);
 if (failures) console.log(`failed                    ${failures} (defaulted to ESCALATE — never silently dropped)`);
 
 // What got dropped, by tool — the sanity check that matters most.
@@ -345,6 +348,6 @@ console.log(`\nscore distribution        min ${at(0)} · p25 ${at(0.25)} · medi
 console.log(`thresholds in force       KEEP >= ${KEEP_AT} · DROP <= ${DROP_AT}  (hand-set; refit on labelled items)`);
 
 const out = new URL('./triage-result.json', import.meta.url).pathname;
-await writeFile(out, JSON.stringify({ model: MODEL, ACT_CONFIDENCE, ms, inputTokens, rows, results }, null, 2) + '\n');
+await writeFile(out, JSON.stringify({ model: MODEL, ACT_CONFIDENCE, ms, wallMs, inputTokens, rows, results }, null, 2) + '\n');
 console.log(`\nfull manifest → ${out}`);
 console.log('Nothing was deleted. This is a manifest; applying it is a separate, reversible step.');
