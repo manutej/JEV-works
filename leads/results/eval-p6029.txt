@@ -145,11 +145,19 @@ fit seeds [42, p3001]: 565/600 messages seen (94.2%), 35 novel
 
 ═══ claim gate (headline vs strata, policy v2) ═══
 REFUSE: headline claim jev_better (scope all, McNemar 71 vs 33, p = 0.000247)
-  failing E1-text-disjoint: 94.2% of messages were seen in fit seeds (limit 20%) and leakage was not accepted before the run
+  failing E1-text-disjoint: 94.2% of messages were seen in fit seeds (limit 20.0%) and leakage was not accepted before the run
   failing E2-coverage: coverage 93.0% is below the declared 95%
-  failing E5-strata-consistent: stratum clean_in_icp (n=180) says regex_better, the headline says jev_better
+  failing E5-strata-consistent: stratum clean_in_icp (n=180, b+c=9) says regex_better, the headline says jev_better (Holm-corrected)
   finding: the headline's jev_better is significant within: seen, non_buyer
   Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.
+
+═══ standard gates (kit/standard-gate.ts) ═══
+gates: REFUSE (refused by G3-text-disjoint, G4-coverage, G7-strata-consistent)
+  ✗ G3-text-disjoint               REFUSE 94.2% of messages were seen in fit seeds (limit 20.0%) and leakage was not accepted before the run
+  ✗ G4-coverage                    REFUSE coverage 93.0% is below the declared 95%
+  ✓ G5-policy-predeclared          PASS   the scoring policy was fixed before the holdout existed: passed
+  ✓ G6-paired-test                 PASS   the headline is an exact paired test (McNemar) with n ≥ 8: passed
+  ✗ G7-strata-consistent           REFUSE stratum clean_in_icp (n=180, b+c=9) says regex_better, the headline says jev_better (Holm-corrected)
 
 per-category qualified accuracy, jev vs regex (AccAll counts escalations as wrong; AccOwn is on own verdicts only):
 category        n    jevCoverage  jevAccAll  jevAccOwn  regexAccAll

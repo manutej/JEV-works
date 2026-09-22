@@ -90,5 +90,166 @@
       "why": "60.7% of messages were seen in fit seeds (limit 20.0%) and leakage was not accepted before the run"
     }
   ],
-  "findings": []
+  "findings": [],
+  "standard": {
+    "verdict": "REFUSE",
+    "refusing": [
+      "G3-text-disjoint"
+    ],
+    "warnings": [],
+    "results": [
+      {
+        "id": "G3-text-disjoint",
+        "stage": "preflight",
+        "verdict": "REFUSE",
+        "why": "60.7% of messages were seen in fit seeds (limit 20.0%) and leakage was not accepted before the run",
+        "evidence": {
+          "legacyEdge": "E1-text-disjoint",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          }
+        }
+      },
+      {
+        "id": "G4-coverage",
+        "stage": "run",
+        "verdict": "PASS",
+        "why": "share of items with an answer ≥ the minimum declared before the run: passed",
+        "evidence": {
+          "legacyEdge": "E2-coverage",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          }
+        }
+      },
+      {
+        "id": "G5-policy-predeclared",
+        "stage": "claim",
+        "verdict": "PASS",
+        "why": "the scoring policy was fixed before the holdout existed: passed",
+        "evidence": {
+          "legacyEdge": "E3-policy-predeclared",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          }
+        }
+      },
+      {
+        "id": "G6-paired-test",
+        "stage": "claim",
+        "verdict": "PASS",
+        "why": "the headline is an exact paired test (McNemar) with n ≥ 8: passed",
+        "evidence": {
+          "legacyEdge": "E4-paired-test",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          },
+          "headline": {
+            "name": "all",
+            "n": 600,
+            "b": 25,
+            "c": 35,
+            "p": 0.2450608330229446
+          },
+          "claim": "no_difference",
+          "test": "exact McNemar"
+        }
+      },
+      {
+        "id": "G7-strata-consistent",
+        "stage": "claim",
+        "verdict": "PASS",
+        "why": "every stratum large enough to judge agrees with the pooled headline: passed",
+        "evidence": {
+          "legacyEdge": "E5-strata-consistent",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          },
+          "scope": "all",
+          "correction": "holm",
+          "strata": [
+            {
+              "name": "seen",
+              "n": 364,
+              "b": 25,
+              "c": 34,
+              "p": 0.2975952082844306,
+              "direction": "no_difference"
+            },
+            {
+              "name": "novel",
+              "n": 236,
+              "b": 0,
+              "c": 1,
+              "p": 1,
+              "direction": "too_small"
+            },
+            {
+              "name": "clean_in_icp",
+              "n": 210,
+              "b": 0,
+              "c": 0,
+              "p": 1,
+              "direction": "too_small"
+            },
+            {
+              "name": "clean_out_icp",
+              "n": 150,
+              "b": 0,
+              "c": 2,
+              "p": 0.5,
+              "direction": "too_small"
+            },
+            {
+              "name": "ambiguous",
+              "n": 90,
+              "b": 25,
+              "c": 30,
+              "p": 0.5900533317766494,
+              "direction": "no_difference"
+            },
+            {
+              "name": "garbage",
+              "n": 60,
+              "b": 0,
+              "c": 0,
+              "p": 1,
+              "direction": "too_small"
+            },
+            {
+              "name": "adversarial",
+              "n": 30,
+              "b": 0,
+              "c": 0,
+              "p": 1,
+              "direction": "too_small"
+            },
+            {
+              "name": "near_duplicate",
+              "n": 60,
+              "b": 0,
+              "c": 3,
+              "p": 0.25000000000000006,
+              "direction": "too_small"
+            }
+          ]
+        }
+      }
+    ]
+  }
 }

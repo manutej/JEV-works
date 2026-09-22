@@ -144,8 +144,16 @@ fit seeds [42, p3001]: 364/600 messages seen (60.7%), 236 novel
 
 ═══ claim gate (headline vs strata, policy v2) ═══
 REFUSE: headline claim no_difference (scope all, McNemar 25 vs 35, p = 0.245)
-  failing E1-text-disjoint: 60.7% of messages were seen in fit seeds (limit 20%) and leakage was not accepted before the run
+  failing E1-text-disjoint: 60.7% of messages were seen in fit seeds (limit 20.0%) and leakage was not accepted before the run
   Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.
+
+═══ standard gates (kit/standard-gate.ts) ═══
+gates: REFUSE (refused by G3-text-disjoint)
+  ✗ G3-text-disjoint               REFUSE 60.7% of messages were seen in fit seeds (limit 20.0%) and leakage was not accepted before the run
+  ✓ G4-coverage                    PASS   share of items with an answer ≥ the minimum declared before the run: passed
+  ✓ G5-policy-predeclared          PASS   the scoring policy was fixed before the holdout existed: passed
+  ✓ G6-paired-test                 PASS   the headline is an exact paired test (McNemar) with n ≥ 8: passed
+  ✓ G7-strata-consistent           PASS   every stratum large enough to judge agrees with the pooled headline: passed
 
 per-category qualified accuracy, jev vs regex (AccAll counts escalations as wrong; AccOwn is on own verdicts only):
 category        n    jevCoverage  jevAccAll  jevAccOwn  regexAccAll

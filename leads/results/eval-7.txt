@@ -142,10 +142,18 @@ fit seeds [42]: 366/600 messages seen (61.0%), 234 novel
 
 ═══ claim gate (headline vs strata, policy v1) ═══
 REFUSE: headline claim regex_better (scope all, McNemar 6 vs 152, p = 1.12e-37)
-  failing E1-text-disjoint: 61.0% of messages were seen in fit seeds (limit 20%) and leakage was not accepted before the run
+  failing E1-text-disjoint: 61.0% of messages were seen in fit seeds (limit 20.0%) and leakage was not accepted before the run
   failing E2-coverage: coverage 69.7% is below the declared 95%
   finding: the headline's regex_better is significant within: seen, clean_out_icp, ambiguous, adversarial, near_duplicate
   Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.
+
+═══ standard gates (kit/standard-gate.ts) ═══
+gates: REFUSE (refused by G3-text-disjoint, G4-coverage)
+  ✗ G3-text-disjoint               REFUSE 61.0% of messages were seen in fit seeds (limit 20.0%) and leakage was not accepted before the run
+  ✗ G4-coverage                    REFUSE coverage 69.7% is below the declared 95%
+  ✓ G5-policy-predeclared          PASS   the scoring policy was fixed before the holdout existed: passed
+  ✓ G6-paired-test                 PASS   the headline is an exact paired test (McNemar) with n ≥ 8: passed
+  ✓ G7-strata-consistent           PASS   every stratum large enough to judge agrees with the pooled headline: passed
 
 per-category qualified accuracy, jev vs regex (AccAll counts escalations as wrong; AccOwn is on own verdicts only):
 category        n    jevCoverage  jevAccAll  jevAccOwn  regexAccAll

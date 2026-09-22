@@ -108,5 +108,176 @@
   ],
   "findings": [
     "the headline's jev_better is significant within: seen, non_buyer"
-  ]
+  ],
+  "standard": {
+    "verdict": "REFUSE",
+    "refusing": [
+      "G3-text-disjoint",
+      "G4-coverage",
+      "G7-strata-consistent"
+    ],
+    "warnings": [],
+    "results": [
+      {
+        "id": "G3-text-disjoint",
+        "stage": "preflight",
+        "verdict": "REFUSE",
+        "why": "94.2% of messages were seen in fit seeds (limit 20.0%) and leakage was not accepted before the run",
+        "evidence": {
+          "legacyEdge": "E1-text-disjoint",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          }
+        }
+      },
+      {
+        "id": "G4-coverage",
+        "stage": "run",
+        "verdict": "REFUSE",
+        "why": "coverage 93.0% is below the declared 95%",
+        "evidence": {
+          "legacyEdge": "E2-coverage",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          }
+        }
+      },
+      {
+        "id": "G5-policy-predeclared",
+        "stage": "claim",
+        "verdict": "PASS",
+        "why": "the scoring policy was fixed before the holdout existed: passed",
+        "evidence": {
+          "legacyEdge": "E3-policy-predeclared",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          }
+        }
+      },
+      {
+        "id": "G6-paired-test",
+        "stage": "claim",
+        "verdict": "PASS",
+        "why": "the headline is an exact paired test (McNemar) with n ≥ 8: passed",
+        "evidence": {
+          "legacyEdge": "E4-paired-test",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          },
+          "headline": {
+            "name": "all",
+            "n": 600,
+            "b": 71,
+            "c": 33,
+            "p": 0.000247115841064609
+          },
+          "claim": "jev_better",
+          "test": "exact McNemar"
+        }
+      },
+      {
+        "id": "G7-strata-consistent",
+        "stage": "claim",
+        "verdict": "REFUSE",
+        "why": "stratum clean_in_icp (n=180, b+c=9) says regex_better, the headline says jev_better (Holm-corrected)",
+        "evidence": {
+          "legacyEdge": "E5-strata-consistent",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          },
+          "scope": "all",
+          "correction": "holm",
+          "strata": [
+            {
+              "name": "seen",
+              "n": 565,
+              "b": 71,
+              "c": 32,
+              "p": 0.00015323388084218935,
+              "direction": "jev_better"
+            },
+            {
+              "name": "novel",
+              "n": 35,
+              "b": 0,
+              "c": 1,
+              "p": 1,
+              "direction": "too_small"
+            },
+            {
+              "name": "clean_in_icp",
+              "n": 180,
+              "b": 0,
+              "c": 9,
+              "p": 0.00390625,
+              "direction": "regex_better"
+            },
+            {
+              "name": "clean_out_icp",
+              "n": 120,
+              "b": 0,
+              "c": 1,
+              "p": 1,
+              "direction": "too_small"
+            },
+            {
+              "name": "non_buyer",
+              "n": 120,
+              "b": 48,
+              "c": 0,
+              "p": 7.105427357601022e-15,
+              "direction": "jev_better"
+            },
+            {
+              "name": "ambiguous",
+              "n": 60,
+              "b": 18,
+              "c": 21,
+              "p": 0.7492586247608517,
+              "direction": "no_difference"
+            },
+            {
+              "name": "garbage",
+              "n": 30,
+              "b": 0,
+              "c": 0,
+              "p": 1,
+              "direction": "too_small"
+            },
+            {
+              "name": "adversarial",
+              "n": 30,
+              "b": 0,
+              "c": 0,
+              "p": 1,
+              "direction": "too_small"
+            },
+            {
+              "name": "near_duplicate",
+              "n": 60,
+              "b": 5,
+              "c": 2,
+              "p": 0.4531250000000003,
+              "direction": "too_small"
+            }
+          ]
+        }
+      }
+    ]
+  }
 }

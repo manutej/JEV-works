@@ -126,6 +126,7 @@ export function gate(i: GateInput, settings: Partial<GateConfig> = {}): GateRepo
   if (!i.policyDeclaredBeforeSeed) failingEdges.push({ edge: 'E3-policy-predeclared', why: `policy ${i.policy} was chosen after this seed's results were seen` });
   // E4 is structural: the headline is a paired exact test by construction.
   if (i.headline.b + i.headline.c === 0) findings.push('E4: no discordant items; the two systems agree on every item');
+  if (i.headline.n < cfg.minStratum) failingEdges.push({ edge: 'E4-paired-test', why: `headline n=${i.headline.n} is below ${cfg.minStratum} (I3): no verdict` });
 
   // E5: composed strata vs collapsed headline.
   if (scope === 'undeclared') failingEdges.push({ edge: 'E5-strata-consistent', why: 'no claim scope was declared, so no stratum can be said to carry the claim' });
@@ -161,4 +162,41 @@ export function gate(i: GateInput, settings: Partial<GateConfig> = {}): GateRepo
   }
 
   return { ...base, verdict: failingEdges.length ? 'REFUSE' : 'ACCEPT', claimScope: scope, failingEdges, findings };
+}
+
+// ── Standard gate results (kit/standard-gate.ts): the one catalogue every experiment reports ──
+import { CATALOGUE, type GateId, type GateResult } from '../standard-gate.ts';
+
+const LEGACY: Record<string, GateId> = {
+  'E1-text-disjoint': 'G3-text-disjoint',
+  'E2-coverage': 'G4-coverage',
+  'E3-policy-predeclared': 'G5-policy-predeclared',
+  'E4-paired-test': 'G6-paired-test',
+  'E5-strata-consistent': 'G7-strata-consistent',
+};
+
+/**
+ * This gate's report as standard GateResults. G5–G7 are kit/gate's; G3/G4 are core gates, emitted here
+ * only when `includeCore` (a run with no core suite, e.g. leads) so a suite never counts one check twice.
+ * The old E-label stays in evidence.legacyEdge so earlier reports still read.
+ */
+export function toGateResults(rep: GateReport, opts: { includeCore?: boolean } = {}): GateResult[] {
+  const ids: GateId[] = opts.includeCore
+    ? ['G3-text-disjoint', 'G4-coverage', 'G5-policy-predeclared', 'G6-paired-test', 'G7-strata-consistent']
+    : ['G5-policy-predeclared', 'G6-paired-test', 'G7-strata-consistent'];
+  const legacyOf = (id: GateId) => Object.keys(LEGACY).find(k => LEGACY[k] === id)!;
+  if (rep.verdict === 'NOT-A-HOLDOUT')
+    return ids.map(id => ({ id, stage: CATALOGUE[id].stage, verdict: 'SKIP' as const, why: 'dev seed: not a holdout, nothing to claim', evidence: { legacyEdge: legacyOf(id) } }));
+  return ids.map(id => {
+    const legacyEdge = legacyOf(id);
+    const fails = rep.failingEdges.filter(f => LEGACY[f.edge] === id);
+    const notes = rep.findings.filter(f => f.startsWith(legacyEdge.split('-')[0] + ':'));
+    const evidence: Record<string, unknown> = { legacyEdge, settings: rep.settings, ...(notes.length ? { findings: notes } : {}) };
+    if (id === 'G6-paired-test') Object.assign(evidence, { headline: rep.headline, claim: rep.claim, test: 'exact McNemar' });
+    if (id === 'G7-strata-consistent') Object.assign(evidence, { scope: rep.claimScope, correction: 'holm', strata: rep.strata });
+    if (fails.length) return { id, stage: CATALOGUE[id].stage, verdict: 'REFUSE' as const, why: fails.map(f => f.why).join('; '), evidence };
+    // A finding (e.g. a pooled null hiding a significant stratum) passes the gate but must be read.
+    const why = notes.length ? notes.join('; ') : `${CATALOGUE[id].checks}: passed`;
+    return { id, stage: CATALOGUE[id].stage, verdict: notes.length ? ('WARN' as const) : ('PASS' as const), why, evidence };
+  });
 }

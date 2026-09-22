@@ -110,3 +110,39 @@ test('review P1 (modularity): the caller names the two systems', () => {
   const r = gate({ ...clean, systems: { a: 'ocr_v2', b: 'ocr_v1' } });
   assert.equal(r.claim, 'ocr_v2_better');
 });
+
+// Standard gate results (kit/standard-gate.ts): same verdicts, stable ids, legacy labels kept.
+import { toGateResults } from './claim-gate.ts';
+import { suite } from '../kit/standard-gate.ts';
+
+test('standard: a refused E5 becomes a REFUSE on G7 with legacyEdge E5, and the suite refuses', () => {
+  const rep = gate({ ...clean, categories: [{ name: 'non_buyer', n: 120, b: 50, c: 0 }, { name: 'ambiguous', n: 90, b: 0, c: 30 }, { name: 'rest', n: 390, b: 10, c: 0 }], headline: { name: 'all', n: 600, b: 60, c: 30 } });
+  const rs = toGateResults(rep);
+  assert.deepEqual(rs.map(r => r.id), ['G5-policy-predeclared', 'G6-paired-test', 'G7-strata-consistent']);
+  const g7 = rs.find(r => r.id === 'G7-strata-consistent')!;
+  assert.equal(g7.verdict, 'REFUSE');
+  assert.equal(g7.evidence.legacyEdge, 'E5-strata-consistent');
+  assert.equal(g7.evidence.correction, 'holm');
+  const s = suite(rs);
+  assert.equal(s.verdict, 'REFUSE');
+  assert.deepEqual(s.refusing, ['G7-strata-consistent']);
+});
+
+test('standard: includeCore adds G3/G4; a clean holdout passes the whole suite', () => {
+  const s = suite(toGateResults(gate(clean), { includeCore: true }));
+  assert.equal(s.verdict, 'ACCEPT');
+  assert.deepEqual(s.results.map(r => r.id), ['G3-text-disjoint', 'G4-coverage', 'G5-policy-predeclared', 'G6-paired-test', 'G7-strata-consistent']);
+});
+
+test('standard: a pooled null hiding a stratum is a WARN with the finding as its reason; a dev seed is SKIP with a why', () => {
+  const rep = gate({ ...clean, headline: { name: 'all', n: 600, b: 30, c: 33 }, categories: [{ name: 'adversarial', n: 30, b: 0, c: 12 }, { name: 'rest', n: 570, b: 30, c: 21 }] });
+  const g7 = toGateResults(rep).find(r => r.id === 'G7-strata-consistent')!;
+  assert.equal(g7.verdict, 'WARN');
+  assert.match(g7.why, /pooled null hides it/);
+  assert.ok(toGateResults(gate({ ...clean, role: 'dev' })).every(r => r.verdict === 'SKIP' && r.why.length > 0));
+});
+
+test('standard: G6 refuses a headline below n = 8 (I3)', () => {
+  const rs = toGateResults(gate({ ...clean, headline: { name: 'all', n: 5, b: 3, c: 0 }, categories: [{ name: 'rest', n: 5, b: 3, c: 0 }] }));
+  assert.equal(rs.find(r => r.id === 'G6-paired-test')!.verdict, 'REFUSE');
+});

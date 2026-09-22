@@ -92,5 +92,171 @@
   ],
   "findings": [
     "E5: headline shows no difference but stratum adversarial (n=30) shows regex_better (p=0.000488, Holm-significant); the pooled null hides it"
-  ]
+  ],
+  "standard": {
+    "verdict": "REFUSE",
+    "refusing": [
+      "G3-text-disjoint"
+    ],
+    "warnings": [
+      "G7-strata-consistent"
+    ],
+    "results": [
+      {
+        "id": "G3-text-disjoint",
+        "stage": "preflight",
+        "verdict": "REFUSE",
+        "why": "61.5% of messages were seen in fit seeds (limit 20.0%) and leakage was not accepted before the run",
+        "evidence": {
+          "legacyEdge": "E1-text-disjoint",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          }
+        }
+      },
+      {
+        "id": "G4-coverage",
+        "stage": "run",
+        "verdict": "PASS",
+        "why": "share of items with an answer ≥ the minimum declared before the run: passed",
+        "evidence": {
+          "legacyEdge": "E2-coverage",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          }
+        }
+      },
+      {
+        "id": "G5-policy-predeclared",
+        "stage": "claim",
+        "verdict": "PASS",
+        "why": "the scoring policy was fixed before the holdout existed: passed",
+        "evidence": {
+          "legacyEdge": "E3-policy-predeclared",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          }
+        }
+      },
+      {
+        "id": "G6-paired-test",
+        "stage": "claim",
+        "verdict": "PASS",
+        "why": "the headline is an exact paired test (McNemar) with n ≥ 8: passed",
+        "evidence": {
+          "legacyEdge": "E4-paired-test",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          },
+          "headline": {
+            "name": "all",
+            "n": 600,
+            "b": 30,
+            "c": 45,
+            "p": 0.10534226887460306
+          },
+          "claim": "no_difference",
+          "test": "exact McNemar"
+        }
+      },
+      {
+        "id": "G7-strata-consistent",
+        "stage": "claim",
+        "verdict": "WARN",
+        "why": "E5: headline shows no difference but stratum adversarial (n=30) shows regex_better (p=0.000488, Holm-significant); the pooled null hides it",
+        "evidence": {
+          "legacyEdge": "E5-strata-consistent",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          },
+          "findings": [
+            "E5: headline shows no difference but stratum adversarial (n=30) shows regex_better (p=0.000488, Holm-significant); the pooled null hides it"
+          ],
+          "scope": "all",
+          "correction": "holm",
+          "strata": [
+            {
+              "name": "seen",
+              "n": 369,
+              "b": 30,
+              "c": 45,
+              "p": 0.10534226887460306,
+              "direction": "no_difference"
+            },
+            {
+              "name": "novel",
+              "n": 231,
+              "b": 0,
+              "c": 0,
+              "p": 1,
+              "direction": "too_small"
+            },
+            {
+              "name": "clean_in_icp",
+              "n": 210,
+              "b": 0,
+              "c": 0,
+              "p": 1,
+              "direction": "too_small"
+            },
+            {
+              "name": "clean_out_icp",
+              "n": 150,
+              "b": 0,
+              "c": 4,
+              "p": 0.125,
+              "direction": "too_small"
+            },
+            {
+              "name": "ambiguous",
+              "n": 90,
+              "b": 27,
+              "c": 27,
+              "p": 1,
+              "direction": "no_difference"
+            },
+            {
+              "name": "garbage",
+              "n": 60,
+              "b": 0,
+              "c": 0,
+              "p": 1,
+              "direction": "too_small"
+            },
+            {
+              "name": "adversarial",
+              "n": 30,
+              "b": 0,
+              "c": 12,
+              "p": 0.0004882812500000003,
+              "direction": "regex_better"
+            },
+            {
+              "name": "near_duplicate",
+              "n": 60,
+              "b": 3,
+              "c": 2,
+              "p": 1,
+              "direction": "too_small"
+            }
+          ]
+        }
+      }
+    ]
+  }
 }
