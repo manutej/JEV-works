@@ -95,7 +95,7 @@ Standard suite from [results/gates.json](results/gates.json) (`cookbooks/_shared
 | G5-policy-predeclared | PASS | the scoring policy was fixed before the holdout existed: passed |
 | G6-paired-test | PASS | the headline is an exact paired test (McNemar) with n ≥ 8: passed |
 | G7-strata-consistent | PASS | every stratum large enough to judge agrees with the pooled headline: passed |
-| G8-threshold-fitted-and-held | WARN (G8.unstable) | POST-HOC bounded gate on confidence on issueType (event: Jev correct): bound held, but the cut is unstable under resampling (bootstrapCuts) — no cut met the bound on the fit split, so this gate auto-decides nothing (everything escalates) |
+| G8-threshold-fitted-and-held | WARN (G8.unstable) | POST-HOC bounded gate on confidence on issueType (event: Jev correct): bound held, but the cut is unstable under resampling (bootstrapCuts) — no cut met the bound: at 10% a one-sided cut needs ≥ 29 error-free fit items (minItemsForBound); the longest error-free run was 0 of 100. Everything escalates: the honest answer at this n, not a failure |
 | G9-calibration-audited | SKIP | choice confidence gate; no cost threshold relies on calibrated probabilities |
 | G10-tree-consistent | SKIP | no question tree declared for this context |
 
@@ -109,7 +109,7 @@ The method was chosen after the test run: `fitSelective` on the fit readings, `a
 | **post-hoc bounded gate** | confidence on issueType (event: Jev correct) | 10.0% | no cut met the bound | 0.0% | 0.0% | – | n/a: nothing auto-decided | no (G8.unstable) |
 | frozen rule (record) | | | | | 59.3% | 13.5% | no bound was promised | |
 
-A 95% bound on error ≤ 10.0% (a wrong label is re-labelled in seconds and maintainer labels are themselves noisy (rule.ts)) found no cut on the 100 fit readings: proving an error rate that low needs a long error-free run on one side. So the bounded gate auto-decides nothing and every item goes to a person. That is the honest answer at this sample size: the frozen gate's coverage came with no promise about its error.
+A 95% bound on error ≤ 10.0% (a wrong label is re-labelled in seconds and maintainer labels are themselves noisy (rule.ts)) found no cut. Certifying that bound needs at least 29 auto-decided fit items on one side with no error at all (minItemsForBound); of the 100 fit readings, the longest error-free run was 0 at the confident end (Jev gave confidence 1.00 to wrong answers too, so no cut can separate them: P5). So the bounded gate auto-decides nothing and every item goes to a person. That is the honest answer at this sample size, not a failure: the frozen gate's coverage came with no promise about its error.
 
 **Calibration:** confidence on issueType (event: Jev correct): calibration rejected on the test readings (Spiegelhalter rejects calibration (z=10.97, p=0.0)). G9 SKIP: choice confidence gate; no cost threshold relies on calibrated probabilities
 

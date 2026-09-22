@@ -160,7 +160,7 @@
         "id": "G8-threshold-fitted-and-held",
         "stage": "claim",
         "verdict": "WARN",
-        "why": "POST-HOC bounded gate on confidence on issueType (event: Jev correct): bound held, but the cut is unstable under resampling (bootstrapCuts) — no cut met the bound on the fit split, so this gate auto-decides nothing (everything escalates)",
+        "why": "POST-HOC bounded gate on confidence on issueType (event: Jev correct): bound held, but the cut is unstable under resampling (bootstrapCuts) — no cut met the bound: at 10% a one-sided cut needs ≥ 29 error-free fit items (minItemsForBound); the longest error-free run was 0 of 100. Everything escalates: the honest answer at this n, not a failure",
         "code": "G8.unstable",
         "evidence": {
           "name": "POST-HOC bounded gate on confidence on issueType (event: Jev correct)",
@@ -435,6 +435,11 @@
     "score": "confidence on issueType (event: Jev correct)",
     "maxError": 0.1,
     "maxErrorWhy": "a wrong label is re-labelled in seconds and maintainer labels are themselves noisy (rule.ts)",
+    "floor": {
+      "minItemsForBound": 29,
+      "fitN": 100,
+      "acceptSideErrorFreeRun": 0
+    },
     "fitted": {
       "hi": null,
       "lo": null,
@@ -517,7 +522,7 @@
     },
     "frozenRuleOfRecord": {
       "confidenceAtLeast": 0.973,
-      "how": "retired point-error cut (decide.ts at f109b05)"
+      "how": "retired point-error cut (decide.ts at d980b77)"
     }
   }
 }

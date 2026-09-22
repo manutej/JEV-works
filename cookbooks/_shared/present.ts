@@ -28,10 +28,10 @@ export function bounded(L: Loaded) {
     score: b.score, maxError: b.maxError, maxErrorWhy: b.maxErrorWhy, cuts,
     fitCoverage: b.fitted.fit.coverage, testCoverage: b.test.coverage, testError: b.test.errorRate, testErrorUpper: b.test.errorUpper95,
     held: b.test.coverage ? b.test.held : null, unstable: L.gates.suite.results.find((r: any) => r.id === 'G8-threshold-fitted-and-held')?.code === 'G8.unstable',
-    record, calibratedTest: b.calibrationTest.calibrated, calibrationReason: b.calibrationTest.reasons[0] as string | undefined,
+    floor: b.floor, record, calibratedTest: b.calibrationTest.calibrated, calibrationReason: b.calibrationTest.reasons[0] as string | undefined,
     text: b.test.coverage
       ? `A 95% bound on error ≤ ${pct(b.maxError)} (${b.maxErrorWhy}) gave ${cuts} on the fit readings. On test it auto-decided ${pct(b.test.coverage)} with ${pct(b.test.errorRate)} error (95% upper bound ${pct(b.test.errorUpper95)}): the promise ${b.test.held ? 'held' : 'broke'}.`
-      : `A 95% bound on error ≤ ${pct(b.maxError)} (${b.maxErrorWhy}) found no cut on the ${b.fitted.fit.n} fit readings: proving an error rate that low needs a long error-free run on one side. So the bounded gate auto-decides nothing and every item goes to a person. That is the honest answer at this sample size: the frozen gate's coverage came with no promise about its error.`,
+      : `A 95% bound on error ≤ ${pct(b.maxError)} (${b.maxErrorWhy}) found no cut. Certifying that bound needs at least ${b.floor.minItemsForBound} auto-decided fit items on one side with no error at all (minItemsForBound); of the ${b.floor.fitN} fit readings, the longest error-free run was ${b.floor.acceptSideErrorFreeRun}${b.floor.rejectSideErrorFreeRun !== undefined ? ` on the accept side and ${b.floor.rejectSideErrorFreeRun} on the reject side` : ` at the confident end`}${b.floor.rejectSideErrorFreeRun === undefined && b.floor.acceptSideErrorFreeRun === 0 ? ' (Jev gave confidence 1.00 to wrong answers too, so no cut can separate them: P5)' : ''}. So the bounded gate auto-decides nothing and every item goes to a person. That is the honest answer at this sample size, not a failure: the frozen gate's coverage came with no promise about its error.`,
   };
 }
 

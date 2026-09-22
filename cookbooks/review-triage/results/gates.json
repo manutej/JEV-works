@@ -406,6 +406,12 @@
     "score": "frozen logistic score",
     "maxError": 0.1,
     "maxErrorWhy": "a wrong call costs an agent a minute or delays a reply; no safety or money decision (rule.ts)",
+    "floor": {
+      "minItemsForBound": 29,
+      "fitN": 100,
+      "acceptSideErrorFreeRun": 1,
+      "rejectSideErrorFreeRun": 33
+    },
     "fitted": {
       "hi": null,
       "lo": 0.2719252006097977,
@@ -487,7 +493,7 @@
         0.42,
         0.502
       ],
-      "how": "retired point-error band (decide.ts at f109b05)"
+      "how": "retired point-error band (decide.ts at d980b77)"
     }
   }
 }

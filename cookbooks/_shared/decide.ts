@@ -13,7 +13,7 @@
  *   choice  the decision is Jev's pick on one choice question; the gate is TypeSafe's documented confidence,
  *           (k·peak − 1)/(k − 1), cut by kit/threshold.ts fitSelective (accept side only) at ≤ maxAutoError.
  *
- * The six rule.frozen.json files committed at f109b05 were fitted by the RETIRED point-error band and cut that this
+ * The six rule.frozen.json files committed at d980b77 were fitted by the RETIRED point-error band and cut that this
  * file used to contain (see git history); `test` mode still applies them exactly as frozen. Any new fit goes through
  * kit/threshold.ts. The post-hoc bounded gates for those six live in results/gates.json (cookbooks/_shared/gates.ts).
  *

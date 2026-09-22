@@ -16,7 +16,7 @@
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { applyGate, bootstrapCuts, fitSelective, judgeCalibration, type Gate } from '../../kit/threshold.ts';
+import { applyGate, bootstrapCuts, fitSelective, judgeCalibration, minItemsForBound, type Gate } from '../../kit/threshold.ts';
 import { g1SpecValid, g2Privacy, g3TextDisjoint, g4Coverage, g8ThresholdFittedAndHeld, g9CalibrationAudited, g10TreeConsistent, suite, renderSuite, type GateResult } from '../../kit/standard-gate.ts';
 import { gate as claimGate, toGateResults } from '../../kit/gate/claim.ts';
 import { parseSpec } from '../../kit/spec.ts';
@@ -33,6 +33,20 @@ export const MAX_ERROR: Record<DomainId, { maxError: number; why: string }> = {
 };
 
 const read = (p: string) => JSON.parse(readFileSync(p, 'utf8'));
+/**
+ * Longest error-free run a cut could auto-decide on one side of the fit readings, tie-aware (a cut can't split tied
+ * scores): accept side = items at or above a cut, all positive; reject side = items at or below a cut, all negative.
+ */
+function errorFreeRun(p: number[], y: boolean[], side: 'accept' | 'reject'): number {
+  const cuts = [...new Set(p)].sort((a, b) => (side === 'accept' ? b - a : a - b));
+  let best = 0;
+  for (const t of cuts) {
+    const idx = p.map((v, i) => i).filter(i => (side === 'accept' ? p[i] >= t : p[i] <= t));
+    if (idx.some(i => y[i] !== (side === 'accept'))) break;
+    best = idx.length;
+  }
+  return best;
+}
 const conf = (probs: Record<string, number>) => { const v = Object.values(probs), k = v.length; return Math.max(0, Math.min(1, (k * Math.max(...v) - 1) / (k - 1))); };
 
 export function gatesFor(id: DomainId) {
@@ -86,10 +100,12 @@ export function gatesFor(id: DomainId) {
   let g: Gate = fitSelective(pf, yf, maxError);
   if (frozen.kind === 'choice') g = { ...g, lo: null, fit: { ...g.fit, rejectN: 0, rejectErrors: 0, rejectErrUpper: 1, coverage: g.fit.acceptN / g.fit.n } };   // low confidence escalates; it does not predict "wrong"
   const outcome = applyGate(g, pt, yt);
+  const floor = { minItemsForBound: minItemsForBound(maxError), fitN: pf.length,
+    acceptSideErrorFreeRun: errorFreeRun(pf, yf, 'accept'), ...(frozen.kind === 'binary' ? { rejectSideErrorFreeRun: errorFreeRun(pf, yf, 'reject') } : {}) };
   const stability = bootstrapCuts(pf, yf, maxError);
   const unstable = frozen.kind === 'choice' ? (stability.hiNeverFits > 0.2 || (stability.hi.p05 !== null && stability.hi.p95 !== null && stability.hi.p95 - stability.hi.p05 > 0.2)) : stability.unstable;
   const g8 = g8ThresholdFittedAndHeld({ name: `POST-HOC bounded gate on ${scoreName}`, fittedOn: 'fit-split', gate: g, outcome, unstable });
-  if (outcome.coverage === 0) g8.why += ' — no cut met the bound on the fit split, so this gate auto-decides nothing (everything escalates)';
+  if (outcome.coverage === 0) g8.why += ` — no cut met the bound: at ${maxError * 100}% a one-sided cut needs ≥ ${floor.minItemsForBound} error-free fit items (minItemsForBound); the longest error-free run was ${floor.acceptSideErrorFreeRun}${'rejectSideErrorFreeRun' in floor ? ` (accept side) and ${floor.rejectSideErrorFreeRun} (reject side)` : ''} of ${floor.fitN}. Everything escalates: the honest answer at this n, not a failure`;
 
   // ---- G9: only where the frozen rule used a cost threshold
   const costUsed = frozen.kind === 'binary' && /minimises/.test(frozen.threshold.how);
@@ -105,8 +121,8 @@ export function gatesFor(id: DomainId) {
     suite: record,
     posthocHeadlineVsNaiveBayes: { what: 'G5–G7 on the post-hoc headline (frozen rule vs naive Bayes on 717–2,000 labelled rows)', suite: posthocClaim, report: posthoc },
     declaredClaim: declared,
-    boundedGate: { posthoc: true, what: 'kit/threshold.ts fitSelective on FIT readings; applyGate once on TEST readings; chosen after the test run', score: scoreName, maxError, maxErrorWhy: maxWhy, fitted: g, test: outcome, stability, calibrationTest: judgeCalibration(pt, yt), calibrationFit: judgeCalibration(pf, yf),
-      frozenRuleOfRecord: frozen.kind === 'binary' ? { cut: frozen.threshold.t, band: [frozen.band.lo, frozen.band.hi], how: 'retired point-error band (decide.ts at f109b05)' } : { confidenceAtLeast: frozen.gate.confidenceAtLeast, how: 'retired point-error cut (decide.ts at f109b05)' } },
+    boundedGate: { posthoc: true, what: 'kit/threshold.ts fitSelective on FIT readings; applyGate once on TEST readings; chosen after the test run', score: scoreName, maxError, maxErrorWhy: maxWhy, floor, fitted: g, test: outcome, stability, calibrationTest: judgeCalibration(pt, yt), calibrationFit: judgeCalibration(pf, yf),
+      frozenRuleOfRecord: frozen.kind === 'binary' ? { cut: frozen.threshold.t, band: [frozen.band.lo, frozen.band.hi], how: 'retired point-error band (decide.ts at d980b77)' } : { confidenceAtLeast: frozen.gate.confidenceAtLeast, how: 'retired point-error cut (decide.ts at d980b77)' } },
   };
 }
 

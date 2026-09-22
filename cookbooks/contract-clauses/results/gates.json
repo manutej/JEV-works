@@ -208,7 +208,7 @@
         "id": "G8-threshold-fitted-and-held",
         "stage": "claim",
         "verdict": "WARN",
-        "why": "POST-HOC bounded gate on confidence on clauseType (event: Jev correct): bound held, but the cut is unstable under resampling (bootstrapCuts) — no cut met the bound on the fit split, so this gate auto-decides nothing (everything escalates)",
+        "why": "POST-HOC bounded gate on confidence on clauseType (event: Jev correct): bound held, but the cut is unstable under resampling (bootstrapCuts) — no cut met the bound: at 5% a one-sided cut needs ≥ 59 error-free fit items (minItemsForBound); the longest error-free run was 0 of 100. Everything escalates: the honest answer at this n, not a failure",
         "code": "G8.unstable",
         "evidence": {
           "name": "POST-HOC bounded gate on confidence on clauseType (event: Jev correct)",
@@ -616,6 +616,11 @@
     "score": "confidence on clauseType (event: Jev correct)",
     "maxError": 0.05,
     "maxErrorWhy": "default: a mis-filed clause is checked against the wrong playbook",
+    "floor": {
+      "minItemsForBound": 59,
+      "fitN": 100,
+      "acceptSideErrorFreeRun": 0
+    },
     "fitted": {
       "hi": null,
       "lo": null,
@@ -698,7 +703,7 @@
     },
     "frozenRuleOfRecord": {
       "confidenceAtLeast": 0.955,
-      "how": "retired point-error cut (decide.ts at f109b05)"
+      "how": "retired point-error cut (decide.ts at d980b77)"
     }
   }
 }

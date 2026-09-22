@@ -152,7 +152,7 @@
         "id": "G8-threshold-fitted-and-held",
         "stage": "claim",
         "verdict": "WARN",
-        "why": "POST-HOC bounded gate on frozen logistic score: bound held, but the cut is unstable under resampling (bootstrapCuts) — no cut met the bound on the fit split, so this gate auto-decides nothing (everything escalates)",
+        "why": "POST-HOC bounded gate on frozen logistic score: bound held, but the cut is unstable under resampling (bootstrapCuts) — no cut met the bound: at 5% a one-sided cut needs ≥ 59 error-free fit items (minItemsForBound); the longest error-free run was 5 (accept side) and 11 (reject side) of 100. Everything escalates: the honest answer at this n, not a failure",
         "code": "G8.unstable",
         "evidence": {
           "name": "POST-HOC bounded gate on frozen logistic score",
@@ -390,6 +390,12 @@
     "score": "frozen logistic score",
     "maxError": 0.05,
     "maxErrorWhy": "default: a false fraud flag takes down a real employer's ad",
+    "floor": {
+      "minItemsForBound": 59,
+      "fitN": 100,
+      "acceptSideErrorFreeRun": 5,
+      "rejectSideErrorFreeRun": 11
+    },
     "fitted": {
       "hi": null,
       "lo": null,
@@ -471,7 +477,7 @@
         0.163,
         0.669
       ],
-      "how": "retired point-error band (decide.ts at f109b05)"
+      "how": "retired point-error band (decide.ts at d980b77)"
     }
   }
 }

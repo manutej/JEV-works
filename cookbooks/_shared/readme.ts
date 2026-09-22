@@ -164,7 +164,7 @@ n = 150 test items per domain; accuracy counts every item; coverage (answered) w
 
 Each domain also has \`context.json\`, the same questions in the kit/modules registry format, linted with \`node kit/modules/cli.ts lint\`: M1–M7 pass in all six (0 errors; 23 M6 warnings, nouls without criteria.true/false, left as measured). Each README's Gates section carries the standard suite (kit/standard-gate.ts, results/gates.json) and a post-hoc bounded gate from kit/threshold.ts (fitSelective, applyGate, bootstrapCuts) on the already-collected readings.
 
-Git order (after the rebase onto main): questions and splits (8ff0473) → pilot, fit, frozen rules (f109b05) → test results (d16b564).
+Git order (after the rebase onto main): questions and splits (c39d097) → pilot, fit, frozen rules (d980b77) → test results (c6c5329).
 
 ## Changes made by the quality pass
 ${all.map(L => STORIES[L.id].changes.map(c => `- **${L.id}:** ${c}`).join('\n')).join('\n')}

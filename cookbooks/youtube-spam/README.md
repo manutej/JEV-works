@@ -100,7 +100,7 @@ Standard suite from [results/gates.json](results/gates.json) (`cookbooks/_shared
 | G5-policy-predeclared | PASS | the scoring policy was fixed before the holdout existed: passed |
 | G6-paired-test | PASS | the headline is an exact paired test (McNemar) with n ≥ 8: passed |
 | G7-strata-consistent | PASS | every stratum large enough to judge agrees with the pooled headline: passed |
-| G8-threshold-fitted-and-held | WARN (G8.unstable) | POST-HOC bounded gate on frozen logistic score: bound held, but the cut is unstable under resampling (bootstrapCuts) — no cut met the bound on the fit split, so this gate auto-decides nothing (everything escalates) |
+| G8-threshold-fitted-and-held | WARN (G8.unstable) | POST-HOC bounded gate on frozen logistic score: bound held, but the cut is unstable under resampling (bootstrapCuts) — no cut met the bound: at 5% a one-sided cut needs ≥ 59 error-free fit items (minItemsForBound); the longest error-free run was 45 (accept side) and 34 (reject side) of 100. Everything escalates: the honest answer at this n, not a failure |
 | G9-calibration-audited | PASS | calibrated by audited evaluators (n=150) |
 | G10-tree-consistent | SKIP | no question tree declared for this context |
 
@@ -114,7 +114,7 @@ The method was chosen after the test run: `fitSelective` on the fit readings, `a
 | **post-hoc bounded gate** | frozen logistic score | 5.0% | no cut met the bound | 0.0% | 0.0% | – | n/a: nothing auto-decided | no (G8.unstable) |
 | frozen rule (record) | | | | | 100.0% | 7.3% | no bound was promised | |
 
-A 95% bound on error ≤ 5.0% (default: a wrongly hidden comment silences a real person) found no cut on the 100 fit readings: proving an error rate that low needs a long error-free run on one side. So the bounded gate auto-decides nothing and every item goes to a person. That is the honest answer at this sample size: the frozen gate's coverage came with no promise about its error.
+A 95% bound on error ≤ 5.0% (default: a wrongly hidden comment silences a real person) found no cut. Certifying that bound needs at least 59 auto-decided fit items on one side with no error at all (minItemsForBound); of the 100 fit readings, the longest error-free run was 45 on the accept side and 34 on the reject side. So the bounded gate auto-decides nothing and every item goes to a person. That is the honest answer at this sample size, not a failure: the frozen gate's coverage came with no promise about its error.
 
 **Calibration:** frozen logistic score: no evidence against calibration on the test readings (weak evidence at n = 150, not proof). G9 PASS: calibrated by audited evaluators (n=150)
 

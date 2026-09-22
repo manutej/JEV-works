@@ -680,6 +680,11 @@
     "score": "confidence on domain (event: Jev correct)",
     "maxError": 0.05,
     "maxErrorWhy": "default: a wrong auto-route bounces the user",
+    "floor": {
+      "minItemsForBound": 59,
+      "fitN": 100,
+      "acceptSideErrorFreeRun": 59
+    },
     "fitted": {
       "hi": 0.967,
       "lo": null,
@@ -754,7 +759,7 @@
     },
     "frozenRuleOfRecord": {
       "confidenceAtLeast": 0.362,
-      "how": "retired point-error cut (decide.ts at f109b05)"
+      "how": "retired point-error cut (decide.ts at d980b77)"
     }
   }
 }
