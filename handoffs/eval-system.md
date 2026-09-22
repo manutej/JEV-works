@@ -3,6 +3,11 @@
 **Where:** `~/JEV-works-wt/eval-system` · **branch:** `feat/eval-system` · **owns:** a new `evals/` directory only.
 Read `handoffs/README.md` rules first. Human-of-record: Manu.
 
+> **Re-scoped 2026-09-22:** the core harness now exists as `kit/` (spec + validator + stats + checks + runner; the orchestrator
+> owns it) and `kit/gate/` (decision rules, scoring policies, splits, claim gate; the leads session owns it). This session, if
+> opened, **extends kit/** (new report formats, an HTML report, porting old experiments to specs) and does **not** build a
+> parallel `evals/`. Read `kit/README.md` first; message the owners for changes to their files.
+
 ## Why
 The lab has proven instruments scattered across one-off scripts: `question-bank/measure-confidence.ts`
 (verdicts JEV-SAFE / MARGINAL / MOVE-TO-CODE / NO-INFORMATION), `question-bank/confidence.ts`,

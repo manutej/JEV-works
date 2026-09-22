@@ -49,7 +49,7 @@ Read this first. A fresh session should be able to start from this file plus `ha
 | Q3 | **Window 3: batch contamination** | orchestrator | **done: none (P31)** | pre-registered: reword ONE option description, measure Δ on the other questions in the batch vs P4 noise (question-shaped) | cheap (~300 calls); decides whether "fan out freely" needs a regression suite |
 | Q4 | **Window 6 synthesis: does the cheap baseline win?** | orchestrator | **done (BASELINE-WINS.md)** | one table: task · n · baseline · Jev · coverage · verdict, from committed results only | leads: regex wins; E3: void; P6: entropy beats length; triage: no baseline yet. Gap: triage needs one |
 | Q5 | Retro change 2 sweep: coverage next to accuracy | orchestrator | **ready** | grep every eval script; each prints coverage beside accuracy | small |
-| Q6 | eval-system harness (`evals/`) | new session | Manu opens | per brief; **disjointness guardrail blocks overlapping holdouts** | absorbs Q5's pattern into code |
+| Q6 | eval-system → **extend `kit/`** (core 0cf88b1 by orchestrator; `kit/gate/` by leads session) | new session | Manu opens | per brief; **disjointness guardrail blocks overlapping holdouts** | absorbs Q5's pattern into code |
 | Q7 | Siblings survey + key-exposure check | new session | Manu opens | per brief; volumetric-intelligence README says the key is "in client JS", so verify file:line | read-only on `~/jev/*` |
 | Q8 | jev-operad direct backend | new session | Manu opens | per brief; fail-closed preserved | commit locally, no push |
 | Q9 | Secretary inbox-triage workflow | new session | Manu opens | per brief; local labelled sample; baseline alongside | no deploy / no live inbox |
