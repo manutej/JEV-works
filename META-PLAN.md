@@ -184,3 +184,8 @@ parallel lane-sets exercised: 0 (serial loop); external stakeholders: none beyon
 - 2026-09-21 loop tick: dashboard rebuilt (4074056); U8 dispatched to agent p6-entropy (pre-registered, fit/test split with a disjointness check). U10 now belongs to the siblings-survey session.
 - 2026-09-21 leads merged to main 0cefc2d (Manu approved). feat/jev-selector rebased on it (tsc OK, leads tests 11/11). U9: six corrections from leads HANDOFF §6 applied; retro plan changes 1–4 adopted into §9.
 - 2026-09-21 Q2 holdout declared: seed 2718 (prereg 365bcc0, fc1c893), logged before corpus generation per §9.1. I6 reworded (accuracy gaps need a paired test). jev-direct: 2dp rounding-tie fix + regression test.
+- 2026-09-22 feat/jev-selector merged (main 94d6f00, Manu in-session); leads Q2 merged by b4f08e (main f26b029, Manu in that session).
+  **L38 policy decided by Manu (reported by the leads session):** "escalate" on an adversarial row counts as CORRECT. It was chosen
+  after the gap was seen, so policy-v2 re-scores are post-hoc, reported beside the original scoring. E5 dispatched (agent e5-masked, branch
+  feat/e5-masked): HotpotQA type, Housing furnishingstatus, FAF6 trade_type; public data only (Wassenger contact exports excluded as personal data).
+

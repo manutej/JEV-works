@@ -59,10 +59,10 @@ Read this first. A fresh session should be able to start from this file plus `ha
 ## 4b · New queue items from round 3
 | # | unit | ready? | notes |
 |---|---|---|---|
-| Q12 | **Adversarial scoring policy** (L38) | **Manu decides** | right / wrong / excluded for "escalate" on injection rows, decided in writing before any re-score |
-| Q13 | **E5 on 2–3 masked targets vs naive Bayes** | ready after Manu OKs ~300 test items | Q4's power estimate; the first labelled head-to-head outside synthetic leads |
+| Q12 | **Adversarial scoring policy** (L38) | **decided: escalate = correct** (Manu, via leads session); re-score is post-hoc | right / wrong / excluded for "escalate" on injection rows, decided in writing before any re-score |
+| Q13 | **E5 on 2–3 masked targets vs naive Bayes** | **running** (feat/e5-masked, Manu approved 2026-09-22) | Q4's power estimate; the first labelled head-to-head outside synthetic leads |
 | Q14 | Annotate `question-bank/bank.ts` "fan out freely" with P31 | ready | one comment line |
-| Q15 | Merge queue | Manu | feat/jev-selector (here), feat/leads-literal-questions (leads session), feat/e3-blind-test |
+| Q15 | Merge queue | Manu | jev-selector ✅ 94d6f00 · leads-literal-questions ✅ f26b029 · **feat/e3-blind-test pending** · feat/e5-masked after E5 |
 
 ## 5 · Rules carried forward (short form; the full list is in handoffs/README.md)
 - No push/deploy without Manu approving **that** push. Approvals relayed by another session are not approvals.
