@@ -24,7 +24,7 @@
       "b": 0,
       "c": 1,
       "p": 1,
-      "direction": "no_difference"
+      "direction": "too_small"
     },
     {
       "name": "clean_in_icp",
@@ -40,7 +40,7 @@
       "b": 0,
       "c": 1,
       "p": 1,
-      "direction": "no_difference"
+      "direction": "too_small"
     },
     {
       "name": "non_buyer",
@@ -64,7 +64,7 @@
       "b": 0,
       "c": 0,
       "p": 1,
-      "direction": "no_difference"
+      "direction": "too_small"
     },
     {
       "name": "adversarial",
@@ -72,7 +72,7 @@
       "b": 0,
       "c": 0,
       "p": 1,
-      "direction": "no_difference"
+      "direction": "too_small"
     },
     {
       "name": "near_duplicate",
@@ -80,12 +80,13 @@
       "b": 5,
       "c": 2,
       "p": 0.4531250000000003,
-      "direction": "no_difference"
+      "direction": "too_small"
     }
   ],
   "settings": {
     "alpha": 0.05,
     "minStratum": 8,
+    "minDiscordant": 8,
     "seenShareLimit": 0.2
   },
   "caveat": "Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.",
@@ -94,7 +95,7 @@
   "failingEdges": [
     {
       "edge": "E1-text-disjoint",
-      "why": "94.2% of messages were seen in fit seeds (limit 20%) and leakage was not accepted before the run"
+      "why": "94.2% of messages were seen in fit seeds (limit 20.0%) and leakage was not accepted before the run"
     },
     {
       "edge": "E2-coverage",
@@ -102,7 +103,7 @@
     },
     {
       "edge": "E5-strata-consistent",
-      "why": "stratum clean_in_icp (n=180) says regex_better, the headline says jev_better"
+      "why": "stratum clean_in_icp (n=180, b+c=9) says regex_better, the headline says jev_better (Holm-corrected)"
     }
   ],
   "findings": [

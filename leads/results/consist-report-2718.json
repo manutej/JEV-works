@@ -24,7 +24,7 @@
       "b": 0,
       "c": 0,
       "p": 1,
-      "direction": "no_difference"
+      "direction": "too_small"
     },
     {
       "name": "clean_in_icp",
@@ -32,7 +32,7 @@
       "b": 0,
       "c": 0,
       "p": 1,
-      "direction": "no_difference"
+      "direction": "too_small"
     },
     {
       "name": "clean_out_icp",
@@ -40,7 +40,7 @@
       "b": 0,
       "c": 4,
       "p": 0.125,
-      "direction": "no_difference"
+      "direction": "too_small"
     },
     {
       "name": "ambiguous",
@@ -56,7 +56,7 @@
       "b": 0,
       "c": 0,
       "p": 1,
-      "direction": "no_difference"
+      "direction": "too_small"
     },
     {
       "name": "adversarial",
@@ -72,12 +72,13 @@
       "b": 3,
       "c": 2,
       "p": 1,
-      "direction": "no_difference"
+      "direction": "too_small"
     }
   ],
   "settings": {
     "alpha": 0.05,
     "minStratum": 8,
+    "minDiscordant": 8,
     "seenShareLimit": 0.2
   },
   "caveat": "Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.",
@@ -86,10 +87,10 @@
   "failingEdges": [
     {
       "edge": "E1-text-disjoint",
-      "why": "61.5% of messages were seen in fit seeds (limit 20%) and leakage was not accepted before the run"
+      "why": "61.5% of messages were seen in fit seeds (limit 20.0%) and leakage was not accepted before the run"
     }
   ],
   "findings": [
-    "E5: headline shows no difference but stratum adversarial (n=30) shows regex_better (p=0.000488); the pooled null hides it"
+    "E5: headline shows no difference but stratum adversarial (n=30) shows regex_better (p=0.000488, Holm-significant); the pooled null hides it"
   ]
 }

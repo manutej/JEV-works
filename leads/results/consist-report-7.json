@@ -24,7 +24,7 @@
       "b": 0,
       "c": 2,
       "p": 0.5,
-      "direction": "no_difference"
+      "direction": "too_small"
     },
     {
       "name": "clean_in_icp",
@@ -32,7 +32,7 @@
       "b": 0,
       "c": 0,
       "p": 1,
-      "direction": "no_difference"
+      "direction": "too_small"
     },
     {
       "name": "clean_out_icp",
@@ -56,7 +56,7 @@
       "b": 0,
       "c": 0,
       "p": 1,
-      "direction": "no_difference"
+      "direction": "too_small"
     },
     {
       "name": "adversarial",
@@ -78,6 +78,7 @@
   "settings": {
     "alpha": 0.05,
     "minStratum": 8,
+    "minDiscordant": 8,
     "seenShareLimit": 0.2
   },
   "caveat": "Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.",
@@ -86,7 +87,7 @@
   "failingEdges": [
     {
       "edge": "E1-text-disjoint",
-      "why": "61.0% of messages were seen in fit seeds (limit 20%) and leakage was not accepted before the run"
+      "why": "61.0% of messages were seen in fit seeds (limit 20.0%) and leakage was not accepted before the run"
     },
     {
       "edge": "E2-coverage",
