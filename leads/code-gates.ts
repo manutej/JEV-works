@@ -36,14 +36,39 @@ export type DuplicateGroup = { key: string; leadIds: string[] };
 const normalizeText = (s: string): string => s.toLowerCase().replace(/\s+/g, ' ').trim();
 
 /**
+ * Below this many words a message is too generic to identify an inquiry ("hi", "pricing",
+ * "demo please"): colleagues at one company share a fingerprint, so a short message would
+ * otherwise swallow theirs. Every planted duplicate's source message is ≥ 19 words.
+ */
+export const MIN_MESSAGE_WORDS = 8;
+
+const words = (s: string): string[] => s.toLowerCase().match(/[a-z0-9]+/g) ?? [];
+
+/** True when the shorter message, as a whole-word sequence of ≥ MIN_MESSAGE_WORDS, appears inside the longer. */
+function sameInquiry(a: readonly string[], b: readonly string[]): boolean {
+  const [short, long] = a.length <= b.length ? [a, b] : [b, a];
+  if (short.length < MIN_MESSAGE_WORDS) return false;
+  const needle = ` ${short.join(' ')} `;
+  return ` ${long.join(' ')} `.includes(needle);
+}
+
+/**
  * Groups leads that are the same INQUIRY submitted more than once — not merely the same
  * company. Two records merge only when they agree on the firmographic fingerprint
  * (normalised name, industry, band, country, website blurb) AND one inbound message
- * contains the other (a verbatim resubmission, or a "following up on…" forward).
+ * contains the other as whole words, at least MIN_MESSAGE_WORDS long (a verbatim
+ * resubmission, or a "following up on…" forward). "hi" is not inside "this".
  *
  * There is deliberately no name-only fallback, and a shared domain is not enough either:
  * "Acme Corp" with three contacts sending three different messages is three leads. The old
  * name-only key merged 516 leads against 60 planted duplicates.
+ *
+ * Merging is transitive (A ⊂ B ⊂ C is one group): within one company record, a chain of
+ * ≥ 8-word containments is one inquiry being forwarded along.
+ *
+ * Known limit: the rule matches how the synthetic corpus plants duplicates (exact
+ * firmographics, message verbatim or prefixed). A real resubmission with an edited message,
+ * a re-scraped blurb, or an updated band is missed. Recall on real data is unmeasured.
  *
  * Returns only groups with >1 member. Deterministic; O(n) bucketing, then pairwise within a
  * fingerprint bucket, which is small because it is one company's records.
@@ -62,14 +87,13 @@ export function detectNearDuplicates(leads: readonly Lead[]): DuplicateGroup[] {
   const groups: DuplicateGroup[] = [];
   for (const [key, bucket] of buckets) {
     if (bucket.length < 2) continue;
-    // Union-find over "one message contains the other"; an empty message proves nothing.
+    // Union-find over sameInquiry; short or empty messages never merge anything.
     const parent = bucket.map((_, i) => i);
     const root = (i: number): number => (parent[i] === i ? i : (parent[i] = root(parent[i])));
-    const messages = bucket.map(l => normalizeText(l.inboundMessage));
+    const messages = bucket.map(l => words(l.inboundMessage));
     for (let i = 0; i < bucket.length; i++) {
       for (let j = i + 1; j < bucket.length; j++) {
-        const [a, b] = [messages[i], messages[j]];
-        if (a && b && (a.includes(b) || b.includes(a))) parent[root(j)] = root(i);
+        if (sameInquiry(messages[i], messages[j])) parent[root(j)] = root(i);
       }
     }
     const byRoot = new Map<number, string[]>();
