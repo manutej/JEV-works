@@ -1,4 +1,35 @@
-# leads/ handoff — U3–U5, 2026-09-21
+# leads/ handoff — U3–U5 + Q2, 2026-09-21
+
+## 0 · Round 2 (Q2, branch `feat/leads-literal-questions`) — read this first
+
+§1–§8 below are round 1 (U3–U5, merged at 0cefc2d) and stay as the record. Round 2 changed one
+stage-1 question and measured it once on a fresh seed.
+
+| | |
+|---|---|
+| Change | Stage 1 gates on `senderWroteASentence` ("is this noise?") instead of `inboundSubstantive`, which also judged intent, stage 2's question. `inboundSubstantive` is still asked and recorded. |
+| Dev (seed 42, not evidence) | coverage 14.3% → 96.7%; Jev 88.7% vs regex 93.2% |
+| Pre-registration | 365bcc0, corrected in fc1c893 before the seed existed (I first misapplied P4's 0.11 band to an accuracy gap; the test is now exact McNemar). Logged in META-PLAN §4 before generation. |
+| Holdout | seed 2718, one run. Overlap with seeds 42 + 7: full records 0, verbatim messages 369/600 (shared templates), names 171/567. |
+| (a) ≥ 95% reach a verdict | **PASS**, 97.3% |
+| (b) accuracy over all leads | Jev **88.5%** vs regex **91.0%**, Δ −2.5 pts, McNemar 30 vs 45 discordant, **p = 0.105: not different** |
+| Prediction ("Jev below regex, p < 0.05") | **wrong** |
+| Where the gap is | adversarial: Jev escalates 12/30 injection rows (right on all it decides). Ambiguous ties 46.7% / 46.7%. |
+| Provenance | JEV_ID and answeredBy `jev-1.13.0`; tie fix e3df648 cherry-picked before the run (it also carries the orchestrator's doc edits; identical patch, drops out on rebase); 0 errors |
+| Also done | `leads/` uses `lib/harness.ts` + `answeredBy()`; worktree symlink removed (Manu approved); tsc and 11/11 tests pass without it |
+
+**What it means:** with the literal question the model stops escalating, and on this synthetic
+corpus it performs about as well as the regex, neither significantly better nor worse. That is
+the honest answer to the README's question, and it is the regex's answer too: on a surface-level
+task, a two-line regex is as good.
+
+**Candidate next steps (none started):**
+1. Adversarial rows: Jev refuses to decide 40% of injections. Escalating an injection is arguably
+   the *right* behaviour, but it is scored as wrong. Decide the policy (score "escalate" as correct
+   for adversarial rows?) **before** any run, in writing: that is a scoring change, not a model change.
+2. A corpus where the regex should fail: paraphrased intent, no keywords. That is where a model could
+   earn its cost. It needs a new generator version and a fresh seed.
+3. Or stop: the result stands, and it is a reasonable place to stop.
 
 Branch `feat/leads-pipeline`, worktree `~/JEV-works-wt/leads-pipeline`, owned by session b4f08e.
 Spec: `META-PLAN.md` §4 rows U3–U5, invariants I1–I11 (§2), anti-patterns (§6).

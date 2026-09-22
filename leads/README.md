@@ -6,12 +6,13 @@
 
 - Both diagnosed bugs are fixed (unique corpus names; dedup never merges on name alone), plus a
   third found behind them: stage 1 needed every boolean confident-true and left 86% of leads without a verdict.
-- **The one valid measurement of the current code is seed 7** (`results/pipeline-7.json`,
-  `results/eval-7.txt`): Jev 67.8% correct over all 600 leads vs regex 92.2%, at 69.7% coverage.
-  It **fails** the pre-registered ≥ 95%-verdict criterion. Seed 7 is now spent as a holdout.
-- **`results/pipeline-42.json` is NOT a run of the current code.** It is byte-identical to
-  `pipeline-42.before-gate.json` (old stage-1 gate). Seed 42 was used to choose the gate fix, so
-  it is not evidence for it and has deliberately not been re-run to "fill the gap".
+- **The valid measurement of the current code is seed 2718** (`results/pipeline-2718.json`,
+  `results/eval-2718.txt`, jev-1.13.0): 97.3% coverage (passes ≥ 95%); Jev 88.5% correct over all
+  600 leads vs regex 91.0%, **not a significant difference** (exact McNemar p = 0.105). The gap is
+  adversarial rows Jev escalates. Seed 2718 is now spent.
+- Earlier holdout: seed 7 measured the previous question set (Jev 67.8% vs regex 92.2%, 69.7%
+  coverage, fail). **Seed 42 is the dev set**: `results/pipeline-42.json` is a dev run of the
+  current code and is not evidence; `pipeline-42.prev.json` / `.before-gate.json` are the pre-gate run.
 - **Dedup's known limit:** it matches how this corpus plants duplicates (identical firmographics,
   message verbatim or prefixed). Real resubmissions with an edited message, a re-scraped blurb,
   or an updated band are missed; recall on real data is unmeasured. The 60/60 match on seeds 42
