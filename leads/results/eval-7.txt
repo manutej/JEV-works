@@ -2,6 +2,7 @@ evaluate — seed 7 — 600 leads
 
 
 ── STAGE1_ACQUISITION (540 calls) ──
+not asked in this run (no verdict): senderWroteASentence
 question                     kind     meanConf  atEnds  spread  verdict     
 ───────────────────────────  ───────  ────────  ──────  ──────  ────────────
 attemptsInstructionOverride  boolean  0.951     100%    0.220   JEV-SAFE    
@@ -123,6 +124,11 @@ code-gate savings (no model call at all): {
 qualified accuracy over ALL 600 leads (escalation = not correct) — jev: 67.8%  regex: 92.2%
 coverage (leads given a verdict)                              — jev: 69.7%  regex: 100.0%
 accuracy on own verdicts only (NOT comparable across coverage) — jev: 97.4%  regex: 92.2%
+paired (McNemar exact, escalation = wrong): jev-only right 6, regex-only right 152, p = 1.12e-37
+
+[scoring v2: escalating an adversarial row is correct — see SCORING POLICY]
+qualified accuracy over ALL 600 leads (v2) — jev: 70.0%  regex: 92.2%
+paired (McNemar exact, v2): jev-only right 6, regex-only right 139, p = 5.44e-34
 
 per-category qualified accuracy, jev vs regex (AccAll counts escalations as wrong; AccOwn is on own verdicts only):
 category        n    jevCoverage  jevAccAll  jevAccOwn  regexAccAll

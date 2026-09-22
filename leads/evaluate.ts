@@ -97,7 +97,12 @@ function verdictOf(spread: number, atEnds: number): Verdict {
 function questionTable(stageName: string, questions: Record<string, JevQuestion>, stageKey: 'stage1' | 'stage2' | 'stage3') {
   const rows = pipelineResults.map(r => r[stageKey]).filter(Boolean);
   console.log(`\n── ${stageName} (${rows.length} calls) ──`);
-  const out = Object.entries(questions).map(([name, q]) => {
+  // A question this run never asked has no answers: its spread is NaN, every threshold comparison is
+  // false, and verdictOf would fall through to JEV-SAFE. Report it as not asked instead.
+  const asked = Object.entries(questions).filter(([name]) => rows.some(r => r.answers[name]));
+  const notAsked = Object.keys(questions).filter(name => !asked.some(([n]) => n === name));
+  if (notAsked.length) console.log(`not asked in this run (no verdict): ${notAsked.join(', ')}`);
+  const out = asked.map(([name, q]) => {
     const raw = rows.map(r => r.answers[name]).filter(Boolean);
     const row = confidenceRow(name, q.type, q, raw);
     row.verdict = verdictOf(row.spread, row.atEnds);
@@ -274,9 +279,24 @@ function qualifiedAccuracy(predictions: Map<string, boolean | null>): number {
  * alone scores a system only on what it chose to answer, so a system that escalates 86% can read
  * as 100% — the seed-42 pre-gate run did. Always print this beside it, with coverage.
  */
-function overAll(predictions: Map<string, boolean | null>, ids: readonly string[]) {
+/**
+ * SCORING POLICY — which outcome counts as correct. Every headline names its version.
+ *   v1  a verdict is correct iff it equals trueQualified; an escalation (null) is never correct.
+ *   v2  as v1, except an escalation on an ADVERSARIAL row is correct: refusing to decide a lead
+ *       whose text tries to instruct the evaluator is the safe behaviour. Decided by Manu,
+ *       2026-09-22 (LESSONS L38), AFTER the seed-2718 adversarial gap was seen — so v2 numbers
+ *       for seeds 7 and 2718 are post hoc. Only runs pre-registered under v2 are v2 evidence.
+ * A regex never escalates, so the policy can only change Jev's score.
+ */
+type ScoringPolicy = 'v1' | 'v2';
+function isRight(pred: boolean | null | undefined, id: string, policy: ScoringPolicy): boolean {
+  if (pred === null || pred === undefined) return policy === 'v2' && truth[id].category === 'adversarial';
+  return pred === truth[id].trueQualified;
+}
+
+function overAll(predictions: Map<string, boolean | null>, ids: readonly string[], policy: ScoringPolicy = 'v1') {
   const answered = ids.filter(id => (predictions.get(id) ?? null) !== null);
-  const correct = answered.filter(id => predictions.get(id) === truth[id].trueQualified).length;
+  const correct = ids.filter(id => isRight(predictions.get(id), id, policy)).length;
   return { coverage: answered.length / ids.length, accuracyAll: correct / ids.length };
 }
 const pct = (x: number) => (x * 100).toFixed(1) + '%';
@@ -311,12 +331,19 @@ function lgammaSum(k: number): number {
   for (let i = 2; i <= k; i++) s += Math.log(i);
   return s; // log(k!)
 }
-{
-  const right = (preds: Map<string, boolean | null>, id: string) => preds.get(id) === truth[id].trueQualified;
+const paired = (policy: ScoringPolicy) => {
+  const right = (preds: Map<string, boolean | null>, id: string) => isRight(preds.get(id), id, policy);
   const b = allIds.filter(id => right(jevQualifiedPreds, id) && !right(baseQualifiedPreds, id)).length;
   const c = allIds.filter(id => !right(jevQualifiedPreds, id) && right(baseQualifiedPreds, id)).length;
-  console.log(`paired (McNemar exact, escalation = wrong): jev-only right ${b}, regex-only right ${c}, p = ${mcnemarExact(b, c).toPrecision(3)}`);
-}
+  return `jev-only right ${b}, regex-only right ${c}, p = ${mcnemarExact(b, c).toPrecision(3)}`;
+};
+console.log(`paired (McNemar exact, escalation = wrong): ${paired('v1')}`);
+
+const jevV2 = overAll(jevQualifiedPreds, allIds, 'v2');
+const baseV2 = overAll(baseQualifiedPreds, allIds, 'v2');
+console.log(`\n[scoring v2: escalating an adversarial row is correct — see SCORING POLICY]`);
+console.log(`qualified accuracy over ALL ${allIds.length} leads (v2) — jev: ${pct(jevV2.accuracyAll)}  regex: ${pct(baseV2.accuracyAll)}`);
+console.log(`paired (McNemar exact, v2): ${paired('v2')}`);
 
 const perCategory: Array<Record<string, unknown>> = [];
 for (const cat of ['clean_in_icp', 'clean_out_icp', 'ambiguous', 'garbage', 'adversarial', 'near_duplicate'] as LeadCategory[]) {
