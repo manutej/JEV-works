@@ -29,6 +29,7 @@ import {
   territoryFor,
   assertUnderTokenCeiling,
   normalizedEntropy,
+  codeFacts,
 } from './code-gates.ts';
 import type { Lead, Segment, NextAction } from './types.ts';
 import { JEV, JEV_ID, answeredBy } from '../lib/jev.ts';
@@ -232,7 +233,7 @@ async function main() {
       const s1 = await runStage(lead.id, stage1State(lead), STAGE1_ACQUISITION.questions);
       // Stage-1 rule from CONFIG.stage1 (decisions/stage1.v1.json encodes the former hand-written gate:
       // isRealBusiness may reject but not hold back; literal questions admit; replay-proven identical).
-      const outcome1: Stage1Outcome = ({ true: 'admit', false: 'reject', escalate: 'escalate' } as const)[String(decide(s1.answers as any, CONFIG.stage1).verdict) as 'true'];
+      const outcome1: Stage1Outcome = ({ true: 'admit', false: 'reject', escalate: 'escalate' } as const)[String(decide({ ...(s1.answers as any), ...codeFacts(lead) }, CONFIG.stage1).verdict) as 'true'];
 
       const stage1Result = { ...s1, outcome: outcome1 };
       if (outcome1 !== 'admit') {

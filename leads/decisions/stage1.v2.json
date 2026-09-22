@@ -1,0 +1,17 @@
+{
+  "positive": "admit the lead to stage 2 (a real, parseable lead)",
+  "thresholds": { "yes": 0.85, "no": 0.15 },
+  "rules": [
+    { "when": { "any": [
+        { "q": "isRealBusiness", "is": "no" },
+        { "q": "senderWroteASentence", "is": "no" },
+        { "q": "onTopicParseable", "is": "no" },
+        { "q": "isEmptyOrMarkup", "is": "yes" },
+        { "q": "code_companyNamePresent", "is": "no" } ] }, "then": false },
+    { "when": { "all": [
+        { "q": "code_companyNamePresent", "is": "yes" },
+        { "q": "onTopicParseable", "is": "yes" },
+        { "q": "isEmptyOrMarkup", "is": "no" } ] }, "then": true }
+  ],
+  "default": "escalate"
+}

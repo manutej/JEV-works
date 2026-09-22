@@ -11,6 +11,7 @@ import { readFileSync } from 'node:fs';
 import { loadDecision } from '../kit/gate/load.ts';
 import type { Decision } from '../kit/gate/decide.ts';
 import { STAGE1_ACQUISITION, STAGE2_QUALIFICATION } from './questions.ts';
+import { CODE_FACT_IDS } from './code-gates.ts';
 
 export type SegmentSource = 'band-lookup' | 'jev-choice';
 export type PipelineConfig = { version: string; stage1: Decision; stage2: Decision; segment: SegmentSource; provenance: Record<string, string> };
@@ -28,7 +29,8 @@ export function loadPipelineConfig(file: string): PipelineConfig {
   return {
     version: raw.version,
     // Each rule may only name questions its stage actually asks.
-    stage1: loadDecision(here(raw.stage1), new Set(Object.keys(STAGE1_ACQUISITION.questions))),
+    // Stage 1 may also read code facts (code_*), computed from the record in code-gates.ts.
+    stage1: loadDecision(here(raw.stage1), new Set([...Object.keys(STAGE1_ACQUISITION.questions), ...CODE_FACT_IDS])),
     stage2: loadDecision(here(raw.stage2), new Set(Object.keys(STAGE2_QUALIFICATION.questions))),
     segment: raw.segment,
     provenance: { config: `${file}@${sha(file)}`, stage1: `${raw.stage1}@${sha(raw.stage1)}`, stage2: `${raw.stage2}@${sha(raw.stage2)}` },

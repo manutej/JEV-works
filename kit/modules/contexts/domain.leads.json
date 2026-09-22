@@ -466,6 +466,40 @@
             "inboundMessage",
             "websiteBlurb"
           ]
+        },
+        "asksToBuy": {
+          "type": "noul",
+          "polarity": "good-when-yes",
+          "reads": [
+            "industry",
+            "employeeBand",
+            "contactTitle",
+            "inboundMessage",
+            "websiteBlurb"
+          ],
+          "instructions": "Does the sender ask to buy, trial, get a demo of, or get pricing for something from us?",
+          "criteria": {
+            "true": "The sender wants to acquire or evaluate our product or service.",
+            "false": "The sender does not ask to acquire or evaluate anything from us."
+          },
+          "note": "added 2026-09-22 (direction-of-intent split); tuned on dev pool A only"
+        },
+        "offersToUs": {
+          "type": "noul",
+          "polarity": "bad-when-yes",
+          "reads": [
+            "industry",
+            "employeeBand",
+            "contactTitle",
+            "inboundMessage",
+            "websiteBlurb"
+          ],
+          "instructions": "Does the sender offer to sell, partner with, resell for, or provide a service to us?",
+          "criteria": {
+            "true": "The sender is pitching something they sell or propose, such as a vendor, recruiter, reseller or partnership offer.",
+            "false": "The sender is not offering anything to us."
+          },
+          "note": "added 2026-09-22 (direction-of-intent split): a pitch TO us read as purchase intent in buyingSignal (bc7101)"
         }
       },
       "compose": {
