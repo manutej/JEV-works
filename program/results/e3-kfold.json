@@ -1,0 +1,4070 @@
+{
+  "experiment": "E3-K · 5-fold on the 80 CETI hooks (in-sample for Jev)",
+  "preregistration": "program/E3-KFOLD-PREREG.md",
+  "validity": "in-sample for Jev; fold-held-out for the keyword baseline",
+  "validityDetail": "Jev v2 option descriptions (program/e3-questions.ts) were authored by reading all 80 items and labels; no fold is unseen by Jev. Only the naive-Bayes keyword baseline, the majority class and the hybrid τ are fitted on k−1 folds and scored on the held-out fold. The E3 hand-written regex was also written from all 80 (in-sample reference); the E1 keyword baseline was written without labels (unfitted reference).",
+  "approval": {
+    "by": "Manu",
+    "date": "2026-09-21",
+    "decision": "k-fold on the 80, reported as in-sample"
+  },
+  "hypothesis": "Jev v2 (in-sample) pooled accuracy on the 80 exceeds the fold-held-out NB keyword baseline by ≥ 0.11, with the paired bootstrap 95% CI of the difference excluding 0.",
+  "falsifier": "Δ < 0.11, or the paired 95% CI of Δ includes 0 (tie), or the baseline is ahead.",
+  "headline": "IN-SAMPLE for Jev: Jev v2 72.5% (CI95 62.5%–82.5%) vs fold-held-out NB keyword 35.0% (CI95 25.0%–46.3%) on n=80, Δ +37.5 pts (paired CI95 25.0…50.0) → jev-ahead at the 0.11 band. Jev's descriptions were written from all 80 items, so its number is an upper bound, not generalisation.",
+  "n": {
+    "items": 80,
+    "folds": 5,
+    "foldSizes": [
+      16,
+      16,
+      16,
+      16,
+      16
+    ]
+  },
+  "baseline": {
+    "system": "multinomial naive Bayes on tokens, α=1, fitted on k−1 folds",
+    "accuracy": 0.35,
+    "ci95": [
+      0.25,
+      0.4625
+    ],
+    "macroRecall": 0.1794,
+    "coverage": 1
+  },
+  "result": {
+    "system": "Jev v2 (fixed descriptions, in-sample)",
+    "accuracy": 0.725,
+    "ci95": [
+      0.625,
+      0.825
+    ],
+    "macroRecall": 0.7611,
+    "coverage": 1
+  },
+  "delta": {
+    "jevMinusBaseline": 0.375,
+    "pairedCi95": [
+      0.25,
+      0.5
+    ],
+    "mcnemar": {
+      "onlyJevRight": 34,
+      "onlyBaselineRight": 4,
+      "pTwoSided": 6.04e-7
+    },
+    "tieBand": 0.11,
+    "verdict": "jev-ahead",
+    "sensitivityAt015": "jev-ahead"
+  },
+  "falsified": false,
+  "model": "typesafe-ai/jev (gateway)",
+  "answeredBy": [
+    "jev-1.13.0"
+  ],
+  "callsUsed": 80,
+  "callBudget": 250,
+  "failures": [],
+  "corpus": {
+    "path": "/Users/manu/CETI/PISCES-MARKETING/assets/ceti-silver-hooks.json",
+    "sha256": "16b9efe1cfbea781b3b83d2f9e68dc4b7d88bd42c3c4f69ada89ae95b41fbf7b"
+  },
+  "folds": {
+    "path": "program/results/e3-kfold-folds.json",
+    "sha256": "2558c7c261572f69ea398d6df08190588fc9a3d39fbd7bd3b620d1c607ac1b47",
+    "seed": 20260921,
+    "disjointness": {
+      "pairwiseIdOverlap": 0,
+      "pairwiseNormalisedTextOverlap": 0,
+      "duplicateNormalisedTextsInCorpus": 0,
+      "coversCorpus": true,
+      "pass": true
+    }
+  },
+  "pooled": {
+    "jev": {
+      "n": 80,
+      "answered": 80,
+      "coverage": 1,
+      "correct": 58,
+      "accuracy": 0.725,
+      "macroRecall": 0.7611,
+      "perClass": {
+        "number-outcome-time": {
+          "n": 15,
+          "correct": 15,
+          "recall": 1,
+          "insufficientData": false
+        },
+        "receipt": {
+          "n": 4,
+          "correct": 3,
+          "recall": 0.75,
+          "insufficientData": true
+        },
+        "damaging-admission": {
+          "n": 5,
+          "correct": 4,
+          "recall": 0.8,
+          "insufficientData": true
+        },
+        "deprivation-moment": {
+          "n": 21,
+          "correct": 13,
+          "recall": 0.619,
+          "insufficientData": false
+        },
+        "adjective-good": {
+          "n": 5,
+          "correct": 4,
+          "recall": 0.8,
+          "insufficientData": true
+        },
+        "mistakes": {
+          "n": 5,
+          "correct": 5,
+          "recall": 1,
+          "insufficientData": true
+        },
+        "how-to-without": {
+          "n": 7,
+          "correct": 5,
+          "recall": 0.7143,
+          "insufficientData": true
+        },
+        "call-out": {
+          "n": 12,
+          "correct": 4,
+          "recall": 0.3333,
+          "insufficientData": false
+        },
+        "halbert-a-pile": {
+          "n": 6,
+          "correct": 5,
+          "recall": 0.8333,
+          "insufficientData": true
+        }
+      }
+    },
+    "nbKeyword": {
+      "n": 80,
+      "answered": 80,
+      "coverage": 1,
+      "correct": 28,
+      "accuracy": 0.35,
+      "macroRecall": 0.1794,
+      "perClass": {
+        "number-outcome-time": {
+          "n": 15,
+          "correct": 11,
+          "recall": 0.7333,
+          "insufficientData": false
+        },
+        "receipt": {
+          "n": 4,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        },
+        "damaging-admission": {
+          "n": 5,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        },
+        "deprivation-moment": {
+          "n": 21,
+          "correct": 15,
+          "recall": 0.7143,
+          "insufficientData": false
+        },
+        "adjective-good": {
+          "n": 5,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        },
+        "mistakes": {
+          "n": 5,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        },
+        "how-to-without": {
+          "n": 7,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        },
+        "call-out": {
+          "n": 12,
+          "correct": 2,
+          "recall": 0.1667,
+          "insufficientData": false
+        },
+        "halbert-a-pile": {
+          "n": 6,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        }
+      }
+    },
+    "majority": {
+      "n": 80,
+      "answered": 80,
+      "coverage": 1,
+      "correct": 21,
+      "accuracy": 0.2625,
+      "macroRecall": 0.1111,
+      "perClass": {
+        "number-outcome-time": {
+          "n": 15,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": false
+        },
+        "receipt": {
+          "n": 4,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        },
+        "damaging-admission": {
+          "n": 5,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        },
+        "deprivation-moment": {
+          "n": 21,
+          "correct": 21,
+          "recall": 1,
+          "insufficientData": false
+        },
+        "adjective-good": {
+          "n": 5,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        },
+        "mistakes": {
+          "n": 5,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        },
+        "how-to-without": {
+          "n": 7,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        },
+        "call-out": {
+          "n": 12,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": false
+        },
+        "halbert-a-pile": {
+          "n": 6,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        }
+      }
+    },
+    "hybrid": {
+      "n": 80,
+      "answered": 80,
+      "coverage": 1,
+      "correct": 48,
+      "accuracy": 0.6,
+      "macroRecall": 0.5188,
+      "perClass": {
+        "number-outcome-time": {
+          "n": 15,
+          "correct": 14,
+          "recall": 0.9333,
+          "insufficientData": false
+        },
+        "receipt": {
+          "n": 4,
+          "correct": 1,
+          "recall": 0.25,
+          "insufficientData": true
+        },
+        "damaging-admission": {
+          "n": 5,
+          "correct": 3,
+          "recall": 0.6,
+          "insufficientData": true
+        },
+        "deprivation-moment": {
+          "n": 21,
+          "correct": 15,
+          "recall": 0.7143,
+          "insufficientData": false
+        },
+        "adjective-good": {
+          "n": 5,
+          "correct": 1,
+          "recall": 0.2,
+          "insufficientData": true
+        },
+        "mistakes": {
+          "n": 5,
+          "correct": 2,
+          "recall": 0.4,
+          "insufficientData": true
+        },
+        "how-to-without": {
+          "n": 7,
+          "correct": 4,
+          "recall": 0.5714,
+          "insufficientData": true
+        },
+        "call-out": {
+          "n": 12,
+          "correct": 4,
+          "recall": 0.3333,
+          "insufficientData": false
+        },
+        "halbert-a-pile": {
+          "n": 6,
+          "correct": 4,
+          "recall": 0.6667,
+          "insufficientData": true
+        }
+      }
+    },
+    "e3RegexInSample": {
+      "n": 80,
+      "answered": 80,
+      "coverage": 1,
+      "correct": 69,
+      "accuracy": 0.8625,
+      "macroRecall": 0.8479,
+      "perClass": {
+        "number-outcome-time": {
+          "n": 15,
+          "correct": 14,
+          "recall": 0.9333,
+          "insufficientData": false
+        },
+        "receipt": {
+          "n": 4,
+          "correct": 4,
+          "recall": 1,
+          "insufficientData": true
+        },
+        "damaging-admission": {
+          "n": 5,
+          "correct": 5,
+          "recall": 1,
+          "insufficientData": true
+        },
+        "deprivation-moment": {
+          "n": 21,
+          "correct": 21,
+          "recall": 1,
+          "insufficientData": false
+        },
+        "adjective-good": {
+          "n": 5,
+          "correct": 3,
+          "recall": 0.6,
+          "insufficientData": true
+        },
+        "mistakes": {
+          "n": 5,
+          "correct": 4,
+          "recall": 0.8,
+          "insufficientData": true
+        },
+        "how-to-without": {
+          "n": 7,
+          "correct": 5,
+          "recall": 0.7143,
+          "insufficientData": true
+        },
+        "call-out": {
+          "n": 12,
+          "correct": 7,
+          "recall": 0.5833,
+          "insufficientData": false
+        },
+        "halbert-a-pile": {
+          "n": 6,
+          "correct": 6,
+          "recall": 1,
+          "insufficientData": true
+        }
+      }
+    },
+    "e1KeywordUnfitted": {
+      "n": 80,
+      "answered": 80,
+      "coverage": 1,
+      "correct": 25,
+      "accuracy": 0.3125,
+      "macroRecall": 0.1929,
+      "perClass": {
+        "number-outcome-time": {
+          "n": 15,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": false
+        },
+        "receipt": {
+          "n": 4,
+          "correct": 1,
+          "recall": 0.25,
+          "insufficientData": true
+        },
+        "damaging-admission": {
+          "n": 5,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        },
+        "deprivation-moment": {
+          "n": 21,
+          "correct": 21,
+          "recall": 1,
+          "insufficientData": false
+        },
+        "adjective-good": {
+          "n": 5,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        },
+        "mistakes": {
+          "n": 5,
+          "correct": 1,
+          "recall": 0.2,
+          "insufficientData": true
+        },
+        "how-to-without": {
+          "n": 7,
+          "correct": 2,
+          "recall": 0.2857,
+          "insufficientData": true
+        },
+        "call-out": {
+          "n": 12,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": false
+        },
+        "halbert-a-pile": {
+          "n": 6,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        }
+      }
+    }
+  },
+  "perFold": [
+    {
+      "fold": 0,
+      "n": 16,
+      "tau": 0.85,
+      "jev": {
+        "accuracy": 0.75,
+        "macroRecall": 0.625,
+        "coverage": 1,
+        "correct": 12
+      },
+      "nbKeyword": {
+        "accuracy": 0.4375,
+        "macroRecall": 0.225,
+        "coverage": 1,
+        "correct": 7
+      },
+      "majority": {
+        "accuracy": 0.3125,
+        "macroRecall": 0.125,
+        "coverage": 1,
+        "correct": 5
+      },
+      "hybrid": {
+        "accuracy": 0.6875,
+        "macroRecall": 0.5,
+        "coverage": 1,
+        "correct": 11
+      },
+      "e3RegexInSample": {
+        "accuracy": 0.75,
+        "macroRecall": 0.5625,
+        "coverage": 1,
+        "correct": 12
+      },
+      "e1KeywordUnfitted": {
+        "accuracy": 0.3125,
+        "macroRecall": 0.125,
+        "coverage": 1,
+        "correct": 5
+      }
+    },
+    {
+      "fold": 1,
+      "n": 16,
+      "tau": 0.85,
+      "jev": {
+        "accuracy": 0.625,
+        "macroRecall": 0.7222,
+        "coverage": 1,
+        "correct": 10
+      },
+      "nbKeyword": {
+        "accuracy": 0.375,
+        "macroRecall": 0.1944,
+        "coverage": 1,
+        "correct": 6
+      },
+      "majority": {
+        "accuracy": 0.25,
+        "macroRecall": 0.1111,
+        "coverage": 1,
+        "correct": 4
+      },
+      "hybrid": {
+        "accuracy": 0.5,
+        "macroRecall": 0.4167,
+        "coverage": 1,
+        "correct": 8
+      },
+      "e3RegexInSample": {
+        "accuracy": 0.8125,
+        "macroRecall": 0.8889,
+        "coverage": 1,
+        "correct": 13
+      },
+      "e1KeywordUnfitted": {
+        "accuracy": 0.25,
+        "macroRecall": 0.1111,
+        "coverage": 1,
+        "correct": 4
+      }
+    },
+    {
+      "fold": 2,
+      "n": 16,
+      "tau": 0.7,
+      "jev": {
+        "accuracy": 0.6875,
+        "macroRecall": 0.7685,
+        "coverage": 1,
+        "correct": 11
+      },
+      "nbKeyword": {
+        "accuracy": 0.3125,
+        "macroRecall": 0.1574,
+        "coverage": 1,
+        "correct": 5
+      },
+      "majority": {
+        "accuracy": 0.25,
+        "macroRecall": 0.1111,
+        "coverage": 1,
+        "correct": 4
+      },
+      "hybrid": {
+        "accuracy": 0.625,
+        "macroRecall": 0.5741,
+        "coverage": 1,
+        "correct": 10
+      },
+      "e3RegexInSample": {
+        "accuracy": 0.875,
+        "macroRecall": 0.8519,
+        "coverage": 1,
+        "correct": 14
+      },
+      "e1KeywordUnfitted": {
+        "accuracy": 0.3125,
+        "macroRecall": 0.2222,
+        "coverage": 1,
+        "correct": 5
+      }
+    },
+    {
+      "fold": 3,
+      "n": 16,
+      "tau": 0.85,
+      "jev": {
+        "accuracy": 0.6875,
+        "macroRecall": 0.7222,
+        "coverage": 1,
+        "correct": 11
+      },
+      "nbKeyword": {
+        "accuracy": 0.25,
+        "macroRecall": 0.1481,
+        "coverage": 1,
+        "correct": 4
+      },
+      "majority": {
+        "accuracy": 0.25,
+        "macroRecall": 0.1111,
+        "coverage": 1,
+        "correct": 4
+      },
+      "hybrid": {
+        "accuracy": 0.4375,
+        "macroRecall": 0.3519,
+        "coverage": 1,
+        "correct": 7
+      },
+      "e3RegexInSample": {
+        "accuracy": 0.9375,
+        "macroRecall": 0.9444,
+        "coverage": 1,
+        "correct": 15
+      },
+      "e1KeywordUnfitted": {
+        "accuracy": 0.25,
+        "macroRecall": 0.1111,
+        "coverage": 1,
+        "correct": 4
+      }
+    },
+    {
+      "fold": 4,
+      "n": 16,
+      "tau": 0.85,
+      "jev": {
+        "accuracy": 0.875,
+        "macroRecall": 0.8611,
+        "coverage": 1,
+        "correct": 14
+      },
+      "nbKeyword": {
+        "accuracy": 0.375,
+        "macroRecall": 0.1944,
+        "coverage": 1,
+        "correct": 6
+      },
+      "majority": {
+        "accuracy": 0.25,
+        "macroRecall": 0.1111,
+        "coverage": 1,
+        "correct": 4
+      },
+      "hybrid": {
+        "accuracy": 0.75,
+        "macroRecall": 0.6944,
+        "coverage": 1,
+        "correct": 12
+      },
+      "e3RegexInSample": {
+        "accuracy": 0.9375,
+        "macroRecall": 0.8889,
+        "coverage": 1,
+        "correct": 15
+      },
+      "e1KeywordUnfitted": {
+        "accuracy": 0.4375,
+        "macroRecall": 0.3333,
+        "coverage": 1,
+        "correct": 7
+      }
+    }
+  ],
+  "foldSpread": {
+    "jev": {
+      "mean": 0.725,
+      "sd": 0.0948,
+      "min": 0.625,
+      "max": 0.875
+    },
+    "nbKeyword": {
+      "mean": 0.35,
+      "sd": 0.0713,
+      "min": 0.25,
+      "max": 0.4375
+    },
+    "majority": {
+      "mean": 0.2625,
+      "sd": 0.028,
+      "min": 0.25,
+      "max": 0.3125
+    },
+    "hybrid": {
+      "mean": 0.6,
+      "sd": 0.1296,
+      "min": 0.4375,
+      "max": 0.75
+    },
+    "e3RegexInSample": {
+      "mean": 0.8625,
+      "sd": 0.0815,
+      "min": 0.75,
+      "max": 0.9375
+    },
+    "e1KeywordUnfitted": {
+      "mean": 0.3125,
+      "sd": 0.0765,
+      "min": 0.25,
+      "max": 0.4375
+    }
+  },
+  "hybrid": {
+    "rule": "Jev if top-p ≥ τ else fold-fitted NB; τ chosen on training folds (grid, tie → smallest)",
+    "tauPerFold": [
+      0.85,
+      0.85,
+      0.7,
+      0.85,
+      0.85
+    ],
+    "secondary": true
+  },
+  "coverageSweep": [
+    {
+      "threshold": 0.5,
+      "coverage": 0.825,
+      "accuracyOnCovered": 0.803,
+      "n": 66
+    },
+    {
+      "threshold": 0.6,
+      "coverage": 0.7625,
+      "accuracyOnCovered": 0.8361,
+      "n": 61
+    },
+    {
+      "threshold": 0.7,
+      "coverage": 0.6875,
+      "accuracyOnCovered": 0.8727,
+      "n": 55
+    },
+    {
+      "threshold": 0.8,
+      "coverage": 0.6,
+      "accuracyOnCovered": 0.8542,
+      "n": 48
+    },
+    {
+      "threshold": 0.9,
+      "coverage": 0.4375,
+      "accuracyOnCovered": 0.8857,
+      "n": 35
+    }
+  ],
+  "confusion": {
+    "jev": {
+      "number-outcome-time": {
+        "number-outcome-time": 15
+      },
+      "receipt": {
+        "receipt": 3,
+        "number-outcome-time": 1
+      },
+      "damaging-admission": {
+        "damaging-admission": 4,
+        "number-outcome-time": 1
+      },
+      "deprivation-moment": {
+        "halbert-a-pile": 4,
+        "deprivation-moment": 13,
+        "number-outcome-time": 2,
+        "mistakes": 1,
+        "how-to-without": 1
+      },
+      "adjective-good": {
+        "adjective-good": 4,
+        "how-to-without": 1
+      },
+      "mistakes": {
+        "mistakes": 5
+      },
+      "how-to-without": {
+        "how-to-without": 5,
+        "mistakes": 1,
+        "adjective-good": 1
+      },
+      "call-out": {
+        "number-outcome-time": 3,
+        "deprivation-moment": 1,
+        "halbert-a-pile": 1,
+        "how-to-without": 2,
+        "call-out": 4,
+        "adjective-good": 1
+      },
+      "halbert-a-pile": {
+        "halbert-a-pile": 5,
+        "mistakes": 1
+      }
+    },
+    "nbKeyword": {
+      "number-outcome-time": {
+        "deprivation-moment": 3,
+        "number-outcome-time": 11,
+        "call-out": 1
+      },
+      "receipt": {
+        "deprivation-moment": 2,
+        "number-outcome-time": 2
+      },
+      "damaging-admission": {
+        "deprivation-moment": 4,
+        "number-outcome-time": 1
+      },
+      "deprivation-moment": {
+        "deprivation-moment": 15,
+        "number-outcome-time": 6
+      },
+      "adjective-good": {
+        "deprivation-moment": 5
+      },
+      "mistakes": {
+        "deprivation-moment": 4,
+        "number-outcome-time": 1
+      },
+      "how-to-without": {
+        "deprivation-moment": 2,
+        "call-out": 3,
+        "number-outcome-time": 2
+      },
+      "call-out": {
+        "number-outcome-time": 2,
+        "call-out": 2,
+        "deprivation-moment": 6,
+        "how-to-without": 1,
+        "halbert-a-pile": 1
+      },
+      "halbert-a-pile": {
+        "number-outcome-time": 1,
+        "deprivation-moment": 4,
+        "how-to-without": 1
+      }
+    }
+  },
+  "repeatability": {
+    "against": "results/e3-fit.json variants.v2 (jev-latest (direct))",
+    "comparable": 79,
+    "sameChoice": 77,
+    "oldAccuracy": 0.725
+  },
+  "rows": [
+    {
+      "id": "h01",
+      "fold": 3,
+      "truth": "number-outcome-time",
+      "jev": "number-outcome-time",
+      "probabilities": {
+        "adjective-good": 0,
+        "deprivation-moment": 0,
+        "how-to-without": 0,
+        "damaging-admission": 0,
+        "number-outcome-time": 0.86,
+        "receipt": 0.14,
+        "halbert-a-pile": 0,
+        "call-out": 0,
+        "mistakes": 0
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "number-outcome-time",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h02",
+      "fold": 2,
+      "truth": "receipt",
+      "jev": "receipt",
+      "probabilities": {
+        "how-to-without": 0,
+        "mistakes": 0,
+        "call-out": 0,
+        "adjective-good": 0,
+        "damaging-admission": 0,
+        "halbert-a-pile": 0,
+        "deprivation-moment": 0,
+        "receipt": 0.99,
+        "number-outcome-time": 0.01
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "receipt",
+      "e3Regex": "receipt",
+      "e1Keyword": "receipt"
+    },
+    {
+      "id": "h03",
+      "fold": 2,
+      "truth": "damaging-admission",
+      "jev": "damaging-admission",
+      "probabilities": {
+        "adjective-good": 0,
+        "receipt": 0.16,
+        "deprivation-moment": 0.09,
+        "halbert-a-pile": 0.03,
+        "how-to-without": 0.01,
+        "damaging-admission": 0.58,
+        "number-outcome-time": 0,
+        "mistakes": 0.04,
+        "call-out": 0.09
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "damaging-admission",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h04",
+      "fold": 2,
+      "truth": "deprivation-moment",
+      "jev": "halbert-a-pile",
+      "probabilities": {
+        "adjective-good": 0,
+        "how-to-without": 0,
+        "number-outcome-time": 0.01,
+        "call-out": 0,
+        "receipt": 0,
+        "halbert-a-pile": 0.83,
+        "mistakes": 0,
+        "deprivation-moment": 0.16,
+        "damaging-admission": 0
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "halbert-a-pile",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h05",
+      "fold": 2,
+      "truth": "number-outcome-time",
+      "jev": "number-outcome-time",
+      "probabilities": {
+        "receipt": 0,
+        "mistakes": 0,
+        "deprivation-moment": 0,
+        "adjective-good": 0,
+        "number-outcome-time": 0.95,
+        "how-to-without": 0.03,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0,
+        "call-out": 0.02
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "number-outcome-time",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h06",
+      "fold": 3,
+      "truth": "adjective-good",
+      "jev": "adjective-good",
+      "probabilities": {
+        "adjective-good": 0.73,
+        "deprivation-moment": 0,
+        "receipt": 0,
+        "mistakes": 0,
+        "call-out": 0,
+        "halbert-a-pile": 0,
+        "number-outcome-time": 0.25,
+        "how-to-without": 0.02,
+        "damaging-admission": 0
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "adjective-good",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h07",
+      "fold": 0,
+      "truth": "deprivation-moment",
+      "jev": "deprivation-moment",
+      "probabilities": {
+        "adjective-good": 0,
+        "damaging-admission": 0,
+        "call-out": 0.04,
+        "how-to-without": 0,
+        "deprivation-moment": 0.86,
+        "mistakes": 0,
+        "number-outcome-time": 0,
+        "receipt": 0.02,
+        "halbert-a-pile": 0.08
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h08",
+      "fold": 2,
+      "truth": "mistakes",
+      "jev": "mistakes",
+      "probabilities": {
+        "deprivation-moment": 0.12,
+        "receipt": 0,
+        "how-to-without": 0,
+        "call-out": 0,
+        "number-outcome-time": 0,
+        "damaging-admission": 0,
+        "halbert-a-pile": 0,
+        "adjective-good": 0,
+        "mistakes": 0.88
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "mistakes",
+      "e3Regex": "mistakes",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h09",
+      "fold": 2,
+      "truth": "number-outcome-time",
+      "jev": "number-outcome-time",
+      "probabilities": {
+        "deprivation-moment": 0,
+        "how-to-without": 0,
+        "call-out": 0,
+        "receipt": 0,
+        "mistakes": 0,
+        "number-outcome-time": 1,
+        "adjective-good": 0,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "number-outcome-time",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h10",
+      "fold": 2,
+      "truth": "number-outcome-time",
+      "jev": "number-outcome-time",
+      "probabilities": {
+        "deprivation-moment": 0.03,
+        "receipt": 0,
+        "adjective-good": 0,
+        "mistakes": 0.01,
+        "how-to-without": 0,
+        "number-outcome-time": 0.96,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0,
+        "call-out": 0
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "number-outcome-time",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h11",
+      "fold": 4,
+      "truth": "number-outcome-time",
+      "jev": "number-outcome-time",
+      "probabilities": {
+        "deprivation-moment": 0,
+        "halbert-a-pile": 0,
+        "call-out": 0,
+        "damaging-admission": 0,
+        "receipt": 0,
+        "number-outcome-time": 1,
+        "mistakes": 0,
+        "adjective-good": 0,
+        "how-to-without": 0
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "number-outcome-time",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h12",
+      "fold": 4,
+      "truth": "how-to-without",
+      "jev": "how-to-without",
+      "probabilities": {
+        "how-to-without": 1,
+        "mistakes": 0,
+        "receipt": 0,
+        "damaging-admission": 0,
+        "adjective-good": 0,
+        "call-out": 0,
+        "halbert-a-pile": 0,
+        "number-outcome-time": 0,
+        "deprivation-moment": 0
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "how-to-without",
+      "e3Regex": "how-to-without",
+      "e1Keyword": "how-to-without"
+    },
+    {
+      "id": "h13",
+      "fold": 1,
+      "truth": "call-out",
+      "jev": "number-outcome-time",
+      "probabilities": {
+        "how-to-without": 0,
+        "deprivation-moment": 0,
+        "adjective-good": 0,
+        "damaging-admission": 0,
+        "receipt": 0,
+        "number-outcome-time": 0.84,
+        "halbert-a-pile": 0,
+        "mistakes": 0,
+        "call-out": 0.16
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "call-out",
+      "e1Keyword": "number-outcome-time"
+    },
+    {
+      "id": "h14",
+      "fold": 3,
+      "truth": "deprivation-moment",
+      "jev": "deprivation-moment",
+      "probabilities": {
+        "adjective-good": 0.02,
+        "receipt": 0,
+        "halbert-a-pile": 0,
+        "deprivation-moment": 0.44,
+        "how-to-without": 0.28,
+        "damaging-admission": 0,
+        "number-outcome-time": 0,
+        "mistakes": 0.23,
+        "call-out": 0.03
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h15",
+      "fold": 0,
+      "truth": "deprivation-moment",
+      "jev": "deprivation-moment",
+      "probabilities": {
+        "how-to-without": 0,
+        "damaging-admission": 0,
+        "receipt": 0,
+        "halbert-a-pile": 0,
+        "number-outcome-time": 0,
+        "call-out": 0,
+        "mistakes": 0.21,
+        "deprivation-moment": 0.79,
+        "adjective-good": 0
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h16",
+      "fold": 4,
+      "truth": "deprivation-moment",
+      "jev": "deprivation-moment",
+      "probabilities": {
+        "damaging-admission": 0,
+        "adjective-good": 0,
+        "call-out": 0.03,
+        "how-to-without": 0,
+        "mistakes": 0.01,
+        "deprivation-moment": 0.83,
+        "number-outcome-time": 0,
+        "receipt": 0,
+        "halbert-a-pile": 0.13
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h17",
+      "fold": 0,
+      "truth": "number-outcome-time",
+      "jev": "number-outcome-time",
+      "probabilities": {
+        "adjective-good": 0,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0,
+        "number-outcome-time": 1,
+        "mistakes": 0,
+        "receipt": 0,
+        "deprivation-moment": 0,
+        "how-to-without": 0,
+        "call-out": 0
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "number-outcome-time",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h18",
+      "fold": 4,
+      "truth": "mistakes",
+      "jev": "mistakes",
+      "probabilities": {
+        "how-to-without": 0,
+        "receipt": 0,
+        "mistakes": 0.93,
+        "damaging-admission": 0,
+        "adjective-good": 0,
+        "call-out": 0,
+        "halbert-a-pile": 0,
+        "number-outcome-time": 0,
+        "deprivation-moment": 0.07
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "mistakes",
+      "e3Regex": "mistakes",
+      "e1Keyword": "mistakes"
+    },
+    {
+      "id": "h19",
+      "fold": 4,
+      "truth": "adjective-good",
+      "jev": "adjective-good",
+      "probabilities": {
+        "how-to-without": 0,
+        "deprivation-moment": 0,
+        "adjective-good": 0.73,
+        "damaging-admission": 0,
+        "receipt": 0,
+        "number-outcome-time": 0.25,
+        "halbert-a-pile": 0,
+        "mistakes": 0,
+        "call-out": 0.02
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "number-outcome-time",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h20",
+      "fold": 4,
+      "truth": "how-to-without",
+      "jev": "how-to-without",
+      "probabilities": {
+        "halbert-a-pile": 0,
+        "how-to-without": 1,
+        "deprivation-moment": 0,
+        "receipt": 0,
+        "call-out": 0,
+        "mistakes": 0,
+        "number-outcome-time": 0,
+        "damaging-admission": 0,
+        "adjective-good": 0
+      },
+      "nbKeyword": "call-out",
+      "hybrid": "how-to-without",
+      "e3Regex": "how-to-without",
+      "e1Keyword": "how-to-without"
+    },
+    {
+      "id": "h21",
+      "fold": 3,
+      "truth": "call-out",
+      "jev": "deprivation-moment",
+      "probabilities": {
+        "receipt": 0,
+        "adjective-good": 0,
+        "deprivation-moment": 0.52,
+        "halbert-a-pile": 0,
+        "how-to-without": 0.18,
+        "damaging-admission": 0,
+        "number-outcome-time": 0.01,
+        "mistakes": 0.04,
+        "call-out": 0.25
+      },
+      "nbKeyword": "call-out",
+      "hybrid": "call-out",
+      "e3Regex": "call-out",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h22",
+      "fold": 4,
+      "truth": "deprivation-moment",
+      "jev": "deprivation-moment",
+      "probabilities": {
+        "adjective-good": 0,
+        "deprivation-moment": 0.99,
+        "how-to-without": 0,
+        "damaging-admission": 0.01,
+        "number-outcome-time": 0,
+        "receipt": 0,
+        "halbert-a-pile": 0,
+        "call-out": 0,
+        "mistakes": 0
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h23",
+      "fold": 2,
+      "truth": "deprivation-moment",
+      "jev": "deprivation-moment",
+      "probabilities": {
+        "halbert-a-pile": 0,
+        "adjective-good": 0,
+        "how-to-without": 0,
+        "receipt": 0,
+        "number-outcome-time": 0,
+        "mistakes": 0,
+        "damaging-admission": 0,
+        "call-out": 0,
+        "deprivation-moment": 1
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h24",
+      "fold": 0,
+      "truth": "call-out",
+      "jev": "halbert-a-pile",
+      "probabilities": {
+        "halbert-a-pile": 0.35000000000000003,
+        "adjective-good": 0,
+        "how-to-without": 0,
+        "receipt": 0,
+        "deprivation-moment": 0.32,
+        "damaging-admission": 0,
+        "mistakes": 0.01,
+        "number-outcome-time": 0,
+        "call-out": 0.32
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "call-out",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h25",
+      "fold": 1,
+      "truth": "deprivation-moment",
+      "jev": "number-outcome-time",
+      "probabilities": {
+        "number-outcome-time": 0.97,
+        "receipt": 0,
+        "halbert-a-pile": 0,
+        "adjective-good": 0,
+        "how-to-without": 0,
+        "damaging-admission": 0,
+        "call-out": 0.03,
+        "mistakes": 0,
+        "deprivation-moment": 0
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h26",
+      "fold": 1,
+      "truth": "call-out",
+      "jev": "number-outcome-time",
+      "probabilities": {
+        "mistakes": 0.06,
+        "call-out": 0,
+        "how-to-without": 0,
+        "receipt": 0,
+        "adjective-good": 0,
+        "halbert-a-pile": 0.07,
+        "deprivation-moment": 0.04,
+        "number-outcome-time": 0.82,
+        "damaging-admission": 0.01
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h27",
+      "fold": 0,
+      "truth": "deprivation-moment",
+      "jev": "deprivation-moment",
+      "probabilities": {
+        "adjective-good": 0,
+        "receipt": 0.01,
+        "deprivation-moment": 0.76,
+        "mistakes": 0.04,
+        "call-out": 0.1,
+        "halbert-a-pile": 0.08,
+        "number-outcome-time": 0,
+        "how-to-without": 0,
+        "damaging-admission": 0.01
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h28",
+      "fold": 4,
+      "truth": "deprivation-moment",
+      "jev": "halbert-a-pile",
+      "probabilities": {
+        "mistakes": 0,
+        "receipt": 0,
+        "damaging-admission": 0.09,
+        "adjective-good": 0,
+        "how-to-without": 0,
+        "deprivation-moment": 0.14,
+        "call-out": 0,
+        "halbert-a-pile": 0.49,
+        "number-outcome-time": 0.28
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h29",
+      "fold": 3,
+      "truth": "number-outcome-time",
+      "jev": "number-outcome-time",
+      "probabilities": {
+        "number-outcome-time": 0.86,
+        "adjective-good": 0,
+        "receipt": 0,
+        "call-out": 0,
+        "halbert-a-pile": 0,
+        "deprivation-moment": 0,
+        "damaging-admission": 0,
+        "mistakes": 0.14,
+        "how-to-without": 0
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "number-outcome-time",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h30",
+      "fold": 1,
+      "truth": "number-outcome-time",
+      "jev": "number-outcome-time",
+      "probabilities": {
+        "how-to-without": 0,
+        "mistakes": 0,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0,
+        "call-out": 0,
+        "deprivation-moment": 0,
+        "receipt": 0,
+        "number-outcome-time": 1,
+        "adjective-good": 0
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "number-outcome-time",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h31",
+      "fold": 0,
+      "truth": "how-to-without",
+      "jev": "mistakes",
+      "probabilities": {
+        "deprivation-moment": 0.09,
+        "how-to-without": 0.03,
+        "call-out": 0.08,
+        "receipt": 0,
+        "mistakes": 0.57,
+        "adjective-good": 0,
+        "number-outcome-time": 0.17,
+        "halbert-a-pile": 0.02,
+        "damaging-admission": 0.04
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h32",
+      "fold": 1,
+      "truth": "how-to-without",
+      "jev": "how-to-without",
+      "probabilities": {
+        "number-outcome-time": 0,
+        "halbert-a-pile": 0,
+        "how-to-without": 1,
+        "receipt": 0,
+        "deprivation-moment": 0,
+        "adjective-good": 0,
+        "call-out": 0,
+        "damaging-admission": 0,
+        "mistakes": 0
+      },
+      "nbKeyword": "call-out",
+      "hybrid": "how-to-without",
+      "e3Regex": "how-to-without",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h33",
+      "fold": 3,
+      "truth": "number-outcome-time",
+      "jev": "number-outcome-time",
+      "probabilities": {
+        "adjective-good": 0.01,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0,
+        "deprivation-moment": 0,
+        "mistakes": 0,
+        "receipt": 0,
+        "number-outcome-time": 0.52,
+        "how-to-without": 0.47,
+        "call-out": 0
+      },
+      "nbKeyword": "call-out",
+      "hybrid": "call-out",
+      "e3Regex": "number-outcome-time",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h34",
+      "fold": 2,
+      "truth": "adjective-good",
+      "jev": "adjective-good",
+      "probabilities": {
+        "how-to-without": 0,
+        "deprivation-moment": 0.12,
+        "adjective-good": 0.35000000000000003,
+        "damaging-admission": 0.01,
+        "receipt": 0,
+        "number-outcome-time": 0,
+        "halbert-a-pile": 0,
+        "mistakes": 0.31,
+        "call-out": 0.21
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "adjective-good",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h35",
+      "fold": 3,
+      "truth": "mistakes",
+      "jev": "mistakes",
+      "probabilities": {
+        "halbert-a-pile": 0,
+        "how-to-without": 0,
+        "deprivation-moment": 0.05,
+        "call-out": 0,
+        "mistakes": 0.7,
+        "receipt": 0,
+        "damaging-admission": 0,
+        "number-outcome-time": 0.25,
+        "adjective-good": 0
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "mistakes",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h36",
+      "fold": 4,
+      "truth": "deprivation-moment",
+      "jev": "deprivation-moment",
+      "probabilities": {
+        "receipt": 0,
+        "mistakes": 0.06,
+        "call-out": 0,
+        "adjective-good": 0,
+        "halbert-a-pile": 0,
+        "deprivation-moment": 0.9400000000000001,
+        "how-to-without": 0,
+        "damaging-admission": 0,
+        "number-outcome-time": 0
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h37",
+      "fold": 2,
+      "truth": "deprivation-moment",
+      "jev": "halbert-a-pile",
+      "probabilities": {
+        "call-out": 0.14,
+        "halbert-a-pile": 0.41,
+        "adjective-good": 0,
+        "mistakes": 0.01,
+        "how-to-without": 0,
+        "number-outcome-time": 0,
+        "receipt": 0,
+        "deprivation-moment": 0.2,
+        "damaging-admission": 0.24
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h38",
+      "fold": 3,
+      "truth": "deprivation-moment",
+      "jev": "halbert-a-pile",
+      "probabilities": {
+        "number-outcome-time": 0.05,
+        "adjective-good": 0.01,
+        "receipt": 0.01,
+        "deprivation-moment": 0.06,
+        "halbert-a-pile": 0.45,
+        "call-out": 0.02,
+        "damaging-admission": 0.24,
+        "how-to-without": 0,
+        "mistakes": 0.16
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h39",
+      "fold": 0,
+      "truth": "call-out",
+      "jev": "how-to-without",
+      "probabilities": {
+        "adjective-good": 0.01,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0,
+        "deprivation-moment": 0,
+        "mistakes": 0,
+        "receipt": 0,
+        "number-outcome-time": 0,
+        "how-to-without": 0.97,
+        "call-out": 0.02
+      },
+      "nbKeyword": "how-to-without",
+      "hybrid": "how-to-without",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h40",
+      "fold": 4,
+      "truth": "damaging-admission",
+      "jev": "damaging-admission",
+      "probabilities": {
+        "call-out": 0,
+        "number-outcome-time": 0,
+        "damaging-admission": 1,
+        "halbert-a-pile": 0,
+        "mistakes": 0,
+        "receipt": 0,
+        "deprivation-moment": 0,
+        "adjective-good": 0,
+        "how-to-without": 0
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "damaging-admission",
+      "e3Regex": "damaging-admission",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h41",
+      "fold": 3,
+      "truth": "damaging-admission",
+      "jev": "damaging-admission",
+      "probabilities": {
+        "adjective-good": 0,
+        "receipt": 0,
+        "call-out": 0,
+        "how-to-without": 0.09999999999999999,
+        "number-outcome-time": 0.01,
+        "deprivation-moment": 0,
+        "damaging-admission": 0.89,
+        "mistakes": 0,
+        "halbert-a-pile": 0
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "damaging-admission",
+      "e3Regex": "damaging-admission",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h42",
+      "fold": 0,
+      "truth": "deprivation-moment",
+      "jev": "deprivation-moment",
+      "probabilities": {
+        "halbert-a-pile": 0,
+        "receipt": 0,
+        "deprivation-moment": 0.65,
+        "mistakes": 0,
+        "how-to-without": 0.12,
+        "call-out": 0.01,
+        "damaging-admission": 0.22,
+        "number-outcome-time": 0,
+        "adjective-good": 0
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h43",
+      "fold": 4,
+      "truth": "halbert-a-pile",
+      "jev": "halbert-a-pile",
+      "probabilities": {
+        "halbert-a-pile": 1,
+        "receipt": 0,
+        "deprivation-moment": 0,
+        "mistakes": 0,
+        "how-to-without": 0,
+        "damaging-admission": 0,
+        "call-out": 0,
+        "number-outcome-time": 0,
+        "adjective-good": 0
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "halbert-a-pile",
+      "e3Regex": "halbert-a-pile",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h44",
+      "fold": 0,
+      "truth": "halbert-a-pile",
+      "jev": "halbert-a-pile",
+      "probabilities": {
+        "how-to-without": 0,
+        "number-outcome-time": 0,
+        "receipt": 0,
+        "adjective-good": 0,
+        "call-out": 0,
+        "halbert-a-pile": 1,
+        "deprivation-moment": 0,
+        "mistakes": 0,
+        "damaging-admission": 0
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "halbert-a-pile",
+      "e3Regex": "halbert-a-pile",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h45",
+      "fold": 3,
+      "truth": "halbert-a-pile",
+      "jev": "mistakes",
+      "probabilities": {
+        "adjective-good": 0,
+        "how-to-without": 0,
+        "number-outcome-time": 0,
+        "mistakes": 0.95,
+        "deprivation-moment": 0.03,
+        "halbert-a-pile": 0,
+        "call-out": 0,
+        "receipt": 0,
+        "damaging-admission": 0.02
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "mistakes",
+      "e3Regex": "halbert-a-pile",
+      "e1Keyword": "mistakes"
+    },
+    {
+      "id": "h46",
+      "fold": 0,
+      "truth": "halbert-a-pile",
+      "jev": "halbert-a-pile",
+      "probabilities": {
+        "how-to-without": 0,
+        "number-outcome-time": 0,
+        "halbert-a-pile": 0.95,
+        "damaging-admission": 0.03,
+        "call-out": 0,
+        "deprivation-moment": 0,
+        "receipt": 0.02,
+        "mistakes": 0,
+        "adjective-good": 0
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "halbert-a-pile",
+      "e3Regex": "halbert-a-pile",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h47",
+      "fold": 2,
+      "truth": "halbert-a-pile",
+      "jev": "halbert-a-pile",
+      "probabilities": {
+        "adjective-good": 0,
+        "how-to-without": 0,
+        "number-outcome-time": 0,
+        "call-out": 0,
+        "receipt": 0,
+        "halbert-a-pile": 1,
+        "mistakes": 0,
+        "deprivation-moment": 0,
+        "damaging-admission": 0
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "halbert-a-pile",
+      "e3Regex": "halbert-a-pile",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h48",
+      "fold": 1,
+      "truth": "halbert-a-pile",
+      "jev": "halbert-a-pile",
+      "probabilities": {
+        "call-out": 0.04,
+        "halbert-a-pile": 0.82,
+        "adjective-good": 0,
+        "mistakes": 0,
+        "how-to-without": 0,
+        "number-outcome-time": 0.04,
+        "receipt": 0.1,
+        "deprivation-moment": 0,
+        "damaging-admission": 0
+      },
+      "nbKeyword": "how-to-without",
+      "hybrid": "how-to-without",
+      "e3Regex": "halbert-a-pile",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h49",
+      "fold": 0,
+      "truth": "damaging-admission",
+      "jev": "damaging-admission",
+      "probabilities": {
+        "halbert-a-pile": 0,
+        "receipt": 0,
+        "deprivation-moment": 0,
+        "mistakes": 0,
+        "how-to-without": 0.02,
+        "damaging-admission": 0.96,
+        "call-out": 0,
+        "number-outcome-time": 0.02,
+        "adjective-good": 0
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "damaging-admission",
+      "e3Regex": "damaging-admission",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h50",
+      "fold": 0,
+      "truth": "mistakes",
+      "jev": "mistakes",
+      "probabilities": {
+        "damaging-admission": 0.04,
+        "call-out": 0.42,
+        "halbert-a-pile": 0.01,
+        "number-outcome-time": 0.06,
+        "mistakes": 0.43,
+        "receipt": 0,
+        "adjective-good": 0.01,
+        "how-to-without": 0,
+        "deprivation-moment": 0.03
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "call-out",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h51",
+      "fold": 2,
+      "truth": "call-out",
+      "jev": "call-out",
+      "probabilities": {
+        "mistakes": 0.29,
+        "receipt": 0,
+        "deprivation-moment": 0.04,
+        "halbert-a-pile": 0,
+        "how-to-without": 0.03,
+        "damaging-admission": 0.02,
+        "call-out": 0.62,
+        "number-outcome-time": 0,
+        "adjective-good": 0
+      },
+      "nbKeyword": "call-out",
+      "hybrid": "call-out",
+      "e3Regex": "call-out",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h52",
+      "fold": 2,
+      "truth": "call-out",
+      "jev": "call-out",
+      "probabilities": {
+        "number-outcome-time": 0.05,
+        "halbert-a-pile": 0,
+        "call-out": 0.91,
+        "mistakes": 0.01,
+        "deprivation-moment": 0.01,
+        "how-to-without": 0.02,
+        "damaging-admission": 0,
+        "adjective-good": 0,
+        "receipt": 0
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "call-out",
+      "e3Regex": "call-out",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h53",
+      "fold": 4,
+      "truth": "call-out",
+      "jev": "call-out",
+      "probabilities": {
+        "damaging-admission": 0,
+        "deprivation-moment": 0,
+        "number-outcome-time": 0,
+        "receipt": 0,
+        "how-to-without": 0,
+        "mistakes": 0.01,
+        "halbert-a-pile": 0,
+        "call-out": 0.99,
+        "adjective-good": 0
+      },
+      "nbKeyword": "halbert-a-pile",
+      "hybrid": "call-out",
+      "e3Regex": "call-out",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h54",
+      "fold": 1,
+      "truth": "deprivation-moment",
+      "jev": "deprivation-moment",
+      "probabilities": {
+        "adjective-good": 0.02,
+        "call-out": 0,
+        "halbert-a-pile": 0.04,
+        "mistakes": 0,
+        "how-to-without": 0,
+        "receipt": 0.34,
+        "damaging-admission": 0.15,
+        "deprivation-moment": 0.45,
+        "number-outcome-time": 0
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h55",
+      "fold": 1,
+      "truth": "call-out",
+      "jev": "how-to-without",
+      "probabilities": {
+        "deprivation-moment": 0.05,
+        "halbert-a-pile": 0,
+        "call-out": 0.03,
+        "damaging-admission": 0,
+        "receipt": 0,
+        "number-outcome-time": 0,
+        "mistakes": 0.19,
+        "how-to-without": 0.69,
+        "adjective-good": 0.04
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h56",
+      "fold": 3,
+      "truth": "receipt",
+      "jev": "receipt",
+      "probabilities": {
+        "call-out": 0.03,
+        "number-outcome-time": 0.36,
+        "adjective-good": 0,
+        "damaging-admission": 0,
+        "halbert-a-pile": 0,
+        "deprivation-moment": 0.01,
+        "receipt": 0.6,
+        "how-to-without": 0,
+        "mistakes": 0
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "receipt",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h57",
+      "fold": 4,
+      "truth": "receipt",
+      "jev": "number-outcome-time",
+      "probabilities": {
+        "adjective-good": 0,
+        "number-outcome-time": 0.97,
+        "receipt": 0,
+        "how-to-without": 0,
+        "call-out": 0,
+        "halbert-a-pile": 0.01,
+        "mistakes": 0,
+        "deprivation-moment": 0.02,
+        "damaging-admission": 0
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "receipt",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h58",
+      "fold": 1,
+      "truth": "damaging-admission",
+      "jev": "number-outcome-time",
+      "probabilities": {
+        "how-to-without": 0.13,
+        "number-outcome-time": 0.5,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0.34,
+        "call-out": 0,
+        "deprivation-moment": 0.01,
+        "receipt": 0,
+        "mistakes": 0.02,
+        "adjective-good": 0
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "damaging-admission",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h59",
+      "fold": 1,
+      "truth": "number-outcome-time",
+      "jev": "number-outcome-time",
+      "probabilities": {
+        "deprivation-moment": 0,
+        "number-outcome-time": 0.95,
+        "halbert-a-pile": 0.01,
+        "damaging-admission": 0,
+        "adjective-good": 0.01,
+        "call-out": 0,
+        "how-to-without": 0,
+        "mistakes": 0,
+        "receipt": 0.03
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h60",
+      "fold": 3,
+      "truth": "how-to-without",
+      "jev": "how-to-without",
+      "probabilities": {
+        "damaging-admission": 0,
+        "adjective-good": 0,
+        "call-out": 0,
+        "how-to-without": 0.99,
+        "mistakes": 0,
+        "deprivation-moment": 0,
+        "number-outcome-time": 0.01,
+        "receipt": 0,
+        "halbert-a-pile": 0
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "how-to-without",
+      "e3Regex": "how-to-without",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h61",
+      "fold": 3,
+      "truth": "deprivation-moment",
+      "jev": "deprivation-moment",
+      "probabilities": {
+        "halbert-a-pile": 0,
+        "how-to-without": 0,
+        "deprivation-moment": 1,
+        "receipt": 0,
+        "call-out": 0,
+        "mistakes": 0,
+        "number-outcome-time": 0,
+        "damaging-admission": 0,
+        "adjective-good": 0
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h62",
+      "fold": 4,
+      "truth": "number-outcome-time",
+      "jev": "number-outcome-time",
+      "probabilities": {
+        "mistakes": 0,
+        "how-to-without": 0,
+        "call-out": 0,
+        "damaging-admission": 0,
+        "adjective-good": 0,
+        "halbert-a-pile": 0,
+        "deprivation-moment": 0,
+        "receipt": 0,
+        "number-outcome-time": 1
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "number-outcome-time",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h63",
+      "fold": 0,
+      "truth": "number-outcome-time",
+      "jev": "number-outcome-time",
+      "probabilities": {
+        "call-out": 0,
+        "number-outcome-time": 1,
+        "deprivation-moment": 0,
+        "adjective-good": 0,
+        "mistakes": 0,
+        "damaging-admission": 0,
+        "receipt": 0,
+        "halbert-a-pile": 0,
+        "how-to-without": 0
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "number-outcome-time",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h64",
+      "fold": 4,
+      "truth": "number-outcome-time",
+      "jev": "number-outcome-time",
+      "probabilities": {
+        "call-out": 0,
+        "halbert-a-pile": 0,
+        "how-to-without": 0,
+        "deprivation-moment": 0,
+        "mistakes": 0,
+        "number-outcome-time": 1,
+        "adjective-good": 0,
+        "receipt": 0,
+        "damaging-admission": 0
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "number-outcome-time",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h65",
+      "fold": 2,
+      "truth": "deprivation-moment",
+      "jev": "mistakes",
+      "probabilities": {
+        "adjective-good": 0,
+        "damaging-admission": 0.01,
+        "call-out": 0,
+        "how-to-without": 0.18,
+        "mistakes": 0.6,
+        "deprivation-moment": 0.02,
+        "number-outcome-time": 0.18,
+        "receipt": 0,
+        "halbert-a-pile": 0.01
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h66",
+      "fold": 1,
+      "truth": "adjective-good",
+      "jev": "adjective-good",
+      "probabilities": {
+        "number-outcome-time": 0,
+        "receipt": 0,
+        "halbert-a-pile": 0,
+        "adjective-good": 0.89,
+        "how-to-without": 0.03,
+        "call-out": 0,
+        "damaging-admission": 0,
+        "mistakes": 0,
+        "deprivation-moment": 0.08
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "adjective-good",
+      "e3Regex": "adjective-good",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h67",
+      "fold": 1,
+      "truth": "receipt",
+      "jev": "receipt",
+      "probabilities": {
+        "adjective-good": 0,
+        "how-to-without": 0,
+        "number-outcome-time": 0.15,
+        "call-out": 0,
+        "receipt": 0.78,
+        "halbert-a-pile": 0.01,
+        "mistakes": 0,
+        "deprivation-moment": 0.06,
+        "damaging-admission": 0
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "receipt",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h68",
+      "fold": 1,
+      "truth": "mistakes",
+      "jev": "mistakes",
+      "probabilities": {
+        "number-outcome-time": 0,
+        "receipt": 0,
+        "halbert-a-pile": 0,
+        "adjective-good": 0,
+        "mistakes": 0.79,
+        "damaging-admission": 0,
+        "call-out": 0,
+        "how-to-without": 0.02,
+        "deprivation-moment": 0.19
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "mistakes",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h69",
+      "fold": 0,
+      "truth": "number-outcome-time",
+      "jev": "number-outcome-time",
+      "probabilities": {
+        "halbert-a-pile": 0,
+        "adjective-good": 0,
+        "call-out": 0,
+        "how-to-without": 0,
+        "damaging-admission": 0,
+        "mistakes": 0,
+        "receipt": 0,
+        "deprivation-moment": 0,
+        "number-outcome-time": 1
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "number-outcome-time",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h70",
+      "fold": 1,
+      "truth": "number-outcome-time",
+      "jev": "number-outcome-time",
+      "probabilities": {
+        "deprivation-moment": 0,
+        "halbert-a-pile": 0,
+        "call-out": 0,
+        "damaging-admission": 0,
+        "receipt": 0,
+        "number-outcome-time": 1,
+        "mistakes": 0,
+        "adjective-good": 0,
+        "how-to-without": 0
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "number-outcome-time",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h71",
+      "fold": 3,
+      "truth": "deprivation-moment",
+      "jev": "how-to-without",
+      "probabilities": {
+        "deprivation-moment": 0.34,
+        "halbert-a-pile": 0,
+        "call-out": 0,
+        "damaging-admission": 0,
+        "receipt": 0,
+        "number-outcome-time": 0.17,
+        "mistakes": 0.02,
+        "adjective-good": 0,
+        "how-to-without": 0.46
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "number-outcome-time",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h72",
+      "fold": 3,
+      "truth": "how-to-without",
+      "jev": "how-to-without",
+      "probabilities": {
+        "receipt": 0,
+        "mistakes": 0.07,
+        "call-out": 0,
+        "deprivation-moment": 0.09,
+        "halbert-a-pile": 0,
+        "adjective-good": 0.03,
+        "how-to-without": 0.81,
+        "damaging-admission": 0,
+        "number-outcome-time": 0
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "how-to-without",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h73",
+      "fold": 3,
+      "truth": "call-out",
+      "jev": "adjective-good",
+      "probabilities": {
+        "how-to-without": 0,
+        "receipt": 0.12,
+        "damaging-admission": 0,
+        "number-outcome-time": 0,
+        "halbert-a-pile": 0,
+        "deprivation-moment": 0.04,
+        "mistakes": 0,
+        "call-out": 0.16,
+        "adjective-good": 0.68
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h74",
+      "fold": 4,
+      "truth": "call-out",
+      "jev": "call-out",
+      "probabilities": {
+        "receipt": 0,
+        "mistakes": 0.14,
+        "deprivation-moment": 0.12,
+        "adjective-good": 0.16,
+        "how-to-without": 0.1,
+        "number-outcome-time": 0,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0.01,
+        "call-out": 0.47
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "call-out",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h75",
+      "fold": 2,
+      "truth": "call-out",
+      "jev": "number-outcome-time",
+      "probabilities": {
+        "adjective-good": 0.03,
+        "halbert-a-pile": 0.03,
+        "damaging-admission": 0,
+        "deprivation-moment": 0,
+        "mistakes": 0,
+        "receipt": 0.45,
+        "number-outcome-time": 0.48,
+        "how-to-without": 0,
+        "call-out": 0.01
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h76",
+      "fold": 2,
+      "truth": "how-to-without",
+      "jev": "adjective-good",
+      "probabilities": {
+        "receipt": 0,
+        "mistakes": 0.22,
+        "call-out": 0.1,
+        "adjective-good": 0.29,
+        "halbert-a-pile": 0,
+        "deprivation-moment": 0.25,
+        "how-to-without": 0.14,
+        "damaging-admission": 0,
+        "number-outcome-time": 0
+      },
+      "nbKeyword": "call-out",
+      "hybrid": "call-out",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h77",
+      "fold": 1,
+      "truth": "deprivation-moment",
+      "jev": "number-outcome-time",
+      "probabilities": {
+        "adjective-good": 0.01,
+        "call-out": 0.05,
+        "damaging-admission": 0.3,
+        "mistakes": 0.1,
+        "how-to-without": 0.01,
+        "receipt": 0,
+        "halbert-a-pile": 0.13,
+        "deprivation-moment": 0.03,
+        "number-outcome-time": 0.37
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h78",
+      "fold": 0,
+      "truth": "deprivation-moment",
+      "jev": "deprivation-moment",
+      "probabilities": {
+        "how-to-without": 0,
+        "number-outcome-time": 0,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0,
+        "call-out": 0.01,
+        "deprivation-moment": 0.96,
+        "receipt": 0,
+        "mistakes": 0,
+        "adjective-good": 0.03
+      },
+      "nbKeyword": "number-outcome-time",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h79",
+      "fold": 1,
+      "truth": "deprivation-moment",
+      "jev": "deprivation-moment",
+      "probabilities": {
+        "adjective-good": 0.03,
+        "receipt": 0,
+        "call-out": 0.02,
+        "how-to-without": 0.08,
+        "number-outcome-time": 0,
+        "deprivation-moment": 0.81,
+        "damaging-admission": 0,
+        "mistakes": 0.05,
+        "halbert-a-pile": 0
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    },
+    {
+      "id": "h80",
+      "fold": 0,
+      "truth": "adjective-good",
+      "jev": "how-to-without",
+      "probabilities": {
+        "receipt": 0,
+        "mistakes": 0,
+        "deprivation-moment": 0.25,
+        "adjective-good": 0,
+        "halbert-a-pile": 0.15,
+        "number-outcome-time": 0.22,
+        "how-to-without": 0.37,
+        "damaging-admission": 0,
+        "call-out": 0.01
+      },
+      "nbKeyword": "deprivation-moment",
+      "hybrid": "deprivation-moment",
+      "e3Regex": "deprivation-moment",
+      "e1Keyword": "deprivation-moment"
+    }
+  ],
+  "readings": [
+    {
+      "id": "h01",
+      "choice": "number-outcome-time",
+      "probabilities": {
+        "adjective-good": 0,
+        "deprivation-moment": 0,
+        "how-to-without": 0,
+        "damaging-admission": 0,
+        "number-outcome-time": 0.86,
+        "receipt": 0.14,
+        "halbert-a-pile": 0,
+        "call-out": 0,
+        "mistakes": 0
+      },
+      "topP": 0.86,
+      "answeredBy": "jev-1.13.0",
+      "ms": 294,
+      "attempts": 1
+    },
+    {
+      "id": "h02",
+      "choice": "receipt",
+      "probabilities": {
+        "how-to-without": 0,
+        "mistakes": 0,
+        "call-out": 0,
+        "adjective-good": 0,
+        "damaging-admission": 0,
+        "halbert-a-pile": 0,
+        "deprivation-moment": 0,
+        "receipt": 0.99,
+        "number-outcome-time": 0.01
+      },
+      "topP": 0.99,
+      "answeredBy": "jev-1.13.0",
+      "ms": 275,
+      "attempts": 1
+    },
+    {
+      "id": "h03",
+      "choice": "damaging-admission",
+      "probabilities": {
+        "adjective-good": 0,
+        "receipt": 0.16,
+        "deprivation-moment": 0.09,
+        "halbert-a-pile": 0.03,
+        "how-to-without": 0.01,
+        "damaging-admission": 0.58,
+        "number-outcome-time": 0,
+        "mistakes": 0.04,
+        "call-out": 0.09
+      },
+      "topP": 0.58,
+      "answeredBy": "jev-1.13.0",
+      "ms": 264,
+      "attempts": 1
+    },
+    {
+      "id": "h04",
+      "choice": "halbert-a-pile",
+      "probabilities": {
+        "adjective-good": 0,
+        "how-to-without": 0,
+        "number-outcome-time": 0.01,
+        "call-out": 0,
+        "receipt": 0,
+        "halbert-a-pile": 0.83,
+        "mistakes": 0,
+        "deprivation-moment": 0.16,
+        "damaging-admission": 0
+      },
+      "topP": 0.83,
+      "answeredBy": "jev-1.13.0",
+      "ms": 288,
+      "attempts": 1
+    },
+    {
+      "id": "h05",
+      "choice": "number-outcome-time",
+      "probabilities": {
+        "receipt": 0,
+        "mistakes": 0,
+        "deprivation-moment": 0,
+        "adjective-good": 0,
+        "number-outcome-time": 0.95,
+        "how-to-without": 0.03,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0,
+        "call-out": 0.02
+      },
+      "topP": 0.95,
+      "answeredBy": "jev-1.13.0",
+      "ms": 198,
+      "attempts": 1
+    },
+    {
+      "id": "h06",
+      "choice": "adjective-good",
+      "probabilities": {
+        "adjective-good": 0.73,
+        "deprivation-moment": 0,
+        "receipt": 0,
+        "mistakes": 0,
+        "call-out": 0,
+        "halbert-a-pile": 0,
+        "number-outcome-time": 0.25,
+        "how-to-without": 0.02,
+        "damaging-admission": 0
+      },
+      "topP": 0.73,
+      "answeredBy": "jev-1.13.0",
+      "ms": 122,
+      "attempts": 1
+    },
+    {
+      "id": "h07",
+      "choice": "deprivation-moment",
+      "probabilities": {
+        "adjective-good": 0,
+        "damaging-admission": 0,
+        "call-out": 0.04,
+        "how-to-without": 0,
+        "deprivation-moment": 0.86,
+        "mistakes": 0,
+        "number-outcome-time": 0,
+        "receipt": 0.02,
+        "halbert-a-pile": 0.08
+      },
+      "topP": 0.86,
+      "answeredBy": "jev-1.13.0",
+      "ms": 98,
+      "attempts": 1
+    },
+    {
+      "id": "h08",
+      "choice": "mistakes",
+      "probabilities": {
+        "deprivation-moment": 0.12,
+        "receipt": 0,
+        "how-to-without": 0,
+        "call-out": 0,
+        "number-outcome-time": 0,
+        "damaging-admission": 0,
+        "halbert-a-pile": 0,
+        "adjective-good": 0,
+        "mistakes": 0.88
+      },
+      "topP": 0.88,
+      "answeredBy": "jev-1.13.0",
+      "ms": 215,
+      "attempts": 1
+    },
+    {
+      "id": "h09",
+      "choice": "number-outcome-time",
+      "probabilities": {
+        "deprivation-moment": 0,
+        "how-to-without": 0,
+        "call-out": 0,
+        "receipt": 0,
+        "mistakes": 0,
+        "number-outcome-time": 1,
+        "adjective-good": 0,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0
+      },
+      "topP": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 158,
+      "attempts": 1
+    },
+    {
+      "id": "h10",
+      "choice": "number-outcome-time",
+      "probabilities": {
+        "deprivation-moment": 0.03,
+        "receipt": 0,
+        "adjective-good": 0,
+        "mistakes": 0.01,
+        "how-to-without": 0,
+        "number-outcome-time": 0.96,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0,
+        "call-out": 0
+      },
+      "topP": 0.96,
+      "answeredBy": "jev-1.13.0",
+      "ms": 126,
+      "attempts": 1
+    },
+    {
+      "id": "h11",
+      "choice": "number-outcome-time",
+      "probabilities": {
+        "deprivation-moment": 0,
+        "halbert-a-pile": 0,
+        "call-out": 0,
+        "damaging-admission": 0,
+        "receipt": 0,
+        "number-outcome-time": 1,
+        "mistakes": 0,
+        "adjective-good": 0,
+        "how-to-without": 0
+      },
+      "topP": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 137,
+      "attempts": 1
+    },
+    {
+      "id": "h12",
+      "choice": "how-to-without",
+      "probabilities": {
+        "how-to-without": 1,
+        "mistakes": 0,
+        "receipt": 0,
+        "damaging-admission": 0,
+        "adjective-good": 0,
+        "call-out": 0,
+        "halbert-a-pile": 0,
+        "number-outcome-time": 0,
+        "deprivation-moment": 0
+      },
+      "topP": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 127,
+      "attempts": 1
+    },
+    {
+      "id": "h13",
+      "choice": "number-outcome-time",
+      "probabilities": {
+        "how-to-without": 0,
+        "deprivation-moment": 0,
+        "adjective-good": 0,
+        "damaging-admission": 0,
+        "receipt": 0,
+        "number-outcome-time": 0.84,
+        "halbert-a-pile": 0,
+        "mistakes": 0,
+        "call-out": 0.16
+      },
+      "topP": 0.84,
+      "answeredBy": "jev-1.13.0",
+      "ms": 141,
+      "attempts": 1
+    },
+    {
+      "id": "h14",
+      "choice": "deprivation-moment",
+      "probabilities": {
+        "adjective-good": 0.02,
+        "receipt": 0,
+        "halbert-a-pile": 0,
+        "deprivation-moment": 0.44,
+        "how-to-without": 0.28,
+        "damaging-admission": 0,
+        "number-outcome-time": 0,
+        "mistakes": 0.23,
+        "call-out": 0.03
+      },
+      "topP": 0.44,
+      "answeredBy": "jev-1.13.0",
+      "ms": 122,
+      "attempts": 1
+    },
+    {
+      "id": "h15",
+      "choice": "deprivation-moment",
+      "probabilities": {
+        "how-to-without": 0,
+        "damaging-admission": 0,
+        "receipt": 0,
+        "halbert-a-pile": 0,
+        "number-outcome-time": 0,
+        "call-out": 0,
+        "mistakes": 0.21,
+        "deprivation-moment": 0.79,
+        "adjective-good": 0
+      },
+      "topP": 0.79,
+      "answeredBy": "jev-1.13.0",
+      "ms": 100,
+      "attempts": 1
+    },
+    {
+      "id": "h16",
+      "choice": "deprivation-moment",
+      "probabilities": {
+        "damaging-admission": 0,
+        "adjective-good": 0,
+        "call-out": 0.03,
+        "how-to-without": 0,
+        "mistakes": 0.01,
+        "deprivation-moment": 0.83,
+        "number-outcome-time": 0,
+        "receipt": 0,
+        "halbert-a-pile": 0.13
+      },
+      "topP": 0.83,
+      "answeredBy": "jev-1.13.0",
+      "ms": 180,
+      "attempts": 1
+    },
+    {
+      "id": "h17",
+      "choice": "number-outcome-time",
+      "probabilities": {
+        "adjective-good": 0,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0,
+        "number-outcome-time": 1,
+        "mistakes": 0,
+        "receipt": 0,
+        "deprivation-moment": 0,
+        "how-to-without": 0,
+        "call-out": 0
+      },
+      "topP": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 131,
+      "attempts": 1
+    },
+    {
+      "id": "h18",
+      "choice": "mistakes",
+      "probabilities": {
+        "how-to-without": 0,
+        "receipt": 0,
+        "mistakes": 0.93,
+        "damaging-admission": 0,
+        "adjective-good": 0,
+        "call-out": 0,
+        "halbert-a-pile": 0,
+        "number-outcome-time": 0,
+        "deprivation-moment": 0.07
+      },
+      "topP": 0.93,
+      "answeredBy": "jev-1.13.0",
+      "ms": 180,
+      "attempts": 1
+    },
+    {
+      "id": "h19",
+      "choice": "adjective-good",
+      "probabilities": {
+        "how-to-without": 0,
+        "deprivation-moment": 0,
+        "adjective-good": 0.73,
+        "damaging-admission": 0,
+        "receipt": 0,
+        "number-outcome-time": 0.25,
+        "halbert-a-pile": 0,
+        "mistakes": 0,
+        "call-out": 0.02
+      },
+      "topP": 0.73,
+      "answeredBy": "jev-1.13.0",
+      "ms": 106,
+      "attempts": 1
+    },
+    {
+      "id": "h20",
+      "choice": "how-to-without",
+      "probabilities": {
+        "halbert-a-pile": 0,
+        "how-to-without": 1,
+        "deprivation-moment": 0,
+        "receipt": 0,
+        "call-out": 0,
+        "mistakes": 0,
+        "number-outcome-time": 0,
+        "damaging-admission": 0,
+        "adjective-good": 0
+      },
+      "topP": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 120,
+      "attempts": 1
+    },
+    {
+      "id": "h21",
+      "choice": "deprivation-moment",
+      "probabilities": {
+        "receipt": 0,
+        "adjective-good": 0,
+        "deprivation-moment": 0.52,
+        "halbert-a-pile": 0,
+        "how-to-without": 0.18,
+        "damaging-admission": 0,
+        "number-outcome-time": 0.01,
+        "mistakes": 0.04,
+        "call-out": 0.25
+      },
+      "topP": 0.52,
+      "answeredBy": "jev-1.13.0",
+      "ms": 175,
+      "attempts": 1
+    },
+    {
+      "id": "h22",
+      "choice": "deprivation-moment",
+      "probabilities": {
+        "adjective-good": 0,
+        "deprivation-moment": 0.99,
+        "how-to-without": 0,
+        "damaging-admission": 0.01,
+        "number-outcome-time": 0,
+        "receipt": 0,
+        "halbert-a-pile": 0,
+        "call-out": 0,
+        "mistakes": 0
+      },
+      "topP": 0.99,
+      "answeredBy": "jev-1.13.0",
+      "ms": 108,
+      "attempts": 1
+    },
+    {
+      "id": "h23",
+      "choice": "deprivation-moment",
+      "probabilities": {
+        "halbert-a-pile": 0,
+        "adjective-good": 0,
+        "how-to-without": 0,
+        "receipt": 0,
+        "number-outcome-time": 0,
+        "mistakes": 0,
+        "damaging-admission": 0,
+        "call-out": 0,
+        "deprivation-moment": 1
+      },
+      "topP": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 148,
+      "attempts": 1
+    },
+    {
+      "id": "h24",
+      "choice": "halbert-a-pile",
+      "probabilities": {
+        "halbert-a-pile": 0.35000000000000003,
+        "adjective-good": 0,
+        "how-to-without": 0,
+        "receipt": 0,
+        "deprivation-moment": 0.32,
+        "damaging-admission": 0,
+        "mistakes": 0.01,
+        "number-outcome-time": 0,
+        "call-out": 0.32
+      },
+      "topP": 0.35000000000000003,
+      "answeredBy": "jev-1.13.0",
+      "ms": 122,
+      "attempts": 1
+    },
+    {
+      "id": "h25",
+      "choice": "number-outcome-time",
+      "probabilities": {
+        "number-outcome-time": 0.97,
+        "receipt": 0,
+        "halbert-a-pile": 0,
+        "adjective-good": 0,
+        "how-to-without": 0,
+        "damaging-admission": 0,
+        "call-out": 0.03,
+        "mistakes": 0,
+        "deprivation-moment": 0
+      },
+      "topP": 0.97,
+      "answeredBy": "jev-1.13.0",
+      "ms": 134,
+      "attempts": 1
+    },
+    {
+      "id": "h26",
+      "choice": "number-outcome-time",
+      "probabilities": {
+        "mistakes": 0.06,
+        "call-out": 0,
+        "how-to-without": 0,
+        "receipt": 0,
+        "adjective-good": 0,
+        "halbert-a-pile": 0.07,
+        "deprivation-moment": 0.04,
+        "number-outcome-time": 0.82,
+        "damaging-admission": 0.01
+      },
+      "topP": 0.82,
+      "answeredBy": "jev-1.13.0",
+      "ms": 159,
+      "attempts": 1
+    },
+    {
+      "id": "h27",
+      "choice": "deprivation-moment",
+      "probabilities": {
+        "adjective-good": 0,
+        "receipt": 0.01,
+        "deprivation-moment": 0.76,
+        "mistakes": 0.04,
+        "call-out": 0.1,
+        "halbert-a-pile": 0.08,
+        "number-outcome-time": 0,
+        "how-to-without": 0,
+        "damaging-admission": 0.01
+      },
+      "topP": 0.76,
+      "answeredBy": "jev-1.13.0",
+      "ms": 178,
+      "attempts": 1
+    },
+    {
+      "id": "h28",
+      "choice": "halbert-a-pile",
+      "probabilities": {
+        "mistakes": 0,
+        "receipt": 0,
+        "damaging-admission": 0.09,
+        "adjective-good": 0,
+        "how-to-without": 0,
+        "deprivation-moment": 0.14,
+        "call-out": 0,
+        "halbert-a-pile": 0.49,
+        "number-outcome-time": 0.28
+      },
+      "topP": 0.49,
+      "answeredBy": "jev-1.13.0",
+      "ms": 125,
+      "attempts": 1
+    },
+    {
+      "id": "h29",
+      "choice": "number-outcome-time",
+      "probabilities": {
+        "number-outcome-time": 0.86,
+        "adjective-good": 0,
+        "receipt": 0,
+        "call-out": 0,
+        "halbert-a-pile": 0,
+        "deprivation-moment": 0,
+        "damaging-admission": 0,
+        "mistakes": 0.14,
+        "how-to-without": 0
+      },
+      "topP": 0.86,
+      "answeredBy": "jev-1.13.0",
+      "ms": 133,
+      "attempts": 1
+    },
+    {
+      "id": "h30",
+      "choice": "number-outcome-time",
+      "probabilities": {
+        "how-to-without": 0,
+        "mistakes": 0,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0,
+        "call-out": 0,
+        "deprivation-moment": 0,
+        "receipt": 0,
+        "number-outcome-time": 1,
+        "adjective-good": 0
+      },
+      "topP": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 179,
+      "attempts": 1
+    },
+    {
+      "id": "h31",
+      "choice": "mistakes",
+      "probabilities": {
+        "deprivation-moment": 0.09,
+        "how-to-without": 0.03,
+        "call-out": 0.08,
+        "receipt": 0,
+        "mistakes": 0.57,
+        "adjective-good": 0,
+        "number-outcome-time": 0.17,
+        "halbert-a-pile": 0.02,
+        "damaging-admission": 0.04
+      },
+      "topP": 0.57,
+      "answeredBy": "jev-1.13.0",
+      "ms": 172,
+      "attempts": 1
+    },
+    {
+      "id": "h32",
+      "choice": "how-to-without",
+      "probabilities": {
+        "number-outcome-time": 0,
+        "halbert-a-pile": 0,
+        "how-to-without": 1,
+        "receipt": 0,
+        "deprivation-moment": 0,
+        "adjective-good": 0,
+        "call-out": 0,
+        "damaging-admission": 0,
+        "mistakes": 0
+      },
+      "topP": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 125,
+      "attempts": 1
+    },
+    {
+      "id": "h33",
+      "choice": "number-outcome-time",
+      "probabilities": {
+        "adjective-good": 0.01,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0,
+        "deprivation-moment": 0,
+        "mistakes": 0,
+        "receipt": 0,
+        "number-outcome-time": 0.52,
+        "how-to-without": 0.47,
+        "call-out": 0
+      },
+      "topP": 0.52,
+      "answeredBy": "jev-1.13.0",
+      "ms": 118,
+      "attempts": 1
+    },
+    {
+      "id": "h34",
+      "choice": "adjective-good",
+      "probabilities": {
+        "how-to-without": 0,
+        "deprivation-moment": 0.12,
+        "adjective-good": 0.35000000000000003,
+        "damaging-admission": 0.01,
+        "receipt": 0,
+        "number-outcome-time": 0,
+        "halbert-a-pile": 0,
+        "mistakes": 0.31,
+        "call-out": 0.21
+      },
+      "topP": 0.35000000000000003,
+      "answeredBy": "jev-1.13.0",
+      "ms": 135,
+      "attempts": 1
+    },
+    {
+      "id": "h35",
+      "choice": "mistakes",
+      "probabilities": {
+        "halbert-a-pile": 0,
+        "how-to-without": 0,
+        "deprivation-moment": 0.05,
+        "call-out": 0,
+        "mistakes": 0.7,
+        "receipt": 0,
+        "damaging-admission": 0,
+        "number-outcome-time": 0.25,
+        "adjective-good": 0
+      },
+      "topP": 0.7,
+      "answeredBy": "jev-1.13.0",
+      "ms": 99,
+      "attempts": 1
+    },
+    {
+      "id": "h36",
+      "choice": "deprivation-moment",
+      "probabilities": {
+        "receipt": 0,
+        "mistakes": 0.06,
+        "call-out": 0,
+        "adjective-good": 0,
+        "halbert-a-pile": 0,
+        "deprivation-moment": 0.9400000000000001,
+        "how-to-without": 0,
+        "damaging-admission": 0,
+        "number-outcome-time": 0
+      },
+      "topP": 0.9400000000000001,
+      "answeredBy": "jev-1.13.0",
+      "ms": 108,
+      "attempts": 1
+    },
+    {
+      "id": "h37",
+      "choice": "halbert-a-pile",
+      "probabilities": {
+        "call-out": 0.14,
+        "halbert-a-pile": 0.41,
+        "adjective-good": 0,
+        "mistakes": 0.01,
+        "how-to-without": 0,
+        "number-outcome-time": 0,
+        "receipt": 0,
+        "deprivation-moment": 0.2,
+        "damaging-admission": 0.24
+      },
+      "topP": 0.41,
+      "answeredBy": "jev-1.13.0",
+      "ms": 108,
+      "attempts": 1
+    },
+    {
+      "id": "h38",
+      "choice": "halbert-a-pile",
+      "probabilities": {
+        "number-outcome-time": 0.05,
+        "adjective-good": 0.01,
+        "receipt": 0.01,
+        "deprivation-moment": 0.06,
+        "halbert-a-pile": 0.45,
+        "call-out": 0.02,
+        "damaging-admission": 0.24,
+        "how-to-without": 0,
+        "mistakes": 0.16
+      },
+      "topP": 0.45,
+      "answeredBy": "jev-1.13.0",
+      "ms": 86,
+      "attempts": 1
+    },
+    {
+      "id": "h39",
+      "choice": "how-to-without",
+      "probabilities": {
+        "adjective-good": 0.01,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0,
+        "deprivation-moment": 0,
+        "mistakes": 0,
+        "receipt": 0,
+        "number-outcome-time": 0,
+        "how-to-without": 0.97,
+        "call-out": 0.02
+      },
+      "topP": 0.97,
+      "answeredBy": "jev-1.13.0",
+      "ms": 120,
+      "attempts": 1
+    },
+    {
+      "id": "h40",
+      "choice": "damaging-admission",
+      "probabilities": {
+        "call-out": 0,
+        "number-outcome-time": 0,
+        "damaging-admission": 1,
+        "halbert-a-pile": 0,
+        "mistakes": 0,
+        "receipt": 0,
+        "deprivation-moment": 0,
+        "adjective-good": 0,
+        "how-to-without": 0
+      },
+      "topP": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 130,
+      "attempts": 1
+    },
+    {
+      "id": "h41",
+      "choice": "damaging-admission",
+      "probabilities": {
+        "adjective-good": 0,
+        "receipt": 0,
+        "call-out": 0,
+        "how-to-without": 0.09999999999999999,
+        "number-outcome-time": 0.01,
+        "deprivation-moment": 0,
+        "damaging-admission": 0.89,
+        "mistakes": 0,
+        "halbert-a-pile": 0
+      },
+      "topP": 0.89,
+      "answeredBy": "jev-1.13.0",
+      "ms": 108,
+      "attempts": 1
+    },
+    {
+      "id": "h42",
+      "choice": "deprivation-moment",
+      "probabilities": {
+        "halbert-a-pile": 0,
+        "receipt": 0,
+        "deprivation-moment": 0.65,
+        "mistakes": 0,
+        "how-to-without": 0.12,
+        "call-out": 0.01,
+        "damaging-admission": 0.22,
+        "number-outcome-time": 0,
+        "adjective-good": 0
+      },
+      "topP": 0.65,
+      "answeredBy": "jev-1.13.0",
+      "ms": 129,
+      "attempts": 1
+    },
+    {
+      "id": "h43",
+      "choice": "halbert-a-pile",
+      "probabilities": {
+        "halbert-a-pile": 1,
+        "receipt": 0,
+        "deprivation-moment": 0,
+        "mistakes": 0,
+        "how-to-without": 0,
+        "damaging-admission": 0,
+        "call-out": 0,
+        "number-outcome-time": 0,
+        "adjective-good": 0
+      },
+      "topP": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 102,
+      "attempts": 1
+    },
+    {
+      "id": "h44",
+      "choice": "halbert-a-pile",
+      "probabilities": {
+        "how-to-without": 0,
+        "number-outcome-time": 0,
+        "receipt": 0,
+        "adjective-good": 0,
+        "call-out": 0,
+        "halbert-a-pile": 1,
+        "deprivation-moment": 0,
+        "mistakes": 0,
+        "damaging-admission": 0
+      },
+      "topP": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 118,
+      "attempts": 1
+    },
+    {
+      "id": "h45",
+      "choice": "mistakes",
+      "probabilities": {
+        "adjective-good": 0,
+        "how-to-without": 0,
+        "number-outcome-time": 0,
+        "mistakes": 0.95,
+        "deprivation-moment": 0.03,
+        "halbert-a-pile": 0,
+        "call-out": 0,
+        "receipt": 0,
+        "damaging-admission": 0.02
+      },
+      "topP": 0.95,
+      "answeredBy": "jev-1.13.0",
+      "ms": 151,
+      "attempts": 1
+    },
+    {
+      "id": "h46",
+      "choice": "halbert-a-pile",
+      "probabilities": {
+        "how-to-without": 0,
+        "number-outcome-time": 0,
+        "halbert-a-pile": 0.95,
+        "damaging-admission": 0.03,
+        "call-out": 0,
+        "deprivation-moment": 0,
+        "receipt": 0.02,
+        "mistakes": 0,
+        "adjective-good": 0
+      },
+      "topP": 0.95,
+      "answeredBy": "jev-1.13.0",
+      "ms": 154,
+      "attempts": 1
+    },
+    {
+      "id": "h47",
+      "choice": "halbert-a-pile",
+      "probabilities": {
+        "adjective-good": 0,
+        "how-to-without": 0,
+        "number-outcome-time": 0,
+        "call-out": 0,
+        "receipt": 0,
+        "halbert-a-pile": 1,
+        "mistakes": 0,
+        "deprivation-moment": 0,
+        "damaging-admission": 0
+      },
+      "topP": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 109,
+      "attempts": 1
+    },
+    {
+      "id": "h48",
+      "choice": "halbert-a-pile",
+      "probabilities": {
+        "call-out": 0.04,
+        "halbert-a-pile": 0.82,
+        "adjective-good": 0,
+        "mistakes": 0,
+        "how-to-without": 0,
+        "number-outcome-time": 0.04,
+        "receipt": 0.1,
+        "deprivation-moment": 0,
+        "damaging-admission": 0
+      },
+      "topP": 0.82,
+      "answeredBy": "jev-1.13.0",
+      "ms": 101,
+      "attempts": 1
+    },
+    {
+      "id": "h49",
+      "choice": "damaging-admission",
+      "probabilities": {
+        "halbert-a-pile": 0,
+        "receipt": 0,
+        "deprivation-moment": 0,
+        "mistakes": 0,
+        "how-to-without": 0.02,
+        "damaging-admission": 0.96,
+        "call-out": 0,
+        "number-outcome-time": 0.02,
+        "adjective-good": 0
+      },
+      "topP": 0.96,
+      "answeredBy": "jev-1.13.0",
+      "ms": 142,
+      "attempts": 1
+    },
+    {
+      "id": "h50",
+      "choice": "mistakes",
+      "probabilities": {
+        "damaging-admission": 0.04,
+        "call-out": 0.42,
+        "halbert-a-pile": 0.01,
+        "number-outcome-time": 0.06,
+        "mistakes": 0.43,
+        "receipt": 0,
+        "adjective-good": 0.01,
+        "how-to-without": 0,
+        "deprivation-moment": 0.03
+      },
+      "topP": 0.43,
+      "answeredBy": "jev-1.13.0",
+      "ms": 104,
+      "attempts": 1
+    },
+    {
+      "id": "h51",
+      "choice": "call-out",
+      "probabilities": {
+        "mistakes": 0.29,
+        "receipt": 0,
+        "deprivation-moment": 0.04,
+        "halbert-a-pile": 0,
+        "how-to-without": 0.03,
+        "damaging-admission": 0.02,
+        "call-out": 0.62,
+        "number-outcome-time": 0,
+        "adjective-good": 0
+      },
+      "topP": 0.62,
+      "answeredBy": "jev-1.13.0",
+      "ms": 163,
+      "attempts": 1
+    },
+    {
+      "id": "h52",
+      "choice": "call-out",
+      "probabilities": {
+        "number-outcome-time": 0.05,
+        "halbert-a-pile": 0,
+        "call-out": 0.91,
+        "mistakes": 0.01,
+        "deprivation-moment": 0.01,
+        "how-to-without": 0.02,
+        "damaging-admission": 0,
+        "adjective-good": 0,
+        "receipt": 0
+      },
+      "topP": 0.91,
+      "answeredBy": "jev-1.13.0",
+      "ms": 123,
+      "attempts": 1
+    },
+    {
+      "id": "h53",
+      "choice": "call-out",
+      "probabilities": {
+        "damaging-admission": 0,
+        "deprivation-moment": 0,
+        "number-outcome-time": 0,
+        "receipt": 0,
+        "how-to-without": 0,
+        "mistakes": 0.01,
+        "halbert-a-pile": 0,
+        "call-out": 0.99,
+        "adjective-good": 0
+      },
+      "topP": 0.99,
+      "answeredBy": "jev-1.13.0",
+      "ms": 118,
+      "attempts": 1
+    },
+    {
+      "id": "h54",
+      "choice": "deprivation-moment",
+      "probabilities": {
+        "adjective-good": 0.02,
+        "call-out": 0,
+        "halbert-a-pile": 0.04,
+        "mistakes": 0,
+        "how-to-without": 0,
+        "receipt": 0.34,
+        "damaging-admission": 0.15,
+        "deprivation-moment": 0.45,
+        "number-outcome-time": 0
+      },
+      "topP": 0.45,
+      "answeredBy": "jev-1.13.0",
+      "ms": 150,
+      "attempts": 1
+    },
+    {
+      "id": "h55",
+      "choice": "how-to-without",
+      "probabilities": {
+        "deprivation-moment": 0.05,
+        "halbert-a-pile": 0,
+        "call-out": 0.03,
+        "damaging-admission": 0,
+        "receipt": 0,
+        "number-outcome-time": 0,
+        "mistakes": 0.19,
+        "how-to-without": 0.69,
+        "adjective-good": 0.04
+      },
+      "topP": 0.69,
+      "answeredBy": "jev-1.13.0",
+      "ms": 161,
+      "attempts": 1
+    },
+    {
+      "id": "h56",
+      "choice": "receipt",
+      "probabilities": {
+        "call-out": 0.03,
+        "number-outcome-time": 0.36,
+        "adjective-good": 0,
+        "damaging-admission": 0,
+        "halbert-a-pile": 0,
+        "deprivation-moment": 0.01,
+        "receipt": 0.6,
+        "how-to-without": 0,
+        "mistakes": 0
+      },
+      "topP": 0.6,
+      "answeredBy": "jev-1.13.0",
+      "ms": 130,
+      "attempts": 1
+    },
+    {
+      "id": "h57",
+      "choice": "number-outcome-time",
+      "probabilities": {
+        "adjective-good": 0,
+        "number-outcome-time": 0.97,
+        "receipt": 0,
+        "how-to-without": 0,
+        "call-out": 0,
+        "halbert-a-pile": 0.01,
+        "mistakes": 0,
+        "deprivation-moment": 0.02,
+        "damaging-admission": 0
+      },
+      "topP": 0.97,
+      "answeredBy": "jev-1.13.0",
+      "ms": 179,
+      "attempts": 1
+    },
+    {
+      "id": "h58",
+      "choice": "number-outcome-time",
+      "probabilities": {
+        "how-to-without": 0.13,
+        "number-outcome-time": 0.5,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0.34,
+        "call-out": 0,
+        "deprivation-moment": 0.01,
+        "receipt": 0,
+        "mistakes": 0.02,
+        "adjective-good": 0
+      },
+      "topP": 0.5,
+      "answeredBy": "jev-1.13.0",
+      "ms": 152,
+      "attempts": 1
+    },
+    {
+      "id": "h59",
+      "choice": "number-outcome-time",
+      "probabilities": {
+        "deprivation-moment": 0,
+        "number-outcome-time": 0.95,
+        "halbert-a-pile": 0.01,
+        "damaging-admission": 0,
+        "adjective-good": 0.01,
+        "call-out": 0,
+        "how-to-without": 0,
+        "mistakes": 0,
+        "receipt": 0.03
+      },
+      "topP": 0.95,
+      "answeredBy": "jev-1.13.0",
+      "ms": 128,
+      "attempts": 1
+    },
+    {
+      "id": "h60",
+      "choice": "how-to-without",
+      "probabilities": {
+        "damaging-admission": 0,
+        "adjective-good": 0,
+        "call-out": 0,
+        "how-to-without": 0.99,
+        "mistakes": 0,
+        "deprivation-moment": 0,
+        "number-outcome-time": 0.01,
+        "receipt": 0,
+        "halbert-a-pile": 0
+      },
+      "topP": 0.99,
+      "answeredBy": "jev-1.13.0",
+      "ms": 165,
+      "attempts": 1
+    },
+    {
+      "id": "h61",
+      "choice": "deprivation-moment",
+      "probabilities": {
+        "halbert-a-pile": 0,
+        "how-to-without": 0,
+        "deprivation-moment": 1,
+        "receipt": 0,
+        "call-out": 0,
+        "mistakes": 0,
+        "number-outcome-time": 0,
+        "damaging-admission": 0,
+        "adjective-good": 0
+      },
+      "topP": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 123,
+      "attempts": 1
+    },
+    {
+      "id": "h62",
+      "choice": "number-outcome-time",
+      "probabilities": {
+        "mistakes": 0,
+        "how-to-without": 0,
+        "call-out": 0,
+        "damaging-admission": 0,
+        "adjective-good": 0,
+        "halbert-a-pile": 0,
+        "deprivation-moment": 0,
+        "receipt": 0,
+        "number-outcome-time": 1
+      },
+      "topP": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 108,
+      "attempts": 1
+    },
+    {
+      "id": "h63",
+      "choice": "number-outcome-time",
+      "probabilities": {
+        "call-out": 0,
+        "number-outcome-time": 1,
+        "deprivation-moment": 0,
+        "adjective-good": 0,
+        "mistakes": 0,
+        "damaging-admission": 0,
+        "receipt": 0,
+        "halbert-a-pile": 0,
+        "how-to-without": 0
+      },
+      "topP": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 114,
+      "attempts": 1
+    },
+    {
+      "id": "h64",
+      "choice": "number-outcome-time",
+      "probabilities": {
+        "call-out": 0,
+        "halbert-a-pile": 0,
+        "how-to-without": 0,
+        "deprivation-moment": 0,
+        "mistakes": 0,
+        "number-outcome-time": 1,
+        "adjective-good": 0,
+        "receipt": 0,
+        "damaging-admission": 0
+      },
+      "topP": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 139,
+      "attempts": 1
+    },
+    {
+      "id": "h65",
+      "choice": "mistakes",
+      "probabilities": {
+        "adjective-good": 0,
+        "damaging-admission": 0.01,
+        "call-out": 0,
+        "how-to-without": 0.18,
+        "mistakes": 0.6,
+        "deprivation-moment": 0.02,
+        "number-outcome-time": 0.18,
+        "receipt": 0,
+        "halbert-a-pile": 0.01
+      },
+      "topP": 0.6,
+      "answeredBy": "jev-1.13.0",
+      "ms": 112,
+      "attempts": 1
+    },
+    {
+      "id": "h66",
+      "choice": "adjective-good",
+      "probabilities": {
+        "number-outcome-time": 0,
+        "receipt": 0,
+        "halbert-a-pile": 0,
+        "adjective-good": 0.89,
+        "how-to-without": 0.03,
+        "call-out": 0,
+        "damaging-admission": 0,
+        "mistakes": 0,
+        "deprivation-moment": 0.08
+      },
+      "topP": 0.89,
+      "answeredBy": "jev-1.13.0",
+      "ms": 152,
+      "attempts": 1
+    },
+    {
+      "id": "h67",
+      "choice": "receipt",
+      "probabilities": {
+        "adjective-good": 0,
+        "how-to-without": 0,
+        "number-outcome-time": 0.15,
+        "call-out": 0,
+        "receipt": 0.78,
+        "halbert-a-pile": 0.01,
+        "mistakes": 0,
+        "deprivation-moment": 0.06,
+        "damaging-admission": 0
+      },
+      "topP": 0.78,
+      "answeredBy": "jev-1.13.0",
+      "ms": 90,
+      "attempts": 1
+    },
+    {
+      "id": "h68",
+      "choice": "mistakes",
+      "probabilities": {
+        "number-outcome-time": 0,
+        "receipt": 0,
+        "halbert-a-pile": 0,
+        "adjective-good": 0,
+        "mistakes": 0.79,
+        "damaging-admission": 0,
+        "call-out": 0,
+        "how-to-without": 0.02,
+        "deprivation-moment": 0.19
+      },
+      "topP": 0.79,
+      "answeredBy": "jev-1.13.0",
+      "ms": 138,
+      "attempts": 1
+    },
+    {
+      "id": "h69",
+      "choice": "number-outcome-time",
+      "probabilities": {
+        "halbert-a-pile": 0,
+        "adjective-good": 0,
+        "call-out": 0,
+        "how-to-without": 0,
+        "damaging-admission": 0,
+        "mistakes": 0,
+        "receipt": 0,
+        "deprivation-moment": 0,
+        "number-outcome-time": 1
+      },
+      "topP": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 126,
+      "attempts": 1
+    },
+    {
+      "id": "h70",
+      "choice": "number-outcome-time",
+      "probabilities": {
+        "deprivation-moment": 0,
+        "halbert-a-pile": 0,
+        "call-out": 0,
+        "damaging-admission": 0,
+        "receipt": 0,
+        "number-outcome-time": 1,
+        "mistakes": 0,
+        "adjective-good": 0,
+        "how-to-without": 0
+      },
+      "topP": 1,
+      "answeredBy": "jev-1.13.0",
+      "ms": 122,
+      "attempts": 1
+    },
+    {
+      "id": "h71",
+      "choice": "how-to-without",
+      "probabilities": {
+        "deprivation-moment": 0.34,
+        "halbert-a-pile": 0,
+        "call-out": 0,
+        "damaging-admission": 0,
+        "receipt": 0,
+        "number-outcome-time": 0.17,
+        "mistakes": 0.02,
+        "adjective-good": 0,
+        "how-to-without": 0.46
+      },
+      "topP": 0.46,
+      "answeredBy": "jev-1.13.0",
+      "ms": 146,
+      "attempts": 1
+    },
+    {
+      "id": "h72",
+      "choice": "how-to-without",
+      "probabilities": {
+        "receipt": 0,
+        "mistakes": 0.07,
+        "call-out": 0,
+        "deprivation-moment": 0.09,
+        "halbert-a-pile": 0,
+        "adjective-good": 0.03,
+        "how-to-without": 0.81,
+        "damaging-admission": 0,
+        "number-outcome-time": 0
+      },
+      "topP": 0.81,
+      "answeredBy": "jev-1.13.0",
+      "ms": 129,
+      "attempts": 1
+    },
+    {
+      "id": "h73",
+      "choice": "adjective-good",
+      "probabilities": {
+        "how-to-without": 0,
+        "receipt": 0.12,
+        "damaging-admission": 0,
+        "number-outcome-time": 0,
+        "halbert-a-pile": 0,
+        "deprivation-moment": 0.04,
+        "mistakes": 0,
+        "call-out": 0.16,
+        "adjective-good": 0.68
+      },
+      "topP": 0.68,
+      "answeredBy": "jev-1.13.0",
+      "ms": 114,
+      "attempts": 1
+    },
+    {
+      "id": "h74",
+      "choice": "call-out",
+      "probabilities": {
+        "receipt": 0,
+        "mistakes": 0.14,
+        "deprivation-moment": 0.12,
+        "adjective-good": 0.16,
+        "how-to-without": 0.1,
+        "number-outcome-time": 0,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0.01,
+        "call-out": 0.47
+      },
+      "topP": 0.47,
+      "answeredBy": "jev-1.13.0",
+      "ms": 163,
+      "attempts": 1
+    },
+    {
+      "id": "h75",
+      "choice": "number-outcome-time",
+      "probabilities": {
+        "adjective-good": 0.03,
+        "halbert-a-pile": 0.03,
+        "damaging-admission": 0,
+        "deprivation-moment": 0,
+        "mistakes": 0,
+        "receipt": 0.45,
+        "number-outcome-time": 0.48,
+        "how-to-without": 0,
+        "call-out": 0.01
+      },
+      "topP": 0.48,
+      "answeredBy": "jev-1.13.0",
+      "ms": 88,
+      "attempts": 1
+    },
+    {
+      "id": "h76",
+      "choice": "adjective-good",
+      "probabilities": {
+        "receipt": 0,
+        "mistakes": 0.22,
+        "call-out": 0.1,
+        "adjective-good": 0.29,
+        "halbert-a-pile": 0,
+        "deprivation-moment": 0.25,
+        "how-to-without": 0.14,
+        "damaging-admission": 0,
+        "number-outcome-time": 0
+      },
+      "topP": 0.29,
+      "answeredBy": "jev-1.13.0",
+      "ms": 142,
+      "attempts": 1
+    },
+    {
+      "id": "h77",
+      "choice": "number-outcome-time",
+      "probabilities": {
+        "adjective-good": 0.01,
+        "call-out": 0.05,
+        "damaging-admission": 0.3,
+        "mistakes": 0.1,
+        "how-to-without": 0.01,
+        "receipt": 0,
+        "halbert-a-pile": 0.13,
+        "deprivation-moment": 0.03,
+        "number-outcome-time": 0.37
+      },
+      "topP": 0.37,
+      "answeredBy": "jev-1.13.0",
+      "ms": 104,
+      "attempts": 1
+    },
+    {
+      "id": "h78",
+      "choice": "deprivation-moment",
+      "probabilities": {
+        "how-to-without": 0,
+        "number-outcome-time": 0,
+        "halbert-a-pile": 0,
+        "damaging-admission": 0,
+        "call-out": 0.01,
+        "deprivation-moment": 0.96,
+        "receipt": 0,
+        "mistakes": 0,
+        "adjective-good": 0.03
+      },
+      "topP": 0.96,
+      "answeredBy": "jev-1.13.0",
+      "ms": 110,
+      "attempts": 1
+    },
+    {
+      "id": "h79",
+      "choice": "deprivation-moment",
+      "probabilities": {
+        "adjective-good": 0.03,
+        "receipt": 0,
+        "call-out": 0.02,
+        "how-to-without": 0.08,
+        "number-outcome-time": 0,
+        "deprivation-moment": 0.81,
+        "damaging-admission": 0,
+        "mistakes": 0.05,
+        "halbert-a-pile": 0
+      },
+      "topP": 0.81,
+      "answeredBy": "jev-1.13.0",
+      "ms": 127,
+      "attempts": 1
+    },
+    {
+      "id": "h80",
+      "choice": "how-to-without",
+      "probabilities": {
+        "receipt": 0,
+        "mistakes": 0,
+        "deprivation-moment": 0.25,
+        "adjective-good": 0,
+        "halbert-a-pile": 0.15,
+        "number-outcome-time": 0.22,
+        "how-to-without": 0.37,
+        "damaging-admission": 0,
+        "call-out": 0.01
+      },
+      "topP": 0.37,
+      "answeredBy": "jev-1.13.0",
+      "ms": 122,
+      "attempts": 1
+    }
+  ],
+  "telemetry": {
+    "completed": 80,
+    "failed": 0,
+    "retried": [],
+    "p50": 128,
+    "p95": 215,
+    "tokens": 73264,
+    "dollars": 0.00308,
+    "drift": []
+  },
+  "analysedAt": "2026-09-22T06:17:36.534Z",
+  "reanalysed": true,
+  "firstRunAt": "2026-09-22T06:17:21.104Z"
+}

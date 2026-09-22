@@ -212,3 +212,8 @@ Manu, 2026-09-21 (orchestrator session): "k-fold on the 80, reported as in-sampl
 - `npx tsc --noEmit` in this worktree reports 14 errors, all in `leads/evaluate.ts` and `leads/pipeline.ts`:
   they import `../../jev-playground/…`, which resolves from `~/JEV-works` but not from `~/JEV-works-wt/e3`.
   Pre-existing on main; not touched here (out of scope). `program/` and `lib/` are clean.
+- 2026-09-21 Jev pass, once (`e3-kfold.ts`, after prereg `01c5fe3`): 80 calls, 0 retries, 0 failures,
+  answeredBy `jev-1.13.0`. In-sample Jev v2 72.5% vs fold-held-out NB keyword 35.0%, Δ +37.5 (paired CI
+  +25…+50) → `jev-ahead`, hypothesis not falsified. Hybrid 60.0% (τ fitted against NB's in-sample score —
+  finding, not re-fitted). McNemar p display bug fixed and re-scored with 0 calls (report C1).
+  Report `program/E3-KFOLD-REPORT.md`, page `program/e3-kfold-review.html`.

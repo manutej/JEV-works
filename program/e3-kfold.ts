@@ -315,7 +315,7 @@ function mcnemar(a: readonly boolean[], b: readonly boolean[]) {
     p += c;
     c = (c * (m - i)) / (i + 1);
   }
-  return { onlyJevRight: onlyA, onlyBaselineRight: onlyB, pTwoSided: m === 0 ? 1 : r4(Math.min(1, (2 * p) / 2 ** m)) };
+  return { onlyJevRight: onlyA, onlyBaselineRight: onlyB, pTwoSided: m === 0 ? 1 : +Math.min(1, (2 * p) / 2 ** m).toPrecision(3) };
 }
 
 function verdict(delta: number, ci: [number, number], band: number) {
