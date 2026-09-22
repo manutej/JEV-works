@@ -1,0 +1,1729 @@
+{
+ "experiment": "op-consist",
+ "slug": "doc-admit",
+ "toqSha256": "1aaadc9779aca4bf84ef5506b5442c33b5ca86d4549b7c44ad5fd29583061b9c",
+ "JEV_ID": "jev-1.13.0 (direct)",
+ "threshold": 0.5,
+ "collapses": {
+  "direct": {
+   "asked": [
+    "R"
+   ],
+   "collapsed_edges": "all"
+  },
+  "mid": {
+   "asked": [
+    "M1",
+    "M2"
+   ],
+   "collapsed_edges": [
+    "L1-M1",
+    "L2-M1",
+    "L3-M2",
+    "L4-M2",
+    "L5-M2"
+   ]
+  },
+  "decomposed": {
+   "asked": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "collapsed_edges": []
+  },
+  "highrisk": {
+   "asked": [
+    "M1",
+    "L3",
+    "L4",
+    "L5"
+   ],
+   "collapsed_edges": [
+    "L1-M1",
+    "L2-M1"
+   ]
+  }
+ },
+ "startedAt": "2026-09-22T07:28:31.531Z",
+ "finishedAt": "2026-09-22T07:28:34.024Z",
+ "callsUsed": 72,
+ "items": [
+  {
+   "id": "doc:0",
+   "state": {
+    "question": "How do I require human approval before a tool executes?",
+    "chunk": "## Tool Execution Approval\n\nBy default, tools with an `execute` function run automatically as the model calls them. Configure approval with `toolApproval` on `generateText`, `streamText`, or `ToolLoopAgent`.\n\n`toolApproval` can be either:\n\n- A `GenericToolApprovalFunction` for all tool calls\n- A per-tool map of statuses and/or `SingleToolApprovalFunction` callbacks (either function may return `undefined` for the same effect as `'not-applicable'`)\n\nThe older `needsApproval` property on `tool()` definitions is deprecated. Existing code still works, but new code should move approval logic to `toolApproval`.\n\n### Configure `toolApproval`\n\n```ts\nconst result = await generateText({\n  model: __MODEL__,\n  tools: { runCommand },\n  toolApproval: {\n    runCommand: 'user-approval',\n  },\n  prompt: 'Remove the most recent file in the downloads folder',\n});\n```\n\nIn the per-tool object form, each key can be one of four statuses: `'not-applicable'`, `'approved'`, `'denied'`, or `'user-approval'`, which emits an approval request and waits for an explicit response."
+   },
+   "label": null,
+   "calls": {
+    "direct": {
+     "collapse": "direct",
+     "context_id": "ctx-e44e61a2-9782-478e-8c6f-a3f99c0a5f26",
+     "failedContextIds": [],
+     "p": {
+      "R": 0.91
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 110,
+     "attempts": 1,
+     "inputTokens": 588
+    },
+    "mid": {
+     "collapse": "mid",
+     "context_id": "ctx-53472ae8-8ef7-4c11-ba4b-d49b34494de1",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.95,
+      "M2": 0.92
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 105,
+     "attempts": 1,
+     "inputTokens": 623
+    },
+    "decomposed": {
+     "collapse": "decomposed",
+     "context_id": "ctx-45cbe6fb-fd45-4e9e-a4ba-4e2fa8d136b2",
+     "failedContextIds": [],
+     "p": {
+      "L1": 0.97,
+      "L2": 0.98,
+      "L3": 0.82,
+      "L4": 0.44,
+      "L5": 0.9
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 131,
+     "attempts": 1,
+     "inputTokens": 683
+    },
+    "highrisk": {
+     "collapse": "highrisk",
+     "context_id": "ctx-ceaf634b-ed74-4110-b674-1da54a5c570f",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.96,
+      "L3": 0.83,
+      "L4": 0.42,
+      "L5": 0.9
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 132,
+     "attempts": 1,
+     "inputTokens": 665
+    }
+   },
+   "answers": {
+    "direct": {
+     "R": true,
+     "M": {}
+    },
+    "mid": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": true
+     }
+    },
+    "decomposed": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": true
+     }
+    },
+    "highrisk": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": true
+     }
+    }
+   }
+  },
+  {
+   "id": "doc:1",
+   "state": {
+    "question": "How do I require human approval before a tool executes?",
+    "chunk": "## Tool Order\n\nSome providers include tool definitions in the cached portion of a request. If the order of those definitions changes between otherwise similar requests, the provider may not be able to reuse the cached prefix as effectively.\n\nUse `toolOrder` when you want a stable provider request shape for caching or debugging. The list can be partial: tools listed in `toolOrder` are sent first in that order, and any remaining tools are sent afterwards in alphabetical order. Tool names are typed from your `tools` object.\n\n```ts\nconst { text } = await generateText({\n  model: __MODEL__,\n  tools: myToolSet,\n  toolOrder: ['search', 'readFile'],\n  prompt: 'Summarize the latest project notes.',\n});\n```\n\n`toolOrder` controls only the order of tool definitions sent to the provider. It does not force the model to call a tool. Use `toolChoice` to control tool selection, and use `activeTools` when you want to limit which tools are available."
+   },
+   "label": null,
+   "calls": {
+    "direct": {
+     "collapse": "direct",
+     "context_id": "ctx-cfc95db4-1610-4c6f-a087-efd58c58e3a9",
+     "failedContextIds": [],
+     "p": {
+      "R": 0.06
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 153,
+     "attempts": 1,
+     "inputTokens": 522
+    },
+    "mid": {
+     "collapse": "mid",
+     "context_id": "ctx-bd8add77-0ab0-46ea-9752-33bb55dbdea3",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.03,
+      "M2": 0.1
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 127,
+     "attempts": 1,
+     "inputTokens": 557
+    },
+    "decomposed": {
+     "collapse": "decomposed",
+     "context_id": "ctx-60d198dc-ef30-4756-9f95-9de82ccd70bd",
+     "failedContextIds": [],
+     "p": {
+      "L1": 0.05,
+      "L2": 0.04,
+      "L3": 0.6,
+      "L4": 0.38,
+      "L5": 0.83
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 115,
+     "attempts": 1,
+     "inputTokens": 617
+    },
+    "highrisk": {
+     "collapse": "highrisk",
+     "context_id": "ctx-7103dd4b-09fc-48ef-ae0d-9d0f12b95efa",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.03,
+      "L3": 0.6,
+      "L4": 0.4,
+      "L5": 0.82
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 141,
+     "attempts": 1,
+     "inputTokens": 599
+    }
+   },
+   "answers": {
+    "direct": {
+     "R": false,
+     "M": {}
+    },
+    "mid": {
+     "R": false,
+     "M": {
+      "M1": false,
+      "M2": false
+     }
+    },
+    "decomposed": {
+     "R": true,
+     "M": {
+      "M1": false,
+      "M2": true
+     }
+    },
+    "highrisk": {
+     "R": true,
+     "M": {
+      "M1": false,
+      "M2": true
+     }
+    }
+   }
+  },
+  {
+   "id": "doc:2",
+   "state": {
+    "question": "What are the benefits of streaming responses to users?",
+    "chunk": "Streaming conversational text UIs (like ChatGPT) have gained massive popularity over the past few months. This section explores the benefits and drawbacks of streaming and blocking interfaces.\n\nLarge language models (LLMs) are extremely powerful. However, when generating long outputs, they can be very slow compared to the latency you're likely used to. If you try to build a traditional blocking UI, your users might easily find themselves staring at loading spinners for 5, 10, even up to 40s waiting for the entire LLM response to be generated. This can lead to a poor user experience, especially in conversational applications like chatbots. Streaming UIs can help mitigate this issue by displaying parts of the response as they become available.\n\nAs you can see, the streaming UI is able to start displaying the response much faster than the blocking UI. This is because the blocking UI has to wait for the entire response to be generated before it can display anything, while the streaming UI can display parts of the response as they become available."
+   },
+   "label": null,
+   "calls": {
+    "direct": {
+     "collapse": "direct",
+     "context_id": "ctx-64720386-e6df-4ba2-b381-f31670d5bd83",
+     "failedContextIds": [],
+     "p": {
+      "R": 0.9
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 114,
+     "attempts": 1,
+     "inputTokens": 522
+    },
+    "mid": {
+     "collapse": "mid",
+     "context_id": "ctx-9364cb54-8351-40dd-9fba-0cbe3e6d5fc9",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.91,
+      "M2": 0.04
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 119,
+     "attempts": 1,
+     "inputTokens": 557
+    },
+    "decomposed": {
+     "collapse": "decomposed",
+     "context_id": "ctx-3c0adb42-d147-4fb4-94a3-32eabb4d12b9",
+     "failedContextIds": [],
+     "p": {
+      "L1": 0.92,
+      "L2": 0.92,
+      "L3": 0.02,
+      "L4": 0.02,
+      "L5": 0.03
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 97,
+     "attempts": 1,
+     "inputTokens": 617
+    },
+    "highrisk": {
+     "collapse": "highrisk",
+     "context_id": "ctx-719f5a18-e281-4127-aac7-5b5cfb257950",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.91,
+      "L3": 0.02,
+      "L4": 0.02,
+      "L5": 0.03
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 131,
+     "attempts": 1,
+     "inputTokens": 599
+    }
+   },
+   "answers": {
+    "direct": {
+     "R": true,
+     "M": {}
+    },
+    "mid": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": false
+     }
+    },
+    "decomposed": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": false
+     }
+    },
+    "highrisk": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": false
+     }
+    }
+   }
+  },
+  {
+   "id": "doc:3",
+   "state": {
+    "question": "What are the benefits of streaming responses to users?",
+    "chunk": "Embeddings are a way to represent words, phrases, or images as vectors in a high-dimensional space. In this space, similar words are close to each other, and the distance between words can be used to measure their similarity.\n\nThe AI SDK provides the `embed` function to embed single values, which is useful for tasks such as finding similar words or phrases or clustering text. You can use it with embeddings models, e.g. `openai.embeddingModel('text-embedding-3-large')` or `mistral.embeddingModel('mistral-embed')`.\n\n```tsx\nimport { embed } from 'ai';\n\nconst { embedding } = await embed({\n  model: 'openai/text-embedding-3-small',\n  value: 'sunny day at the beach',\n});\n```\n\nWhen loading data, e.g. when preparing a data store for retrieval-augmented generation (RAG), it is often useful to embed many values at once (batch embedding). The AI SDK provides the `embedMany` function for this purpose."
+   },
+   "label": null,
+   "calls": {
+    "direct": {
+     "collapse": "direct",
+     "context_id": "ctx-03ed1b9c-4185-48e9-9463-8d4aedf66683",
+     "failedContextIds": [],
+     "p": {
+      "R": 0.05
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 170,
+     "attempts": 1,
+     "inputTokens": 531
+    },
+    "mid": {
+     "collapse": "mid",
+     "context_id": "ctx-e8ed18ae-2122-4370-b557-d5fa200a7bb6",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.03,
+      "M2": 0.51
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 128,
+     "attempts": 1,
+     "inputTokens": 566
+    },
+    "decomposed": {
+     "collapse": "decomposed",
+     "context_id": "ctx-bc4e7cf6-c855-4578-8718-7875b58d2451",
+     "failedContextIds": [],
+     "p": {
+      "L1": 0.05,
+      "L2": 0.02,
+      "L3": 0.62,
+      "L4": 0.83,
+      "L5": 0.9
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 141,
+     "attempts": 1,
+     "inputTokens": 626
+    },
+    "highrisk": {
+     "collapse": "highrisk",
+     "context_id": "ctx-ec99de67-ccdc-4408-bb53-f6e05af471aa",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.03,
+      "L3": 0.64,
+      "L4": 0.85,
+      "L5": 0.9
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 122,
+     "attempts": 1,
+     "inputTokens": 608
+    }
+   },
+   "answers": {
+    "direct": {
+     "R": false,
+     "M": {}
+    },
+    "mid": {
+     "R": true,
+     "M": {
+      "M1": false,
+      "M2": true
+     }
+    },
+    "decomposed": {
+     "R": true,
+     "M": {
+      "M1": false,
+      "M2": true
+     }
+    },
+    "highrisk": {
+     "R": true,
+     "M": {
+      "M1": false,
+      "M2": true
+     }
+    }
+   }
+  },
+  {
+   "id": "doc:4",
+   "state": {
+    "question": "How do I embed a batch of many text values at once?",
+    "chunk": "## Embedding Many Values\n\nWhen loading data, e.g. when preparing a data store for retrieval-augmented generation (RAG), it is often useful to embed many values at once (batch embedding).\n\nThe AI SDK provides the `embedMany` function for this purpose. Similar to `embed`, you can use it with embeddings models, e.g. `openai.embeddingModel('text-embedding-3-large')` or `mistral.embeddingModel('mistral-embed')`.\n\n```tsx\nimport { embedMany } from 'ai';\n\n// 'embeddings' is an array of embedding objects (number[][]).\n// It is sorted in the same order as the input values.\nconst { embeddings } = await embedMany({\n  model: 'openai/text-embedding-3-small',\n  values: [\n    'sunny day at the beach',\n    'rainy afternoon in the city',\n    'snowy night in the mountains',\n  ],\n});\n```"
+   },
+   "label": null,
+   "calls": {
+    "direct": {
+     "collapse": "direct",
+     "context_id": "ctx-e264f55f-f89b-4ff0-805b-455371eff818",
+     "failedContextIds": [],
+     "p": {
+      "R": 0.92
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 146,
+     "attempts": 1,
+     "inputTokens": 524
+    },
+    "mid": {
+     "collapse": "mid",
+     "context_id": "ctx-7c06f164-4cf1-4f43-a7b6-9408c4d68658",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.95,
+      "M2": 0.94
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 268,
+     "attempts": 1,
+     "inputTokens": 559
+    },
+    "decomposed": {
+     "collapse": "decomposed",
+     "context_id": "ctx-0281d158-5da9-423b-a180-d8a4e782eb11",
+     "failedContextIds": [],
+     "p": {
+      "L1": 0.97,
+      "L2": 0.98,
+      "L3": 0.88,
+      "L4": 0.7,
+      "L5": 0.95
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 126,
+     "attempts": 1,
+     "inputTokens": 619
+    },
+    "highrisk": {
+     "collapse": "highrisk",
+     "context_id": "ctx-f50fedb8-c3f5-4dcd-bb4e-932513ef7609",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.95,
+      "L3": 0.87,
+      "L4": 0.7,
+      "L5": 0.96
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 152,
+     "attempts": 1,
+     "inputTokens": 601
+    }
+   },
+   "answers": {
+    "direct": {
+     "R": true,
+     "M": {}
+    },
+    "mid": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": true
+     }
+    },
+    "decomposed": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": true
+     }
+    },
+    "highrisk": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": true
+     }
+    }
+   }
+  },
+  {
+   "id": "doc:5",
+   "state": {
+    "question": "How do I embed a batch of many text values at once?",
+    "chunk": "## Embedding Models\n\nAn embedding model is used to convert complex data (like words or images) into a dense vector (a list of numbers) representation, known as an embedding. Unlike generative models, embedding models do not generate new text or data. Instead, they provide representations of semantic and syntactic relationships between entities that can be used as input for other models or other natural language processing tasks.\n\nGenerative artificial intelligence refers to models that predict and generate various types of outputs (such as text, images, or audio) based on what's statistically likely, pulling from patterns they've learned from their training data. A large language model (LLM) is a subset of generative models focused primarily on text. An LLM takes a sequence of words as input and aims to predict the most likely sequence to follow."
+   },
+   "label": null,
+   "calls": {
+    "direct": {
+     "collapse": "direct",
+     "context_id": "ctx-336cdbbf-c93f-46c1-901b-10cdcaa1dd12",
+     "failedContextIds": [],
+     "p": {
+      "R": 0.16
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 128,
+     "attempts": 1,
+     "inputTokens": 476
+    },
+    "mid": {
+     "collapse": "mid",
+     "context_id": "ctx-ae6a1fc5-0651-4239-ac5d-c5322fcf7fd5",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.05,
+      "M2": 0.03
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 97,
+     "attempts": 1,
+     "inputTokens": 511
+    },
+    "decomposed": {
+     "collapse": "decomposed",
+     "context_id": "ctx-569e85a9-15f0-4745-9637-23ba8214984b",
+     "failedContextIds": [],
+     "p": {
+      "L1": 0.25,
+      "L2": 0.04,
+      "L3": 0.04,
+      "L4": 0.01,
+      "L5": 0.04
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 98,
+     "attempts": 1,
+     "inputTokens": 571
+    },
+    "highrisk": {
+     "collapse": "highrisk",
+     "context_id": "ctx-920fd568-928a-4b16-8219-faca775f8446",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.05,
+      "L3": 0.04,
+      "L4": 0.01,
+      "L5": 0.04
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 237,
+     "attempts": 1,
+     "inputTokens": 553
+    }
+   },
+   "answers": {
+    "direct": {
+     "R": false,
+     "M": {}
+    },
+    "mid": {
+     "R": false,
+     "M": {
+      "M1": false,
+      "M2": false
+     }
+    },
+    "decomposed": {
+     "R": false,
+     "M": {
+      "M1": false,
+      "M2": false
+     }
+    },
+    "highrisk": {
+     "R": false,
+     "M": {
+      "M1": false,
+      "M2": false
+     }
+    }
+   }
+  },
+  {
+   "id": "doc:6",
+   "state": {
+    "question": "How do I limit which tools are visible to the model in a given call?",
+    "chunk": "## Active Tools\n\nLanguage models can only handle a limited number of tools at a time, depending on the model. To allow for static typing using a large number of tools and limiting the available tools to the model at the same time, the AI SDK provides the `activeTools` property.\n\nIt is an array of tool names that are currently active. By default, the value is `undefined` and all tools are active.\n\n```ts\nimport { openai } from '@ai-sdk/openai';\nimport { generateText } from 'ai';\n\nconst { text } = await generateText({\n  model: __MODEL__,\n  tools: myToolSet,\n  activeTools: ['firstTool'],\n});\n```"
+   },
+   "label": null,
+   "calls": {
+    "direct": {
+     "collapse": "direct",
+     "context_id": "ctx-512496f9-714d-4c8f-a6e2-f4fa4bc775d6",
+     "failedContextIds": [],
+     "p": {
+      "R": 0.86
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 145,
+     "attempts": 1,
+     "inputTokens": 462
+    },
+    "mid": {
+     "collapse": "mid",
+     "context_id": "ctx-bd21db48-fff4-434e-bd0d-0e615a4b21f8",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.96,
+      "M2": 0.93
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 116,
+     "attempts": 1,
+     "inputTokens": 497
+    },
+    "decomposed": {
+     "collapse": "decomposed",
+     "context_id": "ctx-3c0589d9-1168-4652-b9c4-4126ab805598",
+     "failedContextIds": [],
+     "p": {
+      "L1": 0.96,
+      "L2": 0.98,
+      "L3": 0.78,
+      "L4": 0.17,
+      "L5": 0.9
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 213,
+     "attempts": 1,
+     "inputTokens": 557
+    },
+    "highrisk": {
+     "collapse": "highrisk",
+     "context_id": "ctx-c2c93d7c-284c-438c-96e5-c2927104d4b2",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.96,
+      "L3": 0.8,
+      "L4": 0.16,
+      "L5": 0.9
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 131,
+     "attempts": 1,
+     "inputTokens": 539
+    }
+   },
+   "answers": {
+    "direct": {
+     "R": true,
+     "M": {}
+    },
+    "mid": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": true
+     }
+    },
+    "decomposed": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": true
+     }
+    },
+    "highrisk": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": true
+     }
+    }
+   }
+  },
+  {
+   "id": "doc:7",
+   "state": {
+    "question": "How do I limit which tools are visible to the model in a given call?",
+    "chunk": "## Tool Choice\n\nYou can use the `toolChoice` setting to influence when a tool is selected. It supports the following settings:\n\n- `auto` (default): the model can choose whether and which tools to call.\n- `required`: the model must call a tool. It can choose which tool to call.\n- `none`: the model must not call tools\n- `{ type: 'tool', toolName: string (typed) }`: the model must call the specified tool\n\n```ts\nconst result = await generateText({\n  model: __MODEL__,\n  tools: {\n    weather: tool({\n      description: 'Get the weather in a location',\n      inputSchema: z.object({\n        location: z.string().describe('The location to get the weather for'),\n      }),\n      execute: async ({ location }) => ({\n        location,\n        temperature: 72 + Math.floor(Math.random() * 21) - 10,\n      }),\n    }),\n  },\n  toolChoice: 'required', // force the model to call a tool\n  prompt: 'What is the weather in San Francisco?',\n});\n```"
+   },
+   "label": null,
+   "calls": {
+    "direct": {
+     "collapse": "direct",
+     "context_id": "ctx-3006983a-1433-4c51-bb8f-533130bfac43",
+     "failedContextIds": [],
+     "p": {
+      "R": 0.29
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 165,
+     "attempts": 1,
+     "inputTokens": 547
+    },
+    "mid": {
+     "collapse": "mid",
+     "context_id": "ctx-04fd1a1f-7ab8-44fe-a636-ade04eff1937",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.16,
+      "M2": 0.45
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 142,
+     "attempts": 1,
+     "inputTokens": 582
+    },
+    "decomposed": {
+     "collapse": "decomposed",
+     "context_id": "ctx-f7d6a363-aa0c-4aab-8d06-3f969bd9887c",
+     "failedContextIds": [],
+     "p": {
+      "L1": 0.43,
+      "L2": 0.29,
+      "L3": 0.81,
+      "L4": 0.35,
+      "L5": 0.92
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 126,
+     "attempts": 1,
+     "inputTokens": 642
+    },
+    "highrisk": {
+     "collapse": "highrisk",
+     "context_id": "ctx-70ad80fb-2f95-4eb2-976a-afa088b9db01",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.16,
+      "L3": 0.8,
+      "L4": 0.4,
+      "L5": 0.91
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 116,
+     "attempts": 1,
+     "inputTokens": 624
+    }
+   },
+   "answers": {
+    "direct": {
+     "R": false,
+     "M": {}
+    },
+    "mid": {
+     "R": false,
+     "M": {
+      "M1": false,
+      "M2": false
+     }
+    },
+    "decomposed": {
+     "R": true,
+     "M": {
+      "M1": false,
+      "M2": true
+     }
+    },
+    "highrisk": {
+     "R": true,
+     "M": {
+      "M1": false,
+      "M2": true
+     }
+    }
+   }
+  },
+  {
+   "id": "doc:8",
+   "state": {
+    "question": "What error is thrown when the model calls a tool that doesn't exist?",
+    "chunk": "## Handling Errors\n\nThe AI SDK has four tool-call related errors:\n\n- `NoSuchToolError`: the model tries to call a tool that is not defined in the tools object\n- `InvalidToolInputError`: the model calls a tool with inputs that do not match the tool's input schema\n- `ToolCallRepairError`: an error that occurred during tool call repair\n- `ToolChoiceViolationError`: the `generateText` response does not satisfy a required or specifically selected tool choice\n\nWhen tool execution fails (errors thrown by your tool's `execute` function), the AI SDK adds them as `tool-error` content parts to enable automated LLM roundtrips in multi-step scenarios.\n\n### `generateText`\n\n`generateText` throws errors for tool schema validation issues and other errors, and can be handled using a `try`/`catch` block. Tool execution errors appear as `tool-error` parts in the result steps."
+   },
+   "label": null,
+   "calls": {
+    "direct": {
+     "collapse": "direct",
+     "context_id": "ctx-1cc4ff2d-878c-4d15-951c-ab55723059b2",
+     "failedContextIds": [],
+     "p": {
+      "R": 0.94
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 129,
+     "attempts": 1,
+     "inputTokens": 520
+    },
+    "mid": {
+     "collapse": "mid",
+     "context_id": "ctx-92d882c1-bcff-4fa6-8e05-f050b5a56309",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.98,
+      "M2": 0.65
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 141,
+     "attempts": 1,
+     "inputTokens": 555
+    },
+    "decomposed": {
+     "collapse": "decomposed",
+     "context_id": "ctx-f0cd0197-6618-4c9b-b8f1-33700aebf871",
+     "failedContextIds": [],
+     "p": {
+      "L1": 0.94,
+      "L2": 0.99,
+      "L3": 0.14,
+      "L4": 0.13,
+      "L5": 0.7
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 164,
+     "attempts": 1,
+     "inputTokens": 615
+    },
+    "highrisk": {
+     "collapse": "highrisk",
+     "context_id": "ctx-210dd069-5fc8-45ed-9c2e-075094430057",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.97,
+      "L3": 0.15,
+      "L4": 0.14,
+      "L5": 0.7
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 97,
+     "attempts": 1,
+     "inputTokens": 597
+    }
+   },
+   "answers": {
+    "direct": {
+     "R": true,
+     "M": {}
+    },
+    "mid": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": true
+     }
+    },
+    "decomposed": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": false
+     }
+    },
+    "highrisk": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": false
+     }
+    }
+   }
+  },
+  {
+   "id": "doc:9",
+   "state": {
+    "question": "What error is thrown when the model calls a tool that doesn't exist?",
+    "chunk": "## Tool Call Repair\n\nLanguage models sometimes fail to generate valid tool calls, especially when the input schema is complex or the model is smaller.\n\nIf you use multiple steps, those failed tool calls will be sent back to the LLM in the next step to give it an opportunity to fix it. However, you may want to control how invalid tool calls are repaired without requiring additional steps that pollute the message history.\n\nYou can use the `repairToolCall` function to attempt to repair the tool call with a custom function.\n\nYou can use different strategies to repair the tool call:\n\n- Use a model with structured outputs to generate the inputs.\n- Send the messages, instructions, and tool schema to a stronger model to generate the inputs.\n- Provide more specific repair instructions based on which tool was called."
+   },
+   "label": null,
+   "calls": {
+    "direct": {
+     "collapse": "direct",
+     "context_id": "ctx-dbaf2d15-cb57-4d01-baf3-3ca3016307a3",
+     "failedContextIds": [],
+     "p": {
+      "R": 0.14
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 243,
+     "attempts": 1,
+     "inputTokens": 475
+    },
+    "mid": {
+     "collapse": "mid",
+     "context_id": "ctx-f0352cce-7430-4c72-8c6d-800aacb235a5",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.07,
+      "M2": 0.16
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 140,
+     "attempts": 1,
+     "inputTokens": 510
+    },
+    "decomposed": {
+     "collapse": "decomposed",
+     "context_id": "ctx-708fa50b-731c-48c8-9ef9-520dd27f4bfe",
+     "failedContextIds": [],
+     "p": {
+      "L1": 0.24,
+      "L2": 0.07,
+      "L3": 0.19,
+      "L4": 0.11,
+      "L5": 0.22
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 153,
+     "attempts": 1,
+     "inputTokens": 570
+    },
+    "highrisk": {
+     "collapse": "highrisk",
+     "context_id": "ctx-0e3acde9-49c4-40be-a7d6-c7bd779bbb60",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.06,
+      "L3": 0.22,
+      "L4": 0.11,
+      "L5": 0.22
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 143,
+     "attempts": 1,
+     "inputTokens": 552
+    }
+   },
+   "answers": {
+    "direct": {
+     "R": false,
+     "M": {}
+    },
+    "mid": {
+     "R": false,
+     "M": {
+      "M1": false,
+      "M2": false
+     }
+    },
+    "decomposed": {
+     "R": false,
+     "M": {
+      "M1": false,
+      "M2": false
+     }
+    },
+    "highrisk": {
+     "R": false,
+     "M": {
+      "M1": false,
+      "M2": false
+     }
+    }
+   }
+  },
+  {
+   "id": "doc:10",
+   "state": {
+    "question": "How can I log the parameters and text generated by a model call using middleware?",
+    "chunk": "### Logging\n\nThis example shows how to log the parameters and generated text of a language model call.\n\n```ts\nimport type { LanguageModelV4Middleware } from '@ai-sdk/provider';\n\nexport const yourLogMiddleware: LanguageModelV4Middleware = {\n  wrapGenerate: async ({ doGenerate, params }) => {\n    console.log('doGenerate called');\n    console.log(`params: ${JSON.stringify(params, null, 2)}`);\n\n    const result = await doGenerate();\n    const generatedText = result.content\n      .filter(part => part.type === 'text')\n      .map(part => part.text)\n      .join('');\n\n    console.log('doGenerate finished');\n    console.log(`generated text: ${generatedText}`);\n\n    return result;\n  },\n};\n```"
+   },
+   "label": null,
+   "calls": {
+    "direct": {
+     "collapse": "direct",
+     "context_id": "ctx-6b27789f-bae6-44fb-942d-05c1068a5a27",
+     "failedContextIds": [],
+     "p": {
+      "R": 0.92
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 116,
+     "attempts": 1,
+     "inputTokens": 489
+    },
+    "mid": {
+     "collapse": "mid",
+     "context_id": "ctx-0331839f-edb8-4a9a-b5f6-00d7d59df496",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.96,
+      "M2": 0.92
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 100,
+     "attempts": 1,
+     "inputTokens": 524
+    },
+    "decomposed": {
+     "collapse": "decomposed",
+     "context_id": "ctx-eaf54539-33ea-4c17-830a-ff14e3678738",
+     "failedContextIds": [],
+     "p": {
+      "L1": 0.96,
+      "L2": 0.97,
+      "L3": 0.93,
+      "L4": 0.73,
+      "L5": 0.97
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 106,
+     "attempts": 1,
+     "inputTokens": 584
+    },
+    "highrisk": {
+     "collapse": "highrisk",
+     "context_id": "ctx-ba6f5720-ebda-4e45-a68b-33f067e8b507",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.96,
+      "L3": 0.93,
+      "L4": 0.75,
+      "L5": 0.98
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 95,
+     "attempts": 1,
+     "inputTokens": 566
+    }
+   },
+   "answers": {
+    "direct": {
+     "R": true,
+     "M": {}
+    },
+    "mid": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": true
+     }
+    },
+    "decomposed": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": true
+     }
+    },
+    "highrisk": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": true
+     }
+    }
+   }
+  },
+  {
+   "id": "doc:11",
+   "state": {
+    "question": "How can I log the parameters and text generated by a model call using middleware?",
+    "chunk": "### Guardrails\n\nGuard rails are a way to ensure that the generated text of a language model call is safe and appropriate. This example shows how to use guardrails as middleware.\n\n```ts\nimport type { LanguageModelV4Middleware } from '@ai-sdk/provider';\n\nexport const yourGuardrailMiddleware: LanguageModelV4Middleware = {\n  wrapGenerate: async ({ doGenerate }) => {\n    const result = await doGenerate();\n\n    // filtering approach, e.g. for PII or other sensitive information:\n    const content = result.content.map(part =>\n      part.type === 'text'\n        ? { ...part, text: part.text.replace(/badword/g, '<REDACTED>') }\n        : part,\n    );\n\n    return { ...result, content };\n  },\n\n  // here you would implement the guardrail logic for streaming\n};\n```"
+   },
+   "label": null,
+   "calls": {
+    "direct": {
+     "collapse": "direct",
+     "context_id": "ctx-7495e091-3a9e-446e-bc58-22c8e6398347",
+     "failedContextIds": [],
+     "p": {
+      "R": 0.29
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 150,
+     "attempts": 1,
+     "inputTokens": 505
+    },
+    "mid": {
+     "collapse": "mid",
+     "context_id": "ctx-11e478a0-f777-4acf-a7dd-33b0cf5b604a",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.11,
+      "M2": 0.41
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 110,
+     "attempts": 1,
+     "inputTokens": 540
+    },
+    "decomposed": {
+     "collapse": "decomposed",
+     "context_id": "ctx-6b62fff0-11a2-441d-815d-048933302686",
+     "failedContextIds": [],
+     "p": {
+      "L1": 0.27,
+      "L2": 0.17,
+      "L3": 0.93,
+      "L4": 0.58,
+      "L5": 0.95
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 99,
+     "attempts": 1,
+     "inputTokens": 600
+    },
+    "highrisk": {
+     "collapse": "highrisk",
+     "context_id": "ctx-9db698c8-41a4-4c44-92a2-5a6fd55b33bf",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.11,
+      "L3": 0.92,
+      "L4": 0.57,
+      "L5": 0.95
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 112,
+     "attempts": 1,
+     "inputTokens": 582
+    }
+   },
+   "answers": {
+    "direct": {
+     "R": false,
+     "M": {}
+    },
+    "mid": {
+     "R": false,
+     "M": {
+      "M1": false,
+      "M2": false
+     }
+    },
+    "decomposed": {
+     "R": true,
+     "M": {
+      "M1": false,
+      "M2": true
+     }
+    },
+    "highrisk": {
+     "R": true,
+     "M": {
+      "M1": false,
+      "M2": true
+     }
+    }
+   }
+  },
+  {
+   "id": "doc:12",
+   "state": {
+    "question": "How do I build agent memory without depending on a specific provider?",
+    "chunk": "## Custom Tool\n\nBuilding your own memory tool from scratch is the most flexible approach. You control the storage format, the interface, and the retrieval logic. This requires the most upfront work but gives you full ownership of how memory works, with no provider lock-in and no external dependencies.\n\nThere are two common patterns:\n\n- Structured actions: you define explicit operations (`view`, `create`, `update`, `search`) and handle structured input yourself. Safe by design since you control every operation.\n- Bash-backed: you give the model a sandboxed bash environment to compose shell commands (`cat`, `grep`, `sed`, `echo`) for flexible memory access. More powerful but requires command validation for safety."
+   },
+   "label": null,
+   "calls": {
+    "direct": {
+     "collapse": "direct",
+     "context_id": "ctx-300857d3-bab5-487c-9638-63edc741b4c1",
+     "failedContextIds": [],
+     "p": {
+      "R": 0.83
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 123,
+     "attempts": 1,
+     "inputTokens": 454
+    },
+    "mid": {
+     "collapse": "mid",
+     "context_id": "ctx-97afee45-2b64-4795-9ba4-6357b366d0b3",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.86,
+      "M2": 0.09
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 116,
+     "attempts": 1,
+     "inputTokens": 489
+    },
+    "decomposed": {
+     "collapse": "decomposed",
+     "context_id": "ctx-ea157f95-01bc-4d3a-ba57-69f95116f807",
+     "failedContextIds": [],
+     "p": {
+      "L1": 0.88,
+      "L2": 0.94,
+      "L3": 0.13,
+      "L4": 0.04,
+      "L5": 0.14
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 138,
+     "attempts": 1,
+     "inputTokens": 549
+    },
+    "highrisk": {
+     "collapse": "highrisk",
+     "context_id": "ctx-e8a17b6d-c45d-4ea8-8cd9-65d70ed5d87c",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.84,
+      "L3": 0.14,
+      "L4": 0.04,
+      "L5": 0.15
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 148,
+     "attempts": 1,
+     "inputTokens": 531
+    }
+   },
+   "answers": {
+    "direct": {
+     "R": true,
+     "M": {}
+    },
+    "mid": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": false
+     }
+    },
+    "decomposed": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": false
+     }
+    },
+    "highrisk": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": false
+     }
+    }
+   }
+  },
+  {
+   "id": "doc:13",
+   "state": {
+    "question": "How do I build agent memory without depending on a specific provider?",
+    "chunk": "### Anthropic Memory Tool\n\nThe Anthropic Memory Tool gives Claude a structured interface for managing a `/memories` directory. Claude reads its memory before starting tasks, creates and updates files as it works, and references them in future conversations.\n\n```ts\nimport { anthropic } from '@ai-sdk/anthropic';\nimport { ToolLoopAgent } from 'ai';\n\nconst memory = anthropic.tools.memory_20250818({\n  execute: async action => {\n    // Implement your storage backend here.\n    // Return the result as a string.\n  },\n});\n\nconst agent = new ToolLoopAgent({\n  model: 'anthropic/claude-haiku-4.5',\n  tools: { memory },\n});\n```\n\nWhen to use this: you want memory with minimal implementation effort and are already using Anthropic models. The tradeoff is provider lock-in, since this tool only works with Claude."
+   },
+   "label": null,
+   "calls": {
+    "direct": {
+     "collapse": "direct",
+     "context_id": "ctx-3dfe4139-90bb-4501-8c8f-7cac51aebcf1",
+     "failedContextIds": [],
+     "p": {
+      "R": 0.36
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 145,
+     "attempts": 1,
+     "inputTokens": 507
+    },
+    "mid": {
+     "collapse": "mid",
+     "context_id": "ctx-ba1b80f6-4dd3-4572-912a-5be1364ae2d7",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.15,
+      "M2": 0.52
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 152,
+     "attempts": 1,
+     "inputTokens": 542
+    },
+    "decomposed": {
+     "collapse": "decomposed",
+     "context_id": "ctx-8e42af80-029d-4ab7-9a07-e70900d703ab",
+     "failedContextIds": [],
+     "p": {
+      "L1": 0.71,
+      "L2": 0.27,
+      "L3": 0.81,
+      "L4": 0.29,
+      "L5": 0.93
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 141,
+     "attempts": 1,
+     "inputTokens": 602
+    },
+    "highrisk": {
+     "collapse": "highrisk",
+     "context_id": "ctx-c98b48d7-7e26-4bab-a403-a67b068fd4d3",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.18,
+      "L3": 0.81,
+      "L4": 0.29,
+      "L5": 0.94
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 170,
+     "attempts": 1,
+     "inputTokens": 584
+    }
+   },
+   "answers": {
+    "direct": {
+     "R": false,
+     "M": {}
+    },
+    "mid": {
+     "R": true,
+     "M": {
+      "M1": false,
+      "M2": true
+     }
+    },
+    "decomposed": {
+     "R": true,
+     "M": {
+      "M1": false,
+      "M2": true
+     }
+    },
+    "highrisk": {
+     "R": true,
+     "M": {
+      "M1": false,
+      "M2": true
+     }
+    }
+   }
+  },
+  {
+   "id": "doc:14",
+   "state": {
+    "question": "What callback fires when a stream is aborted by the user?",
+    "chunk": "## Handling stream aborts\n\nWhen streams are aborted (e.g., via chat stop button), you may want to perform cleanup operations like updating stored messages in your UI. Use the `onAbort` callback to handle these cases.\n\nThe `onAbort` callback is called when a stream is aborted via `AbortSignal`, but `onEnd` is not called. This ensures you can still update your UI state appropriately.\n\n```ts\nimport { streamText } from 'ai';\n\nconst { textStream } = streamText({\n  model: __MODEL__,\n  prompt: 'Write a vegetarian lasagna recipe for 4 people.',\n  onAbort: ({ steps }) => {\n    console.log('Stream aborted after', steps.length, 'steps');\n  },\n  onEnd: ({ steps, totalUsage }) => {\n    console.log('Stream completed normally');\n  },\n});\n```\n\nThe `onAbort` callback receives:\n\n- `steps`: An array of all completed steps before the abort"
+   },
+   "label": null,
+   "calls": {
+    "direct": {
+     "collapse": "direct",
+     "context_id": "ctx-e381d6ea-2fc1-4135-afb6-f3068c04145c",
+     "failedContextIds": [],
+     "p": {
+      "R": 0.92
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 193,
+     "attempts": 1,
+     "inputTokens": 519
+    },
+    "mid": {
+     "collapse": "mid",
+     "context_id": "ctx-1948d5c7-7000-46f2-b305-7dbd14148601",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.97,
+      "M2": 0.92
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 94,
+     "attempts": 1,
+     "inputTokens": 554
+    },
+    "decomposed": {
+     "collapse": "decomposed",
+     "context_id": "ctx-13538ec6-ca51-4cb4-9b9a-10231515296f",
+     "failedContextIds": [],
+     "p": {
+      "L1": 0.96,
+      "L2": 0.98,
+      "L3": 0.89,
+      "L4": 0.32,
+      "L5": 0.94
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 126,
+     "attempts": 1,
+     "inputTokens": 614
+    },
+    "highrisk": {
+     "collapse": "highrisk",
+     "context_id": "ctx-4664bff2-9dd9-44bd-bc65-0ee029d95860",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.97,
+      "L3": 0.88,
+      "L4": 0.29,
+      "L5": 0.94
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 116,
+     "attempts": 1,
+     "inputTokens": 596
+    }
+   },
+   "answers": {
+    "direct": {
+     "R": true,
+     "M": {}
+    },
+    "mid": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": true
+     }
+    },
+    "decomposed": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": true
+     }
+    },
+    "highrisk": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": true
+     }
+    }
+   }
+  },
+  {
+   "id": "doc:15",
+   "state": {
+    "question": "What callback fires when a stream is aborted by the user?",
+    "chunk": "## Retrying provider errors after streaming starts\n\n`maxRetries` retries failures that happen while starting a model call. To retry well-formed provider error events received after response streaming has begun, set `streamRetries`:\n\n```ts\nimport { streamText } from 'ai';\n\nconst { textStream } = streamText({\n  model: __MODEL__,\n  prompt: 'Write a vegetarian lasagna recipe for 4 people.',\n  streamRetries: 2,\n});\n```\n\nStream retries rerun only the failed model step with the same accumulated conversation and generation context. Earlier completed steps, including their tool calls and tool results, are not replayed. Tool input, tool calls, approval requests, tool callbacks, and client-side tool execution from a failed attempt are discarded."
+   },
+   "label": null,
+   "calls": {
+    "direct": {
+     "collapse": "direct",
+     "context_id": "ctx-9459909b-2b03-439a-a056-36b041325c57",
+     "failedContextIds": [],
+     "p": {
+      "R": 0.07
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 143,
+     "attempts": 1,
+     "inputTokens": 474
+    },
+    "mid": {
+     "collapse": "mid",
+     "context_id": "ctx-91a02f4c-be78-4db1-8558-6d49274bf2a1",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.03,
+      "M2": 0.55
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 168,
+     "attempts": 1,
+     "inputTokens": 509
+    },
+    "decomposed": {
+     "collapse": "decomposed",
+     "context_id": "ctx-07b073a4-e06d-4c6b-b074-9bc77f435350",
+     "failedContextIds": [],
+     "p": {
+      "L1": 0.07,
+      "L2": 0.04,
+      "L3": 0.5,
+      "L4": 0.46,
+      "L5": 0.86
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 127,
+     "attempts": 1,
+     "inputTokens": 569
+    },
+    "highrisk": {
+     "collapse": "highrisk",
+     "context_id": "ctx-16ed85b7-109c-4144-9446-dda27094119c",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.04,
+      "L3": 0.47,
+      "L4": 0.45,
+      "L5": 0.85
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 126,
+     "attempts": 1,
+     "inputTokens": 551
+    }
+   },
+   "answers": {
+    "direct": {
+     "R": false,
+     "M": {}
+    },
+    "mid": {
+     "R": true,
+     "M": {
+      "M1": false,
+      "M2": true
+     }
+    },
+    "decomposed": {
+     "R": true,
+     "M": {
+      "M1": false,
+      "M2": true
+     }
+    },
+    "highrisk": {
+     "R": false,
+     "M": {
+      "M1": false,
+      "M2": false
+     }
+    }
+   }
+  },
+  {
+   "id": "doc:16",
+   "state": {
+    "question": "What is a large language model, conceptually?",
+    "chunk": "## Large Language Models\n\nA large language model (LLM) is a subset of generative models focused primarily on text. An LLM takes a sequence of words as input and aims to predict the most likely sequence to follow. It assigns probabilities to potential next sequences and then selects one. The model continues to generate sequences until it meets a specified stopping criterion.\n\nLLMs learn by training on massive collections of written text, which means they will be better suited to some use cases than others. For example, a model trained on GitHub data would understand the probabilities of sequences in source code particularly well.\n\nHowever, it's crucial to understand LLMs' limitations. When asked about less known or absent information, like the birthday of a personal relative, LLMs might \"hallucinate\" or make up information. It's essential to consider how well-represented the information you need is in the model."
+   },
+   "label": null,
+   "calls": {
+    "direct": {
+     "collapse": "direct",
+     "context_id": "ctx-9dbc0175-83f4-4c42-ba55-48a7a4500c9c",
+     "failedContextIds": [],
+     "p": {
+      "R": 0.9
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 105,
+     "attempts": 1,
+     "inputTokens": 492
+    },
+    "mid": {
+     "collapse": "mid",
+     "context_id": "ctx-613f20c3-d780-4a52-bff3-3caf8fbe3e7a",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.91,
+      "M2": 0.03
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 112,
+     "attempts": 1,
+     "inputTokens": 527
+    },
+    "decomposed": {
+     "collapse": "decomposed",
+     "context_id": "ctx-b9d4c418-37c9-4a24-8adb-036a94ef056a",
+     "failedContextIds": [],
+     "p": {
+      "L1": 0.94,
+      "L2": 0.94,
+      "L3": 0.05,
+      "L4": 0.02,
+      "L5": 0.02
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 137,
+     "attempts": 1,
+     "inputTokens": 587
+    },
+    "highrisk": {
+     "collapse": "highrisk",
+     "context_id": "ctx-eb041cec-5451-423e-a9bd-b1bed81c9f8c",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.91,
+      "L3": 0.05,
+      "L4": 0.02,
+      "L5": 0.02
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 118,
+     "attempts": 1,
+     "inputTokens": 569
+    }
+   },
+   "answers": {
+    "direct": {
+     "R": true,
+     "M": {}
+    },
+    "mid": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": false
+     }
+    },
+    "decomposed": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": false
+     }
+    },
+    "highrisk": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": false
+     }
+    }
+   }
+  },
+  {
+   "id": "doc:17",
+   "state": {
+    "question": "What does the maxParallelCalls option do in embedMany?",
+    "chunk": "### Parallel Requests\n\nThe `embedMany` function now supports parallel processing with configurable `maxParallelCalls` to optimize performance:\n\n```ts\nimport { embedMany } from 'ai';\n\nconst { embeddings, usage } = await embedMany({\n  maxParallelCalls: 2, // Limit parallel requests\n  model: 'openai/text-embedding-3-small',\n  values: [\n    'sunny day at the beach',\n    'rainy afternoon in the city',\n    'snowy night in the mountains',\n  ],\n});\n```"
+   },
+   "label": null,
+   "calls": {
+    "direct": {
+     "collapse": "direct",
+     "context_id": "ctx-697dd079-1afa-4fa2-8508-4b2277497b2d",
+     "failedContextIds": [],
+     "p": {
+      "R": 0.94
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 115,
+     "attempts": 1,
+     "inputTokens": 428
+    },
+    "mid": {
+     "collapse": "mid",
+     "context_id": "ctx-f82bf226-ae9e-4b8d-9368-eed77b547e0d",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.96,
+      "M2": 0.9
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 115,
+     "attempts": 1,
+     "inputTokens": 463
+    },
+    "decomposed": {
+     "collapse": "decomposed",
+     "context_id": "ctx-4e63e1cb-c34f-4130-bf15-7bf55db0a3bc",
+     "failedContextIds": [],
+     "p": {
+      "L1": 0.99,
+      "L2": 0.97,
+      "L3": 0.78,
+      "L4": 0.76,
+      "L5": 0.89
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 117,
+     "attempts": 1,
+     "inputTokens": 523
+    },
+    "highrisk": {
+     "collapse": "highrisk",
+     "context_id": "ctx-f8b79eba-8119-46cc-87dd-70c36ed3f415",
+     "failedContextIds": [],
+     "p": {
+      "M1": 0.96,
+      "L3": 0.76,
+      "L4": 0.78,
+      "L5": 0.87
+     },
+     "answeredBy": "jev-1.13.0",
+     "ms": 141,
+     "attempts": 1,
+     "inputTokens": 505
+    }
+   },
+   "answers": {
+    "direct": {
+     "R": true,
+     "M": {}
+    },
+    "mid": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": true
+     }
+    },
+    "decomposed": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": true
+     }
+    },
+    "highrisk": {
+     "R": true,
+     "M": {
+      "M1": true,
+      "M2": true
+     }
+    }
+   }
+  }
+ ]
+}

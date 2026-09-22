@@ -137,8 +137,15 @@ export function viewItem(t: Tree, it: ItemRec): ItemView | null {
   let failingEdges: string[] = [];
   if (!consistent) {
     failingEdges = t.root.children.map(m => leafGroup(m.id)).filter(g => loadBearing[g]);
+    // Jointly load-bearing (added after the run, see OC-REPORT.md): no single L*-Mi flips R, but all disagreeing ones together do.
+    if (!failingEdges.length) {
+      const dis = t.root.children.filter(m => edges[leafGroup(m.id)]);
+      const swapped = { ...mid, ...Object.fromEntries(dis.map(m => [m.id, dec[m.id]])) };
+      if (dis.length > 1 && compose(t.root.compose, swapped) !== fromMids) failingEdges = dis.map(m => leafGroup(m.id));
+    }
     if (!failingEdges.length && edges['M*-R']) failingEdges = ['M*-R'];
-    if (!failingEdges.length) failingEdges = ['highrisk-only'];
+    // Only the high-risk collapse differs: its M re-read in another batch crossed 0.5 (the P4/P31 replication).
+    if (!failingEdges.length) failingEdges = ['highrisk-reread'];
   }
   return { id: it.id, label: it.label, R, consistent, edges, loadBearing, failingEdges, nearThreshold, leafPivots, midPivots };
 }
@@ -258,7 +265,8 @@ function yamlReport(t: Tree, res: TreeResult, a: ReturnType<typeof analyzeTree>)
   });
   const comps = Object.entries(a.pairwise).map(([k, v]) => {
     const [x, y] = k.split('~');
-    return `  - {a: ${x}, b: ${y}, equivalence: bool, score: ${v.rate}, verdict: ${(v.rate ?? 0) >= 0.5 ? 'agree' : 'disagree'},\n` +
+    // Per item the skill scores a pair 1/0; aggregated, a pair "agrees" at the declared tree bar OC_MIN, not at 0.5.
+    return `  - {a: ${x}, b: ${y}, equivalence: bool, score: ${v.rate}, verdict: ${(v.rate ?? 0) >= OC_MIN ? 'agree' : 'disagree'},\n` +
       `     evidence: ${q(`root bool (p >= ${THRESHOLD}) equal on ${v.agree}/${v.n} items; per-item values in oc-${t.slug}.json`)}}`;
   });
   const edgeLines = a.edges.map(e => `  - {edge: ${q(e.edge)}, disagree: ${e.disagree}, n: ${e.n}, rate: ${e.rate}, ci95: [${e.ci95?.join(', ')}], load_bearing: ${e.loadBearing}, near_threshold_p4: ${e.nearThreshold}, pivots: ${JSON.stringify(e.pivots)}${e.highRisk ? ', declared_high_risk: true' : ''}}`);
