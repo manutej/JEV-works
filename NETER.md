@@ -341,4 +341,12 @@ latency, question count does not.
   senderWroteASentence/hasNamedCompany); (2) **direction of intent**: `buyingSignal` reads a pitch *to* us (partnership, vendor) as
   purchase intent (confident-no on only 32/119 pool-C non-buyers). A literal split is the next test ("is the sender offering to sell
   or provide something to us?").
+- **Cookbooks round 2 (feat/demos 768b311, no new calls).** Standard gate suites per domain. Declared headline (vs fit-split keywords):
+  5 ACCEPT, 1 REFUSE (review-triage, G9.uncalibrated: its cost cut rests on a score that fails calibration on test). Post-hoc headline
+  (vs naive Bayes): issue-triage REFUSE, G7.contradiction on the "question" stratum. Every suite carries G8.unstable (n=100 fit).
+  Bounded gates (post-hoc, 5–10% error budget): intent-routing accepts ≥ 0.967 on 66.7% of test at 0% error; review-triage rejects
+  ≤ 0.272 on 36% at 0% error; the other four find no cut at n=100 and escalate everything (L44). All six contexts lint 0 errors.
+  **Sharing caveats:** EMSCAD (job-postings) has no licence from its authors, so `job-postings/spec.json` and `items.meta.json` contain
+  ad text and must stay out of any public copy (the page shows aggregates and paraphrases only); LEDGAR's own licence is unconfirmed
+  (LexGLUE card says CC BY 4.0, prose blank); NLBSE'23 is AGPL-3.0, so examples are capped and attributed.
 
