@@ -9,7 +9,7 @@ import type { Item, Question, Spec } from '../spec.ts';
 import type { Atom, Context, Module } from './meta-type.ts';
 
 /** Strip the meta-type's annotations: the API receives exactly the documented question shape. */
-export const toQuestion = ({ polarity, reads, escapeOption, note, ...q }: Atom): Question => q as Question;
+export const toQuestion = ({ polarity, reads, escapeOption, note, lintExceptions, ...q }: Atom): Question => q as Question;
 
 export function moduleOf(c: Context, name: string): Module {
   const m = c.modules.find(x => x.name === name);

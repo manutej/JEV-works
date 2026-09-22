@@ -96,3 +96,12 @@ test('compose rules decide as written (input-validation, no model)', () => {
   assert.equal(decide({ readsExternalInput: p(0.95), castWithoutCheck: p(0.95), validatesBeforeUse: p(0.95) }, m.compose).verdict, false);
   assert.equal(decide({ readsExternalInput: p(0.5) }, m.compose).verdict, 'escalate');
 });
+
+test('lintExceptions waive a named rule with a reason (reported as a warning); M1 and empty reasons never waive', () => {
+  const cmp: Atom = { ...good, instructions: 'Does the message explicitly compare this product to a named competitor?' };
+  assert.ok(rules(cmp).includes('error:M2-literal'));
+  const waived = lintAtom('q', { ...cmp, lintExceptions: { 'M2-literal': 'asks whether THIS message compares us; one record answers it' } }, ['code'], 'q');
+  assert.ok(waived.some(f => f.rule === 'M2-literal' && f.severity === 'warn' && f.message.startsWith('waived (')));
+  assert.ok(rules({ ...cmp, lintExceptions: { 'M2-literal': '  ' } }).includes('error:M2-literal'));
+  assert.ok(rules({ ...good, type: 'score', criteria: ['one'] as any, polarity: 'higher-is-better', lintExceptions: { 'M1-typed': 'no' } }).includes('error:M1-typed'));
+});
