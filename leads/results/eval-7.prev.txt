@@ -120,19 +120,17 @@ code-gate savings (no model call at all): {
 }
 
 ═══ baseline comparison ═══
-qualified accuracy over ALL 600 leads (escalation = not correct) — jev: 67.8%  regex: 92.2%
-coverage (leads given a verdict)                              — jev: 69.7%  regex: 100.0%
-accuracy on own verdicts only (NOT comparable across coverage) — jev: 97.4%  regex: 92.2%
+overall qualified accuracy — jev: 97.4%  regex: 92.2%
 
-per-category qualified accuracy, jev vs regex (AccAll counts escalations as wrong; AccOwn is on own verdicts only):
-category        n    jevCoverage  jevAccAll  jevAccOwn  regexAccAll
-──────────────  ───  ───────────  ─────────  ─────────  ───────────
-clean_in_icp    210  100.0%       100.0%     100.0%     100.0%     
-clean_out_icp   150  51.3%        51.3%      100.0%     100.0%     
-ambiguous       90   17.8%        6.7%       37.5%      56.7%      
-garbage         60   100.0%       100.0%     100.0%     100.0%     
-adversarial     30   56.7%        56.7%      100.0%     100.0%     
-near_duplicate  60   63.3%        61.7%      97.4%      86.7%      
+per-category qualified accuracy, jev vs regex:
+category        n    jevAcc  regexAcc
+──────────────  ───  ──────  ────────
+clean_in_icp    210  100.0%  100.0%  
+clean_out_icp   150  100.0%  100.0%  
+ambiguous       90   37.5%   56.7%   
+garbage         60   100.0%  100.0%  
+adversarial     30   100.0%  100.0%  
+near_duplicate  60   97.4%   86.7%   
 
 Head-to-head on the ambiguous subset specifically is the row above labelled "ambiguous" — this is the bucket planted to have two defensible answers, so neither system "winning" it decisively would be surprising; a large gap either way is worth a second look before trusting it.
 

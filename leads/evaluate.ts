@@ -268,11 +268,28 @@ function qualifiedAccuracy(predictions: Map<string, boolean | null>): number {
   return scored ? correct / scored : NaN;
 }
 
+/**
+ * Accuracy over EVERY lead in `ids`, an abstention (null) counted as not-correct. qualifiedAccuracy
+ * alone scores a system only on what it chose to answer, so a system that escalates 86% can read
+ * as 100% — the seed-42 pre-gate run did. Always print this beside it, with coverage.
+ */
+function overAll(predictions: Map<string, boolean | null>, ids: readonly string[]) {
+  const answered = ids.filter(id => (predictions.get(id) ?? null) !== null);
+  const correct = answered.filter(id => predictions.get(id) === truth[id].trueQualified).length;
+  return { coverage: answered.length / ids.length, accuracyAll: correct / ids.length };
+}
+const pct = (x: number) => (x * 100).toFixed(1) + '%';
+
 const jevQualifiedPreds = new Map(pipelineResults.map(r => [r.leadId, r.final.qualified as boolean | null]));
 const baseQualifiedPreds = new Map(baselinePredictions.map(p => [p.leadId, p.qualified as boolean | null]));
 
 console.log('\n═══ baseline comparison ═══');
-console.log(`overall qualified accuracy — jev: ${(qualifiedAccuracy(jevQualifiedPreds) * 100).toFixed(1)}%  regex: ${(qualifiedAccuracy(baseQualifiedPreds) * 100).toFixed(1)}%`);
+const allIds = Object.keys(truth);
+const jevAll = overAll(jevQualifiedPreds, allIds);
+const baseAll = overAll(baseQualifiedPreds, allIds);
+console.log(`qualified accuracy over ALL ${allIds.length} leads (escalation = not correct) — jev: ${pct(jevAll.accuracyAll)}  regex: ${pct(baseAll.accuracyAll)}`);
+console.log(`coverage (leads given a verdict)                              — jev: ${pct(jevAll.coverage)}  regex: ${pct(baseAll.coverage)}`);
+console.log(`accuracy on own verdicts only (NOT comparable across coverage) — jev: ${pct(qualifiedAccuracy(jevQualifiedPreds))}  regex: ${pct(qualifiedAccuracy(baseQualifiedPreds))}`);
 
 const perCategory: Array<Record<string, unknown>> = [];
 for (const cat of ['clean_in_icp', 'clean_out_icp', 'ambiguous', 'garbage', 'adversarial', 'near_duplicate'] as LeadCategory[]) {
@@ -282,11 +299,13 @@ for (const cat of ['clean_in_icp', 'clean_out_icp', 'ambiguous', 'garbage', 'adv
   perCategory.push({
     category: cat,
     n: ids.length,
-    jevAcc: (qualifiedAccuracy(jevMap) * 100).toFixed(1) + '%',
-    regexAcc: (qualifiedAccuracy(baseMap) * 100).toFixed(1) + '%',
+    jevCoverage: pct(overAll(jevMap, ids).coverage),
+    jevAccAll: pct(overAll(jevMap, ids).accuracyAll),
+    jevAccOwn: pct(qualifiedAccuracy(jevMap)),
+    regexAccAll: pct(overAll(baseMap, ids).accuracyAll),
   });
 }
-console.log('\nper-category qualified accuracy, jev vs regex:');
+console.log('\nper-category qualified accuracy, jev vs regex (AccAll counts escalations as wrong; AccOwn is on own verdicts only):');
 table(perCategory);
 
 console.log(
