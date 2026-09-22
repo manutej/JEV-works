@@ -1,0 +1,1316 @@
+{
+  "domain": "issue-triage",
+  "testResult": "cookbooks/issue-triage/results/test.json",
+  "model": "jev-1.13.0 (direct)",
+  "answeredBy": [
+    "jev-1.13.0"
+  ],
+  "n": 150,
+  "unanswered": 0,
+  "rule": {
+    "kind": "choice",
+    "target": "issueType",
+    "fittedOn": {
+      "result": "cookbooks/issue-triage/results/fit.json",
+      "n": 100,
+      "unanswered": 0
+    },
+    "gate": {
+      "confidenceAtLeast": 0.973,
+      "maxAutoError": 0.1,
+      "why": "A wrong auto-label sends an issue to the wrong queue (a bug lands with the roadmap owner instead of on-call, or a question waits for a fix that never comes), but a triager re-labels it in seconds, and the ground truth here is itself maintainer labels with visible noise. Auto-label only above the confidence where the fit split erred at most 1 in 10; everything below stays in the human triage queue unlabelled.",
+      "fitCoverage": 0.6,
+      "fitAutoError": 0.1
+    },
+    "fitAccuracy": 0.82,
+    "frozenAt": "2026-09-22T07:55:27.736Z"
+  },
+  "baselineName": "keyword lists (top 8 per class by log-odds, fit split only)",
+  "majority": "bug",
+  "forced": {
+    "what": "every test item decided by the frozen rule; unanswered items count wrong",
+    "jevAccuracy": 0.76,
+    "baselineAccuracy": 0.4,
+    "majorityAccuracy": 0.333,
+    "vsBaseline": {
+      "n": 150,
+      "accuracyA": 0.76,
+      "accuracyB": 0.4,
+      "b": 62,
+      "c": 8,
+      "p": 1.83e-11,
+      "different": true,
+      "deltaCI95": [
+        0.26,
+        0.4533333333333333
+      ]
+    },
+    "vsMajority": {
+      "n": 150,
+      "accuracyA": 0.76,
+      "accuracyB": 0.3333333333333333,
+      "b": 68,
+      "c": 4,
+      "p": 4.62e-16,
+      "different": true,
+      "deltaCI95": [
+        0.3333333333333333,
+        0.5133333333333333
+      ]
+    }
+  },
+  "gated": {
+    "what": "act only outside the escalate band / above the confidence cut, frozen from the fit split",
+    "coverage": 0.593,
+    "autoN": 89,
+    "escalated": 61,
+    "autoAccuracy": 0.865,
+    "baselineOnSameItems": 0.461,
+    "vsBaselineOnSameItems": {
+      "n": 89,
+      "accuracyA": 0.8651685393258427,
+      "accuracyB": 0.4606741573033708,
+      "b": 38,
+      "c": 2,
+      "p": 1.49e-9,
+      "different": true,
+      "deltaCI95": [
+        0.29213483146067415,
+        0.5056179775280899
+      ]
+    },
+    "allItemsEscalationsWrong": 0.513
+  },
+  "strata": [
+    {
+      "label": "feature",
+      "n": 50,
+      "jev": 0.88,
+      "baseline": 0.1,
+      "b": 39,
+      "c": 0,
+      "p": 3.64e-12
+    },
+    {
+      "label": "question",
+      "n": 50,
+      "jev": 0.48,
+      "baseline": 0.16,
+      "b": 20,
+      "c": 4,
+      "p": 0.00154
+    },
+    {
+      "label": "bug",
+      "n": 50,
+      "jev": 0.92,
+      "baseline": 0.94,
+      "b": 3,
+      "c": 4,
+      "p": 1
+    }
+  ],
+  "items": [
+    {
+      "id": "t001",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "feature"
+    },
+    {
+      "id": "t002",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 0.987,
+      "baseline": "bug"
+    },
+    {
+      "id": "t003",
+      "label": "question",
+      "pred": "question",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t004",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t005",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t006",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 0.973,
+      "baseline": "question"
+    },
+    {
+      "id": "t007",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 0.987,
+      "baseline": "bug"
+    },
+    {
+      "id": "t008",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t009",
+      "label": "question",
+      "pred": "question",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "question"
+    },
+    {
+      "id": "t010",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 0.987,
+      "baseline": "bug"
+    },
+    {
+      "id": "t011",
+      "label": "question",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 0.987,
+      "baseline": "bug"
+    },
+    {
+      "id": "t012",
+      "label": "question",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.92,
+      "baseline": "bug"
+    },
+    {
+      "id": "t013",
+      "label": "bug",
+      "pred": "none",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t014",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 0.987,
+      "baseline": "bug"
+    },
+    {
+      "id": "t015",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 0.987,
+      "baseline": "bug"
+    },
+    {
+      "id": "t016",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 0.987,
+      "baseline": "bug"
+    },
+    {
+      "id": "t017",
+      "label": "question",
+      "pred": "question",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t018",
+      "label": "bug",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.507,
+      "baseline": "feature"
+    },
+    {
+      "id": "t019",
+      "label": "question",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.747,
+      "baseline": "bug"
+    },
+    {
+      "id": "t020",
+      "label": "question",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.347,
+      "baseline": "bug"
+    },
+    {
+      "id": "t021",
+      "label": "question",
+      "pred": "question",
+      "auto": false,
+      "confidence": 0.907,
+      "baseline": "feature"
+    },
+    {
+      "id": "t022",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t023",
+      "label": "question",
+      "pred": "question",
+      "auto": false,
+      "confidence": 0.92,
+      "baseline": "bug"
+    },
+    {
+      "id": "t024",
+      "label": "feature",
+      "pred": "feature",
+      "auto": false,
+      "confidence": 0.907,
+      "baseline": "bug"
+    },
+    {
+      "id": "t025",
+      "label": "question",
+      "pred": "question",
+      "auto": false,
+      "confidence": 0.907,
+      "baseline": "bug"
+    },
+    {
+      "id": "t026",
+      "label": "bug",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.347,
+      "baseline": "bug"
+    },
+    {
+      "id": "t027",
+      "label": "question",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t028",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "question"
+    },
+    {
+      "id": "t029",
+      "label": "bug",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.88,
+      "baseline": "bug"
+    },
+    {
+      "id": "t030",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 0.973,
+      "baseline": "bug"
+    },
+    {
+      "id": "t031",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t032",
+      "label": "question",
+      "pred": "question",
+      "auto": false,
+      "confidence": 0.787,
+      "baseline": "bug"
+    },
+    {
+      "id": "t033",
+      "label": "question",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.48,
+      "baseline": "question"
+    },
+    {
+      "id": "t034",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t035",
+      "label": "question",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.867,
+      "baseline": "bug"
+    },
+    {
+      "id": "t036",
+      "label": "question",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.387,
+      "baseline": "feature"
+    },
+    {
+      "id": "t037",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 0.973,
+      "baseline": "feature"
+    },
+    {
+      "id": "t038",
+      "label": "feature",
+      "pred": "none",
+      "auto": false,
+      "confidence": 0.387,
+      "baseline": "bug"
+    },
+    {
+      "id": "t039",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t040",
+      "label": "question",
+      "pred": "question",
+      "auto": false,
+      "confidence": 0.933,
+      "baseline": "bug"
+    },
+    {
+      "id": "t041",
+      "label": "bug",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.933,
+      "baseline": "bug"
+    },
+    {
+      "id": "t042",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t043",
+      "label": "question",
+      "pred": "question",
+      "auto": false,
+      "confidence": 0.573,
+      "baseline": "question"
+    },
+    {
+      "id": "t044",
+      "label": "question",
+      "pred": "question",
+      "auto": false,
+      "confidence": 0.84,
+      "baseline": "bug"
+    },
+    {
+      "id": "t045",
+      "label": "feature",
+      "pred": "none",
+      "auto": false,
+      "confidence": 0.507,
+      "baseline": "bug"
+    },
+    {
+      "id": "t046",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "feature"
+    },
+    {
+      "id": "t047",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t048",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t049",
+      "label": "bug",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.853,
+      "baseline": "bug"
+    },
+    {
+      "id": "t050",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "question"
+    },
+    {
+      "id": "t051",
+      "label": "feature",
+      "pred": "question",
+      "auto": false,
+      "confidence": 0.613,
+      "baseline": "bug"
+    },
+    {
+      "id": "t052",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t053",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t054",
+      "label": "question",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t055",
+      "label": "bug",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.88,
+      "baseline": "bug"
+    },
+    {
+      "id": "t056",
+      "label": "question",
+      "pred": "feature",
+      "auto": false,
+      "confidence": 0.947,
+      "baseline": "feature"
+    },
+    {
+      "id": "t057",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "question"
+    },
+    {
+      "id": "t058",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t059",
+      "label": "bug",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.427,
+      "baseline": "bug"
+    },
+    {
+      "id": "t060",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 0.987,
+      "baseline": "bug"
+    },
+    {
+      "id": "t061",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t062",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "feature"
+    },
+    {
+      "id": "t063",
+      "label": "question",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.493,
+      "baseline": "question"
+    },
+    {
+      "id": "t064",
+      "label": "bug",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.773,
+      "baseline": "bug"
+    },
+    {
+      "id": "t065",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t066",
+      "label": "question",
+      "pred": "question",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "feature"
+    },
+    {
+      "id": "t067",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t068",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t069",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t070",
+      "label": "question",
+      "pred": "question",
+      "auto": false,
+      "confidence": 0.44,
+      "baseline": "bug"
+    },
+    {
+      "id": "t071",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t072",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t073",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t074",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t075",
+      "label": "question",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.96,
+      "baseline": "question"
+    },
+    {
+      "id": "t076",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 0.987,
+      "baseline": "bug"
+    },
+    {
+      "id": "t077",
+      "label": "question",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 0.973,
+      "baseline": "bug"
+    },
+    {
+      "id": "t078",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 0.987,
+      "baseline": "bug"
+    },
+    {
+      "id": "t079",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t080",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t081",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 0.973,
+      "baseline": "feature"
+    },
+    {
+      "id": "t082",
+      "label": "question",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.747,
+      "baseline": "bug"
+    },
+    {
+      "id": "t083",
+      "label": "question",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 0.987,
+      "baseline": "feature"
+    },
+    {
+      "id": "t084",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t085",
+      "label": "question",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.427,
+      "baseline": "bug"
+    },
+    {
+      "id": "t086",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t087",
+      "label": "question",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.787,
+      "baseline": "bug"
+    },
+    {
+      "id": "t088",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t089",
+      "label": "question",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t090",
+      "label": "feature",
+      "pred": "question",
+      "auto": false,
+      "confidence": 0.733,
+      "baseline": "bug"
+    },
+    {
+      "id": "t091",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t092",
+      "label": "question",
+      "pred": "question",
+      "auto": false,
+      "confidence": 0.453,
+      "baseline": "bug"
+    },
+    {
+      "id": "t093",
+      "label": "feature",
+      "pred": "none",
+      "auto": true,
+      "confidence": 0.987,
+      "baseline": "bug"
+    },
+    {
+      "id": "t094",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t095",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t096",
+      "label": "feature",
+      "pred": "feature",
+      "auto": false,
+      "confidence": 0.693,
+      "baseline": "bug"
+    },
+    {
+      "id": "t097",
+      "label": "question",
+      "pred": "question",
+      "auto": false,
+      "confidence": 0.68,
+      "baseline": "feature"
+    },
+    {
+      "id": "t098",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t099",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t100",
+      "label": "feature",
+      "pred": "question",
+      "auto": false,
+      "confidence": 0.76,
+      "baseline": "bug"
+    },
+    {
+      "id": "t101",
+      "label": "question",
+      "pred": "feature",
+      "auto": false,
+      "confidence": 0.427,
+      "baseline": "question"
+    },
+    {
+      "id": "t102",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 0.987,
+      "baseline": "bug"
+    },
+    {
+      "id": "t103",
+      "label": "question",
+      "pred": "feature",
+      "auto": false,
+      "confidence": 0.907,
+      "baseline": "bug"
+    },
+    {
+      "id": "t104",
+      "label": "feature",
+      "pred": "feature",
+      "auto": false,
+      "confidence": 0.867,
+      "baseline": "bug"
+    },
+    {
+      "id": "t105",
+      "label": "bug",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.96,
+      "baseline": "bug"
+    },
+    {
+      "id": "t106",
+      "label": "feature",
+      "pred": "feature",
+      "auto": false,
+      "confidence": 0.933,
+      "baseline": "bug"
+    },
+    {
+      "id": "t107",
+      "label": "question",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t108",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t109",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t110",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t111",
+      "label": "question",
+      "pred": "question",
+      "auto": false,
+      "confidence": 0.36,
+      "baseline": "bug"
+    },
+    {
+      "id": "t112",
+      "label": "question",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t113",
+      "label": "feature",
+      "pred": "feature",
+      "auto": false,
+      "confidence": 0.493,
+      "baseline": "bug"
+    },
+    {
+      "id": "t114",
+      "label": "question",
+      "pred": "question",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "question"
+    },
+    {
+      "id": "t115",
+      "label": "bug",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.96,
+      "baseline": "bug"
+    },
+    {
+      "id": "t116",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t117",
+      "label": "question",
+      "pred": "question",
+      "auto": false,
+      "confidence": 0.627,
+      "baseline": "bug"
+    },
+    {
+      "id": "t118",
+      "label": "bug",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.813,
+      "baseline": "bug"
+    },
+    {
+      "id": "t119",
+      "label": "bug",
+      "pred": "none",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t120",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t121",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t122",
+      "label": "question",
+      "pred": "question",
+      "auto": false,
+      "confidence": 0.387,
+      "baseline": "bug"
+    },
+    {
+      "id": "t123",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t124",
+      "label": "question",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.48,
+      "baseline": "bug"
+    },
+    {
+      "id": "t125",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 0.987,
+      "baseline": "bug"
+    },
+    {
+      "id": "t126",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t127",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t128",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t129",
+      "label": "question",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.96,
+      "baseline": "bug"
+    },
+    {
+      "id": "t130",
+      "label": "question",
+      "pred": "question",
+      "auto": true,
+      "confidence": 0.987,
+      "baseline": "bug"
+    },
+    {
+      "id": "t131",
+      "label": "feature",
+      "pred": "feature",
+      "auto": false,
+      "confidence": 0.8,
+      "baseline": "bug"
+    },
+    {
+      "id": "t132",
+      "label": "feature",
+      "pred": "feature",
+      "auto": false,
+      "confidence": 0.573,
+      "baseline": "bug"
+    },
+    {
+      "id": "t133",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t134",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t135",
+      "label": "question",
+      "pred": "question",
+      "auto": false,
+      "confidence": 0.747,
+      "baseline": "bug"
+    },
+    {
+      "id": "t136",
+      "label": "question",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.587,
+      "baseline": "bug"
+    },
+    {
+      "id": "t137",
+      "label": "question",
+      "pred": "question",
+      "auto": false,
+      "confidence": 0.747,
+      "baseline": "bug"
+    },
+    {
+      "id": "t138",
+      "label": "feature",
+      "pred": "feature",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t139",
+      "label": "bug",
+      "pred": "none",
+      "auto": false,
+      "confidence": 0.453,
+      "baseline": "bug"
+    },
+    {
+      "id": "t140",
+      "label": "question",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t141",
+      "label": "question",
+      "pred": "question",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "question"
+    },
+    {
+      "id": "t142",
+      "label": "bug",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.867,
+      "baseline": "bug"
+    },
+    {
+      "id": "t143",
+      "label": "bug",
+      "pred": "feature",
+      "auto": false,
+      "confidence": 0.72,
+      "baseline": "bug"
+    },
+    {
+      "id": "t144",
+      "label": "bug",
+      "pred": "bug",
+      "auto": false,
+      "confidence": 0.933,
+      "baseline": "bug"
+    },
+    {
+      "id": "t145",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t146",
+      "label": "feature",
+      "pred": "feature",
+      "auto": false,
+      "confidence": 0.947,
+      "baseline": "bug"
+    },
+    {
+      "id": "t147",
+      "label": "bug",
+      "pred": "bug",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t148",
+      "label": "question",
+      "pred": "question",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "bug"
+    },
+    {
+      "id": "t149",
+      "label": "question",
+      "pred": "question",
+      "auto": true,
+      "confidence": 0.987,
+      "baseline": "bug"
+    },
+    {
+      "id": "t150",
+      "label": "feature",
+      "pred": "feature",
+      "auto": false,
+      "confidence": 0.453,
+      "baseline": "question"
+    }
+  ],
+  "scoredAt": "2026-09-22T07:56:37.333Z"
+}

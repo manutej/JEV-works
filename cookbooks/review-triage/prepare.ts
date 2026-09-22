@@ -22,7 +22,7 @@
  */
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
-import { dedupe, fetchFile, keywordBaseline, maskPrivate, parseCsv, report, shuffle, stratified, writeSpecs, type Built } from '../_shared/lib.ts';
+import { dedupe, fetchFile, keywordBaseline, maskPrivate, parseCsv, report, shuffle, stratified, writeSpecs, type Built, writeStrongBaseline } from '../_shared/lib.ts';
 import type { Question } from '../../kit/spec.ts';
 
 const SEED = 20260922;
@@ -124,4 +124,12 @@ writeSpecs(import.meta.dirname, {
   name: 'review-triage',
   description: "E-commerce CX triage: would the reviewer NOT recommend this clothing item (a complaint the CX team should see)? One direct question plus narrow literal signals recombined in code. Women's E-Commerce Clothing Reviews (Kaggle, CC0); star rating withheld (leaks the label), age and ids dropped.",
   questions: QUESTIONS, items, baselineName: base.name,
+});
+
+// Post-hoc (added after the labelled test run; no Jev calls; never changes a declared verdict): STRONG_BASELINE=1 also
+// writes baseline.strong.json, a naive Bayes trained on up to 2,000 labelled source rows that are neither fit nor test.
+if (process.env.STRONG_BASELINE) writeStrongBaseline(import.meta.dirname, {
+  train: pool.filter(r => !fit.includes(r) && !test.includes(r)),
+  test: shuffle(test, SEED + 2).map((rec, i) => ({ id: `t${String(i + 1).padStart(3, '0')}`, rec })),
+  textOf: text, labelOf: r => r.label, toValue: v => v === 'notRec', source: 'Women\'s E-Commerce Clothing Reviews, rows not in fit or test', seed: SEED + 9,
 });

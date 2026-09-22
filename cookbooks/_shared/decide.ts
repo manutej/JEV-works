@@ -244,7 +244,7 @@ const out = {
 };
 writeFileSync(outPath, JSON.stringify(out, null, 2) + '\n');
 const pct = (x: number) => `${(x * 100).toFixed(1)}%`;
-console.log(`${spec.name}: n=${out.n} · forced Jev ${pct(forced.accuracyA)} vs ${spec.baselineName} ${pct(forced.accuracyB)} (b=${forced.b} c=${forced.c} p=${forced.p}) · majority ${pct(vsMajority.accuracyB)} (p=${vsMajority.p})`);
+console.log(`${spec.name}: n=${out.n} · forced Jev ${pct(forced.accuracyA)} vs ${spec.baselineName ?? 'baseline'} ${pct(forced.accuracyB)} (b=${forced.b} c=${forced.c} p=${forced.p}) · majority ${pct(vsMajority.accuracyB)} (p=${vsMajority.p})`);
 console.log(`gated: coverage ${pct(out.gated.coverage)} · auto accuracy ${out.gated.autoAccuracy === null ? '-' : pct(out.gated.autoAccuracy)} · baseline on same items ${out.gated.baselineOnSameItems === null ? '-' : pct(out.gated.baselineOnSameItems)}${onAuto ? ` (b=${onAuto.b} c=${onAuto.c} p=${onAuto.p})` : ''}`);
 for (const s of strata) console.log(`  stratum ${JSON.stringify(s.label)}: n=${s.n} Jev ${pct(s.jev)} vs baseline ${pct(s.baseline)} (b=${s.b} c=${s.c} p=${s.p})`);
 console.log(`→ ${outPath}`);

@@ -238,3 +238,45 @@ export function report(items: readonly Built[], q: string): void {
     console.log(`${s}: ${JSON.stringify(c)}`);
   }
 }
+
+// ---------------------------------------------------------------- post-hoc stronger baseline (no Jev calls)
+
+/**
+ * Naive Bayes (binary token presence, add-one smoothing) trained on up to `max` labelled SOURCE rows that are neither fit
+ * nor test items, drawn with the test split's class proportions. Added AFTER the labelled test run, because the declared
+ * fit-only keyword baseline turned out near chance in several domains: this answers "would a cheap model with 10–20×
+ * more labels have done as well?". It never changes a declared verdict. Written to baseline.strong.json.
+ */
+export function writeStrongBaseline<T>(dir: string, o: {
+  train: readonly T[]; test: readonly { id: string; rec: T }[]; textOf: (x: T) => string; labelOf: (x: T) => string;
+  toValue: (label: string) => Label; source: string; seed: number; max?: number;
+}): void {
+  const max = o.max ?? 2000;
+  const testCounts: Record<string, number> = {};
+  for (const t of o.test) testCounts[o.labelOf(t.rec)] = (testCounts[o.labelOf(t.rec)] ?? 0) + 1;
+  const avail: Record<string, number> = {};
+  for (const r of o.train) avail[o.labelOf(r)] = (avail[o.labelOf(r)] ?? 0) + 1;
+  const scale = Math.min(max / o.test.length, ...Object.entries(testCounts).map(([l, n]) => (avail[l] ?? 0) / n));
+  const quota = Object.fromEntries(Object.entries(testCounts).map(([l, n]) => [l, Math.floor(n * scale)]));
+  const train = stratified(shuffle(o.train, o.seed), o.labelOf, quota);
+  const labels = Object.keys(quota), docs = train.map(r => ({ l: o.labelOf(r), t: tokens(o.textOf(r)) }));
+  const nDocs: Record<string, number> = {}, df: Record<string, Map<string, number>> = {};
+  for (const l of labels) { nDocs[l] = docs.filter(d => d.l === l).length; df[l] = new Map(); }
+  for (const d of docs) for (const t of d.t) df[d.l].set(t, (df[d.l].get(t) ?? 0) + 1);
+  const vocab = new Set(docs.flatMap(d => [...d.t]));
+  const predict = (text: string) => {
+    const toks = [...tokens(text)].filter(t => vocab.has(t));
+    let best = labels[0], bestScore = -Infinity;
+    for (const l of labels) {
+      let s = Math.log(nDocs[l] / docs.length);
+      for (const t of toks) s += Math.log(((df[l].get(t) ?? 0) + 1) / (nDocs[l] + 2));
+      if (s > bestScore) { best = l; bestScore = s; }
+    }
+    return best;
+  };
+  const predictions = Object.fromEntries(o.test.map(t => [t.id, o.toValue(predict(o.textOf(t.rec)))]));
+  const out = { name: `naive Bayes on ${train.length} source rows (not fit, not test), test class proportions`, posthoc: true,
+    source: o.source, trainN: train.length, trainCounts: quota, seed: o.seed, predictions };
+  writeFileSync(join(dir, 'baseline.strong.json'), JSON.stringify(out, null, 1) + '\n');
+  console.log(`strong baseline: trained on ${train.length} rows ${JSON.stringify(quota)} → ${dir}/baseline.strong.json`);
+}

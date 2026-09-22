@@ -1,0 +1,1345 @@
+{
+  "domain": "youtube-spam",
+  "testResult": "cookbooks/youtube-spam/results/test.json",
+  "model": "jev-1.13.0 (direct)",
+  "answeredBy": [
+    "jev-1.13.0"
+  ],
+  "n": 150,
+  "unanswered": 0,
+  "rule": {
+    "kind": "binary",
+    "target": "isSpam",
+    "fittedOn": {
+      "result": "cookbooks/youtube-spam/results/fit.json",
+      "n": 100,
+      "unanswered": 0
+    },
+    "features": [
+      "asksToVisit",
+      "mentionsVideo",
+      "offersMoney",
+      "kind=promotion",
+      "kind=request",
+      "kind=reaction"
+    ],
+    "weights": {
+      "asksToVisit": 1.942,
+      "mentionsVideo": -1.64,
+      "offersMoney": 0.377,
+      "kind=promotion": 1.515,
+      "kind=request": 0.306,
+      "kind=reaction": -1.743
+    },
+    "bias": 0.519,
+    "lambda": 1,
+    "threshold": {
+      "t": 0.5,
+      "how": "minimises 3·FP + 1·FN on the fit split (fit cost 5)",
+      "why": "Hiding a genuine comment (false positive) silences a real person and costs a moderator appeal; a missed spam comment is one more link in a thread. 3:1 is a moderation-team convention, not a measured cost."
+    },
+    "band": {
+      "lo": 0.5,
+      "hi": 0.5,
+      "maxAutoError": 0.05,
+      "why": "Auto-hide or auto-keep only where the fit split made at most 1 error in 20; everything between goes to the moderation queue.",
+      "fitCoverage": 1,
+      "fitAutoError": 0.03
+    },
+    "fitAccuracy": 0.97,
+    "frozenAt": "2026-09-22T07:55:27.187Z"
+  },
+  "baselineName": "keyword lists (top 8 per class by log-odds, fit split only)",
+  "majority": true,
+  "forced": {
+    "what": "every test item decided by the frozen rule; unanswered items count wrong",
+    "jevAccuracy": 0.927,
+    "baselineAccuracy": 0.82,
+    "majorityAccuracy": 0.5,
+    "vsBaseline": {
+      "n": 150,
+      "accuracyA": 0.9266666666666666,
+      "accuracyB": 0.82,
+      "b": 20,
+      "c": 4,
+      "p": 0.00154,
+      "different": true,
+      "deltaCI95": [
+        0.04666666666666667,
+        0.16666666666666666
+      ]
+    },
+    "vsMajority": {
+      "n": 150,
+      "accuracyA": 0.9266666666666666,
+      "accuracyB": 0.5,
+      "b": 72,
+      "c": 8,
+      "p": 5.38e-14,
+      "different": true,
+      "deltaCI95": [
+        0.3333333333333333,
+        0.52
+      ]
+    },
+    "counts": {
+      "jev": {
+        "tp": 67,
+        "fp": 3,
+        "fn": 8,
+        "tn": 72
+      },
+      "baseline": {
+        "tp": 50,
+        "fp": 2,
+        "fn": 25,
+        "tn": 73
+      }
+    }
+  },
+  "gated": {
+    "what": "act only outside the escalate band / above the confidence cut, frozen from the fit split",
+    "coverage": 1,
+    "autoN": 150,
+    "escalated": 0,
+    "autoAccuracy": 0.927,
+    "baselineOnSameItems": 0.82,
+    "vsBaselineOnSameItems": {
+      "n": 150,
+      "accuracyA": 0.9266666666666666,
+      "accuracyB": 0.82,
+      "b": 20,
+      "c": 4,
+      "p": 0.00154,
+      "different": true,
+      "deltaCI95": [
+        0.04666666666666667,
+        0.16666666666666666
+      ]
+    },
+    "allItemsEscalationsWrong": 0.927
+  },
+  "strata": [
+    {
+      "label": true,
+      "n": 75,
+      "jev": 0.893,
+      "baseline": 0.667,
+      "b": 18,
+      "c": 1,
+      "p": 0.0000763
+    },
+    {
+      "label": false,
+      "n": 75,
+      "jev": 0.96,
+      "baseline": 0.973,
+      "b": 2,
+      "c": 3,
+      "p": 1
+    }
+  ],
+  "items": [
+    {
+      "id": "t001",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.964,
+      "baseline": true
+    },
+    {
+      "id": "t002",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.979,
+      "baseline": true
+    },
+    {
+      "id": "t003",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.163,
+      "baseline": false
+    },
+    {
+      "id": "t004",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.702,
+      "baseline": true
+    },
+    {
+      "id": "t005",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.984,
+      "baseline": true
+    },
+    {
+      "id": "t006",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.965,
+      "baseline": true
+    },
+    {
+      "id": "t007",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.056,
+      "baseline": false
+    },
+    {
+      "id": "t008",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.599,
+      "baseline": false
+    },
+    {
+      "id": "t009",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.061,
+      "baseline": false
+    },
+    {
+      "id": "t010",
+      "label": false,
+      "pred": true,
+      "auto": true,
+      "score": 0.621,
+      "baseline": false
+    },
+    {
+      "id": "t011",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.057,
+      "baseline": false
+    },
+    {
+      "id": "t012",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.857,
+      "baseline": true
+    },
+    {
+      "id": "t013",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.98,
+      "baseline": true
+    },
+    {
+      "id": "t014",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.735,
+      "baseline": false
+    },
+    {
+      "id": "t015",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.984,
+      "baseline": true
+    },
+    {
+      "id": "t016",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.06,
+      "baseline": false
+    },
+    {
+      "id": "t017",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.971,
+      "baseline": true
+    },
+    {
+      "id": "t018",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.099,
+      "baseline": false
+    },
+    {
+      "id": "t019",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.978,
+      "baseline": true
+    },
+    {
+      "id": "t020",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.064,
+      "baseline": false
+    },
+    {
+      "id": "t021",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.058,
+      "baseline": false
+    },
+    {
+      "id": "t022",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.42,
+      "baseline": false
+    },
+    {
+      "id": "t023",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.937,
+      "baseline": true
+    },
+    {
+      "id": "t024",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.058,
+      "baseline": false
+    },
+    {
+      "id": "t025",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.98,
+      "baseline": true
+    },
+    {
+      "id": "t026",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.063,
+      "baseline": false
+    },
+    {
+      "id": "t027",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.859,
+      "baseline": true
+    },
+    {
+      "id": "t028",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.057,
+      "baseline": false
+    },
+    {
+      "id": "t029",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.067,
+      "baseline": true
+    },
+    {
+      "id": "t030",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.056,
+      "baseline": false
+    },
+    {
+      "id": "t031",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.063,
+      "baseline": false
+    },
+    {
+      "id": "t032",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.849,
+      "baseline": true
+    },
+    {
+      "id": "t033",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.107,
+      "baseline": false
+    },
+    {
+      "id": "t034",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.968,
+      "baseline": true
+    },
+    {
+      "id": "t035",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.123,
+      "baseline": false
+    },
+    {
+      "id": "t036",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.985,
+      "baseline": true
+    },
+    {
+      "id": "t037",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.059,
+      "baseline": false
+    },
+    {
+      "id": "t038",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.057,
+      "baseline": false
+    },
+    {
+      "id": "t039",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.744,
+      "baseline": false
+    },
+    {
+      "id": "t040",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.063,
+      "baseline": false
+    },
+    {
+      "id": "t041",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.062,
+      "baseline": false
+    },
+    {
+      "id": "t042",
+      "label": true,
+      "pred": false,
+      "auto": true,
+      "score": 0.131,
+      "baseline": true
+    },
+    {
+      "id": "t043",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.138,
+      "baseline": false
+    },
+    {
+      "id": "t044",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.974,
+      "baseline": false
+    },
+    {
+      "id": "t045",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.459,
+      "baseline": false
+    },
+    {
+      "id": "t046",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.06,
+      "baseline": false
+    },
+    {
+      "id": "t047",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.06,
+      "baseline": false
+    },
+    {
+      "id": "t048",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.938,
+      "baseline": true
+    },
+    {
+      "id": "t049",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.071,
+      "baseline": false
+    },
+    {
+      "id": "t050",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.916,
+      "baseline": false
+    },
+    {
+      "id": "t051",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.976,
+      "baseline": false
+    },
+    {
+      "id": "t052",
+      "label": true,
+      "pred": false,
+      "auto": true,
+      "score": 0.198,
+      "baseline": false
+    },
+    {
+      "id": "t053",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.074,
+      "baseline": false
+    },
+    {
+      "id": "t054",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.063,
+      "baseline": false
+    },
+    {
+      "id": "t055",
+      "label": true,
+      "pred": false,
+      "auto": true,
+      "score": 0.378,
+      "baseline": false
+    },
+    {
+      "id": "t056",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.057,
+      "baseline": false
+    },
+    {
+      "id": "t057",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.978,
+      "baseline": true
+    },
+    {
+      "id": "t058",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.062,
+      "baseline": false
+    },
+    {
+      "id": "t059",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.06,
+      "baseline": false
+    },
+    {
+      "id": "t060",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.968,
+      "baseline": true
+    },
+    {
+      "id": "t061",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.965,
+      "baseline": true
+    },
+    {
+      "id": "t062",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.057,
+      "baseline": false
+    },
+    {
+      "id": "t063",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.082,
+      "baseline": false
+    },
+    {
+      "id": "t064",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.058,
+      "baseline": false
+    },
+    {
+      "id": "t065",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.98,
+      "baseline": true
+    },
+    {
+      "id": "t066",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.963,
+      "baseline": false
+    },
+    {
+      "id": "t067",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.964,
+      "baseline": true
+    },
+    {
+      "id": "t068",
+      "label": false,
+      "pred": true,
+      "auto": true,
+      "score": 0.542,
+      "baseline": false
+    },
+    {
+      "id": "t069",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.059,
+      "baseline": false
+    },
+    {
+      "id": "t070",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.058,
+      "baseline": false
+    },
+    {
+      "id": "t071",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.924,
+      "baseline": true
+    },
+    {
+      "id": "t072",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.973,
+      "baseline": true
+    },
+    {
+      "id": "t073",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.06,
+      "baseline": false
+    },
+    {
+      "id": "t074",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.971,
+      "baseline": true
+    },
+    {
+      "id": "t075",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.982,
+      "baseline": false
+    },
+    {
+      "id": "t076",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.961,
+      "baseline": true
+    },
+    {
+      "id": "t077",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.252,
+      "baseline": false
+    },
+    {
+      "id": "t078",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.144,
+      "baseline": false
+    },
+    {
+      "id": "t079",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.962,
+      "baseline": false
+    },
+    {
+      "id": "t080",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.066,
+      "baseline": false
+    },
+    {
+      "id": "t081",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.061,
+      "baseline": false
+    },
+    {
+      "id": "t082",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.706,
+      "baseline": false
+    },
+    {
+      "id": "t083",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.943,
+      "baseline": true
+    },
+    {
+      "id": "t084",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.057,
+      "baseline": false
+    },
+    {
+      "id": "t085",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.058,
+      "baseline": false
+    },
+    {
+      "id": "t086",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.979,
+      "baseline": true
+    },
+    {
+      "id": "t087",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.98,
+      "baseline": true
+    },
+    {
+      "id": "t088",
+      "label": true,
+      "pred": false,
+      "auto": true,
+      "score": 0.493,
+      "baseline": false
+    },
+    {
+      "id": "t089",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.149,
+      "baseline": false
+    },
+    {
+      "id": "t090",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.057,
+      "baseline": false
+    },
+    {
+      "id": "t091",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.533,
+      "baseline": false
+    },
+    {
+      "id": "t092",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.063,
+      "baseline": false
+    },
+    {
+      "id": "t093",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.978,
+      "baseline": true
+    },
+    {
+      "id": "t094",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.058,
+      "baseline": false
+    },
+    {
+      "id": "t095",
+      "label": true,
+      "pred": false,
+      "auto": true,
+      "score": 0.24,
+      "baseline": false
+    },
+    {
+      "id": "t096",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.381,
+      "baseline": false
+    },
+    {
+      "id": "t097",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.97,
+      "baseline": true
+    },
+    {
+      "id": "t098",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.883,
+      "baseline": true
+    },
+    {
+      "id": "t099",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.899,
+      "baseline": true
+    },
+    {
+      "id": "t100",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.093,
+      "baseline": false
+    },
+    {
+      "id": "t101",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.958,
+      "baseline": true
+    },
+    {
+      "id": "t102",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.057,
+      "baseline": false
+    },
+    {
+      "id": "t103",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.857,
+      "baseline": false
+    },
+    {
+      "id": "t104",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.966,
+      "baseline": true
+    },
+    {
+      "id": "t105",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.956,
+      "baseline": true
+    },
+    {
+      "id": "t106",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.979,
+      "baseline": true
+    },
+    {
+      "id": "t107",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.945,
+      "baseline": false
+    },
+    {
+      "id": "t108",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.181,
+      "baseline": false
+    },
+    {
+      "id": "t109",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.971,
+      "baseline": true
+    },
+    {
+      "id": "t110",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.073,
+      "baseline": false
+    },
+    {
+      "id": "t111",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.265,
+      "baseline": false
+    },
+    {
+      "id": "t112",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.978,
+      "baseline": false
+    },
+    {
+      "id": "t113",
+      "label": false,
+      "pred": true,
+      "auto": true,
+      "score": 0.592,
+      "baseline": false
+    },
+    {
+      "id": "t114",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.058,
+      "baseline": false
+    },
+    {
+      "id": "t115",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.073,
+      "baseline": false
+    },
+    {
+      "id": "t116",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.085,
+      "baseline": false
+    },
+    {
+      "id": "t117",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.066,
+      "baseline": false
+    },
+    {
+      "id": "t118",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.976,
+      "baseline": true
+    },
+    {
+      "id": "t119",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.552,
+      "baseline": false
+    },
+    {
+      "id": "t120",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.979,
+      "baseline": true
+    },
+    {
+      "id": "t121",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.979,
+      "baseline": true
+    },
+    {
+      "id": "t122",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.978,
+      "baseline": false
+    },
+    {
+      "id": "t123",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.123,
+      "baseline": false
+    },
+    {
+      "id": "t124",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.059,
+      "baseline": false
+    },
+    {
+      "id": "t125",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.954,
+      "baseline": true
+    },
+    {
+      "id": "t126",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.973,
+      "baseline": true
+    },
+    {
+      "id": "t127",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.056,
+      "baseline": false
+    },
+    {
+      "id": "t128",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.96,
+      "baseline": true
+    },
+    {
+      "id": "t129",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.384,
+      "baseline": false
+    },
+    {
+      "id": "t130",
+      "label": true,
+      "pred": false,
+      "auto": true,
+      "score": 0.198,
+      "baseline": false
+    },
+    {
+      "id": "t131",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.209,
+      "baseline": false
+    },
+    {
+      "id": "t132",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.065,
+      "baseline": false
+    },
+    {
+      "id": "t133",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.067,
+      "baseline": false
+    },
+    {
+      "id": "t134",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.701,
+      "baseline": false
+    },
+    {
+      "id": "t135",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.984,
+      "baseline": true
+    },
+    {
+      "id": "t136",
+      "label": true,
+      "pred": false,
+      "auto": true,
+      "score": 0.074,
+      "baseline": false
+    },
+    {
+      "id": "t137",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.065,
+      "baseline": false
+    },
+    {
+      "id": "t138",
+      "label": true,
+      "pred": false,
+      "auto": true,
+      "score": 0.315,
+      "baseline": false
+    },
+    {
+      "id": "t139",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.608,
+      "baseline": false
+    },
+    {
+      "id": "t140",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.975,
+      "baseline": true
+    },
+    {
+      "id": "t141",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.979,
+      "baseline": true
+    },
+    {
+      "id": "t142",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.979,
+      "baseline": true
+    },
+    {
+      "id": "t143",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.059,
+      "baseline": false
+    },
+    {
+      "id": "t144",
+      "label": true,
+      "pred": true,
+      "auto": true,
+      "score": 0.979,
+      "baseline": true
+    },
+    {
+      "id": "t145",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.057,
+      "baseline": false
+    },
+    {
+      "id": "t146",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.222,
+      "baseline": false
+    },
+    {
+      "id": "t147",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.155,
+      "baseline": false
+    },
+    {
+      "id": "t148",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.192,
+      "baseline": true
+    },
+    {
+      "id": "t149",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.059,
+      "baseline": false
+    },
+    {
+      "id": "t150",
+      "label": false,
+      "pred": false,
+      "auto": true,
+      "score": 0.059,
+      "baseline": false
+    }
+  ],
+  "scoredAt": "2026-09-22T07:56:36.649Z"
+}

@@ -1,0 +1,5816 @@
+{
+  "kit": 1,
+  "spec": "youtube-spam",
+  "specPath": "cookbooks/youtube-spam/spec.json",
+  "model": "jev-1.13.0 (direct)",
+  "answeredBy": [
+    "jev-1.13.0"
+  ],
+  "startedAt": "2026-09-22T07:55:42.489Z",
+  "wallMs": 6472,
+  "calls": 150,
+  "coverage": 1,
+  "privacyScan": "passed",
+  "disjointness": {
+    "fit": 100,
+    "test": 150,
+    "idOverlap": 0,
+    "textOverlap": 0,
+    "seenShare": 0
+  },
+  "gate": {
+    "minCoverage": 0.95,
+    "verdict": "PASS"
+  },
+  "quality": [
+    {
+      "question": "offersMoney",
+      "kind": "boolean",
+      "meanConf": 0.9222666666666658,
+      "atEnds": 0.9466666666666667,
+      "spread": 0.21127785812368807,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "isSpam",
+      "kind": "boolean",
+      "meanConf": 0.8033333333333329,
+      "atEnds": 0.8066666666666666,
+      "spread": 0.41023475664009174,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "asksToVisit",
+      "kind": "boolean",
+      "meanConf": 0.8434666666666663,
+      "atEnds": 0.8066666666666666,
+      "spread": 0.41021618148917,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "mentionsVideo",
+      "kind": "boolean",
+      "meanConf": 0.7769333333333334,
+      "atEnds": 0.7666666666666667,
+      "spread": 0.40494521440148745,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "kind",
+      "kind": "choice",
+      "meanConf": 0.8491959334642678,
+      "atEnds": 0.6666666666666666,
+      "spread": 1,
+      "keysUsed": 5,
+      "optionCount": 5,
+      "entropyMax": 0.7536532905443831,
+      "entropyMean": 0.1508,
+      "verdict": "JEV-SAFE"
+    }
+  ],
+  "scorecards": [
+    {
+      "question": "isSpam",
+      "n": 150,
+      "coverage": 1,
+      "accuracy": 0.9333333333333333,
+      "majority": {
+        "label": true,
+        "fittedOn": "fit split",
+        "accuracy": 0.5,
+        "vsJev": {
+          "n": 150,
+          "accuracyA": 0.9333333333333333,
+          "accuracyB": 0.5,
+          "b": 74,
+          "c": 9,
+          "p": 7.71e-14,
+          "different": true,
+          "deltaCI95": [
+            0.34,
+            0.5266666666666666
+          ]
+        }
+      },
+      "baseline": {
+        "name": "keyword lists (top 8 per class by log-odds, fit split only)",
+        "accuracy": 0.82,
+        "vsJev": {
+          "n": 150,
+          "accuracyA": 0.9333333333333333,
+          "accuracyB": 0.82,
+          "b": 19,
+          "c": 2,
+          "p": 0.000221,
+          "different": true,
+          "deltaCI95": [
+            0.06,
+            0.17333333333333334
+          ]
+        }
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "t001",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.88
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.78
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.17
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "reaction": 0,
+            "conversation": 0,
+            "promotion": 1,
+            "request": 0,
+            "none": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 290,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t002",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "reaction": 0,
+            "request": 0,
+            "none": 0,
+            "conversation": 0,
+            "promotion": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 252,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t003",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.82
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "conversation",
+          "probabilities": {
+            "none": 0,
+            "conversation": 0.52,
+            "request": 0,
+            "promotion": 0,
+            "reaction": 0.48
+          },
+          "entropy": 0.43017935748938696
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 261,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t004",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.61
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.58
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 0.52,
+            "promotion": 0.21,
+            "none": 0,
+            "conversation": 0.19,
+            "request": 0.08
+          },
+          "entropy": 0.7365149049055696
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 259,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t005",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "reaction": 0,
+            "request": 0,
+            "promotion": 1,
+            "none": 0,
+            "conversation": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 200,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t006",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "request": 0.41,
+            "none": 0,
+            "promotion": 0.59,
+            "conversation": 0,
+            "reaction": 0
+          },
+          "entropy": 0.42055586084167457
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 191,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t007",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "none": 0,
+            "reaction": 1,
+            "promotion": 0,
+            "conversation": 0,
+            "request": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 118,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t008",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.26
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.11
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "conversation",
+          "probabilities": {
+            "reaction": 0.05,
+            "conversation": 0.91,
+            "promotion": 0,
+            "none": 0,
+            "request": 0.04
+          },
+          "entropy": 0.22639230887769726
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 136,
+      "correct": {
+        "isSpam": false
+      }
+    },
+    {
+      "id": "t009",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "promotion": 0,
+            "reaction": 1,
+            "request": 0,
+            "none": 0,
+            "conversation": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 159,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t010",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "conversation",
+          "probabilities": {
+            "promotion": 0,
+            "none": 0,
+            "conversation": 1,
+            "reaction": 0,
+            "request": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 170,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t011",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "none": 0,
+            "reaction": 1,
+            "request": 0,
+            "promotion": 0,
+            "conversation": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 120,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t012",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.9
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.88
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.83
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "request": 0.4,
+            "none": 0,
+            "conversation": 0,
+            "reaction": 0.03,
+            "promotion": 0.56
+          },
+          "entropy": 0.4948382170309529
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 226,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t013",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "reaction": 0,
+            "request": 0,
+            "conversation": 0,
+            "none": 0,
+            "promotion": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 124,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t014",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.61
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.41
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.16
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "conversation",
+          "probabilities": {
+            "promotion": 0.26,
+            "request": 0.03,
+            "reaction": 0.26,
+            "conversation": 0.44,
+            "none": 0.01
+          },
+          "entropy": 0.7536532905443831
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 389,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t015",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "conversation": 0,
+            "promotion": 1,
+            "reaction": 0,
+            "request": 0,
+            "none": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 138,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t016",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "none": 0,
+            "request": 0,
+            "promotion": 0,
+            "conversation": 0,
+            "reaction": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 160,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t017",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.74
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.27
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "none": 0,
+            "reaction": 0,
+            "conversation": 0,
+            "request": 0,
+            "promotion": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 118,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t018",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.19
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.87
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 0.86,
+            "promotion": 0,
+            "none": 0,
+            "conversation": 0.01,
+            "request": 0.13
+          },
+          "entropy": 0.2740013089868924
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 133,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t019",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "conversation": 0.01,
+            "request": 0.01,
+            "none": 0,
+            "promotion": 0.98,
+            "reaction": 0
+          },
+          "entropy": 0.06952865719541251
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 115,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t020",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "promotion": 0,
+            "request": 0,
+            "none": 0,
+            "conversation": 0.05,
+            "reaction": 0.95
+          },
+          "entropy": 0.12334445573339317
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 119,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t021",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "promotion": 0,
+            "request": 0,
+            "conversation": 0,
+            "none": 0,
+            "reaction": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 109,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t022",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.3
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.15
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.27
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "conversation": 0.01,
+            "request": 0.48,
+            "reaction": 0.49,
+            "none": 0.01,
+            "promotion": 0.01
+          },
+          "entropy": 0.5219224352728743
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 257,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t023",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.51
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "promotion": 0.79,
+            "conversation": 0,
+            "reaction": 0,
+            "request": 0.21,
+            "none": 0
+          },
+          "entropy": 0.31933923430442984
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 229,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t024",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "request": 0,
+            "reaction": 1,
+            "promotion": 0,
+            "none": 0,
+            "conversation": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 219,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t025",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "reaction": 0,
+            "conversation": 0,
+            "request": 0.01,
+            "none": 0,
+            "promotion": 0.99
+          },
+          "entropy": 0.03479570968360693
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 242,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t026",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "none": 0,
+            "promotion": 0,
+            "request": 0,
+            "conversation": 0.04,
+            "reaction": 0.96
+          },
+          "entropy": 0.10434956604208216
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 120,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t027",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.88
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.13
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.42
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "none": 0,
+            "reaction": 0.01,
+            "conversation": 0.34,
+            "request": 0.01,
+            "promotion": 0.64
+          },
+          "entropy": 0.46259779797432327
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 217,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t028",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "request": 0,
+            "conversation": 0,
+            "reaction": 1,
+            "none": 0,
+            "promotion": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 253,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t029",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 1,
+            "request": 0,
+            "promotion": 0,
+            "conversation": 0,
+            "none": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 119,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t030",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 1,
+            "promotion": 0,
+            "request": 0,
+            "conversation": 0,
+            "none": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 147,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t031",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "conversation": 0.07,
+            "request": 0,
+            "reaction": 0.93,
+            "none": 0,
+            "promotion": 0
+          },
+          "entropy": 0.15759473848735797
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 212,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t032",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.51
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.2
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.41
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "reaction": 0,
+            "promotion": 0.98,
+            "request": 0.01,
+            "none": 0.01,
+            "conversation": 0
+          },
+          "entropy": 0.0695286571954125
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 438,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t033",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.25
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "promotion": 0,
+            "reaction": 0.7,
+            "conversation": 0.27,
+            "request": 0,
+            "none": 0.03
+          },
+          "entropy": 0.44014695354166605
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 402,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t034",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.73
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "none": 0,
+            "reaction": 0,
+            "request": 0,
+            "promotion": 1,
+            "conversation": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 387,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t035",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.49
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "promotion": 0,
+            "request": 0,
+            "none": 0,
+            "conversation": 0.01,
+            "reaction": 0.99
+          },
+          "entropy": 0.03479570968360693
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 293,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t036",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "promotion": 1,
+            "conversation": 0,
+            "reaction": 0,
+            "request": 0,
+            "none": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 123,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t037",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "conversation": 0,
+            "request": 0,
+            "reaction": 1,
+            "none": 0,
+            "promotion": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 117,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t038",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "conversation": 0,
+            "promotion": 0,
+            "reaction": 1,
+            "request": 0,
+            "none": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 170,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t039",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.79
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.22
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "request",
+          "probabilities": {
+            "promotion": 0,
+            "none": 0,
+            "conversation": 0.09,
+            "request": 0.9,
+            "reaction": 0.01
+          },
+          "entropy": 0.22218394879848144
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 294,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t040",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "promotion": 0,
+            "conversation": 0,
+            "reaction": 1,
+            "request": 0,
+            "none": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 178,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t041",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 1,
+            "request": 0,
+            "promotion": 0,
+            "none": 0,
+            "conversation": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 196,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t042",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.19
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.92
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "promotion": 0.04,
+            "none": 0,
+            "request": 0.23,
+            "conversation": 0.1,
+            "reaction": 0.63
+          },
+          "entropy": 0.613954317417001
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 149,
+      "correct": {
+        "isSpam": false
+      }
+    },
+    {
+      "id": "t043",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.43
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "promotion": 0,
+            "none": 0,
+            "conversation": 0.03,
+            "request": 0,
+            "reaction": 0.97
+          },
+          "entropy": 0.08372001624839559
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 172,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t044",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.19
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "reaction": 0,
+            "promotion": 0.8,
+            "none": 0,
+            "conversation": 0,
+            "request": 0.2
+          },
+          "entropy": 0.31091750708257115
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 103,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t045",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.19
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.2
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "reaction": 0.31,
+            "none": 0.62,
+            "promotion": 0.01,
+            "conversation": 0.04,
+            "request": 0.02
+          },
+          "entropy": 0.5669657144050331
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 100,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t046",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 1,
+            "conversation": 0,
+            "none": 0,
+            "request": 0,
+            "promotion": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 106,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t047",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "conversation": 0,
+            "request": 0,
+            "promotion": 0,
+            "reaction": 1,
+            "none": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 123,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t048",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "request",
+          "probabilities": {
+            "conversation": 0,
+            "request": 0.94,
+            "reaction": 0,
+            "none": 0,
+            "promotion": 0.06
+          },
+          "entropy": 0.14102285074007032
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 121,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t049",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.84
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "promotion": 0,
+            "none": 0,
+            "conversation": 0,
+            "reaction": 1,
+            "request": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 187,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t050",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.9
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.92
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "none": 0,
+            "conversation": 0,
+            "promotion": 1,
+            "request": 0,
+            "reaction": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 148,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t051",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.82
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.43
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "reaction": 0,
+            "conversation": 0,
+            "promotion": 1,
+            "none": 0,
+            "request": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 137,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t052",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.13
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.74
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "conversation",
+          "probabilities": {
+            "conversation": 0.53,
+            "none": 0,
+            "request": 0,
+            "promotion": 0.01,
+            "reaction": 0.46
+          },
+          "entropy": 0.459626571305075
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 123,
+      "correct": {
+        "isSpam": false
+      }
+    },
+    {
+      "id": "t053",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 0.87,
+            "conversation": 0.13,
+            "promotion": 0,
+            "none": 0,
+            "request": 0
+          },
+          "entropy": 0.24007555886653356
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 149,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t054",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "none": 0,
+            "promotion": 0,
+            "request": 0,
+            "conversation": 0,
+            "reaction": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 1425,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t055",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.32
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.23
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.85
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "conversation",
+          "probabilities": {
+            "reaction": 0.12,
+            "promotion": 0.02,
+            "request": 0.34,
+            "none": 0.01,
+            "conversation": 0.51
+          },
+          "entropy": 0.6765870152123798
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 161,
+      "correct": {
+        "isSpam": false
+      }
+    },
+    {
+      "id": "t056",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 1,
+            "promotion": 0,
+            "request": 0,
+            "none": 0,
+            "conversation": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 104,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t057",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "promotion": 1,
+            "reaction": 0,
+            "request": 0,
+            "conversation": 0,
+            "none": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 150,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t058",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 1,
+            "request": 0,
+            "promotion": 0,
+            "none": 0,
+            "conversation": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 112,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t059",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 1,
+            "request": 0,
+            "promotion": 0,
+            "conversation": 0,
+            "none": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 220,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t060",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.77
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "conversation": 0,
+            "promotion": 0.96,
+            "reaction": 0,
+            "request": 0.04,
+            "none": 0
+          },
+          "entropy": 0.10434956604208216
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 160,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t061",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.74
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "none": 0.01,
+            "request": 0,
+            "conversation": 0,
+            "reaction": 0,
+            "promotion": 0.99
+          },
+          "entropy": 0.03479570968360693
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 104,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t062",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "promotion": 0,
+            "conversation": 0,
+            "none": 0,
+            "request": 0,
+            "reaction": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 212,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t063",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.88
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "none": 0,
+            "request": 0,
+            "promotion": 0,
+            "conversation": 0.13,
+            "reaction": 0.87
+          },
+          "entropy": 0.24007555886653356
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 118,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t064",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 1,
+            "none": 0,
+            "promotion": 0,
+            "conversation": 0,
+            "request": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 111,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t065",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.81
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "none": 0,
+            "request": 0,
+            "conversation": 0,
+            "reaction": 0,
+            "promotion": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 146,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t066",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.65
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "none": 0,
+            "conversation": 0,
+            "promotion": 1,
+            "request": 0,
+            "reaction": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 137,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t067",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.85
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.77
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.16
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "conversation": 0,
+            "request": 0,
+            "promotion": 1,
+            "reaction": 0,
+            "none": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 121,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t068",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.11
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "promotion": 0,
+            "conversation": 0,
+            "reaction": 0.11,
+            "request": 0,
+            "none": 0.89
+          },
+          "entropy": 0.21530208418826127
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 89,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t069",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 1,
+            "request": 0,
+            "none": 0,
+            "conversation": 0,
+            "promotion": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 138,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t070",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "promotion": 0,
+            "request": 0,
+            "none": 0,
+            "conversation": 0,
+            "reaction": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 177,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t071",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.32
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "request",
+          "probabilities": {
+            "promotion": 0.25,
+            "none": 0,
+            "conversation": 0,
+            "reaction": 0,
+            "request": 0.75
+          },
+          "entropy": 0.3493984702822971
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 145,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t072",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "promotion": 0.78,
+            "reaction": 0,
+            "request": 0.22,
+            "conversation": 0,
+            "none": 0
+          },
+          "entropy": 0.32738632373490517
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 138,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t073",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 0.99,
+            "conversation": 0.01,
+            "request": 0,
+            "none": 0,
+            "promotion": 0
+          },
+          "entropy": 0.03479570968360693
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 104,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t074",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.63
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "promotion": 1,
+            "reaction": 0,
+            "request": 0,
+            "conversation": 0,
+            "none": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 108,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t075",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.62
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "promotion": 1,
+            "request": 0,
+            "none": 0,
+            "conversation": 0,
+            "reaction": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 140,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t076",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.83
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.7
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.12
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "reaction": 0,
+            "conversation": 0,
+            "promotion": 0.99,
+            "none": 0.01,
+            "request": 0
+          },
+          "entropy": 0.03479570968360693
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 153,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t077",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.17
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.21
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.33
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "promotion": 0,
+            "request": 0.07,
+            "none": 0.01,
+            "conversation": 0.06,
+            "reaction": 0.86
+          },
+          "entropy": 0.3297500503264987
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 139,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t078",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.4
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "promotion": 0,
+            "none": 0,
+            "conversation": 0.03,
+            "reaction": 0.97,
+            "request": 0
+          },
+          "entropy": 0.08372001624839559
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 368,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t079",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.67
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "none": 0,
+            "reaction": 0,
+            "request": 0,
+            "promotion": 1,
+            "conversation": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 138,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t080",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "request": 0,
+            "reaction": 0.9400000000000001,
+            "conversation": 0.06,
+            "none": 0,
+            "promotion": 0
+          },
+          "entropy": 0.14102285074007023
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 121,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t081",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "request": 0,
+            "promotion": 0,
+            "conversation": 0,
+            "none": 0,
+            "reaction": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 172,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t082",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.75
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.13
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "request",
+          "probabilities": {
+            "promotion": 0,
+            "reaction": 0.02,
+            "conversation": 0.01,
+            "request": 0.97,
+            "none": 0
+          },
+          "entropy": 0.0955846709215073
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 144,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t083",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.86
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.83
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.32
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "promotion": 0.9,
+            "none": 0,
+            "conversation": 0,
+            "reaction": 0.1,
+            "request": 0
+          },
+          "entropy": 0.2019854079986195
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 100,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t084",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "promotion": 0,
+            "request": 0,
+            "reaction": 1,
+            "none": 0,
+            "conversation": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 129,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t085",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 1,
+            "conversation": 0,
+            "promotion": 0,
+            "request": 0,
+            "none": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 151,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t086",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "conversation": 0,
+            "promotion": 0.98,
+            "reaction": 0,
+            "none": 0,
+            "request": 0.02
+          },
+          "entropy": 0.06091512603394465
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 241,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t087",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "none": 0,
+            "conversation": 0,
+            "request": 0,
+            "promotion": 1,
+            "reaction": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 118,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t088",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.79
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.13
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.28
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 0.55,
+            "conversation": 0.04,
+            "request": 0,
+            "none": 0.01,
+            "promotion": 0.4
+          },
+          "entropy": 0.5406442654901051
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 109,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t089",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.79
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "promotion": 0,
+            "reaction": 0.58,
+            "conversation": 0.41,
+            "request": 0.01,
+            "none": 0
+          },
+          "entropy": 0.45205141925733777
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 103,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t090",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "request": 0,
+            "reaction": 1,
+            "promotion": 0,
+            "conversation": 0,
+            "none": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 142,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t091",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.61
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.32
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "request",
+          "probabilities": {
+            "none": 0,
+            "reaction": 0.14,
+            "conversation": 0.06,
+            "promotion": 0,
+            "request": 0.8
+          },
+          "entropy": 0.3868277733109871
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 122,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t092",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "request": 0,
+            "none": 0,
+            "promotion": 0,
+            "conversation": 0,
+            "reaction": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 138,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t093",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "reaction": 0,
+            "conversation": 0,
+            "request": 0.01,
+            "none": 0,
+            "promotion": 0.99
+          },
+          "entropy": 0.03479570968360693
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 141,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t094",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "promotion": 0,
+            "request": 0,
+            "reaction": 1,
+            "none": 0,
+            "conversation": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 127,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t095",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.45
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "none": 0,
+            "request": 0,
+            "conversation": 0.45,
+            "reaction": 0.55,
+            "promotion": 0
+          },
+          "entropy": 0.4275646847866614
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 133,
+      "correct": {
+        "isSpam": false
+      }
+    },
+    {
+      "id": "t096",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.75
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "request",
+          "probabilities": {
+            "none": 0,
+            "reaction": 0.14,
+            "request": 0.5,
+            "promotion": 0.36,
+            "conversation": 0
+          },
+          "entropy": 0.6148878634199587
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 228,
+      "correct": {
+        "isSpam": false
+      }
+    },
+    {
+      "id": "t097",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.9
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.79
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "reaction": 0,
+            "promotion": 0.99,
+            "request": 0,
+            "conversation": 0.01,
+            "none": 0
+          },
+          "entropy": 0.03479570968360693
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 216,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t098",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.74
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.7
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.72
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "promotion": 0.84,
+            "none": 0,
+            "reaction": 0,
+            "conversation": 0.04,
+            "request": 0.12
+          },
+          "entropy": 0.3290860109908334
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 163,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t099",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.92
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.86
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "reaction": 0,
+            "conversation": 0,
+            "none": 0,
+            "request": 0,
+            "promotion": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 138,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t100",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.7
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "none": 0.04,
+            "promotion": 0,
+            "request": 0,
+            "conversation": 0,
+            "reaction": 0.96
+          },
+          "entropy": 0.10434956604208216
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 107,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t101",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.89
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.82
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.2
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "none": 0.01,
+            "reaction": 0.02,
+            "request": 0.1,
+            "promotion": 0.87,
+            "conversation": 0
+          },
+          "entropy": 0.2955744152494471
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 106,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t102",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "conversation": 0,
+            "promotion": 0,
+            "reaction": 1,
+            "none": 0,
+            "request": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 142,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t103",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.85
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.79
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "promotion": 0.94,
+            "request": 0,
+            "none": 0,
+            "conversation": 0,
+            "reaction": 0.06
+          },
+          "entropy": 0.14102285074007032
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 107,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t104",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.61
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.54
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "request": 0,
+            "reaction": 0,
+            "conversation": 0,
+            "none": 0,
+            "promotion": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 110,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t105",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.84
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "request",
+          "probabilities": {
+            "conversation": 0.02,
+            "promotion": 0.44,
+            "none": 0,
+            "reaction": 0,
+            "request": 0.54
+          },
+          "entropy": 0.4798025523956136
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 151,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t106",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.89
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.32
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "conversation": 0,
+            "promotion": 1,
+            "reaction": 0,
+            "request": 0,
+            "none": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 176,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t107",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.83
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.55
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.12
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "none": 0.06,
+            "promotion": 0.9400000000000001,
+            "request": 0,
+            "conversation": 0,
+            "reaction": 0
+          },
+          "entropy": 0.14102285074007023
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 134,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t108",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.34
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "promotion": 0.18,
+            "reaction": 0.49,
+            "conversation": 0.01,
+            "request": 0.32,
+            "none": 0
+          },
+          "entropy": 0.6641298967414676
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 136,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t109",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "reaction": 0,
+            "none": 0,
+            "request": 0.29,
+            "conversation": 0,
+            "promotion": 0.71
+          },
+          "entropy": 0.374137876298683
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 121,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t110",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.13
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "conversation": 0.05,
+            "promotion": 0.01,
+            "reaction": 0.94,
+            "none": 0,
+            "request": 0
+          },
+          "entropy": 0.157819815893633
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 129,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t111",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.12
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.26
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "none": 0.34,
+            "reaction": 0.65,
+            "conversation": 0.01,
+            "promotion": 0,
+            "request": 0
+          },
+          "entropy": 0.4304955642175491
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 152,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t112",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.11
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.14
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "reaction": 0,
+            "request": 0,
+            "none": 0,
+            "conversation": 0,
+            "promotion": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 102,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t113",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "conversation",
+          "probabilities": {
+            "request": 0,
+            "reaction": 0.05,
+            "promotion": 0,
+            "none": 0,
+            "conversation": 0.95
+          },
+          "entropy": 0.12334445573339317
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 282,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t114",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 1,
+            "conversation": 0,
+            "request": 0,
+            "none": 0,
+            "promotion": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 137,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t115",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.84
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 0.99,
+            "conversation": 0.01,
+            "promotion": 0,
+            "none": 0,
+            "request": 0
+          },
+          "entropy": 0.03479570968360693
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 195,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t116",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "request": 0,
+            "reaction": 0.79,
+            "promotion": 0,
+            "conversation": 0.02,
+            "none": 0.19
+          },
+          "entropy": 0.3603742824779954
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 215,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t117",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.88
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 1,
+            "conversation": 0,
+            "none": 0,
+            "request": 0,
+            "promotion": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 170,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t118",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.14
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "request": 0,
+            "reaction": 0,
+            "conversation": 0,
+            "none": 0,
+            "promotion": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 140,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t119",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.81
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "promotion": 0.83,
+            "conversation": 0,
+            "reaction": 0.03,
+            "request": 0.14,
+            "none": 0
+          },
+          "entropy": 0.3324801053688649
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 151,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t120",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.17
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "none": 0,
+            "request": 0,
+            "conversation": 0,
+            "promotion": 1,
+            "reaction": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 188,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t121",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.8
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "none": 0,
+            "conversation": 0,
+            "promotion": 1,
+            "request": 0,
+            "reaction": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 158,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t122",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "none": 0,
+            "reaction": 0,
+            "request": 0,
+            "promotion": 1,
+            "conversation": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 133,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t123",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.67
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 0.82,
+            "request": 0.01,
+            "promotion": 0,
+            "none": 0,
+            "conversation": 0.17
+          },
+          "entropy": 0.31688959903430264
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 149,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t124",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 1,
+            "request": 0,
+            "none": 0,
+            "conversation": 0,
+            "promotion": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 150,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t125",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.82
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.73
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.24
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "promotion": 0.99,
+            "request": 0,
+            "none": 0,
+            "conversation": 0,
+            "reaction": 0.01
+          },
+          "entropy": 0.03479570968360693
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 141,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t126",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.84
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.15
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "conversation": 0,
+            "request": 0.03,
+            "reaction": 0,
+            "none": 0,
+            "promotion": 0.97
+          },
+          "entropy": 0.08372001624839559
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 112,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t127",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "conversation": 0,
+            "request": 0,
+            "reaction": 1,
+            "none": 0,
+            "promotion": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 146,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t128",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "request",
+          "probabilities": {
+            "promotion": 0.39,
+            "none": 0,
+            "conversation": 0,
+            "reaction": 0,
+            "request": 0.61
+          },
+          "entropy": 0.41551654878093464
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 95,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t129",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.19
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.35
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "conversation",
+          "probabilities": {
+            "reaction": 0.41,
+            "conversation": 0.49,
+            "request": 0,
+            "none": 0,
+            "promotion": 0.1
+          },
+          "entropy": 0.5873822009299919
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 143,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t130",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.32
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.33
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "request": 0,
+            "none": 0.02,
+            "reaction": 0.83,
+            "promotion": 0,
+            "conversation": 0.15
+          },
+          "entropy": 0.3215172227164573
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 127,
+      "correct": {
+        "isSpam": false
+      }
+    },
+    {
+      "id": "t131",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.6
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 0.51,
+            "conversation": 0.49,
+            "request": 0,
+            "none": 0,
+            "promotion": 0
+          },
+          "entropy": 0.4305522828006896
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 125,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t132",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.89
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "promotion": 0,
+            "reaction": 1,
+            "conversation": 0,
+            "request": 0,
+            "none": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 111,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t133",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.14
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.92
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 0.99,
+            "none": 0.01,
+            "promotion": 0,
+            "conversation": 0,
+            "request": 0
+          },
+          "entropy": 0.03479570968360693
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 119,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t134",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.73
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.11
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "request",
+          "probabilities": {
+            "promotion": 0,
+            "request": 0.96,
+            "reaction": 0.02,
+            "none": 0,
+            "conversation": 0.02
+          },
+          "entropy": 0.12157662836501788
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 154,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t135",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "reaction": 0,
+            "promotion": 1,
+            "none": 0,
+            "conversation": 0,
+            "request": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 134,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t136",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.27
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "none": 0,
+            "conversation": 0.02,
+            "reaction": 0.92,
+            "request": 0.06,
+            "promotion": 0
+          },
+          "entropy": 0.20116102698764315
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 109,
+      "correct": {
+        "isSpam": false
+      }
+    },
+    {
+      "id": "t137",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "none": 0,
+            "request": 0,
+            "conversation": 0.02,
+            "promotion": 0,
+            "reaction": 0.98
+          },
+          "entropy": 0.06091512603394465
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 200,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t138",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.2
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.15
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.43
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 0.51,
+            "promotion": 0,
+            "none": 0,
+            "conversation": 0.49,
+            "request": 0
+          },
+          "entropy": 0.4305522828006896
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 154,
+      "correct": {
+        "isSpam": false
+      }
+    },
+    {
+      "id": "t139",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.45
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.27
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 0.43,
+            "promotion": 0.19,
+            "none": 0.01,
+            "conversation": 0.36,
+            "request": 0.01
+          },
+          "entropy": 0.7072928402888277
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 159,
+      "correct": {
+        "isSpam": false
+      }
+    },
+    {
+      "id": "t140",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.16
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "request": 0.02,
+            "conversation": 0,
+            "reaction": 0,
+            "none": 0,
+            "promotion": 0.98
+          },
+          "entropy": 0.06091512603394465
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 143,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t141",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "none": 0,
+            "promotion": 1,
+            "reaction": 0,
+            "conversation": 0,
+            "request": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 156,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t142",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "request": 0.03,
+            "reaction": 0,
+            "conversation": 0,
+            "none": 0,
+            "promotion": 0.97
+          },
+          "entropy": 0.08372001624839559
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 151,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t143",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "reaction": 1,
+            "promotion": 0,
+            "request": 0,
+            "none": 0,
+            "conversation": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 114,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t144",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "promotion",
+          "probabilities": {
+            "conversation": 0,
+            "promotion": 1,
+            "none": 0,
+            "reaction": 0,
+            "request": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 152,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t145",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "none": 0,
+            "request": 0,
+            "conversation": 0,
+            "reaction": 1,
+            "promotion": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 112,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t146",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.34
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "none": 0.01,
+            "request": 0,
+            "conversation": 0.27,
+            "reaction": 0.72,
+            "promotion": 0
+          },
+          "entropy": 0.39522781311479016
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 296,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t147",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.13
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.53
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "conversation": 0.15,
+            "request": 0,
+            "reaction": 0.85,
+            "none": 0,
+            "promotion": 0
+          },
+          "entropy": 0.26264392340968856
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 138,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t148",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.92
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "conversation",
+          "probabilities": {
+            "promotion": 0,
+            "none": 0,
+            "conversation": 0.72,
+            "reaction": 0.28,
+            "request": 0
+          },
+          "entropy": 0.3684226106931313
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 133,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t149",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "promotion": 0,
+            "request": 0,
+            "none": 0,
+            "conversation": 0,
+            "reaction": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 113,
+      "correct": {
+        "isSpam": true
+      }
+    },
+    {
+      "id": "t150",
+      "answers": {
+        "isSpam": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "offersMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "kind": {
+          "type": "choice",
+          "choice": "reaction",
+          "probabilities": {
+            "conversation": 0,
+            "request": 0,
+            "reaction": 1,
+            "promotion": 0,
+            "none": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 120,
+      "correct": {
+        "isSpam": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "posthoc": true,
+  "what": "frozen Jev decision (forced) vs naive Bayes trained on labelled source rows outside fit and test",
+  "strongBaseline": {
+    "name": "naive Bayes on 1998 source rows (not fit, not test), test class proportions",
+    "trainN": 1998,
+    "trainCounts": {
+      "feature": 666,
+      "question": 666,
+      "bug": 666
+    },
+    "source": "NLBSE23 prefix rows not in fit or test"
+  },
+  "forced": {
+    "n": 150,
+    "accuracyA": 0.76,
+    "accuracyB": 0.5733333333333334,
+    "b": 50,
+    "c": 22,
+    "p": 0.00129,
+    "different": true,
+    "deltaCI95": [
+      0.07333333333333333,
+      0.29333333333333333
+    ]
+  },
+  "gatedSameItems": {
+    "n": 89,
+    "accuracyA": 0.8651685393258427,
+    "accuracyB": 0.5393258426966292,
+    "b": 35,
+    "c": 6,
+    "p": 0.00000487,
+    "different": true,
+    "deltaCI95": [
+      0.19101123595505617,
+      0.449438202247191
+    ]
+  },
+  "strata": [
+    {
+      "label": "feature",
+      "n": 50,
+      "jev": 0.88,
+      "strong": 0.16,
+      "b": 37,
+      "c": 1,
+      "p": 2.84e-10
+    },
+    {
+      "label": "question",
+      "n": 50,
+      "jev": 0.48,
+      "strong": 0.8,
+      "b": 2,
+      "c": 18,
+      "p": 0.000402
+    },
+    {
+      "label": "bug",
+      "n": 50,
+      "jev": 0.92,
+      "strong": 0.76,
+      "b": 11,
+      "c": 3,
+      "p": 0.0574
+    }
+  ]
+}

@@ -9,7 +9,7 @@
  * What we keep: the comment text and which video it was posted under. AUTHOR, COMMENT_ID and DATE are dropped;
  * emails and phone numbers are masked (maskPrivate) before the kit's privacy scan.
  */
-import { dedupe, fetchFile, keywordBaseline, maskPrivate, parseCsv, report, shuffle, stratified, unzipText, writeSpecs, type Built } from '../_shared/lib.ts';
+import { dedupe, fetchFile, keywordBaseline, maskPrivate, parseCsv, report, shuffle, stratified, unzipText, writeSpecs, type Built, writeStrongBaseline } from '../_shared/lib.ts';
 import type { Question } from '../../kit/spec.ts';
 
 const SEED = 20260922;
@@ -88,4 +88,12 @@ writeSpecs(import.meta.dirname, {
   name: 'youtube-spam',
   description: 'Trust & safety: is a public YouTube comment spam? One direct question plus narrow literal signals recombined in code. UCI YouTube Spam Collection (CC BY 4.0); authors, ids and dates dropped.',
   questions: QUESTIONS, items, baselineName: base.name,
+});
+
+// Post-hoc (added after the labelled test run; no Jev calls; never changes a declared verdict): STRONG_BASELINE=1 also
+// writes baseline.strong.json, a naive Bayes trained on up to 2,000 labelled source rows that are neither fit nor test.
+if (process.env.STRONG_BASELINE) writeStrongBaseline(import.meta.dirname, {
+  train: pool.filter(r => !fit.includes(r) && !test.includes(r)),
+  test: shuffle(test, SEED + 2).map((rec, i) => ({ id: `t${String(i + 1).padStart(3, '0')}`, rec })),
+  textOf: r => r.text, labelOf: r => r.label, toValue: v => v === 'spam', source: 'UCI YouTube Spam Collection, rows not in fit or test', seed: SEED + 9,
 });

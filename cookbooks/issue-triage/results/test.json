@@ -1,0 +1,5666 @@
+{
+  "kit": 1,
+  "spec": "issue-triage",
+  "specPath": "cookbooks/issue-triage/spec.json",
+  "model": "jev-1.13.0 (direct)",
+  "answeredBy": [
+    "jev-1.13.0"
+  ],
+  "startedAt": "2026-09-22T07:56:15.514Z",
+  "wallMs": 6513,
+  "calls": 150,
+  "coverage": 1,
+  "privacyScan": "passed",
+  "disjointness": {
+    "fit": 100,
+    "test": 150,
+    "idOverlap": 0,
+    "textOverlap": 0,
+    "seenShare": 0
+  },
+  "gate": {
+    "minCoverage": 0.95,
+    "verdict": "PASS"
+  },
+  "quality": [
+    {
+      "question": "hasErrorOutput",
+      "kind": "boolean",
+      "meanConf": 0.874133333333333,
+      "atEnds": 0.88,
+      "spread": 0.3674404199625053,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "hasReproSteps",
+      "kind": "boolean",
+      "meanConf": 0.7174666666666664,
+      "atEnds": 0.6866666666666666,
+      "spread": 0.3602469831780537,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "issueType",
+      "kind": "choice",
+      "meanConf": 0.8526859136905744,
+      "atEnds": 0.6466666666666666,
+      "spread": 1,
+      "keysUsed": 4,
+      "optionCount": 4,
+      "entropyMax": 0.7305954059976822,
+      "entropyMean": 0.1473,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "proposesNew",
+      "kind": "boolean",
+      "meanConf": 0.6416,
+      "atEnds": 0.5733333333333334,
+      "spread": 0.3422813397711824,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "asksHowTo",
+      "kind": "boolean",
+      "meanConf": 0.6538666666666669,
+      "atEnds": 0.56,
+      "spread": 0.30968109761853757,
+      "verdict": "JEV-SAFE"
+    }
+  ],
+  "scorecards": [
+    {
+      "question": "issueType",
+      "n": 150,
+      "coverage": 1,
+      "accuracy": 0.76,
+      "majority": {
+        "label": "bug",
+        "fittedOn": "fit split",
+        "accuracy": 0.3333333333333333,
+        "vsJev": {
+          "n": 150,
+          "accuracyA": 0.76,
+          "accuracyB": 0.3333333333333333,
+          "b": 68,
+          "c": 4,
+          "p": 4.62e-16,
+          "different": true,
+          "deltaCI95": [
+            0.3333333333333333,
+            0.5133333333333333
+          ]
+        }
+      },
+      "baseline": {
+        "name": "keyword lists (top 8 per class by log-odds, fit split only)",
+        "accuracy": 0.4,
+        "vsJev": {
+          "n": 150,
+          "accuracyA": 0.76,
+          "accuracyB": 0.4,
+          "b": 62,
+          "c": 8,
+          "p": 1.83e-11,
+          "different": true,
+          "deltaCI95": [
+            0.26,
+            0.4533333333333333
+          ]
+        }
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "t001",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "none": 0,
+            "feature": 1,
+            "question": 0,
+            "bug": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.14
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 271,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t002",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "bug": 0,
+            "feature": 0.99,
+            "none": 0.01,
+            "question": 0
+          },
+          "entropy": 0.04039656794795559
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.15
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.8
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 234,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t003",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "feature": 0,
+            "none": 0,
+            "bug": 0,
+            "question": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.26
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.07
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 310,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t004",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "question": 0,
+            "bug": 0,
+            "none": 0,
+            "feature": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.15
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.9
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 229,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t005",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "bug": 0,
+            "feature": 1,
+            "none": 0,
+            "question": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.72
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 517,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t006",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "feature": 0.98,
+            "question": 0,
+            "none": 0,
+            "bug": 0.02
+          },
+          "entropy": 0.07072027127091034
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.2
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.95
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 392,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t007",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "bug": 0.99,
+            "feature": 0.01,
+            "none": 0,
+            "question": 0
+          },
+          "entropy": 0.04039656794795559
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.82
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 379,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t008",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "none": 0,
+            "feature": 1,
+            "bug": 0,
+            "question": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.2
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.8
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 319,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t009",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "bug": 0,
+            "feature": 0,
+            "none": 0,
+            "question": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.71
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.04
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 392,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t010",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "question": 0,
+            "bug": 0.01,
+            "none": 0,
+            "feature": 0.99
+          },
+          "entropy": 0.04039656794795559
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.19
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.14
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.94
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 242,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t011",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "bug": 0.01,
+            "feature": 0.99,
+            "none": 0,
+            "question": 0
+          },
+          "entropy": 0.04039656794795559
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.72
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.91
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 362,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t012",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "feature": 0.06,
+            "none": 0,
+            "question": 0,
+            "bug": 0.94
+          },
+          "entropy": 0.16372245957723816
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.85
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.15
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.85
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 116,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t013",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "bug": 0,
+            "none": 1,
+            "feature": 0,
+            "question": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.19
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.16
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.13
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 176,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t014",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "feature": 0,
+            "none": 0.01,
+            "bug": 0.99,
+            "question": 0
+          },
+          "entropy": 0.04039656794795559
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.48
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.54
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.13
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.16
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 203,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t015",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "feature": 0,
+            "none": 0.01,
+            "bug": 0.99,
+            "question": 0
+          },
+          "entropy": 0.04039656794795559
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.06
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 127,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t016",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "none": 0,
+            "feature": 0.01,
+            "question": 0,
+            "bug": 0.99
+          },
+          "entropy": 0.04039656794795559
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.22
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.27
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.95
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 151,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t017",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "question": 1,
+            "bug": 0,
+            "none": 0,
+            "feature": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.3
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.34
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 171,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t018",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "question": 0,
+            "feature": 0.37,
+            "bug": 0.63,
+            "none": 0
+          },
+          "entropy": 0.475336046343533
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 167,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t019",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "none": 0,
+            "feature": 0.17,
+            "bug": 0.81,
+            "question": 0.01
+          },
+          "entropy": 0.37363522126393683
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.62
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.25
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.49
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 344,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t020",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "none": 0,
+            "bug": 0.51,
+            "question": 0.49,
+            "feature": 0
+          },
+          "entropy": 0.499855720876405
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.81
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.73
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.09
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 138,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t021",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "question": 0.93,
+            "bug": 0,
+            "none": 0,
+            "feature": 0.07
+          },
+          "entropy": 0.18296182545011158
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.89
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.91
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 120,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t022",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "question": 0,
+            "bug": 0,
+            "none": 0,
+            "feature": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.46
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.12
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.95
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 225,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t023",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "question": 0.94,
+            "none": 0,
+            "bug": 0,
+            "feature": 0.06
+          },
+          "entropy": 0.16372245957723816
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.92
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.74
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 160,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t024",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "bug": 0.06,
+            "feature": 0.93,
+            "question": 0.01,
+            "none": 0
+          },
+          "entropy": 0.20367037270049304
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.25
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.87
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 136,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t025",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "question": 0.93,
+            "feature": 0,
+            "none": 0,
+            "bug": 0.07
+          },
+          "entropy": 0.18296182545011158
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.54
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.88
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.47
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 101,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t026",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "none": 0,
+            "feature": 0,
+            "bug": 0.51,
+            "question": 0.49
+          },
+          "entropy": 0.499855720876405
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.82
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.9
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.9
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.09
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 135,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t027",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "question": 0,
+            "feature": 0,
+            "none": 0,
+            "bug": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.18
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.72
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 156,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t028",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "question": 0,
+            "bug": 0,
+            "none": 0,
+            "feature": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.18
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 169,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t029",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "question": 0,
+            "bug": 0.91,
+            "none": 0.09,
+            "feature": 0
+          },
+          "entropy": 0.21823490853205146
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.14
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.29
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 138,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t030",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "feature": 0.98,
+            "question": 0,
+            "none": 0,
+            "bug": 0.02
+          },
+          "entropy": 0.07072027127091034
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.94
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 171,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t031",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "question": 0,
+            "bug": 0,
+            "none": 0,
+            "feature": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.2
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.96
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 129,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t032",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "bug": 0.16,
+            "question": 0.84,
+            "feature": 0,
+            "none": 0
+          },
+          "entropy": 0.3171547773202831
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.25
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.92
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.62
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 150,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t033",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "question": 0.39,
+            "bug": 0.61,
+            "none": 0,
+            "feature": 0
+          },
+          "entropy": 0.48239977425254366
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.83
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.72
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.28
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.08
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 176,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t034",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "feature": 0,
+            "bug": 1,
+            "question": 0,
+            "none": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.32
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.11
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 101,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t035",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "question": 0.1,
+            "bug": 0.9,
+            "none": 0,
+            "feature": 0
+          },
+          "entropy": 0.23449779679464058
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.47
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.3
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 137,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t036",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "bug": 0.54,
+            "none": 0,
+            "feature": 0,
+            "question": 0.46
+          },
+          "entropy": 0.4976892194101129
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.75
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.53
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.77
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.45
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 134,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t037",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "none": 0.02,
+            "feature": 0.98,
+            "question": 0,
+            "bug": 0
+          },
+          "entropy": 0.07072027127091034
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.16
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.91
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 164,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t038",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "none": 0.54,
+            "bug": 0,
+            "feature": 0.46,
+            "question": 0
+          },
+          "entropy": 0.4976892194101129
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.49
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.67
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 187,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t039",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "question": 0,
+            "feature": 0,
+            "none": 0,
+            "bug": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.53
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 142,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t040",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "bug": 0.05,
+            "question": 0.95,
+            "feature": 0,
+            "none": 0
+          },
+          "entropy": 0.1431984785579781
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.88
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.66
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 251,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t041",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "question": 0.04,
+            "bug": 0.95,
+            "none": 0.01,
+            "feature": 0
+          },
+          "entropy": 0.16124668093016215
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.86
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.14
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.08
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 152,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t042",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "feature": 1,
+            "question": 0,
+            "none": 0,
+            "bug": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.51
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.84
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 192,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t043",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "feature": 0.32,
+            "bug": 0,
+            "question": 0.68,
+            "none": 0
+          },
+          "entropy": 0.4521907288622469
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.83
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.9
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 150,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t044",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "feature": 0,
+            "none": 0,
+            "bug": 0.12,
+            "question": 0.88
+          },
+          "entropy": 0.2646804326436822
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.89
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.58
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 128,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t045",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "bug": 0,
+            "feature": 0.36,
+            "question": 0.01,
+            "none": 0.63
+          },
+          "entropy": 0.5084984187252725
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.33
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.58
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 136,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t046",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "bug": 0,
+            "none": 0,
+            "question": 0,
+            "feature": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.96
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 157,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t047",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "question": 0,
+            "feature": 0,
+            "none": 0,
+            "bug": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.56
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.12
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.23
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 130,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t048",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "bug": 0,
+            "none": 0,
+            "question": 0,
+            "feature": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.82
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.96
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 117,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t049",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "none": 0,
+            "bug": 0.89,
+            "feature": 0.11,
+            "question": 0
+          },
+          "entropy": 0.249957979082264
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.84
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.96
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 139,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t050",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "bug": 1,
+            "question": 0,
+            "feature": 0,
+            "none": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.46
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.49
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 266,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t051",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "bug": 0,
+            "feature": 0.29,
+            "none": 0,
+            "question": 0.71
+          },
+          "entropy": 0.4343606231697023
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.92
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.95
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 138,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t052",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "none": 0,
+            "question": 0,
+            "feature": 0,
+            "bug": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.44
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.12
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.47
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 159,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t053",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "bug": 1,
+            "question": 0,
+            "feature": 0,
+            "none": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.23
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 245,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t054",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "bug": 1,
+            "none": 0,
+            "feature": 0,
+            "question": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.13
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 159,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t055",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "question": 0.09,
+            "bug": 0.91,
+            "none": 0,
+            "feature": 0
+          },
+          "entropy": 0.21823490853205146
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.11
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.9
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.64
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.78
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 115,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t056",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "feature": 0.96,
+            "bug": 0,
+            "question": 0.04,
+            "none": 0
+          },
+          "entropy": 0.12114609454120741
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.2
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.85
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 150,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t057",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "question": 0,
+            "none": 0,
+            "bug": 1,
+            "feature": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.76
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.32
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.5
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 164,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t058",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "bug": 1,
+            "question": 0,
+            "feature": 0,
+            "none": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.74
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 165,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t059",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "bug": 0.57,
+            "feature": 0,
+            "question": 0.43,
+            "none": 0
+          },
+          "entropy": 0.49290751858945997
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.17
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 140,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t060",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "feature": 0.99,
+            "none": 0.01,
+            "bug": 0,
+            "question": 0
+          },
+          "entropy": 0.04039656794795559
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.93
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 146,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t061",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "bug": 0,
+            "none": 0,
+            "feature": 1,
+            "question": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.55
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.9
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 136,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t062",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "feature": 1,
+            "none": 0,
+            "bug": 0,
+            "question": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.16
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 138,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t063",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "question": 0.38,
+            "bug": 0.62,
+            "none": 0,
+            "feature": 0
+          },
+          "entropy": 0.4790210111131499
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.78
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.76
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.25
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 157,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t064",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "bug": 0.83,
+            "feature": 0,
+            "none": 0.17,
+            "question": 0
+          },
+          "entropy": 0.32885238937210975
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.13
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 164,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t065",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "none": 0,
+            "question": 0,
+            "feature": 0,
+            "bug": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.7
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.43
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.26
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 352,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t066",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "question": 1,
+            "none": 0,
+            "feature": 0,
+            "bug": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.31
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 162,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t067",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "none": 0,
+            "feature": 0,
+            "question": 0,
+            "bug": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.81
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.21
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 147,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t068",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "feature": 0,
+            "question": 0,
+            "bug": 1,
+            "none": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.74
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.66
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.24
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 216,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t069",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "feature": 0,
+            "none": 0,
+            "bug": 1,
+            "question": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.92
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 160,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t070",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "bug": 0,
+            "question": 0.58,
+            "feature": 0.41,
+            "none": 0.01
+          },
+          "entropy": 0.5248154453536593
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.19
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.86
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.89
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 271,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t071",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "feature": 0,
+            "none": 0,
+            "bug": 1,
+            "question": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.11
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.96
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 198,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t072",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "bug": 1,
+            "feature": 0,
+            "question": 0,
+            "none": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.84
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.14
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.39
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 143,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t073",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "none": 0,
+            "feature": 1,
+            "bug": 0,
+            "question": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.61
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.92
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 187,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t074",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "bug": 1,
+            "feature": 0,
+            "none": 0,
+            "question": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.13
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.3
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.94
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 105,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t075",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "bug": 0.97,
+            "question": 0.03,
+            "feature": 0,
+            "none": 0
+          },
+          "entropy": 0.0971959289157881
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.3
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.65
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.6
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.57
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 202,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t076",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "question": 0,
+            "bug": 0,
+            "none": 0.01,
+            "feature": 0.99
+          },
+          "entropy": 0.04039656794795559
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.2
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.8
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 173,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t077",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "question": 0,
+            "feature": 0.02,
+            "bug": 0.98,
+            "none": 0
+          },
+          "entropy": 0.07072027127091034
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.42
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.34
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 136,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t078",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "feature": 0.99,
+            "none": 0.01,
+            "bug": 0,
+            "question": 0
+          },
+          "entropy": 0.04039656794795559
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.23
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.9
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 204,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t079",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "none": 0,
+            "feature": 1,
+            "question": 0,
+            "bug": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.96
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 196,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t080",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "bug": 1,
+            "question": 0,
+            "feature": 0,
+            "none": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.12
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 216,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t081",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "question": 0,
+            "bug": 0,
+            "none": 0.02,
+            "feature": 0.98
+          },
+          "entropy": 0.07072027127091034
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.5
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.82
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 130,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t082",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "question": 0.18,
+            "bug": 0.81,
+            "none": 0.01,
+            "feature": 0
+          },
+          "entropy": 0.37899559358928125
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.22
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.22
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.07
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 174,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t083",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "question": 0,
+            "bug": 0.01,
+            "none": 0,
+            "feature": 0.99
+          },
+          "entropy": 0.04039656794795559
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.19
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.29
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 128,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t084",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "bug": 0,
+            "question": 0,
+            "none": 0,
+            "feature": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.81
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 114,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t085",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "feature": 0,
+            "none": 0,
+            "question": 0.43,
+            "bug": 0.57
+          },
+          "entropy": 0.49290751858945997
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.74
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.11
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 215,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t086",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "question": 0,
+            "bug": 1,
+            "none": 0,
+            "feature": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.85
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.12
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.14
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 160,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t087",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "feature": 0,
+            "question": 0.16,
+            "bug": 0.84,
+            "none": 0
+          },
+          "entropy": 0.3171547773202831
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.32
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.58
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.05
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 184,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t088",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "question": 0,
+            "bug": 1,
+            "none": 0,
+            "feature": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.72
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.93
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 177,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t089",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "bug": 1,
+            "feature": 0,
+            "none": 0,
+            "question": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.83
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.12
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.4
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 125,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t090",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "feature": 0.2,
+            "none": 0,
+            "question": 0.8,
+            "bug": 0
+          },
+          "entropy": 0.36096404744368116
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.83
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.81
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 114,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t091",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "question": 0,
+            "feature": 1,
+            "bug": 0,
+            "none": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.16
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.95
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 148,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t092",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "question": 0.59,
+            "bug": 0.41,
+            "none": 0,
+            "feature": 0
+          },
+          "entropy": 0.4882502343789121
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.65
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.2
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.64
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 351,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t093",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "none": 0.99,
+            "question": 0,
+            "feature": 0.01,
+            "bug": 0
+          },
+          "entropy": 0.04039656794795559
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.07
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 193,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t094",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "feature": 0,
+            "bug": 1,
+            "question": 0,
+            "none": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.12
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 132,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t095",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "question": 0,
+            "bug": 1,
+            "none": 0,
+            "feature": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.17
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.07
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 141,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t096",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "question": 0,
+            "feature": 0.77,
+            "none": 0.23,
+            "bug": 0
+          },
+          "entropy": 0.38900565177326885
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.12
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 253,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t097",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "bug": 0.24,
+            "none": 0,
+            "question": 0.76,
+            "feature": 0
+          },
+          "entropy": 0.39752013969226113
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.69
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.89
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 157,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t098",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "bug": 0,
+            "question": 0,
+            "none": 0,
+            "feature": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.24
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.96
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 152,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t099",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "none": 0,
+            "feature": 0,
+            "bug": 1,
+            "question": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.46
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.47
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 193,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t100",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "feature": 0.11,
+            "none": 0.07,
+            "bug": 0,
+            "question": 0.82
+          },
+          "entropy": 0.4268056116968805
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.34
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.25
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 119,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t101",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "question": 0.43,
+            "bug": 0,
+            "none": 0,
+            "feature": 0.57
+          },
+          "entropy": 0.49290751858945997
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.77
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.84
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 120,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t102",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "question": 0,
+            "feature": 0.99,
+            "none": 0,
+            "bug": 0.01
+          },
+          "entropy": 0.04039656794795559
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.81
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.89
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 108,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t103",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "feature": 0.93,
+            "none": 0,
+            "bug": 0.03,
+            "question": 0.04
+          },
+          "entropy": 0.21744481021131037
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.89
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.23
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.87
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 126,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t104",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "bug": 0.1,
+            "question": 0,
+            "feature": 0.9,
+            "none": 0
+          },
+          "entropy": 0.23449779679464058
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.54
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.12
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 214,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t105",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "bug": 0.97,
+            "feature": 0.03,
+            "question": 0,
+            "none": 0
+          },
+          "entropy": 0.0971959289157881
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.43
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 204,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t106",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "none": 0.04,
+            "feature": 0.95,
+            "question": 0.01,
+            "bug": 0
+          },
+          "entropy": 0.16124668093016215
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.2
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.53
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 133,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t107",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "feature": 0,
+            "question": 0,
+            "none": 0,
+            "bug": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.12
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.11
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 108,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t108",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "feature": 0,
+            "none": 0,
+            "bug": 1,
+            "question": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.15
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.91
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 111,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t109",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "question": 0,
+            "bug": 1,
+            "none": 0,
+            "feature": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.87
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 167,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t110",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "feature": 1,
+            "none": 0,
+            "bug": 0,
+            "question": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.24
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.94
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 175,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t111",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "none": 0,
+            "bug": 0.48,
+            "question": 0.52,
+            "feature": 0
+          },
+          "entropy": 0.4994227679976009
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.82
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.47
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.19
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 219,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t112",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "question": 0,
+            "bug": 1,
+            "none": 0,
+            "feature": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.22
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.15
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.5
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 113,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t113",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "bug": 0.38,
+            "feature": 0.62,
+            "question": 0,
+            "none": 0
+          },
+          "entropy": 0.4790210111131499
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.6
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.88
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 101,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t114",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "bug": 0,
+            "feature": 0,
+            "none": 0,
+            "question": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.12
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.87
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.12
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 105,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t115",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "bug": 0.97,
+            "feature": 0,
+            "question": 0,
+            "none": 0.03
+          },
+          "entropy": 0.0971959289157881
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.16
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.11
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.16
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.14
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 114,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t116",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "feature": 1,
+            "none": 0,
+            "question": 0,
+            "bug": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.42
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 160,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t117",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "bug": 0.26,
+            "feature": 0.02,
+            "none": 0,
+            "question": 0.72
+          },
+          "entropy": 0.4796979310097879
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.89
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.83
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.54
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 111,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t118",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "feature": 0,
+            "bug": 0.86,
+            "question": 0.06,
+            "none": 0.08
+          },
+          "entropy": 0.36108537534382557
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.22
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.2
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.45
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.59
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 191,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t119",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "bug": 0,
+            "feature": 0,
+            "question": 0,
+            "none": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.1
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 149,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t120",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "feature": 0,
+            "none": 0,
+            "question": 0,
+            "bug": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.22
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.91
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 158,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t121",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "feature": 0,
+            "none": 0,
+            "bug": 1,
+            "question": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.62
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.96
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 140,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t122",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "question": 0.54,
+            "none": 0.01,
+            "feature": 0.45,
+            "bug": 0
+          },
+          "entropy": 0.532441522629049
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.84
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.76
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 107,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t123",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "question": 0,
+            "bug": 0,
+            "none": 0,
+            "feature": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.51
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.95
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 100,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t124",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "question": 0.38,
+            "none": 0.01,
+            "feature": 0,
+            "bug": 0.61
+          },
+          "entropy": 0.5159469793764008
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.7
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.8
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.59
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.16
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 107,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t125",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "none": 0.01,
+            "feature": 0.99,
+            "question": 0,
+            "bug": 0
+          },
+          "entropy": 0.04039656794795559
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.12
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.85
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 171,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t126",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "none": 0,
+            "bug": 1,
+            "question": 0,
+            "feature": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.25
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 131,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t127",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "bug": 0,
+            "none": 0,
+            "question": 0,
+            "feature": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.93
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 169,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t128",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "none": 0,
+            "question": 0,
+            "bug": 1,
+            "feature": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.27
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.25
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 162,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t129",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "bug": 0.97,
+            "feature": 0.02,
+            "none": 0,
+            "question": 0.01
+          },
+          "entropy": 0.11097036642660545
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.44
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.33
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 151,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t130",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "bug": 0,
+            "none": 0,
+            "question": 0.99,
+            "feature": 0.01
+          },
+          "entropy": 0.04039656794795559
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.64
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.09
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 193,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t131",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "bug": 0,
+            "question": 0,
+            "feature": 0.85,
+            "none": 0.15
+          },
+          "entropy": 0.30492015235820025
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.4
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.25
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 293,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t132",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "feature": 0.6799999999999999,
+            "question": 0.01,
+            "none": 0.28,
+            "bug": 0.03
+          },
+          "entropy": 0.555386602263365
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.11
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.51
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 158,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t133",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "question": 0,
+            "feature": 1,
+            "bug": 0,
+            "none": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.21
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.19
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 155,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t134",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "bug": 0,
+            "feature": 1,
+            "none": 0,
+            "question": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.44
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.96
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 100,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t135",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "bug": 0.19,
+            "question": 0.81,
+            "none": 0,
+            "feature": 0
+          },
+          "entropy": 0.3507357299419487
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.89
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.22
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 137,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t136",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "bug": 0.69,
+            "none": 0,
+            "feature": 0,
+            "question": 0.31
+          },
+          "entropy": 0.4465867291889284
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.2
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.08
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 103,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t137",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "feature": 0,
+            "none": 0.19,
+            "bug": 0,
+            "question": 0.81
+          },
+          "entropy": 0.3507357299419487
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.21
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.05
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 118,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t138",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "question": 0,
+            "bug": 0,
+            "none": 0,
+            "feature": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.3
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 168,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t139",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "question": 0.27,
+            "none": 0.59,
+            "feature": 0.03,
+            "bug": 0.11
+          },
+          "entropy": 0.7305954059976822
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.37
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.24
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.63
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.51
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 156,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t140",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "none": 0,
+            "feature": 0,
+            "question": 0,
+            "bug": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.75
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.39
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.09
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 116,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t141",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "bug": 0,
+            "question": 1,
+            "feature": 0,
+            "none": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.83
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.45
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 153,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t142",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "feature": 0,
+            "none": 0.1,
+            "bug": 0.9,
+            "question": 0
+          },
+          "entropy": 0.23449779679464058
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.16
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.48
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 170,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t143",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "bug": 0.21,
+            "feature": 0.79,
+            "none": 0,
+            "question": 0
+          },
+          "entropy": 0.3707413699656369
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.14
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.35
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.85
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 119,
+      "correct": {
+        "issueType": false
+      }
+    },
+    {
+      "id": "t144",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "feature": 0.05,
+            "none": 0,
+            "bug": 0.95,
+            "question": 0
+          },
+          "entropy": 0.1431984785579781
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.72
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.26
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.91
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 117,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t145",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "question": 0,
+            "feature": 0,
+            "none": 0,
+            "bug": 1
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.17
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 117,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t146",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "question": 0,
+            "bug": 0,
+            "none": 0.04,
+            "feature": 0.96
+          },
+          "entropy": 0.12114609454120741
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.8
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 119,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t147",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "bug",
+          "probabilities": {
+            "question": 0,
+            "bug": 1,
+            "none": 0,
+            "feature": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.57
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.14
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 92,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t148",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "feature": 0,
+            "bug": 0,
+            "question": 1,
+            "none": 0
+          },
+          "entropy": 0
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.9
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.11
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 135,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t149",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "question",
+          "probabilities": {
+            "feature": 0.01,
+            "none": 0,
+            "bug": 0,
+            "question": 0.99
+          },
+          "entropy": 0.04039656794795559
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.89
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.74
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 141,
+      "correct": {
+        "issueType": true
+      }
+    },
+    {
+      "id": "t150",
+      "answers": {
+        "issueType": {
+          "type": "choice",
+          "choice": "feature",
+          "probabilities": {
+            "question": 0,
+            "feature": 0.59,
+            "none": 0,
+            "bug": 0.41
+          },
+          "entropy": 0.4882502343789121
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "p": 0.12
+        },
+        "proposesNew": {
+          "type": "noul",
+          "p": 0.96
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 131,
+      "correct": {
+        "issueType": true
+      }
+    }
+  ]
+}

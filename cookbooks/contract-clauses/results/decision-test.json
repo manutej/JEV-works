@@ -1,0 +1,1370 @@
+{
+  "domain": "contract-clauses",
+  "testResult": "cookbooks/contract-clauses/results/test.json",
+  "model": "jev-1.13.0 (direct)",
+  "answeredBy": [
+    "jev-1.13.0"
+  ],
+  "n": 150,
+  "unanswered": 0,
+  "rule": {
+    "kind": "choice",
+    "target": "clauseType",
+    "fittedOn": {
+      "result": "cookbooks/contract-clauses/results/fit.json",
+      "n": 100,
+      "unanswered": 0
+    },
+    "gate": {
+      "confidenceAtLeast": 0.955,
+      "maxAutoError": 0.05,
+      "why": "A mis-filed clause in a contract review means the clause is checked against the wrong playbook (or not at all) and costs a lawyer a re-read; auto-file only where the fit split made at most 1 error in 20, and send the rest to the review queue.",
+      "fitCoverage": 0.87,
+      "fitAutoError": 0.046
+    },
+    "fitAccuracy": 0.87,
+    "frozenAt": "2026-09-22T07:55:27.512Z"
+  },
+  "baselineName": "keyword lists (top 8 per class by log-odds, fit split only)",
+  "majority": "other",
+  "forced": {
+    "what": "every test item decided by the frozen rule; unanswered items count wrong",
+    "jevAccuracy": 0.94,
+    "baselineAccuracy": 0.767,
+    "majorityAccuracy": 0.253,
+    "vsBaseline": {
+      "n": 150,
+      "accuracyA": 0.94,
+      "accuracyB": 0.7666666666666667,
+      "b": 27,
+      "c": 1,
+      "p": 2.16e-7,
+      "different": true,
+      "deltaCI95": [
+        0.11333333333333333,
+        0.23333333333333334
+      ]
+    },
+    "vsMajority": {
+      "n": 150,
+      "accuracyA": 0.94,
+      "accuracyB": 0.25333333333333335,
+      "b": 105,
+      "c": 2,
+      "p": 7.12e-29,
+      "different": true,
+      "deltaCI95": [
+        0.6066666666666667,
+        0.7666666666666667
+      ]
+    }
+  },
+  "gated": {
+    "what": "act only outside the escalate band / above the confidence cut, frozen from the fit split",
+    "coverage": 0.833,
+    "autoN": 125,
+    "escalated": 25,
+    "autoAccuracy": 0.976,
+    "baselineOnSameItems": 0.84,
+    "vsBaselineOnSameItems": {
+      "n": 125,
+      "accuracyA": 0.976,
+      "accuracyB": 0.84,
+      "b": 18,
+      "c": 1,
+      "p": 0.0000763,
+      "different": true,
+      "deltaCI95": [
+        0.072,
+        0.2
+      ]
+    },
+    "allItemsEscalationsWrong": 0.813
+  },
+  "strata": [
+    {
+      "label": "assignment",
+      "n": 14,
+      "jev": 1,
+      "baseline": 0.786,
+      "b": 3,
+      "c": 0,
+      "p": 0.25
+    },
+    {
+      "label": "termination",
+      "n": 14,
+      "jev": 1,
+      "baseline": 0.714,
+      "b": 4,
+      "c": 0,
+      "p": 0.125
+    },
+    {
+      "label": "other",
+      "n": 38,
+      "jev": 0.947,
+      "baseline": 0.5,
+      "b": 17,
+      "c": 0,
+      "p": 0.0000153
+    },
+    {
+      "label": "confidentiality",
+      "n": 14,
+      "jev": 1,
+      "baseline": 1,
+      "b": 0,
+      "c": 0,
+      "p": 1
+    },
+    {
+      "label": "amendment",
+      "n": 14,
+      "jev": 0.929,
+      "baseline": 0.929,
+      "b": 0,
+      "c": 0,
+      "p": 1
+    },
+    {
+      "label": "entireAgreement",
+      "n": 14,
+      "jev": 1,
+      "baseline": 1,
+      "b": 0,
+      "c": 0,
+      "p": 1
+    },
+    {
+      "label": "notices",
+      "n": 14,
+      "jev": 0.714,
+      "baseline": 0.786,
+      "b": 0,
+      "c": 1,
+      "p": 1
+    },
+    {
+      "label": "indemnification",
+      "n": 14,
+      "jev": 0.857,
+      "baseline": 0.643,
+      "b": 3,
+      "c": 0,
+      "p": 0.25
+    },
+    {
+      "label": "governingLaw",
+      "n": 14,
+      "jev": 1,
+      "baseline": 1,
+      "b": 0,
+      "c": 0,
+      "p": 1
+    }
+  ],
+  "items": [
+    {
+      "id": "t001",
+      "label": "assignment",
+      "pred": "assignment",
+      "auto": false,
+      "confidence": 0.876,
+      "baseline": "other"
+    },
+    {
+      "id": "t002",
+      "label": "termination",
+      "pred": "termination",
+      "auto": false,
+      "confidence": 0.651,
+      "baseline": "assignment"
+    },
+    {
+      "id": "t003",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "other"
+    },
+    {
+      "id": "t004",
+      "label": "confidentiality",
+      "pred": "confidentiality",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "confidentiality"
+    },
+    {
+      "id": "t005",
+      "label": "amendment",
+      "pred": "amendment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "amendment"
+    },
+    {
+      "id": "t006",
+      "label": "entireAgreement",
+      "pred": "entireAgreement",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "entireAgreement"
+    },
+    {
+      "id": "t007",
+      "label": "notices",
+      "pred": "other",
+      "auto": true,
+      "confidence": 0.966,
+      "baseline": "notices"
+    },
+    {
+      "id": "t008",
+      "label": "confidentiality",
+      "pred": "confidentiality",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "confidentiality"
+    },
+    {
+      "id": "t009",
+      "label": "indemnification",
+      "pred": "indemnification",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "other"
+    },
+    {
+      "id": "t010",
+      "label": "indemnification",
+      "pred": "other",
+      "auto": false,
+      "confidence": 0.73,
+      "baseline": "other"
+    },
+    {
+      "id": "t011",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "other"
+    },
+    {
+      "id": "t012",
+      "label": "other",
+      "pred": "other",
+      "auto": false,
+      "confidence": 0.741,
+      "baseline": "termination"
+    },
+    {
+      "id": "t013",
+      "label": "entireAgreement",
+      "pred": "entireAgreement",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "entireAgreement"
+    },
+    {
+      "id": "t014",
+      "label": "indemnification",
+      "pred": "indemnification",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "indemnification"
+    },
+    {
+      "id": "t015",
+      "label": "entireAgreement",
+      "pred": "entireAgreement",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "entireAgreement"
+    },
+    {
+      "id": "t016",
+      "label": "indemnification",
+      "pred": "indemnification",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "indemnification"
+    },
+    {
+      "id": "t017",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "indemnification"
+    },
+    {
+      "id": "t018",
+      "label": "governingLaw",
+      "pred": "governingLaw",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "governingLaw"
+    },
+    {
+      "id": "t019",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "governingLaw"
+    },
+    {
+      "id": "t020",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "other"
+    },
+    {
+      "id": "t021",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "other"
+    },
+    {
+      "id": "t022",
+      "label": "assignment",
+      "pred": "assignment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "assignment"
+    },
+    {
+      "id": "t023",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "other"
+    },
+    {
+      "id": "t024",
+      "label": "assignment",
+      "pred": "assignment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "assignment"
+    },
+    {
+      "id": "t025",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "other"
+    },
+    {
+      "id": "t026",
+      "label": "entireAgreement",
+      "pred": "entireAgreement",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "entireAgreement"
+    },
+    {
+      "id": "t027",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "governingLaw"
+    },
+    {
+      "id": "t028",
+      "label": "amendment",
+      "pred": "amendment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "amendment"
+    },
+    {
+      "id": "t029",
+      "label": "notices",
+      "pred": "notices",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "notices"
+    },
+    {
+      "id": "t030",
+      "label": "termination",
+      "pred": "termination",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "confidentiality"
+    },
+    {
+      "id": "t031",
+      "label": "confidentiality",
+      "pred": "confidentiality",
+      "auto": false,
+      "confidence": 0.843,
+      "baseline": "confidentiality"
+    },
+    {
+      "id": "t032",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "governingLaw"
+    },
+    {
+      "id": "t033",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "other"
+    },
+    {
+      "id": "t034",
+      "label": "governingLaw",
+      "pred": "governingLaw",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "governingLaw"
+    },
+    {
+      "id": "t035",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "notices"
+    },
+    {
+      "id": "t036",
+      "label": "other",
+      "pred": "other",
+      "auto": false,
+      "confidence": 0.899,
+      "baseline": "governingLaw"
+    },
+    {
+      "id": "t037",
+      "label": "amendment",
+      "pred": "amendment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "amendment"
+    },
+    {
+      "id": "t038",
+      "label": "entireAgreement",
+      "pred": "entireAgreement",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "entireAgreement"
+    },
+    {
+      "id": "t039",
+      "label": "confidentiality",
+      "pred": "confidentiality",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "confidentiality"
+    },
+    {
+      "id": "t040",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "governingLaw"
+    },
+    {
+      "id": "t041",
+      "label": "notices",
+      "pred": "notices",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "notices"
+    },
+    {
+      "id": "t042",
+      "label": "indemnification",
+      "pred": "indemnification",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "entireAgreement"
+    },
+    {
+      "id": "t043",
+      "label": "termination",
+      "pred": "termination",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "termination"
+    },
+    {
+      "id": "t044",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "other"
+    },
+    {
+      "id": "t045",
+      "label": "confidentiality",
+      "pred": "confidentiality",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "confidentiality"
+    },
+    {
+      "id": "t046",
+      "label": "amendment",
+      "pred": "amendment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "amendment"
+    },
+    {
+      "id": "t047",
+      "label": "confidentiality",
+      "pred": "confidentiality",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "confidentiality"
+    },
+    {
+      "id": "t048",
+      "label": "notices",
+      "pred": "notices",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "notices"
+    },
+    {
+      "id": "t049",
+      "label": "indemnification",
+      "pred": "indemnification",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "indemnification"
+    },
+    {
+      "id": "t050",
+      "label": "amendment",
+      "pred": "amendment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "amendment"
+    },
+    {
+      "id": "t051",
+      "label": "confidentiality",
+      "pred": "confidentiality",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "confidentiality"
+    },
+    {
+      "id": "t052",
+      "label": "amendment",
+      "pred": "other",
+      "auto": false,
+      "confidence": 0.899,
+      "baseline": "termination"
+    },
+    {
+      "id": "t053",
+      "label": "notices",
+      "pred": "notices",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "notices"
+    },
+    {
+      "id": "t054",
+      "label": "indemnification",
+      "pred": "indemnification",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "indemnification"
+    },
+    {
+      "id": "t055",
+      "label": "notices",
+      "pred": "notices",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "notices"
+    },
+    {
+      "id": "t056",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "other"
+    },
+    {
+      "id": "t057",
+      "label": "governingLaw",
+      "pred": "governingLaw",
+      "auto": false,
+      "confidence": 0.494,
+      "baseline": "governingLaw"
+    },
+    {
+      "id": "t058",
+      "label": "assignment",
+      "pred": "assignment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "assignment"
+    },
+    {
+      "id": "t059",
+      "label": "entireAgreement",
+      "pred": "entireAgreement",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "entireAgreement"
+    },
+    {
+      "id": "t060",
+      "label": "confidentiality",
+      "pred": "confidentiality",
+      "auto": false,
+      "confidence": 0.843,
+      "baseline": "confidentiality"
+    },
+    {
+      "id": "t061",
+      "label": "termination",
+      "pred": "termination",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "termination"
+    },
+    {
+      "id": "t062",
+      "label": "assignment",
+      "pred": "assignment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "assignment"
+    },
+    {
+      "id": "t063",
+      "label": "other",
+      "pred": "other",
+      "auto": false,
+      "confidence": 0.651,
+      "baseline": "assignment"
+    },
+    {
+      "id": "t064",
+      "label": "governingLaw",
+      "pred": "governingLaw",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "governingLaw"
+    },
+    {
+      "id": "t065",
+      "label": "governingLaw",
+      "pred": "governingLaw",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "governingLaw"
+    },
+    {
+      "id": "t066",
+      "label": "termination",
+      "pred": "termination",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "termination"
+    },
+    {
+      "id": "t067",
+      "label": "assignment",
+      "pred": "assignment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "other"
+    },
+    {
+      "id": "t068",
+      "label": "governingLaw",
+      "pred": "governingLaw",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "governingLaw"
+    },
+    {
+      "id": "t069",
+      "label": "assignment",
+      "pred": "assignment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "assignment"
+    },
+    {
+      "id": "t070",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "other"
+    },
+    {
+      "id": "t071",
+      "label": "assignment",
+      "pred": "assignment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "assignment"
+    },
+    {
+      "id": "t072",
+      "label": "entireAgreement",
+      "pred": "entireAgreement",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "entireAgreement"
+    },
+    {
+      "id": "t073",
+      "label": "termination",
+      "pred": "termination",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "termination"
+    },
+    {
+      "id": "t074",
+      "label": "notices",
+      "pred": "other",
+      "auto": false,
+      "confidence": 0.921,
+      "baseline": "other"
+    },
+    {
+      "id": "t075",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "termination"
+    },
+    {
+      "id": "t076",
+      "label": "confidentiality",
+      "pred": "confidentiality",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "confidentiality"
+    },
+    {
+      "id": "t077",
+      "label": "indemnification",
+      "pred": "indemnification",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "indemnification"
+    },
+    {
+      "id": "t078",
+      "label": "governingLaw",
+      "pred": "governingLaw",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "governingLaw"
+    },
+    {
+      "id": "t079",
+      "label": "confidentiality",
+      "pred": "confidentiality",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "confidentiality"
+    },
+    {
+      "id": "t080",
+      "label": "assignment",
+      "pred": "assignment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "assignment"
+    },
+    {
+      "id": "t081",
+      "label": "indemnification",
+      "pred": "indemnification",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "other"
+    },
+    {
+      "id": "t082",
+      "label": "termination",
+      "pred": "termination",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "termination"
+    },
+    {
+      "id": "t083",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "termination"
+    },
+    {
+      "id": "t084",
+      "label": "termination",
+      "pred": "termination",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "termination"
+    },
+    {
+      "id": "t085",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "governingLaw"
+    },
+    {
+      "id": "t086",
+      "label": "confidentiality",
+      "pred": "confidentiality",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "confidentiality"
+    },
+    {
+      "id": "t087",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "other"
+    },
+    {
+      "id": "t088",
+      "label": "notices",
+      "pred": "notices",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "notices"
+    },
+    {
+      "id": "t089",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "other"
+    },
+    {
+      "id": "t090",
+      "label": "assignment",
+      "pred": "assignment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "assignment"
+    },
+    {
+      "id": "t091",
+      "label": "amendment",
+      "pred": "amendment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "amendment"
+    },
+    {
+      "id": "t092",
+      "label": "termination",
+      "pred": "termination",
+      "auto": false,
+      "confidence": 0.539,
+      "baseline": "other"
+    },
+    {
+      "id": "t093",
+      "label": "indemnification",
+      "pred": "other",
+      "auto": true,
+      "confidence": 0.955,
+      "baseline": "other"
+    },
+    {
+      "id": "t094",
+      "label": "confidentiality",
+      "pred": "confidentiality",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "confidentiality"
+    },
+    {
+      "id": "t095",
+      "label": "entireAgreement",
+      "pred": "entireAgreement",
+      "auto": false,
+      "confidence": 0.921,
+      "baseline": "entireAgreement"
+    },
+    {
+      "id": "t096",
+      "label": "notices",
+      "pred": "other",
+      "auto": false,
+      "confidence": 0.719,
+      "baseline": "other"
+    },
+    {
+      "id": "t097",
+      "label": "termination",
+      "pred": "termination",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "termination"
+    },
+    {
+      "id": "t098",
+      "label": "assignment",
+      "pred": "assignment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "assignment"
+    },
+    {
+      "id": "t099",
+      "label": "entireAgreement",
+      "pred": "entireAgreement",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "entireAgreement"
+    },
+    {
+      "id": "t100",
+      "label": "assignment",
+      "pred": "assignment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "assignment"
+    },
+    {
+      "id": "t101",
+      "label": "other",
+      "pred": "other",
+      "auto": false,
+      "confidence": 0.741,
+      "baseline": "other"
+    },
+    {
+      "id": "t102",
+      "label": "entireAgreement",
+      "pred": "entireAgreement",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "entireAgreement"
+    },
+    {
+      "id": "t103",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "assignment"
+    },
+    {
+      "id": "t104",
+      "label": "assignment",
+      "pred": "assignment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "assignment"
+    },
+    {
+      "id": "t105",
+      "label": "confidentiality",
+      "pred": "confidentiality",
+      "auto": false,
+      "confidence": 0.854,
+      "baseline": "confidentiality"
+    },
+    {
+      "id": "t106",
+      "label": "confidentiality",
+      "pred": "confidentiality",
+      "auto": false,
+      "confidence": 0.854,
+      "baseline": "confidentiality"
+    },
+    {
+      "id": "t107",
+      "label": "other",
+      "pred": "termination",
+      "auto": false,
+      "confidence": 0.629,
+      "baseline": "termination"
+    },
+    {
+      "id": "t108",
+      "label": "governingLaw",
+      "pred": "governingLaw",
+      "auto": false,
+      "confidence": 0.944,
+      "baseline": "governingLaw"
+    },
+    {
+      "id": "t109",
+      "label": "entireAgreement",
+      "pred": "entireAgreement",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "entireAgreement"
+    },
+    {
+      "id": "t110",
+      "label": "governingLaw",
+      "pred": "governingLaw",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "governingLaw"
+    },
+    {
+      "id": "t111",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "amendment"
+    },
+    {
+      "id": "t112",
+      "label": "indemnification",
+      "pred": "indemnification",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "indemnification"
+    },
+    {
+      "id": "t113",
+      "label": "termination",
+      "pred": "termination",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "termination"
+    },
+    {
+      "id": "t114",
+      "label": "termination",
+      "pred": "termination",
+      "auto": false,
+      "confidence": 0.944,
+      "baseline": "other"
+    },
+    {
+      "id": "t115",
+      "label": "amendment",
+      "pred": "amendment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "amendment"
+    },
+    {
+      "id": "t116",
+      "label": "amendment",
+      "pred": "amendment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "amendment"
+    },
+    {
+      "id": "t117",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "other"
+    },
+    {
+      "id": "t118",
+      "label": "governingLaw",
+      "pred": "governingLaw",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "governingLaw"
+    },
+    {
+      "id": "t119",
+      "label": "notices",
+      "pred": "notices",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "notices"
+    },
+    {
+      "id": "t120",
+      "label": "governingLaw",
+      "pred": "governingLaw",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "governingLaw"
+    },
+    {
+      "id": "t121",
+      "label": "notices",
+      "pred": "notices",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "notices"
+    },
+    {
+      "id": "t122",
+      "label": "indemnification",
+      "pred": "indemnification",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "indemnification"
+    },
+    {
+      "id": "t123",
+      "label": "notices",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "other"
+    },
+    {
+      "id": "t124",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "other"
+    },
+    {
+      "id": "t125",
+      "label": "amendment",
+      "pred": "amendment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "amendment"
+    },
+    {
+      "id": "t126",
+      "label": "entireAgreement",
+      "pred": "entireAgreement",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "entireAgreement"
+    },
+    {
+      "id": "t127",
+      "label": "notices",
+      "pred": "notices",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "notices"
+    },
+    {
+      "id": "t128",
+      "label": "assignment",
+      "pred": "assignment",
+      "auto": false,
+      "confidence": 0.753,
+      "baseline": "other"
+    },
+    {
+      "id": "t129",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "other"
+    },
+    {
+      "id": "t130",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "indemnification"
+    },
+    {
+      "id": "t131",
+      "label": "governingLaw",
+      "pred": "governingLaw",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "governingLaw"
+    },
+    {
+      "id": "t132",
+      "label": "indemnification",
+      "pred": "indemnification",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "indemnification"
+    },
+    {
+      "id": "t133",
+      "label": "termination",
+      "pred": "termination",
+      "auto": false,
+      "confidence": 0.719,
+      "baseline": "termination"
+    },
+    {
+      "id": "t134",
+      "label": "indemnification",
+      "pred": "indemnification",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "indemnification"
+    },
+    {
+      "id": "t135",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "other"
+    },
+    {
+      "id": "t136",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "other"
+    },
+    {
+      "id": "t137",
+      "label": "other",
+      "pred": "other",
+      "auto": false,
+      "confidence": 0.876,
+      "baseline": "other"
+    },
+    {
+      "id": "t138",
+      "label": "amendment",
+      "pred": "amendment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "amendment"
+    },
+    {
+      "id": "t139",
+      "label": "notices",
+      "pred": "notices",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "notices"
+    },
+    {
+      "id": "t140",
+      "label": "other",
+      "pred": "termination",
+      "auto": false,
+      "confidence": 0.719,
+      "baseline": "termination"
+    },
+    {
+      "id": "t141",
+      "label": "other",
+      "pred": "other",
+      "auto": false,
+      "confidence": 0.865,
+      "baseline": "amendment"
+    },
+    {
+      "id": "t142",
+      "label": "governingLaw",
+      "pred": "governingLaw",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "governingLaw"
+    },
+    {
+      "id": "t143",
+      "label": "entireAgreement",
+      "pred": "entireAgreement",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "entireAgreement"
+    },
+    {
+      "id": "t144",
+      "label": "entireAgreement",
+      "pred": "entireAgreement",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "entireAgreement"
+    },
+    {
+      "id": "t145",
+      "label": "amendment",
+      "pred": "amendment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "amendment"
+    },
+    {
+      "id": "t146",
+      "label": "amendment",
+      "pred": "amendment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "amendment"
+    },
+    {
+      "id": "t147",
+      "label": "governingLaw",
+      "pred": "governingLaw",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "governingLaw"
+    },
+    {
+      "id": "t148",
+      "label": "other",
+      "pred": "other",
+      "auto": true,
+      "confidence": 0.978,
+      "baseline": "confidentiality"
+    },
+    {
+      "id": "t149",
+      "label": "termination",
+      "pred": "termination",
+      "auto": true,
+      "confidence": 0.955,
+      "baseline": "termination"
+    },
+    {
+      "id": "t150",
+      "label": "amendment",
+      "pred": "amendment",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "amendment"
+    }
+  ],
+  "scoredAt": "2026-09-22T07:56:37.027Z"
+}

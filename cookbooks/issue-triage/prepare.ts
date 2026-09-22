@@ -23,7 +23,7 @@
  * dropped before sampling.
  */
 import { execFileSync } from 'node:child_process';
-import { dedupe, fetchFile, keywordBaseline, maskPrivate, parseCsv, report, shuffle, stratified, writeSpecs, type Built } from '../_shared/lib.ts';
+import { dedupe, fetchFile, keywordBaseline, maskPrivate, parseCsv, report, shuffle, stratified, writeSpecs, type Built, writeStrongBaseline } from '../_shared/lib.ts';
 import { privacyScan } from '../../kit/checks.ts';
 import type { Question } from '../../kit/spec.ts';
 
@@ -156,4 +156,12 @@ writeSpecs(import.meta.dirname, {
   name: 'issue-triage',
   description: 'Developer tools: is a GitHub issue a bug report, a feature request or a question? One labelled choice plus narrow literal signals. NLBSE\'23 issue-report classification data (AGPL-3.0); maintainer labels (noisy); ids, authors, URLs and @mentions dropped; long code blocks replaced by a line count; body truncated to 250 words.',
   questions: QUESTIONS, items, baselineName: base.name,
+});
+
+// Post-hoc (added after the labelled test run; no Jev calls; never changes a declared verdict): STRONG_BASELINE=1 also
+// writes baseline.strong.json, a naive Bayes trained on up to 2,000 labelled source rows that are neither fit nor test.
+if (process.env.STRONG_BASELINE) writeStrongBaseline(import.meta.dirname, {
+  train: pool.filter(r => !fit.includes(r) && !test.includes(r)),
+  test: shuffle(test, SEED + 2).map((rec, i) => ({ id: `t${String(i + 1).padStart(3, '0')}`, rec })),
+  textOf: textOf, labelOf: r => r.label, toValue: v => v, source: 'NLBSE23 prefix rows not in fit or test', seed: SEED + 9,
 });

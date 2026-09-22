@@ -1,0 +1,1388 @@
+{
+  "domain": "intent-routing",
+  "testResult": "cookbooks/intent-routing/results/test.json",
+  "model": "jev-1.13.0 (direct)",
+  "answeredBy": [
+    "jev-1.13.0"
+  ],
+  "n": 150,
+  "unanswered": 0,
+  "rule": {
+    "kind": "choice",
+    "target": "domain",
+    "fittedOn": {
+      "result": "cookbooks/intent-routing/results/fit.json",
+      "n": 100,
+      "unanswered": 0
+    },
+    "gate": {
+      "confidenceAtLeast": 0.362,
+      "maxAutoError": 0.05,
+      "why": "A wrong auto-route costs a bounce: the user lands in the wrong skill (or an in-scope request is refused as none) and has to rephrase or be handed back. Auto-route only above the lowest confidence where the fit split made at most 1 error in 20; everything below goes to a clarifying question or a human.",
+      "fitCoverage": 1,
+      "fitAutoError": 0.05
+    },
+    "fitAccuracy": 0.95,
+    "frozenAt": "2026-09-22T07:55:27.292Z"
+  },
+  "baselineName": "keyword lists (top 8 per class by log-odds, fit split only)",
+  "majority": "none",
+  "forced": {
+    "what": "every test item decided by the frozen rule; unanswered items count wrong",
+    "jevAccuracy": 0.947,
+    "baselineAccuracy": 0.333,
+    "majorityAccuracy": 0.2,
+    "vsBaseline": {
+      "n": 150,
+      "accuracyA": 0.9466666666666667,
+      "accuracyB": 0.3333333333333333,
+      "b": 94,
+      "c": 2,
+      "p": 1.18e-25,
+      "different": true,
+      "deltaCI95": [
+        0.5266666666666666,
+        0.6933333333333334
+      ]
+    },
+    "vsMajority": {
+      "n": 150,
+      "accuracyA": 0.9466666666666667,
+      "accuracyB": 0.2,
+      "b": 114,
+      "c": 2,
+      "p": 1.63e-31,
+      "different": true,
+      "deltaCI95": [
+        0.6666666666666666,
+        0.82
+      ]
+    }
+  },
+  "gated": {
+    "what": "act only outside the escalate band / above the confidence cut, frozen from the fit split",
+    "coverage": 1,
+    "autoN": 150,
+    "escalated": 0,
+    "autoAccuracy": 0.947,
+    "baselineOnSameItems": 0.333,
+    "vsBaselineOnSameItems": {
+      "n": 150,
+      "accuracyA": 0.9466666666666667,
+      "accuracyB": 0.3333333333333333,
+      "b": 94,
+      "c": 2,
+      "p": 1.18e-25,
+      "different": true,
+      "deltaCI95": [
+        0.5266666666666666,
+        0.6933333333333334
+      ]
+    },
+    "allItemsEscalationsWrong": 0.947
+  },
+  "strata": [
+    {
+      "label": "auto_and_commute",
+      "n": 12,
+      "jev": 0.917,
+      "baseline": 0.083,
+      "b": 10,
+      "c": 0,
+      "p": 0.00195
+    },
+    {
+      "label": "meta",
+      "n": 12,
+      "jev": 0.833,
+      "baseline": 0.083,
+      "b": 9,
+      "c": 0,
+      "p": 0.00391
+    },
+    {
+      "label": "none",
+      "n": 30,
+      "jev": 0.933,
+      "baseline": 0.767,
+      "b": 7,
+      "c": 2,
+      "p": 0.18
+    },
+    {
+      "label": "banking",
+      "n": 12,
+      "jev": 1,
+      "baseline": 0.75,
+      "b": 3,
+      "c": 0,
+      "p": 0.25
+    },
+    {
+      "label": "kitchen_and_dining",
+      "n": 12,
+      "jev": 1,
+      "baseline": 0.167,
+      "b": 10,
+      "c": 0,
+      "p": 0.00195
+    },
+    {
+      "label": "home",
+      "n": 12,
+      "jev": 1,
+      "baseline": 0.25,
+      "b": 9,
+      "c": 0,
+      "p": 0.00391
+    },
+    {
+      "label": "travel",
+      "n": 12,
+      "jev": 0.917,
+      "baseline": 0.25,
+      "b": 8,
+      "c": 0,
+      "p": 0.00781
+    },
+    {
+      "label": "credit_cards",
+      "n": 12,
+      "jev": 1,
+      "baseline": 0.667,
+      "b": 4,
+      "c": 0,
+      "p": 0.125
+    },
+    {
+      "label": "small_talk",
+      "n": 12,
+      "jev": 0.833,
+      "baseline": 0,
+      "b": 10,
+      "c": 0,
+      "p": 0.00195
+    },
+    {
+      "label": "work",
+      "n": 12,
+      "jev": 1,
+      "baseline": 0,
+      "b": 12,
+      "c": 0,
+      "p": 0.000488
+    },
+    {
+      "label": "utility",
+      "n": 12,
+      "jev": 1,
+      "baseline": 0,
+      "b": 12,
+      "c": 0,
+      "p": 0.000488
+    }
+  ],
+  "items": [
+    {
+      "id": "t001",
+      "label": "auto_and_commute",
+      "pred": "auto_and_commute",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "travel"
+    },
+    {
+      "id": "t002",
+      "label": "meta",
+      "pred": "meta",
+      "auto": true,
+      "confidence": 0.681,
+      "baseline": "none"
+    },
+    {
+      "id": "t003",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t004",
+      "label": "meta",
+      "pred": "meta",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t005",
+      "label": "meta",
+      "pred": "meta",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "home"
+    },
+    {
+      "id": "t006",
+      "label": "auto_and_commute",
+      "pred": "auto_and_commute",
+      "auto": true,
+      "confidence": 0.736,
+      "baseline": "none"
+    },
+    {
+      "id": "t007",
+      "label": "banking",
+      "pred": "banking",
+      "auto": true,
+      "confidence": 0.45,
+      "baseline": "none"
+    },
+    {
+      "id": "t008",
+      "label": "kitchen_and_dining",
+      "pred": "kitchen_and_dining",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "home"
+    },
+    {
+      "id": "t009",
+      "label": "home",
+      "pred": "home",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t010",
+      "label": "travel",
+      "pred": "travel",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t011",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 0.725,
+      "baseline": "none"
+    },
+    {
+      "id": "t012",
+      "label": "kitchen_and_dining",
+      "pred": "kitchen_and_dining",
+      "auto": true,
+      "confidence": 0.813,
+      "baseline": "none"
+    },
+    {
+      "id": "t013",
+      "label": "credit_cards",
+      "pred": "credit_cards",
+      "auto": true,
+      "confidence": 0.978,
+      "baseline": "credit_cards"
+    },
+    {
+      "id": "t014",
+      "label": "banking",
+      "pred": "banking",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "banking"
+    },
+    {
+      "id": "t015",
+      "label": "auto_and_commute",
+      "pred": "auto_and_commute",
+      "auto": true,
+      "confidence": 0.912,
+      "baseline": "none"
+    },
+    {
+      "id": "t016",
+      "label": "meta",
+      "pred": "small_talk",
+      "auto": true,
+      "confidence": 0.615,
+      "baseline": "travel"
+    },
+    {
+      "id": "t017",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t018",
+      "label": "meta",
+      "pred": "meta",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "home"
+    },
+    {
+      "id": "t019",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t020",
+      "label": "kitchen_and_dining",
+      "pred": "kitchen_and_dining",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t021",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "none"
+    },
+    {
+      "id": "t022",
+      "label": "banking",
+      "pred": "banking",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "banking"
+    },
+    {
+      "id": "t023",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t024",
+      "label": "kitchen_and_dining",
+      "pred": "kitchen_and_dining",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t025",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 0.945,
+      "baseline": "home"
+    },
+    {
+      "id": "t026",
+      "label": "small_talk",
+      "pred": "none",
+      "auto": true,
+      "confidence": 0.868,
+      "baseline": "none"
+    },
+    {
+      "id": "t027",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 0.868,
+      "baseline": "none"
+    },
+    {
+      "id": "t028",
+      "label": "banking",
+      "pred": "banking",
+      "auto": true,
+      "confidence": 0.835,
+      "baseline": "none"
+    },
+    {
+      "id": "t029",
+      "label": "work",
+      "pred": "work",
+      "auto": true,
+      "confidence": 0.747,
+      "baseline": "travel"
+    },
+    {
+      "id": "t030",
+      "label": "work",
+      "pred": "work",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "none"
+    },
+    {
+      "id": "t031",
+      "label": "banking",
+      "pred": "banking",
+      "auto": true,
+      "confidence": 0.428,
+      "baseline": "banking"
+    },
+    {
+      "id": "t032",
+      "label": "home",
+      "pred": "home",
+      "auto": true,
+      "confidence": 0.978,
+      "baseline": "none"
+    },
+    {
+      "id": "t033",
+      "label": "credit_cards",
+      "pred": "credit_cards",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "none"
+    },
+    {
+      "id": "t034",
+      "label": "home",
+      "pred": "home",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "banking"
+    },
+    {
+      "id": "t035",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 0.89,
+      "baseline": "banking"
+    },
+    {
+      "id": "t036",
+      "label": "home",
+      "pred": "home",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "home"
+    },
+    {
+      "id": "t037",
+      "label": "small_talk",
+      "pred": "small_talk",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t038",
+      "label": "utility",
+      "pred": "utility",
+      "auto": true,
+      "confidence": 0.67,
+      "baseline": "none"
+    },
+    {
+      "id": "t039",
+      "label": "auto_and_commute",
+      "pred": "auto_and_commute",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t040",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 0.923,
+      "baseline": "none"
+    },
+    {
+      "id": "t041",
+      "label": "utility",
+      "pred": "utility",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "home"
+    },
+    {
+      "id": "t042",
+      "label": "work",
+      "pred": "work",
+      "auto": true,
+      "confidence": 0.978,
+      "baseline": "travel"
+    },
+    {
+      "id": "t043",
+      "label": "credit_cards",
+      "pred": "credit_cards",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t044",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t045",
+      "label": "work",
+      "pred": "work",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "home"
+    },
+    {
+      "id": "t046",
+      "label": "home",
+      "pred": "home",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "home"
+    },
+    {
+      "id": "t047",
+      "label": "banking",
+      "pred": "banking",
+      "auto": true,
+      "confidence": 0.791,
+      "baseline": "none"
+    },
+    {
+      "id": "t048",
+      "label": "kitchen_and_dining",
+      "pred": "kitchen_and_dining",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "kitchen_and_dining"
+    },
+    {
+      "id": "t049",
+      "label": "auto_and_commute",
+      "pred": "none",
+      "auto": true,
+      "confidence": 0.472,
+      "baseline": "none"
+    },
+    {
+      "id": "t050",
+      "label": "travel",
+      "pred": "travel",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "travel"
+    },
+    {
+      "id": "t051",
+      "label": "credit_cards",
+      "pred": "credit_cards",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "credit_cards"
+    },
+    {
+      "id": "t052",
+      "label": "travel",
+      "pred": "travel",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t053",
+      "label": "credit_cards",
+      "pred": "credit_cards",
+      "auto": true,
+      "confidence": 0.78,
+      "baseline": "none"
+    },
+    {
+      "id": "t054",
+      "label": "travel",
+      "pred": "travel",
+      "auto": true,
+      "confidence": 0.527,
+      "baseline": "none"
+    },
+    {
+      "id": "t055",
+      "label": "kitchen_and_dining",
+      "pred": "kitchen_and_dining",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "home"
+    },
+    {
+      "id": "t056",
+      "label": "credit_cards",
+      "pred": "credit_cards",
+      "auto": true,
+      "confidence": 0.967,
+      "baseline": "credit_cards"
+    },
+    {
+      "id": "t057",
+      "label": "utility",
+      "pred": "utility",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t058",
+      "label": "banking",
+      "pred": "banking",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "banking"
+    },
+    {
+      "id": "t059",
+      "label": "banking",
+      "pred": "banking",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "banking"
+    },
+    {
+      "id": "t060",
+      "label": "auto_and_commute",
+      "pred": "auto_and_commute",
+      "auto": true,
+      "confidence": 0.615,
+      "baseline": "travel"
+    },
+    {
+      "id": "t061",
+      "label": "home",
+      "pred": "home",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t062",
+      "label": "utility",
+      "pred": "utility",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "travel"
+    },
+    {
+      "id": "t063",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 0.659,
+      "baseline": "none"
+    },
+    {
+      "id": "t064",
+      "label": "work",
+      "pred": "work",
+      "auto": true,
+      "confidence": 0.967,
+      "baseline": "banking"
+    },
+    {
+      "id": "t065",
+      "label": "small_talk",
+      "pred": "small_talk",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t066",
+      "label": "banking",
+      "pred": "banking",
+      "auto": true,
+      "confidence": 0.615,
+      "baseline": "banking"
+    },
+    {
+      "id": "t067",
+      "label": "work",
+      "pred": "work",
+      "auto": true,
+      "confidence": 0.89,
+      "baseline": "none"
+    },
+    {
+      "id": "t068",
+      "label": "banking",
+      "pred": "banking",
+      "auto": true,
+      "confidence": 0.681,
+      "baseline": "banking"
+    },
+    {
+      "id": "t069",
+      "label": "home",
+      "pred": "home",
+      "auto": true,
+      "confidence": 0.978,
+      "baseline": "none"
+    },
+    {
+      "id": "t070",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "banking"
+    },
+    {
+      "id": "t071",
+      "label": "small_talk",
+      "pred": "small_talk",
+      "auto": true,
+      "confidence": 0.934,
+      "baseline": "none"
+    },
+    {
+      "id": "t072",
+      "label": "utility",
+      "pred": "utility",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "banking"
+    },
+    {
+      "id": "t073",
+      "label": "work",
+      "pred": "work",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t074",
+      "label": "meta",
+      "pred": "meta",
+      "auto": true,
+      "confidence": 0.978,
+      "baseline": "none"
+    },
+    {
+      "id": "t075",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t076",
+      "label": "home",
+      "pred": "home",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "none"
+    },
+    {
+      "id": "t077",
+      "label": "auto_and_commute",
+      "pred": "auto_and_commute",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "none"
+    },
+    {
+      "id": "t078",
+      "label": "utility",
+      "pred": "utility",
+      "auto": true,
+      "confidence": 0.923,
+      "baseline": "none"
+    },
+    {
+      "id": "t079",
+      "label": "utility",
+      "pred": "utility",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "none"
+    },
+    {
+      "id": "t080",
+      "label": "travel",
+      "pred": "travel",
+      "auto": true,
+      "confidence": 0.67,
+      "baseline": "none"
+    },
+    {
+      "id": "t081",
+      "label": "work",
+      "pred": "work",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t082",
+      "label": "travel",
+      "pred": "travel",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "none"
+    },
+    {
+      "id": "t083",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t084",
+      "label": "kitchen_and_dining",
+      "pred": "kitchen_and_dining",
+      "auto": true,
+      "confidence": 0.967,
+      "baseline": "none"
+    },
+    {
+      "id": "t085",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t086",
+      "label": "banking",
+      "pred": "banking",
+      "auto": true,
+      "confidence": 0.868,
+      "baseline": "banking"
+    },
+    {
+      "id": "t087",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "kitchen_and_dining"
+    },
+    {
+      "id": "t088",
+      "label": "kitchen_and_dining",
+      "pred": "kitchen_and_dining",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "none"
+    },
+    {
+      "id": "t089",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 0.791,
+      "baseline": "none"
+    },
+    {
+      "id": "t090",
+      "label": "small_talk",
+      "pred": "none",
+      "auto": true,
+      "confidence": 0.67,
+      "baseline": "none"
+    },
+    {
+      "id": "t091",
+      "label": "home",
+      "pred": "home",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t092",
+      "label": "kitchen_and_dining",
+      "pred": "kitchen_and_dining",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "none"
+    },
+    {
+      "id": "t093",
+      "label": "meta",
+      "pred": "meta",
+      "auto": true,
+      "confidence": 0.967,
+      "baseline": "none"
+    },
+    {
+      "id": "t094",
+      "label": "small_talk",
+      "pred": "small_talk",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t095",
+      "label": "work",
+      "pred": "work",
+      "auto": true,
+      "confidence": 0.802,
+      "baseline": "none"
+    },
+    {
+      "id": "t096",
+      "label": "small_talk",
+      "pred": "small_talk",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "home"
+    },
+    {
+      "id": "t097",
+      "label": "kitchen_and_dining",
+      "pred": "kitchen_and_dining",
+      "auto": true,
+      "confidence": 0.978,
+      "baseline": "none"
+    },
+    {
+      "id": "t098",
+      "label": "credit_cards",
+      "pred": "credit_cards",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "credit_cards"
+    },
+    {
+      "id": "t099",
+      "label": "meta",
+      "pred": "meta",
+      "auto": true,
+      "confidence": 0.725,
+      "baseline": "meta"
+    },
+    {
+      "id": "t100",
+      "label": "travel",
+      "pred": "travel",
+      "auto": true,
+      "confidence": 0.736,
+      "baseline": "none"
+    },
+    {
+      "id": "t101",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 0.846,
+      "baseline": "home"
+    },
+    {
+      "id": "t102",
+      "label": "utility",
+      "pred": "utility",
+      "auto": true,
+      "confidence": 0.89,
+      "baseline": "travel"
+    },
+    {
+      "id": "t103",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t104",
+      "label": "work",
+      "pred": "work",
+      "auto": true,
+      "confidence": 0.967,
+      "baseline": "none"
+    },
+    {
+      "id": "t105",
+      "label": "credit_cards",
+      "pred": "credit_cards",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "credit_cards"
+    },
+    {
+      "id": "t106",
+      "label": "utility",
+      "pred": "utility",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "none"
+    },
+    {
+      "id": "t107",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t108",
+      "label": "travel",
+      "pred": "travel",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "none"
+    },
+    {
+      "id": "t109",
+      "label": "small_talk",
+      "pred": "small_talk",
+      "auto": true,
+      "confidence": 0.967,
+      "baseline": "travel"
+    },
+    {
+      "id": "t110",
+      "label": "small_talk",
+      "pred": "small_talk",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "travel"
+    },
+    {
+      "id": "t111",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t112",
+      "label": "auto_and_commute",
+      "pred": "auto_and_commute",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t113",
+      "label": "meta",
+      "pred": "none",
+      "auto": true,
+      "confidence": 0.582,
+      "baseline": "none"
+    },
+    {
+      "id": "t114",
+      "label": "home",
+      "pred": "home",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "none"
+    },
+    {
+      "id": "t115",
+      "label": "meta",
+      "pred": "meta",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t116",
+      "label": "credit_cards",
+      "pred": "credit_cards",
+      "auto": true,
+      "confidence": 0.934,
+      "baseline": "credit_cards"
+    },
+    {
+      "id": "t117",
+      "label": "home",
+      "pred": "home",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "home"
+    },
+    {
+      "id": "t118",
+      "label": "travel",
+      "pred": "travel",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "none"
+    },
+    {
+      "id": "t119",
+      "label": "small_talk",
+      "pred": "small_talk",
+      "auto": true,
+      "confidence": 0.901,
+      "baseline": "none"
+    },
+    {
+      "id": "t120",
+      "label": "auto_and_commute",
+      "pred": "auto_and_commute",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "auto_and_commute"
+    },
+    {
+      "id": "t121",
+      "label": "kitchen_and_dining",
+      "pred": "kitchen_and_dining",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "kitchen_and_dining"
+    },
+    {
+      "id": "t122",
+      "label": "credit_cards",
+      "pred": "credit_cards",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "credit_cards"
+    },
+    {
+      "id": "t123",
+      "label": "kitchen_and_dining",
+      "pred": "kitchen_and_dining",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "travel"
+    },
+    {
+      "id": "t124",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t125",
+      "label": "travel",
+      "pred": "travel",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "travel"
+    },
+    {
+      "id": "t126",
+      "label": "auto_and_commute",
+      "pred": "auto_and_commute",
+      "auto": true,
+      "confidence": 0.758,
+      "baseline": "none"
+    },
+    {
+      "id": "t127",
+      "label": "auto_and_commute",
+      "pred": "auto_and_commute",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "none"
+    },
+    {
+      "id": "t128",
+      "label": "banking",
+      "pred": "banking",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "banking"
+    },
+    {
+      "id": "t129",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 0.494,
+      "baseline": "kitchen_and_dining"
+    },
+    {
+      "id": "t130",
+      "label": "none",
+      "pred": "home",
+      "auto": true,
+      "confidence": 0.912,
+      "baseline": "none"
+    },
+    {
+      "id": "t131",
+      "label": "travel",
+      "pred": "none",
+      "auto": true,
+      "confidence": 0.791,
+      "baseline": "none"
+    },
+    {
+      "id": "t132",
+      "label": "utility",
+      "pred": "utility",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t133",
+      "label": "work",
+      "pred": "work",
+      "auto": true,
+      "confidence": 0.967,
+      "baseline": "none"
+    },
+    {
+      "id": "t134",
+      "label": "utility",
+      "pred": "utility",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "none"
+    },
+    {
+      "id": "t135",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 0.934,
+      "baseline": "none"
+    },
+    {
+      "id": "t136",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 0.967,
+      "baseline": "none"
+    },
+    {
+      "id": "t137",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 0.978,
+      "baseline": "none"
+    },
+    {
+      "id": "t138",
+      "label": "travel",
+      "pred": "travel",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "travel"
+    },
+    {
+      "id": "t139",
+      "label": "meta",
+      "pred": "meta",
+      "auto": true,
+      "confidence": 0.637,
+      "baseline": "none"
+    },
+    {
+      "id": "t140",
+      "label": "none",
+      "pred": "none",
+      "auto": true,
+      "confidence": 0.868,
+      "baseline": "kitchen_and_dining"
+    },
+    {
+      "id": "t141",
+      "label": "credit_cards",
+      "pred": "credit_cards",
+      "auto": true,
+      "confidence": 0.945,
+      "baseline": "kitchen_and_dining"
+    },
+    {
+      "id": "t142",
+      "label": "utility",
+      "pred": "utility",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "none"
+    },
+    {
+      "id": "t143",
+      "label": "credit_cards",
+      "pred": "credit_cards",
+      "auto": true,
+      "confidence": 0.989,
+      "baseline": "credit_cards"
+    },
+    {
+      "id": "t144",
+      "label": "home",
+      "pred": "home",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "travel"
+    },
+    {
+      "id": "t145",
+      "label": "work",
+      "pred": "work",
+      "auto": true,
+      "confidence": 0.945,
+      "baseline": "none"
+    },
+    {
+      "id": "t146",
+      "label": "auto_and_commute",
+      "pred": "auto_and_commute",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "travel"
+    },
+    {
+      "id": "t147",
+      "label": "meta",
+      "pred": "meta",
+      "auto": true,
+      "confidence": 0.978,
+      "baseline": "none"
+    },
+    {
+      "id": "t148",
+      "label": "none",
+      "pred": "small_talk",
+      "auto": true,
+      "confidence": 0.483,
+      "baseline": "none"
+    },
+    {
+      "id": "t149",
+      "label": "small_talk",
+      "pred": "small_talk",
+      "auto": true,
+      "confidence": 1,
+      "baseline": "kitchen_and_dining"
+    },
+    {
+      "id": "t150",
+      "label": "small_talk",
+      "pred": "small_talk",
+      "auto": true,
+      "confidence": 0.835,
+      "baseline": "travel"
+    }
+  ],
+  "scoredAt": "2026-09-22T07:56:36.765Z"
+}

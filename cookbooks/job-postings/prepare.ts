@@ -20,7 +20,7 @@
  * Privacy: the source already replaced contacts with #EMAIL_<sha>#, #PHONE_<sha>#, #URL_<sha>#; we normalise those to
  *   [email] / [phone number] / [url], then run maskPrivate, then writeSpecs re-runs the kit's privacy scan.
  */
-import { dedupe, fetchFile, keywordBaseline, maskPrivate, parseCsv, report, shuffle, stratified, writeSpecs, type Built } from '../_shared/lib.ts';
+import { dedupe, fetchFile, keywordBaseline, maskPrivate, parseCsv, report, shuffle, stratified, writeSpecs, type Built, writeStrongBaseline } from '../_shared/lib.ts';
 import { readFileSync } from 'node:fs';
 import type { Question } from '../../kit/spec.ts';
 
@@ -163,4 +163,12 @@ writeSpecs(import.meta.dirname, {
   name: 'job-postings',
   description: 'HR / trust & safety: is a job ad fraudulent? One direct question plus five narrow literal signals recombined in code. EMSCAD (Vidros et al. 2017) via a CC0-declared Hugging Face mirror; fraud oversampled to 30% (natural rate ~5%); long text truncated; contacts masked; structured flags kept out of the state.',
   questions: QUESTIONS, items, baselineName: base.name, labelsInMetaOnly: true,
+});
+
+// Post-hoc (added after the labelled test run; no Jev calls; never changes a declared verdict): STRONG_BASELINE=1 also
+// writes baseline.strong.json, a naive Bayes trained on up to 2,000 labelled source rows that are neither fit nor test.
+if (process.env.STRONG_BASELINE) writeStrongBaseline(import.meta.dirname, {
+  train: pool.filter(r => !fit.includes(r) && !test.includes(r)),
+  test: shuffle(test, SEED + 2).map((rec, i) => ({ id: `t${String(i + 1).padStart(3, '0')}`, rec })),
+  textOf: jevText, labelOf: r => r.label, toValue: v => v === 'fraud', source: 'EMSCAD rows not in fit or test', seed: SEED + 9,
 });

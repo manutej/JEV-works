@@ -1,0 +1,149 @@
+{
+  "posthoc": true,
+  "what": "frozen Jev decision (forced) vs naive Bayes trained on labelled source rows outside fit and test",
+  "strongBaseline": {
+    "name": "naive Bayes on 1150 source rows (not fit, not test), test class proportions",
+    "trainN": 1150,
+    "trainCounts": {
+      "auto_and_commute": 92,
+      "meta": 92,
+      "none": 230,
+      "banking": 92,
+      "kitchen_and_dining": 92,
+      "home": 92,
+      "travel": 92,
+      "credit_cards": 92,
+      "small_talk": 92,
+      "work": 92,
+      "utility": 92
+    },
+    "source": "CLINC150 train + oos_train, rows not in fit"
+  },
+  "forced": {
+    "n": 150,
+    "accuracyA": 0.9466666666666667,
+    "accuracyB": 0.74,
+    "b": 36,
+    "c": 5,
+    "p": 7.84e-7,
+    "different": true,
+    "deltaCI95": [
+      0.12666666666666668,
+      0.28
+    ]
+  },
+  "gatedSameItems": {
+    "n": 150,
+    "accuracyA": 0.9466666666666667,
+    "accuracyB": 0.74,
+    "b": 36,
+    "c": 5,
+    "p": 7.84e-7,
+    "different": true,
+    "deltaCI95": [
+      0.12666666666666668,
+      0.28
+    ]
+  },
+  "strata": [
+    {
+      "label": "auto_and_commute",
+      "n": 12,
+      "jev": 0.917,
+      "strong": 0.917,
+      "b": 1,
+      "c": 1,
+      "p": 1
+    },
+    {
+      "label": "meta",
+      "n": 12,
+      "jev": 0.833,
+      "strong": 0.75,
+      "b": 2,
+      "c": 1,
+      "p": 1
+    },
+    {
+      "label": "none",
+      "n": 30,
+      "jev": 0.933,
+      "strong": 0.233,
+      "b": 21,
+      "c": 0,
+      "p": 9.54e-7
+    },
+    {
+      "label": "banking",
+      "n": 12,
+      "jev": 1,
+      "strong": 0.917,
+      "b": 1,
+      "c": 0,
+      "p": 1
+    },
+    {
+      "label": "kitchen_and_dining",
+      "n": 12,
+      "jev": 1,
+      "strong": 0.917,
+      "b": 1,
+      "c": 0,
+      "p": 1
+    },
+    {
+      "label": "home",
+      "n": 12,
+      "jev": 1,
+      "strong": 0.833,
+      "b": 2,
+      "c": 0,
+      "p": 0.5
+    },
+    {
+      "label": "travel",
+      "n": 12,
+      "jev": 0.917,
+      "strong": 0.917,
+      "b": 1,
+      "c": 1,
+      "p": 1
+    },
+    {
+      "label": "credit_cards",
+      "n": 12,
+      "jev": 1,
+      "strong": 1,
+      "b": 0,
+      "c": 0,
+      "p": 1
+    },
+    {
+      "label": "small_talk",
+      "n": 12,
+      "jev": 0.833,
+      "strong": 0.833,
+      "b": 2,
+      "c": 2,
+      "p": 1
+    },
+    {
+      "label": "work",
+      "n": 12,
+      "jev": 1,
+      "strong": 0.75,
+      "b": 3,
+      "c": 0,
+      "p": 0.25
+    },
+    {
+      "label": "utility",
+      "n": 12,
+      "jev": 1,
+      "strong": 0.833,
+      "b": 2,
+      "c": 0,
+      "p": 0.5
+    }
+  ]
+}

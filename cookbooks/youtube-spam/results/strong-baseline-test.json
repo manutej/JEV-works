@@ -1,0 +1,59 @@
+{
+  "posthoc": true,
+  "what": "frozen Jev decision (forced) vs naive Bayes trained on labelled source rows outside fit and test",
+  "strongBaseline": {
+    "name": "naive Bayes on 1412 source rows (not fit, not test), test class proportions",
+    "trainN": 1412,
+    "trainCounts": {
+      "spam": 706,
+      "ham": 706
+    },
+    "source": "UCI YouTube Spam Collection, rows not in fit or test"
+  },
+  "forced": {
+    "n": 150,
+    "accuracyA": 0.9266666666666666,
+    "accuracyB": 0.7466666666666667,
+    "b": 34,
+    "c": 7,
+    "p": 0.0000253,
+    "different": true,
+    "deltaCI95": [
+      0.10666666666666667,
+      0.26
+    ]
+  },
+  "gatedSameItems": {
+    "n": 150,
+    "accuracyA": 0.9266666666666666,
+    "accuracyB": 0.7466666666666667,
+    "b": 34,
+    "c": 7,
+    "p": 0.0000253,
+    "different": true,
+    "deltaCI95": [
+      0.10666666666666667,
+      0.26
+    ]
+  },
+  "strata": [
+    {
+      "label": true,
+      "n": 75,
+      "jev": 0.893,
+      "strong": 0.96,
+      "b": 1,
+      "c": 6,
+      "p": 0.125
+    },
+    {
+      "label": false,
+      "n": 75,
+      "jev": 0.96,
+      "strong": 0.533,
+      "b": 33,
+      "c": 1,
+      "p": 4.07e-9
+    }
+  ]
+}

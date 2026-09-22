@@ -1,0 +1,59 @@
+{
+  "posthoc": true,
+  "what": "frozen Jev decision (forced) vs naive Bayes trained on labelled source rows outside fit and test",
+  "strongBaseline": {
+    "name": "naive Bayes on 2000 source rows (not fit, not test), test class proportions",
+    "trainN": 2000,
+    "trainCounts": {
+      "notRec": 1000,
+      "rec": 1000
+    },
+    "source": "Women's E-Commerce Clothing Reviews, rows not in fit or test"
+  },
+  "forced": {
+    "n": 150,
+    "accuracyA": 0.9266666666666666,
+    "accuracyB": 0.8533333333333334,
+    "b": 15,
+    "c": 4,
+    "p": 0.0192,
+    "different": true,
+    "deltaCI95": [
+      0.02,
+      0.13333333333333333
+    ]
+  },
+  "gatedSameItems": {
+    "n": 143,
+    "accuracyA": 0.9300699300699301,
+    "accuracyB": 0.8601398601398601,
+    "b": 14,
+    "c": 4,
+    "p": 0.0309,
+    "different": true,
+    "deltaCI95": [
+      0.013986013986013986,
+      0.13286713286713286
+    ]
+  },
+  "strata": [
+    {
+      "label": true,
+      "n": 75,
+      "jev": 0.96,
+      "strong": 0.933,
+      "b": 5,
+      "c": 3,
+      "p": 0.727
+    },
+    {
+      "label": false,
+      "n": 75,
+      "jev": 0.893,
+      "strong": 0.773,
+      "b": 10,
+      "c": 1,
+      "p": 0.0117
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "posthoc": true,
+  "what": "frozen Jev decision (forced) vs naive Bayes trained on labelled source rows outside fit and test",
+  "strongBaseline": {
+    "name": "naive Bayes on 1843 source rows (not fit, not test), test class proportions",
+    "trainN": 1843,
+    "trainCounts": {
+      "legit": 1290,
+      "fraud": 553
+    },
+    "source": "EMSCAD rows not in fit or test"
+  },
+  "forced": {
+    "n": 150,
+    "accuracyA": 0.7266666666666667,
+    "accuracyB": 0.8866666666666667,
+    "b": 3,
+    "c": 27,
+    "p": 0.00000843,
+    "different": true,
+    "deltaCI95": [
+      -0.22666666666666666,
+      -0.09333333333333334
+    ]
+  },
+  "gatedSameItems": {
+    "n": 38,
+    "accuracyA": 0.8947368421052632,
+    "accuracyB": 0.9736842105263158,
+    "b": 1,
+    "c": 4,
+    "p": 0.375,
+    "different": false,
+    "deltaCI95": [
+      -0.21052631578947367,
+      0.02631578947368421
+    ]
+  },
+  "strata": [
+    {
+      "label": false,
+      "n": 105,
+      "jev": 0.981,
+      "strong": 0.981,
+      "b": 2,
+      "c": 2,
+      "p": 1
+    },
+    {
+      "label": true,
+      "n": 45,
+      "jev": 0.133,
+      "strong": 0.667,
+      "b": 1,
+      "c": 25,
+      "p": 8.05e-7
+    }
+  ]
+}

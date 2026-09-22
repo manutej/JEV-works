@@ -13,7 +13,7 @@
  * queries that match none of them. No personal data by construction; maskPrivate runs anyway.
  * What we keep: the utterance text only. The label is its intent's domain, or `none` for oos.
  */
-import { dedupe, fetchText, keywordBaseline, maskPrivate, report, shuffle, stratified, writeSpecs, type Built } from '../_shared/lib.ts';
+import { dedupe, fetchText, keywordBaseline, maskPrivate, report, shuffle, stratified, writeSpecs, type Built, writeStrongBaseline } from '../_shared/lib.ts';
 import type { Question } from '../../kit/spec.ts';
 
 const SEED = 20260922;
@@ -107,4 +107,12 @@ writeSpecs(import.meta.dirname, {
   name: 'intent-routing',
   description: 'Assistant intent routing with real out-of-scope inputs: route an utterance to one of CLINC150\'s 10 domains or none. One labelled choice plus three narrow literal signals. CLINC150 OOS+ (CC BY 3.0).',
   questions: QUESTIONS, items, baselineName: base.name,
+});
+
+// Post-hoc (added after the labelled test run; no Jev calls; never changes a declared verdict): STRONG_BASELINE=1 also
+// writes baseline.strong.json, a naive Bayes trained on up to 2,000 labelled source rows that are neither fit nor test.
+if (process.env.STRONG_BASELINE) writeStrongBaseline(import.meta.dirname, {
+  train: fitPool.filter(r => !fit.includes(r)),
+  test: shuffle(test, SEED + 2).map((rec, i) => ({ id: `t${String(i + 1).padStart(3, '0')}`, rec })),
+  textOf: r => r.text, labelOf: r => r.label, toValue: v => v, source: 'CLINC150 train + oos_train, rows not in fit', seed: SEED + 9,
 });

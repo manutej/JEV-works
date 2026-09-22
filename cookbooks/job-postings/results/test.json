@@ -1,0 +1,4270 @@
+{
+  "kit": 1,
+  "spec": "job-postings",
+  "specPath": "cookbooks/job-postings/spec.json",
+  "model": "jev-1.13.0 (direct)",
+  "answeredBy": [
+    "jev-1.13.0"
+  ],
+  "startedAt": "2026-09-22T07:56:09.003Z",
+  "wallMs": 6305,
+  "calls": 150,
+  "coverage": 1,
+  "privacyScan": "passed",
+  "disjointness": {
+    "fit": 100,
+    "test": 150,
+    "idOverlap": 0,
+    "textOverlap": 0,
+    "seenShare": 0
+  },
+  "gate": {
+    "minCoverage": 0.95,
+    "verdict": "PASS"
+  },
+  "quality": [
+    {
+      "question": "asksForPaymentOrDetails",
+      "kind": "boolean",
+      "meanConf": 0.9041333333333328,
+      "atEnds": 0.9533333333333334,
+      "spread": 0.06293209744549198,
+      "verdict": "NO-INFORMATION"
+    },
+    {
+      "question": "promisesEasyEarnings",
+      "kind": "boolean",
+      "meanConf": 0.9162666666666661,
+      "atEnds": 0.9466666666666667,
+      "spread": 0.209876746898957,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "directContactToApply",
+      "kind": "boolean",
+      "meanConf": 0.8786666666666672,
+      "atEnds": 0.94,
+      "spread": 0.20874030649483002,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "describesCompany",
+      "kind": "boolean",
+      "meanConf": 0.8146666666666659,
+      "atEnds": 0.7933333333333333,
+      "spread": 0.36255478666448937,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "listsSpecificDuties",
+      "kind": "boolean",
+      "meanConf": 0.7897333333333326,
+      "atEnds": 0.74,
+      "spread": 0.30428545808171664,
+      "verdict": "JEV-SAFE"
+    }
+  ],
+  "scorecards": [],
+  "items": [
+    {
+      "id": "t001",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.12
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 344,
+      "correct": {}
+    },
+    {
+      "id": "t002",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 226,
+      "correct": {}
+    },
+    {
+      "id": "t003",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 253,
+      "correct": {}
+    },
+    {
+      "id": "t004",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.84
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 273,
+      "correct": {}
+    },
+    {
+      "id": "t005",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.2
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 256,
+      "correct": {}
+    },
+    {
+      "id": "t006",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.2
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.33
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.24
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.73
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.43
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 120,
+      "correct": {}
+    },
+    {
+      "id": "t007",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.78
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 124,
+      "correct": {}
+    },
+    {
+      "id": "t008",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 94,
+      "correct": {}
+    },
+    {
+      "id": "t009",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.69
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.15
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.63
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 127,
+      "correct": {}
+    },
+    {
+      "id": "t010",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.87
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 112,
+      "correct": {}
+    },
+    {
+      "id": "t011",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 162,
+      "correct": {}
+    },
+    {
+      "id": "t012",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 228,
+      "correct": {}
+    },
+    {
+      "id": "t013",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 163,
+      "correct": {}
+    },
+    {
+      "id": "t014",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.95
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 190,
+      "correct": {}
+    },
+    {
+      "id": "t015",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.61
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 120,
+      "correct": {}
+    },
+    {
+      "id": "t016",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.79
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 127,
+      "correct": {}
+    },
+    {
+      "id": "t017",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.11
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 141,
+      "correct": {}
+    },
+    {
+      "id": "t018",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 142,
+      "correct": {}
+    },
+    {
+      "id": "t019",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 160,
+      "correct": {}
+    },
+    {
+      "id": "t020",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.99
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 189,
+      "correct": {}
+    },
+    {
+      "id": "t021",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.15
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 105,
+      "correct": {}
+    },
+    {
+      "id": "t022",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.4
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 146,
+      "correct": {}
+    },
+    {
+      "id": "t023",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 161,
+      "correct": {}
+    },
+    {
+      "id": "t024",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.96
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 170,
+      "correct": {}
+    },
+    {
+      "id": "t025",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.18
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.13
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.96
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 163,
+      "correct": {}
+    },
+    {
+      "id": "t026",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 135,
+      "correct": {}
+    },
+    {
+      "id": "t027",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.11
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.11
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 129,
+      "correct": {}
+    },
+    {
+      "id": "t028",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.6
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 1493,
+      "correct": {}
+    },
+    {
+      "id": "t029",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.92
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.04
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 150,
+      "correct": {}
+    },
+    {
+      "id": "t030",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.87
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 193,
+      "correct": {}
+    },
+    {
+      "id": "t031",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 213,
+      "correct": {}
+    },
+    {
+      "id": "t032",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.18
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.18
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.07
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 128,
+      "correct": {}
+    },
+    {
+      "id": "t033",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.35
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.82
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 134,
+      "correct": {}
+    },
+    {
+      "id": "t034",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 148,
+      "correct": {}
+    },
+    {
+      "id": "t035",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.96
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 111,
+      "correct": {}
+    },
+    {
+      "id": "t036",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 271,
+      "correct": {}
+    },
+    {
+      "id": "t037",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 195,
+      "correct": {}
+    },
+    {
+      "id": "t038",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.87
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.11
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 232,
+      "correct": {}
+    },
+    {
+      "id": "t039",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.82
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.72
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 266,
+      "correct": {}
+    },
+    {
+      "id": "t040",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.18
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.34
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.81
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.79
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 201,
+      "correct": {}
+    },
+    {
+      "id": "t041",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.96
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 138,
+      "correct": {}
+    },
+    {
+      "id": "t042",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 122,
+      "correct": {}
+    },
+    {
+      "id": "t043",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.89
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 146,
+      "correct": {}
+    },
+    {
+      "id": "t044",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.11
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.6
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.73
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 155,
+      "correct": {}
+    },
+    {
+      "id": "t045",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 140,
+      "correct": {}
+    },
+    {
+      "id": "t046",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.55
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 119,
+      "correct": {}
+    },
+    {
+      "id": "t047",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.3
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.1
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 192,
+      "correct": {}
+    },
+    {
+      "id": "t048",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.56
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 123,
+      "correct": {}
+    },
+    {
+      "id": "t049",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.71
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 125,
+      "correct": {}
+    },
+    {
+      "id": "t050",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.99
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 193,
+      "correct": {}
+    },
+    {
+      "id": "t051",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.94
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 119,
+      "correct": {}
+    },
+    {
+      "id": "t052",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.18
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.57
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.16
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.79
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 142,
+      "correct": {}
+    },
+    {
+      "id": "t053",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 192,
+      "correct": {}
+    },
+    {
+      "id": "t054",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.84
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 209,
+      "correct": {}
+    },
+    {
+      "id": "t055",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.23
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 193,
+      "correct": {}
+    },
+    {
+      "id": "t056",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.95
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 123,
+      "correct": {}
+    },
+    {
+      "id": "t057",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.96
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 114,
+      "correct": {}
+    },
+    {
+      "id": "t058",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 226,
+      "correct": {}
+    },
+    {
+      "id": "t059",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.23
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.94
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 127,
+      "correct": {}
+    },
+    {
+      "id": "t060",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.92
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 108,
+      "correct": {}
+    },
+    {
+      "id": "t061",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.88
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 134,
+      "correct": {}
+    },
+    {
+      "id": "t062",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 150,
+      "correct": {}
+    },
+    {
+      "id": "t063",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.16
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 132,
+      "correct": {}
+    },
+    {
+      "id": "t064",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.31
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 116,
+      "correct": {}
+    },
+    {
+      "id": "t065",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.73
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.95
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 156,
+      "correct": {}
+    },
+    {
+      "id": "t066",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.18
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 168,
+      "correct": {}
+    },
+    {
+      "id": "t067",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 117,
+      "correct": {}
+    },
+    {
+      "id": "t068",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.26
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 135,
+      "correct": {}
+    },
+    {
+      "id": "t069",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 188,
+      "correct": {}
+    },
+    {
+      "id": "t070",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.32
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 153,
+      "correct": {}
+    },
+    {
+      "id": "t071",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.25
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 191,
+      "correct": {}
+    },
+    {
+      "id": "t072",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.42
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 118,
+      "correct": {}
+    },
+    {
+      "id": "t073",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 161,
+      "correct": {}
+    },
+    {
+      "id": "t074",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 152,
+      "correct": {}
+    },
+    {
+      "id": "t075",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.15
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.96
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 140,
+      "correct": {}
+    },
+    {
+      "id": "t076",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 209,
+      "correct": {}
+    },
+    {
+      "id": "t077",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.51
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.99
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 153,
+      "correct": {}
+    },
+    {
+      "id": "t078",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 130,
+      "correct": {}
+    },
+    {
+      "id": "t079",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 142,
+      "correct": {}
+    },
+    {
+      "id": "t080",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 175,
+      "correct": {}
+    },
+    {
+      "id": "t081",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.76
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 204,
+      "correct": {}
+    },
+    {
+      "id": "t082",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 277,
+      "correct": {}
+    },
+    {
+      "id": "t083",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 125,
+      "correct": {}
+    },
+    {
+      "id": "t084",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.81
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 172,
+      "correct": {}
+    },
+    {
+      "id": "t085",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.15
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.24
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 123,
+      "correct": {}
+    },
+    {
+      "id": "t086",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.24
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 193,
+      "correct": {}
+    },
+    {
+      "id": "t087",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.14
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.14
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.06
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 138,
+      "correct": {}
+    },
+    {
+      "id": "t088",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.12
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 126,
+      "correct": {}
+    },
+    {
+      "id": "t089",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.93
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 163,
+      "correct": {}
+    },
+    {
+      "id": "t090",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.19
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.1
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 111,
+      "correct": {}
+    },
+    {
+      "id": "t091",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.86
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 161,
+      "correct": {}
+    },
+    {
+      "id": "t092",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 161,
+      "correct": {}
+    },
+    {
+      "id": "t093",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.85
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 108,
+      "correct": {}
+    },
+    {
+      "id": "t094",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.95
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 185,
+      "correct": {}
+    },
+    {
+      "id": "t095",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.73
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 130,
+      "correct": {}
+    },
+    {
+      "id": "t096",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 136,
+      "correct": {}
+    },
+    {
+      "id": "t097",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.99
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 129,
+      "correct": {}
+    },
+    {
+      "id": "t098",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 158,
+      "correct": {}
+    },
+    {
+      "id": "t099",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 167,
+      "correct": {}
+    },
+    {
+      "id": "t100",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.26
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 143,
+      "correct": {}
+    },
+    {
+      "id": "t101",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 143,
+      "correct": {}
+    },
+    {
+      "id": "t102",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.52
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 170,
+      "correct": {}
+    },
+    {
+      "id": "t103",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.23
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 177,
+      "correct": {}
+    },
+    {
+      "id": "t104",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.75
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 189,
+      "correct": {}
+    },
+    {
+      "id": "t105",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.47
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 94,
+      "correct": {}
+    },
+    {
+      "id": "t106",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.99
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 166,
+      "correct": {}
+    },
+    {
+      "id": "t107",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.11
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.88
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.29
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 140,
+      "correct": {}
+    },
+    {
+      "id": "t108",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.13
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.63
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 136,
+      "correct": {}
+    },
+    {
+      "id": "t109",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.26
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 219,
+      "correct": {}
+    },
+    {
+      "id": "t110",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.56
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 138,
+      "correct": {}
+    },
+    {
+      "id": "t111",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 156,
+      "correct": {}
+    },
+    {
+      "id": "t112",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.14
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.16
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.06
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 175,
+      "correct": {}
+    },
+    {
+      "id": "t113",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 145,
+      "correct": {}
+    },
+    {
+      "id": "t114",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.18
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.17
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.12
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.3
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 148,
+      "correct": {}
+    },
+    {
+      "id": "t115",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.78
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.82
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 99,
+      "correct": {}
+    },
+    {
+      "id": "t116",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.32
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 134,
+      "correct": {}
+    },
+    {
+      "id": "t117",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.27
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.07
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 174,
+      "correct": {}
+    },
+    {
+      "id": "t118",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.76
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 223,
+      "correct": {}
+    },
+    {
+      "id": "t119",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 175,
+      "correct": {}
+    },
+    {
+      "id": "t120",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 142,
+      "correct": {}
+    },
+    {
+      "id": "t121",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.19
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.34
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.19
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.7
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.39
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 190,
+      "correct": {}
+    },
+    {
+      "id": "t122",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.79
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 144,
+      "correct": {}
+    },
+    {
+      "id": "t123",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.88
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 209,
+      "correct": {}
+    },
+    {
+      "id": "t124",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.44
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.96
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 215,
+      "correct": {}
+    },
+    {
+      "id": "t125",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.95
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 145,
+      "correct": {}
+    },
+    {
+      "id": "t126",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.85
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 146,
+      "correct": {}
+    },
+    {
+      "id": "t127",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.09
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 174,
+      "correct": {}
+    },
+    {
+      "id": "t128",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 136,
+      "correct": {}
+    },
+    {
+      "id": "t129",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.12
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.32
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.4
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 112,
+      "correct": {}
+    },
+    {
+      "id": "t130",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 91,
+      "correct": {}
+    },
+    {
+      "id": "t131",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.54
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 102,
+      "correct": {}
+    },
+    {
+      "id": "t132",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.95
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 117,
+      "correct": {}
+    },
+    {
+      "id": "t133",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 176,
+      "correct": {}
+    },
+    {
+      "id": "t134",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.39
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 112,
+      "correct": {}
+    },
+    {
+      "id": "t135",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.83
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 136,
+      "correct": {}
+    },
+    {
+      "id": "t136",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.27
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 157,
+      "correct": {}
+    },
+    {
+      "id": "t137",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.42
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.11
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 156,
+      "correct": {}
+    },
+    {
+      "id": "t138",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.83
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 157,
+      "correct": {}
+    },
+    {
+      "id": "t139",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.22
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.17
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.95
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 142,
+      "correct": {}
+    },
+    {
+      "id": "t140",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 129,
+      "correct": {}
+    },
+    {
+      "id": "t141",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.19
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 126,
+      "correct": {}
+    },
+    {
+      "id": "t142",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.89
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 97,
+      "correct": {}
+    },
+    {
+      "id": "t143",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.94
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 113,
+      "correct": {}
+    },
+    {
+      "id": "t144",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.85
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 183,
+      "correct": {}
+    },
+    {
+      "id": "t145",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.31
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.39
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.96
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 140,
+      "correct": {}
+    },
+    {
+      "id": "t146",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.14
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.56
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.88
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.37
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 143,
+      "correct": {}
+    },
+    {
+      "id": "t147",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.28
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 130,
+      "correct": {}
+    },
+    {
+      "id": "t148",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 178,
+      "correct": {}
+    },
+    {
+      "id": "t149",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.89
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 124,
+      "correct": {}
+    },
+    {
+      "id": "t150",
+      "answers": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 137,
+      "correct": {}
+    }
+  ]
+}

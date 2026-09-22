@@ -21,7 +21,7 @@
  * Fit comes from the first 5,000 rows of `validation`, test from the first 5,000 rows of `test` (5k each keeps the
  * HF rows API to 100 cached requests; the smallest chosen class still has 75+ rows per split).
  */
-import { dedupe, hfAll, hfLabelNames, keywordBaseline, maskPrivate, report, shuffle, stratified, writeSpecs, type Built } from '../_shared/lib.ts';
+import { dedupe, hfAll, hfLabelNames, keywordBaseline, maskPrivate, report, shuffle, stratified, writeSpecs, type Built, writeStrongBaseline } from '../_shared/lib.ts';
 import type { Question } from '../../kit/spec.ts';
 
 const SEED = 20260922;
@@ -174,4 +174,12 @@ writeSpecs(import.meta.dirname, {
   name: 'contract-clauses',
   description: 'Legal ops: route one contract provision to its clause type (8 types + other), with narrow literal signals beside it. LEDGAR via LexGLUE (CC BY 4.0), SEC EDGAR contracts; leading headings stripped, 250-word cap, contact details masked.',
   questions: QUESTIONS, items, baselineName: base.name,
+});
+
+// Post-hoc (added after the labelled test run; no Jev calls; never changes a declared verdict): STRONG_BASELINE=1 also
+// writes baseline.strong.json, a naive Bayes trained on up to 2,000 labelled source rows that are neither fit nor test.
+if (process.env.STRONG_BASELINE) writeStrongBaseline(import.meta.dirname, {
+  train: valPool.filter(r => !fit.includes(r)),
+  test: shuffle(test, SEED + 2).map((rec, i) => ({ id: `t${String(i + 1).padStart(3, '0')}`, rec })),
+  textOf: r => r.text, labelOf: r => r.label, toValue: v => v, source: 'LEDGAR validation rows not in fit (test comes from LEDGAR test)', seed: SEED + 9,
 });
