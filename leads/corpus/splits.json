@@ -8,5 +8,6 @@
   "bb6203": {"role": "holdout", "fitSeeds": ["42", "7", "2718", "p3001", "p6029", "6011"], "note": "blind variant, pool B; pre-registered in prereg/bb6203.md before generation", "claimScope": "novel_wording", "minCoverage": 0.95, "primaryPolicy": "v2", "leakageAccepted": false},
   "ba7001": {"role": "dev", "fitSeeds": [], "note": "blind pool A dev seed for the segment-edge fix (pool A is dev-only by design)"},
   "bc7101": {"role": "holdout", "fitSeeds": ["42", "7", "2718", "p3001", "p6029", "6011", "bb6203", "ba7001"], "note": "blind pool C (minus 5 templates sharing 8-word runs with pool A), pipeline.v3.json; pre-registered in prereg/bc7101.md before generation", "claimScope": "novel_wording", "minCoverage": 0.95, "primaryPolicy": "v2", "leakageAccepted": false},
-  "ba7002": {"role": "dev", "fitSeeds": [], "note": "blind pool A dev seed for config v4 (stage-1 code facts + intent split)"}
+  "ba7002": {"role": "dev", "fitSeeds": [], "note": "blind pool A dev seed for config v4 (stage-1 code facts + intent split)"},
+  "bd8101": {"role": "holdout", "fitSeeds": ["42", "7", "2718", "p3001", "p6029", "6011", "bb6203", "ba7001", "bc7101", "ba7002"], "note": "blind pool D (minus 3 templates sharing 8-word runs with A/B/C), pipeline.v4.json; pre-registered in prereg/bd8101.md before generation", "claimScope": "novel_wording", "minCoverage": 0.95, "primaryPolicy": "v2", "leakageAccepted": false}
 }
