@@ -1,0 +1,40 @@
+{
+  "name": "meta:question-quality",
+  "description": "The question meta-type asked of Jev itself: is a proposed question literal, single, answerable from one record, and decisive? Run it over atomsAsItems(context) to vet a new context's questions before spending calls on them. The deterministic lint (meta-type.ts) runs first; this catches what a word list cannot.",
+  "artifact": { "type": "proposed question", "stateFields": ["instructions", "type", "criteria", "artifactType"] },
+  "modules": [
+    {
+      "name": "answerability",
+      "purpose": "One record of the stated artifact type can answer the question, literally.",
+      "questions": {
+        "needsOtherRecords": {
+          "type": "noul", "polarity": "bad-when-yes", "reads": ["instructions", "artifactType"],
+          "instructions": "To answer this question, would someone need to look at records other than the single artifact it is asked about?",
+          "criteria": { "true": "It needs other records, history, a baseline or a population.", "false": "The single artifact contains everything needed." }
+        },
+        "asksForJudgementOfDegree": {
+          "type": "noul", "polarity": "bad-when-yes", "reads": ["instructions", "criteria"],
+          "instructions": "Does the question ask how much of a vague quality something has, without saying what each answer would look like?",
+          "criteria": { "true": "A matter of degree with undefined ends, e.g. how good or how substantive.", "false": "The answers are defined by observable features." }
+        },
+        "twoQuestionsInOne": {
+          "type": "noul", "polarity": "bad-when-yes", "reads": ["instructions"],
+          "instructions": "Does the question combine two separate conditions, so that one could be true while the other is false?",
+          "criteria": { "true": "Two conditions joined, e.g. by and or or.", "false": "One condition." }
+        }
+      },
+      "compose": {
+        "positive": "the question is well-formed for Jev",
+        "rules": [
+          { "when": { "any": [ { "q": "needsOtherRecords", "is": "yes" }, { "q": "twoQuestionsInOne", "is": "yes" } ] }, "then": false },
+          { "when": { "q": "asksForJudgementOfDegree", "is": "yes" }, "then": false },
+          { "when": { "all": [ { "q": "needsOtherRecords", "is": "no" }, { "q": "twoQuestionsInOne", "is": "no" }, { "q": "asksForJudgementOfDegree", "is": "no" } ] }, "then": true }
+        ],
+        "default": "escalate"
+      },
+      "notForJev": [
+        { "judgement": "Does the question become decisive on real data?", "instead": "Measure it: kit/run.ts label-free quality mode on a sample (atEnds, spread); promote only questions measured JEV-SAFE." }
+      ]
+    }
+  ]
+}

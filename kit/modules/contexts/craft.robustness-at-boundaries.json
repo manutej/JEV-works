@@ -1,0 +1,103 @@
+{
+  "name": "craft:robustness-at-boundaries",
+  "description": "Is untrusted input validated where it enters, are failures surfaced rather than swallowed, and are secrets kept out of source? From the craft:robustness-at-boundaries skill.",
+  "artifact": { "type": "code hunk (one function or diff hunk)", "stateFields": ["code", "language", "filePath"] },
+  "modules": [
+    {
+      "name": "input-validation",
+      "purpose": "Data from outside the program is parsed into a known shape before use.",
+      "questions": {
+        "readsExternalInput": {
+          "type": "noul", "polarity": "neutral", "reads": ["code"],
+          "instructions": "Does this code read data from outside the program, such as a request body, file, environment variable, command-line argument or network response?",
+          "criteria": { "true": "It reads at least one such source.", "false": "It only uses values passed in by other code or literals." }
+        },
+        "validatesBeforeUse": {
+          "type": "noul", "polarity": "good-when-yes", "reads": ["code"],
+          "instructions": "Before the external data is used, does the code check its shape or parse it into a typed value, rejecting it when it does not fit?",
+          "criteria": { "true": "An explicit check, schema parse or type guard runs before use and rejects bad input.", "false": "The data is used directly, or only cast to a type without a runtime check." }
+        },
+        "castWithoutCheck": {
+          "type": "noul", "polarity": "bad-when-yes", "reads": ["code", "language"],
+          "instructions": "Does the code assert a type on external data without checking it at runtime, for example with a cast, a type-ignore comment or an any?",
+          "criteria": { "true": "A cast or ignore stands in for a runtime check.", "false": "No such cast on external data." }
+        }
+      },
+      "compose": {
+        "positive": "input validation is adequate",
+        "rules": [
+          { "when": { "q": "readsExternalInput", "is": "no" }, "then": true },
+          { "when": { "q": "castWithoutCheck", "is": "yes" }, "then": false },
+          { "when": { "all": [ { "q": "readsExternalInput", "is": "yes" }, { "q": "validatesBeforeUse", "is": "no" } ] }, "then": false },
+          { "when": { "all": [ { "q": "readsExternalInput", "is": "yes" }, { "q": "validatesBeforeUse", "is": "yes" } ] }, "then": true }
+        ],
+        "default": "escalate"
+      },
+      "notForJev": [
+        { "judgement": "Is the same value validated again in other files?", "instead": "Cross-file: grep the call graph in code, not a question about one hunk." }
+      ]
+    },
+    {
+      "name": "error-handling",
+      "purpose": "Failures are handled or propagated with context, never silenced.",
+      "questions": {
+        "swallowsError": {
+          "type": "noul", "polarity": "bad-when-yes", "reads": ["code", "language"],
+          "instructions": "Does the code catch an error and then continue without handling it, re-raising it or reporting it?",
+          "criteria": { "true": "An empty catch, a bare pass, an ignored error value, or a log line followed by the normal path.", "false": "Every caught error is handled, re-raised or returned." }
+        },
+        "failureSignalledByNull": {
+          "type": "noul", "polarity": "bad-when-yes", "reads": ["code"],
+          "instructions": "Does the code signal a failure by returning null, -1 or an empty string instead of raising an error or returning an explicit result type?",
+          "criteria": { "true": "A sentinel value stands for failure.", "false": "Failures raise or use an explicit result type, or there is no failure path." }
+        },
+        "errorMessageHasContext": {
+          "type": "score", "polarity": "higher-is-better", "reads": ["code"],
+          "instructions": "How much does the error message raised here tell a reader about what failed?",
+          "criteria": [ "No error is raised, or it has no message.", "A generic message with no specifics.", "Names what failed or includes the offending value.", "Names what failed, the value, and what to do or the underlying cause." ]
+        }
+      },
+      "compose": {
+        "positive": "error handling is sound",
+        "rules": [
+          { "when": { "q": "swallowsError", "is": "yes" }, "then": false },
+          { "when": { "q": "failureSignalledByNull", "is": "yes" }, "then": false },
+          { "when": { "all": [ { "q": "swallowsError", "is": "no" }, { "q": "failureSignalledByNull", "is": "no" } ] }, "then": true }
+        ],
+        "default": "escalate"
+      }
+    },
+    {
+      "name": "secrets",
+      "purpose": "Keys, tokens and environment-specific hosts come from configuration, not source.",
+      "questions": {
+        "literalSecret": {
+          "type": "noul", "polarity": "bad-when-yes", "reads": ["code"],
+          "instructions": "Does the code contain a literal API key, token, password or private key written into the source?",
+          "criteria": { "true": "A secret value appears as a literal.", "false": "Secrets, if any, are read from the environment or a secret store." }
+        },
+        "hardcodedHost": {
+          "type": "choice", "polarity": "neutral", "reads": ["code"], "escapeOption": "none",
+          "instructions": "Which kind of network address does this code write as a literal?",
+          "criteria": {
+            "production": "A production or internal host written into the code.",
+            "local": "Only localhost or a test fixture address.",
+            "none": "No literal network address, or it cannot be told from this code."
+          }
+        }
+      },
+      "compose": {
+        "positive": "no secrets or environment values in source",
+        "rules": [
+          { "when": { "q": "literalSecret", "is": "yes" }, "then": false },
+          { "when": { "q": "hardcodedHost", "choice": "production" }, "then": false },
+          { "when": { "q": "literalSecret", "is": "no" }, "then": true }
+        ],
+        "default": "escalate"
+      },
+      "notForJev": [
+        { "judgement": "Does a string match a known key format (sk-ant-, apikey_, lin_api_, AKIA...)?", "instead": "A regex secret scanner in code: exact, free and not a judgement." }
+      ]
+    }
+  ]
+}
