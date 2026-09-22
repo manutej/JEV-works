@@ -239,11 +239,17 @@ async function main() {
       const segment = a2.segment.choice as Segment;
       const icpFit = a2.icpFit.score as number;
       let outcome2: Stage2Outcome;
+      // A confident "no buying intent" overrides the record's shape: an ICP-shaped support request,
+      // job application or unsubscribe is not a lead. Only the confident end acts (mid-band keeps
+      // the old rule). Chosen on dev seeds 42 (changes nothing) and p3001 (rejects 50 wrongly
+      // qualified non-buyers, loses 0 buyers); escalating the mid-band too would have escalated
+      // 49 real buyers on seed 42.
+      const noIntent = boolVerdict(a2.buyingSignal.probability) === 'false';
       if (segmentEntropy > SEGMENT_ENTROPY_GATE) outcome2 = 'escalate';
-      else if (segment !== 'not_qualified' && icpFit >= 2) outcome2 = 'qualified';
+      else if (segment !== 'not_qualified' && icpFit >= 2 && !noIntent) outcome2 = 'qualified';
       else outcome2 = 'not_qualified';
 
-      const stage2Result = { ...s2, outcome: outcome2, segment };
+      const stage2Result = { ...s2, outcome: outcome2, segment: noIntent ? 'not_qualified' as Segment : segment };
       if (outcome2 !== 'qualified') {
         return {
           ...base,
@@ -252,7 +258,7 @@ async function main() {
           stoppedAt: 'stage2',
           final: {
             qualified: outcome2 === 'not_qualified' ? false : null,
-            segment: outcome2 === 'not_qualified' ? segment : null,
+            segment: outcome2 === 'not_qualified' ? stage2Result.segment : null,
             nextAction: outcome2 === 'not_qualified' ? 'disqualify' : 'escalate_human',
           },
         };
