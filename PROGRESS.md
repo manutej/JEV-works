@@ -30,4 +30,4 @@ Durable record of this session's state. Chat is ephemeral; this file is not. New
 - A2 leads merges to main before feat/jev-selector (agreed with b4f08e).
 
 ## HANDOFF
-(see "In flight"; META-PLAN.md §4 is the unit table, §10 the log)
+**Next round starts from `handoffs/NEXT-ROUND.md`** (state, decisions for Manu, work queue Q1–Q11, kickoff prompt).

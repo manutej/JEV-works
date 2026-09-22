@@ -106,7 +106,7 @@ labels. If those clear the bar, a network hop is unjustifiable at any latency.
 
 Each is a question a cheap experiment could close. These feed pass 1.
 
-1. **Is the Gateway hop the 3× latency gap (P10)?** Same state, same questions, direct API vs Gateway.
+1. ~~**Is the Gateway hop the 3× latency gap (P10)?**~~ **Answered 2026-09-21:** the hop is ~2× (p50 131 vs 268ms); outputs are interchangeable. See P10.
 2. ~~**Does entropy separation (P6) hold at n=200?**~~ **Answered 2026-09-21 (U8):** separation holds (AUC 0.978); the distinctive claim over top-probability does not (+0.026, below noise). See P6.
 3. **Does a batch contaminate itself?** If rewording one option description moves answers to the other eleven questions, "fan out freely" has a hidden cost — and every criteria edit needs a regression suite.
 4. **Where is the real prunable mass in a transcript?** Iteration 1 says it is not staleness within a session (see ledger). Hypothesis: it is **duplicate reads across parallel subagents** — which Jev cannot see, because it evaluates one state at a time. Needs content hashing in code plus Jev for the near-duplicate judgement.
@@ -115,7 +115,7 @@ Each is a question a cheap experiment could close. These feed pass 1.
    A/A noise p95 |Δp| 0.04, max 0.15 (choice); booleans/scores ≤ 0.07. This window closes the first week
    `latestResolvedToChanged` is true. **Caveat:** the "≥3 flips over noise" verdict rule was set *after* a first run
    called this A/A null "drift detected". It was calibrated on today's data, so next week's run is its first honest test.
-6. **Does the cheap baseline win on our tasks?** Unanswered and uncomfortable until measured.
+6. **Does the cheap baseline win on our tasks?** Partly answered: **leads, yes** (regex 92.2% vs Jev 67.8% over all leads, seed 7); **P6 garbage detection, no** (entropy AUC 0.978 vs length 0.852); **E3, void**; **triage, no baseline yet**. Synthesis table: NEXT-ROUND Q4.
 
 ---
 
