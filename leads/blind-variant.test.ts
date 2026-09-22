@@ -64,3 +64,13 @@ test('bc excludes the pool C templates that share an 8-word run with dev pool A 
   assert.equal(n(kept), 78 - 5);
   assert.equal(sharedRuns(kept, cp(real, 'A').value!, 8).length, 0);
 });
+
+test('bd excludes pool D templates sharing an 8-word run with ANY seen pool (A, B, C)', async () => {
+  const { loadPool, sharedRuns, checkPool: cp } = await import('./blind-variant.ts');
+  const read = (f: string) => JSON.parse(readFileSync(new URL(`./corpus/blind/${f}`, import.meta.url), 'utf8'));
+  const kept = loadPool(variantFor('bd1')!.variant);
+  for (const [f, p] of [['templates.json', 'A'], ['templates.json', 'B'], ['templates-c.json', 'C']] as const)
+    assert.equal(sharedRuns(kept, cp(read(f), p).value!, 8).length, 0, `still shares runs with ${p}`);
+  const total = BLIND_CATEGORIES.reduce((t, c) => t + kept[c].length, 0);
+  assert.ok(total >= 74 && total < 78, `kept ${total}`);
+});

@@ -11,13 +11,14 @@ import { readFileSync } from 'node:fs';
 export type BlindCategory = 'buyer' | 'non_buyer' | 'out_of_market' | 'ambiguous' | 'adversarial';
 export type BlindTemplate = { text: string; lean?: boolean; why?: string };
 export type BlindPool = Record<BlindCategory, BlindTemplate[]>;
+export type ExcludeRuns = { templates: string; pool: string; runWords: number; why?: string };
 export type Variant = {
   kind: 'blind';
   templates: string;
   pool: string;
   note?: string;
   /** Drop templates sharing any runWords-long word run with another pool (e.g. the dev pool). Text only. */
-  excludeRunsFrom?: { templates: string; pool: string; runWords: number; why?: string };
+  excludeRunsFrom?: ExcludeRuns | ExcludeRuns[];
 };
 
 export const BLIND_CATEGORIES: readonly BlindCategory[] = ['buyer', 'non_buyer', 'out_of_market', 'ambiguous', 'adversarial'];
@@ -83,11 +84,14 @@ export function sharedRuns(pool: BlindPool, other: BlindPool, n: number): Array<
 export function loadPool(v: Variant): BlindPool {
   const { value, errors } = checkPool(readJson(corpusUrl(v.templates)), v.pool);
   if (errors.length) throw new Error(`${v.templates} pool ${v.pool} is invalid:\n  - ${errors.join('\n  - ')}`);
-  const x = v.excludeRunsFrom;
-  if (!x) return value!;
-  const other = checkPool(readJson(corpusUrl(x.templates)), x.pool);
-  if (other.errors.length) throw new Error(`excludeRunsFrom ${x.templates} pool ${x.pool} is invalid`);
-  const drop = new Set(sharedRuns(value!, other.value!, x.runWords).map(d => `${d.cat}:${d.i}`));
+  const xs = v.excludeRunsFrom === undefined ? [] : Array.isArray(v.excludeRunsFrom) ? v.excludeRunsFrom : [v.excludeRunsFrom];
+  if (!xs.length) return value!;
+  const drop = new Set<string>();
+  for (const x of xs) {
+    const other = checkPool(readJson(corpusUrl(x.templates)), x.pool);
+    if (other.errors.length) throw new Error(`excludeRunsFrom ${x.templates} pool ${x.pool} is invalid`);
+    for (const d of sharedRuns(value!, other.value!, x.runWords)) drop.add(`${d.cat}:${d.i}`);
+  }
   const kept = Object.fromEntries(BLIND_CATEGORIES.map(c => [c, value![c].filter((_, i) => !drop.has(`${c}:${i}`))])) as BlindPool;
   for (const c of BLIND_CATEGORIES) if (!kept[c].length) throw new Error(`excludeRunsFrom left pool ${v.pool} with no ${c} templates`);
   return kept;
