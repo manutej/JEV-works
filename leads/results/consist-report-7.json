@@ -81,16 +81,22 @@
     "minDiscordant": 8,
     "seenShareLimit": 0.2
   },
+  "systems": {
+    "a": "jev",
+    "b": "regex"
+  },
   "caveat": "Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.",
   "verdict": "REFUSE",
   "claimScope": "all",
   "failingEdges": [
     {
       "edge": "E1-text-disjoint",
+      "code": "G3.text-overlap",
       "why": "61.0% of messages were seen in fit seeds (limit 20.0%) and leakage was not accepted before the run"
     },
     {
       "edge": "E2-coverage",
+      "code": "G4.below-minimum",
       "why": "coverage 69.7% is below the declared 95%"
     }
   ],
@@ -98,12 +104,23 @@
     "the headline's regex_better is significant within: seen, clean_out_icp, ambiguous, adversarial, near_duplicate"
   ],
   "standard": {
+    "contract": 1,
     "verdict": "REFUSE",
     "refusing": [
       "G3-text-disjoint",
       "G4-coverage"
     ],
     "warnings": [],
+    "codes": [
+      "G3.text-overlap",
+      "G4.below-minimum"
+    ],
+    "settings": {
+      "alpha": 0.05,
+      "minStratum": 8,
+      "minDiscordant": 8,
+      "seenShareLimit": 0.2
+    },
     "results": [
       {
         "id": "G3-text-disjoint",
@@ -118,7 +135,8 @@
             "minDiscordant": 8,
             "seenShareLimit": 0.2
           }
-        }
+        },
+        "code": "G3.text-overlap"
       },
       {
         "id": "G4-coverage",
@@ -133,7 +151,8 @@
             "minDiscordant": 8,
             "seenShareLimit": 0.2
           }
-        }
+        },
+        "code": "G4.below-minimum"
       },
       {
         "id": "G5-policy-predeclared",
@@ -187,8 +206,19 @@
             "minDiscordant": 8,
             "seenShareLimit": 0.2
           },
-          "scope": "all",
+          "systems": [
+            "jev",
+            "regex"
+          ],
           "correction": "holm",
+          "headline": {
+            "name": "all",
+            "n": 600,
+            "b": 6,
+            "c": 152,
+            "p": 1.1179820081105428e-37,
+            "direction": "b_better"
+          },
           "strata": [
             {
               "name": "seen",
@@ -196,7 +226,7 @@
               "b": 6,
               "c": 150,
               "p": 4.139901611557945e-37,
-              "direction": "regex_better"
+              "direction": "b_better"
             },
             {
               "name": "novel",
@@ -220,7 +250,7 @@
               "b": 0,
               "c": 73,
               "p": 2.1175823681357485e-22,
-              "direction": "regex_better"
+              "direction": "b_better"
             },
             {
               "name": "ambiguous",
@@ -228,7 +258,7 @@
               "b": 6,
               "c": 51,
               "p": 5.676193126635888e-10,
-              "direction": "regex_better"
+              "direction": "b_better"
             },
             {
               "name": "garbage",
@@ -244,7 +274,7 @@
               "b": 0,
               "c": 13,
               "p": 0.00024414062500000016,
-              "direction": "regex_better"
+              "direction": "b_better"
             },
             {
               "name": "near_duplicate",
@@ -252,9 +282,10 @@
               "b": 0,
               "c": 15,
               "p": 0.00006103515625000003,
-              "direction": "regex_better"
+              "direction": "b_better"
             }
-          ]
+          ],
+          "scope": "all"
         }
       }
     ]

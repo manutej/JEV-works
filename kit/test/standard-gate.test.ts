@@ -2,7 +2,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { CATALOGUE, g1SpecValid, g2Privacy, g3TextDisjoint, g4Coverage, g8ThresholdFittedAndHeld, g9CalibrationAudited,
-  g10TreeConsistent, suite, renderSuite, preflight, type GateResult } from '../standard-gate.ts';
+  g10TreeConsistent, suite, renderSuite, preflight, CONTRACT_VERSION, type GateResult, type G7Evidence } from '../standard-gate.ts';
 import { parseSpec, type Item } from '../spec.ts';
 import { fitSelective, applyGate, judgeCalibration } from '../threshold.ts';
 import { rng } from '../stats.ts';
@@ -22,7 +22,8 @@ test('every gate returns the contract shape with its catalogue stage', () => {
   const all: GateResult[] = [g1SpecValid({}), g2Privacy(items), g3TextDisjoint(items), g4Coverage(1, 0.9),
     g8ThresholdFittedAndHeld({ name: 't', fittedOn: 'hand-set' }), g9CalibrationAudited(undefined, false), g10TreeConsistent()];
   for (const g of all) {
-    assert.deepEqual(Object.keys(g).sort(), ['evidence', 'id', 'stage', 'verdict', 'why']);
+    for (const k of ['evidence', 'id', 'stage', 'verdict', 'why']) assert.ok(k in g, `${g.id} lacks ${k}`);
+    assert.ok(Object.keys(g).every(k => ['evidence', 'id', 'stage', 'verdict', 'why', 'code'].includes(k)), `${g.id} has an extra field`);
     assert.equal(g.stage, CATALOGUE[g.id].stage);
     assert.ok(['PASS', 'REFUSE', 'WARN', 'SKIP'].includes(g.verdict));
   }
@@ -84,3 +85,31 @@ test('suite: any REFUSE refuses; warnings are listed; unknown ids and reasonless
   assert.throws(() => suite([{ id: 'G4-coverage', stage: 'run', verdict: 'SKIP', why: '', evidence: {} }]), /must say why/);
   assert.equal(suite([g4Coverage(1, 0.9)]).verdict, 'ACCEPT');
 });
+
+test('contract v1: reason codes are registered and belong to their gate; refusals carry a code', () => {
+  assert.equal(CONTRACT_VERSION, 1);
+  assert.equal(g4Coverage(0.5, 0.95).code, 'G4.below-minimum');
+  assert.equal(g8ThresholdFittedAndHeld({ name: 't', fittedOn: 'hand-set' }).code, 'G8.hand-set');
+  const g = { id: 'G7-strata-consistent' as const, stage: 'claim' as const, verdict: 'REFUSE' as const, why: 'categories do not sum to the headline', evidence: {} };
+  assert.deepEqual(suite([{ ...g, code: 'G7.partition' }]).codes, ['G7.partition']);
+  assert.throws(() => suite([{ ...g, code: 'G7.made-up' }]), /unknown reason code/);
+  assert.throws(() => suite([{ ...g, code: 'G4.below-minimum' }]), /belongs to another gate/);
+});
+
+test('suite records its settings, and a dev run is NOT-A-HOLDOUT even when every gate passes', () => {
+  const s = suite([g4Coverage(1, 0.9)], { settings: { minDiscordant: 20 } });
+  assert.deepEqual(s.settings, { alpha: 0.05, minStratum: 8, minDiscordant: 20, seenShareLimit: 0.2 });
+  assert.equal(s.contract, 1);
+  assert.equal(suite([g4Coverage(1, 0.9)], { role: 'dev' }).verdict, 'NOT-A-HOLDOUT');
+  assert.equal(suite([g4Coverage(0.1, 0.9)], { role: 'dev' }).verdict, 'NOT-A-HOLDOUT', 'dev is never evidence, pass or fail');
+});
+
+test('G7 evidence shape (StratumRow rows + correction) is a typed contract the claim gate fills', () => {
+  const ev: G7Evidence = { systems: ['jev', 'regex'], correction: 'holm',
+    headline: { name: 'all', n: 600, b: 101, c: 91, p: 0.516, direction: 'no_difference' },
+    strata: [{ name: 'non_buyer', n: 120, b: 74, c: 0, p: 1e-22, direction: 'a_better' }], legacyEdge: 'E5' };
+  const res = suite([{ id: 'G7-strata-consistent', stage: 'claim', verdict: 'REFUSE', why: 'pooled null hides non_buyer', code: 'G7.contradiction', evidence: ev }]);
+  assert.equal(res.verdict, 'REFUSE');
+  assert.equal((res.results[0].evidence as G7Evidence).strata[0].name, 'non_buyer');
+});
+

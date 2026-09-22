@@ -81,22 +81,37 @@
     "minDiscordant": 8,
     "seenShareLimit": 0.2
   },
+  "systems": {
+    "a": "jev",
+    "b": "regex"
+  },
   "caveat": "Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.",
   "verdict": "REFUSE",
   "claimScope": "all",
   "failingEdges": [
     {
       "edge": "E1-text-disjoint",
+      "code": "G3.text-overlap",
       "why": "60.7% of messages were seen in fit seeds (limit 20.0%) and leakage was not accepted before the run"
     }
   ],
   "findings": [],
   "standard": {
+    "contract": 1,
     "verdict": "REFUSE",
     "refusing": [
       "G3-text-disjoint"
     ],
     "warnings": [],
+    "codes": [
+      "G3.text-overlap"
+    ],
+    "settings": {
+      "alpha": 0.05,
+      "minStratum": 8,
+      "minDiscordant": 8,
+      "seenShareLimit": 0.2
+    },
     "results": [
       {
         "id": "G3-text-disjoint",
@@ -111,7 +126,8 @@
             "minDiscordant": 8,
             "seenShareLimit": 0.2
           }
-        }
+        },
+        "code": "G3.text-overlap"
       },
       {
         "id": "G4-coverage",
@@ -180,8 +196,19 @@
             "minDiscordant": 8,
             "seenShareLimit": 0.2
           },
-          "scope": "all",
+          "systems": [
+            "jev",
+            "regex"
+          ],
           "correction": "holm",
+          "headline": {
+            "name": "all",
+            "n": 600,
+            "b": 25,
+            "c": 35,
+            "p": 0.2450608330229446,
+            "direction": "no_difference"
+          },
           "strata": [
             {
               "name": "seen",
@@ -247,7 +274,8 @@
               "p": 0.25000000000000006,
               "direction": "too_small"
             }
-          ]
+          ],
+          "scope": "all"
         }
       }
     ]

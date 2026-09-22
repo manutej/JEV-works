@@ -12,6 +12,8 @@
 
 /** `${systems.a}_better`, `${systems.b}_better`, or 'no_difference'. */
 export type Direction = string;
+/** A reason code registered in kit/standard-gate.ts REASON_CODES. */
+export type ReasonCode = (typeof REASON_CODES)[number];
 export type Edge = 'E1-text-disjoint' | 'E2-coverage' | 'E3-policy-predeclared' | 'E4-paired-test' | 'E5-strata-consistent';
 
 /** A paired comparison: b = leads only Jev got right, c = leads only the regex got right. */
@@ -77,10 +79,11 @@ export type GateReport = {
   claimScope: ClaimScope | 'undeclared';
   policy: string;
   headline: Paired & { p: number };
-  failingEdges: Array<{ edge: Edge; why: string }>;
+  failingEdges: Array<{ edge: Edge; why: string; code?: ReasonCode }>;
   findings: string[];
   strata: Array<Paired & { p: number; direction: Direction | 'too_small' }>;
   settings: GateConfig;
+  systems: Systems;
   caveat: string;
 };
 
@@ -100,7 +103,7 @@ export function gate(i: GateInput, settings: Partial<GateConfig> = {}): GateRepo
   const pct = (x: number) => `${(x * 100).toFixed(1)}%`;
 
   const base = {
-    seed: i.seed, claim, policy: i.policy, headline: withP(i.headline), strata, settings: cfg,
+    seed: i.seed, claim, policy: i.policy, headline: withP(i.headline), strata, settings: cfg, systems: sys,
     caveat: 'Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.',
   };
   if (i.role !== 'holdout') {
@@ -111,29 +114,29 @@ export function gate(i: GateInput, settings: Partial<GateConfig> = {}): GateRepo
   // A claim about new wording can never be rescued by accepting leakage: the wording was seen.
   if (i.seenShare > cfg.seenShareLimit) {
     if (!i.leakageAccepted) {
-      failingEdges.push({ edge: 'E1-text-disjoint', why: `${pct(i.seenShare)} of messages were seen in fit seeds (limit ${pct(cfg.seenShareLimit)}) and leakage was not accepted before the run` });
+      failingEdges.push({ edge: 'E1-text-disjoint', code: 'G3.text-overlap', why: `${pct(i.seenShare)} of messages were seen in fit seeds (limit ${pct(cfg.seenShareLimit)}) and leakage was not accepted before the run` });
     } else if (scope === 'novel_wording') {
-      failingEdges.push({ edge: 'E1-text-disjoint', why: `the claim is about new wording but ${pct(i.seenShare)} of messages were seen; accepting leakage cannot make seen wording new` });
+      failingEdges.push({ edge: 'E1-text-disjoint', code: 'G3.leakage-accepted', why: `the claim is about new wording but ${pct(i.seenShare)} of messages were seen; accepting leakage cannot make seen wording new` });
     } else {
       if (scope === 'all') scope = 'new_records';
       findings.push(`E1: ${pct(i.seenShare)} of messages seen in fit seeds; leakage accepted before the run, so the claim covers new records only (scope ${scope}).`);
     }
   }
   // E2: declared coverage minimum.
-  if (i.minCoverage === undefined) failingEdges.push({ edge: 'E2-coverage', why: 'no minimum coverage was declared' });
-  else if (i.coverage < i.minCoverage) failingEdges.push({ edge: 'E2-coverage', why: `coverage ${pct(i.coverage)} is below the declared ${(i.minCoverage * 100).toFixed(0)}%` });
+  if (i.minCoverage === undefined) failingEdges.push({ edge: 'E2-coverage', code: 'G4.undeclared', why: 'no minimum coverage was declared' });
+  else if (i.coverage < i.minCoverage) failingEdges.push({ edge: 'E2-coverage', code: 'G4.below-minimum', why: `coverage ${pct(i.coverage)} is below the declared ${(i.minCoverage * 100).toFixed(0)}%` });
   // E3: scoring rule fixed before the seed existed.
-  if (!i.policyDeclaredBeforeSeed) failingEdges.push({ edge: 'E3-policy-predeclared', why: `policy ${i.policy} was chosen after this seed's results were seen` });
+  if (!i.policyDeclaredBeforeSeed) failingEdges.push({ edge: 'E3-policy-predeclared', code: 'G5.policy-after-seed', why: `policy ${i.policy} was chosen after this seed's results were seen` });
   // E4 is structural: the headline is a paired exact test by construction.
   if (i.headline.b + i.headline.c === 0) findings.push('E4: no discordant items; the two systems agree on every item');
-  if (i.headline.n < cfg.minStratum) failingEdges.push({ edge: 'E4-paired-test', why: `headline n=${i.headline.n} is below ${cfg.minStratum} (I3): no verdict` });
+  if (i.headline.n < cfg.minStratum) failingEdges.push({ edge: 'E4-paired-test', code: 'G6.no-paired-test', why: `headline n=${i.headline.n} is below ${cfg.minStratum} (I3): no verdict` });
 
   // E5: composed strata vs collapsed headline.
-  if (scope === 'undeclared') failingEdges.push({ edge: 'E5-strata-consistent', why: 'no claim scope was declared, so no stratum can be said to carry the claim' });
+  if (scope === 'undeclared') failingEdges.push({ edge: 'E5-strata-consistent', code: 'G7.scope-undeclared', why: 'no claim scope was declared, so no stratum can be said to carry the claim' });
   // The categories must partition the headline, or an inconvenient stratum could simply be left out.
   const sum = (k: 'n' | 'b' | 'c') => i.categories.reduce((t, x) => t + x[k], 0);
   if (i.categories.length && (sum('n') !== i.headline.n || sum('b') !== i.headline.b || sum('c') !== i.headline.c))
-    failingEdges.push({ edge: 'E5-strata-consistent', why: `categories do not partition the headline (n ${sum('n')}/${i.headline.n}, b ${sum('b')}/${i.headline.b}, c ${sum('c')}/${i.headline.c})` });
+    failingEdges.push({ edge: 'E5-strata-consistent', code: 'G7.partition', why: `categories do not partition the headline (n ${sum('n')}/${i.headline.n}, b ${sum('b')}/${i.headline.b}, c ${sum('c')}/${i.headline.c})` });
   // Only strata inside the claim's scope can contradict it: a claim narrowed away from seen text is not
   // refuted by the seen stratum. Categories span seen and novel items, so under novel_wording they are
   // reported, not tested; the novel stratum carries that claim.
@@ -146,15 +149,15 @@ export function gate(i: GateInput, settings: Partial<GateConfig> = {}): GateRepo
   testable.forEach((s, k) => {
     if (!sig[k] || s.direction === NO_DIFFERENCE) return;
     if (claim !== NO_DIFFERENCE && s.direction !== claim) {
-      failingEdges.push({ edge: 'E5-strata-consistent', why: `stratum ${s.name} (n=${s.n}, b+c=${s.b + s.c}) says ${s.direction}, the headline says ${claim} (Holm-corrected)` });
+      failingEdges.push({ edge: 'E5-strata-consistent', code: 'G7.contradiction', why: `stratum ${s.name} (n=${s.n}, b+c=${s.b + s.c}) says ${s.direction}, the headline says ${claim} (Holm-corrected)` });
     } else if (claim === NO_DIFFERENCE) {
       findings.push(`E5: headline shows no difference but stratum ${s.name} (n=${s.n}) shows ${s.direction} (p=${s.p.toPrecision(3)}, Holm-significant); the pooled null hides it`);
     }
   });
   if (scope === 'novel_wording') {
     const nv = strata.find(s => s.name === 'novel');
-    if (!nv || nv.direction === 'too_small') failingEdges.push({ edge: 'E5-strata-consistent', why: `the claim is about new wording but the novel stratum has n=${nv?.n ?? 0}, b+c=${nv ? nv.b + nv.c : 0} (need n >= ${cfg.minStratum}, b+c >= ${cfg.minDiscordant})` });
-    else if (nv.direction !== claim) failingEdges.push({ edge: 'E5-strata-consistent', why: `the claim is about new wording; the novel stratum says ${nv.direction}, the headline says ${claim}` });
+    if (!nv || nv.direction === 'too_small') failingEdges.push({ edge: 'E5-strata-consistent', code: 'G7.novel-too-small', why: `the claim is about new wording but the novel stratum has n=${nv?.n ?? 0}, b+c=${nv ? nv.b + nv.c : 0} (need n >= ${cfg.minStratum}, b+c >= ${cfg.minDiscordant})` });
+    else if (nv.direction !== claim) failingEdges.push({ edge: 'E5-strata-consistent', code: 'G7.contradiction', why: `the claim is about new wording; the novel stratum says ${nv.direction}, the headline says ${claim}` });
   }
   if (claim !== NO_DIFFERENCE) {
     const carrying = strata.filter(s => s.direction === claim).map(s => s.name);
@@ -165,7 +168,7 @@ export function gate(i: GateInput, settings: Partial<GateConfig> = {}): GateRepo
 }
 
 // ── Standard gate results (kit/standard-gate.ts): the one catalogue every experiment reports ──
-import { CATALOGUE, type GateId, type GateResult } from '../standard-gate.ts';
+import { CATALOGUE, REASON_CODES, suite, type G7Evidence, type GateId, type GateResult, type StratumRow, type SuiteReport } from '../standard-gate.ts';
 
 const LEGACY: Record<string, GateId> = {
   'E1-text-disjoint': 'G3-text-disjoint',
@@ -193,10 +196,22 @@ export function toGateResults(rep: GateReport, opts: { includeCore?: boolean } =
     const notes = rep.findings.filter(f => f.startsWith(legacyEdge.split('-')[0] + ':'));
     const evidence: Record<string, unknown> = { legacyEdge, settings: rep.settings, ...(notes.length ? { findings: notes } : {}) };
     if (id === 'G6-paired-test') Object.assign(evidence, { headline: rep.headline, claim: rep.claim, test: 'exact McNemar' });
-    if (id === 'G7-strata-consistent') Object.assign(evidence, { scope: rep.claimScope, correction: 'holm', strata: rep.strata });
-    if (fails.length) return { id, stage: CATALOGUE[id].stage, verdict: 'REFUSE' as const, why: fails.map(f => f.why).join('; '), evidence };
+    if (id === 'G7-strata-consistent') {
+      // Contract v1 G7Evidence: neutral a/b directions; the systems are named once, in `systems`.
+      const neutral = (d: string) => (d === `${rep.systems.a}_better` ? 'a_better' : d === `${rep.systems.b}_better` ? 'b_better' : d);
+      const row = (x: { name: string; n: number; b: number; c: number; p: number; direction?: string }): StratumRow =>
+        ({ name: x.name, n: x.n, b: x.b, c: x.c, p: x.p, direction: neutral(x.direction ?? rep.claim) });
+      const g7: G7Evidence = { systems: [rep.systems.a, rep.systems.b], correction: 'holm', headline: row(rep.headline), strata: rep.strata.map(row), legacyEdge };
+      Object.assign(evidence, g7, { scope: rep.claimScope });
+    }
+    if (fails.length) return { id, stage: CATALOGUE[id].stage, verdict: 'REFUSE' as const, why: fails.map(f => f.why).join('; '), evidence, code: fails[0].code };
     // A finding (e.g. a pooled null hiding a significant stratum) passes the gate but must be read.
     const why = notes.length ? notes.join('; ') : `${CATALOGUE[id].checks}: passed`;
     return { id, stage: CATALOGUE[id].stage, verdict: notes.length ? ('WARN' as const) : ('PASS' as const), why, evidence };
   });
+}
+
+/** The standard suite for one claim-gate report: same verdict, contract-v1 shape, this gate's settings recorded. */
+export function claimSuite(rep: GateReport, opts: { includeCore?: boolean; role?: 'holdout' | 'dev' } = {}): SuiteReport {
+  return suite(toGateResults(rep, opts), { role: opts.role ?? (rep.verdict === 'NOT-A-HOLDOUT' ? 'dev' : 'holdout'), settings: rep.settings });
 }

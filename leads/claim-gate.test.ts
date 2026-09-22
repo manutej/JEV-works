@@ -112,7 +112,7 @@ test('review P1 (modularity): the caller names the two systems', () => {
 });
 
 // Standard gate results (kit/standard-gate.ts): same verdicts, stable ids, legacy labels kept.
-import { toGateResults } from './claim-gate.ts';
+import { toGateResults, claimSuite } from './claim-gate.ts';
 import { suite } from '../kit/standard-gate.ts';
 
 test('standard: a refused E5 becomes a REFUSE on G7 with legacyEdge E5, and the suite refuses', () => {
@@ -145,4 +145,25 @@ test('standard: a pooled null hiding a stratum is a WARN with the finding as its
 test('standard: G6 refuses a headline below n = 8 (I3)', () => {
   const rs = toGateResults(gate({ ...clean, headline: { name: 'all', n: 5, b: 3, c: 0 }, categories: [{ name: 'rest', n: 5, b: 3, c: 0 }] }));
   assert.equal(rs.find(r => r.id === 'G6-paired-test')!.verdict, 'REFUSE');
+});
+
+test('contract v1: every refusal carries a registered code of its own gate; G7 evidence is neutral a/b', () => {
+  const cases = [
+    { ...clean, seenShare: 0.94 },
+    { ...clean, coverage: 0.5 },
+    { ...clean, minCoverage: undefined },
+    { ...clean, policyDeclaredBeforeSeed: false },
+    { ...clean, claimScope: undefined },
+    { ...clean, categories: [{ name: 'non_buyer', n: 120, b: 40, c: 0 }] },
+    { ...clean, claimScope: 'novel_wording' as const, novel: { name: 'novel', n: 570, b: 5, c: 0 } },
+  ];
+  for (const c of cases) {
+    const s = claimSuite(gate(c), { includeCore: true }); // throws on an unregistered or foreign code
+    assert.equal(s.verdict, 'REFUSE');
+    assert.ok(s.codes.length > 0, JSON.stringify(s.refusing));
+  }
+  const g7 = claimSuite(gate(clean)).results.find(r => r.id === 'G7-strata-consistent')!;
+  assert.deepEqual((g7.evidence as any).systems, ['jev', 'regex']);
+  assert.equal((g7.evidence as any).headline.direction, 'a_better');
+  assert.equal(claimSuite(gate(clean)).settings.minDiscordant, 8, 'the report records the minDiscordant actually used');
 });

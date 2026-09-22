@@ -38,8 +38,8 @@ import type { Lead, LeadCategory, PlantedTruth, Segment, TruthMap } from './type
 import { ALL_SEGMENTS } from './types.ts';
 import type { BaselinePrediction } from './baseline.ts';
 import { MIN_SUBSET, SEEN_SHARE_WARN, messagesOf, partitionBySeen, splitFor } from './splits.ts';
-import { gate, mcnemarExact, toGateResults, type Paired } from './claim-gate.ts';
-import { suite, renderSuite } from '../kit/standard-gate.ts';
+import { gate, mcnemarExact, claimSuite, type Paired } from './claim-gate.ts';
+import { renderSuite } from '../kit/standard-gate.ts';
 
 function argValue(flag: string, fallback: string): string {
   const i = process.argv.indexOf(flag);
@@ -405,7 +405,7 @@ console.log(`paired (McNemar exact, v2): ${paired('v2')}`);
       categories: cats.map(c => pairedOn(c, allIds.filter(id => categoryOf(id) === c))),
     }, { seenShareLimit: SEEN_SHARE_WARN, minStratum: MIN_SUBSET });
     // Leads has no core run, so the claim gate also reports G3/G4 (includeCore) for one full suite.
-    const standard = suite(toGateResults(report, { includeCore: true }));
+    const standard = claimSuite(report, { includeCore: true });
     await writeFile(new URL(`./results/consist-report-${SEED}.json`, import.meta.url), JSON.stringify({ ...report, standard }, null, 2) + '\n');
     console.log(`\n═══ claim gate (headline vs strata, policy ${policy}) ═══`);
     console.log(`${report.verdict}: headline claim ${report.claim} (scope ${report.claimScope}, McNemar ${report.headline.b} vs ${report.headline.c}, p = ${report.headline.p.toPrecision(3)})`);

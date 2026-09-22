@@ -4,9 +4,16 @@ Every experiment, question module and demo goes through the **same named gates**
 "G3 REFUSE" means the same thing in leads, E5 and a cookbook. Every gate returns one contract:
 
 ```ts
+// contract v1, frozen 2026-09-22 with the leads session
 { id: 'G1-spec-valid' | … | 'G10-tree-consistent', stage: 'preflight' | 'run' | 'claim',
-  verdict: 'PASS' | 'REFUSE' | 'WARN' | 'SKIP', why: string, evidence: {…} }
+  verdict: 'PASS' | 'REFUSE' | 'WARN' | 'SKIP', why: string, code?: 'G7.partition' | …, evidence: {…} }
+// suite: { contract: 1, verdict: 'ACCEPT' | 'REFUSE' | 'NOT-A-HOLDOUT', refusing, warnings, codes,
+//          settings: { alpha, minStratum, minDiscordant, seenShareLimit }, results }
 ```
+
+`code` is a registered reason (`REASON_CODES`, e.g. `G7.partition`: the strata don't sum to the headline's n, b and c), so
+reports count *why* gates refuse across experiments. G7 evidence is typed (`G7Evidence`: per-stratum rows {name, n, b, c, p,
+direction} plus the multiple-comparison correction). A dev/fit run reports `NOT-A-HOLDOUT` whatever its gates say.
 
 **Suite rule:** any REFUSE refuses the claim. A WARN never refuses but is always printed. A SKIP must say why. An unknown id is an error.
 

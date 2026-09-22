@@ -81,12 +81,17 @@
     "minDiscordant": 8,
     "seenShareLimit": 0.2
   },
+  "systems": {
+    "a": "jev",
+    "b": "regex"
+  },
   "caveat": "Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.",
   "verdict": "REFUSE",
   "claimScope": "all",
   "failingEdges": [
     {
       "edge": "E1-text-disjoint",
+      "code": "G3.text-overlap",
       "why": "61.5% of messages were seen in fit seeds (limit 20.0%) and leakage was not accepted before the run"
     }
   ],
@@ -94,6 +99,7 @@
     "E5: headline shows no difference but stratum adversarial (n=30) shows regex_better (p=0.000488, Holm-significant); the pooled null hides it"
   ],
   "standard": {
+    "contract": 1,
     "verdict": "REFUSE",
     "refusing": [
       "G3-text-disjoint"
@@ -101,6 +107,15 @@
     "warnings": [
       "G7-strata-consistent"
     ],
+    "codes": [
+      "G3.text-overlap"
+    ],
+    "settings": {
+      "alpha": 0.05,
+      "minStratum": 8,
+      "minDiscordant": 8,
+      "seenShareLimit": 0.2
+    },
     "results": [
       {
         "id": "G3-text-disjoint",
@@ -115,7 +130,8 @@
             "minDiscordant": 8,
             "seenShareLimit": 0.2
           }
-        }
+        },
+        "code": "G3.text-overlap"
       },
       {
         "id": "G4-coverage",
@@ -187,8 +203,19 @@
           "findings": [
             "E5: headline shows no difference but stratum adversarial (n=30) shows regex_better (p=0.000488, Holm-significant); the pooled null hides it"
           ],
-          "scope": "all",
+          "systems": [
+            "jev",
+            "regex"
+          ],
           "correction": "holm",
+          "headline": {
+            "name": "all",
+            "n": 600,
+            "b": 30,
+            "c": 45,
+            "p": 0.10534226887460306,
+            "direction": "no_difference"
+          },
           "strata": [
             {
               "name": "seen",
@@ -244,7 +271,7 @@
               "b": 0,
               "c": 12,
               "p": 0.0004882812500000003,
-              "direction": "regex_better"
+              "direction": "b_better"
             },
             {
               "name": "near_duplicate",
@@ -254,7 +281,8 @@
               "p": 1,
               "direction": "too_small"
             }
-          ]
+          ],
+          "scope": "all"
         }
       }
     ]
