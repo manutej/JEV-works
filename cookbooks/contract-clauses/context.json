@@ -1,0 +1,106 @@
+{
+  "name": "domain:contract-clauses",
+  "description": "Legal: File each contract provision under the playbook that reviews it. Questions verbatim from cookbooks/contract-clauses/spec.json (measured wording). compose returns true unless Jev picked `other`; the type is the choice itself, gated by the confidence cut in rule.frozen.json.",
+  "artifact": {
+    "type": "one contract provision (heading stripped, up to 250 words)",
+    "stateFields": [
+      "provision"
+    ]
+  },
+  "modules": [
+    {
+      "name": "clause-type",
+      "purpose": "Which review playbook does this contract provision belong to, or none of the eight?",
+      "questions": {
+        "clauseType": {
+          "type": "choice",
+          "instructions": "This is one provision from a commercial contract. What does this provision mainly do?",
+          "criteria": {
+            "governingLaw": "Chooses which jurisdiction's law will be used to interpret and enforce the agreement",
+            "notices": "Sets out how formal communications between the parties must be delivered: in writing, by which method, to which address, and when they count as received",
+            "entireAgreement": "Declares that the written agreement is the complete deal between the parties and replaces any earlier agreements, promises or understandings on the same subject",
+            "amendment": "Sets out how the agreement (or part of it) can be changed, altered or modified, such as only by a signed writing or by a particular party",
+            "termination": "Ends the agreement or a relationship, or sets out when and how it ends or may be ended and what happens at that point",
+            "assignment": "Controls whether a party may transfer its rights or obligations under the agreement to someone else, and on what conditions",
+            "confidentiality": "Requires a party to keep certain information secret or restricts how that information may be used or disclosed",
+            "indemnification": "Requires one party to compensate, reimburse, hold harmless or defend another party for losses, claims, liabilities or expenses",
+            "other": "Does something else: any other kind of provision (for example payment, representations, severability, counterparts, taxes, dispute venue), or none of the above is its main purpose"
+          },
+          "polarity": "neutral",
+          "reads": [
+            "provision"
+          ],
+          "escapeOption": "other",
+          "note": "The decision (labelled): eight types, each described by what the clause does, plus `other`, the escape option."
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "instructions": "Does the provision name a specific U.S. state, country or other jurisdiction (for example \"the State of Delaware\", \"New York\", \"England and Wales\")?",
+          "polarity": "neutral",
+          "reads": [
+            "provision"
+          ],
+          "note": "true → governing law. Is a state or country named? (Also true for venue clauses and notice addresses.)"
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "instructions": "Does the provision say that the agreement, or a party's rights or obligations under it, ends, terminates or may be terminated?",
+          "polarity": "neutral",
+          "reads": [
+            "provision"
+          ],
+          "note": "true → termination. Does the text say something ends or may be ended?"
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "instructions": "Does the provision require one party to pay for, reimburse, hold harmless or defend another party against losses, claims, damages or expenses?",
+          "polarity": "neutral",
+          "reads": [
+            "provision"
+          ],
+          "note": "true → indemnification. Pay, reimburse, hold harmless or defend against losses?"
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "instructions": "Does the provision forbid or limit a party from disclosing or using certain information?",
+          "polarity": "neutral",
+          "reads": [
+            "provision"
+          ],
+          "note": "true → confidentiality. Forbids or limits disclosing information?"
+        }
+      },
+      "compose": {
+        "positive": "provision is one of the eight reviewed clause types",
+        "rules": [
+          {
+            "when": {
+              "q": "clauseType",
+              "choice": "other"
+            },
+            "then": false
+          }
+        ],
+        "default": true
+      },
+      "notForJev": [
+        {
+          "judgement": "Is this clause enforceable, or market-standard?",
+          "instead": "A lawyer, or an LLM with a playbook plus a lawyer. Legal and degree judgements."
+        },
+        {
+          "judgement": "Which state's law applies?",
+          "instead": "An extractor or regex. Jev only answers whether one is named."
+        },
+        {
+          "judgement": "Is the notice period at least 30 days? Does the cap exceed $X?",
+          "instead": "Numbers and comparisons: extract, then compare in code."
+        },
+        {
+          "judgement": "Is a clause missing from the contract? Does it conflict with clause 12?",
+          "instead": "Whole-document or cross-clause reasoning; Jev sees one provision."
+        }
+      ]
+    }
+  ]
+}

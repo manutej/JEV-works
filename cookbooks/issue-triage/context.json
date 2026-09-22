@@ -1,0 +1,111 @@
+{
+  "name": "domain:issue-triage",
+  "description": "Developer tools: Label new issues as bug, feature request or question. Questions verbatim from cookbooks/issue-triage/spec.json (measured wording). compose returns true unless Jev picked `none`; the label is the choice itself, gated by the confidence cut in rule.frozen.json. Measured weakness: issues maintainers label \"question\" (48% on test).",
+  "artifact": {
+    "type": "one GitHub issue (title and body, truncated)",
+    "stateFields": [
+      "title",
+      "body"
+    ]
+  },
+  "modules": [
+    {
+      "name": "issue-type",
+      "purpose": "Is this GitHub issue a bug report, a feature request or a question, or not an issue at all?",
+      "questions": {
+        "issueType": {
+          "type": "choice",
+          "instructions": "What kind of GitHub issue is this?",
+          "criteria": {
+            "bug": "A defect report: the software does something wrong, gives an error, or crashes, compared with what it should do.",
+            "feature": "A request for new behaviour, a new option, or a change to existing behaviour that currently works as designed.",
+            "question": "The author asks how to do something, or asks for help or clarification, without reporting a defect or requesting a change.",
+            "none": "None of these: not an issue about the software (spam, an empty or placeholder text, a test post), or unreadable."
+          },
+          "polarity": "neutral",
+          "reads": [
+            "title",
+            "body"
+          ],
+          "escapeOption": "none",
+          "note": "The decision (labelled): bug / feature / question, plus `none` (not an issue, empty, unreadable), the escape option."
+        },
+        "hasErrorOutput": {
+          "type": "noul",
+          "instructions": "Does the issue include an error message, exception, stack trace or log output produced by the software?",
+          "criteria": {
+            "true": "Some error text, exception, traceback or log lines from the software are quoted or pasted in the issue.",
+            "false": "No error text or log output from the software appears in the issue."
+          },
+          "polarity": "neutral",
+          "reads": [
+            "title",
+            "body"
+          ],
+          "note": "true → bug. Error text, a traceback or log output is present."
+        },
+        "hasReproSteps": {
+          "type": "noul",
+          "instructions": "Does the issue say what the author did (steps, commands or code they ran) to make the described behaviour happen?",
+          "polarity": "neutral",
+          "reads": [
+            "title",
+            "body"
+          ],
+          "note": "true → bug. Says what they ran or did."
+        },
+        "asksHowTo": {
+          "type": "noul",
+          "instructions": "Does the author ask how to do something, or ask whether something is possible?",
+          "polarity": "neutral",
+          "reads": [
+            "title",
+            "body"
+          ],
+          "note": "true → question. Asks how to do something, or whether it is possible."
+        },
+        "proposesNew": {
+          "type": "noul",
+          "instructions": "Does the author ask for a new option, new behaviour, or a change to how the software currently works?",
+          "polarity": "neutral",
+          "reads": [
+            "title",
+            "body"
+          ],
+          "note": "true → feature. Asks for a new option, behaviour or change."
+        }
+      },
+      "compose": {
+        "positive": "item is a real issue",
+        "rules": [
+          {
+            "when": {
+              "q": "issueType",
+              "choice": "none"
+            },
+            "then": false
+          }
+        ],
+        "default": true
+      },
+      "notForJev": [
+        {
+          "judgement": "Has a code block / a stack trace",
+          "instead": "A regex on the fence or on \"Traceback\", \"Exception:\". Free and exact."
+        },
+        {
+          "judgement": "Existing labels, issue-template \"Type:\" field",
+          "instead": "Read the field. It is metadata, and it leaks the label."
+        },
+        {
+          "judgement": "Is this a duplicate?",
+          "instead": "Search or embeddings over the tracker; Jev sees one issue."
+        },
+        {
+          "judgement": "How severe is it?",
+          "instead": "Not asked: a degree judgement."
+        }
+      ]
+    }
+  ]
+}

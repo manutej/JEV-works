@@ -19,6 +19,8 @@ n = 150 test items per domain; accuracy counts every item; coverage (answered) w
 3. The fit run's answers fit the decision rule (`_shared/decide.ts`): a logistic regression + cost- or precision-based cut + an escalate band for binary tasks, a confidence gate for choices, each within a stated error budget. The rule is frozen and committed before any test call.
 4. One labelled test run per domain; the frozen rule is applied once; results never overwritten.
 
+Each domain also has `context.json`, the same questions in the kit/modules registry format (feat/kit), linted with its meta-type: 0 errors in all six. Each README's "Thresholds re-checked" section re-fits the gate post-hoc with kit/threshold.ts (fitSelective + judgeCalibration) on the already-collected answers.
+
 Git order: questions and splits (3d1a0dc) → pilot, fit, frozen rules (76c9244) → test results (60f25de).
 
 ## Changes made by the quality pass

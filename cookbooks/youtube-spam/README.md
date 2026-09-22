@@ -14,7 +14,18 @@ T. C. Alberto, J. V. Lochter, T. A. Almeida. "TubeSpam: Comment Spam Filtering o
 
 **What Jev reads:** { video, comment }. Author names, comment ids and dates were dropped; emails and phone numbers were masked (none survived to the sample).
 
-## The question set
+## Question module
+The registry form of this set is [context.json](context.json) (kit/modules format, feat/kit; passes meta-type M1–M7 with 0 errors; 3 M6 warning(s): nouls without criteria.true/false, left as measured rather than reworded after the test). The runnable kit spec is [spec.json](spec.json); both carry the same measured wording.
+
+| id | type | purpose | polarity |
+|---|---|---|---|
+| `isSpam` | noul | The decision asked directly (labelled). Scored by the kit as a comparison; not used by the rule. | bad-when-yes |
+| `asksToVisit` | noul | true → spam. Reads one thing: is the reader sent to the commenter's own stuff? | bad-when-yes |
+| `mentionsVideo` | noul | true → keep. Talking about the song or artist is the plainest sign of a real reaction. | good-when-yes |
+| `offersMoney` | noul | true → spam. Money, prizes and free stuff are named in the text or they are not. | bad-when-yes |
+| `kind` | choice | Choice with an escape (`none`: empty, emoji-only, unreadable). Its promotion/request/reaction probabilities feed the rule. | neutral |
+
+## The question set (as measured)
 One call per item, all questions batched (P31). "ends" = the share of test answers that reached a confident end (kit label-free quality report).
 
 | question | type | instructions | role / polarity | test quality |
@@ -71,6 +82,16 @@ Decide "yes" when the score ≥ **0.5**; act automatically outside the escalate 
 Sources: [results/test.json](results/test.json) (kit), [results/decision-test.json](results/decision-test.json) (frozen rule), [results/strong-baseline-test.json](results/strong-baseline-test.json) (post-hoc). Fit: [results/fit.json](results/fit.json); pilot: [results/pilot.json](results/pilot.json). Calls: pilot 30, fit 100, test 150.
 
 The naive Bayes was added after the test run, because the declared keyword lists (fitted on 100 items) were near chance in several domains. It does not alter the declared comparison (the keyword row above); it answers "would a cheap model with far more labels have done as well?", and where that changes the practical verdict (job-postings), the verdict line says so.
+
+## Thresholds re-checked with kit/threshold.ts (post-hoc)
+kit/threshold.ts (feat/op-consist @ 756bdef) arrived after this rule was frozen and scored. [results/selective-posthoc.json](results/selective-posthoc.json) re-fits the gate with `fitSelective` on the fit answers (95% Clopper-Pearson upper bound on auto-decided error ≤ the same budget), applies it once to the test answers, and runs `judgeCalibration` on both splits. No Jev calls; the frozen rule above stays the result of record.
+
+| score gated | budget | fitted cuts (fit) | fit coverage | test coverage | test error (CP95 upper) | bound held | calibrated? fit / test | cuts stable (bootstrap) |
+|---|---|---|---|---|---|---|---|---|
+| frozen logistic score | 5.0% | no accept cut, no reject cut | 0.0% | 0.0% | – | n/a (nothing auto-decided) | yes / yes | no |
+| direct noul isSpam | 5.0% | no accept cut, no reject cut | 0.0% | 0.0% | – | n/a (nothing auto-decided) | yes / no | no |
+
+With a 95% bound at n = 100 fit items, a 5.0% budget needs a long error-free run on one side; where no cut qualifies, the honest gate escalates everything. judgeCalibration rejects calibration on the test split for: direct noul isSpam (intercept 1.64 ± 1.60 excludes 0 (miscalibrated in the large)). The frozen logistic score itself passed on test, so its cost cut stands; the raw direct-question probability should not be read as a probability.
 
 ## Where it fails
 - Spam that looks like a reaction: "CONGRASULATION I LIVE SO MUCH" followed by a news link (t088), or a rant with no ask in it (t052, t130). The narrow questions read these literally, and literally they don't promote anything.

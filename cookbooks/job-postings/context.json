@@ -1,0 +1,130 @@
+{
+  "name": "domain:job-postings",
+  "description": "HR / trust & safety: Catch fake job ads before applicants send money or ID. Questions verbatim from cookbooks/job-postings/spec.json (measured wording). No verdict is composed (the single rule only escalates): the broad question was moved to code after the pilot, and the measured rule (a logistic regression over these signals) caught only 13% of fraud on test; a naive Bayes on 1,843 labelled ads did significantly better. Every item escalates; use these atoms as features, not as a verdict.",
+  "artifact": {
+    "type": "one job advertisement (text fields, truncated)",
+    "stateFields": [
+      "title",
+      "location",
+      "employment_type",
+      "company_profile",
+      "description",
+      "requirements",
+      "benefits"
+    ]
+  },
+  "modules": [
+    {
+      "name": "job-ad-fraud",
+      "purpose": "Does this job ad show literal signs of recruitment fraud?",
+      "questions": {
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "instructions": "Does the posting ask applicants to pay anything (a fee, training, equipment, a starter kit) or to send bank account, payment card or identity-document details?",
+          "polarity": "bad-when-yes",
+          "reads": [
+            "title",
+            "location",
+            "employment_type",
+            "company_profile",
+            "description",
+            "requirements",
+            "benefits"
+          ],
+          "note": "true → fraud. A fee, a starter kit, bank or ID details requested in the text."
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "instructions": "Does the posting promise earnings that come quickly, easily, from home, or without experience or qualifications (for example \"earn from home\", \"no experience needed, start earning today\", \"unlimited income\")?",
+          "polarity": "bad-when-yes",
+          "reads": [
+            "title",
+            "location",
+            "employment_type",
+            "company_profile",
+            "description",
+            "requirements",
+            "benefits"
+          ],
+          "note": "true → fraud. Earn from home, fast, no experience needed."
+        },
+        "describesCompany": {
+          "type": "noul",
+          "instructions": "Does the posting name the hiring company and say what that company does (its products, services or line of business)?",
+          "polarity": "good-when-yes",
+          "reads": [
+            "title",
+            "location",
+            "employment_type",
+            "company_profile",
+            "description",
+            "requirements",
+            "benefits"
+          ],
+          "note": "true → legitimate. The employer is named and says what it does."
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "instructions": "Does the posting tell applicants to apply or get in touch by contacting someone directly (an email address, a phone number, a text message or a messaging app) rather than by applying through the posting or a company application process?",
+          "polarity": "bad-when-yes",
+          "reads": [
+            "title",
+            "location",
+            "employment_type",
+            "company_profile",
+            "description",
+            "requirements",
+            "benefits"
+          ],
+          "note": "true → fraud. Apply by messaging a person instead of a normal application."
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "instructions": "Does the posting describe specific tasks or responsibilities that the person hired would carry out in this job?",
+          "polarity": "good-when-yes",
+          "reads": [
+            "title",
+            "location",
+            "employment_type",
+            "company_profile",
+            "description",
+            "requirements",
+            "benefits"
+          ],
+          "note": "true → legitimate. Concrete tasks are described."
+        }
+      },
+      "compose": {
+        "positive": "job ad is fraudulent",
+        "rules": [
+          {
+            "when": {
+              "q": "asksForPaymentOrDetails",
+              "is": "yes"
+            },
+            "then": "escalate"
+          }
+        ],
+        "default": "escalate"
+      },
+      "notForJev": [
+        {
+          "judgement": "Is this posting fraudulent? (the broad question)",
+          "instead": "Moved out after the pilot: MOVE-TO-CODE, only 17% of answers at the ends. A degree judgement (P18, L37); the decision now comes from the literal signals in code."
+        },
+        {
+          "judgement": "Has a company logo / screening questions / telecommuting flag",
+          "instead": "Structured fields: read them in code. The logo field alone separates the classes strongly."
+        },
+        {
+          "judgement": "Is the salary unusually high?",
+          "instead": "Parse the numbers; compare with industry and location in code."
+        },
+        {
+          "judgement": "Is this a real company?",
+          "instead": "A registry or domain lookup: world knowledge, not in the record."
+        }
+      ]
+    }
+  ]
+}

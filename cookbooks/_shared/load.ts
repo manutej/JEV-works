@@ -31,6 +31,8 @@ export type Loaded = {
     strata: { label: Label; n: number; jev: number; baseline: number; b: number; c: number; p: number }[];
   };
   strong: { name: string; trainN: number; forced: P; gatedSameItems: P | null; strata: { label: Label; n: number; jev: number; strong: number; b: number; c: number; p: number }[] };
+  selective: { score: string; maxError: number; calibrationFit: any; calibrationTest: any; fitted: any; stability: any; test: any }[];
+  polarity: Record<string, string>;
   items: {
     id: string; state: unknown; label: Label; baseline: Label; strong: Label;
     pred: Label | null; auto: boolean; score?: number; confidence?: number; answers: Record<string, Answer>;
@@ -58,6 +60,8 @@ export function load(id: DomainId): Loaded {
     direct: sc?.baseline ? { question: sc.question, accuracy: sc.accuracy, vsBaseline: sc.baseline.vsJev } : undefined,
     decision: { ...dec, baselineName: dec.baselineName ?? 'keyword lists (top 8 per class by log-odds, fit split only)' },
     strong: { name: strongRes.strongBaseline.name, trainN: strongRes.strongBaseline.trainN, forced: strongRes.forced, gatedSameItems: strongRes.gatedSameItems, strata: strongRes.strata },
+    selective: read(join(d, 'results', 'selective-posthoc.json')).gates,
+    polarity: Object.fromEntries(Object.entries(read(join(d, 'context.json')).modules[0].questions).map(([k, q]: [string, any]) => [k, q.polarity])),
     items: dec.items.map((x: any) => ({ ...x, state: states.get(x.id), strong: strongPreds[x.id], answers: answers.get(x.id) ?? {} })),
   };
 }

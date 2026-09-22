@@ -15,6 +15,15 @@ const pf = (p: number) => (p < 0.001 ? p.toExponential(1) : String(+p.toPrecisio
 const reading = (p: { p: number; b: number; c: number }, other: string) => (p.p < 0.05 ? (p.b > p.c ? 'Jev better' : `${other} better`) : 'no difference shown');
 const ins = (q: any) => (typeof q.instructions === 'string' ? q.instructions : JSON.stringify(q.instructions));
 
+const mWarn = (L: Loaded) => { const n = Object.entries(L.questions).filter(([, q]: [string, any]) => q.type === 'noul' && !(q.criteria && q.criteria.true !== undefined && q.criteria.false !== undefined)).length; return n ? `; ${n} M6 warning(s): nouls without criteria.true/false, left as measured rather than reworded after the test` : ''; };
+function calibNote(L: Loaded): string {
+  const bad = L.selective.filter(g => !g.calibrationTest.calibrated);
+  const parts = [`With a 95% bound at n = ${L.selective[0]?.calibrationFit.n} fit items, a ${pct(L.selective[0]?.maxError)} budget needs a long error-free run on one side; where no cut qualifies, the honest gate escalates everything.`];
+  if (bad.length) parts.push(`judgeCalibration rejects calibration on the test split for: ${bad.map(g => `${g.score} (${g.calibrationTest.reasons[0]})`).join('; ')}. ${L.kind === 'binary' ? (bad.some(g => g.score === 'frozen logistic score') ? 'The frozen cost cut assumes a calibrated score, so it is not justified by calibration here; prefer the selective gate. (A logistic score looks calibrated on the fit items it was fitted to, by construction.)' : 'The frozen logistic score itself passed on test, so its cost cut stands; the raw direct-question probability should not be read as a probability.') : 'Confidence is not a probability of being right here; the gate is an empirical cut, not a calibrated one. (A near-degenerate slope means most confidences sit at 1.00.)'}`);
+  else parts.push('judgeCalibration found no evidence against calibration on either split (at n ≈ 100–150 this is weak evidence, not proof).');
+  return parts.join(' ');
+}
+
 function readme(L: Loaded): string {
   const S = STORIES[L.id], V = S.verdict(L), d = L.decision, f = d.forced, g = d.gated;
   const qRow = (id: string) => L.quality.test.find(r => r.question === id);
@@ -40,7 +49,14 @@ ${S.dataset.citation}
 
 **What Jev reads:** ${S.stateNote}
 
-## The question set
+## Question module
+The registry form of this set is [context.json](context.json) (kit/modules format, feat/kit; passes meta-type M1–M7 with 0 errors${mWarn(L)}). The runnable kit spec is [spec.json](spec.json); both carry the same measured wording.
+
+| id | type | purpose | polarity |
+|---|---|---|---|
+${Object.entries(L.questions).map(([id, q]) => `| \`${id}\` | ${q.type} | ${(S.roles[id] ?? '').replace(/\|/g, '\\|')} | ${L.polarity[id]} |`).join('\n')}
+
+## The question set (as measured)
 One call per item, all questions batched (P31). "ends" = the share of test answers that reached a confident end (kit label-free quality report).
 
 | question | type | instructions | role / polarity | test quality |
@@ -84,6 +100,15 @@ Sources: [results/test.json](results/test.json) (kit), [results/decision-test.js
 
 The naive Bayes was added after the test run, because the declared keyword lists (fitted on 100 items) were near chance in several domains. It does not alter the declared comparison (the keyword row above); it answers "would a cheap model with far more labels have done as well?", and where that changes the practical verdict (job-postings), the verdict line says so.
 
+## Thresholds re-checked with kit/threshold.ts (post-hoc)
+kit/threshold.ts (feat/op-consist @ 756bdef) arrived after this rule was frozen and scored. [results/selective-posthoc.json](results/selective-posthoc.json) re-fits the gate with \`fitSelective\` on the fit answers (95% Clopper-Pearson upper bound on auto-decided error ≤ the same budget), applies it once to the test answers, and runs \`judgeCalibration\` on both splits. No Jev calls; the frozen rule above stays the result of record.
+
+| score gated | budget | fitted cuts (fit) | fit coverage | test coverage | test error (CP95 upper) | bound held | calibrated? fit / test | cuts stable (bootstrap) |
+|---|---|---|---|---|---|---|---|---|
+${L.selective.map(g => `| ${g.score} | ${pct(g.maxError)} | ${g.fitted.acceptAtOrAbove === null ? 'no accept cut' : `accept ≥ ${g.fitted.acceptAtOrAbove}`}${'rejectAtOrBelow' in g.fitted ? (g.fitted.rejectAtOrBelow === null ? ', no reject cut' : `, reject ≤ ${g.fitted.rejectAtOrBelow}`) : ''} | ${pct(g.fitted.fit.coverage)} | ${pct(g.test.coverage)} | ${g.test.coverage ? `${pct(g.test.errorRate)} (${pct(g.test.errorUpper95)})` : '–'} | ${g.test.coverage ? (g.test.held ? 'yes' : '**no**') : 'n/a (nothing auto-decided)'} | ${g.calibrationFit.calibrated ? 'yes' : 'no'} / ${g.calibrationTest.calibrated ? 'yes' : 'no'} | ${g.stability.unstable ? 'no' : 'yes'} |`).join('\n')}
+
+${calibNote(L)}
+
 ## Where it fails
 ${S.fails(L).map(x => `- ${x}`).join('\n')}
 
@@ -126,6 +151,8 @@ n = 150 test items per domain; accuracy counts every item; coverage (answered) w
 2. Questions are literal, about one record, typed, with declared polarity and an escape option on every choice. A 30-item label-free pilot rates each question; MOVE-TO-CODE / NO-INFORMATION questions are reworded or moved to the Not-for-Jev list **before** any labelled run.
 3. The fit run's answers fit the decision rule (\`_shared/decide.ts\`): a logistic regression + cost- or precision-based cut + an escalate band for binary tasks, a confidence gate for choices, each within a stated error budget. The rule is frozen and committed before any test call.
 4. One labelled test run per domain; the frozen rule is applied once; results never overwritten.
+
+Each domain also has \`context.json\`, the same questions in the kit/modules registry format (feat/kit), linted with its meta-type: 0 errors in all six. Each README's "Thresholds re-checked" section re-fits the gate post-hoc with kit/threshold.ts (fitSelective + judgeCalibration) on the already-collected answers.
 
 Git order: questions and splits (3d1a0dc) → pilot, fit, frozen rules (76c9244) → test results (60f25de).
 

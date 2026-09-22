@@ -1,0 +1,99 @@
+{
+  "name": "domain:intent-routing",
+  "description": "Customer support: Send each request to the right skill, and say \"none\" when it fits none. Questions verbatim from cookbooks/intent-routing/spec.json (measured wording). compose returns in-scope unless Jev picked the escape option; the routed area is the choice itself, gated by the confidence cut in rule.frozen.json.",
+  "artifact": {
+    "type": "one user utterance to a virtual assistant",
+    "stateFields": [
+      "utterance"
+    ]
+  },
+  "modules": [
+    {
+      "name": "skill-routing",
+      "purpose": "Which of ten assistant skill areas owns this request, or none of them?",
+      "questions": {
+        "domain": {
+          "type": "choice",
+          "instructions": "A user said this to a task assistant that supports only the tasks listed below. Which area does the request belong to? If it is not one of the listed supported tasks, answer none.",
+          "criteria": {
+            "banking": "Bank accounts, bills and payments. The request is one of these supported tasks: freeze account; routing; pin change; bill due; pay bill; account blocked; interest rate; min payment; bill balance; transfer; order checks; balance; spending history; transactions; report fraud.",
+            "credit_cards": "Credit cards, card rewards and credit scores. The request is one of these supported tasks: replacement card duration; expiration date; damaged card; improve credit score; report lost card; card declined; credit limit change; apr; redeem rewards; credit limit; rewards balance; application status; credit score; new card; international fees.",
+            "kitchen_and_dining": "Cooking, food and restaurants. The request is one of these supported tasks: food last; confirm reservation; how busy; ingredients list; calories; nutrition info; recipe; restaurant reviews; restaurant reservation; meal suggestion; restaurant suggestion; cancel reservation; ingredient substitution; cook time; accept reservations.",
+            "home": "Household organising: lists, reminders, calendar, music, shopping orders and smart-home devices. The request is one of these supported tasks: what song; play music; todo list update; reminder; reminder update; calendar update; order status; update playlist; shopping list; calendar; next song; order; todo list; shopping list update; smart home.",
+            "auto_and_commute": "The car and getting around by road. The request is one of these supported tasks: current location; oil change when; oil change how; uber; traffic; tire pressure; schedule maintenance; gas; mpg; distance; directions; last maintenance; gas type; tire change; jump start.",
+            "travel": "Trips abroad, flights, hotels and travel documents. The request is one of these supported tasks: plug type; travel notification; translate; flight status; international visa; timezone; exchange rate; travel suggestion; travel alert; vaccines; lost luggage; book flight; book hotel; carry on; car rental.",
+            "utility": "Everyday phone utilities: time, weather, alarms, timers, calls, texts, quick lookups and conversions. The request is one of these supported tasks: weather; alarm; date; find phone; share location; timer; make call; calculator; definition; measurement conversion; flip coin; spelling; time; roll dice; text.",
+            "work": "The user's job: pay, time off, benefits, taxes and meetings. The request is one of these supported tasks: pto request status; next holiday; insurance change; insurance; meeting schedule; payday; taxes; income; rollover 401k; pto balance; pto request; w2; schedule meeting; direct deposit; pto used.",
+            "small_talk": "Chit-chat with the assistant about itself or social pleasantries. The request is one of these supported tasks: who made you; meaning of life; who do you work for; do you have pets; what are your hobbies; fun fact; what is your name; where are you from; goodbye; thank you; greeting; tell joke; are you a bot; how old are you; what can i ask you.",
+            "meta": "Controlling the conversation or the assistant's own settings, and bare replies such as yes, no or maybe. The request is one of these supported tasks: change speed; user name; whisper mode; yes; change volume; no; change language; repeat; change accent; cancel; sync device; change user name; change ai name; reset settings; maybe.",
+            "none": "The request is not one of the supported tasks listed in any option above, even if it is about a similar topic (for example a banking or car question that is not one of the listed banking or car tasks), or it is a general-knowledge, news, maths or other request the assistant does not support."
+          },
+          "polarity": "neutral",
+          "reads": [
+            "utterance"
+          ],
+          "escapeOption": "none",
+          "note": "The decision (labelled): 10 skill areas plus `none`, the escape option. Each option lists the tasks that area covers, so the question is literal: which listed set does this request belong to?"
+        },
+        "asksAction": {
+          "type": "noul",
+          "instructions": "Does the user ask the assistant to perform an action or change something (for example set, book, send, play, add, cancel, change, turn on), rather than ask for information?",
+          "polarity": "neutral",
+          "reads": [
+            "utterance"
+          ],
+          "note": "true = asks the assistant to do something; false = asks for information or chats. A routing hint, not used by the rule."
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "instructions": "Does the utterance mention money, a payment, a bill, a price, a bank account, a credit card or pay?",
+          "polarity": "neutral",
+          "reads": [
+            "utterance"
+          ],
+          "note": "true = money or an account is mentioned. Points at banking, credit cards or pay."
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "instructions": "Is the utterance about the assistant itself: who or what it is, its name, its voice, its language, its speed or volume, or its settings?",
+          "polarity": "neutral",
+          "reads": [
+            "utterance"
+          ],
+          "note": "true = about the assistant itself (name, voice, settings). Separates small talk and meta from tasks."
+        }
+      },
+      "compose": {
+        "positive": "request is in scope for a skill",
+        "rules": [
+          {
+            "when": {
+              "q": "domain",
+              "choice": "none"
+            },
+            "then": false
+          }
+        ],
+        "default": true
+      },
+      "notForJev": [
+        {
+          "judgement": "Should we auto-route this one?",
+          "instead": "Code: the confidence gate fitted on the fit split."
+        },
+        {
+          "judgement": "Is it in scope at all?",
+          "instead": "Code: `domain !== \"none\"`. Asking again would duplicate the choice."
+        },
+        {
+          "judgement": "Which of the 150 fine intents?",
+          "instead": "A second, narrower choice inside the chosen area (not built here)."
+        },
+        {
+          "judgement": "Has this user asked before, and what did we answer?",
+          "instead": "Session history lookup, in code."
+        }
+      ]
+    }
+  ]
+}

@@ -14,7 +14,20 @@ nicapotato (2018). "Women's E-Commerce Clothing Reviews." Kaggle.
 
 **What Jev reads:** { category, title, review }. The star rating is withheld: it would leak the label (4–5 stars → recommend in 98.9% of rows). Reviewer age and ids dropped.
 
-## The question set
+## Question module
+The registry form of this set is [context.json](context.json) (kit/modules format, feat/kit; passes meta-type M1–M7 with 0 errors; 5 M6 warning(s): nouls without criteria.true/false, left as measured rather than reworded after the test). The runnable kit spec is [spec.json](spec.json); both carry the same measured wording.
+
+| id | type | purpose | polarity |
+|---|---|---|---|
+| `wouldNotRecommend` | noul | The decision asked directly (labelled). Scored by the kit as a comparison; not used by the rule. | bad-when-yes |
+| `returned` | noul | true → complaint. Says they sent it back, or will. | bad-when-yes |
+| `fitProblem` | noul | true → complaint. Says it did not fit (too big, small, long...). | bad-when-yes |
+| `flawDescribed` | noul | true → complaint. Names a defect or damage. | bad-when-yes |
+| `differsFromListing` | noul | true → complaint. Looked different from the photo or description. | bad-when-yes |
+| `likesItem` | noul | true → keep quiet. Says they love or like it: the counterweight to a small gripe. | good-when-yes |
+| `mainIssue` | choice | Choice with an escape (`none`: no problem described). `none` feeds the rule; the others route to a team. | neutral |
+
+## The question set (as measured)
 One call per item, all questions batched (P31). "ends" = the share of test answers that reached a confident end (kit label-free quality report).
 
 | question | type | instructions | role / polarity | test quality |
@@ -73,6 +86,16 @@ Decide "yes" when the score ≥ **0.42**; act automatically outside the escalate
 Sources: [results/test.json](results/test.json) (kit), [results/decision-test.json](results/decision-test.json) (frozen rule), [results/strong-baseline-test.json](results/strong-baseline-test.json) (post-hoc). Fit: [results/fit.json](results/fit.json); pilot: [results/pilot.json](results/pilot.json). Calls: pilot 30, fit 100, test 150.
 
 The naive Bayes was added after the test run, because the declared keyword lists (fitted on 100 items) were near chance in several domains. It does not alter the declared comparison (the keyword row above); it answers "would a cheap model with far more labels have done as well?", and where that changes the practical verdict (job-postings), the verdict line says so.
+
+## Thresholds re-checked with kit/threshold.ts (post-hoc)
+kit/threshold.ts (feat/op-consist @ 756bdef) arrived after this rule was frozen and scored. [results/selective-posthoc.json](results/selective-posthoc.json) re-fits the gate with `fitSelective` on the fit answers (95% Clopper-Pearson upper bound on auto-decided error ≤ the same budget), applies it once to the test answers, and runs `judgeCalibration` on both splits. No Jev calls; the frozen rule above stays the result of record.
+
+| score gated | budget | fitted cuts (fit) | fit coverage | test coverage | test error (CP95 upper) | bound held | calibrated? fit / test | cuts stable (bootstrap) |
+|---|---|---|---|---|---|---|---|---|
+| frozen logistic score | 10.0% | no accept cut, reject ≤ 0.272 | 33.0% | 36.0% | 0.0% (5.4%) | yes | yes / no | no |
+| direct noul wouldNotRecommend | 10.0% | accept ≥ 0.82, reject ≤ 0.26 | 69.0% | 78.0% | 1.7% (5.3%) | yes | yes / no | no |
+
+With a 95% bound at n = 100 fit items, a 10.0% budget needs a long error-free run on one side; where no cut qualifies, the honest gate escalates everything. judgeCalibration rejects calibration on the test split for: frozen logistic score (Spiegelhalter rejects calibration (z=-3.33, p=0.00085)); direct noul wouldNotRecommend (Spiegelhalter rejects calibration (z=-2.83, p=0.0047)). The frozen cost cut assumes a calibrated score, so it is not justified by calibration here; prefer the selective gate. (A logistic score looks calibrated on the fit items it was fitted to, by construction.)
 
 ## Where it fails
 - Unhappy reviews that open with praise: "I like this top. I received a ton of compliments..." then "not as high-quality as I expected" (t019), and "I love the fit of these pants" before a dye disaster (t021). likesItem fires, and it carries the largest weight in the rule (-2.541).

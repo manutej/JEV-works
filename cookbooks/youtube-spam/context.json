@@ -1,0 +1,119 @@
+{
+  "name": "domain:youtube-spam",
+  "description": "Trust & safety: Hide spam comments under a video, keep real people talking. Questions verbatim from cookbooks/youtube-spam/spec.json (measured wording). compose acts on the direct question isSpam at its confident ends (measured by the kit at p ≥ 0.5: 93.3% on test). The cookbook's own rule is a logistic regression over the narrow questions, frozen in rule.frozen.json.",
+  "artifact": {
+    "type": "public YouTube comment, with the video it was posted under",
+    "stateFields": [
+      "video",
+      "comment"
+    ]
+  },
+  "modules": [
+    {
+      "name": "comment-spam",
+      "purpose": "Is a public comment advertising, channel-farming or a money offer, rather than a genuine reaction?",
+      "questions": {
+        "isSpam": {
+          "type": "noul",
+          "instructions": "Is this YouTube comment spam?",
+          "criteria": {
+            "true": "The comment exists to advertise or promote something (a channel, a website, a product, money-making) or to farm subscribers, likes or views.",
+            "false": "The comment is a genuine reaction, opinion, question or conversation, even if it is rude, off-topic or low effort."
+          },
+          "polarity": "bad-when-yes",
+          "reads": [
+            "video",
+            "comment"
+          ],
+          "note": "The decision asked directly (labelled). Scored by the kit as a comparison; not used by the rule."
+        },
+        "asksToVisit": {
+          "type": "noul",
+          "instructions": "Does the comment ask readers to visit, watch, check out, subscribe to or like something that belongs to the commenter (their channel, video, page, site or product)?",
+          "polarity": "bad-when-yes",
+          "reads": [
+            "video",
+            "comment"
+          ],
+          "note": "true → spam. Reads one thing: is the reader sent to the commenter's own stuff?"
+        },
+        "mentionsVideo": {
+          "type": "noul",
+          "instructions": "Does the comment say something about this video, this song or this artist?",
+          "polarity": "good-when-yes",
+          "reads": [
+            "video",
+            "comment"
+          ],
+          "note": "true → keep. Talking about the song or artist is the plainest sign of a real reaction."
+        },
+        "offersMoney": {
+          "type": "noul",
+          "instructions": "Does the comment offer money, prizes, free items, gift cards, or a way to earn money?",
+          "polarity": "bad-when-yes",
+          "reads": [
+            "video",
+            "comment"
+          ],
+          "note": "true → spam. Money, prizes and free stuff are named in the text or they are not."
+        },
+        "kind": {
+          "type": "choice",
+          "instructions": "What is this comment mainly doing?",
+          "criteria": {
+            "reaction": "Reacting to the video, song or artist: praise, criticism, a memory, a joke about it",
+            "promotion": "Promoting something: a channel, video, website, product, app or offer",
+            "request": "Asking readers for subscribers, likes, views or shares, without describing what is being promoted",
+            "conversation": "Talking to other commenters or about something unrelated to the video, without promoting anything",
+            "none": "None of these: empty, unreadable, only symbols or emoji, or not in a language you can read"
+          },
+          "polarity": "neutral",
+          "reads": [
+            "video",
+            "comment"
+          ],
+          "escapeOption": "none",
+          "note": "Choice with an escape (`none`: empty, emoji-only, unreadable). Its promotion/request/reaction probabilities feed the rule."
+        }
+      },
+      "compose": {
+        "positive": "comment is spam",
+        "rules": [
+          {
+            "when": {
+              "q": "isSpam",
+              "is": "yes"
+            },
+            "then": true
+          },
+          {
+            "when": {
+              "q": "isSpam",
+              "is": "no"
+            },
+            "then": false
+          }
+        ],
+        "default": "escalate"
+      },
+      "notForJev": [
+        {
+          "judgement": "Does the comment contain a link?",
+          "instead": "A URL regex. Free, exact, and the link is not the spam; what it asks the reader to do is."
+        },
+        {
+          "judgement": "Has this account posted the same text elsewhere?",
+          "instead": "A hash over recent comments. Jev sees one comment at a time."
+        },
+        {
+          "judgement": "Is the account new, or posting in bursts?",
+          "instead": "Account metadata and timestamps, in code."
+        },
+        {
+          "judgement": "How annoying is the comment?",
+          "instead": "Not asked: a degree judgement, and annoyance is not spam."
+        }
+      ]
+    }
+  ]
+}

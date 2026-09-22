@@ -14,7 +14,18 @@ S. Vidros, C. Kolias, G. Kambourakis, L. Akoglu. "Automatic Detection of Online 
 
 **What Jev reads:** { title, location, employment_type, company_profile, description, requirements, benefits }, cut to about 350 words. Contacts are masked. Structured fields (logo, salary, screening questions) are left to code.
 
-## The question set
+## Question module
+The registry form of this set is [context.json](context.json) (kit/modules format, feat/kit; passes meta-type M1–M7 with 0 errors; 5 M6 warning(s): nouls without criteria.true/false, left as measured rather than reworded after the test). The runnable kit spec is [spec.json](spec.json); both carry the same measured wording.
+
+| id | type | purpose | polarity |
+|---|---|---|---|
+| `asksForPaymentOrDetails` | noul | true → fraud. A fee, a starter kit, bank or ID details requested in the text. | bad-when-yes |
+| `promisesEasyEarnings` | noul | true → fraud. Earn from home, fast, no experience needed. | bad-when-yes |
+| `describesCompany` | noul | true → legitimate. The employer is named and says what it does. | good-when-yes |
+| `directContactToApply` | noul | true → fraud. Apply by messaging a person instead of a normal application. | bad-when-yes |
+| `listsSpecificDuties` | noul | true → legitimate. Concrete tasks are described. | good-when-yes |
+
+## The question set (as measured)
 One call per item, all questions batched (P31). "ends" = the share of test answers that reached a confident end (kit label-free quality report).
 
 | question | type | instructions | role / polarity | test quality |
@@ -71,6 +82,15 @@ Decide "yes" when the score ≥ **0.553**; act automatically outside the escalat
 Sources: [results/test.json](results/test.json) (kit), [results/decision-test.json](results/decision-test.json) (frozen rule), [results/strong-baseline-test.json](results/strong-baseline-test.json) (post-hoc). Fit: [results/fit.json](results/fit.json); pilot: [results/pilot.json](results/pilot.json). Calls: pilot 30, fit 100, test 150.
 
 The naive Bayes was added after the test run, because the declared keyword lists (fitted on 100 items) were near chance in several domains. It does not alter the declared comparison (the keyword row above); it answers "would a cheap model with far more labels have done as well?", and where that changes the practical verdict (job-postings), the verdict line says so.
+
+## Thresholds re-checked with kit/threshold.ts (post-hoc)
+kit/threshold.ts (feat/op-consist @ 756bdef) arrived after this rule was frozen and scored. [results/selective-posthoc.json](results/selective-posthoc.json) re-fits the gate with `fitSelective` on the fit answers (95% Clopper-Pearson upper bound on auto-decided error ≤ the same budget), applies it once to the test answers, and runs `judgeCalibration` on both splits. No Jev calls; the frozen rule above stays the result of record.
+
+| score gated | budget | fitted cuts (fit) | fit coverage | test coverage | test error (CP95 upper) | bound held | calibrated? fit / test | cuts stable (bootstrap) |
+|---|---|---|---|---|---|---|---|---|
+| frozen logistic score | 5.0% | no accept cut, no reject cut | 0.0% | 0.0% | – | n/a (nothing auto-decided) | yes / no | no |
+
+With a 95% bound at n = 100 fit items, a 5.0% budget needs a long error-free run on one side; where no cut qualifies, the honest gate escalates everything. judgeCalibration rejects calibration on the test split for: frozen logistic score (slope 2.12 ± 0.88 excludes 1 (<1 overconfident, >1 underconfident)). The frozen cost cut assumes a calibrated score, so it is not justified by calibration here; prefer the selective gate. (A logistic score looks calibrated on the fit items it was fitted to, by construction.)
 
 ## Where it fails
 - Most fraud in this corpus does not look like a scam. It looks like an ordinary vacancy: an administrative assistant in Newark (t012), a QC inspector in Houston (t017), even a design-engineer ad that copies a real oil-services firm's company profile (t019). None asks for money or promises easy earnings, so every literal signal says "legitimate". What gives them away is corpus-level pattern (a missing company profile, recurring locations and stock wording), which a model trained on 1,800 labelled ads learns and a zero-shot reader of one ad cannot.

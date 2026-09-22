@@ -14,7 +14,17 @@ S. Larson et al. "An Evaluation Dataset for Intent Classification and Out-of-Sco
 
 **What Jev reads:** { utterance }. The intent→domain map is fetched from the dataset repo, not hand-typed. Out-of-scope is 20% of each split on purpose (about 6% of the corpus): it is what the escape option is for.
 
-## The question set
+## Question module
+The registry form of this set is [context.json](context.json) (kit/modules format, feat/kit; passes meta-type M1–M7 with 0 errors; 3 M6 warning(s): nouls without criteria.true/false, left as measured rather than reworded after the test). The runnable kit spec is [spec.json](spec.json); both carry the same measured wording.
+
+| id | type | purpose | polarity |
+|---|---|---|---|
+| `domain` | choice | The decision (labelled): 10 skill areas plus `none`, the escape option. Each option lists the tasks that area covers, so the question is literal: which listed set does this request belong to? | neutral |
+| `asksAction` | noul | true = asks the assistant to do something; false = asks for information or chats. A routing hint, not used by the rule. | neutral |
+| `mentionsMoney` | noul | true = money or an account is mentioned. Points at banking, credit cards or pay. | neutral |
+| `aboutAssistant` | noul | true = about the assistant itself (name, voice, settings). Separates small talk and meta from tasks. | neutral |
+
+## The question set (as measured)
 One call per item, all questions batched (P31). "ends" = the share of test answers that reached a confident end (kit label-free quality report).
 
 | question | type | instructions | role / polarity | test quality |
@@ -73,6 +83,15 @@ Choice. The decision is Jev's pick on `domain`. Act automatically when TypeSafe'
 Sources: [results/test.json](results/test.json) (kit), [results/decision-test.json](results/decision-test.json) (frozen rule), [results/strong-baseline-test.json](results/strong-baseline-test.json) (post-hoc). Fit: [results/fit.json](results/fit.json); pilot: [results/pilot.json](results/pilot.json). Calls: pilot 30, fit 100, test 150.
 
 The naive Bayes was added after the test run, because the declared keyword lists (fitted on 100 items) were near chance in several domains. It does not alter the declared comparison (the keyword row above); it answers "would a cheap model with far more labels have done as well?", and where that changes the practical verdict (job-postings), the verdict line says so.
+
+## Thresholds re-checked with kit/threshold.ts (post-hoc)
+kit/threshold.ts (feat/op-consist @ 756bdef) arrived after this rule was frozen and scored. [results/selective-posthoc.json](results/selective-posthoc.json) re-fits the gate with `fitSelective` on the fit answers (95% Clopper-Pearson upper bound on auto-decided error ≤ the same budget), applies it once to the test answers, and runs `judgeCalibration` on both splits. No Jev calls; the frozen rule above stays the result of record.
+
+| score gated | budget | fitted cuts (fit) | fit coverage | test coverage | test error (CP95 upper) | bound held | calibrated? fit / test | cuts stable (bootstrap) |
+|---|---|---|---|---|---|---|---|---|
+| confidence on domain (event: Jev correct) | 5.0% | accept ≥ 0.967 | 59.0% | 66.7% | 0.0% (3.0%) | yes | yes / yes | no |
+
+With a 95% bound at n = 100 fit items, a 5.0% budget needs a long error-free run on one side; where no cut qualifies, the honest gate escalates everything. judgeCalibration found no evidence against calibration on either split (at n ≈ 100–150 this is weak evidence, not proof).
 
 ## Where it fails
 - Out-of-scope is a strict line in CLINC, and it cuts both ways. "Check the nanny cam and send the feed to my phone" (t130) is labelled out-of-scope but reads like a smart-home task; "what are some cool tourist attractions in england" (t131) is labelled travel, and Jev said none.

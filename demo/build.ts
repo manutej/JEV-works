@@ -251,6 +251,11 @@ function examples(L: Loaded): { html: string } {
 
 const TABS_JS = `document.querySelectorAll('[data-tabs]').forEach(function(bar){var cards=document.querySelectorAll('#examples .card');bar.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;bar.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});var k=b.getAttribute('data-k');cards.forEach(function(c){c.hidden=!(k==='all'||c.getAttribute('data-kind')===k)})})});`;
 
+function selectiveNote(L: Loaded): string {
+  const rows = L.selective.map(g => `<tr><td>${esc(g.score)}</td><td class="num">${g.fitted.acceptAtOrAbove ?? '–'}${'rejectAtOrBelow' in g.fitted ? ` / ${g.fitted.rejectAtOrBelow ?? '–'}` : ''}</td><td class="num">${pct(g.test.coverage)}</td><td class="num">${g.test.coverage ? pct(g.test.errorRate) : '–'}</td><td>${g.test.coverage ? (g.test.held ? '<span class="sig-jev">held</span>' : '<span class="sig-base">broken</span>') : '<span class="sig-none">nothing auto-decided</span>'}</td><td>${g.calibrationTest.calibrated ? 'yes' : '<span class="sig-base">no</span>'}</td></tr>`).join('');
+  return `<h3>Re-checked with kit/threshold.ts (post-hoc, no new calls)</h3><p class="muted" style="font-size:13.5px">fitSelective re-fits the gate on the fit answers with a 95% upper bound on auto-decided error, then it is applied once to test. judgeCalibration asks whether the score can be read as a probability.</p><div class="tablewrap"><table><thead><tr><th>score</th><th>accept ≥ / reject ≤</th><th>test coverage</th><th>test error</th><th>bound</th><th>calibrated on test</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+
 // ---------------------------------------------------------------- domain page
 
 function domainPage(L: Loaded): string {
@@ -269,7 +274,7 @@ function domainPage(L: Loaded): string {
     <h3>What the quality pass changed</h3><ul class="changes">${S.changes.map(c => `<li>${md(c)}</li>`).join('')}</ul></section>
   <section><h2>Not for Jev</h2><p class="muted">Judgements this set deliberately does not ask, and what does them instead.</p><div class="nfj">${S.notForJev.map(([a, b]) => `<div>${md(a)}</div><div>${md(b)}</div>`).join('')}</div></section>
   <section><h2>Scoreboard</h2><p class="muted">${L.decision.n} held-out test items, asked once. Accuracy counts every item (an unanswered item would count as wrong). Paired exact McNemar on the same items.</p>${scoreboard(L)}</section>
-  <section><h2>The operating point</h2><p>${md(S.thresholdWhy(L))}</p><p class="muted" style="font-size:13.5px">Why this budget: ${md(L.kind === 'binary' ? `${L.frozen.threshold.why} ${L.frozen.band.why}` : L.frozen.gate.why)}</p>${strip(L)}</section>
+  <section><h2>The operating point</h2><p>${md(S.thresholdWhy(L))}</p>${selectiveNote(L)}<p class="muted" style="font-size:13.5px">Why this budget: ${md(L.kind === 'binary' ? `${L.frozen.threshold.why} ${L.frozen.band.why}` : L.frozen.gate.why)}</p>${strip(L)}</section>
   <section id="examples"><h2>Real items, real answers</h2><p class="muted">Test items with every typed answer Jev returned. Picked by rule: the first correct item per label, then held and wrong ones, in id order.</p>
     <div class="tabs" data-tabs><button type="button" aria-pressed="true" data-k="all">All</button><button type="button" aria-pressed="false" data-k="right">Right (${counts.right})</button><button type="button" aria-pressed="false" data-k="held">Held (${counts.held})</button><button type="button" aria-pressed="false" data-k="wrong">Wrong (${counts.wrong})</button></div>
     <div class="cards">${ex.html}</div></section>

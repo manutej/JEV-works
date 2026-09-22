@@ -1,0 +1,85 @@
+{
+  "posthoc": true,
+  "threshold": "kit/threshold.ts @ 756bdef (feat/op-consist)",
+  "what": "gate re-fitted with fitSelective on fit answers, applied once to test answers; no Jev calls; frozen rule of record unchanged",
+  "gates": [
+    {
+      "score": "frozen logistic score",
+      "maxError": 0.05,
+      "calibrationFit": {
+        "n": 100,
+        "ece": 0.06612167631088557,
+        "eceCI95": [
+          0.053751563857946515,
+          0.16237772353369503
+        ],
+        "brier": 0.16765408763151018,
+        "slope": 1.487971621023498,
+        "intercept": 0.3746734583576254,
+        "spiegelhalterZ": -0.8993541653938462,
+        "spiegelhalterP": 0.3684639857849228,
+        "calibrated": true,
+        "reasons": []
+      },
+      "calibrationTest": {
+        "n": 150,
+        "ece": 0.1255602376961047,
+        "eceCI95": [
+          0.07623635089142812,
+          0.19006212114572327
+        ],
+        "brier": 0.15804364670197668,
+        "slope": 2.1224560647319213,
+        "intercept": 1.3076179748880103,
+        "spiegelhalterZ": -0.9193484247193646,
+        "spiegelhalterP": 0.3579133129546328,
+        "calibrated": false,
+        "reasons": [
+          "slope 2.12 ± 0.88 excludes 1 (<1 overconfident, >1 underconfident)",
+          "intercept 1.31 ± 1.02 excludes 0 (miscalibrated in the large)"
+        ]
+      },
+      "fitted": {
+        "acceptAtOrAbove": null,
+        "rejectAtOrBelow": null,
+        "fit": {
+          "n": 100,
+          "acceptN": 0,
+          "acceptErrors": 0,
+          "acceptErrUpper": 1,
+          "rejectN": 0,
+          "rejectErrors": 0,
+          "rejectErrUpper": 1,
+          "coverage": 0
+        }
+      },
+      "stability": {
+        "draws": 200,
+        "hi": {
+          "p05": null,
+          "p50": null,
+          "p95": null
+        },
+        "lo": {
+          "p05": null,
+          "p50": null,
+          "p95": null
+        },
+        "hiNeverFits": 1,
+        "loNeverFits": 1,
+        "unstable": true
+      },
+      "test": {
+        "n": 150,
+        "coverage": 0,
+        "accepted": 0,
+        "acceptErrors": 0,
+        "rejected": 0,
+        "rejectErrors": 0,
+        "errorRate": 0,
+        "errorUpper95": 1,
+        "held": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "posthoc": true,
+  "threshold": "kit/threshold.ts @ 756bdef (feat/op-consist)",
+  "what": "gate re-fitted with fitSelective on fit answers, applied once to test answers; no Jev calls; frozen rule of record unchanged",
+  "gates": [
+    {
+      "score": "frozen logistic score",
+      "maxError": 0.05,
+      "calibrationFit": {
+        "n": 100,
+        "ece": 0.0793370753947882,
+        "eceCI95": [
+          0.0625604918993675,
+          0.11766270280437935
+        ],
+        "brier": 0.03573524633655119,
+        "slope": 1.6347773114997188,
+        "intercept": 0.19546540088676612,
+        "spiegelhalterZ": -2.011679254340248,
+        "spiegelhalterP": 0.04425362133385202,
+        "calibrated": true,
+        "reasons": []
+      },
+      "calibrationTest": {
+        "n": 150,
+        "ece": 0.05888601561887343,
+        "eceCI95": [
+          0.05139906620170902,
+          0.10476840247288258
+        ],
+        "brier": 0.05516920661840081,
+        "slope": 1.5708138266274487,
+        "intercept": 0.6182042575494433,
+        "spiegelhalterZ": -1.7852527333944879,
+        "spiegelhalterP": 0.07422023295443347,
+        "calibrated": true,
+        "reasons": []
+      },
+      "fitted": {
+        "acceptAtOrAbove": null,
+        "rejectAtOrBelow": null,
+        "fit": {
+          "n": 100,
+          "acceptN": 0,
+          "acceptErrors": 0,
+          "acceptErrUpper": 1,
+          "rejectN": 0,
+          "rejectErrors": 0,
+          "rejectErrUpper": 1,
+          "coverage": 0
+        }
+      },
+      "stability": {
+        "draws": 200,
+        "hi": {
+          "p05": 0.23198559956047332,
+          "p50": 0.23198559956047332,
+          "p95": 0.5801332111699407
+        },
+        "lo": {
+          "p05": 0.4451066259311041,
+          "p50": 0.4451066259311041,
+          "p95": 0.4451066259311041
+        },
+        "hiNeverFits": 0.985,
+        "loNeverFits": 0.995,
+        "unstable": true
+      },
+      "test": {
+        "n": 150,
+        "coverage": 0,
+        "accepted": 0,
+        "acceptErrors": 0,
+        "rejected": 0,
+        "rejectErrors": 0,
+        "errorRate": 0,
+        "errorUpper95": 1,
+        "held": true
+      }
+    },
+    {
+      "score": "direct noul isSpam",
+      "maxError": 0.05,
+      "calibrationFit": {
+        "n": 100,
+        "ece": 0.06990000000000011,
+        "eceCI95": [
+          0.05440000000000002,
+          0.12179999999999999
+        ],
+        "brier": 0.04737299999999996,
+        "slope": 1.6169201001040643,
+        "intercept": 0.8000343387034444,
+        "spiegelhalterZ": -1.3759685212440607,
+        "spiegelhalterP": 0.16883149731208658,
+        "calibrated": true,
+        "reasons": []
+      },
+      "calibrationTest": {
+        "n": 150,
+        "ece": 0.0758000000000001,
+        "eceCI95": [
+          0.06386666666666667,
+          0.1260666666666667
+        ],
+        "brier": 0.05279933333333332,
+        "slope": 1.8495757358318252,
+        "intercept": 1.6426587380659117,
+        "spiegelhalterZ": -1.6523953039463968,
+        "spiegelhalterP": 0.09845396003099971,
+        "calibrated": false,
+        "reasons": [
+          "intercept 1.64 ± 1.60 excludes 0 (miscalibrated in the large)"
+        ]
+      },
+      "fitted": {
+        "acceptAtOrAbove": null,
+        "rejectAtOrBelow": null,
+        "fit": {
+          "n": 100,
+          "acceptN": 0,
+          "acceptErrors": 0,
+          "acceptErrUpper": 1,
+          "rejectN": 0,
+          "rejectErrors": 0,
+          "rejectErrUpper": 1,
+          "coverage": 0
+        }
+      },
+      "stability": {
+        "draws": 200,
+        "hi": {
+          "p05": null,
+          "p50": null,
+          "p95": null
+        },
+        "lo": {
+          "p05": null,
+          "p50": null,
+          "p95": null
+        },
+        "hiNeverFits": 1,
+        "loNeverFits": 1,
+        "unstable": true
+      },
+      "test": {
+        "n": 150,
+        "coverage": 0,
+        "accepted": 0,
+        "acceptErrors": 0,
+        "rejected": 0,
+        "rejectErrors": 0,
+        "errorRate": 0,
+        "errorUpper95": 1,
+        "held": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "posthoc": true,
+  "threshold": "kit/threshold.ts @ 756bdef (feat/op-consist)",
+  "what": "gate re-fitted with fitSelective on fit answers, applied once to test answers; no Jev calls; frozen rule of record unchanged",
+  "gates": [
+    {
+      "score": "confidence on clauseType (event: Jev correct)",
+      "maxError": 0.05,
+      "calibrationFit": {
+        "n": 100,
+        "ece": 0.09076249999999991,
+        "eceCI95": [
+          0.04637500000000013,
+          0.15748749999999995
+        ],
+        "brier": 0.091987234375,
+        "slope": 47150.43369572028,
+        "intercept": -31623.905267627048,
+        "spiegelhalterZ": 7.803796839619869,
+        "spiegelhalterP": 6.217248937900877e-15,
+        "calibrated": false,
+        "reasons": [
+          "Spiegelhalter rejects calibration (z=7.80, p=6.2e-15)",
+          "slope 47150.43 ± 16.34 excludes 1 (<1 overconfident, >1 underconfident)",
+          "intercept -31623.91 ± 11.53 excludes 0 (miscalibrated in the large)"
+        ]
+      },
+      "calibrationTest": {
+        "n": 150,
+        "ece": 0.039333333333333415,
+        "eceCI95": [
+          0.023125000000000014,
+          0.08547499999999997
+        ],
+        "brier": 0.05078025,
+        "slope": 5532.765932245362,
+        "intercept": -6947.26401290369,
+        "spiegelhalterZ": 3.232008244721649,
+        "spiegelhalterP": 0.00122936008151453,
+        "calibrated": false,
+        "reasons": [
+          "Spiegelhalter rejects calibration (z=3.23, p=0.0012)",
+          "slope 5532.77 ± 4.61 excludes 1 (<1 overconfident, >1 underconfident)",
+          "intercept -6947.26 ± 6.15 excludes 0 (miscalibrated in the large)"
+        ]
+      },
+      "fitted": {
+        "acceptAtOrAbove": null,
+        "fit": {
+          "n": 100,
+          "acceptN": 0,
+          "acceptErrors": 0,
+          "acceptErrUpper": 1,
+          "coverage": 0
+        }
+      },
+      "stability": {
+        "draws": 200,
+        "hi": {
+          "p05": 0.9550000000000001,
+          "p50": 0.98875,
+          "p95": 1
+        },
+        "lo": {
+          "p05": null,
+          "p50": null,
+          "p95": null
+        },
+        "hiNeverFits": 0.825,
+        "loNeverFits": 1,
+        "unstable": true
+      },
+      "test": {
+        "n": 150,
+        "coverage": 0,
+        "accepted": 0,
+        "errors": 0,
+        "errorRate": 0,
+        "errorUpper95": 1,
+        "held": true
+      }
+    }
+  ]
+}

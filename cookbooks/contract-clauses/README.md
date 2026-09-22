@@ -14,7 +14,18 @@ D. Tuggener et al. "LEDGAR: A Large-Scale Multi-label Corpus for Text Classifica
 
 **What Jev reads:** { provision }, truncated to 250 words. A leading heading ("Governing Law.") is stripped so the task is about the clause body; addresses and names in notice clauses are masked.
 
-## The question set
+## Question module
+The registry form of this set is [context.json](context.json) (kit/modules format, feat/kit; passes meta-type M1–M7 with 0 errors; 4 M6 warning(s): nouls without criteria.true/false, left as measured rather than reworded after the test). The runnable kit spec is [spec.json](spec.json); both carry the same measured wording.
+
+| id | type | purpose | polarity |
+|---|---|---|---|
+| `clauseType` | choice | The decision (labelled): eight types, each described by what the clause does, plus `other`, the escape option. | neutral |
+| `namesJurisdiction` | noul | true → governing law. Is a state or country named? (Also true for venue clauses and notice addresses.) | neutral |
+| `saysAgreementEnds` | noul | true → termination. Does the text say something ends or may be ended? | neutral |
+| `requiresCoveringLosses` | noul | true → indemnification. Pay, reimburse, hold harmless or defend against losses? | neutral |
+| `restrictsDisclosure` | noul | true → confidentiality. Forbids or limits disclosing information? | neutral |
+
+## The question set (as measured)
 One call per item, all questions batched (P31). "ends" = the share of test answers that reached a confident end (kit label-free quality report).
 
 | question | type | instructions | role / polarity | test quality |
@@ -72,6 +83,15 @@ Choice. The decision is Jev's pick on `clauseType`. Act automatically when TypeS
 Sources: [results/test.json](results/test.json) (kit), [results/decision-test.json](results/decision-test.json) (frozen rule), [results/strong-baseline-test.json](results/strong-baseline-test.json) (post-hoc). Fit: [results/fit.json](results/fit.json); pilot: [results/pilot.json](results/pilot.json). Calls: pilot 30, fit 100, test 150.
 
 The naive Bayes was added after the test run, because the declared keyword lists (fitted on 100 items) were near chance in several domains. It does not alter the declared comparison (the keyword row above); it answers "would a cheap model with far more labels have done as well?", and where that changes the practical verdict (job-postings), the verdict line says so.
+
+## Thresholds re-checked with kit/threshold.ts (post-hoc)
+kit/threshold.ts (feat/op-consist @ 756bdef) arrived after this rule was frozen and scored. [results/selective-posthoc.json](results/selective-posthoc.json) re-fits the gate with `fitSelective` on the fit answers (95% Clopper-Pearson upper bound on auto-decided error ≤ the same budget), applies it once to the test answers, and runs `judgeCalibration` on both splits. No Jev calls; the frozen rule above stays the result of record.
+
+| score gated | budget | fitted cuts (fit) | fit coverage | test coverage | test error (CP95 upper) | bound held | calibrated? fit / test | cuts stable (bootstrap) |
+|---|---|---|---|---|---|---|---|---|
+| confidence on clauseType (event: Jev correct) | 5.0% | no accept cut | 0.0% | 0.0% | – | n/a (nothing auto-decided) | no / no | no |
+
+With a 95% bound at n = 100 fit items, a 5.0% budget needs a long error-free run on one side; where no cut qualifies, the honest gate escalates everything. judgeCalibration rejects calibration on the test split for: confidence on clauseType (event: Jev correct) (Spiegelhalter rejects calibration (z=3.23, p=0.0012)). Confidence is not a probability of being right here; the gate is an empirical cut, not a calibrated one. (A near-degenerate slope means most confidences sit at 1.00.)
 
 ## Where it fails
 - Notices is the weak type (71.4%). Several LEDGAR "Notices" provisions are really an obligation to notify ("Each Party shall promptly notify the other of any ... infringement", t096) or a waiting period ("You have up to twenty-one days to consider this Agreement", t123). Jev called them `other`, at confidence 1.00 for t123. Arguably the label is the odd one out: LEDGAR labels come from the heading the drafter used.

@@ -1,0 +1,147 @@
+{
+  "name": "domain:review-triage",
+  "description": "E-commerce: Flag the reviews a customer-care agent should read today. Questions verbatim from cookbooks/review-triage/spec.json (measured wording). compose acts on the direct question wouldNotRecommend at its confident ends. The cookbook's own rule is a logistic regression over the narrow questions, frozen in rule.frozen.json.",
+  "artifact": {
+    "type": "one product review (title and text, no star rating)",
+    "stateFields": [
+      "category",
+      "title",
+      "review"
+    ]
+  },
+  "modules": [
+    {
+      "name": "complaint-triage",
+      "purpose": "Should customer care read this product review (the reviewer would not recommend the item)?",
+      "questions": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "instructions": "Based on this product review, would the reviewer NOT recommend this item to other shoppers?",
+          "criteria": {
+            "true": "The reviewer is disappointed with the item overall and would not suggest others buy it.",
+            "false": "The reviewer is satisfied overall and would suggest others buy it, even if they mention a minor flaw."
+          },
+          "polarity": "bad-when-yes",
+          "reads": [
+            "category",
+            "title",
+            "review"
+          ],
+          "note": "The decision asked directly (labelled). Scored by the kit as a comparison; not used by the rule."
+        },
+        "returned": {
+          "type": "noul",
+          "instructions": "Does the reviewer say they returned the item, are returning it, or will send it back?",
+          "polarity": "bad-when-yes",
+          "reads": [
+            "category",
+            "title",
+            "review"
+          ],
+          "note": "true → complaint. Says they sent it back, or will."
+        },
+        "fitProblem": {
+          "type": "noul",
+          "instructions": "Does the reviewer say the item did not fit them: too big, too small, too long, too short, too tight, too loose, or the wrong shape for their body?",
+          "polarity": "bad-when-yes",
+          "reads": [
+            "category",
+            "title",
+            "review"
+          ],
+          "note": "true → complaint. Says it did not fit (too big, small, long...)."
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "instructions": "Does the reviewer describe a flaw in the item itself: arrived damaged, a hole, a tear, loose threads, pilling, fading, shrinking, see-through fabric, a broken zipper, or fabric or stitching that feels cheap?",
+          "polarity": "bad-when-yes",
+          "reads": [
+            "category",
+            "title",
+            "review"
+          ],
+          "note": "true → complaint. Names a defect or damage."
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "instructions": "Does the reviewer say the item looked different in person than in the online photo or description (a different colour, pattern, fabric or cut)?",
+          "polarity": "bad-when-yes",
+          "reads": [
+            "category",
+            "title",
+            "review"
+          ],
+          "note": "true → complaint. Looked different from the photo or description."
+        },
+        "likesItem": {
+          "type": "noul",
+          "instructions": "Does the reviewer say they love, like, or are happy with the item?",
+          "polarity": "good-when-yes",
+          "reads": [
+            "category",
+            "title",
+            "review"
+          ],
+          "note": "true → keep quiet. Says they love or like it: the counterweight to a small gripe."
+        },
+        "mainIssue": {
+          "type": "choice",
+          "instructions": "What problem with the item does the reviewer give as the reason they are unhappy? If they give several, pick the one they mention first.",
+          "criteria": {
+            "fit": "Size or fit: the item was too big, too small, too long, too short, or cut wrong for their body",
+            "quality": "A defect or damage: holes, tears, pilling, broken parts, poor stitching, fabric that feels cheap or wears out",
+            "appearance": "How it looks, while it fits and is not defective: the colour, pattern or style is different from the photo, or unflattering on them",
+            "other": "A problem that is none of the above: price, delivery, comfort, smell, care instructions, or something else",
+            "none": "No problem: the reviewer is not unhappy with the item, or mentions no problem at all"
+          },
+          "polarity": "neutral",
+          "reads": [
+            "category",
+            "title",
+            "review"
+          ],
+          "escapeOption": "none",
+          "note": "Choice with an escape (`none`: no problem described). `none` feeds the rule; the others route to a team."
+        }
+      },
+      "compose": {
+        "positive": "review needs customer-care follow-up",
+        "rules": [
+          {
+            "when": {
+              "q": "wouldNotRecommend",
+              "is": "yes"
+            },
+            "then": true
+          },
+          {
+            "when": {
+              "q": "wouldNotRecommend",
+              "is": "no"
+            },
+            "then": false
+          }
+        ],
+        "default": "escalate"
+      },
+      "notForJev": [
+        {
+          "judgement": "Star rating",
+          "instead": "Already a number in the record. Also withheld from Jev because it leaks the label."
+        },
+        {
+          "judgement": "How unhappy is the reviewer?",
+          "instead": "Not asked: a degree judgement. The regression over literal signals produces the gradation."
+        },
+        {
+          "judgement": "Is this a known problem with this product?",
+          "instead": "Aggregate flags per product id in code; Jev sees one review."
+        },
+        {
+          "judgement": "Review length, helpful votes",
+          "instead": "Counting, in code."
+        }
+      ]
+    }
+  ]
+}

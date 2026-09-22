@@ -1,0 +1,76 @@
+{
+  "posthoc": true,
+  "threshold": "kit/threshold.ts @ 756bdef (feat/op-consist)",
+  "what": "gate re-fitted with fitSelective on fit answers, applied once to test answers; no Jev calls; frozen rule of record unchanged",
+  "gates": [
+    {
+      "score": "confidence on domain (event: Jev correct)",
+      "maxError": 0.05,
+      "calibrationFit": {
+        "n": 100,
+        "ece": 0.06639000000000025,
+        "eceCI95": [
+          0.04848000000000001,
+          0.10442999999999994
+        ],
+        "brier": 0.04188057000000003,
+        "slope": 0.9189526208840377,
+        "intercept": 0.8179067184041442,
+        "spiegelhalterZ": -1.1419483582926413,
+        "spiegelhalterP": 0.2534755958247965,
+        "calibrated": true,
+        "reasons": []
+      },
+      "calibrationTest": {
+        "n": 150,
+        "ece": 0.03289333333333345,
+        "eceCI95": [
+          0.020033333333333573,
+          0.06838666666666673
+        ],
+        "brier": 0.04510137333333336,
+        "slope": 1.0533746391034062,
+        "intercept": 0.5743279944990066,
+        "spiegelhalterZ": -1.2173016158192265,
+        "spiegelhalterP": 0.22348961298315118,
+        "calibrated": true,
+        "reasons": []
+      },
+      "fitted": {
+        "acceptAtOrAbove": 0.967,
+        "fit": {
+          "n": 100,
+          "acceptN": 59,
+          "acceptErrors": 0,
+          "acceptErrUpper": 0.049507609888226944,
+          "coverage": 0.59
+        }
+      },
+      "stability": {
+        "draws": 200,
+        "hi": {
+          "p05": 0.49400000000000005,
+          "p50": 0.923,
+          "p95": 0.978
+        },
+        "lo": {
+          "p05": null,
+          "p50": null,
+          "p95": null
+        },
+        "hiNeverFits": 0.245,
+        "loNeverFits": 1,
+        "unstable": true
+      },
+      "test": {
+        "n": 150,
+        "coverage": 0.6666666666666666,
+        "accepted": 100,
+        "errors": 0,
+        "errorRate": 0,
+        "errorUpper95": 0.029513049607039932,
+        "held": true
+      }
+    }
+  ]
+}
