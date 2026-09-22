@@ -1,16 +1,17 @@
 {
-  "experiment": "E3-K · 5-fold on the 80 CETI hooks (in-sample for Jev)",
-  "preregistration": "program/E3-KFOLD-PREREG.md",
   "validity": "in-sample for Jev; fold-held-out for the keyword baseline",
-  "validityDetail": "Jev v2 option descriptions (program/e3-questions.ts) were authored by reading all 80 items and labels; no fold is unseen by Jev. Only the naive-Bayes keyword baseline, the majority class and the hybrid τ are fitted on k−1 folds and scored on the held-out fold. The E3 hand-written regex was also written from all 80 (in-sample reference); the E1 keyword baseline was written without labels (unfitted reference).",
+  "validityAnnotatedAt": "2026-09-22 (MoE panel condition for merging; results unchanged)",
+  "experiment": "E3-K \u00b7 5-fold on the 80 CETI hooks (in-sample for Jev)",
+  "preregistration": "program/E3-KFOLD-PREREG.md",
+  "validityDetail": "Jev v2 option descriptions (program/e3-questions.ts) were authored by reading all 80 items and labels; no fold is unseen by Jev. Only the naive-Bayes keyword baseline, the majority class and the hybrid \u03c4 are fitted on k\u22121 folds and scored on the held-out fold. The E3 hand-written regex was also written from all 80 (in-sample reference); the E1 keyword baseline was written without labels (unfitted reference).",
   "approval": {
     "by": "Manu",
     "date": "2026-09-21",
     "decision": "k-fold on the 80, reported as in-sample"
   },
-  "hypothesis": "Jev v2 (in-sample) pooled accuracy on the 80 exceeds the fold-held-out NB keyword baseline by ≥ 0.11, with the paired bootstrap 95% CI of the difference excluding 0.",
-  "falsifier": "Δ < 0.11, or the paired 95% CI of Δ includes 0 (tie), or the baseline is ahead.",
-  "headline": "IN-SAMPLE for Jev: Jev v2 72.5% (CI95 62.5%–82.5%) vs fold-held-out NB keyword 35.0% (CI95 25.0%–46.3%) on n=80, Δ +37.5 pts (paired CI95 25.0…50.0); exact McNemar b=34, c=4, p=6.04e-7 → different (as-run 0.11-band verdict: jev-ahead). Jev's descriptions were written from all 80 items, so its number is an upper bound, not generalisation.",
+  "hypothesis": "Jev v2 (in-sample) pooled accuracy on the 80 exceeds the fold-held-out NB keyword baseline by \u2265 0.11, with the paired bootstrap 95% CI of the difference excluding 0.",
+  "falsifier": "\u0394 < 0.11, or the paired 95% CI of \u0394 includes 0 (tie), or the baseline is ahead.",
+  "headline": "IN-SAMPLE for Jev: Jev v2 72.5% (CI95 62.5%\u201382.5%) vs fold-held-out NB keyword 35.0% (CI95 25.0%\u201346.3%) on n=80, \u0394 +37.5 pts (paired CI95 25.0\u202650.0); exact McNemar b=34, c=4, p=6.04e-7 \u2192 different (as-run 0.11-band verdict: jev-ahead). Jev's descriptions were written from all 80 items, so its number is an upper bound, not generalisation.",
   "n": {
     "items": 80,
     "folds": 5,
@@ -23,7 +24,7 @@
     ]
   },
   "baseline": {
-    "system": "multinomial naive Bayes on tokens, α=1, fitted on k−1 folds",
+    "system": "multinomial naive Bayes on tokens, \u03b1=1, fitted on k\u22121 folds",
     "accuracy": 0.35,
     "ci95": [
       0.25,
@@ -51,7 +52,7 @@
     "mcnemar": {
       "onlyJevRight": 34,
       "onlyBaselineRight": 4,
-      "pTwoSided": 6.04e-7
+      "pTwoSided": 6.04e-07
     },
     "tieBand": 0.11,
     "verdict": "jev-ahead",
@@ -62,11 +63,11 @@
     {
       "id": "C2",
       "from": "team lead, after the run",
-      "what": "Accuracy differences between two systems on the same items are tested with an exact two-sided McNemar on per-item correctness (different iff p < 0.05), with the paired bootstrap CI beside it. The pre-registered 0.11 tie band misapplied P4, whose band is one answer’s probability jitter across identical calls, not a bound on a gap between accuracies. As-run verdict fields are kept.",
+      "what": "Accuracy differences between two systems on the same items are tested with an exact two-sided McNemar on per-item correctness (different iff p < 0.05), with the paired bootstrap CI beside it. The pre-registered 0.11 tie band misapplied P4, whose band is one answer\u2019s probability jitter across identical calls, not a bound on a gap between accuracies. As-run verdict fields are kept.",
       "testOfRecord": {
         "b": 34,
         "c": 4,
-        "p": 6.04e-7,
+        "p": 6.04e-07,
         "different": true
       },
       "perClassNAtLeast8": {
@@ -747,7 +748,7 @@
     }
   },
   "hybrid": {
-    "rule": "Jev if top-p ≥ τ else fold-fitted NB; τ chosen on training folds (grid, tie → smallest)",
+    "rule": "Jev if top-p \u2265 \u03c4 else fold-fitted NB; \u03c4 chosen on training folds (grid, tie \u2192 smallest)",
     "tauPerFold": [
       0.85,
       0.85,

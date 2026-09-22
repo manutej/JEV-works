@@ -1,3 +1,5 @@
+> **VALIDITY: VOID blind test (holdout ⊂ fit set, L31).** Annotated 2026-09-22 as a condition of merging (MoE panel). Results below are unchanged.
+
 # E3 progress — blind test: fit on consensus, validate on untouched real labels
 
 Work unit **U7** (META-PLAN §4). Branch `feat/e3-blind-test`, worktree `/Users/manu/JEV-works-wt/e3`.

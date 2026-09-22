@@ -1,4 +1,6 @@
 {
+  "validity": "fold assignments for an IN-SAMPLE-ASYMMETRIC study (see e3-kfold.json)",
+  "validityAnnotatedAt": "2026-09-22 (MoE panel condition for merging; results unchanged)",
   "k": 5,
   "seed": 20260921,
   "stratifiedBy": "formula",

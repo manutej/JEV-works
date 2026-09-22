@@ -1,11 +1,45 @@
 {
+  "validity": {
+    "addedAfterRun": true,
+    "valid": false,
+    "verdict": "VOID \u2014 not a blind test; the pre-registered hypothesis could not be tested with this data",
+    "because": {
+      "holdoutIdsInFitSet": "39/39",
+      "identicalText": "39/39",
+      "identicalLabel": "39/39",
+      "holdoutStatus": {
+        "approved": 39
+      },
+      "fitStatus": {
+        "approved": 39,
+        "killed": 41
+      },
+      "explanation": "ceti-silver-hooks-approved.json is exactly the status=\"approved\" rows of ceti-silver-hooks.json. Both the v2 option descriptions and the E3 keyword rules were written by reading all 80 labelled fit items, so the \"holdout\" was seen during fitting by both systems."
+    },
+    "mechanicalOutcome": {
+      "falsified": true,
+      "falsifiedBecause": {
+        "dropExceeds5Points": false,
+        "baselineWins": true,
+        "drop": -0.0186,
+        "holdoutVsBaseline": -0.1538
+      },
+      "reading": "The falsifier fired (keyword \u2212 Jev = 0.15 \u2265 0.11) but on in-sample data: it shows hand-written regexes memorise 80 items harder than 9 option descriptions do, which says nothing about which transfers to unseen hooks."
+    },
+    "byProducts": {
+      "jevRepeatability": "38/39 identical choices between the fit run and the holdout run on the same items (direct backend, same question)",
+      "unfittedComparison": "The only fitting-free comparison on these items: E1 wording (v1) vs E1 unfitted keyword baseline \u2014 see results/e3-fit.json v1 and fit.baselines.e1Keyword."
+    },
+    "neededToTestE3": "A labelled hook set disjoint from the 80 (by id and normalised text), checked blind \u2014 by hashing texts and printing only the overlap count \u2014 BEFORE the run."
+  },
+  "validityAnnotatedAt": "2026-09-22 (MoE panel condition for merging; results unchanged)",
   "experiment": "E3",
   "hypothesis": "Holdout accuracy drops less than 5 points from fit, and beats the baseline.",
   "falsifier": "Falsified if the drop exceeds 5 points (overfitting to the fit set) or the baseline wins.",
   "readings": {
-    "drop": "fit accuracy − holdout accuracy of the PRIMARY system; falsified if > 0.05 (applied as written, below P4's 0.11; see E3-PROGRESS A3)",
-    "baseline": "E3 keyword baseline fitted on the same 80. Jev beats it if holdout Δ ≥ 0.11; it wins if Δ ≤ −0.11; else a tie (P4)",
-    "primarySystem": "Jev choice argmax with the frozen variant. The τ-hybrid is secondary and never decides the verdict."
+    "drop": "fit accuracy \u2212 holdout accuracy of the PRIMARY system; falsified if > 0.05 (applied as written, below P4's 0.11; see E3-PROGRESS A3)",
+    "baseline": "E3 keyword baseline fitted on the same 80. Jev beats it if holdout \u0394 \u2265 0.11; it wins if \u0394 \u2264 \u22120.11; else a tie (P4)",
+    "primarySystem": "Jev choice argmax with the frozen variant. The \u03c4-hybrid is secondary and never decides the verdict."
   },
   "approval": {
     "by": "Manu (human-of-record)",
@@ -34,7 +68,7 @@
       "lib/jev-direct.ts"
     ],
     "variant": "v2",
-    "selectionRule": "highest fit accuracy; tie → higher macro recall; tie → earlier variant",
+    "selectionRule": "highest fit accuracy; tie \u2192 higher macro recall; tie \u2192 earlier variant",
     "variantRanking": [
       {
         "variant": "v2",
@@ -55,10 +89,10 @@
     "question": {
       "instructions": "Which single mechanism does this marketing hook rely on most?",
       "criteria": {
-        "deprivation-moment": "Evokes a specific, recognisable moment of the reader's current frustration or loss — a late-night desk, a Sunday rewrite, a tab closed in defeat, the fear of being left behind — as a scene, a pointed question, or a short aphorism, without offering a method, a number or proof.",
-        "number-outcome-time": "Carries its payload in figures: a before→after transformation (\"6 hr → 90 min\", \"17 tabs → 1 brief\"), a price, a count of seats or files, a duration, or a named deadline or day.",
-        "call-out": "Tells a particular kind of reader \"this is for you\": names the audience (\"For solo consultants:\"), greets them personally (\"[NAME] —\"), or positions the reader against what others do or offer (\"They demo cats. You need your deck read.\").",
-        "how-to-without": "Promises the desired result while removing a cost, effort or prerequisite — \"how to X without Y\", or an imperative swap that drops the old burden for the new outcome (\"Stop reading 40-page reports. Get a 1-page brief.\", \"You don't need another course — you need…\").",
+        "deprivation-moment": "Evokes a specific, recognisable moment of the reader's current frustration or loss \u2014 a late-night desk, a Sunday rewrite, a tab closed in defeat, the fear of being left behind \u2014 as a scene, a pointed question, or a short aphorism, without offering a method, a number or proof.",
+        "number-outcome-time": "Carries its payload in figures: a before\u2192after transformation (\"6 hr \u2192 90 min\", \"17 tabs \u2192 1 brief\"), a price, a count of seats or files, a duration, or a named deadline or day.",
+        "call-out": "Tells a particular kind of reader \"this is for you\": names the audience (\"For solo consultants:\"), greets them personally (\"[NAME] \u2014\"), or positions the reader against what others do or offer (\"They demo cats. You need your deck read.\").",
+        "how-to-without": "Promises the desired result while removing a cost, effort or prerequisite \u2014 \"how to X without Y\", or an imperative swap that drops the old burden for the new outcome (\"Stop reading 40-page reports. Get a 1-page brief.\", \"You don't need another course \u2014 you need\u2026\").",
         "halbert-a-pile": "Reads like a personal email subject line from someone the reader knows: a short, usually lowercase fragment referring to a specific shared item (\"re: the deck you sent Thursday\", \"that clause on page 12\"), with no visible pitch, offer or selling language.",
         "damaging-admission": "Volunteers something unflattering or risky up front: an admission that something failed or was not enough, a disclosed limitation (\"AI is in the mix\"), a concession that the reader may walk away (\"if week one flops, you walk\"), or what an unhappy customer said.",
         "adjective-good": "Names the offer itself as a characterful thing with an evaluative adjective or image (\"A free AI win\", \"The lazy proposal-reader\", \"Furnished room, not another empty chat tab\"), selling by how the thing is described rather than by numbers, method or proof.",
@@ -500,7 +534,7 @@
   },
   "holdoutRunStartedAt": "2026-09-21T21:27:52.452Z",
   "holdoutHeadAtRun": "e9e0ae3f982f441ec9f76d14421f750a86319b60",
-  "headline": "E3 VOID: holdout ⊂ fit set (39/39); as-run Jev 74% vs keyword 90% is in-sample",
+  "headline": "E3 VOID: holdout \u2282 fit set (39/39); as-run Jev 74% vs keyword 90% is in-sample",
   "n": {
     "fit": 80,
     "holdout": 39
@@ -1039,7 +1073,7 @@
       {
         "id": "h05",
         "formula": "number-outcome-time",
-        "text": "Try this on one of your own documents — takes five minutes",
+        "text": "Try this on one of your own documents \u2014 takes five minutes",
         "choice": "number-outcome-time",
         "probabilities": {
           "receipt": 0,
@@ -1127,7 +1161,7 @@
       {
         "id": "h11",
         "formula": "number-outcome-time",
-        "text": "Get 5 to 10 hours a week back — in six weeks",
+        "text": "Get 5 to 10 hours a week back \u2014 in six weeks",
         "choice": "number-outcome-time",
         "probabilities": {
           "mistakes": 0,
@@ -1281,7 +1315,7 @@
       {
         "id": "h25",
         "formula": "deprivation-moment",
-        "text": "6 proposals before lunch — one of them is yours",
+        "text": "6 proposals before lunch \u2014 one of them is yours",
         "choice": "number-outcome-time",
         "probabilities": {
           "call-out": 0.05,
@@ -1325,7 +1359,7 @@
       {
         "id": "h29",
         "formula": "number-outcome-time",
-        "text": "Your contract in 90 sec — 3 risky clauses flagged",
+        "text": "Your contract in 90 sec \u2014 3 risky clauses flagged",
         "choice": "number-outcome-time",
         "probabilities": {
           "halbert-a-pile": 0,
@@ -1347,7 +1381,7 @@
       {
         "id": "h30",
         "formula": "number-outcome-time",
-        "text": "47-email thread → one memo you keep",
+        "text": "47-email thread \u2192 one memo you keep",
         "choice": "number-outcome-time",
         "probabilities": {
           "adjective-good": 0,
@@ -1369,7 +1403,7 @@
       {
         "id": "h31",
         "formula": "how-to-without",
-        "text": "Your team sounds like 6 writers — lock one voice",
+        "text": "Your team sounds like 6 writers \u2014 lock one voice",
         "choice": "mistakes",
         "probabilities": {
           "halbert-a-pile": 0.02,
@@ -1391,7 +1425,7 @@
       {
         "id": "h32",
         "formula": "how-to-without",
-        "text": "You don't need another course — you need 5 tools that stay",
+        "text": "You don't need another course \u2014 you need 5 tools that stay",
         "choice": "how-to-without",
         "probabilities": {
           "how-to-without": 1,
@@ -1413,7 +1447,7 @@
       {
         "id": "h34",
         "formula": "adjective-good",
-        "text": "The buyer who kills deals — on your side before you pitch",
+        "text": "The buyer who kills deals \u2014 on your side before you pitch",
         "choice": "adjective-good",
         "probabilities": {
           "deprivation-moment": 0.12,
@@ -1545,7 +1579,7 @@
       {
         "id": "h56",
         "formula": "receipt",
-        "text": "First cohort outside a Fortune 500 wall — 20 seats",
+        "text": "First cohort outside a Fortune 500 wall \u2014 20 seats",
         "choice": "receipt",
         "probabilities": {
           "receipt": 0.65,
@@ -1589,7 +1623,7 @@
       {
         "id": "h62",
         "formula": "number-outcome-time",
-        "text": "Linda: 17 tabs → 1 brief",
+        "text": "Linda: 17 tabs \u2192 1 brief",
         "choice": "number-outcome-time",
         "probabilities": {
           "adjective-good": 0,
@@ -1611,7 +1645,7 @@
       {
         "id": "h63",
         "formula": "number-outcome-time",
-        "text": "Email 30 min → 2 min",
+        "text": "Email 30 min \u2192 2 min",
         "choice": "number-outcome-time",
         "probabilities": {
           "mistakes": 0,
@@ -1633,7 +1667,7 @@
       {
         "id": "h64",
         "formula": "number-outcome-time",
-        "text": "Deck 2 hr → 30 min",
+        "text": "Deck 2 hr \u2192 30 min",
         "choice": "number-outcome-time",
         "probabilities": {
           "number-outcome-time": 1,
@@ -1655,7 +1689,7 @@
       {
         "id": "h68",
         "formula": "mistakes",
-        "text": "Approve before embarrass — every send",
+        "text": "Approve before embarrass \u2014 every send",
         "choice": "mistakes",
         "probabilities": {
           "call-out": 0,
@@ -1677,7 +1711,7 @@
       {
         "id": "h69",
         "formula": "number-outcome-time",
-        "text": "Sarah: client proposal 6 hr → 90 min",
+        "text": "Sarah: client proposal 6 hr \u2192 90 min",
         "choice": "number-outcome-time",
         "probabilities": {
           "adjective-good": 0,
@@ -1699,7 +1733,7 @@
       {
         "id": "h70",
         "formula": "number-outcome-time",
-        "text": "Maya: board-pack 6 hr → 90 min",
+        "text": "Maya: board-pack 6 hr \u2192 90 min",
         "choice": "number-outcome-time",
         "probabilities": {
           "call-out": 0,
@@ -1787,7 +1821,7 @@
       {
         "id": "h77",
         "formula": "deprivation-moment",
-        "text": "Scar tissue from solo AI — drill on your real doc Friday",
+        "text": "Scar tissue from solo AI \u2014 drill on your real doc Friday",
         "choice": "number-outcome-time",
         "probabilities": {
           "adjective-good": 0,
@@ -1852,40 +1886,7 @@
       }
     ]
   },
-  "headlineAsRun": "E3: holdout acc 74% vs keyword 90%, drop -2 pts — FALSIFIED",
-  "validity": {
-    "addedAfterRun": true,
-    "valid": false,
-    "verdict": "VOID — not a blind test; the pre-registered hypothesis could not be tested with this data",
-    "because": {
-      "holdoutIdsInFitSet": "39/39",
-      "identicalText": "39/39",
-      "identicalLabel": "39/39",
-      "holdoutStatus": {
-        "approved": 39
-      },
-      "fitStatus": {
-        "approved": 39,
-        "killed": 41
-      },
-      "explanation": "ceti-silver-hooks-approved.json is exactly the status=\"approved\" rows of ceti-silver-hooks.json. Both the v2 option descriptions and the E3 keyword rules were written by reading all 80 labelled fit items, so the \"holdout\" was seen during fitting by both systems."
-    },
-    "mechanicalOutcome": {
-      "falsified": true,
-      "falsifiedBecause": {
-        "dropExceeds5Points": false,
-        "baselineWins": true,
-        "drop": -0.0186,
-        "holdoutVsBaseline": -0.1538
-      },
-      "reading": "The falsifier fired (keyword − Jev = 0.15 ≥ 0.11) but on in-sample data: it shows hand-written regexes memorise 80 items harder than 9 option descriptions do, which says nothing about which transfers to unseen hooks."
-    },
-    "byProducts": {
-      "jevRepeatability": "38/39 identical choices between the fit run and the holdout run on the same items (direct backend, same question)",
-      "unfittedComparison": "The only fitting-free comparison on these items: E1 wording (v1) vs E1 unfitted keyword baseline — see results/e3-fit.json v1 and fit.baselines.e1Keyword."
-    },
-    "neededToTestE3": "A labelled hook set disjoint from the 80 (by id and normalised text), checked blind — by hashing texts and printing only the overlap count — BEFORE the run."
-  },
+  "headlineAsRun": "E3: holdout acc 74% vs keyword 90%, drop -2 pts \u2014 FALSIFIED",
   "corrections": [
     {
       "field": "model",

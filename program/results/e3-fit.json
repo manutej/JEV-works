@@ -1,4 +1,6 @@
 {
+  "validity": "IN-SAMPLE: option descriptions were written from these same 80 items",
+  "validityAnnotatedAt": "2026-09-22 (MoE panel condition for merging; results unchanged)",
   "variants": {
     "v1": {
       "ranAt": "2026-09-21T21:27:11.025Z",
@@ -116,7 +118,7 @@
         {
           "id": "h02",
           "formula": "receipt",
-          "text": "The one pitch I'll send this list all year — and the receipt that earned it",
+          "text": "The one pitch I'll send this list all year \u2014 and the receipt that earned it",
           "choice": "receipt",
           "probabilities": {
             "call-out": 0,
@@ -167,7 +169,7 @@
         {
           "id": "h05",
           "formula": "number-outcome-time",
-          "text": "Try this on one of your own documents — takes five minutes",
+          "text": "Try this on one of your own documents \u2014 takes five minutes",
           "choice": "how-to-without",
           "probabilities": {
             "adjective-good": 0,
@@ -235,7 +237,7 @@
         {
           "id": "h09",
           "formula": "number-outcome-time",
-          "text": "12 seats left before Tuesday — then it closes",
+          "text": "12 seats left before Tuesday \u2014 then it closes",
           "choice": "number-outcome-time",
           "probabilities": {
             "damaging-admission": 0,
@@ -269,7 +271,7 @@
         {
           "id": "h11",
           "formula": "number-outcome-time",
-          "text": "Get 5 to 10 hours a week back — in six weeks",
+          "text": "Get 5 to 10 hours a week back \u2014 in six weeks",
           "choice": "number-outcome-time",
           "probabilities": {
             "how-to-without": 0,
@@ -490,7 +492,7 @@
         {
           "id": "h24",
           "formula": "call-out",
-          "text": "[NAME] — random question. That proposal you grind through every month: still building it by hand?",
+          "text": "[NAME] \u2014 random question. That proposal you grind through every month: still building it by hand?",
           "choice": "call-out",
           "probabilities": {
             "number-outcome-time": 0,
@@ -507,7 +509,7 @@
         {
           "id": "h25",
           "formula": "deprivation-moment",
-          "text": "6 proposals before lunch — one of them is yours",
+          "text": "6 proposals before lunch \u2014 one of them is yours",
           "choice": "number-outcome-time",
           "probabilities": {
             "number-outcome-time": 0.76,
@@ -541,7 +543,7 @@
         {
           "id": "h27",
           "formula": "deprivation-moment",
-          "text": "Linda Googled Claude under the table — sound familiar?",
+          "text": "Linda Googled Claude under the table \u2014 sound familiar?",
           "choice": "call-out",
           "probabilities": {
             "number-outcome-time": 0,
@@ -575,7 +577,7 @@
         {
           "id": "h29",
           "formula": "number-outcome-time",
-          "text": "Your contract in 90 sec — 3 risky clauses flagged",
+          "text": "Your contract in 90 sec \u2014 3 risky clauses flagged",
           "choice": "number-outcome-time",
           "probabilities": {
             "adjective-good": 0,
@@ -592,7 +594,7 @@
         {
           "id": "h30",
           "formula": "number-outcome-time",
-          "text": "47-email thread → one memo you keep",
+          "text": "47-email thread \u2192 one memo you keep",
           "choice": "how-to-without",
           "probabilities": {
             "adjective-good": 0,
@@ -609,7 +611,7 @@
         {
           "id": "h31",
           "formula": "how-to-without",
-          "text": "Your team sounds like 6 writers — lock one voice",
+          "text": "Your team sounds like 6 writers \u2014 lock one voice",
           "choice": "mistakes",
           "probabilities": {
             "mistakes": 0.68,
@@ -626,7 +628,7 @@
         {
           "id": "h32",
           "formula": "how-to-without",
-          "text": "You don't need another course — you need 5 tools that stay",
+          "text": "You don't need another course \u2014 you need 5 tools that stay",
           "choice": "how-to-without",
           "probabilities": {
             "adjective-good": 0,
@@ -643,7 +645,7 @@
         {
           "id": "h33",
           "formula": "number-outcome-time",
-          "text": "$499 — five work files you keep, not tuition",
+          "text": "$499 \u2014 five work files you keep, not tuition",
           "choice": "how-to-without",
           "probabilities": {
             "damaging-admission": 0,
@@ -660,7 +662,7 @@
         {
           "id": "h34",
           "formula": "adjective-good",
-          "text": "The buyer who kills deals — on your side before you pitch",
+          "text": "The buyer who kills deals \u2014 on your side before you pitch",
           "choice": "mistakes",
           "probabilities": {
             "how-to-without": 0,
@@ -745,7 +747,7 @@
         {
           "id": "h39",
           "formula": "call-out",
-          "text": "I bill deliverables — not another course",
+          "text": "I bill deliverables \u2014 not another course",
           "choice": "how-to-without",
           "probabilities": {
             "halbert-a-pile": 0,
@@ -779,7 +781,7 @@
         {
           "id": "h41",
           "formula": "damaging-admission",
-          "text": "AI is in the mix — clients pay for the finished brief",
+          "text": "AI is in the mix \u2014 clients pay for the finished brief",
           "choice": "how-to-without",
           "probabilities": {
             "deprivation-moment": 0.07,
@@ -915,7 +917,7 @@
         {
           "id": "h49",
           "formula": "damaging-admission",
-          "text": "if week one flops, you walk — no form",
+          "text": "if week one flops, you walk \u2014 no form",
           "choice": "how-to-without",
           "probabilities": {
             "number-outcome-time": 0.17,
@@ -1034,7 +1036,7 @@
         {
           "id": "h56",
           "formula": "receipt",
-          "text": "First cohort outside a Fortune 500 wall — 20 seats",
+          "text": "First cohort outside a Fortune 500 wall \u2014 20 seats",
           "choice": "call-out",
           "probabilities": {
             "halbert-a-pile": 0.01,
@@ -1068,7 +1070,7 @@
         {
           "id": "h58",
           "formula": "damaging-admission",
-          "text": "See week one before you're committed — that's the trial",
+          "text": "See week one before you're committed \u2014 that's the trial",
           "choice": "how-to-without",
           "probabilities": {
             "halbert-a-pile": 0,
@@ -1085,7 +1087,7 @@
         {
           "id": "h59",
           "formula": "number-outcome-time",
-          "text": "Wednesday he builds one live — on a real document",
+          "text": "Wednesday he builds one live \u2014 on a real document",
           "choice": "number-outcome-time",
           "probabilities": {
             "call-out": 0,
@@ -1119,7 +1121,7 @@
         {
           "id": "h61",
           "formula": "deprivation-moment",
-          "text": "Sunday 9:47pm — still alone before Monday's room?",
+          "text": "Sunday 9:47pm \u2014 still alone before Monday's room?",
           "choice": "deprivation-moment",
           "probabilities": {
             "adjective-good": 0,
@@ -1136,7 +1138,7 @@
         {
           "id": "h62",
           "formula": "number-outcome-time",
-          "text": "Linda: 17 tabs → 1 brief",
+          "text": "Linda: 17 tabs \u2192 1 brief",
           "choice": "how-to-without",
           "probabilities": {
             "adjective-good": 0,
@@ -1153,7 +1155,7 @@
         {
           "id": "h63",
           "formula": "number-outcome-time",
-          "text": "Email 30 min → 2 min",
+          "text": "Email 30 min \u2192 2 min",
           "choice": "number-outcome-time",
           "probabilities": {
             "damaging-admission": 0,
@@ -1170,7 +1172,7 @@
         {
           "id": "h64",
           "formula": "number-outcome-time",
-          "text": "Deck 2 hr → 30 min",
+          "text": "Deck 2 hr \u2192 30 min",
           "choice": "number-outcome-time",
           "probabilities": {
             "adjective-good": 0,
@@ -1238,7 +1240,7 @@
         {
           "id": "h68",
           "formula": "mistakes",
-          "text": "Approve before embarrass — every send",
+          "text": "Approve before embarrass \u2014 every send",
           "choice": "mistakes",
           "probabilities": {
             "halbert-a-pile": 0,
@@ -1255,7 +1257,7 @@
         {
           "id": "h69",
           "formula": "number-outcome-time",
-          "text": "Sarah: client proposal 6 hr → 90 min",
+          "text": "Sarah: client proposal 6 hr \u2192 90 min",
           "choice": "number-outcome-time",
           "probabilities": {
             "number-outcome-time": 0.95,
@@ -1272,7 +1274,7 @@
         {
           "id": "h70",
           "formula": "number-outcome-time",
-          "text": "Maya: board-pack 6 hr → 90 min",
+          "text": "Maya: board-pack 6 hr \u2192 90 min",
           "choice": "number-outcome-time",
           "probabilities": {
             "adjective-good": 0,
@@ -1357,7 +1359,7 @@
         {
           "id": "h75",
           "formula": "call-out",
-          "text": "Your client doc is the mat — two black belts, live Tuesday",
+          "text": "Your client doc is the mat \u2014 two black belts, live Tuesday",
           "choice": "number-outcome-time",
           "probabilities": {
             "deprivation-moment": 0.02,
@@ -1391,7 +1393,7 @@
         {
           "id": "h77",
           "formula": "deprivation-moment",
-          "text": "Scar tissue from solo AI — drill on your real doc Friday",
+          "text": "Scar tissue from solo AI \u2014 drill on your real doc Friday",
           "choice": "mistakes",
           "probabilities": {
             "how-to-without": 0.09,
@@ -1408,7 +1410,7 @@
         {
           "id": "h78",
           "formula": "deprivation-moment",
-          "text": "It's a dojo, not a solo climb — 11pm desk",
+          "text": "It's a dojo, not a solo climb \u2014 11pm desk",
           "choice": "mistakes",
           "probabilities": {
             "receipt": 0,
@@ -1463,10 +1465,10 @@
       "question": {
         "instructions": "Which single mechanism does this marketing hook rely on most?",
         "criteria": {
-          "deprivation-moment": "Evokes a specific, recognisable moment of the reader's current frustration or loss — a late-night desk, a Sunday rewrite, a tab closed in defeat, the fear of being left behind — as a scene, a pointed question, or a short aphorism, without offering a method, a number or proof.",
-          "number-outcome-time": "Carries its payload in figures: a before→after transformation (\"6 hr → 90 min\", \"17 tabs → 1 brief\"), a price, a count of seats or files, a duration, or a named deadline or day.",
-          "call-out": "Tells a particular kind of reader \"this is for you\": names the audience (\"For solo consultants:\"), greets them personally (\"[NAME] —\"), or positions the reader against what others do or offer (\"They demo cats. You need your deck read.\").",
-          "how-to-without": "Promises the desired result while removing a cost, effort or prerequisite — \"how to X without Y\", or an imperative swap that drops the old burden for the new outcome (\"Stop reading 40-page reports. Get a 1-page brief.\", \"You don't need another course — you need…\").",
+          "deprivation-moment": "Evokes a specific, recognisable moment of the reader's current frustration or loss \u2014 a late-night desk, a Sunday rewrite, a tab closed in defeat, the fear of being left behind \u2014 as a scene, a pointed question, or a short aphorism, without offering a method, a number or proof.",
+          "number-outcome-time": "Carries its payload in figures: a before\u2192after transformation (\"6 hr \u2192 90 min\", \"17 tabs \u2192 1 brief\"), a price, a count of seats or files, a duration, or a named deadline or day.",
+          "call-out": "Tells a particular kind of reader \"this is for you\": names the audience (\"For solo consultants:\"), greets them personally (\"[NAME] \u2014\"), or positions the reader against what others do or offer (\"They demo cats. You need your deck read.\").",
+          "how-to-without": "Promises the desired result while removing a cost, effort or prerequisite \u2014 \"how to X without Y\", or an imperative swap that drops the old burden for the new outcome (\"Stop reading 40-page reports. Get a 1-page brief.\", \"You don't need another course \u2014 you need\u2026\").",
           "halbert-a-pile": "Reads like a personal email subject line from someone the reader knows: a short, usually lowercase fragment referring to a specific shared item (\"re: the deck you sent Thursday\", \"that clause on page 12\"), with no visible pitch, offer or selling language.",
           "damaging-admission": "Volunteers something unflattering or risky up front: an admission that something failed or was not enough, a disclosed limitation (\"AI is in the mix\"), a concession that the reader may walk away (\"if week one flops, you walk\"), or what an unhappy customer said.",
           "adjective-good": "Names the offer itself as a characterful thing with an evaluative adjective or image (\"A free AI win\", \"The lazy proposal-reader\", \"Furnished room, not another empty chat tab\"), selling by how the thing is described rather than by numbers, method or proof.",
@@ -1576,7 +1578,7 @@
         {
           "id": "h02",
           "formula": "receipt",
-          "text": "The one pitch I'll send this list all year — and the receipt that earned it",
+          "text": "The one pitch I'll send this list all year \u2014 and the receipt that earned it",
           "choice": "receipt",
           "probabilities": {
             "adjective-good": 0,
@@ -1627,7 +1629,7 @@
         {
           "id": "h05",
           "formula": "number-outcome-time",
-          "text": "Try this on one of your own documents — takes five minutes",
+          "text": "Try this on one of your own documents \u2014 takes five minutes",
           "choice": "number-outcome-time",
           "probabilities": {
             "mistakes": 0,
@@ -1695,7 +1697,7 @@
         {
           "id": "h09",
           "formula": "number-outcome-time",
-          "text": "12 seats left before Tuesday — then it closes",
+          "text": "12 seats left before Tuesday \u2014 then it closes",
           "choice": "number-outcome-time",
           "probabilities": {
             "adjective-good": 0,
@@ -1729,7 +1731,7 @@
         {
           "id": "h11",
           "formula": "number-outcome-time",
-          "text": "Get 5 to 10 hours a week back — in six weeks",
+          "text": "Get 5 to 10 hours a week back \u2014 in six weeks",
           "choice": "number-outcome-time",
           "probabilities": {
             "adjective-good": 0,
@@ -1950,7 +1952,7 @@
         {
           "id": "h24",
           "formula": "call-out",
-          "text": "[NAME] — random question. That proposal you grind through every month: still building it by hand?",
+          "text": "[NAME] \u2014 random question. That proposal you grind through every month: still building it by hand?",
           "choice": "halbert-a-pile",
           "probabilities": {
             "halbert-a-pile": 0.37,
@@ -1967,7 +1969,7 @@
         {
           "id": "h25",
           "formula": "deprivation-moment",
-          "text": "6 proposals before lunch — one of them is yours",
+          "text": "6 proposals before lunch \u2014 one of them is yours",
           "choice": "number-outcome-time",
           "probabilities": {
             "how-to-without": 0,
@@ -2001,7 +2003,7 @@
         {
           "id": "h27",
           "formula": "deprivation-moment",
-          "text": "Linda Googled Claude under the table — sound familiar?",
+          "text": "Linda Googled Claude under the table \u2014 sound familiar?",
           "choice": "deprivation-moment",
           "probabilities": {
             "receipt": 0.02,
@@ -2035,7 +2037,7 @@
         {
           "id": "h29",
           "formula": "number-outcome-time",
-          "text": "Your contract in 90 sec — 3 risky clauses flagged",
+          "text": "Your contract in 90 sec \u2014 3 risky clauses flagged",
           "choice": "number-outcome-time",
           "probabilities": {
             "number-outcome-time": 0.81,
@@ -2052,7 +2054,7 @@
         {
           "id": "h30",
           "formula": "number-outcome-time",
-          "text": "47-email thread → one memo you keep",
+          "text": "47-email thread \u2192 one memo you keep",
           "choice": "number-outcome-time",
           "probabilities": {
             "adjective-good": 0,
@@ -2069,7 +2071,7 @@
         {
           "id": "h31",
           "formula": "how-to-without",
-          "text": "Your team sounds like 6 writers — lock one voice",
+          "text": "Your team sounds like 6 writers \u2014 lock one voice",
           "choice": "mistakes",
           "probabilities": {
             "call-out": 0.08,
@@ -2086,7 +2088,7 @@
         {
           "id": "h32",
           "formula": "how-to-without",
-          "text": "You don't need another course — you need 5 tools that stay",
+          "text": "You don't need another course \u2014 you need 5 tools that stay",
           "choice": "how-to-without",
           "probabilities": {
             "halbert-a-pile": 0,
@@ -2103,7 +2105,7 @@
         {
           "id": "h33",
           "formula": "number-outcome-time",
-          "text": "$499 — five work files you keep, not tuition",
+          "text": "$499 \u2014 five work files you keep, not tuition",
           "choice": "number-outcome-time",
           "probabilities": {
             "deprivation-moment": 0,
@@ -2120,7 +2122,7 @@
         {
           "id": "h34",
           "formula": "adjective-good",
-          "text": "The buyer who kills deals — on your side before you pitch",
+          "text": "The buyer who kills deals \u2014 on your side before you pitch",
           "choice": "adjective-good",
           "probabilities": {
             "number-outcome-time": 0,
@@ -2205,7 +2207,7 @@
         {
           "id": "h39",
           "formula": "call-out",
-          "text": "I bill deliverables — not another course",
+          "text": "I bill deliverables \u2014 not another course",
           "choice": "how-to-without",
           "probabilities": {
             "receipt": 0,
@@ -2239,7 +2241,7 @@
         {
           "id": "h41",
           "formula": "damaging-admission",
-          "text": "AI is in the mix — clients pay for the finished brief",
+          "text": "AI is in the mix \u2014 clients pay for the finished brief",
           "choice": "damaging-admission",
           "probabilities": {
             "receipt": 0,
@@ -2375,7 +2377,7 @@
         {
           "id": "h49",
           "formula": "damaging-admission",
-          "text": "if week one flops, you walk — no form",
+          "text": "if week one flops, you walk \u2014 no form",
           "choice": "damaging-admission",
           "probabilities": {
             "how-to-without": 0.02,
@@ -2494,7 +2496,7 @@
         {
           "id": "h56",
           "formula": "receipt",
-          "text": "First cohort outside a Fortune 500 wall — 20 seats",
+          "text": "First cohort outside a Fortune 500 wall \u2014 20 seats",
           "choice": "receipt",
           "probabilities": {
             "how-to-without": 0,
@@ -2528,7 +2530,7 @@
         {
           "id": "h58",
           "formula": "damaging-admission",
-          "text": "See week one before you're committed — that's the trial",
+          "text": "See week one before you're committed \u2014 that's the trial",
           "choice": "number-outcome-time",
           "probabilities": {
             "adjective-good": 0,
@@ -2545,7 +2547,7 @@
         {
           "id": "h59",
           "formula": "number-outcome-time",
-          "text": "Wednesday he builds one live — on a real document",
+          "text": "Wednesday he builds one live \u2014 on a real document",
           "choice": "number-outcome-time",
           "probabilities": {
             "call-out": 0,
@@ -2579,7 +2581,7 @@
         {
           "id": "h61",
           "formula": "deprivation-moment",
-          "text": "Sunday 9:47pm — still alone before Monday's room?",
+          "text": "Sunday 9:47pm \u2014 still alone before Monday's room?",
           "choice": "deprivation-moment",
           "probabilities": {
             "deprivation-moment": 1,
@@ -2596,7 +2598,7 @@
         {
           "id": "h62",
           "formula": "number-outcome-time",
-          "text": "Linda: 17 tabs → 1 brief",
+          "text": "Linda: 17 tabs \u2192 1 brief",
           "choice": "number-outcome-time",
           "probabilities": {
             "receipt": 0,
@@ -2613,7 +2615,7 @@
         {
           "id": "h63",
           "formula": "number-outcome-time",
-          "text": "Email 30 min → 2 min",
+          "text": "Email 30 min \u2192 2 min",
           "choice": "number-outcome-time",
           "probabilities": {
             "damaging-admission": 0,
@@ -2630,7 +2632,7 @@
         {
           "id": "h64",
           "formula": "number-outcome-time",
-          "text": "Deck 2 hr → 30 min",
+          "text": "Deck 2 hr \u2192 30 min",
           "choice": "number-outcome-time",
           "probabilities": {
             "receipt": 0,
@@ -2698,7 +2700,7 @@
         {
           "id": "h68",
           "formula": "mistakes",
-          "text": "Approve before embarrass — every send",
+          "text": "Approve before embarrass \u2014 every send",
           "choice": "mistakes",
           "probabilities": {
             "number-outcome-time": 0,
@@ -2715,7 +2717,7 @@
         {
           "id": "h69",
           "formula": "number-outcome-time",
-          "text": "Sarah: client proposal 6 hr → 90 min",
+          "text": "Sarah: client proposal 6 hr \u2192 90 min",
           "choice": "number-outcome-time",
           "probabilities": {
             "adjective-good": 0,
@@ -2732,7 +2734,7 @@
         {
           "id": "h70",
           "formula": "number-outcome-time",
-          "text": "Maya: board-pack 6 hr → 90 min",
+          "text": "Maya: board-pack 6 hr \u2192 90 min",
           "choice": "number-outcome-time",
           "probabilities": {
             "how-to-without": 0,
@@ -2817,7 +2819,7 @@
         {
           "id": "h75",
           "formula": "call-out",
-          "text": "Your client doc is the mat — two black belts, live Tuesday",
+          "text": "Your client doc is the mat \u2014 two black belts, live Tuesday",
           "choice": "receipt",
           "probabilities": {
             "mistakes": 0,
@@ -2841,7 +2843,7 @@
         {
           "id": "h77",
           "formula": "deprivation-moment",
-          "text": "Scar tissue from solo AI — drill on your real doc Friday",
+          "text": "Scar tissue from solo AI \u2014 drill on your real doc Friday",
           "choice": "damaging-admission",
           "probabilities": {
             "halbert-a-pile": 0.1,
@@ -2858,7 +2860,7 @@
         {
           "id": "h78",
           "formula": "deprivation-moment",
-          "text": "It's a dojo, not a solo climb — 11pm desk",
+          "text": "It's a dojo, not a solo climb \u2014 11pm desk",
           "choice": "deprivation-moment",
           "probabilities": {
             "call-out": 0.01,
@@ -2911,12 +2913,12 @@
     "v3": {
       "ranAt": "2026-09-21T21:27:17.302Z",
       "question": {
-        "instructions": "Which single mechanism does this marketing hook rely on most?\nJudge the dominant device, and resolve these common overlaps as follows:\n- A short, lowercase, subject-line fragment about a specific shared item is halbert-a-pile, whatever its topic.\n- A question or scene about the reader's current pain is deprivation-moment unless it explicitly names who the audience is (then call-out).\n- \"Stop X. Do Y.\" that swaps a burden for a result is how-to-without, not mistakes.\n- A price, seat count, deadline or before→after figure as the main payload is number-outcome-time, unless it compares against a named competitor or elite benchmark offered as proof (then receipt).\n- A promise that the reader can walk away if it fails is damaging-admission, not how-to-without.",
+        "instructions": "Which single mechanism does this marketing hook rely on most?\nJudge the dominant device, and resolve these common overlaps as follows:\n- A short, lowercase, subject-line fragment about a specific shared item is halbert-a-pile, whatever its topic.\n- A question or scene about the reader's current pain is deprivation-moment unless it explicitly names who the audience is (then call-out).\n- \"Stop X. Do Y.\" that swaps a burden for a result is how-to-without, not mistakes.\n- A price, seat count, deadline or before\u2192after figure as the main payload is number-outcome-time, unless it compares against a named competitor or elite benchmark offered as proof (then receipt).\n- A promise that the reader can walk away if it fails is damaging-admission, not how-to-without.",
         "criteria": {
-          "deprivation-moment": "Evokes a specific, recognisable moment of the reader's current frustration or loss — a late-night desk, a Sunday rewrite, a tab closed in defeat, the fear of being left behind — as a scene, a pointed question, or a short aphorism, without offering a method, a number or proof.",
-          "number-outcome-time": "Carries its payload in figures: a before→after transformation (\"6 hr → 90 min\", \"17 tabs → 1 brief\"), a price, a count of seats or files, a duration, or a named deadline or day.",
-          "call-out": "Tells a particular kind of reader \"this is for you\": names the audience (\"For solo consultants:\"), greets them personally (\"[NAME] —\"), or positions the reader against what others do or offer (\"They demo cats. You need your deck read.\").",
-          "how-to-without": "Promises the desired result while removing a cost, effort or prerequisite — \"how to X without Y\", or an imperative swap that drops the old burden for the new outcome (\"Stop reading 40-page reports. Get a 1-page brief.\", \"You don't need another course — you need…\").",
+          "deprivation-moment": "Evokes a specific, recognisable moment of the reader's current frustration or loss \u2014 a late-night desk, a Sunday rewrite, a tab closed in defeat, the fear of being left behind \u2014 as a scene, a pointed question, or a short aphorism, without offering a method, a number or proof.",
+          "number-outcome-time": "Carries its payload in figures: a before\u2192after transformation (\"6 hr \u2192 90 min\", \"17 tabs \u2192 1 brief\"), a price, a count of seats or files, a duration, or a named deadline or day.",
+          "call-out": "Tells a particular kind of reader \"this is for you\": names the audience (\"For solo consultants:\"), greets them personally (\"[NAME] \u2014\"), or positions the reader against what others do or offer (\"They demo cats. You need your deck read.\").",
+          "how-to-without": "Promises the desired result while removing a cost, effort or prerequisite \u2014 \"how to X without Y\", or an imperative swap that drops the old burden for the new outcome (\"Stop reading 40-page reports. Get a 1-page brief.\", \"You don't need another course \u2014 you need\u2026\").",
           "halbert-a-pile": "Reads like a personal email subject line from someone the reader knows: a short, usually lowercase fragment referring to a specific shared item (\"re: the deck you sent Thursday\", \"that clause on page 12\"), with no visible pitch, offer or selling language.",
           "damaging-admission": "Volunteers something unflattering or risky up front: an admission that something failed or was not enough, a disclosed limitation (\"AI is in the mix\"), a concession that the reader may walk away (\"if week one flops, you walk\"), or what an unhappy customer said.",
           "adjective-good": "Names the offer itself as a characterful thing with an evaluative adjective or image (\"A free AI win\", \"The lazy proposal-reader\", \"Furnished room, not another empty chat tab\"), selling by how the thing is described rather than by numbers, method or proof.",
@@ -3024,7 +3026,7 @@
         {
           "id": "h02",
           "formula": "receipt",
-          "text": "The one pitch I'll send this list all year — and the receipt that earned it",
+          "text": "The one pitch I'll send this list all year \u2014 and the receipt that earned it",
           "choice": "receipt",
           "probabilities": {
             "receipt": 0.99,
@@ -3075,7 +3077,7 @@
         {
           "id": "h05",
           "formula": "number-outcome-time",
-          "text": "Try this on one of your own documents — takes five minutes",
+          "text": "Try this on one of your own documents \u2014 takes five minutes",
           "choice": "number-outcome-time",
           "probabilities": {
             "deprivation-moment": 0,
@@ -3143,7 +3145,7 @@
         {
           "id": "h09",
           "formula": "number-outcome-time",
-          "text": "12 seats left before Tuesday — then it closes",
+          "text": "12 seats left before Tuesday \u2014 then it closes",
           "choice": "number-outcome-time",
           "probabilities": {
             "adjective-good": 0,
@@ -3177,7 +3179,7 @@
         {
           "id": "h11",
           "formula": "number-outcome-time",
-          "text": "Get 5 to 10 hours a week back — in six weeks",
+          "text": "Get 5 to 10 hours a week back \u2014 in six weeks",
           "choice": "number-outcome-time",
           "probabilities": {
             "mistakes": 0,
@@ -3398,7 +3400,7 @@
         {
           "id": "h24",
           "formula": "call-out",
-          "text": "[NAME] — random question. That proposal you grind through every month: still building it by hand?",
+          "text": "[NAME] \u2014 random question. That proposal you grind through every month: still building it by hand?",
           "choice": "deprivation-moment",
           "probabilities": {
             "adjective-good": 0,
@@ -3415,7 +3417,7 @@
         {
           "id": "h25",
           "formula": "deprivation-moment",
-          "text": "6 proposals before lunch — one of them is yours",
+          "text": "6 proposals before lunch \u2014 one of them is yours",
           "choice": "number-outcome-time",
           "probabilities": {
             "adjective-good": 0,
@@ -3449,7 +3451,7 @@
         {
           "id": "h27",
           "formula": "deprivation-moment",
-          "text": "Linda Googled Claude under the table — sound familiar?",
+          "text": "Linda Googled Claude under the table \u2014 sound familiar?",
           "choice": "deprivation-moment",
           "probabilities": {
             "how-to-without": 0,
@@ -3483,7 +3485,7 @@
         {
           "id": "h29",
           "formula": "number-outcome-time",
-          "text": "Your contract in 90 sec — 3 risky clauses flagged",
+          "text": "Your contract in 90 sec \u2014 3 risky clauses flagged",
           "choice": "number-outcome-time",
           "probabilities": {
             "deprivation-moment": 0,
@@ -3500,7 +3502,7 @@
         {
           "id": "h30",
           "formula": "number-outcome-time",
-          "text": "47-email thread → one memo you keep",
+          "text": "47-email thread \u2192 one memo you keep",
           "choice": "number-outcome-time",
           "probabilities": {
             "mistakes": 0,
@@ -3517,7 +3519,7 @@
         {
           "id": "h31",
           "formula": "how-to-without",
-          "text": "Your team sounds like 6 writers — lock one voice",
+          "text": "Your team sounds like 6 writers \u2014 lock one voice",
           "choice": "mistakes",
           "probabilities": {
             "receipt": 0,
@@ -3534,7 +3536,7 @@
         {
           "id": "h32",
           "formula": "how-to-without",
-          "text": "You don't need another course — you need 5 tools that stay",
+          "text": "You don't need another course \u2014 you need 5 tools that stay",
           "choice": "how-to-without",
           "probabilities": {
             "how-to-without": 1,
@@ -3551,7 +3553,7 @@
         {
           "id": "h33",
           "formula": "number-outcome-time",
-          "text": "$499 — five work files you keep, not tuition",
+          "text": "$499 \u2014 five work files you keep, not tuition",
           "choice": "number-outcome-time",
           "probabilities": {
             "mistakes": 0,
@@ -3568,7 +3570,7 @@
         {
           "id": "h34",
           "formula": "adjective-good",
-          "text": "The buyer who kills deals — on your side before you pitch",
+          "text": "The buyer who kills deals \u2014 on your side before you pitch",
           "choice": "adjective-good",
           "probabilities": {
             "call-out": 0.19,
@@ -3653,7 +3655,7 @@
         {
           "id": "h39",
           "formula": "call-out",
-          "text": "I bill deliverables — not another course",
+          "text": "I bill deliverables \u2014 not another course",
           "choice": "how-to-without",
           "probabilities": {
             "deprivation-moment": 0.01,
@@ -3687,7 +3689,7 @@
         {
           "id": "h41",
           "formula": "damaging-admission",
-          "text": "AI is in the mix — clients pay for the finished brief",
+          "text": "AI is in the mix \u2014 clients pay for the finished brief",
           "choice": "damaging-admission",
           "probabilities": {
             "call-out": 0.01,
@@ -3823,7 +3825,7 @@
         {
           "id": "h49",
           "formula": "damaging-admission",
-          "text": "if week one flops, you walk — no form",
+          "text": "if week one flops, you walk \u2014 no form",
           "choice": "damaging-admission",
           "probabilities": {
             "halbert-a-pile": 0,
@@ -3942,7 +3944,7 @@
         {
           "id": "h56",
           "formula": "receipt",
-          "text": "First cohort outside a Fortune 500 wall — 20 seats",
+          "text": "First cohort outside a Fortune 500 wall \u2014 20 seats",
           "choice": "receipt",
           "probabilities": {
             "how-to-without": 0,
@@ -3976,7 +3978,7 @@
         {
           "id": "h58",
           "formula": "damaging-admission",
-          "text": "See week one before you're committed — that's the trial",
+          "text": "See week one before you're committed \u2014 that's the trial",
           "choice": "damaging-admission",
           "probabilities": {
             "call-out": 0,
@@ -3993,7 +3995,7 @@
         {
           "id": "h59",
           "formula": "number-outcome-time",
-          "text": "Wednesday he builds one live — on a real document",
+          "text": "Wednesday he builds one live \u2014 on a real document",
           "choice": "number-outcome-time",
           "probabilities": {
             "how-to-without": 0,
@@ -4027,7 +4029,7 @@
         {
           "id": "h61",
           "formula": "deprivation-moment",
-          "text": "Sunday 9:47pm — still alone before Monday's room?",
+          "text": "Sunday 9:47pm \u2014 still alone before Monday's room?",
           "choice": "deprivation-moment",
           "probabilities": {
             "receipt": 0,
@@ -4044,7 +4046,7 @@
         {
           "id": "h62",
           "formula": "number-outcome-time",
-          "text": "Linda: 17 tabs → 1 brief",
+          "text": "Linda: 17 tabs \u2192 1 brief",
           "choice": "number-outcome-time",
           "probabilities": {
             "how-to-without": 0,
@@ -4061,7 +4063,7 @@
         {
           "id": "h63",
           "formula": "number-outcome-time",
-          "text": "Email 30 min → 2 min",
+          "text": "Email 30 min \u2192 2 min",
           "choice": "number-outcome-time",
           "probabilities": {
             "receipt": 0,
@@ -4078,7 +4080,7 @@
         {
           "id": "h64",
           "formula": "number-outcome-time",
-          "text": "Deck 2 hr → 30 min",
+          "text": "Deck 2 hr \u2192 30 min",
           "choice": "number-outcome-time",
           "probabilities": {
             "how-to-without": 0,
@@ -4146,7 +4148,7 @@
         {
           "id": "h68",
           "formula": "mistakes",
-          "text": "Approve before embarrass — every send",
+          "text": "Approve before embarrass \u2014 every send",
           "choice": "mistakes",
           "probabilities": {
             "adjective-good": 0,
@@ -4163,7 +4165,7 @@
         {
           "id": "h69",
           "formula": "number-outcome-time",
-          "text": "Sarah: client proposal 6 hr → 90 min",
+          "text": "Sarah: client proposal 6 hr \u2192 90 min",
           "choice": "number-outcome-time",
           "probabilities": {
             "adjective-good": 0,
@@ -4180,7 +4182,7 @@
         {
           "id": "h70",
           "formula": "number-outcome-time",
-          "text": "Maya: board-pack 6 hr → 90 min",
+          "text": "Maya: board-pack 6 hr \u2192 90 min",
           "choice": "number-outcome-time",
           "probabilities": {
             "how-to-without": 0,
@@ -4265,7 +4267,7 @@
         {
           "id": "h75",
           "formula": "call-out",
-          "text": "Your client doc is the mat — two black belts, live Tuesday",
+          "text": "Your client doc is the mat \u2014 two black belts, live Tuesday",
           "choice": "receipt",
           "probabilities": {
             "how-to-without": 0,
@@ -4299,7 +4301,7 @@
         {
           "id": "h77",
           "formula": "deprivation-moment",
-          "text": "Scar tissue from solo AI — drill on your real doc Friday",
+          "text": "Scar tissue from solo AI \u2014 drill on your real doc Friday",
           "choice": "number-outcome-time",
           "probabilities": {
             "adjective-good": 0.01,
@@ -4316,7 +4318,7 @@
         {
           "id": "h78",
           "formula": "deprivation-moment",
-          "text": "It's a dojo, not a solo climb — 11pm desk",
+          "text": "It's a dojo, not a solo climb \u2014 11pm desk",
           "choice": "deprivation-moment",
           "probabilities": {
             "call-out": 0.01,

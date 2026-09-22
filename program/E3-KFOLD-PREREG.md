@@ -1,3 +1,5 @@
+> **VALIDITY: IN-SAMPLE-ASYMMETRIC study (Jev in-sample, baseline held out).** Annotated 2026-09-22 as a condition of merging (MoE panel). Results below are unchanged.
+
 # E3-K · Pre-registration: 5-fold on the 80 CETI hooks, reported as IN-SAMPLE for Jev
 
 Written 2026-09-21 **before any Jev call** for this study. Not edited after the run; anything that turns
