@@ -199,3 +199,16 @@ overlap count. That check needs no inspection and would have caught this before 
   key, so it recorded `typesafe-ai/jev (gateway)`. Freeze makes no model calls; all 279 Jev calls (3×80 fit
   + 39 holdout) went through `jev-latest (direct)`. `e3-validity.ts` corrects `model` and keeps the wrong
   value under `corrections[]`. Frozen code is not patched after the run.
+
+## E3-K — k-fold rerun on the 80 (in-sample for Jev)
+
+Manu, 2026-09-21 (orchestrator session): "k-fold on the 80, reported as in-sample".
+
+- 2026-09-21 `feat/e3-blind-test` rebased onto main (`b1b504a`) without conflicts, so `lib/jev.ts`
+  (pinned `jev-1.13.0`, `answeredBy`) and `lib/harness.ts` are available.
+- 2026-09-21 folds built (`e3-kfold.ts folds`, 0 calls): k=5, stratified, seed 20260921, 16 items each;
+  disjointness ids 0 / normalised text 0 / corpus duplicates 0 / covers 80. Pre-registration
+  `program/E3-KFOLD-PREREG.md` committed before any Jev call.
+- `npx tsc --noEmit` in this worktree reports 14 errors, all in `leads/evaluate.ts` and `leads/pipeline.ts`:
+  they import `../../jev-playground/…`, which resolves from `~/JEV-works` but not from `~/JEV-works-wt/e3`.
+  Pre-existing on main; not touched here (out of scope). `program/` and `lib/` are clean.

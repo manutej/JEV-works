@@ -1,0 +1,176 @@
+{
+  "k": 5,
+  "seed": 20260921,
+  "stratifiedBy": "formula",
+  "corpusSha256": "16b9efe1cfbea781b3b83d2f9e68dc4b7d88bd42c3c4f69ada89ae95b41fbf7b",
+  "n": 80,
+  "folds": [
+    {
+      "fold": 0,
+      "ids": [
+        "h15",
+        "h27",
+        "h42",
+        "h78",
+        "h07",
+        "h69",
+        "h17",
+        "h63",
+        "h39",
+        "h24",
+        "h31",
+        "h44",
+        "h46",
+        "h49",
+        "h80",
+        "h50"
+      ],
+      "classCounts": {
+        "deprivation-moment": 5,
+        "number-outcome-time": 3,
+        "call-out": 2,
+        "how-to-without": 1,
+        "halbert-a-pile": 2,
+        "damaging-admission": 1,
+        "adjective-good": 1,
+        "mistakes": 1,
+        "receipt": 0
+      }
+    },
+    {
+      "fold": 1,
+      "ids": [
+        "h54",
+        "h77",
+        "h79",
+        "h25",
+        "h59",
+        "h70",
+        "h30",
+        "h55",
+        "h26",
+        "h13",
+        "h32",
+        "h48",
+        "h58",
+        "h66",
+        "h68",
+        "h67"
+      ],
+      "classCounts": {
+        "deprivation-moment": 4,
+        "number-outcome-time": 3,
+        "call-out": 3,
+        "how-to-without": 1,
+        "halbert-a-pile": 1,
+        "damaging-admission": 1,
+        "adjective-good": 1,
+        "mistakes": 1,
+        "receipt": 1
+      }
+    },
+    {
+      "fold": 2,
+      "ids": [
+        "h65",
+        "h37",
+        "h23",
+        "h04",
+        "h10",
+        "h05",
+        "h09",
+        "h51",
+        "h52",
+        "h75",
+        "h76",
+        "h47",
+        "h03",
+        "h34",
+        "h08",
+        "h02"
+      ],
+      "classCounts": {
+        "deprivation-moment": 4,
+        "number-outcome-time": 3,
+        "call-out": 3,
+        "how-to-without": 1,
+        "halbert-a-pile": 1,
+        "damaging-admission": 1,
+        "adjective-good": 1,
+        "mistakes": 1,
+        "receipt": 1
+      }
+    },
+    {
+      "fold": 3,
+      "ids": [
+        "h61",
+        "h14",
+        "h71",
+        "h38",
+        "h29",
+        "h33",
+        "h01",
+        "h73",
+        "h21",
+        "h72",
+        "h60",
+        "h45",
+        "h41",
+        "h06",
+        "h35",
+        "h56"
+      ],
+      "classCounts": {
+        "deprivation-moment": 4,
+        "number-outcome-time": 3,
+        "call-out": 2,
+        "how-to-without": 2,
+        "halbert-a-pile": 1,
+        "damaging-admission": 1,
+        "adjective-good": 1,
+        "mistakes": 1,
+        "receipt": 1
+      }
+    },
+    {
+      "fold": 4,
+      "ids": [
+        "h22",
+        "h28",
+        "h36",
+        "h16",
+        "h64",
+        "h62",
+        "h11",
+        "h53",
+        "h74",
+        "h20",
+        "h12",
+        "h43",
+        "h40",
+        "h19",
+        "h18",
+        "h57"
+      ],
+      "classCounts": {
+        "deprivation-moment": 4,
+        "number-outcome-time": 3,
+        "call-out": 2,
+        "how-to-without": 2,
+        "halbert-a-pile": 1,
+        "damaging-admission": 1,
+        "adjective-good": 1,
+        "mistakes": 1,
+        "receipt": 1
+      }
+    }
+  ],
+  "disjointness": {
+    "pairwiseIdOverlap": 0,
+    "pairwiseNormalisedTextOverlap": 0,
+    "duplicateNormalisedTextsInCorpus": 0,
+    "coversCorpus": true,
+    "pass": true
+  }
+}
