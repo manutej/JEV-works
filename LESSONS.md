@@ -489,3 +489,12 @@ fit seed), yet 565/600 of its messages appeared verbatim in the dev seed the rej
 used for fitting, and report seen vs novel separately. Refuse a holdout above 20% seen unless explicitly accepted.
 *Attached to:* leads c5dc972 (splits.json, pipeline refusal, seen/novel scoring); L31.
 
+### L41 · A pooled headline can disagree with its strata, in either direction
+**Happened.** Leads p6029's pooled "Jev better" (p = 2.5e-4) hides "Jev significantly worse on real buyers". Leads 2718's
+pooled "no difference" hides "Jev significantly worse on injections". Both were caught only when the leads claim was
+decomposed into strata and the composed answer was required to agree with the collapsed one (operadic consistency applied
+to the *claim*, not just to the questions).
+**Rule.** Gate a headline on its composed strata (seen/novel, and every category). If any stratum disagrees with the pooled
+direction, the headline does not ship; report the stratum.
+*Attached to:* leads/claim-gate.ts (61ceba6), leads/EVAL-TREE.md.
+

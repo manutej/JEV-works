@@ -308,4 +308,13 @@ latency, question count does not.
   appeared verbatim in dev p3001** (all 120 non-buyers among them). On novel messages (n=35), 88.6% vs 91.4%, p = 1.0. So: the mechanism
   works on tuned wording, with **no evidence about new wording**. Base 6011: no difference (p = 0.245; under v1 the regex wins, p = 0.013).
   Content-overlap refusal now enforced in leads (c5dc972).
+- **Leads claim gate (session b4f08e, 61ceba6; meta-operad EVAL-TREE → operadic-interview PREREG → op-consist claim-gate.ts).**
+  The eval claim is now a typed tree (E1 text-disjointness vs fit seeds, E2 coverage ≥ declared minimum, E3 scoring policy declared
+  before the seed, E4 paired McNemar, E5 strata agree with the headline), and the collapsed headline must agree with the composed strata.
+  **Retroactively, no leads holdout passes**: seed 7 REFUSE (E1 61% seen, E2 69.7%); 2718 REFUSE (E1), and its pooled "no difference"
+  hides a significant regex win on adversarial rows; p6029 REFUSE (E1 94%, E2 93%, E5), and its pooled "Jev better" hides a significant
+  regex win on real buyers (clean_in_icp n=180: Jev 95.0% vs regex 100%; the 9 lost buyers all had buyingSignal ≥ 0.77, lost to the
+  segment-entropy gate or segment/icpFit, likely because the paraphrased buyers never state company size); 6011 REFUSE (E1).
+  **Every leads headline so far is conditional on seen wording.** The base corpora cannot pass E1 as built (~61% of messages repeat across
+  seeds through shared templates).
 
