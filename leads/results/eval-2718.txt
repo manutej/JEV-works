@@ -149,6 +149,12 @@ fit seeds [42, 7]: 369/600 messages seen (61.5%), 231 novel
   [seen/novel is confounded with category: templates with few variants are always "seen", templates with random slots are usually "novel". Compare within a category before calling a gap a wording effect.]
 [LEAKAGE WARNING: 61.5% of this holdout's messages appeared in seeds it was fit on. The headline tests new records far more than new wording; quote the "novel" line for wording.]
 
+═══ claim gate (headline vs strata, policy v1) ═══
+REFUSE: headline claim no_difference (scope all, McNemar 30 vs 45, p = 0.105)
+  failing E1-text-disjoint: 61.5% of messages were seen in fit seeds (limit 20%) and leakage was not accepted before the run
+  finding: E5: headline shows no difference but stratum adversarial (n=30) shows regex_better (p=0.000488); the pooled null hides it
+  Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.
+
 per-category qualified accuracy, jev vs regex (AccAll counts escalations as wrong; AccOwn is on own verdicts only):
 category        n    jevCoverage  jevAccAll  jevAccOwn  regexAccAll
 ──────────────  ───  ───────────  ─────────  ─────────  ───────────

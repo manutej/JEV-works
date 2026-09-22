@@ -19,7 +19,7 @@
  *
  *   node evaluate.ts [--seed 42]
  */
-import { readFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 import {
   mean,
   percentile,
@@ -38,6 +38,7 @@ import type { Lead, LeadCategory, PlantedTruth, Segment, TruthMap } from './type
 import { ALL_SEGMENTS } from './types.ts';
 import type { BaselinePrediction } from './baseline.ts';
 import { MIN_SUBSET, SEEN_SHARE_WARN, messagesOf, partitionBySeen, splitFor } from './splits.ts';
+import { gate, mcnemarExact, type Paired } from './claim-gate.ts';
 
 function argValue(flag: string, fallback: string): string {
   const i = process.argv.indexOf(flag);
@@ -319,19 +320,7 @@ console.log(`accuracy on own verdicts only (NOT comparable across coverage) — 
  * Under "no difference" b ~ Binomial(b + c, 0.5); two-sided p. P4's 0.11 band is about one answer's
  * probability across repeated calls, not about accuracy gaps, so it does not apply here.
  */
-function mcnemarExact(b: number, c: number): number {
-  const n = b + c;
-  if (n === 0) return 1;
-  const logChoose = (k: number) => lgammaSum(n) - lgammaSum(k) - lgammaSum(n - k);
-  let tail = 0;
-  for (let k = 0; k <= Math.min(b, c); k++) tail += Math.exp(logChoose(k) - n * Math.LN2);
-  return Math.min(1, 2 * tail);
-}
-function lgammaSum(k: number): number {
-  let s = 0;
-  for (let i = 2; i <= k; i++) s += Math.log(i);
-  return s; // log(k!)
-}
+// mcnemarExact lives in claim-gate.ts (one implementation, tested against textbook values).
 const paired = (policy: ScoringPolicy) => {
   const right = (preds: Map<string, boolean | null>, id: string) => isRight(preds.get(id), id, policy);
   const b = allIds.filter(id => right(jevQualifiedPreds, id) && !right(baseQualifiedPreds, id)).length;
@@ -387,6 +376,39 @@ console.log(`paired (McNemar exact, v2): ${paired('v2')}`);
           `The headline tests new records far more than new wording; quote the "novel" line for wording.]`,
       );
     }
+  }
+}
+
+// ── claim gate (op-consist): the pooled headline must agree with the composed strata ──
+{
+  const split = splitFor(SEED);
+  if (split?.role === 'holdout') {
+    const policy = split.primaryPolicy ?? 'v1';
+    const pairedOn = (name: string, ids: readonly string[]): Paired => {
+      const right = (preds: Map<string, boolean | null>, id: string) => isRight(preds.get(id), id, policy);
+      return {
+        name, n: ids.length,
+        b: ids.filter(id => right(jevQualifiedPreds, id) && !right(baseQualifiedPreds, id)).length,
+        c: ids.filter(id => !right(jevQualifiedPreds, id) && right(baseQualifiedPreds, id)).length,
+      };
+    };
+    const parts = partitionBySeen(leads, messagesOf(split.fitSeeds));
+    const cats = [...new Set(allIds.map(categoryOf))];
+    const report = gate({
+      seed: SEED, role: split.role, claimScope: split.claimScope, leakageAccepted: split.leakageAccepted,
+      seenShare: parts.seen.length / leads.length, seenShareLimit: SEEN_SHARE_WARN,
+      coverage: overAll(jevQualifiedPreds, allIds, policy).coverage, minCoverage: split.minCoverage,
+      policy, policyDeclaredBeforeSeed: policy === 'v1' || !RUN_BEFORE_V2.has(String(SEED)),
+      headline: pairedOn('all', allIds),
+      seen: pairedOn('seen', parts.seen), novel: pairedOn('novel', parts.novel),
+      categories: cats.map(c => pairedOn(c, allIds.filter(id => categoryOf(id) === c))),
+    });
+    await writeFile(new URL(`./results/consist-report-${SEED}.json`, import.meta.url), JSON.stringify(report, null, 2) + '\n');
+    console.log(`\n═══ claim gate (headline vs strata, policy ${policy}) ═══`);
+    console.log(`${report.verdict}: headline claim ${report.claim} (scope ${report.claimScope}, McNemar ${report.headline.b} vs ${report.headline.c}, p = ${report.headline.p.toPrecision(3)})`);
+    for (const f of report.failingEdges) console.log(`  failing ${f.edge}: ${f.why}`);
+    for (const f of report.findings) console.log(`  finding: ${f}`);
+    console.log(`  ${report.caveat}`);
   }
 }
 

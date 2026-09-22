@@ -1,5 +1,32 @@
 # leads/ handoff — U3–U5 + Q2, 2026-09-21
 
+## 000 · Operadic evaluation gates (2026-09-22) — read this first
+
+Manu asked to apply the operadic skills so these situations get fixed, not just noticed. Applied in order:
+
+| Skill | Artifact | What it does |
+|---|---|---|
+| **meta-operad** | `EVAL-TREE.md` | The evaluation claim as a typed tree: root R composes E1 text-disjointness, E2 coverage, E3 policy declared before the seed, E4 paired test, E5 strata agreement. Every past failure maps to an edge that had the wrong type (for example, record overlap used for a claim about text). |
+| **operadic-interview** | `PREREG.md` | The pre-run instrument: 5 questions × 3 sub-questions, ★ on the ones that would have caught a past failure. Passes `treelint.py`. Copy it into every holdout's pre-registration commit. |
+| **op-consist** | `claim-gate.ts` (+ tests) | The post-run gate: the collapsed headline must agree with the composed strata (seen/novel, each category) and every edge must pass, or the headline is **REFUSED** with the failing edge named. `evaluate.ts` writes `results/consist-report-<seed>.json`. |
+
+**Retroactive verdicts (gate fields filled from each pre-registration, marked as retroactive in `splits.json`):**
+
+| Seed | Headline | Gate | Failing edges |
+|---|---|---|---|
+| 7 | regex better | REFUSE | E1 (61% seen), E2 (69.7% coverage) |
+| 2718 | no difference | REFUSE | E1 (61.5% seen). Finding: the pooled null hides a significant regex win on adversarial rows |
+| p6029 | Jev better | REFUSE | E1 (94% seen), E2 (93%), **E5: on real buyers (clean_in_icp, n=180) the regex is significantly better** |
+| 6011 | no difference | REFUSE | E1 (61% seen) |
+
+The p6029 E5 finding is new: the rule that catches non-buyers costs real buyers (Jev 95.0% vs regex 100%).
+The pooled "Jev better" hid it. The base corpora can never pass E1 as built (shared templates, about 61%
+repeat), so a base holdout must either declare leakage before the run (claim narrowed to new records)
+or use a generator with enough template variety.
+
+Tests: 29/29 (claim-gate 10, splits 5, templates 3, dedup 11). Consistency is not correctness: ACCEPT
+raises confidence, it never certifies.
+
 ## 00 · Round 3 (Q2b, branch `feat/leads-paraphrase`) — read this first
 
 Manu's three decisions (2026-09-22): merge Q2 (done, main f26b029); an escalation on an adversarial

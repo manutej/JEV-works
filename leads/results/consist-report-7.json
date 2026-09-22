@@ -1,0 +1,94 @@
+{
+  "seed": "7",
+  "claim": "regex_better",
+  "policy": "v1",
+  "headline": {
+    "name": "all",
+    "n": 600,
+    "b": 6,
+    "c": 152,
+    "p": 1.1179820081105428e-37
+  },
+  "strata": [
+    {
+      "name": "seen",
+      "n": 366,
+      "b": 6,
+      "c": 150,
+      "p": 4.139901611557945e-37,
+      "direction": "regex_better"
+    },
+    {
+      "name": "novel",
+      "n": 234,
+      "b": 0,
+      "c": 2,
+      "p": 0.5,
+      "direction": "no_difference"
+    },
+    {
+      "name": "clean_in_icp",
+      "n": 210,
+      "b": 0,
+      "c": 0,
+      "p": 1,
+      "direction": "no_difference"
+    },
+    {
+      "name": "clean_out_icp",
+      "n": 150,
+      "b": 0,
+      "c": 73,
+      "p": 2.1175823681357485e-22,
+      "direction": "regex_better"
+    },
+    {
+      "name": "ambiguous",
+      "n": 90,
+      "b": 6,
+      "c": 51,
+      "p": 5.676193126635888e-10,
+      "direction": "regex_better"
+    },
+    {
+      "name": "garbage",
+      "n": 60,
+      "b": 0,
+      "c": 0,
+      "p": 1,
+      "direction": "no_difference"
+    },
+    {
+      "name": "adversarial",
+      "n": 30,
+      "b": 0,
+      "c": 13,
+      "p": 0.00024414062500000016,
+      "direction": "regex_better"
+    },
+    {
+      "name": "near_duplicate",
+      "n": 60,
+      "b": 0,
+      "c": 15,
+      "p": 0.00006103515625000003,
+      "direction": "regex_better"
+    }
+  ],
+  "caveat": "Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.",
+  "verdict": "REFUSE",
+  "claimScope": "all",
+  "failingEdges": [
+    {
+      "edge": "E1-text-disjoint",
+      "why": "61.0% of messages were seen in fit seeds (limit 20%) and leakage was not accepted before the run"
+    },
+    {
+      "edge": "E2-coverage",
+      "why": "coverage 69.7% is below the declared 95%"
+    }
+  ],
+  "findings": [
+    "the headline's regex_better is significant within: seen, clean_out_icp, ambiguous, adversarial, near_duplicate"
+  ]
+}

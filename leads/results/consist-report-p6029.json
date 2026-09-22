@@ -1,0 +1,106 @@
+{
+  "seed": "p6029",
+  "claim": "jev_better",
+  "policy": "v2",
+  "headline": {
+    "name": "all",
+    "n": 600,
+    "b": 71,
+    "c": 33,
+    "p": 0.000247115841064609
+  },
+  "strata": [
+    {
+      "name": "seen",
+      "n": 565,
+      "b": 71,
+      "c": 32,
+      "p": 0.00015323388084218935,
+      "direction": "jev_better"
+    },
+    {
+      "name": "novel",
+      "n": 35,
+      "b": 0,
+      "c": 1,
+      "p": 1,
+      "direction": "no_difference"
+    },
+    {
+      "name": "clean_in_icp",
+      "n": 180,
+      "b": 0,
+      "c": 9,
+      "p": 0.00390625,
+      "direction": "regex_better"
+    },
+    {
+      "name": "clean_out_icp",
+      "n": 120,
+      "b": 0,
+      "c": 1,
+      "p": 1,
+      "direction": "no_difference"
+    },
+    {
+      "name": "non_buyer",
+      "n": 120,
+      "b": 48,
+      "c": 0,
+      "p": 7.105427357601022e-15,
+      "direction": "jev_better"
+    },
+    {
+      "name": "ambiguous",
+      "n": 60,
+      "b": 18,
+      "c": 21,
+      "p": 0.7492586247608517,
+      "direction": "no_difference"
+    },
+    {
+      "name": "garbage",
+      "n": 30,
+      "b": 0,
+      "c": 0,
+      "p": 1,
+      "direction": "no_difference"
+    },
+    {
+      "name": "adversarial",
+      "n": 30,
+      "b": 0,
+      "c": 0,
+      "p": 1,
+      "direction": "no_difference"
+    },
+    {
+      "name": "near_duplicate",
+      "n": 60,
+      "b": 5,
+      "c": 2,
+      "p": 0.4531250000000003,
+      "direction": "no_difference"
+    }
+  ],
+  "caveat": "Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.",
+  "verdict": "REFUSE",
+  "claimScope": "all",
+  "failingEdges": [
+    {
+      "edge": "E1-text-disjoint",
+      "why": "94.2% of messages were seen in fit seeds (limit 20%) and leakage was not accepted before the run"
+    },
+    {
+      "edge": "E2-coverage",
+      "why": "coverage 93.0% is below the declared 95%"
+    },
+    {
+      "edge": "E5-strata-consistent",
+      "why": "stratum clean_in_icp (n=180) says regex_better, the headline says jev_better"
+    }
+  ],
+  "findings": [
+    "the headline's jev_better is significant within: seen, non_buyer"
+  ]
+}

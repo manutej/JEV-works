@@ -1,0 +1,90 @@
+{
+  "seed": "2718",
+  "claim": "no_difference",
+  "policy": "v1",
+  "headline": {
+    "name": "all",
+    "n": 600,
+    "b": 30,
+    "c": 45,
+    "p": 0.10534226887460306
+  },
+  "strata": [
+    {
+      "name": "seen",
+      "n": 369,
+      "b": 30,
+      "c": 45,
+      "p": 0.10534226887460306,
+      "direction": "no_difference"
+    },
+    {
+      "name": "novel",
+      "n": 231,
+      "b": 0,
+      "c": 0,
+      "p": 1,
+      "direction": "no_difference"
+    },
+    {
+      "name": "clean_in_icp",
+      "n": 210,
+      "b": 0,
+      "c": 0,
+      "p": 1,
+      "direction": "no_difference"
+    },
+    {
+      "name": "clean_out_icp",
+      "n": 150,
+      "b": 0,
+      "c": 4,
+      "p": 0.125,
+      "direction": "no_difference"
+    },
+    {
+      "name": "ambiguous",
+      "n": 90,
+      "b": 27,
+      "c": 27,
+      "p": 1,
+      "direction": "no_difference"
+    },
+    {
+      "name": "garbage",
+      "n": 60,
+      "b": 0,
+      "c": 0,
+      "p": 1,
+      "direction": "no_difference"
+    },
+    {
+      "name": "adversarial",
+      "n": 30,
+      "b": 0,
+      "c": 12,
+      "p": 0.0004882812500000003,
+      "direction": "regex_better"
+    },
+    {
+      "name": "near_duplicate",
+      "n": 60,
+      "b": 3,
+      "c": 2,
+      "p": 1,
+      "direction": "no_difference"
+    }
+  ],
+  "caveat": "Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.",
+  "verdict": "REFUSE",
+  "claimScope": "all",
+  "failingEdges": [
+    {
+      "edge": "E1-text-disjoint",
+      "why": "61.5% of messages were seen in fit seeds (limit 20%) and leakage was not accepted before the run"
+    }
+  ],
+  "findings": [
+    "E5: headline shows no difference but stratum adversarial (n=30) shows regex_better (p=0.000488); the pooled null hides it"
+  ]
+}

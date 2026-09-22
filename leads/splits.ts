@@ -13,7 +13,16 @@
 import { readFileSync } from 'node:fs';
 import type { Lead } from './types.ts';
 
-export type Split = { role: 'dev' | 'holdout'; fitSeeds: string[]; note?: string };
+export type Split = {
+  role: 'dev' | 'holdout';
+  fitSeeds: string[];
+  note?: string;
+  /** Holdouts, for claim-gate.ts (PREREG.md Q0, Q2.1, Q3.1, Q1.3). */
+  claimScope?: 'all' | 'new_records' | 'novel_wording';
+  minCoverage?: number;
+  primaryPolicy?: 'v1' | 'v2';
+  leakageAccepted?: boolean;
+};
 
 const SPLITS: Record<string, Split> = JSON.parse(readFileSync(new URL('./corpus/splits.json', import.meta.url), 'utf8'));
 
