@@ -1,0 +1,76 @@
+{
+  "name": "bank.graph-edges",
+  "description": "Typing edges and nodes in a graph or knowledge network. MARKED SUSPECT: relationship judgements are inherently relational, and P21 says those sit in the mid band. Test before trusting. Produces: an edge type per candidate pair, with a review flag Status in bank.ts: suspect. Migrated verbatim from question-bank/bank.ts (GRAPH_EDGES) on 2026-09-22.",
+  "artifact": {
+    "type": "typing edges and nodes in a graph or knowledge network",
+    "stateFields": [
+      "state"
+    ]
+  },
+  "modules": [
+    {
+      "name": "graph-edges",
+      "purpose": "Typing edges and nodes in a graph or knowledge network. MARKED SUSPECT: relationship judgements are inherently relational, and P21 says those sit in the mid band. Test before trusting. Original recombine rule (prose, not yet a decision rule): DO NOT SHIP AS-IS. Measured 2026-09-19 on 16 real pairs: `relationship` is only MARGINAL (38% at the ends, mean confidence 0.465) and both of its former gating questions failed outright. Until the relationship question itself is sharpened — disjoint criteria, or a narrower relation set — this set accepts almost nothing cleanly. Treat a confident `relationship` as a candidate, derive direction from the static table, and escalate provenance to a text model.",
+      "questions": {
+        "relationship": {
+          "type": "choice",
+          "instructions": "Reading the two items in the state, which relationship does the FIRST have to the SECOND?",
+          "criteria": {
+            "depends_on": "The first cannot work or make sense without the second.",
+            "specialises": "The first is a narrower case of the second.",
+            "contradicts": "They cannot both be true or both be done.",
+            "mentions": "The first merely refers to the second.",
+            "unrelated": "No meaningful relationship."
+          },
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "escapeOption": "unrelated",
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        }
+      },
+      "compose": {
+        "positive": "an edge type per candidate pair, with a review flag",
+        "rules": [
+          {
+            "when": {
+              "q": "relationship",
+              "choiceIn": [
+                "depends_on",
+                "specialises",
+                "contradicts",
+                "mentions",
+                "unrelated"
+              ]
+            },
+            "then": "escalate"
+          }
+        ],
+        "default": "escalate"
+      },
+      "notForJev": [
+        {
+          "judgement": "Is the relationship directional — would it be false if the two items were swapped?",
+          "instead": "A STATIC TABLE keyed by the relationship label, because directionality is a property of the label and not of the pair: depends_on → directional, specialises → directional, mentions → directional, contradicts → symmetric, unrelated → n/a. Measured at **0% at the ends** across 16 pairs, mean confidence 0.208 — the worst result in the whole bank. It asks for a counterfactual (\"if these were swapped\"), which cannot be read off one state."
+        },
+        {
+          "judgement": "Is this relationship stated explicitly, or did you infer it?",
+          "instead": "A text-model call, and ONLY on edges that already cleared the relationship question's confident band. Asking it of every candidate pair is what drove it to 6% at the ends. Provenance-of-a-claim is P21 shape."
+        },
+        {
+          "judgement": "Does this edge create a cycle?",
+          "instead": "Graph traversal in code."
+        },
+        {
+          "judgement": "Is this edge redundant given the others?",
+          "instead": "Transitive reduction in code. It sees one pair at a time."
+        },
+        {
+          "judgement": "Which of these 50 candidate edges are real?",
+          "instead": "One call per pair, then threshold. No cross-pair comparison exists."
+        }
+      ]
+    }
+  ]
+}

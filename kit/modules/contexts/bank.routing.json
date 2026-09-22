@@ -1,0 +1,88 @@
+{
+  "name": "bank.routing",
+  "description": "Routing — inbox, ticket desk, intent, which-model, which-queue. Produces: one destination + an auto-route/review flag Status in bank.ts: drafted. Migrated verbatim from question-bank/bank.ts (ROUTING) on 2026-09-22.",
+  "artifact": {
+    "type": "routing",
+    "stateFields": [
+      "state"
+    ]
+  },
+  "modules": [
+    {
+      "name": "routing",
+      "purpose": "Routing — inbox, ticket desk, intent, which-model, which-queue. Original recombine rule (prose, not yet a decision rule): Auto-route when entropy(destination) is low AND actionable is at an end. Otherwise human queue. urgentByOwnWords raises priority but never changes the destination.",
+      "questions": {
+        "destination": {
+          "type": "choice",
+          "instructions": "Which queue should own this message?",
+          "criteria": {
+            "billing": "Charges, invoices, refunds, plan changes.",
+            "technical": "Errors, outages, integration and API problems.",
+            "account": "Login, access, permissions, seats.",
+            "other": "Fits none of the above."
+          },
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "escapeOption": "other",
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        },
+        "actionable": {
+          "type": "noul",
+          "instructions": "Is there enough here to act on without asking a clarifying question first?",
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        },
+        "urgentByOwnWords": {
+          "type": "noul",
+          "instructions": "Does the message itself state a deadline, an outage, or money at risk?",
+          "criteria": {
+            "true": "The text names a time limit, a stoppage, or a financial consequence.",
+            "false": "No such claim is made in the text, whatever the tone."
+          },
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        }
+      },
+      "compose": {
+        "positive": "one destination + an auto-route/review flag",
+        "rules": [
+          {
+            "when": {
+              "q": "destination",
+              "choiceIn": [
+                "billing",
+                "technical",
+                "account",
+                "other"
+              ]
+            },
+            "then": "escalate"
+          }
+        ],
+        "default": "escalate"
+      },
+      "notForJev": [
+        {
+          "judgement": "Is this the same issue as an open ticket?",
+          "instead": "Embedding or key match in code, against your ticket store."
+        },
+        {
+          "judgement": "Has this customer contacted us before?",
+          "instead": "A database lookup. Never a model."
+        },
+        {
+          "judgement": "How long has this been waiting?",
+          "instead": "Arithmetic on timestamps, in code."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "name": "bank.doc-relevance",
+  "description": "Retrieved-documentation relevance — a pre-filter in front of doc chunks from context7, a search, or a crawl, before they enter a prompt. Produces: per-chunk admit / discard Status in bank.ts: drafted. Migrated verbatim from question-bank/bank.ts (DOC_RELEVANCE) on 2026-09-22.",
+  "artifact": {
+    "type": "retrieved-documentation relevance",
+    "stateFields": [
+      "state"
+    ]
+  },
+  "modules": [
+    {
+      "name": "doc-relevance",
+      "purpose": "Retrieved-documentation relevance — a pre-filter in front of doc chunks from context7, a search, or a crawl, before they enter a prompt. Original recombine rule (prose, not yet a decision rule): Admit on answersTheQuestion, or on (isApiSurface OR isRunnableExample) with specificity >= 2. Route versionRisk chunks to a version check rather than discarding them. Rank admitted chunks by specificity in code.",
+      "questions": {
+        "answersTheQuestion": {
+          "type": "noul",
+          "instructions": "Does this chunk contain the specific information the stated question asks for, rather than merely being about the same topic?",
+          "criteria": {
+            "true": "The answer is present in this text.",
+            "false": "Same subject area, but the specific answer is not here."
+          },
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        },
+        "isApiSurface": {
+          "type": "noul",
+          "instructions": "Does this chunk define a callable surface — a signature, parameters, types, or return shape?",
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        },
+        "isRunnableExample": {
+          "type": "noul",
+          "instructions": "Does this chunk contain code that could be run or copied as-is?",
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        },
+        "versionRisk": {
+          "type": "noul",
+          "instructions": "Does this text refer to a version, deprecation, or migration, so that it might describe behaviour that has since changed?",
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        },
+        "specificity": {
+          "type": "score",
+          "instructions": "How specific is this text about how to actually do the thing?",
+          "criteria": [
+            "Marketing or conceptual overview.",
+            "Explains the idea without the mechanics.",
+            "Gives the mechanics in prose.",
+            "Gives exact names, signatures, or code."
+          ],
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        }
+      },
+      "compose": {
+        "positive": "per-chunk admit / discard",
+        "rules": [
+          {
+            "when": {
+              "q": "answersTheQuestion",
+              "is": "unsure"
+            },
+            "then": "escalate"
+          }
+        ],
+        "default": "escalate"
+      },
+      "notForJev": [
+        {
+          "judgement": "Is this chunk a duplicate of another chunk?",
+          "instead": "Hashing or embeddings in code — it evaluates one state at a time."
+        },
+        {
+          "judgement": "Which of these 20 chunks is best?",
+          "instead": "Score each separately, rank in code. There is no cross-item comparison."
+        },
+        {
+          "judgement": "Is this documentation current?",
+          "instead": "Compare against the installed package version in code. versionRisk only flags that a version is mentioned."
+        }
+      ]
+    }
+  ]
+}

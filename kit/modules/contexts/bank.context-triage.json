@@ -1,0 +1,95 @@
+{
+  "name": "bank.context-triage",
+  "description": "Context triage — keep verbatim / drop / escalate, instead of summarising everything. This set is MEASURED: 119 outputs, iteration 3 of ../triage/. Produces: a per-output disposition manifest Status in bank.ts: measured. Migrated verbatim from question-bank/bank.ts (CONTEXT_TRIAGE) on 2026-09-22.",
+  "artifact": {
+    "type": "context triage",
+    "stateFields": [
+      "state"
+    ]
+  },
+  "modules": [
+    {
+      "name": "context-triage",
+      "purpose": "Context triage — keep verbatim / drop / escalate, instead of summarising everything. This set is MEASURED: 119 outputs, iteration 3 of ../triage/. Original recombine rule (prose, not yet a decision rule): Weighted aggregate, asymmetric thresholds (easy to keep, hard to drop). Never drop a finding whose content appears in no durable file — that is the safety property. Escalate, never silently discard.",
+      "questions": {
+        "hasFinding": {
+          "type": "noul",
+          "instructions": "Does this output contain a measurement, a number, a version, or a concrete result that a later decision could rest on?",
+          "criteria": {
+            "true": "It reports data: timings, counts, versions, test results, prices, error codes.",
+            "false": "It reports no data of its own — only progress, acknowledgement, or restated input."
+          },
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        },
+        "oneTimeSetupSettled": {
+          "type": "noul",
+          "instructions": "Is this a setup, install, authentication, or configuration step that completed successfully and will not need revisiting?",
+          "criteria": {
+            "true": "An install that succeeded, a login that completed, a type check that passed clean.",
+            "false": "Not a setup step, or one that failed or left something unresolved."
+          },
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        },
+        "emptyOrError": {
+          "type": "noul",
+          "instructions": "Is this output empty, a refusal, a denial, or otherwise free of usable information?",
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        },
+        "density": {
+          "type": "score",
+          "instructions": "How much of this text is load-bearing, rather than boilerplate or progress noise?",
+          "criteria": [
+            "Almost all noise.",
+            "Mostly noise around one or two useful lines.",
+            "Mixed: a substantial useful part inside routine output.",
+            "Nearly every line carries information."
+          ],
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        }
+      },
+      "compose": {
+        "positive": "a per-output disposition manifest",
+        "rules": [
+          {
+            "when": {
+              "q": "hasFinding",
+              "is": "unsure"
+            },
+            "then": "escalate"
+          }
+        ],
+        "default": "escalate"
+      },
+      "notForJev": [
+        {
+          "judgement": "Has this content already been recorded in a durable file? (supersession)",
+          "instead": "DETERMINISTIC containment in code — extract distinctive tokens (numbers, paths, identifiers) and check them against the durable corpus. See ../triage/supersede.py. Asked as a question it never exceeded p=0.78; computed in code it produced 24x the reclaim at zero cost."
+        },
+        {
+          "judgement": "Could this output be cheaply re-run? (regenerability)",
+          "instead": "A lookup on the TOOL NAME, in code. Read/Glob/Grep/local Bash are regenerable; WebFetch, a paid API call, or an agent spawn are not. Found by measure-confidence.ts on this very set: 17% at the ends, mean confidence 0.427 — it was reading the text to answer a question the metadata already settles."
+        },
+        {
+          "judgement": "Would discarding this change what happens next? (forward need)",
+          "instead": "A text model, on the escalate band only. Reached the ends on 7% of items and never exceeded p=0.67 — the clearest measured case of a question that belongs elsewhere."
+        }
+      ]
+    }
+  ]
+}

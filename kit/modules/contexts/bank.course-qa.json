@@ -1,0 +1,83 @@
+{
+  "name": "bank.course-qa",
+  "description": "Quality gate on generated teaching content — a course section, an explainer beat, a walkthrough step. Produces: ship / revise / regenerate, per section Status in bank.ts: drafted. Migrated verbatim from question-bank/bank.ts (COURSE_QA) on 2026-09-22.",
+  "artifact": {
+    "type": "quality gate on generated teaching content",
+    "stateFields": [
+      "state"
+    ]
+  },
+  "modules": [
+    {
+      "name": "course-qa",
+      "purpose": "Quality gate on generated teaching content — a course section, an explainer beat, a walkthrough step. Original recombine rule (prose, not yet a decision rule): Regenerate on assumesUndefinedTerm at an end. Revise when plainLanguage <= 1 or hasConcreteExample is confidently false. Ship otherwise. Run it over every section in one batch per section — the questions are free.",
+      "questions": {
+        "teachesOneThing": {
+          "type": "noul",
+          "instructions": "Does this section teach a single idea, rather than several at once?",
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        },
+        "assumesUndefinedTerm": {
+          "type": "noul",
+          "instructions": "Does this text use a technical term that it never defines and that a beginner would not know?",
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        },
+        "hasConcreteExample": {
+          "type": "noul",
+          "instructions": "Does this section include a specific example, rather than only a general description?",
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        },
+        "plainLanguage": {
+          "type": "score",
+          "instructions": "How understandable is this to someone who does not write code?",
+          "criteria": [
+            "Unreadable without the codebase in front of you.",
+            "Needs programming background.",
+            "Mostly plain, with occasional jargon.",
+            "Plain throughout; jargon is always unpacked."
+          ],
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        }
+      },
+      "compose": {
+        "positive": "ship / revise / regenerate, per section",
+        "rules": [
+          {
+            "when": {
+              "q": "teachesOneThing",
+              "is": "unsure"
+            },
+            "then": "escalate"
+          }
+        ],
+        "default": "escalate"
+      },
+      "notForJev": [
+        {
+          "judgement": "Is this explanation factually right about the code?",
+          "instead": "A text model with the source in context, or a test. It cannot verify against a codebase."
+        },
+        {
+          "judgement": "Does this follow from the previous section?",
+          "instead": "Cross-section coherence needs the whole sequence — score pairs explicitly or use a text model."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "name": "bank.rubric",
+  "description": "Rubric and quality scoring — answers, résumés, submissions, generated sections. Produces: per-criterion levels, combined by weights you own Status in bank.ts: drafted. Migrated verbatim from question-bank/bank.ts (RUBRIC) on 2026-09-22.",
+  "artifact": {
+    "type": "rubric and quality scoring",
+    "stateFields": [
+      "state"
+    ]
+  },
+  "modules": [
+    {
+      "name": "rubric",
+      "purpose": "Rubric and quality scoring — answers, résumés, submissions, generated sections. Original recombine rule (prose, not yet a decision rule): Weighted sum with weights fitted on your own graded examples. Read the level distribution, not just the scalar — a mid score from a split distribution means disagreement, not mediocrity.",
+      "questions": {
+        "completeness": {
+          "type": "score",
+          "instructions": "How completely does this cover what was asked?",
+          "criteria": [
+            "Does not address the request.",
+            "Addresses part of it, with obvious gaps.",
+            "Addresses all of it, thinly in places.",
+            "Addresses all of it with substance throughout."
+          ],
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        },
+        "supported": {
+          "type": "score",
+          "instructions": "How well are the claims here supported by evidence present in the text itself?",
+          "criteria": [
+            "Assertions with nothing behind them.",
+            "Some support, mostly gestured at.",
+            "Most claims carry a specific referent.",
+            "Every claim names its evidence."
+          ],
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        },
+        "containsUnsupportedNumber": {
+          "type": "noul",
+          "instructions": "Does this text state a figure or statistic without saying where it came from?",
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        }
+      },
+      "compose": {
+        "positive": "per-criterion levels, combined by weights you own",
+        "rules": [
+          {
+            "when": {
+              "q": "completeness",
+              "scoreAtLeast": 0
+            },
+            "then": "escalate"
+          }
+        ],
+        "default": "escalate"
+      },
+      "notForJev": [
+        {
+          "judgement": "Is this number correct?",
+          "instead": "Check it in code against the source. It cannot do arithmetic or verify facts."
+        },
+        {
+          "judgement": "Is this better than the previous version?",
+          "instead": "Score both separately and compare in code. It sees one state at a time."
+        },
+        {
+          "judgement": "Interpolating score magnitudes.",
+          "instead": "Treat levels as ordinal. Score calibration is weak; a 1.5 is not \"halfway\"."
+        }
+      ]
+    }
+  ]
+}

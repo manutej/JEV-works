@@ -1,0 +1,87 @@
+{
+  "name": "bank.dashboard-surfacing",
+  "description": "Deciding what a dashboard surfaces — which of many incoming items earns a tile, a badge, or an alert. Produces: surface / fold / suppress, plus a severity band Status in bank.ts: drafted. Migrated verbatim from question-bank/bank.ts (DASHBOARD_SURFACING) on 2026-09-22.",
+  "artifact": {
+    "type": "deciding what a dashboard surfaces",
+    "stateFields": [
+      "state"
+    ]
+  },
+  "modules": [
+    {
+      "name": "dashboard-surfacing",
+      "purpose": "Deciding what a dashboard surfaces — which of many incoming items earns a tile, a badge, or an alert. Original recombine rule (prose, not yet a decision rule): Suppress when selfResolving is confidently true and severity <= 1. Surface when needsAHuman is at an end. namesTheCause decides whether the tile shows a cause line or a \"needs triage\" chip.",
+      "questions": {
+        "needsAHuman": {
+          "type": "noul",
+          "instructions": "Does this item require a person to do something, as opposed to being informational?",
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        },
+        "selfResolving": {
+          "type": "noul",
+          "instructions": "Does this describe something that will clear on its own without intervention?",
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        },
+        "severity": {
+          "type": "score",
+          "instructions": "How bad is the described situation for the people who depend on this system?",
+          "criteria": [
+            "Cosmetic.",
+            "Degraded, workaround exists.",
+            "Blocking.",
+            "Data or money at risk."
+          ],
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        },
+        "namesTheCause": {
+          "type": "noul",
+          "instructions": "Does this item state what caused the problem, rather than only its symptom?",
+          "polarity": "neutral",
+          "reads": [
+            "state"
+          ],
+          "note": "migrated verbatim from question-bank/bank.ts; polarity not declared there, so declare it before use"
+        }
+      },
+      "compose": {
+        "positive": "surface / fold / suppress, plus a severity band",
+        "rules": [
+          {
+            "when": {
+              "q": "needsAHuman",
+              "is": "unsure"
+            },
+            "then": "escalate"
+          }
+        ],
+        "default": "escalate"
+      },
+      "notForJev": [
+        {
+          "judgement": "Is this the same alert as the last 40?",
+          "instead": "Deduplication in code — grouping key, then count."
+        },
+        {
+          "judgement": "Is this trending worse?",
+          "instead": "Arithmetic over a time series, in code."
+        },
+        {
+          "judgement": "How many are there?",
+          "instead": "Counting. Never ask it to count."
+        }
+      ]
+    }
+  ]
+}
