@@ -77,19 +77,31 @@ export const checkGateConfig: Check<Partial<GateConfig>> = (x, at = 'gate') => {
   return errors.length ? { errors } : { value: x as Partial<GateConfig>, errors };
 };
 
-/** Answers from a run: a map question id -> SDK answer. Malformed answers are rejected, not read as unknown. */
+/**
+ * Answers from a run: a map question id -> answer, in either shape the kit produces, converted to
+ * one internal shape here and nowhere else: the SDK's ({type:'boolean', probability}) or kit/run.ts
+ * results' ({type:'noul', p}). Malformed answers are rejected, not read as unknown.
+ */
 export function checkAnswers(x: unknown, at = 'answers'): { value?: Record<string, Answer>; errors: string[] } {
   const errors: string[] = [];
+  const out: Record<string, Answer> = {};
   if (!isObj(x)) return { errors: [`${at}: must be an object of question id -> answer`] };
   for (const [id, a] of Object.entries(x)) {
     const here = `${at}.${id}`;
     if (!isObj(a)) { errors.push(`${here}: must be an object`); continue; }
-    if (a.type === 'boolean') { if (!isProb(a.probability)) errors.push(`${here}.probability: in [0, 1]`); }
-    else if (a.type === 'choice') { if (typeof a.choice !== 'string') errors.push(`${here}.choice: an option name`); }
-    else if (a.type === 'score') { if (typeof a.score !== 'number') errors.push(`${here}.score: a number`); }
-    else errors.push(`${here}.type: boolean, choice or score (SDK names; the docs' "noul" arrives as boolean)`);
+    if (a.type === 'boolean' || a.type === 'noul') {
+      const p = a.type === 'boolean' ? a.probability : a.p;
+      if (!isProb(p)) errors.push(`${here}.${a.type === 'boolean' ? 'probability' : 'p'}: in [0, 1]`);
+      else out[id] = { type: 'boolean', probability: p };
+    } else if (a.type === 'choice') {
+      if (typeof a.choice !== 'string') errors.push(`${here}.choice: an option name`);
+      else out[id] = { type: 'choice', choice: a.choice, probabilities: a.probabilities };
+    } else if (a.type === 'score') {
+      if (typeof a.score !== 'number') errors.push(`${here}.score: a number`);
+      else out[id] = { type: 'score', score: a.score, probabilities: a.probabilities };
+    } else errors.push(`${here}.type: noul (or the SDK's boolean), choice or score`);
   }
-  return errors.length ? { errors } : { value: x as Record<string, Answer>, errors };
+  return errors.length ? { errors } : { value: out, errors };
 }
 
 function load<T>(path: string, check: (x: unknown, at: string) => { value?: T; errors: string[] }): T {

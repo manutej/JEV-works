@@ -20,19 +20,9 @@ export type Paired = { name: string; n: number; b: number; c: number };
 export type GateConfig = { alpha: number; minStratum: number; seenShareLimit: number };
 export const DEFAULT_GATE: GateConfig = { alpha: 0.05, minStratum: 8, seenShareLimit: 0.2 };
 
-/** Exact two-sided McNemar p on the discordant leads. */
-export function mcnemarExact(b: number, c: number): number {
-  const n = b + c;
-  if (n === 0) return 1;
-  const logFact = (k: number) => {
-    let s = 0;
-    for (let i = 2; i <= k; i++) s += Math.log(i);
-    return s;
-  };
-  let tail = 0;
-  for (let k = 0; k <= Math.min(b, c); k++) tail += Math.exp(logFact(n) - logFact(k) - logFact(n - k) - n * Math.LN2);
-  return Math.min(1, 2 * tail);
-}
+// The one exact McNemar implementation lives in kit/stats.ts; re-exported for existing callers.
+import { mcnemarExact } from '../stats.ts';
+export { mcnemarExact };
 
 export function direction(p: Paired, alpha = DEFAULT_GATE.alpha): Direction {
   if (mcnemarExact(p.b, p.c) >= alpha) return 'no_difference';

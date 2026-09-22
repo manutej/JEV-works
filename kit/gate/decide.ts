@@ -40,13 +40,9 @@ export type Decision = {
 /** NETER P4: ends 0.70 apart, far outside the per-answer jitter band. */
 export const DEFAULT_THRESHOLDS = { yes: 0.85, no: 0.15 };
 
-/** Normalised entropy in [0, 1] of a distribution (P6: the usable uncertainty signal). */
-export function normalizedEntropy(dist: Record<string, number>): number {
-  const ps = Object.values(dist).filter(p => p > 0);
-  const k = Object.keys(dist).length;
-  if (k < 2) return 0;
-  return -ps.reduce((h, p) => h + p * Math.log(p), 0) / Math.log(k) || 0; // || 0 turns -0 into 0
-}
+// Normalised entropy comes from kit/stats.ts (one implementation); re-exported for rule authors.
+import { normEntropy as normalizedEntropy } from '../stats.ts';
+export { normalizedEntropy };
 
 function distributionOf(a: Answer): Record<string, number> | undefined {
   if (a.type === 'boolean') return { true: a.probability, false: 1 - a.probability };

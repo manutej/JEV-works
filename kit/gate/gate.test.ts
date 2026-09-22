@@ -8,7 +8,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { decide, holds, normalizedEntropy, type Answer, type Decision } from './decide.ts';
-import { isCorrect } from './policy.ts';
+import { scoreVerdict as isCorrect } from './policy.ts';
 import { checkAnswers, checkDecision, checkGateConfig, checkPolicy, loadDecision, loadPolicy } from './load.ts';
 
 const json = (p: string) => JSON.parse(readFileSync(new URL(p, import.meta.url), 'utf8'));
@@ -113,6 +113,15 @@ test('boundary: a bad decision reports every problem at once', () => {
 test('boundary: policy, gate config and answers are checked, unknown settings are rejected', () => {
   assert.ok(checkPolicy({ version: 'v3' }, 'p').errors.some(e => e.includes('declaredBeforeData')));
   assert.ok(checkGateConfig({ alpha: 0.05, minStrata: 8 }, 'g').errors.some(e => e.includes('g.minStrata: unknown setting')));
-  assert.ok(checkAnswers({ a: { type: 'boolean', probability: 1.5 }, b: { type: 'noul', probability: 0.5 } }, 'x').errors.length === 2);
+  assert.equal(checkAnswers({ a: { type: 'boolean', probability: 1.5 }, b: { type: 'yesno', p: 0.5 } }, 'x').errors.length, 2);
   assert.deepEqual(checkAnswers({ a: { type: 'choice', choice: 'x' } }, 'x').errors, []);
+});
+
+test('boundary: kit/run.ts results ({type:"noul", p}) and SDK answers normalise to one shape', () => {
+  const run = JSON.parse(readFileSync(new URL('../results/support-routing-2026-09-22.json', import.meta.url), 'utf8'));
+  const item = (run.items ?? run.results ?? run)[0];
+  const { value, errors } = checkAnswers(item.answers, 'item0');
+  assert.deepEqual(errors, []);
+  for (const a of Object.values(value!)) assert.ok(['boolean', 'choice', 'score'].includes(a.type));
+  assert.deepEqual(checkAnswers({ a: { type: 'noul', p: 0.9 } }).value, { a: { type: 'boolean', probability: 0.9 } });
 });

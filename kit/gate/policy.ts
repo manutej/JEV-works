@@ -16,7 +16,8 @@ export type ScoringPolicy = {
   note?: string;
 };
 
-export function isCorrect(verdict: Verdict | null | undefined, label: boolean, labelRecord: Record<string, unknown>, p: ScoringPolicy): boolean {
+/** Decision-level correctness (kit/score.ts isCorrect is the per-answer version). */
+export function scoreVerdict(verdict: Verdict | null | undefined, label: boolean, labelRecord: Record<string, unknown>, p: ScoringPolicy): boolean {
   if (verdict === 'escalate' || verdict === null || verdict === undefined) {
     const w = p.escalationCorrectWhen;
     return !!w && w.values.includes(labelRecord[w.field]);
