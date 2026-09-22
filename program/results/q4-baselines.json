@@ -1,0 +1,237 @@
+{
+  "experiment": "Q4",
+  "question": "Does the cheap baseline win on our tasks? (NETER open window 6)",
+  "modelCalls": 0,
+  "sources": [
+    "leads/corpus/truth-7.json",
+    "leads/results/pipeline-7.json",
+    "leads/results/baseline-7.json",
+    "program/p6-corpus.json",
+    "program/results/p6-entropy.json"
+  ],
+  "pairedRule": "accuracy: exact McNemar on per-item correctness, different iff p < 0.05; AUC: paired bootstrap, 2000 resamples, seeded. P4's 0.11 is not used as a tie band.",
+  "noPairedTestPossible": {
+    "e2": "program/results/e2-entropy-agreement.json keeps jevCorrect per item but not the hook text or keyword prediction; the corpus (/Users/manu/CETI/.../ceti-silver-hooks.json) is not committed.",
+    "e1": "consensus vs keyword: per-item keyword prediction not in the committed file; also not a Jev comparison."
+  },
+  "leads": {
+    "segment": {
+      "n": 600,
+      "split": "seed 7, generated after the gate criteria were committed (6159e75); out-of-sample for Jev gate and regex",
+      "majorityClass": {
+        "guess": "not_qualified",
+        "accuracy": 0.4333
+      },
+      "regex": {
+        "accuracyAll": 0.94,
+        "coverage": 1
+      },
+      "jev": {
+        "accuracyAll": 0.5483,
+        "coverage": 0.6967,
+        "accuracyOwnVerdicts": 0.7871
+      },
+      "deltaJevMinusRegex": -0.3917,
+      "deltaCI95": [
+        -0.4333,
+        -0.3533
+      ],
+      "vsRegex": {
+        "jevOnlyRight": 1,
+        "baselineOnlyRight": 236,
+        "mcnemarP": 2.16e-69,
+        "winner": "baseline"
+      },
+      "deltaJevMinusMajority": 0.115,
+      "vsMajority": {
+        "jevOnlyRight": 163,
+        "baselineOnlyRight": 94,
+        "mcnemarP": 0.0000199,
+        "winner": "Jev"
+      }
+    },
+    "qualified": {
+      "n": 600,
+      "split": "seed 7, generated after the gate criteria were committed (6159e75); out-of-sample for Jev gate and regex",
+      "majorityClass": {
+        "guess": "false",
+        "accuracy": 0.5017
+      },
+      "regex": {
+        "accuracyAll": 0.9217,
+        "coverage": 1
+      },
+      "jev": {
+        "accuracyAll": 0.6783,
+        "coverage": 0.6967,
+        "accuracyOwnVerdicts": 0.9737
+      },
+      "deltaJevMinusRegex": -0.2433,
+      "deltaCI95": [
+        -0.28,
+        -0.2083
+      ],
+      "vsRegex": {
+        "jevOnlyRight": 6,
+        "baselineOnlyRight": 152,
+        "mcnemarP": 1.12e-37,
+        "winner": "baseline"
+      },
+      "deltaJevMinusMajority": 0.1767,
+      "vsMajority": {
+        "jevOnlyRight": 235,
+        "baselineOnlyRight": 129,
+        "mcnemarP": 3e-8,
+        "winner": "Jev"
+      }
+    }
+  },
+  "p6Classification": {
+    "note": "Clean items only; labels by provenance. Baselines fitted on fit half, scored on test half. Jev never saw a fit half (no Jev fitting on this corpus), so its all-104 number is also out-of-sample; the head-to-head uses the test half for parity.",
+    "both": {
+      "n": {
+        "fit": 49,
+        "test": 55
+      },
+      "majorityClass": {
+        "guess": {
+          "toolKind": "shell_output",
+          "docGenre": "library_docs"
+        },
+        "testAccuracy": 0.5636
+      },
+      "naiveBayes": {
+        "testAccuracy": 0.9273
+      },
+      "jev": {
+        "testAccuracy": 0.8909,
+        "allCleanAccuracy": 0.8558,
+        "allCleanN": 104,
+        "coverage": 1
+      },
+      "deltaJevMinusNB": -0.0364,
+      "deltaCI95": [
+        -0.1455,
+        0.0727
+      ],
+      "vsNB": {
+        "jevOnlyRight": 3,
+        "baselineOnlyRight": 5,
+        "mcnemarP": 0.727,
+        "winner": "no significant difference"
+      },
+      "deltaJevMinusMajority": 0.3273,
+      "vsMajority": {
+        "jevOnlyRight": 21,
+        "baselineOnlyRight": 3,
+        "mcnemarP": 0.000277,
+        "winner": "Jev"
+      }
+    },
+    "toolKind": {
+      "n": {
+        "fit": 31,
+        "test": 40
+      },
+      "majorityClass": {
+        "guess": {
+          "toolKind": "shell_output"
+        },
+        "testAccuracy": 0.575
+      },
+      "naiveBayes": {
+        "testAccuracy": 0.925
+      },
+      "jev": {
+        "testAccuracy": 0.925,
+        "allCleanAccuracy": 0.8873,
+        "allCleanN": 71,
+        "coverage": 1
+      },
+      "deltaJevMinusNB": 0,
+      "deltaCI95": [
+        -0.125,
+        0.125
+      ],
+      "vsNB": {
+        "jevOnlyRight": 3,
+        "baselineOnlyRight": 3,
+        "mcnemarP": 1,
+        "winner": "no significant difference"
+      },
+      "deltaJevMinusMajority": 0.35,
+      "vsMajority": {
+        "jevOnlyRight": 17,
+        "baselineOnlyRight": 3,
+        "mcnemarP": 0.00258,
+        "winner": "Jev"
+      }
+    },
+    "docGenre": {
+      "n": {
+        "fit": 18,
+        "test": 15
+      },
+      "majorityClass": {
+        "guess": {
+          "docGenre": "library_docs"
+        },
+        "testAccuracy": 0.5333
+      },
+      "naiveBayes": {
+        "testAccuracy": 0.9333
+      },
+      "jev": {
+        "testAccuracy": 0.8,
+        "allCleanAccuracy": 0.7879,
+        "allCleanN": 33,
+        "coverage": 1
+      },
+      "deltaJevMinusNB": -0.1333,
+      "deltaCI95": [
+        -0.3333,
+        0
+      ],
+      "vsNB": {
+        "jevOnlyRight": 0,
+        "baselineOnlyRight": 2,
+        "mcnemarP": 0.5,
+        "winner": "no significant difference"
+      },
+      "deltaJevMinusMajority": 0.2667,
+      "vsMajority": {
+        "jevOnlyRight": 4,
+        "baselineOnlyRight": 0,
+        "mcnemarP": 0.125,
+        "winner": "no significant difference"
+      }
+    }
+  },
+  "p6Garbage": {
+    "n": {
+      "garbage": 49,
+      "clean": 55
+    },
+    "aucEntropy": 0.9779,
+    "aucLength": 0.8521,
+    "delta": 0.1258,
+    "deltaCI95": [
+      0.0551,
+      0.2035
+    ],
+    "bootstrapShareAtOrBelowZero": 0,
+    "winner": "Jev"
+  },
+  "e3Void": {
+    "note": "VOID: holdout ⊂ fit set (39/39). In-sample for Jev wording and for the keyword rule, which was fitted on the same 80.",
+    "n": 39,
+    "jevAccuracy": 0.7436,
+    "keywordAccuracy": 0.8974,
+    "vsKeyword": {
+      "jevOnlyRight": 1,
+      "baselineOnlyRight": 7,
+      "mcnemarP": 0.0703,
+      "winner": "no significant difference"
+    }
+  }
+}

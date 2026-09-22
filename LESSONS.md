@@ -457,3 +457,18 @@ later run, which is exactly what version-drift work (NETER window 5) needs.
 `jev-1.13.0`, the direct default since feat/jev-selector.
 *Attached to:* `lib/jev.ts` `answeredBy`; leads fix owned by feat/leads-pipeline.
 
+### L37 · A noise filter that also judges intent blocks valid low-intent leads
+**Happened.** Stage 1 asked `inboundSubstantive` ("real, specific content…"), which mixes "is this noise?" with "does
+this person mean business?". It sat mid-band on 72/73 escalated out-of-ICP leads at seed 7. Replacing it with literal
+questions moved leads from "regex wins by 24 pts" to "no difference shown" (seed 2718, McNemar p = 0.105).
+**Rule.** Split noise from intent across stages. Stage 1 asks literal, noise-only questions; intent is judged later.
+It corroborates P18: degree judgements never become decisive.
+*Attached to:* feat/leads-literal-questions 49dd854; `leads/HANDOFF.md`.
+
+### L38 · For adversarial rows, the scoring policy is the result
+**Happened.** After Q2, the entire Jev-vs-regex gap is 12 injection rows that Jev escalated rather than answered.
+Escalation is scored as wrong. Scored as correct, the gap closes or reverses.
+**Rule.** Decide in writing, before any re-score, whether "escalate" on an adversarial input counts as right,
+wrong, or excluded. Changing it after seeing results is fitting the scorer to the data.
+*Attached to:* leads Q2 (seed 2718); a policy decision for Manu.
+

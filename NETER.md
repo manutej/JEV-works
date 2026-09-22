@@ -115,7 +115,7 @@ Each is a question a cheap experiment could close. These feed pass 1.
    A/A noise p95 |Δp| 0.04, max 0.15 (choice); booleans/scores ≤ 0.07. This window closes the first week
    `latestResolvedToChanged` is true. **Caveat:** the "≥3 flips over noise" verdict rule was set *after* a first run
    called this A/A null "drift detected". It was calibrated on today's data, so next week's run is its first honest test.
-6. **Does the cheap baseline win on our tasks?** Partly answered: **leads, yes** (regex 92.2% vs Jev 67.8% over all leads, seed 7); **P6 garbage detection, no** (entropy AUC 0.978 vs length 0.852); **E3, void**; **triage, no baseline yet**. Synthesis table: NEXT-ROUND Q4.
+6. **Does the cheap baseline win on our tasks?** Mixed, decided by paired tests (`program/BASELINE-WINS.md`). **Leads qualified:** old question set, regex wins (92.2% vs 67.8%, McNemar 6 vs 152); **literal questions (Q2, seed 2718, pre-registered): no significant difference**, Jev 88.5% vs regex 91.0%, McNemar 30 vs 45, p = 0.105. Leads segment (old set): regex 94.0% vs 54.8%. **P6 garbage detection: Jev wins**, entropy − length AUC +0.126, paired CI [+0.055, +0.204]. P6 clean classification: naive Bayes 92.7% vs Jev 89.1%, no difference shown. E2: no paired test possible. E3 void. Triage and question bank: no labels. Next: E5 on 2–3 masked targets vs naive Bayes (~180 calls).
 
 ---
 
@@ -281,4 +281,9 @@ latency, question count does not.
 - **P6 at n=214 (U8, pre-registered, fit/test disjoint).** Entropy AUC 0.978 vs 1−top-p 0.952 vs length baseline 0.852.
   Falsified on F2: entropy's edge over top-p (+0.026) is below the pre-registered 0.05, and it is zero on 2-option questions.
   Wrong-question states are the hardest garbage. `program/P6-REPORT.md`.
+- **Leads Q2: literal questions (session b4f08e, pre-registered seed 2718, n=600, `jev-1.13.0 (direct)`).** Verdict rate 97.3%
+  (≥ 95%: **PASS**). Over all leads, Jev 88.5% vs regex 91.0%, exact McNemar 30 vs 45, **p = 0.105: no difference shown**. The
+  pre-registered prediction ("Jev below regex, p < 0.05") was wrong, and that is recorded as such. The whole remaining gap is adversarial
+  rows: Jev escalates 12/30 injections and is right on every one it decides. Overlap with seeds 42/7: 0 full records. Seed 2718 spent.
+  Branch feat/leads-literal-questions (49dd854), not merged.
 
