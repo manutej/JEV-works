@@ -519,3 +519,13 @@ from one record ("is there a *real* company", answered no on all 150) and a comp
 the lab's existing `recombine` rules, not just new trees: a composition rule is a question too.
 *Attached to:* `.toq/*/toq.yaml` (frozen), `program/OC-REPORT.md`.
 
+### L44 · A bounded gate and a calibration check both need data they were not fitted on, and enough of it
+**Happened.** Refitting the cookbook gates with `fitSelective` (100 fit items per domain, target error 5–10%): 5 of 8 gates
+found **no** cut, so the honest gate escalates everything. It isn't a model failure: certifying 5% at 95% needs at least
+59 consecutive correct auto-decisions on one side (`minItemsForBound`), and a 100-item split spread over two sides rarely has
+them. Separately, `judgeCalibration` accepted all six fitted logistic scores on the fit split and **rejected 6 of 8 on the
+test split**: a score always looks calibrated on the items it was fitted to (L39 again, one layer up).
+**Rule.** Size the fit split with `minItemsForBound(maxError)` before collecting data. Judge calibration only on items the
+score was not fitted on. A gate that escalates everything is an honest result, not a bug.
+*Attached to:* `kit/threshold.ts` (`minItemsForBound`), `cookbooks/_shared/selective.ts` (feat/demos, dbcb152).
+

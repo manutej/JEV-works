@@ -74,3 +74,12 @@ test('the calibration evaluator passes its own audit at small n (it false-alarme
   assert.ok(a.power >= 0.8, `power ${a.power} on a known distortion`);
 });
 
+test('planning: minItemsForBound is the zero-error floor, and it agrees with Clopper-Pearson', async () => {
+  const { minItemsForBound } = await import('../threshold.ts');
+  assert.equal(minItemsForBound(0.05), 59);
+  assert.equal(minItemsForBound(0.02), 149);
+  assert.equal(minItemsForBound(0.10), 29);
+  const n = minItemsForBound(0.05);
+  assert.ok(clopperPearsonUpper(0, n) <= 0.05 && clopperPearsonUpper(0, n - 1) > 0.05, 'n is the exact floor');
+});
+

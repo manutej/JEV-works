@@ -249,3 +249,16 @@ export function auditCalibrationEvaluator(n: number, sims = 200, distort = (t: n
   return { n, sims, falseAlarmRate: falseAlarms / sims, power: detections / sims, trustworthy: falseAlarms / sims <= 0.075 && detections / sims >= 0.8 };
 }
 
+// ---------------------------------------------------------------- planning: can this fit split certify anything?
+
+/**
+ * Smallest number of auto-decided fit items that could certify `maxError` at 95% if EVERY one were correct:
+ * the Clopper-Pearson upper bound for 0 errors in n is 1 − α^(1/n), so n ≥ ln α / ln(1 − maxError).
+ * maxError 0.05 → 59, 0.02 → 149, 0.10 → 29. Each errorful item raises it further. Use BEFORE collecting data:
+ * a fit split below this can't produce a bounded gate on that side, however good the model is.
+ */
+export function minItemsForBound(maxError: number, alpha = 0.05): number {
+  if (!(maxError > 0 && maxError < 1)) throw new Error('minItemsForBound: maxError must be in (0, 1)');
+  return Math.ceil(Math.log(alpha) / Math.log(1 - maxError));
+}
+
