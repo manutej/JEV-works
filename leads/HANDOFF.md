@@ -1,5 +1,28 @@
 # leads/ handoff — U3–U5 + Q2, 2026-09-21
 
+## 00000 · Segment-edge fix, holdout bc7101 (2026-09-22) — read this first
+
+Stage rules are data now: `pipeline.<v>.json` names `decisions/stage{1,2}.<v>.json`; each result records
+the sha256 of every rule file. v1 reproduces every recorded decision; **v3** = segment from `employeeBand`
+in code (P21) and no stage-2 escalation on segment entropy. Chosen on dev seeds 42, p3001 and **ba7001**
+(blind pool A, the dev pool). Holdout: blind pool C (fresh author), minus 5 templates sharing 8-word runs
+with pool A (same-model authors converge: L45).
+
+| | Result |
+|---|---|
+| Headline (v2) | Jev 68.8% vs regex 71.7%, p = 0.149: no difference |
+| Claim gate | REFUSE, G4.below-minimum (coverage 88.7%) |
+| Predictions | Jev above regex WRONG; buyers no longer worse WRONG; coverage < 95% RIGHT |
+| The fix itself | stage 2 escalates **0** leads; a post-hoc replay of v1 on the same answers is worse in every category |
+| Why the headline still ties | stage 1 escalates 41 real buyers; pool C non-buyers read as commercial (buyingSignal confident-no on 32/119) |
+
+**Next edges (not started):**
+1. Stage 1 on unseen wording: `senderWroteASentence` / `hasNamedCompany` sit mid-band on real buyers.
+   Candidate: record-level checks in code (companyName non-empty) instead of asking Jev.
+2. Direction of intent: add a literal question, "is the sender offering to sell or provide something to us?",
+   so vendor and partner pitches stop reading as purchase intent.
+Tune both on pool A (`ba<n>`) only. The next holdout needs a fresh blind pool D (pool C is spent).
+
 ## 0000 · Blind holdout bb6203 (2026-09-22) — read this first
 
 Templates written blind (no repo, regex or dev-message access), audited blind 156/156, pool B only.
