@@ -413,6 +413,11 @@ console.log(`paired (McNemar exact, v2): ${paired('v2')}`);
     for (const f of report.findings) console.log(`  finding: ${f}`);
     console.log(`  ${report.caveat}`);
     console.log(`\n═══ standard gates (kit/standard-gate.ts) ═══\n${renderSuite(standard)}`);
+    // A waived lint rule must be visible next to any verdict it could have influenced.
+    const ctx = JSON.parse(await readFile(new URL('../kit/modules/contexts/domain.leads.json', import.meta.url), 'utf8'));
+    const waived = ctx.modules.flatMap((m: any) => Object.entries(m.questions).flatMap(([id, q]: [string, any]) =>
+      Object.entries(q.lintExceptions ?? {}).map(([rule, why]) => `${m.name}.${id} ${rule}: ${why}`)));
+    console.log(`lint exceptions in the questions asked (${waived.length}):${waived.length ? '\n  ' + waived.join('\n  ') : ' none'}`);
   }
 }
 
