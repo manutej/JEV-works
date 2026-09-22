@@ -211,7 +211,9 @@ async function main() {
       // isRealBusiness can reject but cannot hold a lead back: "does this entity exist" is not
       // answerable from one record (P18), and on seed 42 it sat mid-band for 503/540 leads, so
       // requiring it confident-true escalated every clean in-ICP lead. The literal questions admit.
-      const coreTrue = ['hasNamedCompany', 'inboundSubstantive', 'onTopicParseable'].map(
+      // inboundSubstantive is recorded, not gated: it judges intent (stage 2's question) and sat
+      // mid-band on 72/73 escalated out-of-ICP leads. senderWroteASentence asks only "is this noise?".
+      const coreTrue = ['hasNamedCompany', 'senderWroteASentence', 'onTopicParseable'].map(
         n => boolVerdict(a1[n].probability),
       );
       const realBusiness = boolVerdict(a1.isRealBusiness.probability);

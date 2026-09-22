@@ -164,6 +164,7 @@ function entropyDistribution(ids: string[]): { n: number; mean: number; p50: num
     const r = pipelineById.get(id);
     const ent = r?.stage1?.entropies;
     if (!ent) continue;
+    // Only questions present in every run; senderWroteASentence exists only from this branch on.
     const core = ['isRealBusiness', 'hasNamedCompany', 'inboundSubstantive', 'onTopicParseable', 'isEmptyOrMarkup']
       .map(n => ent[n])
       .filter(Number.isFinite);

@@ -51,6 +51,17 @@ export const STAGE1_ACQUISITION: QuestionSet = {
         false: 'The message is empty, whitespace, generic filler, or otherwise carries no specific content.',
       },
     },
+    // Stage 1's literal replacement for inboundSubstantive, which mixed "is this noise?" (stage 1's
+    // job) with "is there a real need?" (stage 2's). On seed 7 it sat mid-band for 72/73 escalated
+    // out-of-ICP leads — readable, on-topic messages with low intent. This asks only the first half.
+    senderWroteASentence: {
+      type: 'boolean',
+      instructions: 'Does the inbound message contain at least one complete, readable sentence in which the sender tells you something — who they are, what they do, or what they want?',
+      criteria: {
+        true: 'At least one such sentence, e.g. "I run a small bakery and saw your ad." How interested the sender is does not matter.',
+        false: 'Empty, symbols or emoji only, markup, keyboard mashing, or words that do not form a sentence.',
+      },
+    },
     contactIsPerson: {
       type: 'boolean',
       instructions: 'Does the contact title read as belonging to a specific person’s role, as opposed to a generic inbox, team alias, or automated sender?',
@@ -113,8 +124,9 @@ export const STAGE1_ACQUISITION: QuestionSet = {
     },
   ],
   recombine:
-    'Admit to stage 2 when isRealBusiness AND hasNamedCompany AND inboundSubstantive AND onTopicParseable are all confidently true, ' +
-    'AND isEmptyOrMarkup is confidently false. Gate on the ENTROPY of each boolean’s implied distribution, not raw probability ' +
+    'Admit to stage 2 when hasNamedCompany AND senderWroteASentence AND onTopicParseable are all confidently true, ' +
+    'AND isEmptyOrMarkup is confidently false. isRealBusiness may reject (confident false) but never holds a lead back. ' +
+    'inboundSubstantive is still asked and recorded but does not gate: it judges intent, which is stage 2’s question. Gate on the ENTROPY of each boolean’s implied distribution, not raw probability ' +
     '(P5/P6) — a lead that reads as garbage should show high entropy across these questions, not a confident wrong answer. ' +
     'attemptsInstructionOverride and mimicsCriteriaSchema never change the admit decision by themselves; they are recorded so ' +
     'evaluate.ts can check whether an injection attempt changed anything downstream — the content of an instruction embedded in a ' +
