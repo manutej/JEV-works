@@ -11,7 +11,14 @@ import { readFileSync } from 'node:fs';
 export type BlindCategory = 'buyer' | 'non_buyer' | 'out_of_market' | 'ambiguous' | 'adversarial';
 export type BlindTemplate = { text: string; lean?: boolean; why?: string };
 export type BlindPool = Record<BlindCategory, BlindTemplate[]>;
-export type Variant = { kind: 'blind'; templates: string; pool: string; note?: string };
+export type Variant = {
+  kind: 'blind';
+  templates: string;
+  pool: string;
+  note?: string;
+  /** Drop templates sharing any runWords-long word run with another pool (e.g. the dev pool). Text only. */
+  excludeRunsFrom?: { templates: string; pool: string; runWords: number; why?: string };
+};
 
 export const BLIND_CATEGORIES: readonly BlindCategory[] = ['buyer', 'non_buyer', 'out_of_market', 'ambiguous', 'adversarial'];
 /** The slots the author was told about. Any other {placeholder} is an authoring error. */
@@ -60,10 +67,30 @@ export function checkPool(raw: unknown, pool: string): { value?: BlindPool; erro
   return errors.length ? { errors } : { value: p as BlindPool, errors };
 }
 
+const runsOf = (text: string, n: number) => {
+  const w = text.toLowerCase().match(/[a-z0-9]+/g) ?? [];
+  const out = new Set<string>();
+  for (let i = 0; i + n <= w.length; i++) out.add(w.slice(i, i + n).join(' '));
+  return out;
+};
+
+/** Pool templates that share an n-word run with another pool, by category and index (text only). */
+export function sharedRuns(pool: BlindPool, other: BlindPool, n: number): Array<{ cat: BlindCategory; i: number }> {
+  const seen = new Set(BLIND_CATEGORIES.flatMap(c => other[c].flatMap(t => [...runsOf(t.text, n)])));
+  return BLIND_CATEGORIES.flatMap(cat => pool[cat].flatMap((t, i) => ([...runsOf(t.text, n)].some(r => seen.has(r)) ? [{ cat, i }] : [])));
+}
+
 export function loadPool(v: Variant): BlindPool {
   const { value, errors } = checkPool(readJson(corpusUrl(v.templates)), v.pool);
   if (errors.length) throw new Error(`${v.templates} pool ${v.pool} is invalid:\n  - ${errors.join('\n  - ')}`);
-  return value!;
+  const x = v.excludeRunsFrom;
+  if (!x) return value!;
+  const other = checkPool(readJson(corpusUrl(x.templates)), x.pool);
+  if (other.errors.length) throw new Error(`excludeRunsFrom ${x.templates} pool ${x.pool} is invalid`);
+  const drop = new Set(sharedRuns(value!, other.value!, x.runWords).map(d => `${d.cat}:${d.i}`));
+  const kept = Object.fromEntries(BLIND_CATEGORIES.map(c => [c, value![c].filter((_, i) => !drop.has(`${c}:${i}`))])) as BlindPool;
+  for (const c of BLIND_CATEGORIES) if (!kept[c].length) throw new Error(`excludeRunsFrom left pool ${v.pool} with no ${c} templates`);
+  return kept;
 }
 
 export const render = (text: string, s: Slots) => text.replace(/\{(company|industry|employees|tool)\}/g, (_, k: keyof Slots) => s[k]);

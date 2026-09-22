@@ -43,3 +43,24 @@ test('seed prefixes resolve through corpus/variants.json; unregistered ones do n
   assert.equal(variantFor('zz1'), undefined);
   assert.equal(variantFor('42'), undefined);
 });
+
+test('pool C (templates-c.json) validates, and shares no template text with pools A or B', () => {
+  const c = JSON.parse(readFileSync(new URL('./corpus/blind/templates-c.json', import.meta.url), 'utf8'));
+  assert.deepEqual(checkPool(c, 'C').errors, []);
+  const norm = (t: string) => t.toLowerCase().replace(/\s+/g, ' ').trim();
+  const ab = new Set(['A', 'B'].flatMap(p => BLIND_CATEGORIES.flatMap(cat => real.pools[p][cat].map((t: any) => norm(t.text)))));
+  const shared = BLIND_CATEGORIES.flatMap(cat => c.pools.C[cat]).filter((t: any) => ab.has(norm(t.text)));
+  assert.equal(shared.length, 0);
+  assert.equal(variantFor('bc1')!.variant.pool, 'C');
+});
+
+test('bc excludes the pool C templates that share an 8-word run with dev pool A (text-only rule)', async () => {
+  const { loadPool, sharedRuns, checkPool: cp } = await import('./blind-variant.ts');
+  const c = JSON.parse(readFileSync(new URL('./corpus/blind/templates-c.json', import.meta.url), 'utf8'));
+  const shared = sharedRuns(cp(c, 'C').value!, cp(real, 'A').value!, 8);
+  assert.equal(shared.length, 5);
+  const kept = loadPool(variantFor('bc1')!.variant);
+  const n = (p: any) => BLIND_CATEGORIES.reduce((t, k) => t + p[k].length, 0);
+  assert.equal(n(kept), 78 - 5);
+  assert.equal(sharedRuns(kept, cp(real, 'A').value!, 8).length, 0);
+});

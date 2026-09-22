@@ -1,4 +1,26 @@
 {
-  "ba": { "kind": "blind", "templates": "blind/templates.json", "pool": "A", "note": "future DEV seeds only: never score a holdout claim on pool A" },
-  "bb": { "kind": "blind", "templates": "blind/templates.json", "pool": "B", "note": "HOLDOUT pool: authored blind (no access to repos or the regex), label audit 156/156 (corpus/blind/audit.json)" }
+  "ba": {
+    "kind": "blind",
+    "templates": "blind/templates.json",
+    "pool": "A",
+    "note": "future DEV seeds only: never score a holdout claim on pool A"
+  },
+  "bb": {
+    "kind": "blind",
+    "templates": "blind/templates.json",
+    "pool": "B",
+    "note": "HOLDOUT pool: authored blind (no access to repos or the regex), label audit 156/156 (corpus/blind/audit.json)"
+  },
+  "bc": {
+    "kind": "blind",
+    "templates": "blind/templates-c.json",
+    "pool": "C",
+    "note": "HOLDOUT pool for the segment-edge fix: authored blind by a fresh agent (no repo, pool A/B or regex access), after pool B was spent by bb6203",
+    "excludeRunsFrom": {
+      "templates": "blind/templates.json",
+      "pool": "A",
+      "runWords": 8,
+      "why": "both blind authors are the same model; 5 pool C templates share 8-word runs with dev pool A (C.buyer[0] ~ A.buyer[0]). Text-only rule, fixed before any pool C lead was generated."
+    }
+  }
 }
