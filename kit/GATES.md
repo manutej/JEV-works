@@ -21,7 +21,7 @@ direction} plus the multiple-comparison correction). A dev/fit run reports `NOT-
 |---|---|---|---|---|
 | **G1-spec-valid** | preflight | the spec breaks the TypeSafe-docs schema, or labels don't fit their question types | core | kit/spec.ts |
 | **G2-privacy** | preflight | an email, phone, key or token is in a state bound for the API (disabled scan = WARN) | core | external-API rule |
-| **G3-text-disjoint** | preflight | test items overlap fit items by id **or normalised text** (accepted before the run = WARN) | core | L31, L40 |
+| **G3-text-disjoint** | preflight | test items overlap fit items by id **or normalised text**, or more than 20% share an **8-word run** with a fit item (near-duplicates from same-model authors; below 20% = WARN `G3.ngram-overlap`) | core | L31, L40, bc7101 |
 | **G4-coverage** | run | answered share < the minimum declared before the run (undeclared = WARN) | core | retro §9.2 |
 | **G5-policy-predeclared** | claim | the scoring policy was chosen after the holdout existed | kit/gate | L38 |
 | **G6-paired-test** | claim | the headline isn't an exact paired test, or has fewer than 8 discordant pairs (`G6.too-few-discordant`; below 6 McNemar can never reach p < 0.05) | kit/gate | I6, I3 |

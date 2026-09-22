@@ -39,7 +39,7 @@ export type G7Evidence = { systems: [string, string]; correction: 'holm' | 'bonf
 
 /** Stable reason codes. Add here before emitting a new one. */
 export const REASON_CODES = [
-  'G3.id-overlap', 'G3.text-overlap', 'G3.leakage-accepted',
+  'G3.id-overlap', 'G3.text-overlap', 'G3.leakage-accepted', 'G3.ngram-overlap',
   'G4.below-minimum', 'G4.undeclared',
   'G5.policy-after-seed',
   'G6.no-paired-test', 'G6.too-few-discordant',
@@ -91,7 +91,7 @@ export function g2Privacy(items: readonly Item[], scanEnabled = true): GateResul
     : r('G2-privacy', 'PASS', `0 hits in ${items.length} states`);
 }
 
-export function g3TextDisjoint(items: readonly Item[], opts: { accepted?: boolean } = {}): GateResult {
+export function g3TextDisjoint(items: readonly Item[], opts: { accepted?: boolean; seenShareLimit?: number } = {}): GateResult {
   const d = disjointness(items);
   if (!d) return r('G3-text-disjoint', 'SKIP', 'no fit/test split declared: nothing to be disjoint from (label-free or single-split run)');
   if (d.idOverlap || d.textOverlap) {
@@ -99,7 +99,13 @@ export function g3TextDisjoint(items: readonly Item[], opts: { accepted?: boolea
       ? r('G3-text-disjoint', 'WARN', `${d.textOverlap} test item(s) seen in fit (${(d.seenShare * 100).toFixed(1)}%), accepted before the run; report seen vs novel`, d, 'G3.leakage-accepted')
       : r('G3-text-disjoint', 'REFUSE', `test overlaps fit: ${d.idOverlap} by id, ${d.textOverlap} by text`, d, d.textOverlap ? 'G3.text-overlap' : 'G3.id-overlap');
   }
-  return r('G3-text-disjoint', 'PASS', `fit ${d.fit} / test ${d.test}, 0 overlap by id or text`, d);
+  // Near-duplicates: shared 8-word runs (same-model authors converge). Refuse above the seen-share limit; warn below it.
+  const limit = opts.seenShareLimit ?? DEFAULT_SETTINGS.seenShareLimit;
+  if (d.runOverlap && d.runShare > limit && !opts.accepted)
+    return r('G3-text-disjoint', 'REFUSE', `${d.runOverlap} test item(s) (${(d.runShare * 100).toFixed(1)}%) share a ${d.runWords}-word run with a fit item, above the ${(limit * 100).toFixed(0)}% limit`, d, 'G3.ngram-overlap');
+  if (d.runOverlap)
+    return r('G3-text-disjoint', 'WARN', `no exact overlap, but ${d.runOverlap} test item(s) (${(d.runShare * 100).toFixed(1)}%) share a ${d.runWords}-word run with a fit item; report them as a stratum`, d, 'G3.ngram-overlap');
+  return r('G3-text-disjoint', 'PASS', `fit ${d.fit} / test ${d.test}, 0 overlap by id, text or ${d.runWords}-word run`, d);
 }
 
 export function g4Coverage(coverage: number, minCoverage: number | undefined): GateResult {

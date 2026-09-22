@@ -120,3 +120,17 @@ test('minDiscordant default is 8 (I3), and below 6 discordant pairs McNemar can 
   assert.ok(mcnemarExact(6, 0) < 0.05, 'b+c=6 is the first count that can be significant');
 });
 
+test('G3 n-gram: near-duplicates with different slot fills warn; above the seen-share limit they refuse', () => {
+  const base = 'we are looking to evaluate a platform for our growing team next quarter';
+  const fit: Item[] = [{ id: 'f', state: `Hi, ${base}, thanks, Dana`, split: 'fit' }];
+  const one: Item[] = [...fit, { id: 't1', state: `Hello, ${base}, cheers, Omar`, split: 'test' },
+    ...Array.from({ length: 9 }, (_, i) => ({ id: `t${i + 2}`, state: `totally unrelated message number ${i} about invoices`, split: 'test' as const }))];
+  const w = g3TextDisjoint(one);
+  assert.equal(w.verdict, 'WARN'); assert.equal(w.code, 'G3.ngram-overlap');
+  const many: Item[] = [...fit, ...Array.from({ length: 4 }, (_, i) => ({ id: `t${i}`, state: `Hey ${i}, ${base}, regards`, split: 'test' as const }))];
+  const r2 = g3TextDisjoint(many);
+  assert.equal(r2.verdict, 'REFUSE'); assert.equal(r2.code, 'G3.ngram-overlap');
+  const clean: Item[] = [...fit, { id: 't', state: 'Please refund the double charge on my card', split: 'test' }];
+  assert.equal(g3TextDisjoint(clean).verdict, 'PASS');
+});
+

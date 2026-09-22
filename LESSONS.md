@@ -529,3 +529,13 @@ test split**: a score always looks calibrated on the items it was fitted to (L39
 score was not fitted on. A gate that escalates everything is an honest result, not a bug.
 *Attached to:* `kit/threshold.ts` (`minItemsForBound`), `cookbooks/_shared/selective.ts` (feat/demos, dbcb152).
 
+### L45 · "Blind" authors that are the same model are not independent
+**Happened.** For the leads segment holdout, a fresh agent with no repo access wrote a "blind" template pool C. Five of
+its templates shared 8-word runs with dev pool A, which another fresh agent had written, and C.buyer[0] was nearly
+identical to A.buyer[0]. Both authors were the same model, so their priors converged. Exact-message checks could not see
+it, because the slot fills differed. Found by the leads session before any pool-C lead existed, and excluded as data.
+**Rule.** Disjointness is also checked for shared word runs, not only exact text: G3 now counts test items sharing an
+8-word run with any fit item (WARN `G3.ngram-overlap`, REFUSE above 20%). "Written blind" is not a guarantee of
+independence when the writers share a model; check the text, not the provenance story.
+*Attached to:* `kit/checks.ts` `runOverlap`, `kit/standard-gate.ts` G3; leads variants.json `excludeRunsFrom`.
+

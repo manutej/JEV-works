@@ -24,7 +24,18 @@ export function seenShare<T>(items: readonly T[], fitItems: readonly T[], textOf
   return { seen, novel, share: items.length ? seen.length / items.length : 0 };
 }
 
-export type Disjointness = { fit: number; test: number; idOverlap: number; textOverlap: number; seenShare: number };
+/**
+ * Word n-gram overlap: exact-text checks miss two model-written items that share long phrases with different slot fills
+ * (leads bc7101: 5 "blind" pool-C templates shared 8-word runs with dev pool A; same-model authors converge).
+ * Returns the ids of test items sharing any run of `runWords` consecutive words with any fit item.
+ */
+export function runOverlap(test: readonly { id: string; text: string }[], fit: readonly string[], runWords = 8): string[] {
+  const grams = (t: string) => { const w = t.toLowerCase().match(/[a-z0-9']+/g) ?? []; const out: string[] = []; for (let i = 0; i + runWords <= w.length; i++) out.push(w.slice(i, i + runWords).join(' ')); return out; };
+  const fitGrams = new Set(fit.flatMap(grams));
+  return test.filter(t => grams(t.text).some(g => fitGrams.has(g))).map(t => t.id);
+}
+
+export type Disjointness = { fit: number; test: number; idOverlap: number; textOverlap: number; seenShare: number; runWords: number; runOverlap: number; runShare: number };
 
 export function disjointness(items: readonly Item[]): Disjointness | null {
   const fit = items.filter(i => i.split === 'fit'), test = items.filter(i => i.split === 'test');
@@ -32,7 +43,8 @@ export function disjointness(items: readonly Item[]): Disjointness | null {
   const fitIds = new Set(fit.map(i => i.id)), fitTexts = new Set(fit.map(i => stateText(i.state)));
   const idOverlap = test.filter(i => fitIds.has(i.id)).length;
   const textOverlap = test.filter(i => fitTexts.has(stateText(i.state))).length;
-  return { fit: fit.length, test: test.length, idOverlap, textOverlap, seenShare: textOverlap / test.length };
+  const runs = runOverlap(test.map(i => ({ id: i.id, text: stateText(i.state) })), fit.map(i => stateText(i.state)), 8);
+  return { fit: fit.length, test: test.length, idOverlap, textOverlap, seenShare: textOverlap / test.length, runWords: 8, runOverlap: runs.length, runShare: runs.length / test.length };
 }
 
 const PATTERNS: [string, RegExp][] = [
