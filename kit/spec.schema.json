@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jev-works.local/kit/spec.schema.json",
+  "title": "Jev kit spec",
+  "description": "One question set + the items to ask it about. `questions` is exactly the `questions` object of TypeSafe's POST /v1/systemone (docs.typesafe.ai). kit/spec.ts validates the same rules at runtime and also checks labels against their questions.",
+  "type": "object",
+  "required": ["name", "questions"],
+  "oneOf": [{ "required": ["items"] }, { "required": ["itemsFile"] }],
+  "properties": {
+    "$schema": { "type": "string" },
+    "name": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$", "description": "Names the result file." },
+    "description": { "type": "string" },
+    "model": { "type": "string", "description": "Model id; default is the pinned jev-1.13.0 from lib/jev.ts. Use jev-latest only to measure drift." },
+    "questions": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": { "$ref": "#/$defs/question" }
+    },
+    "items": { "type": "array", "items": { "$ref": "#/$defs/item" } },
+    "itemsFile": { "type": "string", "description": "Path (relative to this spec) to a JSON array of items." },
+    "baselineName": { "type": "string", "description": "Name of the cheap baseline whose predictions are in items[].baseline." },
+    "gate": {
+      "type": "object",
+      "properties": { "minCoverage": { "type": "number", "minimum": 0, "maximum": 1 } },
+      "additionalProperties": false
+    },
+    "decision": { "description": "Decision rules over the answers. Owned and validated by kit/gate/decide.ts." },
+    "privacyScan": { "type": "boolean", "default": true, "description": "States go to an external API; set false only with a written reason." }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "input": {
+      "description": "Instructions, option descriptions and levels accept text or JSON structure (docs: primitives/advanced).",
+      "type": ["string", "object", "array", "number", "boolean"]
+    },
+    "question": {
+      "oneOf": [
+        {
+          "title": "noul (yes/no → probability of yes)",
+          "type": "object",
+          "required": ["type", "instructions"],
+          "properties": {
+            "type": { "enum": ["noul", "boolean"] },
+            "instructions": { "$ref": "#/$defs/input" },
+            "criteria": {
+              "type": "object",
+              "properties": { "true": { "$ref": "#/$defs/input" }, "false": { "$ref": "#/$defs/input" } },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "title": "choice (one option from a set)",
+          "type": "object",
+          "required": ["type", "instructions", "criteria"],
+          "properties": {
+            "type": { "const": "choice" },
+            "instructions": { "$ref": "#/$defs/input" },
+            "criteria": {
+              "type": "object", "minProperties": 2, "maxProperties": 255,
+              "additionalProperties": { "anyOf": [{ "$ref": "#/$defs/input" }, { "type": "null" }] }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "title": "score (ordered levels, indexed from 0)",
+          "type": "object",
+          "required": ["type", "instructions", "criteria"],
+          "properties": {
+            "type": { "const": "score" },
+            "instructions": { "$ref": "#/$defs/input" },
+            "criteria": { "type": "array", "minItems": 2, "items": { "anyOf": [{ "$ref": "#/$defs/input" }, { "type": "null" }] } }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "label": { "type": ["boolean", "string", "integer"], "description": "noul: true/false · choice: an option key · score: a level index" },
+    "item": {
+      "type": "object",
+      "required": ["id", "state"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "state": { "description": "What Jev reads: text, a JSON object, or an array (one shared state)." },
+        "labels": { "type": "object", "additionalProperties": { "$ref": "#/$defs/label" } },
+        "baseline": { "type": "object", "additionalProperties": { "$ref": "#/$defs/label" } },
+        "split": { "enum": ["fit", "test"], "description": "Declared before the run. Only test items are scored." }
+      },
+      "additionalProperties": false
+    }
+  }
+}

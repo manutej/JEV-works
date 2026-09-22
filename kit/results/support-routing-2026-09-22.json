@@ -1,0 +1,403 @@
+{
+  "kit": 1,
+  "spec": "support-routing",
+  "specPath": "kit/examples/support-routing.json",
+  "model": "jev-1.13.0 (direct)",
+  "answeredBy": [
+    "jev-1.13.0"
+  ],
+  "startedAt": "2026-09-22T07:33:17.256Z",
+  "wallMs": 605,
+  "calls": 10,
+  "coverage": 1,
+  "privacyScan": "passed",
+  "disjointness": {
+    "fit": 3,
+    "test": 10,
+    "idOverlap": 0,
+    "textOverlap": 0,
+    "seenShare": 0
+  },
+  "gate": {
+    "minCoverage": 0.95,
+    "verdict": "PASS"
+  },
+  "quality": [
+    {
+      "question": "dept",
+      "kind": "choice",
+      "meanConf": 1,
+      "atEnds": 1,
+      "spread": 1,
+      "keysUsed": 5,
+      "optionCount": 5,
+      "entropyMax": 0,
+      "entropyMean": 0,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "urgent",
+      "kind": "boolean",
+      "meanConf": 0.748,
+      "atEnds": 0.7,
+      "spread": 0.3366363022610604,
+      "verdict": "JEV-SAFE"
+    }
+  ],
+  "scorecards": [
+    {
+      "question": "dept",
+      "n": 10,
+      "coverage": 1,
+      "accuracy": 1,
+      "majority": {
+        "label": "billing",
+        "fittedOn": "fit split",
+        "accuracy": 0.2,
+        "vsJev": {
+          "n": 10,
+          "accuracyA": 1,
+          "accuracyB": 0.2,
+          "b": 8,
+          "c": 0,
+          "p": 0.00781,
+          "different": true,
+          "deltaCI95": [
+            0.5,
+            1
+          ]
+        }
+      },
+      "baseline": {
+        "name": "keyword rule",
+        "accuracy": 0.8,
+        "vsJev": {
+          "n": 10,
+          "accuracyA": 1,
+          "accuracyB": 0.8,
+          "b": 2,
+          "c": 0,
+          "p": 0.5,
+          "different": false,
+          "deltaCI95": [
+            0,
+            0.5
+          ]
+        }
+      }
+    },
+    {
+      "question": "urgent",
+      "n": 10,
+      "coverage": 1,
+      "accuracy": 0.7,
+      "majority": {
+        "label": false,
+        "fittedOn": "fit split",
+        "accuracy": 0.6,
+        "vsJev": {
+          "n": 10,
+          "accuracyA": 0.7,
+          "accuracyB": 0.6,
+          "b": 2,
+          "c": 1,
+          "p": 1,
+          "different": false,
+          "deltaCI95": [
+            -0.2,
+            0.4
+          ]
+        }
+      },
+      "baseline": {
+        "name": "keyword rule",
+        "accuracy": 0.6,
+        "vsJev": {
+          "n": 10,
+          "accuracyA": 0.7,
+          "accuracyB": 0.6,
+          "b": 2,
+          "c": 1,
+          "p": 1,
+          "different": false,
+          "deltaCI95": [
+            -0.2,
+            0.4
+          ]
+        }
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "t01",
+      "answers": {
+        "dept": {
+          "type": "choice",
+          "choice": "billing",
+          "probabilities": {
+            "sales": 0,
+            "account": 0,
+            "technical": 0,
+            "none": 0,
+            "billing": 1
+          },
+          "entropy": 0
+        },
+        "urgent": {
+          "type": "noul",
+          "p": 0.54
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 293,
+      "correct": {
+        "dept": true,
+        "urgent": false
+      }
+    },
+    {
+      "id": "t02",
+      "answers": {
+        "dept": {
+          "type": "choice",
+          "choice": "technical",
+          "probabilities": {
+            "technical": 1,
+            "sales": 0,
+            "none": 0,
+            "account": 0,
+            "billing": 0
+          },
+          "entropy": 0
+        },
+        "urgent": {
+          "type": "noul",
+          "p": 0.82
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 283,
+      "correct": {
+        "dept": true,
+        "urgent": true
+      }
+    },
+    {
+      "id": "t03",
+      "answers": {
+        "dept": {
+          "type": "choice",
+          "choice": "account",
+          "probabilities": {
+            "technical": 0,
+            "sales": 0,
+            "billing": 0,
+            "account": 1,
+            "none": 0
+          },
+          "entropy": 0
+        },
+        "urgent": {
+          "type": "noul",
+          "p": 0.1
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 277,
+      "correct": {
+        "dept": true,
+        "urgent": false
+      }
+    },
+    {
+      "id": "t04",
+      "answers": {
+        "dept": {
+          "type": "choice",
+          "choice": "sales",
+          "probabilities": {
+            "account": 0,
+            "none": 0,
+            "technical": 0,
+            "sales": 1,
+            "billing": 0
+          },
+          "entropy": 0
+        },
+        "urgent": {
+          "type": "noul",
+          "p": 0.05
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 275,
+      "correct": {
+        "dept": true,
+        "urgent": true
+      }
+    },
+    {
+      "id": "t05",
+      "answers": {
+        "dept": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "account": 0,
+            "technical": 0,
+            "billing": 0,
+            "none": 1,
+            "sales": 0
+          },
+          "entropy": 0
+        },
+        "urgent": {
+          "type": "noul",
+          "p": 0.03
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 251,
+      "correct": {
+        "dept": true,
+        "urgent": true
+      }
+    },
+    {
+      "id": "t06",
+      "answers": {
+        "dept": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "technical": 0,
+            "none": 1,
+            "billing": 0,
+            "account": 0,
+            "sales": 0
+          },
+          "entropy": 0
+        },
+        "urgent": {
+          "type": "noul",
+          "p": 0.01
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 192,
+      "correct": {
+        "dept": true,
+        "urgent": true
+      }
+    },
+    {
+      "id": "t07",
+      "answers": {
+        "dept": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "billing": 0,
+            "account": 0,
+            "sales": 0,
+            "none": 1,
+            "technical": 0
+          },
+          "entropy": 0
+        },
+        "urgent": {
+          "type": "noul",
+          "p": 0.02
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 93,
+      "correct": {
+        "dept": true,
+        "urgent": true
+      }
+    },
+    {
+      "id": "t08",
+      "answers": {
+        "dept": {
+          "type": "choice",
+          "choice": "billing",
+          "probabilities": {
+            "none": 0,
+            "account": 0,
+            "technical": 0,
+            "sales": 0,
+            "billing": 1
+          },
+          "entropy": 0
+        },
+        "urgent": {
+          "type": "noul",
+          "p": 0.31
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 121,
+      "correct": {
+        "dept": true,
+        "urgent": false
+      }
+    },
+    {
+      "id": "t09",
+      "answers": {
+        "dept": {
+          "type": "choice",
+          "choice": "sales",
+          "probabilities": {
+            "account": 0,
+            "sales": 1,
+            "billing": 0,
+            "none": 0,
+            "technical": 0
+          },
+          "entropy": 0
+        },
+        "urgent": {
+          "type": "noul",
+          "p": 0.03
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 159,
+      "correct": {
+        "dept": true,
+        "urgent": true
+      }
+    },
+    {
+      "id": "t10",
+      "answers": {
+        "dept": {
+          "type": "choice",
+          "choice": "technical",
+          "probabilities": {
+            "sales": 0,
+            "billing": 0,
+            "account": 0,
+            "technical": 1,
+            "none": 0
+          },
+          "entropy": 0
+        },
+        "urgent": {
+          "type": "noul",
+          "p": 0.93
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 132,
+      "correct": {
+        "dept": true,
+        "urgent": true
+      }
+    }
+  ]
+}

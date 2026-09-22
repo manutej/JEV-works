@@ -1,0 +1,39 @@
+{
+  "$schema": "../spec.schema.json",
+  "name": "support-routing",
+  "description": "Route a customer message to a team, with an explicit escape option for inputs that have no right answer (live demo 2026-09-22: without it, off-topic text got near-certain wrong answers). Small illustrative set: n is too low for a verdict; use it to learn the kit.",
+  "baselineName": "keyword rule",
+  "gate": { "minCoverage": 0.95 },
+  "questions": {
+    "dept": {
+      "type": "choice",
+      "instructions": "Which support team should handle this customer message?",
+      "criteria": {
+        "billing": "Charges, refunds, invoices, payment methods",
+        "technical": "Bugs, errors, integrations not working",
+        "account": "Login, password, profile, account settings",
+        "sales": "Pricing questions, plans, buying more seats",
+        "none": "Not a customer support request at all: empty, noise, or unrelated to our product"
+      }
+    },
+    "urgent": {
+      "type": "noul",
+      "instructions": "Does the message say the problem is blocking work or costing money right now?"
+    }
+  },
+  "items": [
+    { "id": "f01", "split": "fit",  "state": { "message": "Why was my card charged on the 3rd?" }, "labels": { "dept": "billing", "urgent": false } },
+    { "id": "f02", "split": "fit",  "state": { "message": "Webhook deliveries fail with a timeout." }, "labels": { "dept": "technical", "urgent": false } },
+    { "id": "f03", "split": "fit",  "state": { "message": "Two-factor codes never arrive, I'm locked out." }, "labels": { "dept": "account", "urgent": true } },
+    { "id": "t01", "split": "test", "state": { "message": "I was charged twice for September, please refund one of them." }, "labels": { "dept": "billing", "urgent": false }, "baseline": { "dept": "billing", "urgent": false } },
+    { "id": "t02", "split": "test", "state": { "message": "The Stripe integration throws a 500 error every time I sync. Orders are stuck." }, "labels": { "dept": "technical", "urgent": true }, "baseline": { "dept": "technical", "urgent": false } },
+    { "id": "t03", "split": "test", "state": { "message": "I can't log in, the password reset email never arrives." }, "labels": { "dept": "account", "urgent": true }, "baseline": { "dept": "account", "urgent": false } },
+    { "id": "t04", "split": "test", "state": { "message": "How much would 20 more seats on the Pro plan cost?" }, "labels": { "dept": "sales", "urgent": false }, "baseline": { "dept": "sales", "urgent": false } },
+    { "id": "t05", "split": "test", "state": { "message": "" }, "labels": { "dept": "none", "urgent": false }, "baseline": { "dept": "none", "urgent": false } },
+    { "id": "t06", "split": "test", "state": { "message": "The mitochondria is the powerhouse of the cell." }, "labels": { "dept": "none", "urgent": false }, "baseline": { "dept": "technical", "urgent": false } },
+    { "id": "t07", "split": "test", "state": { "message": "asdf qwer zxcv" }, "labels": { "dept": "none", "urgent": false }, "baseline": { "dept": "technical", "urgent": false } },
+    { "id": "t08", "split": "test", "state": { "message": "Our invoice PDF shows the wrong VAT number, finance needs it fixed before month end." }, "labels": { "dept": "billing", "urgent": true }, "baseline": { "dept": "billing", "urgent": false } },
+    { "id": "t09", "split": "test", "state": { "message": "Can someone explain the difference between the Team and Business tiers?" }, "labels": { "dept": "sales", "urgent": false }, "baseline": { "dept": "sales", "urgent": false } },
+    { "id": "t10", "split": "test", "state": { "message": "Every page of the dashboard is blank since this morning, we can't ship orders." }, "labels": { "dept": "technical", "urgent": true }, "baseline": { "dept": "technical", "urgent": false } }
+  ]
+}
