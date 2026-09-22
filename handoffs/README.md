@@ -23,6 +23,7 @@ and keeps `PROGRESS.md` in its own area. Registries (`NETER.md`, `LESSONS.md`, `
 6. Use an agent team inside your session. Subagents write results to files and return short summaries, which keeps your context lean.
 7. Rebase on `main` before merging; merges happen one at a time, and you tell the other sessions after each merge.
 8. Worktrees of JEV-works share `node_modules` by symlink (same manifest, so L21 does not apply). **Never `npm install` in a worktree**: it would change every worktree's dependencies. Ask the main session.
+10. **Gate every commit on its edit succeeding:** `python3 edit.py && git add <explicit paths> && git commit`. Twice on 2026-09-22 the orchestrator's edit script failed (a string mismatch, an unescaped quote) and a separate commit step still ran, producing commits whose messages described edits that weren't in them. Put edit scripts in files with `assert` on every anchor, and never use `git commit -a` on a branch another agent commits to.
 9. When a session finishes or pauses, it writes a `HANDOFF` section in its `PROGRESS.md`: state, commits, open questions, next step.
 
 ## How to start a session
