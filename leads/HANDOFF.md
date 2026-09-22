@@ -19,7 +19,7 @@ Manu asked to apply the operadic skills so these situations get fixed, not just 
 | p6029 | Jev better | REFUSE | E1 (94% seen), E2 (93%), **E5: on real buyers (clean_in_icp, n=180) the regex is significantly better** |
 | 6011 | no difference | REFUSE | E1 (61% seen) |
 
-The p6029 E5 finding is new: the rule that catches non-buyers costs real buyers (Jev 95.0% vs regex 100%).
+The p6029 E5 finding is new: Jev loses real buyers (95.0% vs regex 100%). **Not** from the new buyingSignal rule (all 9 lost buyers had buyingSignal ≥ 0.77): 5 were escalated by the segment-entropy gate (entropy > 0.6), 2 rated not-qualified by segment/icpFit, 2 escalated at stage 1. Likely cause: the paraphrased buyer messages never state company size, so `segment` is unsure; the regex reads size only from the size field.
 The pooled "Jev better" hid it. The base corpora can never pass E1 as built (shared templates, about 61%
 repeat), so a base holdout must either declare leakage before the run (claim narrowed to new records)
 or use a generator with enough template variety.
