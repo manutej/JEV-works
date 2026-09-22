@@ -14,7 +14,7 @@ import { join } from 'node:path';
 import { summariseSet, renderTable, defects, type Reading } from '../question-bank/confidence.ts';
 import { askAll, type Row } from './ask.ts';
 import { isCorrect, majorityOf } from './score.ts';
-import { disjointness, privacyScan } from './checks.ts';
+import { g1SpecValid, g2Privacy, g3TextDisjoint, g4Coverage, renderSuite, suite, type GateResult } from './standard-gate.ts';
 import { loadSpec, type Item, type Label, type Spec } from './spec.ts';
 import { paired, type Paired } from './stats.ts';
 
@@ -37,28 +37,29 @@ function resultPath(spec: Spec): string {
 
 let spec: Spec;
 try { spec = loadSpec(specPath); }
-catch (e) { console.error((e as Error).message); process.exit(65); }
+catch (e) { console.error((e as Error).message); console.error(renderSuite(suite([{ ...g1SpecValid({}), why: 'spec rejected (see problems above)' }]))); process.exit(65); }
+const gates: GateResult[] = [{ id: 'G1-spec-valid', stage: 'preflight', verdict: 'PASS', why: 'spec is valid', evidence: {} }];
 const qids = Object.keys(spec.questions);
 const hasSplit = spec.items.some(i => i.split);
 const scored: Item[] = hasSplit ? spec.items.filter(i => i.split === 'test') : spec.items;
 console.log(`spec ${spec.name}: ${qids.length} questions × ${scored.length} items${hasSplit ? ` (test split; ${spec.items.length - scored.length} fit)` : ''}`);
 
-if (spec.privacyScan !== false) {
-  const hits = privacyScan(scored);
-  if (hits.length) {
-    console.error(`REFUSED: privacy scan found ${hits.length} hit(s) in states bound for an external API: ` +
-      hits.slice(0, 10).map(h => `${h.itemId}:${h.kind}`).join(', ') + '. Remove them, or set "privacyScan": false with a reason.');
-    process.exit(3);
-  }
-  console.log('privacy scan: 0 hits');
+const g2 = g2Privacy(scored, spec.privacyScan !== false);
+gates.push(g2);
+if (g2.verdict === 'REFUSE') {
+  const hits = (g2.evidence.hits as { itemId: string; kind: string }[]);
+  console.error(`REFUSED (G2-privacy): ${hits.length} hit(s) in states bound for an external API: ` +
+    hits.slice(0, 10).map(h => `${h.itemId}:${h.kind}`).join(', ') + '. Remove them, or set "privacyScan": false with a reason.');
+  process.exit(3);
 }
-const disj = disjointness(spec.items);
-if (disj) {
-  console.log(`disjointness: fit ${disj.fit} / test ${disj.test} · id overlap ${disj.idOverlap} · text overlap ${disj.textOverlap} (${(disj.seenShare * 100).toFixed(1)}% seen)`);
-  if ((disj.idOverlap || disj.textOverlap) && !flag('--accept-overlap')) {
-    console.error('REFUSED: the test split overlaps the fit split (L31/L40). Fix the split, or rerun with --accept-overlap and report seen vs novel.');
-    process.exit(4);
-  }
+console.log(g2.verdict === 'PASS' ? 'privacy scan: 0 hits' : `privacy: ${g2.why}`);
+const g3 = g3TextDisjoint(spec.items, { accepted: flag('--accept-overlap') });
+gates.push(g3);
+const disj = g3.verdict === 'SKIP' ? null : (g3.evidence as { fit: number; test: number; idOverlap: number; textOverlap: number; seenShare: number });
+if (disj) console.log(`disjointness: fit ${disj.fit} / test ${disj.test} · id overlap ${disj.idOverlap} · text overlap ${disj.textOverlap} (${(disj.seenShare * 100).toFixed(1)}% seen)`);
+if (g3.verdict === 'REFUSE') {
+  console.error('REFUSED (G3-text-disjoint): the test split overlaps the fit split (L31/L40). Fix the split, or rerun with --accept-overlap and report seen vs novel.');
+  process.exit(4);
 }
 const calls = scored.length;
 console.log(`plan: ${calls} Jev calls (${qids.length} questions batched per call, P31)`);
@@ -142,14 +143,16 @@ if (scorecards.length) {
 // ---------------------------------------------------------------- gate + write
 
 const minCov = spec.gate?.minCoverage;
-const gate = minCov === undefined ? 'none' : coverage >= minCov ? 'PASS' : 'REFUSE';
-if (minCov !== undefined) console.log(`\ngate: coverage ${pct(coverage)} vs minimum ${pct(minCov)} → ${gate}`);
+gates.push(g4Coverage(coverage, minCov));
+const gateReport = suite(gates);
+console.log('\n' + renderSuite(gateReport));
+const gate = minCov === undefined ? 'none' : gateReport.refusing.includes('G4-coverage') ? 'REFUSE' : 'PASS';
 const out = resultPath(spec);
 writeFileSync(out, JSON.stringify({
   kit: 1, spec: spec.name, specPath, model, answeredBy: [...new Set(rows.map(r => r.answeredBy).filter(Boolean))],
   startedAt: new Date(Date.now() - wallMs).toISOString(), wallMs, calls: rows.length, coverage,
   privacyScan: spec.privacyScan === false ? 'disabled by spec' : 'passed', disjointness: disj,
-  gate: { minCoverage: minCov ?? null, verdict: gate }, quality, scorecards,
+  gate: { minCoverage: minCov ?? null, verdict: gate }, gates: gateReport, quality, scorecards,
   items: rows.map(r => ({ ...r, correct: Object.fromEntries(qids.flatMap(id => {
     const it = scored.find(i => i.id === r.id);
     return it?.labels && id in it.labels ? [[id, isCorrect(spec.questions[id], r.answers?.[id], it.labels[id])]] : [];

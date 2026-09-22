@@ -49,6 +49,9 @@ Use `/opt/homebrew/bin/node` (v25). `/usr/local/bin/node` v22.17 can't run `.ts`
    - **With labels:** per question, accuracy over ALL scored items (a non-answer counts as wrong) and coverage beside it. Jev is compared with the majority class (fitted on the fit split when there is one) and with your baseline, using **exact McNemar** plus a seeded bootstrap CI. Never the 0.11 band (I6).
 7. **Write** `kit/results/<name>-<date>[-n].json`: never overwritten, with per-item raw answers so other tools (`kit/gate/`) can re-decide without re-asking.
 
+## Standard gates
+Every run passes the same named gates, G1–G10 (`kit/GATES.md`, `kit/standard-gate.ts`), and the suite verdict is written into the result file. Any REFUSE refuses the claim.
+
 ## Modules
 
 | file | what | pure? |
@@ -59,6 +62,8 @@ Use `/opt/homebrew/bin/node` (v25). `/usr/local/bin/node` v22.17 can't run `.ts`
 | `score.ts` | `isCorrect`, `majorityOf` | yes |
 | `ask.ts` | `askAll(spec, items)` → rows via lib/jev.ts + RunLog | calls Jev |
 | `run.ts` | the CLI | calls Jev |
+| `standard-gate.ts` | the gate contract, catalogue G1–G10, core gates, `suite` | yes |
+| `threshold.ts` | fitted thresholds, calibration evaluators and their audit | yes |
 | `gate/` | decision rules, scoring policies, splits and leakage refusal, claim gate (E1–E5). **Owned by the leads session** | |
 
 ## Rules it enforces, so you don't have to remember them
