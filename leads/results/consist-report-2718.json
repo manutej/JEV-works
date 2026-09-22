@@ -96,7 +96,7 @@
     }
   ],
   "findings": [
-    "E5: headline shows no difference but stratum adversarial (n=30) shows regex_better (p=0.000488, Holm-significant); the pooled null hides it"
+    "E5: hidden-stratum: headline shows no difference but stratum adversarial (n=30) shows regex_better (p=0.000488, Holm-significant); the pooled null hides it"
   ],
   "standard": {
     "contract": 1,
@@ -191,7 +191,7 @@
         "id": "G7-strata-consistent",
         "stage": "claim",
         "verdict": "WARN",
-        "why": "E5: headline shows no difference but stratum adversarial (n=30) shows regex_better (p=0.000488, Holm-significant); the pooled null hides it",
+        "why": "E5: hidden-stratum: headline shows no difference but stratum adversarial (n=30) shows regex_better (p=0.000488, Holm-significant); the pooled null hides it",
         "evidence": {
           "legacyEdge": "E5-strata-consistent",
           "settings": {
@@ -201,7 +201,7 @@
             "seenShareLimit": 0.2
           },
           "findings": [
-            "E5: headline shows no difference but stratum adversarial (n=30) shows regex_better (p=0.000488, Holm-significant); the pooled null hides it"
+            "E5: hidden-stratum: headline shows no difference but stratum adversarial (n=30) shows regex_better (p=0.000488, Holm-significant); the pooled null hides it"
           ],
           "systems": [
             "jev",

@@ -152,7 +152,7 @@ fit seeds [42, 7]: 369/600 messages seen (61.5%), 231 novel
 ═══ claim gate (headline vs strata, policy v1) ═══
 REFUSE: headline claim no_difference (scope all, McNemar 30 vs 45, p = 0.105)
   failing E1-text-disjoint: 61.5% of messages were seen in fit seeds (limit 20.0%) and leakage was not accepted before the run
-  finding: E5: headline shows no difference but stratum adversarial (n=30) shows regex_better (p=0.000488, Holm-significant); the pooled null hides it
+  finding: E5: hidden-stratum: headline shows no difference but stratum adversarial (n=30) shows regex_better (p=0.000488, Holm-significant); the pooled null hides it
   Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.
 
 ═══ standard gates (kit/standard-gate.ts) ═══
@@ -161,7 +161,7 @@ gates: REFUSE (refused by G3-text-disjoint)
   ✓ G4-coverage                    PASS   share of items with an answer ≥ the minimum declared before the run: passed
   ✓ G5-policy-predeclared          PASS   the scoring policy was fixed before the holdout existed: passed
   ✓ G6-paired-test                 PASS   the headline is an exact paired test (McNemar) with n ≥ 8: passed
-  ! G7-strata-consistent           WARN   E5: headline shows no difference but stratum adversarial (n=30) shows regex_better (p=0.000488, Holm-significant); the pooled null hides it
+  ! G7-strata-consistent           WARN   E5: hidden-stratum: headline shows no difference but stratum adversarial (n=30) shows regex_better (p=0.000488, Holm-significant); the pooled null hides it
 
 per-category qualified accuracy, jev vs regex (AccAll counts escalations as wrong; AccOwn is on own verdicts only):
 category        n    jevCoverage  jevAccAll  jevAccOwn  regexAccAll

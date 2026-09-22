@@ -164,7 +164,7 @@ export function gate(i: GateInput, settings: Partial<GateConfig> = {}): GateRepo
     all.forEach((s, k) => {
       if (!sigAll[k] || s.direction === NO_DIFFERENCE) return;
       const where = inScope.includes(s) ? '' : ' (outside the claim scope: reported, not tested)';
-      findings.push(`E5: headline shows no difference but stratum ${s.name} (n=${s.n}) shows ${s.direction} (p=${s.p.toPrecision(3)}, Holm-significant); the pooled null hides it${where}`);
+      findings.push(`E5: hidden-stratum: headline shows no difference but stratum ${s.name} (n=${s.n}) shows ${s.direction} (p=${s.p.toPrecision(3)}, Holm-significant); the pooled null hides it${where}`);
     });
   }
   if (scope === 'novel_wording') {

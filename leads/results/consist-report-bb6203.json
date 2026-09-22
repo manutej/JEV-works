@@ -104,8 +104,8 @@
     }
   ],
   "findings": [
-    "E5: headline shows no difference but stratum clean_in_icp (n=180) shows regex_better (p=1.11e-16, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested)",
-    "E5: headline shows no difference but stratum non_buyer (n=120) shows jev_better (p=1.06e-22, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested)"
+    "E5: hidden-stratum: headline shows no difference but stratum clean_in_icp (n=180) shows regex_better (p=1.11e-16, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested)",
+    "E5: hidden-stratum: headline shows no difference but stratum non_buyer (n=120) shows jev_better (p=1.06e-22, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested)"
   ],
   "standard": {
     "contract": 1,
@@ -200,7 +200,7 @@
         "id": "G7-strata-consistent",
         "stage": "claim",
         "verdict": "WARN",
-        "why": "E5: headline shows no difference but stratum clean_in_icp (n=180) shows regex_better (p=1.11e-16, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested); E5: headline shows no difference but stratum non_buyer (n=120) shows jev_better (p=1.06e-22, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested)",
+        "why": "E5: hidden-stratum: headline shows no difference but stratum clean_in_icp (n=180) shows regex_better (p=1.11e-16, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested); E5: hidden-stratum: headline shows no difference but stratum non_buyer (n=120) shows jev_better (p=1.06e-22, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested)",
         "evidence": {
           "legacyEdge": "E5-strata-consistent",
           "settings": {
@@ -210,8 +210,8 @@
             "seenShareLimit": 0.2
           },
           "findings": [
-            "E5: headline shows no difference but stratum clean_in_icp (n=180) shows regex_better (p=1.11e-16, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested)",
-            "E5: headline shows no difference but stratum non_buyer (n=120) shows jev_better (p=1.06e-22, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested)"
+            "E5: hidden-stratum: headline shows no difference but stratum clean_in_icp (n=180) shows regex_better (p=1.11e-16, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested)",
+            "E5: hidden-stratum: headline shows no difference but stratum non_buyer (n=120) shows jev_better (p=1.06e-22, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested)"
           ],
           "systems": [
             "jev",
