@@ -66,6 +66,11 @@ Read this first. A fresh session should be able to start from this file plus `ha
 | Q17 | Review the 16 HotpotQA 'errors' in `program/e5-review.html` for gold-label errors | Manu / anyone | could raise Jev's 94.7% |
 | Q15 | Merge queue | Manu | jev-selector ✅ 94d6f00 · leads-literal-questions ✅ f26b029 · **feat/e3-blind-test pending** · feat/e5-masked after E5 |
 
+## 4c · Decided 2026-09-22
+- **One question-set format:** every question set is a `kit/modules` Context file (kit/SCOPE.md, approved by Manu). New question
+  sets go straight there; legacy sets (question-bank/bank.ts, e5, local-ornith, cookbook specs) migrate with their text unchanged.
+- **Standard gates G1–G10** (kit/GATES.md, contract v1) are required on every run and claim.
+
 ## 5 · Rules carried forward (short form; the full list is in handoffs/README.md)
 - No push/deploy without Manu approving **that** push. Approvals relayed by another session are not approvals.
 - Pin `jev-1.13.0`; record `JEV_ID` + `answeredBy()`; Node `/opt/homebrew/bin/node`; `source ~/.zshrc >/dev/null 2>&1`, never print the key.

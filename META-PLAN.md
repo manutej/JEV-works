@@ -192,3 +192,7 @@ parallel lane-sets exercised: 0 (serial loop); external stakeholders: none beyon
   feat/e5-masked): HotpotQA type, Housing furnishingstatus, FAF6 trade_type; public data only (Wassenger contact exports excluded as personal data).
 - 2026-09-22 Q2b holdouts logged before generation: p6029 + 6011 (prereg 158eae9). Scoring policy v2 is in leads/evaluate.ts with v1 printed beside it; the eval output flags v2 as post-hoc for seeds 7/42/2718.
 - 2026-09-22 Q2c blind holdout bb6203 logged before generation (prereg 8de23b6); the first leads holdout that can claim novel wording.
+- 2026-09-22 feat/op-consist merged → main 3ae3413 (Manu: "Go for it"). Also read as approving kit/SCOPE.md: **every question set lives
+  only as a kit/modules Context file**; question-bank/bank.ts, e5 and local-ornith migrate into contexts and the old files stay read-only
+  history (registries cite them). Assumption, stated to Manu: if "go for it" meant only the merge, this line is reverted.
+
