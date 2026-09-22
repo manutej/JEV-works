@@ -17,7 +17,7 @@ Durable record of this session's state. Chat is ephemeral; this file is not. New
 - [x] E3: VOID (holdout = fit subset, 39/39, re-verified). Orchestrator error: brief forbade the L31 check. Branch feat/e3-blind-test @59964b0; dashboard ~/JEV-works-wt/e3/program/e3-review.html
 - [x] U9 part 1: leads U5 → L35, L36, P18, NETER ledger (287f404)
 - [x] U8 P6: separation holds (AUC 0.978), edge over top-p falsified (F2)
-- [x] U9 part 2: drift (dc1cd80), E3 void + L31 amendment + P24 + PROGRAM E3/E4 notes (df34df8)
+- [x] U9 part 2: drift (dc1cd80), E3 void + L31 amendment + P30 + PROGRAM E3/E4 notes (df34df8)
 - [ ] Manu to open 4 sessions from handoffs/*.md
 
 ## Round 3 (in flight, 2026-09-21 evening)

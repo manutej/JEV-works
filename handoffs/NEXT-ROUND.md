@@ -19,7 +19,7 @@ Read this first. A fresh session should be able to start from this file plus `ha
 - **Direct TypeSafe API** ≡ gateway (117/119 verdicts), ~2× faster. Pinned `jev-1.13.0` is the default; `answeredBy()` records the version that answered.
 - **Leads:** 4 instrument bugs fixed. Pre-registered seed 7: **Jev 67.8% vs regex 92.2%** over all leads; coverage 69.7% (FAIL vs ≥ 95%).
 - **Drift:** none (`jev-latest` = `jev-1.13.0` today). The P4 noise band is question-shaped (choice 0.15, bool/score ≤ 0.07).
-- **E3: VOID.** The holdout was a subset of the fit set (L31 recurred via the orchestrator's brief). Lead only: option wording 0.375 → 0.725 (P24, in-sample).
+- **E3: VOID.** The holdout was a subset of the fit set (L31 recurred via the orchestrator's brief). Lead only: option wording 0.375 → 0.725 (P30, in-sample).
 - **P6 at n=214:** entropy separates garbage (AUC 0.978), but its edge over top-p (+0.026) is below noise. Falsified as worded.
 
 ## 3 · Decisions only Manu can make

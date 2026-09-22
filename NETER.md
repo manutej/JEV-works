@@ -63,7 +63,7 @@ disagrees with the claim) · **open** (no evidence either way yet).
 | P19 | **CJK accuracy is lower** per the docs; English instructions recommended. Our single Japanese case routed correctly at p=1.00, which contradicts nothing at n=1. | docs + our n=1 | **open** |
 | P20 | **Calibration on your own data is unavoidable.** No independent large-scale calibration study exists. Vendor thresholds are not reproduced. | field | **open** |
 | P21 | **Relational questions are outside its competence, and it tells you so in the distribution.** Asked nine questions over the same 119 states, per-question confidence orders cleanly by question *type*: literal single-state questions reach the ends (`oneTimeSetupSettled` 82% of items at the ends, mean confidence 0.79), while questions requiring reasoning across a goal and a file manifest do not (`supersededByDurableFile` 26%; **`neededForGoal` 7% of items at the ends, never once exceeding p=0.67**). Diagnostic worth reusing: **run your candidate questions over one corpus and rank them by mean confidence — the ones that never leave the mid band are the ones to move into code.** | our run, 119 items × 9 questions | **measured here** |
-| P24 | **Option wording is the dominant lever on Choice accuracy (lead, in-sample only).** Same Jev, same 80 CETI hooks: option descriptions from E1 scored **0.375**; rewritten from E1's unanimous-but-wrong items, **0.725**. `halbert-a-pile` went 0/6 → 5/6 once the description said what the class means (Halbert's A-pile, a personal-looking subject line) instead of its surface ("pile imagery"). Jev chose the same option on 38/39 items across two runs. The held-out comparison is VOID (L31), so this is a lead, not a generalisation claim. | E3 fit runs, n=80, `jev-latest (direct)`; branch feat/e3-blind-test | **measured here, in-sample** |
+| P30 | **Option wording is the dominant lever on Choice accuracy (lead, in-sample only).** Same Jev, same 80 CETI hooks: option descriptions from E1 scored **0.375**; rewritten from E1's unanimous-but-wrong items, **0.725**. `halbert-a-pile` went 0/6 → 5/6 once the description said what the class means (Halbert's A-pile, a personal-looking subject line) instead of its surface ("pile imagery"). Jev chose the same option on 38/39 items across two runs. The held-out comparison is VOID (L31), so this is a lead, not a generalisation claim. | E3 fit runs, n=80, `jev-latest (direct)`; branch feat/e3-blind-test | **measured here, in-sample** |
 
 ---
 
@@ -108,7 +108,12 @@ Each is a question a cheap experiment could close. These feed pass 1.
 
 1. ~~**Is the Gateway hop the 3× latency gap (P10)?**~~ **Answered 2026-09-21:** the hop is ~2× (p50 131 vs 268ms); outputs are interchangeable. See P10.
 2. ~~**Does entropy separation (P6) hold at n=200?**~~ **Answered 2026-09-21 (U8):** separation holds (AUC 0.978); the distinctive claim over top-probability does not (+0.026, below noise). See P6.
-3. **Does a batch contaminate itself?** If rewording one option description moves answers to the other eleven questions, "fan out freely" has a hidden cost — and every criteria edit needs a regression suite.
+3. ~~**Does a batch contaminate itself?**~~ **Answered 2026-09-21 (Q3, pre-registered): no.** 71 tool-output
+   states, one 6-question batch (choice + 4 boolean + score), `jev-1.13.0 (direct)`, 355 calls. Rewording the
+   choice's option descriptions (same meaning) or narrowing one option (meaning changed) left the other five
+   questions inside A/A noise: pooled p95 |Δp| 0.04 (A/A) vs 0.05 (reword), flips 5 vs 4 of 355; every
+   per-question mean-excess CI upper bound ≤ 0.010. Control live: the edited question itself moved (p95 0.02 →
+   0.64, accuracy 0.887 → 0.746); placebo A/A″ silent. See P31, `program/Q3-REPORT.md`.
 4. **Where is the real prunable mass in a transcript?** Iteration 1 says it is not staleness within a session (see ledger). Hypothesis: it is **duplicate reads across parallel subagents** — which Jev cannot see, because it evaluates one state at a time. Needs content hashing in code plus Jev for the near-duplicate judgement.
 5. **What does version drift cost?** Instrumented, not yet answered: `program/drift.ts` (weekly, ~$0.004).
    2026-09-21: `jev-latest` resolves to `jev-1.13.0` (50/50 calls), so pinned-vs-latest was an A/A test: no drift.
@@ -255,6 +260,7 @@ latency, question count does not.
 | P27 | **On a real 9-class text task it did not meaningfully beat a keyword matcher.** Marketing hooks by copywriting formula: Jev **33.75%**, keyword matcher **31.25%**, majority class **26.25%**. A 2.5-point margin at n=80 is inside sampling noise. The field's phishing precedent (regex 91.8% against 62.6% for one broad question) predicted exactly this, and it is the same lesson as the leads baseline at 91.7%: **one broad question over many classes is the shape that loses.** Whether decomposition into concept probes recovers it is E4, and is now the programme's load-bearing question. | our run, n=80 | **measured here** |
 | P28 | **A five-model consensus plurality was no better than the best single labeller.** Individual accuracy on the same 80 items, 9 classes: `claude-haiku-4.5` **50.0%**, `llama-4-maverick` 46.25%, `gpt-5.6-luna` 43.75%, `deepseek-v4-pro` 41.25%, `qwen3.7-plus` 41.25%. Plurality vote across all five: **48.75%** — *below* the best single model. So the ensemble bought nothing but 5× the cost and 5× the latency. Combined with P24 (unanimous labels only 73% accurate), consensus distillation is not a labelling method on this task; it is a way to find items worth a human's attention. | our run, n=80 × 5 | **measured here** |
 | P29 | **When every strong model lands at 41–50% on a 9-class task, suspect the labels before concluding the models are weak.** Five independent families clustered tightly (41.25–50.0%) against a 26.25% majority-class floor, and agreed unanimously on only 32.5% of items. Two explanations fit equally well and have not been separated: the models are bad at the concept, *or* the human taxonomy is under-determined and neighbouring classes genuinely overlap. Tight clustering of otherwise-dissimilar models is evidence for the second. The corpus carries a `swapTestPass` field that is `false` on 5 of 80 — a label-quality signal that has not been used. **Validating the labels is now upstream of validating the model.** | our run, n=80 | **open** |
+| P31 | **Questions in one batch are independent: editing one question's options does not move the others.** One call, six questions (choice + 4 boolean + score), 71 tool-output states. Rewording the choice's option descriptions, same meaning or changed meaning, left the other five inside the A/A band: pooled p95 \|Δp\| 0.04 → 0.05, flips 5 → 4 of 355, per-question mean-excess CI upper bound ≤ 0.010. That held even for `onTopic`, whose instructions refer to the edited categories. The edit did move its own question (meaning change: p95 0.02 → 0.64, accuracy 0.887 → 0.746; same-meaning reword: small, mean excess 0.011 [0.005, 0.018], accuracy unchanged). So "fan out freely" holds for criteria edits: **regress the question you edited, not the batch.** Untested: choice-beside-choice, batches near P1's 32, adding or removing questions. | our run, n=71 × 5 conditions, pre-registered with placebo and control, `jev-1.13.0 (direct)` (`program/Q3-REPORT.md`) | **measured here** |
 
 ### Iteration 3 — 2026-09-21
 
@@ -276,7 +282,7 @@ latency, question count does not.
   question-shaped (addendum). Verdict rule tightened after a false positive on the A/A null; disclosed in DRIFT.md and window 5.
 - **E3 blind test: VOID.** The "holdout" was the fit set's approved subset (L31, which already warned of this and was
   bypassed by the orchestrator's brief). As-run numbers are kept, not reported as results: Jev 0.744 vs keyword 0.897
-  on the in-sample 39. What survives is P24 (option wording). E4 inherits the defect. Branch `feat/e3-blind-test`,
+  on the in-sample 39. What survives is P30 (option wording; numbered P24 until 2026-09-22, when a duplicate of the existing P24 was found). E4 inherits the defect. Branch `feat/e3-blind-test`,
   review dashboard `program/e3-review.html` there.
 - **P6 at n=214 (U8, pre-registered, fit/test disjoint).** Entropy AUC 0.978 vs 1−top-p 0.952 vs length baseline 0.852.
   Falsified on F2: entropy's edge over top-p (+0.026) is below the pre-registered 0.05, and it is zero on 2-option questions.
@@ -286,4 +292,7 @@ latency, question count does not.
   pre-registered prediction ("Jev below regex, p < 0.05") was wrong, and that is recorded as such. The whole remaining gap is adversarial
   rows: Jev escalates 12/30 injections and is right on every one it decides. Overlap with seeds 42/7: 0 full records. Seed 2718 spent.
   Branch feat/leads-literal-questions (49dd854), not merged.
+- **Q3 batch contamination (pre-registered, placebo + control, n=71 × 5, 355 calls): none.** Editing one question's options leaves
+  the others inside A/A noise (P31). Regress the edited question, not the batch. Window 3 closed.
+- **Erratum:** "option wording" was added as P24 on 2026-09-21, colliding with the existing P24 (consensus). Renumbered **P30**.
 
