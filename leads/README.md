@@ -2,6 +2,21 @@
 
 **Read this before reading any number this pipeline produces.**
 
+## Current status (2026-09-21) — see `HANDOFF.md` for the full record
+
+- Both diagnosed bugs are fixed (unique corpus names; dedup never merges on name alone), plus a
+  third found behind them: stage 1 needed every boolean confident-true and left 86% of leads without a verdict.
+- **The one valid measurement of the current code is seed 7** (`results/pipeline-7.json`,
+  `results/eval-7.txt`): Jev 67.8% correct over all 600 leads vs regex 92.2%, at 69.7% coverage.
+  It **fails** the pre-registered ≥ 95%-verdict criterion. Seed 7 is now spent as a holdout.
+- **`results/pipeline-42.json` is NOT a run of the current code.** It is byte-identical to
+  `pipeline-42.before-gate.json` (old stage-1 gate). Seed 42 was used to choose the gate fix, so
+  it is not evidence for it and has deliberately not been re-run to "fill the gap".
+- **Dedup's known limit:** it matches how this corpus plants duplicates (identical firmographics,
+  message verbatim or prefixed). Real resubmissions with an edited message, a re-scraped blurb,
+  or an updated band are missed; recall on real data is unmeasured. The 60/60 match on seeds 42
+  and 7 checks the generator against itself as much as it checks dedup.
+
 The corpus in `corpus/` is **synthetic, with planted labels**. It was written to
 exercise specific failure modes documented in `../NETER.md` (empty/garbage
 inputs, prompt injection, near-duplicate records, genuinely ambiguous
