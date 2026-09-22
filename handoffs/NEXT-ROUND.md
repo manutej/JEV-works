@@ -60,8 +60,10 @@ Read this first. A fresh session should be able to start from this file plus `ha
 | # | unit | ready? | notes |
 |---|---|---|---|
 | Q12 | **Adversarial scoring policy** (L38) | **decided: escalate = correct** (Manu, via leads session); re-score is post-hoc | right / wrong / excluded for "escalate" on injection rows, decided in writing before any re-score |
-| Q13 | **E5 on 2–3 masked targets vs naive Bayes** | **running** (feat/e5-masked, Manu approved 2026-09-22) | Q4's power estimate; the first labelled head-to-head outside synthetic leads |
+| Q13 | **E5 on 2–3 masked targets vs naive Bayes** | **done** (P33): Jev wins text, loses tabular, FAF6 leaked | Q4's power estimate; the first labelled head-to-head outside synthetic leads |
 | Q14 | Annotate `question-bank/bank.ts` "fan out freely" with P31 | ready | one comment line |
+| Q16 | Fix `masked/find-targets.py` leak check: FAF6 `trade_type` is fully determined by which origin/destination columns are empty, but it reported `leakRate 0`. Add a structural test (predict the target from column-emptiness patterns alone). | ready | found by E5 |
+| Q17 | Review the 16 HotpotQA 'errors' in `program/e5-review.html` for gold-label errors | Manu / anyone | could raise Jev's 94.7% |
 | Q15 | Merge queue | Manu | jev-selector ✅ 94d6f00 · leads-literal-questions ✅ f26b029 · **feat/e3-blind-test pending** · feat/e5-masked after E5 |
 
 ## 5 · Rules carried forward (short form; the full list is in handoffs/README.md)
