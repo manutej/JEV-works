@@ -75,6 +75,11 @@
       "direction": "no_difference"
     }
   ],
+  "settings": {
+    "alpha": 0.05,
+    "minStratum": 8,
+    "seenShareLimit": 0.2
+  },
   "caveat": "Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.",
   "verdict": "REFUSE",
   "claimScope": "all",

@@ -1,0 +1,12 @@
+{
+  "positive": "the lead is qualified",
+  "thresholds": { "yes": 0.85, "no": 0.15 },
+  "rules": [
+    { "when": { "q": "segment", "entropyAbove": 0.6 }, "then": "escalate" },
+    { "when": { "q": "buyingSignal", "is": "no" }, "then": false },
+    { "when": { "all": [
+        { "q": "segment", "choiceIn": ["enterprise", "mid_market", "smb"] },
+        { "q": "icpFit", "scoreAtLeast": 2 } ] }, "then": true }
+  ],
+  "default": false
+}

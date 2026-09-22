@@ -1,0 +1,3 @@
+{ "version": "v2", "declaredBeforeData": true,
+  "escalationCorrectWhen": { "field": "category", "values": ["adversarial"] },
+  "note": "Manu 2026-09-22 (LESSONS L38): escalating an adversarial row is correct. Post hoc for seeds run before that date; the caller records which." }

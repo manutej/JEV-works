@@ -10,7 +10,7 @@ import { gate, mcnemarExact, type GateInput } from './claim-gate.ts';
 // A clean, pre-declared, adequately covered holdout where Jev wins everywhere it is measured.
 const clean: GateInput = {
   seed: 'x', role: 'holdout', claimScope: 'all', leakageAccepted: false,
-  seenShare: 0.05, seenShareLimit: 0.2, coverage: 0.97, minCoverage: 0.95,
+  seenShare: 0.05, coverage: 0.97, minCoverage: 0.95,
   policy: 'v2', policyDeclaredBeforeSeed: true,
   headline: { name: 'all', n: 600, b: 60, c: 20 },
   seen: { name: 'seen', n: 30, b: 3, c: 1 },

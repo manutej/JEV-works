@@ -396,13 +396,13 @@ console.log(`paired (McNemar exact, v2): ${paired('v2')}`);
     const cats = [...new Set(allIds.map(categoryOf))];
     const report = gate({
       seed: SEED, role: split.role, claimScope: split.claimScope, leakageAccepted: split.leakageAccepted,
-      seenShare: parts.seen.length / leads.length, seenShareLimit: SEEN_SHARE_WARN,
+      seenShare: parts.seen.length / leads.length,
       coverage: overAll(jevQualifiedPreds, allIds, policy).coverage, minCoverage: split.minCoverage,
       policy, policyDeclaredBeforeSeed: policy === 'v1' || !RUN_BEFORE_V2.has(String(SEED)),
       headline: pairedOn('all', allIds),
       seen: pairedOn('seen', parts.seen), novel: pairedOn('novel', parts.novel),
       categories: cats.map(c => pairedOn(c, allIds.filter(id => categoryOf(id) === c))),
-    });
+    }, { seenShareLimit: SEEN_SHARE_WARN, minStratum: MIN_SUBSET });
     await writeFile(new URL(`./results/consist-report-${SEED}.json`, import.meta.url), JSON.stringify(report, null, 2) + '\n');
     console.log(`\n═══ claim gate (headline vs strata, policy ${policy}) ═══`);
     console.log(`${report.verdict}: headline claim ${report.claim} (scope ${report.claimScope}, McNemar ${report.headline.b} vs ${report.headline.c}, p = ${report.headline.p.toPrecision(3)})`);
