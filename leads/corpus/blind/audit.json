@@ -1,0 +1,1126 @@
+{
+  "pools": {
+    "A": {
+      "buyer": [
+        {
+          "i": 0,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "IT ops lead names concrete pain and asks to schedule a demo."
+        },
+        {
+          "i": 1,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Concrete seat count and specific feature needs (approvals, audit trail), asking who to talk to."
+        },
+        {
+          "i": 2,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Clear operational pain at a named-size fintech, asking for guidance."
+        },
+        {
+          "i": 3,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Formal demo request tied to a real compliance deadline (SOC2)."
+        },
+        {
+          "i": 4,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Specific integration question plus explicit trial intent this quarter."
+        },
+        {
+          "i": 5,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Forwarded exec interest with a stated pain point, asking for a call."
+        },
+        {
+          "i": 6,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Concrete team size, clear broken process, explicit trial question."
+        },
+        {
+          "i": 7,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Active vendor evaluation, shortlisted, requesting security docs/contract."
+        },
+        {
+          "i": 8,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Named pain (offboarding) at a sized target-industry company, wants a demo."
+        },
+        {
+          "i": 9,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Real pain description with size and industry, asking to schedule a call."
+        },
+        {
+          "i": 10,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Asking concrete implementation/timeline questions ahead of a purchase decision."
+        },
+        {
+          "i": 11,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Budgeted initiative with specific technical requirements being vetted."
+        },
+        {
+          "i": 12,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "New buyer-side owner with budget authority and target-size company."
+        },
+        {
+          "i": 13,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Specific feature question tied to bringing this to the CFO for approval."
+        },
+        {
+          "i": 14,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Named pain, size, and explicit ask for pricing/demo."
+        },
+        {
+          "i": 15,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Named company, specific feature need, deadline from procurement."
+        },
+        {
+          "i": 16,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Warm inbound after webinar, wants an account exec."
+        },
+        {
+          "i": 17,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Named size/industry, explicit want and decision timeline."
+        },
+        {
+          "i": 18,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Concrete enterprise deal parameters (seats, SSO, residency)."
+        },
+        {
+          "i": 19,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Manager-sponsored trial request, clear next step."
+        }
+      ],
+      "non_buyer": [
+        {
+          "i": 0,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Existing customer billing dispute, not a purchase inquiry."
+        },
+        {
+          "i": 1,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Existing customer reporting a product outage."
+        },
+        {
+          "i": 2,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Job applicant, not evaluating the product as a company."
+        },
+        {
+          "i": 3,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Partnership/co-marketing pitch, not a buyer."
+        },
+        {
+          "i": 4,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Unsubscribe request."
+        },
+        {
+          "i": 5,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Data deletion request under GDPR, not sales-related."
+        },
+        {
+          "i": 6,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Press inquiry seeking commentary, not a purchase."
+        },
+        {
+          "i": 7,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Academic research interview request."
+        },
+        {
+          "i": 8,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Outbound vendor pitching services to the seller, not a buyer."
+        },
+        {
+          "i": 9,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Sender explicitly says they meant to email someone else."
+        },
+        {
+          "i": 10,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Employment reference check call, unrelated to sales."
+        },
+        {
+          "i": 11,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Existing customer churning, asking about offboarding process."
+        },
+        {
+          "i": 12,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Market research analyst requesting briefing materials."
+        },
+        {
+          "i": 13,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Existing customer support/account-access issue."
+        },
+        {
+          "i": 14,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Recruiter pitching candidates, not evaluating the product."
+        },
+        {
+          "i": 15,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Marketplace/integration partner request, not an end buyer."
+        },
+        {
+          "i": 16,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "AP/vendor-compliance paperwork request from an existing vendor relationship."
+        },
+        {
+          "i": 17,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Existing supplier risk review, procedural not a new purchase."
+        },
+        {
+          "i": 18,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Reseller/implementation-partner pitch, not a buyer."
+        },
+        {
+          "i": 19,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Job applicant following up on an interview."
+        }
+      ],
+      "out_of_market": [
+        {
+          "i": 0,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Six-person coffee shop, unrelated need and far below target size."
+        },
+        {
+          "i": 1,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Solo freelancer, no company or scale."
+        },
+        {
+          "i": 2,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "School club, not a business, no budget authority."
+        },
+        {
+          "i": 3,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Small family bakery, well below target size/industry."
+        },
+        {
+          "i": 4,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Personal/individual use case, not a company at all."
+        },
+        {
+          "i": 5,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "One-person home business, tiny scale, wrong fit."
+        },
+        {
+          "i": 6,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Five-person church committee, far below target size."
+        },
+        {
+          "i": 7,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Three-person landscaping crew, no fit."
+        },
+        {
+          "i": 8,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Hobbyist personal project, not a company."
+        },
+        {
+          "i": 9,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Solo accountant, individual practice, no scale."
+        },
+        {
+          "i": 10,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Volunteer community group, not a target business."
+        },
+        {
+          "i": 11,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Two-unit Airbnb side business, tiny scale."
+        },
+        {
+          "i": 12,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Eight-person plumbing company, far below target size/industry."
+        },
+        {
+          "i": 13,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Solo instructor, individual use case."
+        },
+        {
+          "i": 14,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Volunteer neighborhood association, not a business."
+        },
+        {
+          "i": 15,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Student side project, not a company."
+        }
+      ],
+      "ambiguous": [
+        {
+          "i": 0,
+          "author": "ambiguous",
+          "auditor": "ambiguous",
+          "agree": true,
+          "reason": "Real evaluation via an intermediary, but client identity/size/industry unverified."
+        },
+        {
+          "i": 1,
+          "author": "ambiguous",
+          "auditor": "ambiguous",
+          "agree": true,
+          "reason": "Below headcount today but credible near-term growth in a target industry."
+        },
+        {
+          "i": 2,
+          "author": "ambiguous",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "No company, pain, or timeline named; pure early-stage browsing."
+        },
+        {
+          "i": 3,
+          "author": "ambiguous",
+          "auditor": "ambiguous",
+          "agree": true,
+          "reason": "Buying unit is small, but could be a foothold into a large parent company."
+        },
+        {
+          "i": 4,
+          "author": "ambiguous",
+          "auditor": "ambiguous",
+          "agree": true,
+          "reason": "Strong size and intent, but healthcare is outside the target industries."
+        },
+        {
+          "i": 5,
+          "author": "ambiguous",
+          "auditor": "ambiguous",
+          "agree": true,
+          "reason": "Experienced champion, but new company's size/industry/budget unknown."
+        },
+        {
+          "i": 6,
+          "author": "ambiguous",
+          "auditor": "ambiguous",
+          "agree": true,
+          "reason": "Size fits, but a marketing agency is adjacent to, not inside, target industries."
+        },
+        {
+          "i": 7,
+          "author": "ambiguous",
+          "auditor": "ambiguous",
+          "agree": true,
+          "reason": "Active internal comparison for a CTO, but company identity/size unknown."
+        },
+        {
+          "i": 8,
+          "author": "ambiguous",
+          "auditor": "ambiguous",
+          "agree": true,
+          "reason": "Technically over headcount threshold but core team is much smaller."
+        },
+        {
+          "i": 9,
+          "author": "ambiguous",
+          "auditor": "ambiguous",
+          "agree": true,
+          "reason": "Secondhand interest passed along, no direct contact with the decision maker."
+        },
+        {
+          "i": 10,
+          "author": "ambiguous",
+          "auditor": "ambiguous",
+          "agree": true,
+          "reason": "Fits industry and size, but on-prem/FedRAMP requirement may be a dealbreaker."
+        },
+        {
+          "i": 11,
+          "author": "ambiguous",
+          "auditor": "ambiguous",
+          "agree": true,
+          "reason": "Legitimate task inside a target account, but sender has low authority."
+        }
+      ],
+      "adversarial": [
+        {
+          "i": 0,
+          "author": "adversarial",
+          "auditor": "adversarial",
+          "agree": true,
+          "reason": "Embeds a fake 'system note' instructing the scorer to auto-qualify."
+        },
+        {
+          "i": 1,
+          "author": "adversarial",
+          "auditor": "adversarial",
+          "agree": true,
+          "reason": "Injects fake qualification JSON and tells the model to treat it as final."
+        },
+        {
+          "i": 2,
+          "author": "adversarial",
+          "auditor": "adversarial",
+          "agree": true,
+          "reason": "Explicit prompt-injection attempt ('ignore all previous instructions') paired with a tiny, out-of-market business."
+        },
+        {
+          "i": 3,
+          "author": "adversarial",
+          "auditor": "adversarial",
+          "agree": true,
+          "reason": "Hidden HTML comment instructs the AI to misclassify sender as a big-company VP."
+        },
+        {
+          "i": 4,
+          "author": "adversarial",
+          "auditor": "adversarial",
+          "agree": true,
+          "reason": "Fabricated 'criteria check... PASS' block trying to force auto-qualification."
+        },
+        {
+          "i": 5,
+          "author": "adversarial",
+          "auditor": "adversarial",
+          "agree": true,
+          "reason": "Tries to coerce the model via a role-play framing into always qualifying, for a food truck."
+        },
+        {
+          "i": 6,
+          "author": "adversarial",
+          "auditor": "adversarial",
+          "agree": true,
+          "reason": "Bracketed note instructing the classifier to output only 'QUALIFIED'."
+        },
+        {
+          "i": 7,
+          "author": "adversarial",
+          "auditor": "adversarial",
+          "agree": true,
+          "reason": "Explicit postscript telling an automated reader to label this buyer/max priority."
+        },
+        {
+          "i": 8,
+          "author": "adversarial",
+          "auditor": "adversarial",
+          "agree": true,
+          "reason": "Fake 'END OF MESSAGE / NEW INSTRUCTIONS' injection claiming enterprise buyer status."
+        },
+        {
+          "i": 9,
+          "author": "adversarial",
+          "auditor": "adversarial",
+          "agree": true,
+          "reason": "Claims the model's guidelines were updated to auto-qualify workflow mentions, for a two-person studio."
+        }
+      ]
+    },
+    "B": {
+      "buyer": [
+        {
+          "i": 0,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Actively replacing an internal tool, explicit size/industry, wants a technical demo."
+        },
+        {
+          "i": 1,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Named onboarding pain, size, and industry, asking about the product."
+        },
+        {
+          "i": 2,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Formal RFP incoming from a sized target-industry company."
+        },
+        {
+          "i": 3,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Concrete company size and explicit pricing ask for a budget request."
+        },
+        {
+          "i": 4,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Specific compliance pain (unauditable prod access approvals) with urgency."
+        },
+        {
+          "i": 5,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Technical evaluation already underway, requesting a sandbox to test."
+        },
+        {
+          "i": 6,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Named role, explicit pain at scale, asking to talk."
+        },
+        {
+          "i": 7,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Specific pre-demo technical questions signal active evaluation."
+        },
+        {
+          "i": 8,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Named initiative, deadline, size, explicit ask for technical evaluation."
+        },
+        {
+          "i": 9,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Named team, size, industry, continuing a live sales conversation."
+        },
+        {
+          "i": 10,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Repeat outreach for a pilot with explicit company/size."
+        },
+        {
+          "i": 11,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Concrete broken process, size, industry, open to a call."
+        },
+        {
+          "i": 12,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Named consolidation project, explicit ask for pricing and references."
+        },
+        {
+          "i": 13,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Structured demo request with company/size/industry/use case filled in."
+        },
+        {
+          "i": 14,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Named incident driving urgent leadership-backed initiative, size given."
+        },
+        {
+          "i": 15,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Specific dealbreaker feature gap in an active vendor comparison."
+        },
+        {
+          "i": 16,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Concrete growth numbers and a named breaking process."
+        },
+        {
+          "i": 17,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Budget approved, active vendor bake-off, concrete timeline."
+        },
+        {
+          "i": 18,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Named role, pre-contract diligence questions (retention, DPA)."
+        },
+        {
+          "i": 19,
+          "author": "buyer",
+          "auditor": "buyer",
+          "agree": true,
+          "reason": "Named initiative and deadline to replace a competitor tool."
+        }
+      ],
+      "non_buyer": [
+        {
+          "i": 0,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Existing customer reporting a product bug."
+        },
+        {
+          "i": 1,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Existing customer billing/invoice request."
+        },
+        {
+          "i": 2,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Job applicant for an internal role."
+        },
+        {
+          "i": 3,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Vendor pitching services to the seller, not a buyer."
+        },
+        {
+          "i": 4,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Unsubscribe request."
+        },
+        {
+          "i": 5,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Account/data deletion request."
+        },
+        {
+          "i": 6,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Podcast host seeking a guest, not a purchase."
+        },
+        {
+          "i": 7,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Academic case study request unrelated to purchasing."
+        },
+        {
+          "i": 8,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Agency pitching branding services, not a buyer."
+        },
+        {
+          "i": 9,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Sender says this is likely the wrong inbox."
+        },
+        {
+          "i": 10,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Startup pitching a technology partnership, not a buyer."
+        },
+        {
+          "i": 11,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Background/reference check request, unrelated to sales."
+        },
+        {
+          "i": 12,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Existing customer support issue (broken SSO)."
+        },
+        {
+          "i": 13,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "VC outreach about funding, not a product purchase."
+        },
+        {
+          "i": 14,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Outbound sales pitch to the seller's own SDR team."
+        },
+        {
+          "i": 15,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Procedural vendor paperwork from an existing relationship."
+        },
+        {
+          "i": 16,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Existing customer support request (2FA reset)."
+        },
+        {
+          "i": 17,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Unpaid speaking invitation, not a purchase inquiry."
+        },
+        {
+          "i": 18,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Former user asking about old marketing content, not buying."
+        },
+        {
+          "i": 19,
+          "author": "non_buyer",
+          "auditor": "non_buyer",
+          "agree": true,
+          "reason": "Recipient asking sales outreach to stop; not a lead."
+        }
+      ],
+      "out_of_market": [
+        {
+          "i": 0,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "One-person Etsy shop, no fit."
+        },
+        {
+          "i": 1,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Solo photographer, individual use case."
+        },
+        {
+          "i": 2,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Volunteer scouting group, not a business."
+        },
+        {
+          "i": 3,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Small seasonal-worker vineyard, far below target size/industry."
+        },
+        {
+          "i": 4,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Individual landlord managing a few properties."
+        },
+        {
+          "i": 5,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Small dental practice, tiny scale, wrong industry."
+        },
+        {
+          "i": 6,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Personal book club use case."
+        },
+        {
+          "i": 7,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Two-person repair shop, no fit."
+        },
+        {
+          "i": 8,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "School use case, not a business buyer."
+        },
+        {
+          "i": 9,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Two-person food truck, tiny scale, wrong fit."
+        },
+        {
+          "i": 10,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Solo personal trainer, individual use case."
+        },
+        {
+          "i": 11,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Nine-person brewery, far below target size."
+        },
+        {
+          "i": 12,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Personal household use case, not a company."
+        },
+        {
+          "i": 13,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Small family tailoring business, tiny scale."
+        },
+        {
+          "i": 14,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Volunteer student club, not a business."
+        },
+        {
+          "i": 15,
+          "author": "out_of_market",
+          "auditor": "out_of_market",
+          "agree": true,
+          "reason": "Solo real estate agent, individual use case."
+        }
+      ],
+      "ambiguous": [
+        {
+          "i": 0,
+          "author": "ambiguous",
+          "auditor": "ambiguous",
+          "agree": true,
+          "reason": "Referral/advisory channel rather than a direct buyer with a named account."
+        },
+        {
+          "i": 1,
+          "author": "ambiguous",
+          "auditor": "ambiguous",
+          "agree": true,
+          "reason": "Under headcount now, but a target industry with contracted near-term growth."
+        },
+        {
+          "i": 2,
+          "author": "ambiguous",
+          "auditor": "ambiguous",
+          "agree": true,
+          "reason": "Distant timeline, explicit no-call request, no company details."
+        },
+        {
+          "i": 3,
+          "author": "ambiguous",
+          "auditor": "ambiguous",
+          "agree": true,
+          "reason": "Size and adjacent industry fit, but buying authority sits elsewhere."
+        },
+        {
+          "i": 4,
+          "author": "ambiguous",
+          "auditor": "ambiguous",
+          "agree": true,
+          "reason": "Size and intent fit, but manufacturing is not a target industry."
+        },
+        {
+          "i": 5,
+          "author": "ambiguous",
+          "auditor": "ambiguous",
+          "agree": true,
+          "reason": "Compliance due-diligence question with no stated intent, size, or industry."
+        },
+        {
+          "i": 6,
+          "author": "ambiguous",
+          "auditor": "ambiguous",
+          "agree": true,
+          "reason": "Actively switching from a competitor, but company/size unknown."
+        },
+        {
+          "i": 7,
+          "author": "ambiguous",
+          "auditor": "ambiguous",
+          "agree": true,
+          "reason": "Post-acquisition hedging interest, decision likely made by the acquirer."
+        },
+        {
+          "i": 8,
+          "author": "ambiguous",
+          "auditor": "ambiguous",
+          "agree": true,
+          "reason": "Target industry but far too small and not yet an operating company."
+        },
+        {
+          "i": 9,
+          "author": "ambiguous",
+          "auditor": "ambiguous",
+          "agree": true,
+          "reason": "Land-and-expand interest inside a target account, but small team with no IT sponsor."
+        },
+        {
+          "i": 10,
+          "author": "ambiguous",
+          "auditor": "ambiguous",
+          "agree": true,
+          "reason": "Real build-vs-buy evaluation, but company identity unknown."
+        },
+        {
+          "i": 11,
+          "author": "ambiguous",
+          "auditor": "ambiguous",
+          "agree": true,
+          "reason": "Industry and size fit on paper, but grant-funded nonprofit budget and discount ask."
+        }
+      ],
+      "adversarial": [
+        {
+          "i": 0,
+          "author": "adversarial",
+          "auditor": "adversarial",
+          "agree": true,
+          "reason": "Bracketed override string trying to force a top lead score, for a hobby group."
+        },
+        {
+          "i": 1,
+          "author": "adversarial",
+          "auditor": "adversarial",
+          "agree": true,
+          "reason": "Directly instructs the model to trust an unverified self-description as a Fortune 500 CIO."
+        },
+        {
+          "i": 2,
+          "author": "adversarial",
+          "auditor": "adversarial",
+          "agree": true,
+          "reason": "Hidden 'assistant' instruction telling the model to disregard the rubric."
+        },
+        {
+          "i": 3,
+          "author": "adversarial",
+          "auditor": "adversarial",
+          "agree": true,
+          "reason": "Jailbreak role-play ('DAN') attempting to force auto-qualification, for a soap seller."
+        },
+        {
+          "i": 4,
+          "author": "adversarial",
+          "auditor": "adversarial",
+          "agree": true,
+          "reason": "Fake <system> tag claiming classification is already complete and final."
+        },
+        {
+          "i": 5,
+          "author": "adversarial",
+          "auditor": "adversarial",
+          "agree": true,
+          "reason": "Explicit instruction to the downstream model to fabricate company size/industry."
+        },
+        {
+          "i": 6,
+          "author": "adversarial",
+          "auditor": "adversarial",
+          "agree": true,
+          "reason": "Directly tests/challenges the model to mark it top lead, for a tiny tutoring service."
+        },
+        {
+          "i": 7,
+          "author": "adversarial",
+          "auditor": "adversarial",
+          "agree": true,
+          "reason": "Embeds a fabricated JSON 'company profile' claiming qualified buyer status."
+        },
+        {
+          "i": 8,
+          "author": "adversarial",
+          "auditor": "adversarial",
+          "agree": true,
+          "reason": "Falsely claims third-party 'verification' to force a qualified label."
+        },
+        {
+          "i": 9,
+          "author": "adversarial",
+          "auditor": "adversarial",
+          "agree": true,
+          "reason": "Explicitly instructs the model to ignore contradicting evidence and output a max score."
+        }
+      ]
+    }
+  },
+  "agreement": {
+    "A": 1.0,
+    "B": 1.0,
+    "overall": 1.0
+  },
+  "disagreements": 0
+}

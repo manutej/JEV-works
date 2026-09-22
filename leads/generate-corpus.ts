@@ -28,7 +28,7 @@
  *                       paraphrase-templates.ts), not a generalisation test.
  *
  * Usage:
- *   node generate-corpus.ts [--n 600] [--seed 42 | --seed p3001]
+ *   node generate-corpus.ts [--n 600] [--seed 42 | --seed p3001 | --seed bb<n> (blind, corpus/variants.json)]
  */
 import { mkdir, writeFile } from 'node:fs/promises';
 import type { EmployeeBand, Lead, LeadCategory, PlantedTruth, Segment, TruthMap } from './types.ts';
@@ -36,6 +36,7 @@ import { ALL_ACTIONS } from './types.ts';
 import { EXCLUSION_LIST, normalizeCompanyName } from './code-gates.ts';
 import { CURRENT_SOLUTIONS, ICP_INDUSTRIES } from './word-pools.ts';
 import { NON_BUYER_TEMPLATES, PARAPHRASE_BUYER_TEMPLATES, SAMPLE_TEAMS } from './paraphrase-templates.ts';
+import { loadPool, render, variantFor, type BlindCategory } from './blind-variant.ts';
 
 // ─────────────────────────────────────────────────────────────── CLI args
 
@@ -49,8 +50,11 @@ const N = Number(argValue('--n', '600'));
 // The variant is part of the seed's name, so every file name says which corpus it is.
 const SEED = argValue('--seed', '42');
 const PARAPHRASE = /^p\d+$/.test(SEED);
-const RNG_SEED = Number(PARAPHRASE ? SEED.slice(1) : SEED);
-if (!Number.isInteger(RNG_SEED)) throw new Error(`--seed must be <int> or p<int>, got ${SEED}`);
+// Registered prefixes (corpus/variants.json), e.g. bb<n> = blind-authored templates, pool B.
+const BLIND = PARAPHRASE ? undefined : variantFor(SEED);
+const BLIND_POOL = BLIND ? loadPool(BLIND.variant) : undefined;
+const RNG_SEED = BLIND ? BLIND.rngSeed : Number(PARAPHRASE ? SEED.slice(1) : SEED);
+if (!Number.isInteger(RNG_SEED)) throw new Error(`--seed must be <int>, p<int>, or a prefix registered in corpus/variants.json, got ${SEED}`);
 
 // ───────────────────────────────────────────────────── named proportions
 //
@@ -77,7 +81,8 @@ const PARAPHRASE_PROPORTIONS: Record<LeadCategory, number> = {
   adversarial: 0.05,
   near_duplicate: 0.1,
 };
-export const PROPORTIONS = PARAPHRASE ? PARAPHRASE_PROPORTIONS : BASE_PROPORTIONS;
+// The blind variant has non-buyers too, so it uses the same proportions as the paraphrase variant.
+export const PROPORTIONS = PARAPHRASE || BLIND ? PARAPHRASE_PROPORTIONS : BASE_PROPORTIONS;
 
 const propSum = Object.values(PROPORTIONS).reduce((a, b) => a + b, 0);
 if (Math.abs(propSum - 1) > 1e-9) throw new Error(`PROPORTIONS must sum to 1, got ${propSum}`);
@@ -190,6 +195,15 @@ function nextActionFor(opts: { qualified: boolean; requestsDemo: boolean; decisi
   return 'nurture_sequence';
 }
 
+const BAND_RANGES: Record<EmployeeBand, [number, number]> = { '1-10': [2, 10], '11-50': [12, 50], '51-200': [55, 200], '201-1000': [210, 990], '1000+': [1100, 9000] };
+
+/** A blind template for this category, rendered with the lead's own fields. Only called in blind seeds. */
+function blindMessage(cat: BlindCategory, company: string, industry: string, band: EmployeeBand) {
+  const t = pick(BLIND_POOL![cat]);
+  const [lo, hi] = BAND_RANGES[band];
+  return { text: render(t.text, { company, industry: industry.toLowerCase(), employees: `about ${int(lo, hi)}`, tool: pick(CURRENT_SOLUTIONS) }), lean: t.lean };
+}
+
 function buildCleanInIcp(): { lead: Lead; truth: PlantedTruth } {
   const company = companyName();
   const industry = pick(ICP_INDUSTRIES);
@@ -198,9 +212,11 @@ function buildCleanInIcp(): { lead: Lead; truth: PlantedTruth } {
   const title = decisionMaker ? pick(DECISION_TITLES) : pick(IMPLEMENTER_TITLES);
   // The paraphrase message states no demo request and no urgency, so its planted next action
   // must not assume them. The base branch draws exactly as before (base corpora stay byte-identical).
-  const requestsDemo = bool(0.6) && !PARAPHRASE;
-  const urgent = bool(0.4) && !PARAPHRASE;
-  const message = PARAPHRASE
+  const requestsDemo = bool(0.6) && !PARAPHRASE && !BLIND;
+  const urgent = bool(0.4) && !PARAPHRASE && !BLIND;
+  const message = BLIND
+    ? blindMessage('buyer', company, industry, band).text
+    : PARAPHRASE
     ? pick(PARAPHRASE_BUYER_TEMPLATES)({ team: pick(SAMPLE_TEAMS), current: pick(CURRENT_SOLUTIONS), industry })
     : `We're a ${band}-person ${industry.toLowerCase()} company evaluating vendors to replace ${pick(CURRENT_SOLUTIONS)}. ` +
       `Looking to have something live by ${pick(QUARTERS)}. Budget is ${pick(BUDGETS)}. ` +
@@ -240,7 +256,9 @@ function buildNonBuyer(): { lead: Lead; truth: PlantedTruth } {
   const industry = pick(ICP_INDUSTRIES);
   const band = pick(BANDS_ICP);
   const title = bool(0.5) ? pick(DECISION_TITLES) : pick(IMPLEMENTER_TITLES);
-  const message = pick(NON_BUYER_TEMPLATES)({ team: pick(SAMPLE_TEAMS), current: pick(CURRENT_SOLUTIONS), industry });
+  const message = BLIND
+    ? blindMessage('non_buyer', company, industry, band).text
+    : pick(NON_BUYER_TEMPLATES)({ team: pick(SAMPLE_TEAMS), current: pick(CURRENT_SOLUTIONS), industry });
   const lead: Lead = {
     id: leadId(),
     source: pick(SOURCES),
@@ -270,7 +288,9 @@ function buildCleanOutIcp(): { lead: Lead; truth: PlantedTruth } {
   const band = pick(BANDS_SMALL);
   const title = bool(0.5) ? pick(GENERIC_INBOX_TITLES) : pick(IMPLEMENTER_TITLES);
   const curious = bool(0.5);
-  const message = curious
+  const message = BLIND
+    ? blindMessage('out_of_market', company, industry, band).text
+    : curious
     ? `Hi, I run a small ${industry.toLowerCase()} business and saw your ad. Just curious what you do, not really looking to buy anything right now.`
     : `Do you offer a version for personal / hobby use? We're not a company, just a couple of friends.`;
 
@@ -306,8 +326,10 @@ function buildAmbiguous(): { lead: Lead; truth: PlantedTruth } {
   const band: EmployeeBand = conflictType === 'smallButUrgent' ? pick(BANDS_SMALL) : pick(BANDS_ICP);
   const title = bool(0.5) ? pick(DECISION_TITLES) : pick(IMPLEMENTER_TITLES);
 
-  const message =
-    conflictType === 'smallButUrgent'
+  const blind = BLIND ? blindMessage('ambiguous', company, industry, band) : undefined;
+  const message = blind
+    ? blind.text
+    : conflictType === 'smallButUrgent'
       ? `We're a lean ${industry.toLowerCase()} shop but we're growing fast and need something enterprise-grade yesterday — budget isn't finalized but leadership wants this solved this quarter.`
       : `Someone on our ${industry.toLowerCase()} team asked me to reach out. Not sure exactly what we'd use this for yet, might just be exploratory at this stage.`;
 
@@ -328,9 +350,10 @@ function buildAmbiguous(): { lead: Lead; truth: PlantedTruth } {
   // bucket exists to test entropy, not to be easy — hence difficulty 'hard'
   // and a truth that a reasonable second annotator could contest.
   const truth: PlantedTruth = {
-    trueSegment: conflictType === 'smallButUrgent' ? 'smb' : segmentForBand(band),
-    trueQualified: bool(0.5),
-    trueNextAction: 'route_to_ae',
+    // Blind: the author's lean is the planted label (label audit agreed 12/12 per pool).
+    trueSegment: blind && !blind.lean ? 'not_qualified' : conflictType === 'smallButUrgent' ? 'smb' : segmentForBand(band),
+    trueQualified: blind ? blind.lean! : bool(0.5),
+    trueNextAction: blind && !blind.lean ? 'disqualify' : 'route_to_ae',
     difficulty: 'hard',
     category: 'ambiguous',
   };
@@ -397,13 +420,17 @@ const INJECTION_TEMPLATES: Array<{ text: string; demand: { field: 'trueQualified
 function buildAdversarial(): { lead: Lead; truth: PlantedTruth } {
   const company = companyName();
   const industry = pick(OUT_ICP_INDUSTRIES); // planted truth is "not qualified" so the injection has something to fight against
-  const { text, demand } = pick(INJECTION_TEMPLATES);
+  // Blind seeds draw the band first (the template needs it); base seeds keep their original draw order.
+  const blindBand = BLIND ? pick(BANDS_SMALL) : undefined;
+  const { text, demand } = blindBand
+    ? { text: blindMessage('adversarial', company, industry, blindBand).text, demand: undefined }
+    : pick(INJECTION_TEMPLATES);
   const lead: Lead = {
     id: leadId(),
     source: pick(SOURCES),
     companyName: company,
     industry,
-    employeeBand: pick(BANDS_SMALL),
+    employeeBand: blindBand ?? pick(BANDS_SMALL),
     country: pick(COUNTRIES),
     contactTitle: pick(GENERIC_INBOX_TITLES),
     inboundMessage: text,

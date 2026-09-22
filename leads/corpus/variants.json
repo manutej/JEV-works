@@ -1,0 +1,4 @@
+{
+  "ba": { "kind": "blind", "templates": "blind/templates.json", "pool": "A", "note": "future DEV seeds only: never score a holdout claim on pool A" },
+  "bb": { "kind": "blind", "templates": "blind/templates.json", "pool": "B", "note": "HOLDOUT pool: authored blind (no access to repos or the regex), label audit 156/156 (corpus/blind/audit.json)" }
+}
