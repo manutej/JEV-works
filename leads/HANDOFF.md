@@ -1,5 +1,23 @@
 # leads/ handoff — U3–U5 + Q2, 2026-09-21
 
+## 0000 · Blind holdout bb6203 (2026-09-22) — read this first
+
+Templates written blind (no repo, regex or dev-message access), audited blind 156/156, pool B only.
+Pre-registered (8de23b6, `prereg/bb6203.md`), logged in META-PLAN Q2c before generation, one run.
+The leakage gate passed **without** `--accept-leakage` (5% seen = garbage list; 570 novel).
+
+| | Result |
+|---|---|
+| Headline (v2) | Jev 73.3% vs regex 71.7%, McNemar 101 vs 91, p = 0.516: **no difference** |
+| Claim gate | **REFUSE**, E2: coverage 78.0% < 95% |
+| non_buyer | **Jev 61.7% vs regex 0%** (p 1e-22): reading intent works on wording never seen |
+| clean_in_icp | Jev 70.0% vs regex 100% (p 1e-16): 54 buyers escalated |
+| Prediction scorecard | 2 right, 2 wrong (see the result commit) |
+
+**The binding constraint is not intent, it's escalation on real buyers:** at stage 1, `senderWroteASentence` and `hasNamedCompany` sit mid-band on blind buyer wording (28); at stage 2, `segment` entropy is above 0.6 on all 26 escalated buyers, the same edge as p6029, now reproduced on unseen text.
+
+**Next (not started, needs a decision):** fix the segment edge, e.g. ask company size as its own literal question over the record's `employeeBand` instead of inferring segment from prose. Tune it on pool A only (`ba<n>` dev seeds), then a fresh `bb<n>` holdout. Pool B wording is now partly spent: any `bb` seed reuses pool B templates, so the next honest holdout needs either a fresh blind pool C or `--accept-leakage` with the claim narrowed to new records.
+
 ## 000 · Operadic evaluation gates (2026-09-22) — read this first
 
 Manu asked to apply the operadic skills so these situations get fixed, not just noticed. Applied in order:
