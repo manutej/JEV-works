@@ -1,6 +1,36 @@
 # leads/ handoff — U3–U5 + Q2, 2026-09-21
 
-## 0 · Round 2 (Q2, branch `feat/leads-literal-questions`) — read this first
+## 00 · Round 3 (Q2b, branch `feat/leads-paraphrase`) — read this first
+
+Manu's three decisions (2026-09-22): merge Q2 (done, main f26b029); an escalation on an adversarial
+row counts as correct (**scoring policy v2**, `evaluate.ts` SCORING POLICY; v1 always printed beside
+it; v2 is post hoc for seeds 7/42/2718 and the output says so); build a paraphrase corpus.
+
+| | |
+|---|---|
+| Corpus | seed `p<n>` = paraphrase variant: 20% `non_buyer` (ICP-shaped record, sender not buying), buyers written without regex keywords. **A stress test built against the regex** (templates written after reading its keyword lists; `paraphrase-templates.test.ts` proves 0 pattern hits, mutation-tested). Not a generalisation test. |
+| Dev finding (p3001) | regex and current Jev both 0% on non-buyers. Jev's `buyingSignal` separated them at the confident ends (non-buyers 66/54/0, buyers 0/39/141), but stage 2 never read it. |
+| Rule change | stage 2 rejects when `buyingSignal` ≤ 0.15. Dev replay: seed 42 changes 0 leads; p3001 rejects 50 non-buyers, 0 buyers. |
+| Pre-registration | 158eae9, logged in META-PLAN Q2b before generation. Primary score v2. |
+| **H1** paraphrase `p6029` | (a) coverage **93.0% FAIL**; (b) Jev **78.3%** vs regex **72.0%**, McNemar 71 vs 33, **p = 2.5e-4: Jev significantly better**; (c) non-buyers **40.0% vs 0%** |
+| **H2** base `6011` | (a) **97.7% pass**; (b) Jev **90.3%** vs regex **92.0%**, p = 0.245: **no significant difference** (under v1 the regex would win, p = 0.013) |
+| Predictions | 4 of 5 right; H1 (a) wrong |
+| **Caveat on H1** | 565/600 holdout messages appear verbatim in dev p3001: only 5 + 5 templates, so the rule was tuned on the exact non-buyer wording. H1 shows robustness to new *records*, not new *wording*. |
+
+**What it means.** When a record's shape and its message disagree, reading the message wins, and the
+regex cannot. It only works once the pipeline *uses* the intent answer it was already getting. On
+ordinary leads (H2) the change costs nothing measurable. The evidence is from a stress test whose
+wording the rule was tuned on, so it says "this mechanism works", not "this beats a regex in the wild".
+
+**Next steps (not started):**
+1. Honest version of H1: new non-buyer and buyer templates written **blind** by someone who has not seen
+   `paraphrase-templates.ts` or the regex (a fresh agent with only the category definitions), then a
+   fresh seed. That tests wording, not only records.
+2. H1's coverage miss is 22 mid-band non-buyers. Leave it (acting only on confident ends is the design)
+   or pre-register a mid-band policy.
+3. Real data: the README's standing point is that synthetic results need a real sample before any claim.
+
+## 0 · Round 2 (Q2, branch `feat/leads-literal-questions`)
 
 §1–§8 below are round 1 (U3–U5, merged at 0cefc2d) and stay as the record. Round 2 changed one
 stage-1 question and measured it once on a fresh seed.
