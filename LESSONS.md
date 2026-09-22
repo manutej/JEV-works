@@ -439,13 +439,13 @@ reconciliation is worse than an acknowledged gap, because it looks settled.
 ### L35 · The all-confident gate came back in a new place
 **Happened.** After the leads dedup bug was fixed, stage 1 still admitted almost nothing: the gate required
 *every* boolean to be confident-true, and `isRealBusiness` sat mid-band on 503/540 items, so 454 were escalated,
-including every clean in-ICP lead. The seed-42 eval then printed "jev 100% vs regex 93.2%", at **14.3% coverage**.
+including every clean in-ICP lead. The seed-42 eval then printed "jev 100% vs regex 93.2%", at **14.3% coverage**. On the **same seed-7 corpus**, the old gate gave **19.3%** coverage and the new gate **69.7%**. (Do not compare seed 42's 14.3% with seed 7's 69.7%: different corpora.)
 **Why.** It is the same conjunction that escalated 94% of triage items in iteration 1 (the `min(confidence)`
 gate). A rule learned in one module is not inherited by the next module that someone writes from scratch.
 **Rule.** Treat any AND-of-confidences gate as a bug until shown otherwise. A signal that is rarely decisive
 may *reject* but must not *block admission*. And never report accuracy without coverage: 97.4% on its own
 verdicts was 67.8% over all leads.
-*Attached to:* leads/ commit 651db1f (feat/leads-pipeline); `program/results/leads-u5-summary.md`.
+*Attached to:* leads/ commit 6159e75 on main (the pre-registration; 651db1f before rebase); `program/results/leads-u5-summary.md`.
 
 ### L36 · Record the version that answered, not the alias you asked for
 **Happened.** The seed-7 leads run recorded `model: "jev-latest (direct)"`. A later message asserted it had run

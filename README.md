@@ -141,23 +141,18 @@ are 23 such targets on this machine.
 python3 dashboard/build.py
 ```
 
-## Known broken, on purpose
+## Leads: fixed, and Jev loses (2026-09-21)
 
-`leads/` runs a three-stage acquisition → qualification → sales pipeline over 600 synthetic leads
-with planted labels. It has been run once and has **two real bugs**, both diagnosed and neither
-fixed:
+`leads/` runs a three-stage acquisition → qualification → sales pipeline over 600 synthetic leads with
+planted labels. It used to be "known broken on purpose". Four instrument bugs are now fixed on `main`:
+colliding company names, name-only dedup, an all-confident admission gate (L35), and substring dedup
+(found by an independent review). Details: `leads/HANDOFF.md`.
 
-1. The corpus generator draws company names from 15 adjectives × 12 nouns — 180 combinations for
-   600 leads, so collisions are certain. Only 231 distinct names were produced.
-2. Dedup falls back to matching on normalised company name alone when no domain is present. That
-   merged 516 leads against 60 planted duplicates, so 94.7% of the corpus never reached a verdict.
-
-The second bug matters beyond this test: on a real list, "Acme Corp" legitimately appears many times
-with different contacts, and name-only dedup would destroy it.
-
-The regex baseline on that corpus scores **91.7%** qualified accuracy. That is the number to beat,
-and it is deliberately not a strawman — if the regex wins after the bugs are fixed, the honest
-conclusion is that the task is surface-level and the model is not needed.
+The honest result, pre-registered on a fresh seed (7, n=600): Jev reaches a verdict on **69.7%** of leads
+(≥ 95% was required, so **FAIL**) and is right on **67.8% of all leads vs the regex's 92.2%**. It is 97.4% on
+the leads it does decide. The regex bar moves with the corpus: 91.7% was measured on the broken one.
+If the regex keeps winning once the question set is fixed, the task is surface-level and the model is
+not needed. That is an acceptable answer.
 
 ## A note on how results are reported here
 

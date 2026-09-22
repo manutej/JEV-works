@@ -270,7 +270,8 @@ latency, question count does not.
   name-only dedup, all-confident admission gate: L35). Pre-registered on fresh seed 7, n=600, `jev-latest (direct)`,
   resolved version **not captured** (L36): verdict rate 69.7% vs ≥95% required → **FAIL**. Jev 67.8% over all
   leads vs regex **92.2%** (Δ −24.4 pts); 97.4% on its own verdicts. The regex bar is seed-dependent
-  (91.7% was on the broken corpus; 93.2% on fixed seed 42). Seed 7 is spent. Summary: `program/results/leads-u5-summary.md`.
+  (91.7% was on the broken corpus; 93.2% on fixed seed 42). Seed 7 is spent. Same-seed coverage: old gate 19.3% → new 69.7%.
+  A pre-merge review found a 4th bug (substring dedup, 22adbbc); the seed-7 mapping is unchanged. Merged: main 0cefc2d. Summary: `program/results/leads-u5-summary.md`.
 - **Drift suite (U6, `program/drift.ts`).** 150 direct calls, $0.004. `jev-latest` ≡ `jev-1.13.0` today. The P4 band is
   question-shaped (addendum). Verdict rule tightened after a false positive on the A/A null; disclosed in DRIFT.md and window 5.
 - **E3 blind test: VOID.** The "holdout" was the fit set's approved subset (L31, which already warned of this and was

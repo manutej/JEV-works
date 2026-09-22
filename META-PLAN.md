@@ -80,9 +80,9 @@ Status: `ready` · `blocked-on:Ux` · `HUMAN` · `done` · `failed`
 | **U0** | Manu approves this checkpoint list | approval line in §10, `recorded_by: Manu` | HumanCheck: Manu | none | see §9 |
 | **U1** | local git baseline for JEV-works + ~/jev-playground (no remote, no push) | `.git`, `.gitignore`, first commit | `git status --porcelain` empty; `git check-ignore .env.local .vercel node_modules` all ignored; `git grep -c "$(key-prefix)"` = 0 | idempotent; rollback `rm -rf .git`; radius: none | **done** be1429b (JEV-works only) |
 | **U2** | route every remaining hardcoded `typesafe-ai/jev` through a selector | edited scripts; `lib/jev*.ts` available to jev-playground | `grep -rn "typesafe-ai/jev"` returns only lib/ + docs; tsc green in both; `probe-jev.mjs` + `01-hello.ts` run on direct | reversible via git (after U1); radius: none | blocked-on:U1 |
-| **U3** | fix leads bug 1: name collisions in `generate-corpus.ts` | generator + regenerated `leads-42.json`/`truth-42.json` | distinct names ≥ 600 − planted dups; same seed gives a byte-identical file on 2 runs | radius: invalidates the old leads results (kept via git) | **OWNED BY session b4f08e** (worktree feat/leads-pipeline) |
-| **U4** | fix leads bug 2: no name-only dedup fallback in `code-gates.ts` | code-gates.ts + test | dedup merges = planted dups ± 5% on the new corpus; "Acme Corp" with 3 contacts and no domain stays 3 | reversible | **OWNED BY session b4f08e** (worktree feat/leads-pipeline) |
-| **U5** | re-run leads pipeline + evaluate vs 91.7% baseline | `leads/results/pipeline-42.json`, eval output | ≥ 95% of leads reach a verdict; report has n, baseline, result, delta, falsified? (I5, I6) | cost ~1.8k calls; UK1 | **OWNED BY session b4f08e** (worktree feat/leads-pipeline) |
+| **U3** | fix leads bug 1: name collisions in `generate-corpus.ts` | generator + regenerated `leads-42.json`/`truth-42.json` | distinct normalised names = named non-duplicate leads (amended: "≥ 600 − dups" was unreachable because garbage leads have empty names by design; measured 512 = 572 named − 60 dups); same seed gives a byte-identical file on 2 runs | radius: invalidates the old leads results (kept via git) | **done**, merged main 0cefc2d (session b4f08e) |
+| **U4** | fix leads bug 2: no name-only dedup fallback in `code-gates.ts` | code-gates.ts + test | dedup merges = planted dups ± 5% on the new corpus; "Acme Corp" with 3 contacts and no domain stays 3 | reversible | **done**, merged main 0cefc2d (session b4f08e) |
+| **U5** | re-run leads pipeline + evaluate vs 91.7% baseline | `leads/results/pipeline-42.json`, eval output | ≥ 95% of leads reach a verdict; report has n, baseline, result, delta, falsified? (I5, I6) | cost ~1.8k calls; UK1 | **done**, merged main 0cefc2d (session b4f08e) |
 | **U6** | NETER window 5 (version drift): stability suite pinned via the direct response `model` field | `program/drift.ts`, `program/results/drift-*.json` | 2 runs produce a diff table; flags any Δ ≥ 0.11 (I6) | reversible | blocked-on:U2 |
 | **U10** | read-only survey of `~/jev/*`: Jev usage, path, pinned version | `SIBLINGS.md` table | 6 rows, each cites file:line or "no Jev calls" | zero writes to ~/jev; any proposed change goes to Manu | ready |
 | **U7** | **E3 blind test**: fit on 80, run **once** on the 39 holdout | `program/e3-blind.ts`, `program/results/e3-blind.json` | PROGRAM reporting contract; keyword baseline alongside; holdout hash recorded before the run | **irreversible: the holdout is spent after one look** → HUMAN gate before the run step | HUMAN (fit part: blocked-on:U2) |
@@ -146,6 +146,11 @@ U0, the U7 run, and any push, and who answers every halt.
 - **Edit script:** a line in §10, `YYYY-MM-DD Ux status — evidence — plan edit (if any)`.
 - **Replan triggers:** a spike kills an assumption; a gate fails twice; a frozen contract needs to change; the critical path moves.
 - **Stop-the-line** (halt, notify Manu, wait): two replans without progress; an mtime we didn't write on a file we're editing (I9); any 401/429 storm; the blast radius grows; reaching any HUMAN unit.
+- **Plan changes from the leads retro (2026-09-21), now binding:**
+  1. Every unit that may change a gate declares its holdout seed in its plan row **before** the run.
+  2. Every eval prints coverage next to accuracy.
+  3. Every result records the answering version (`answeredBy`), not only the alias.
+  4. Regression tests are written from an adversary's inputs, not the author's.
 - **Drift check:** each iteration, compare the `ls -t` top 10 in JEV-works against §10's last entries.
 
 **U0 approval status:** Manu's standing instructions this session were "Do not stop and keep going" and
@@ -176,3 +181,4 @@ parallel lane-sets exercised: 0 (serial loop); external stakeholders: none beyon
 - 2026-09-21 U6 done (no drift). U7/E3 VOID: holdout ⊂ fit. Retro: a lesson (L31) existed and the orchestrator brief overrode it. Plan edit: invariant I2 now reads "disjointness check (overlap count only) before declaring a holdout; it is not inspection".
 
 - 2026-09-21 loop tick: dashboard rebuilt (4074056); U8 dispatched to agent p6-entropy (pre-registered, fit/test split with a disjointness check). U10 now belongs to the siblings-survey session.
+- 2026-09-21 leads merged to main 0cefc2d (Manu approved). feat/jev-selector rebased on it (tsc OK, leads tests 11/11). U9: six corrections from leads HANDOFF §6 applied; retro plan changes 1–4 adopted into §9.
