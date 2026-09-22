@@ -451,10 +451,20 @@ async function main() {
   const answeredByValues = [...new Set(readings.map(r => r.answeredBy).filter(Boolean))];
   const pct = (x: number) => (x * 100).toFixed(1) + '%';
   const ciTxt = (c: [number, number]) => `${pct(c[0])}–${pct(c[1])}`;
+  // C2 (post-hoc, disclosed): the test of record for two systems on the same items is exact McNemar, not the
+  // 0.11 band — P4 bounds one answer's probability jitter, not a gap between accuracies. Band kept as run.
+  const mc = mcnemar(right('jev'), right('nbKeyword'));
+  const mcByClass = Object.fromEntries(
+    FORMULA_KEYS.filter(c => pooled.jev.perClass[c]?.n >= MIN_CLASS_N).map(c => {
+      const idx = truth.map((t, i) => (t === c ? i : -1)).filter(i => i >= 0);
+      const m = mcnemar(idx.map(i => right('jev')[i]), idx.map(i => right('nbKeyword')[i]));
+      return [c, { b: m.onlyJevRight, c: m.onlyBaselineRight, p: m.pTwoSided, different: m.pTwoSided < 0.05 }];
+    }),
+  );
   const headline =
     `IN-SAMPLE for Jev: Jev v2 ${pct(pooled.jev.accuracy)} (CI95 ${ciTxt(boot.a)}) vs fold-held-out NB keyword ` +
     `${pct(pooled.nbKeyword.accuracy)} (CI95 ${ciTxt(boot.b)}) on n=80, Δ ${delta >= 0 ? '+' : ''}${(delta * 100).toFixed(1)} pts ` +
-    `(paired CI95 ${(boot.diff[0] * 100).toFixed(1)}…${(boot.diff[1] * 100).toFixed(1)}) → ${primary} at the 0.11 band. ` +
+    `(paired CI95 ${(boot.diff[0] * 100).toFixed(1)}…${(boot.diff[1] * 100).toFixed(1)}); exact McNemar b=${mc.onlyJevRight}, c=${mc.onlyBaselineRight}, p=${mc.pTwoSided} → ${mc.pTwoSided < 0.05 ? 'different' : 'not different'} (as-run 0.11-band verdict: ${primary}). ` +
     `Jev's descriptions were written from all 80 items, so its number is an upper bound, not generalisation.`;
 
   const out = {
@@ -474,8 +484,18 @@ async function main() {
     n: { items: hooks.length, folds: K, foldSizes: folds.map(f => f.length) },
     baseline: { system: 'multinomial naive Bayes on tokens, α=1, fitted on k−1 folds', accuracy: pooled.nbKeyword.accuracy, ci95: boot.b, macroRecall: pooled.nbKeyword.macroRecall, coverage: pooled.nbKeyword.coverage },
     result: { system: `Jev ${VARIANT} (fixed descriptions, in-sample)`, accuracy: pooled.jev.accuracy, ci95: boot.a, macroRecall: pooled.jev.macroRecall, coverage: pooled.jev.coverage },
-    delta: { jevMinusBaseline: delta, pairedCi95: boot.diff, mcnemar: mcnemar(right('jev'), right('nbKeyword')), tieBand: TIE_BAND, verdict: primary, sensitivityAt015: sensitivity },
+    delta: { jevMinusBaseline: delta, pairedCi95: boot.diff, mcnemar: mc, tieBand: TIE_BAND, verdict: primary, sensitivityAt015: sensitivity },
     falsified,
+    postHocCorrections: [
+      {
+        id: 'C2',
+        from: 'team lead, after the run',
+        what: 'Accuracy differences between two systems on the same items are tested with an exact two-sided McNemar on per-item correctness (different iff p < 0.05), with the paired bootstrap CI beside it. The pre-registered 0.11 tie band misapplied P4, whose band is one answer\u2019s probability jitter across identical calls, not a bound on a gap between accuracies. As-run verdict fields are kept.',
+        testOfRecord: { b: mc.onlyJevRight, c: mc.onlyBaselineRight, p: mc.pTwoSided, different: mc.pTwoSided < 0.05 },
+        perClassNAtLeast8: mcByClass,
+        changesConclusion: (mc.pTwoSided < 0.05) !== (primary === 'jev-ahead'),
+      },
+    ],
     model: JEV_ID,
     answeredBy: answeredByValues,
     callsUsed,

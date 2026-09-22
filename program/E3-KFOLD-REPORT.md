@@ -12,8 +12,9 @@ Decision of record, Manu 2026-09-21: **"k-fold on the 80, reported as in-sample"
 ## Headline
 
 **In-sample for Jev: Jev v2 72.5% (58/80, CI95 62.5–82.5%) vs a fold-held-out naive-Bayes keyword
-baseline 35.0% (28/80, CI95 25.0–46.3%). Δ +37.5 pts, paired CI95 +25.0…+50.0.** Verdict `jev-ahead` at
-the 0.11 band and also at 0.15. The pre-registered hypothesis is **not falsified**. By the pre-registered
+baseline 35.0% (28/80, CI95 25.0–46.3%). Δ +37.5 pts, paired CI95 +25.0…+50.0.** **Different by exact McNemar on per-item correctness: b = 34 (only Jev right), c = 4 (only the
+baseline right), p = 6.0e-7** (the test of record since correction C2). As run, the verdict was `jev-ahead`
+at the pre-registered 0.11 band (and at 0.15); both readings agree. The pre-registered hypothesis is **not falsified**. By the pre-registered
 reading rule this is consistent with Jev being useful but, because Jev saw all 80, it is an upper bound
 and **cannot** be read as generalisation.
 
@@ -25,7 +26,7 @@ and **cannot** be read as generalisation.
 | **baseline** | multinomial naive Bayes on tokens, α = 1, fitted on 4 folds, scored on the held-out fold: **35.0%** (CI95 25.0–46.3%), macro recall 17.9%, coverage 100% |
 | **result** | Jev v2, fixed descriptions, **in-sample**: **72.5%** (CI95 62.5–82.5%), macro recall 76.1%, coverage 100% (80/80 answered) |
 | **delta** | **+37.5 pts**, paired bootstrap CI95 +25.0…+50.0; McNemar: Jev alone right on 34 items, baseline alone right on 4, p = 6.0e-7 |
-| **falsified?** | **No.** Δ ≥ 0.11 and the CI excludes 0. Same verdict at the 0.15 sensitivity band. |
+| **falsified?** | **No.** As run: Δ ≥ 0.11 and the CI excludes 0 (same at 0.15). Post-hoc test of record (C2): exact McNemar b = 34, c = 4, p = 6.0e-7 < 0.05 → different. |
 
 Model `jev-1.13.0 (direct)`; every call's `answeredBy` = `jev-1.13.0`. **80 calls** of a 250 budget,
 0 retries, 0 failures, per-call p50 128 ms / p95 215 ms, ~$0.003 (RunLog estimate).
@@ -65,8 +66,8 @@ Highlights:
   (0/32 on the six thin classes). Its errors are mostly "deprivation-moment" (the prior) and
   "number-outcome-time" (the `<num>` token). With 3–6 training examples of a class and a vocabulary that
   barely repeats, a bag of words has nothing to learn from — that is the baseline's real ceiling here.
-- **The one class where the held-out baseline edges Jev is deprivation-moment** (15 vs 13 of 21; Δ 2 items,
-  a tie). Jev's losses there go mostly to halbert-a-pile (4 of its 8 misses): short, lowercase scene
+- **The one class where the held-out baseline edges Jev is deprivation-moment** (15 vs 13 of 21; exact McNemar
+  b = 1, c = 3, p = 0.63: not different). Jev's losses there go mostly to halbert-a-pile (4 of its 8 misses): short, lowercase scene
   lines read as "subject-line fragments" under v2's wording.
 - **call-out is Jev's weakest class even in-sample, 4/12.** Misses scatter: number-outcome-time 3,
   how-to-without 2, deprivation-moment, halbert-a-pile, adjective-good 1 each. "For X:" and "[NAME] —"
@@ -110,6 +111,17 @@ curve is flat within noise. Probabilities are in-sample too.
 - **C1 (display bug, fixed with 0 calls).** The first scoring pass rounded the McNemar p to 4 dp, printing
   0. Changed to 3 significant figures and re-scored the saved readings (`E3K_ANALYSE_ONLY=1`); no other
   number changed. `reanalysed: true` and the first run's timestamp are in the result file.
+- **C2 (post-hoc correction to the test, disclosed; from the team lead after the run).** The brief and the
+  pre-registration treated accuracy differences below 0.11 as ties, citing P4. That was a misuse: P4's band
+  is one answer's probability jitter across identical calls, not a bound on the gap between two systems'
+  accuracies on the same items. The test of record for Jev vs the fold-held-out baseline is now an **exact
+  McNemar on per-item correctness** (different iff p < 0.05), with the paired bootstrap CI beside it. The
+  pre-registration text is kept as run; McNemar was already computed as a pre-registered secondary, so no
+  prediction changed: the runner now also writes `postHocCorrections` (C2) and a McNemar-led headline,
+  re-scored from the saved readings with 0 calls; the as-run `delta.verdict` field is kept. Results, pooled: b = 34, c = 4, p = 6.0e-7 → different (same conclusion as the 0.11
+  rule). Per class (n ≥ 8), none different: deprivation-moment b = 1, c = 3, p = 0.63; number-outcome-time
+  b = 4, c = 0, p = 0.13; call-out b = 3, c = 1, p = 0.63. Same fix is owed wherever else the 0.11 band was
+  used to compare two systems' accuracies (e.g. E3's as-run "baseline wins").
 - `npx tsc --noEmit` in this worktree: 14 errors, all in `leads/evaluate.ts` and `leads/pipeline.ts`
   (`../../jev-playground/…` resolves from `~/JEV-works`, not from `~/JEV-works-wt/e3`). Pre-existing on
   main, out of scope, untouched. `program/` and `lib/` compile clean.
@@ -124,7 +136,7 @@ curve is flat within noise. Probabilities are in-sample too.
 > 62.5–82.5%) vs naive-Bayes keyword baseline fitted on 4 folds and scored on the fifth 35.0% (28/80, CI95
 > 25.0–46.3%); Δ +37.5 pts, paired CI95 +25…+50; McNemar 34 vs 4. **The Jev descriptions were written by
 > reading all 80 items, so the Jev number is in-sample**; only the baseline is held out. Per class,
-> ≥ 8 items: number-outcome-time 15/15, deprivation-moment 13/21 (baseline 15/21, a tie), call-out 4/12.
+> ≥ 8 items: number-outcome-time 15/15, deprivation-moment 13/21 (baseline 15/21; McNemar b = 1, c = 3, p = 0.63, not different), call-out 4/12. Pooled test: exact McNemar b = 34, c = 4, p = 6.0e-7.
 > Evidence: `program/results/e3-kfold.json`, `jev-1.13.0 (direct)`, answeredBy `jev-1.13.0`, 80 calls.
 > Status: **measured here, in-sample**. To promote beyond in-sample it needs a disjoint labelled set.
 

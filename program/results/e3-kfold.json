@@ -10,7 +10,7 @@
   },
   "hypothesis": "Jev v2 (in-sample) pooled accuracy on the 80 exceeds the fold-held-out NB keyword baseline by ≥ 0.11, with the paired bootstrap 95% CI of the difference excluding 0.",
   "falsifier": "Δ < 0.11, or the paired 95% CI of Δ includes 0 (tie), or the baseline is ahead.",
-  "headline": "IN-SAMPLE for Jev: Jev v2 72.5% (CI95 62.5%–82.5%) vs fold-held-out NB keyword 35.0% (CI95 25.0%–46.3%) on n=80, Δ +37.5 pts (paired CI95 25.0…50.0) → jev-ahead at the 0.11 band. Jev's descriptions were written from all 80 items, so its number is an upper bound, not generalisation.",
+  "headline": "IN-SAMPLE for Jev: Jev v2 72.5% (CI95 62.5%–82.5%) vs fold-held-out NB keyword 35.0% (CI95 25.0%–46.3%) on n=80, Δ +37.5 pts (paired CI95 25.0…50.0); exact McNemar b=34, c=4, p=6.04e-7 → different (as-run 0.11-band verdict: jev-ahead). Jev's descriptions were written from all 80 items, so its number is an upper bound, not generalisation.",
   "n": {
     "items": 80,
     "folds": 5,
@@ -58,6 +58,40 @@
     "sensitivityAt015": "jev-ahead"
   },
   "falsified": false,
+  "postHocCorrections": [
+    {
+      "id": "C2",
+      "from": "team lead, after the run",
+      "what": "Accuracy differences between two systems on the same items are tested with an exact two-sided McNemar on per-item correctness (different iff p < 0.05), with the paired bootstrap CI beside it. The pre-registered 0.11 tie band misapplied P4, whose band is one answer’s probability jitter across identical calls, not a bound on a gap between accuracies. As-run verdict fields are kept.",
+      "testOfRecord": {
+        "b": 34,
+        "c": 4,
+        "p": 6.04e-7,
+        "different": true
+      },
+      "perClassNAtLeast8": {
+        "deprivation-moment": {
+          "b": 1,
+          "c": 3,
+          "p": 0.625,
+          "different": false
+        },
+        "number-outcome-time": {
+          "b": 4,
+          "c": 0,
+          "p": 0.125,
+          "different": false
+        },
+        "call-out": {
+          "b": 3,
+          "c": 1,
+          "p": 0.625,
+          "different": false
+        }
+      },
+      "changesConclusion": false
+    }
+  ],
   "model": "typesafe-ai/jev (gateway)",
   "answeredBy": [
     "jev-1.13.0"
@@ -4064,7 +4098,7 @@
     "dollars": 0.00308,
     "drift": []
   },
-  "analysedAt": "2026-09-22T06:17:36.534Z",
+  "analysedAt": "2026-09-22T06:21:56.769Z",
   "reanalysed": true,
   "firstRunAt": "2026-09-22T06:17:21.104Z"
 }

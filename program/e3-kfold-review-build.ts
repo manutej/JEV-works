@@ -32,6 +32,7 @@ async function main() {
     result: r.result,
     delta: r.delta,
     falsified: r.falsified,
+    corr: r.postHocCorrections?.[0] ?? null,
     model: r.model,
     answeredBy: r.answeredBy,
     callsUsed: r.callsUsed,
@@ -209,7 +210,8 @@ $('meta').textContent = 'Model ' + D.model + ' · answered by ' + D.answeredBy.j
 $('verdict').innerHTML = '<span class="tag">Validity · ' + esc(D.validity) + '</span>' +
   '<p><strong>' + esc(D.headline) + '</strong></p>' +
   '<p>' + esc(D.validityDetail) + '</p>' +
-  '<p>Verdict at the 0.11 band: <strong>' + esc(D.delta.verdict) + '</strong> (same at 0.15: ' + esc(D.delta.sensitivityAt015) + '). Hypothesis ' + (D.falsified ? '<strong>falsified</strong>' : '<strong>not falsified</strong>') + ' — read as an upper bound for Jev, not as generalisation.</p>';
+  (D.corr ? '<p>Test of record (post-hoc correction ' + esc(D.corr.id) + '): exact McNemar b = ' + D.corr.testOfRecord.b + ', c = ' + D.corr.testOfRecord.c + ', p = ' + D.corr.testOfRecord.p + ' → <strong>' + (D.corr.testOfRecord.different ? 'different' : 'not different') + '</strong>. ' + esc(D.corr.what) + '</p>' : '') +
+  '<p>As-run verdict at the pre-registered 0.11 band: <strong>' + esc(D.delta.verdict) + '</strong> (same at 0.15: ' + esc(D.delta.sensitivityAt015) + '). Hypothesis ' + (D.falsified ? '<strong>falsified</strong>' : '<strong>not falsified</strong>') + ' — read as an upper bound for Jev, not as generalisation.</p>';
 
 $('hyp').textContent = D.hypothesis;
 $('fals').textContent = D.falsifier;
@@ -222,7 +224,8 @@ $('kpis').innerHTML =
   kpi(pct(D.baseline.accuracy), 'baseline — NB keyword, fold-held-out · CI95 ' + ci(D.baseline.ci95) + ' · macro ' + pct(D.baseline.macroRecall)) +
   kpi(pct(D.result.accuracy), 'result — Jev v2, <span class="tagIS">in-sample</span> · CI95 ' + ci(D.result.ci95) + ' · macro ' + pct(D.result.macroRecall) + ' · coverage ' + pct(D.result.coverage)) +
   kpi(pts(D.delta.jevMinusBaseline), 'Δ Jev − baseline · paired CI95 ' + ci(D.delta.pairedCi95) + ' · McNemar ' + D.delta.mcnemar.onlyJevRight + ' vs ' + D.delta.mcnemar.onlyBaselineRight + ', p ' + D.delta.mcnemar.pTwoSided) +
-  kpi(D.falsified ? 'falsified' : 'not falsified', 'hypothesis · verdict ' + esc(D.delta.verdict) + ' (0.11), ' + esc(D.delta.sensitivityAt015) + ' (0.15)');
+  kpi(D.falsified ? 'falsified' : 'not falsified', 'hypothesis · verdict ' + esc(D.delta.verdict) + ' (0.11), ' + esc(D.delta.sensitivityAt015) + ' (0.15)') +
+  (D.corr ? kpi('p = ' + D.corr.testOfRecord.p, 'exact McNemar, test of record (' + esc(D.corr.id) + ', post-hoc) · b = ' + D.corr.testOfRecord.b + ', c = ' + D.corr.testOfRecord.c + ' · per class n≥8: ' + Object.entries(D.corr.perClassNAtLeast8).map(([k, m]) => esc(k) + ' ' + m.b + '/' + m.c + ' p ' + m.p).join('; ')) : '');
 
 const SYS = [
   ['jev', 'Jev v2', 'var(--bar-jev)', 'in-sample'],

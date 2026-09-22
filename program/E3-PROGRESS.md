@@ -217,3 +217,9 @@ Manu, 2026-09-21 (orchestrator session): "k-fold on the 80, reported as in-sampl
   +25…+50) → `jev-ahead`, hypothesis not falsified. Hybrid 60.0% (τ fitted against NB's in-sample score —
   finding, not re-fitted). McNemar p display bug fixed and re-scored with 0 calls (report C1).
   Report `program/E3-KFOLD-REPORT.md`, page `program/e3-kfold-review.html`.
+- 2026-09-21 **C2, post-hoc, disclosed** (team lead, after the run): the 0.11 "tie" band misapplied P4 to
+  accuracy gaps. Test of record is now an exact McNemar on per-item correctness (different iff p < 0.05)
+  plus the paired bootstrap CI. Pooled b=34, c=4, p=6.04e-7 → different (conclusion unchanged). Per class
+  n≥8, none different (deprivation 1/3 p .63, number 4/0 p .13, call-out 3/1 p .63). Pre-registration text
+  kept as run; result file re-scored with 0 calls; report + dashboard updated. The same misuse is in E3's
+  as-run "baseline wins" (Δ −0.154 vs the 0.11 band) — not re-tested here.
