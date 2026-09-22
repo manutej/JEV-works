@@ -333,4 +333,12 @@ latency, question count does not.
 - **Cookbooks: six public-data domains (feat/demos).** P35. Thresholds in round 1 came from a cookbook-local fitter with no error bound;
   round 2 moves them onto kit/threshold (fitSelective + applyGate, labelled post-hoc) and runs the standard gate suite G1–G10 per domain.
   Licence caveats before sharing: EMSCAD (no licence stated by its authors) and NLBSE'23 (AGPL-3.0).
+- **Leads Q2d: segment-edge fix, holdout bc7101 (pipeline v3; rule files pinned by sha256; 5% seen).** Claim gate **REFUSE**
+  (G4.below-minimum, coverage 88.7%). Headline v2: Jev 68.8% vs regex 71.7%, McNemar 53 vs 70, p = 0.149 (no difference). Strata:
+  clean_in_icp regex better (76.7% vs 100%, p ≈ 5e-13); non_buyer Jev better (28.3% vs 0%, p ≈ 1e-10). Predictions: 1 right, 2 wrong.
+  **The segment edge is closed**: stage 2 escalated 0 leads on unseen wording; a post-hoc replay of v1 on the same answers shows v3 ≥ v1
+  in every category (buyers 118/20/1 → 138/0/1). The ceiling moved: (1) stage-1 literal questions (41 buyers escalated, mid-band on
+  senderWroteASentence/hasNamedCompany); (2) **direction of intent**: `buyingSignal` reads a pitch *to* us (partnership, vendor) as
+  purchase intent (confident-no on only 32/119 pool-C non-buyers). A literal split is the next test ("is the sender offering to sell
+  or provide something to us?").
 

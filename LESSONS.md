@@ -539,3 +539,13 @@ it, because the slot fills differed. Found by the leads session before any pool-
 independence when the writers share a model; check the text, not the provenance story.
 *Attached to:* `kit/checks.ts` `runOverlap`, `kit/standard-gate.ts` G3; leads variants.json `excludeRunsFrom`.
 
+### L46 · A fix can succeed while its holdout fails, when the corpus moves the bottleneck
+**Happened.** Moving segment into code (leads v3) removed every stage-2 escalation on unseen wording, yet the holdout
+bc7101 failed coverage and tied the regex. The failure came from the new corpus, not the fix: pool-C non-buyers were
+commercial pitches that `buyingSignal` read as purchase intent. A post-hoc replay of the old rule on the same answers
+showed the new rule at least as good in every category.
+**Rule.** Before blaming a fix for a failed holdout, replay the previous rule on the same answers (no new calls; label it
+post-hoc, diagnostic only) and locate the new bottleneck by stage and stratum. The holdout verdict still stands: REFUSE
+is REFUSE. The replay only says where to work next.
+*Attached to:* leads feat/leads-segment (bc7101), NETER ledger Q2d.
+
