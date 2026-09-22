@@ -86,6 +86,11 @@ Jev may have seen, and is compared only with keyword rules or naive Bayes. The l
 4. **Equivalence (TOST) + Holm reanalysis** of the "no difference" results (0 calls) before sizing any new holdout.
 5. **Shareable release, after 1:** lead with intent routing (CC BY 3.0; the escape option caught 93.3% of out-of-scope), then a
    "run the kit on your own CSV" quickstart, then a separate public repo without unlicensed data.
+**Manu's decisions (2026-09-22):** comparator = **Claude Haiku 4.5** (zero-shot, same literal questions and options, via Vercel AI
+Gateway); leads scope = **English only** (a re-score of bd8101 excluding the mixed-language buyers is post-hoc and labelled so; every
+corpus brief states the scope, L47). **Direction:** the goal is a method that qualifies Jev for NEW domains at scale, not benchmark
+wins; operadic composition (kit/modules → typed tree → kit/oc gate) is how it is customised per domain. The comparator study is one
+qualification step ("a Jev domain, or an any-LLM domain?"), not the destination. See `kit/QUALIFY.md`.
 **Disagreement resolved by ordering:** the skeptic's "freeze the leads loop" vs product's "release": bd8101 (already pre-registered)
 runs; no new leads rounds and no release until the comparator reports.
 
