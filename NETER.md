@@ -303,4 +303,9 @@ latency, question count does not.
 - **E5, masked targets (Manu approved 2026-09-22).** The first head-to-head on labels nobody here planted: Jev wins text, loses tabular
   inference, and one target leaked (P33). Live demo the same day (`program/results/live-p5-2026-09-22.md`, n=8, demo only):
   plausible off-topic input gets near-certain wrong answers (P5), and an explicit escape option fixed it.
+- **Leads Q2b: paraphrase stress test (session b4f08e, prereg 158eae9, `jev-1.13.0`, scoring v2 primary).** p6029 (built against the regex):
+  coverage 93.0% (**FAIL**); Jev 78.3% vs regex 72.0%, McNemar 71 vs 33, p = 2.5e-4; non-buyers 40.0% vs 0%. **But 565/600 messages
+  appeared verbatim in dev p3001** (all 120 non-buyers among them). On novel messages (n=35), 88.6% vs 91.4%, p = 1.0. So: the mechanism
+  works on tuned wording, with **no evidence about new wording**. Base 6011: no difference (p = 0.245; under v1 the regex wins, p = 0.013).
+  Content-overlap refusal now enforced in leads (c5dc972).
 

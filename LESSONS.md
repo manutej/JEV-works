@@ -481,3 +481,11 @@ hybrid (60.0%) lost to Jev alone (72.5%). The flaw was in the pre-registered des
 the system that memorises wins the tuning and loses the test.
 *Attached to:* `feat/e3-blind-test` `program/E3-KFOLD-REPORT.md`.
 
+### L40 · A fresh seed from the same templates is a new draw of records, not of wording
+**Happened.** The leads paraphrase holdout p6029 passed the record-level disjointness rule (0 full-record overlap with any
+fit seed), yet 565/600 of its messages appeared verbatim in the dev seed the reject rule was tuned on. The headline win
+(p = 2.5e-4) came entirely from seen wording; on the 35 novel messages there was no difference.
+**Rule.** Check disjointness at the unit the model actually reads (message text, not record id), against every seed
+used for fitting, and report seen vs novel separately. Refuse a holdout above 20% seen unless explicitly accepted.
+*Attached to:* leads c5dc972 (splits.json, pipeline refusal, seen/novel scoring); L31.
+
