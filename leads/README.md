@@ -9,8 +9,10 @@
 - **Current code, valid measurements (scoring v2, jev-1.13.0), see `HANDOFF.md` §00:**
   base seed **6011**: Jev 90.3% vs regex 92.0%, no significant difference (p = 0.245), coverage 97.7%.
   Paraphrase seed **p6029** (a stress test built against the regex): Jev 78.3% vs regex 72.0%,
-  **Jev significantly better** (p = 2.5e-4), coverage 93.0% (fails ≥ 95%). Its non-buyer wording
-  was also in the dev seed, so it tests new records, not new wording.
+  **Jev significantly better** (p = 2.5e-4), coverage 93.0% (fails ≥ 95%). **Every non-buyer message
+  was also in the dev seed**: the advantage is entirely on seen wording (novel subset: no difference).
+- **Leakage guard:** seeds are declared in `corpus/splits.json`; the pipeline refuses undeclared seeds
+  and leaky holdouts (> 20% seen messages) without `--accept-leakage`; evaluate scores seen vs novel.
 - Seed 2718 measured the previous stage-2 rule (Jev 88.5% vs regex 91.0%, v1, p = 0.105).
 - Earlier holdout: seed 7 measured the previous question set (Jev 67.8% vs regex 92.2%, 69.7%
   coverage, fail). **Seed 42 is the dev set**: `results/pipeline-42.json` is a dev run of the

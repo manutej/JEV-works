@@ -131,6 +131,15 @@ paired (McNemar exact, escalation = wrong): jev-only right 6, regex-only right 1
 qualified accuracy over ALL 600 leads (v2) — jev: 70.0%  regex: 92.2%
 paired (McNemar exact, v2): jev-only right 6, regex-only right 139, p = 5.44e-34
 
+═══ leakage (messages seen in fit seeds vs novel) ═══
+fit seeds [42]: 366/600 messages seen (61.0%), 234 novel
+  seen  n=366: v2 jev 52.2%  regex 88.0%  McNemar 6 vs 137, p = 2.00e-33
+         by category: clean_out_icp 150, ambiguous 90, garbage 60, near_duplicate 31, adversarial 30, clean_in_icp 5
+  novel n=234: v2 jev 97.9%  regex 98.7%  McNemar 0 vs 2, p = 0.500
+         by category: clean_in_icp 205, near_duplicate 29
+  [seen/novel is confounded with category: templates with few variants are always "seen", templates with random slots are usually "novel". Compare within a category before calling a gap a wording effect.]
+[LEAKAGE WARNING: 61.0% of this holdout's messages appeared in seeds it was fit on. The headline tests new records far more than new wording; quote the "novel" line for wording.]
+
 per-category qualified accuracy, jev vs regex (AccAll counts escalations as wrong; AccOwn is on own verdicts only):
 category        n    jevCoverage  jevAccAll  jevAccOwn  regexAccAll
 ──────────────  ───  ───────────  ─────────  ─────────  ───────────

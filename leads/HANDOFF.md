@@ -15,12 +15,13 @@ it; v2 is post hoc for seeds 7/42/2718 and the output says so); build a paraphra
 | **H1** paraphrase `p6029` | (a) coverage **93.0% FAIL**; (b) Jev **78.3%** vs regex **72.0%**, McNemar 71 vs 33, **p = 2.5e-4: Jev significantly better**; (c) non-buyers **40.0% vs 0%** |
 | **H2** base `6011` | (a) **97.7% pass**; (b) Jev **90.3%** vs regex **92.0%**, p = 0.245: **no significant difference** (under v1 the regex would win, p = 0.013) |
 | Predictions | 4 of 5 right; H1 (a) wrong |
-| **Caveat on H1** | 565/600 holdout messages appear verbatim in dev p3001: only 5 + 5 templates, so the rule was tuned on the exact non-buyer wording. H1 shows robustness to new *records*, not new *wording*. |
+| **Caveat on H1** | 565/600 holdout messages appear verbatim in dev p3001 (only 5 + 5 templates). **All 120 non-buyers are in the seen subset**, so H1 has *no* evidence about new wording. Split by novelty: seen n=565, Jev 77.7% vs regex 70.8% (71 vs 32, p = 1.5e-4); novel n=35 (22 clean_in_icp, 13 near_duplicate), 88.6% vs 91.4%, p = 1.0. The whole advantage is on wording the rule was tuned on. |
+| **Prevention (Manu, 2026-09-22)** | `corpus/splits.json` declares every seed's role and fit seeds; `pipeline.ts` refuses undeclared seeds, and refuses a holdout whose messages were > 20% seen in its fit seeds unless run with `--accept-leakage`; `evaluate.ts` scores every holdout on seen vs novel messages with McNemar each, shows each subset's category mix, and warns above 20%. Tests: `splits.test.ts` (reproduces p6029's 565/600). Base corpora are ~61% seen by design (shared templates), so every base holdout now needs the flag: that is intended. |
 
 **What it means.** When a record's shape and its message disagree, reading the message wins, and the
 regex cannot. It only works once the pipeline *uses* the intent answer it was already getting. On
-ordinary leads (H2) the change costs nothing measurable. The evidence is from a stress test whose
-wording the rule was tuned on, so it says "this mechanism works", not "this beats a regex in the wild".
+ordinary leads (H2) the change costs nothing measurable. But every non-buyer in the holdout reused dev
+wording, so this shows the mechanism works on tuned wording and new records, nothing more.
 
 **Next steps (not started):**
 1. Honest version of H1: new non-buyer and buyer templates written **blind** by someone who has not seen

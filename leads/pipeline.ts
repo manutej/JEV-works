@@ -32,6 +32,7 @@ import {
 } from './code-gates.ts';
 import type { Lead, Segment, NextAction } from './types.ts';
 import { JEV, JEV_ID, answeredBy } from '../lib/jev.ts';
+import { SEEN_SHARE_WARN, messagesOf, partitionBySeen, requireSplit } from './splits.ts';
 
 const MODEL = JEV_ID;
 
@@ -163,9 +164,26 @@ async function runStage<Q extends Record<string, unknown>>(
 // ──────────────────────────────────────────────────────────────────── main
 
 async function main() {
+  const split = requireSplit(SEED); // refuses undeclared seeds before any model call
+  console.log(`seed ${SEED}: declared ${split.role}, fit seeds [${split.fitSeeds.join(', ')}]`);
   const leadsPath = new URL(`./corpus/leads-${SEED}.json`, import.meta.url);
   const leads: Lead[] = JSON.parse(await readFile(leadsPath, 'utf8'));
   console.log(`loaded ${leads.length} leads from ${leadsPath.pathname}`);
+
+  // Leakage gate, before any model call: a holdout whose messages largely appeared in its fit seeds
+  // tests records, not wording (p6029: 565/600). Running it anyway must be an explicit choice.
+  if (split.role === 'holdout') {
+    const { seen } = partitionBySeen(leads, messagesOf(split.fitSeeds));
+    const share = seen.length / leads.length;
+    console.log(`leakage: ${seen.length}/${leads.length} messages seen in fit seeds (${(share * 100).toFixed(1)}%)`);
+    if (share > SEEN_SHARE_WARN && !process.argv.includes('--accept-leakage')) {
+      throw new Error(
+        `holdout ${SEED}: ${(share * 100).toFixed(1)}% of messages were seen in its fit seeds (limit ${SEEN_SHARE_WARN * 100}%). ` +
+          `Its headline would mostly test wording it was tuned on. Write fresh templates, or rerun with ` +
+          `--accept-leakage and say so in the pre-registration.`,
+      );
+    }
+  }
 
   // ── code gates, run once over the whole batch, before any model call ──
   const dupGroups = detectNearDuplicates(leads);

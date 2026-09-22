@@ -37,6 +37,7 @@ import type { JevQuestion } from './questions.ts';
 import type { Lead, LeadCategory, PlantedTruth, Segment, TruthMap } from './types.ts';
 import { ALL_SEGMENTS } from './types.ts';
 import type { BaselinePrediction } from './baseline.ts';
+import { MIN_SUBSET, SEEN_SHARE_WARN, messagesOf, partitionBySeen, splitFor } from './splits.ts';
 
 function argValue(flag: string, fallback: string): string {
   const i = process.argv.indexOf(flag);
@@ -349,6 +350,45 @@ if (RUN_BEFORE_V2.has(String(SEED))) {
 }
 console.log(`qualified accuracy over ALL ${allIds.length} leads (v2) — jev: ${pct(jevV2.accuracyAll)}  regex: ${pct(baseV2.accuracyAll)}`);
 console.log(`paired (McNemar exact, v2): ${paired('v2')}`);
+
+// ── leakage: split the holdout by whether each lead's message was already seen in its fit seeds ──
+{
+  const split = splitFor(SEED);
+  console.log(`\n═══ leakage (messages seen in fit seeds vs novel) ═══`);
+  if (!split) {
+    console.log(`[seed ${SEED} is not declared in corpus/splits.json: leakage UNKNOWN. Treat every number above as unvalidated.]`);
+  } else if (split.role === 'dev') {
+    console.log(`[seed ${SEED} is a DEV seed: nothing here is holdout evidence.]`);
+  } else {
+    const parts = partitionBySeen(leads, messagesOf(split.fitSeeds));
+    const share = parts.seen.length / leads.length;
+    console.log(`fit seeds [${split.fitSeeds.join(', ')}]: ${parts.seen.length}/${leads.length} messages seen (${pct(share)}), ${parts.novel.length} novel`);
+    for (const [name, ids] of [['seen', parts.seen], ['novel', parts.novel]] as const) {
+      if (ids.length < MIN_SUBSET) {
+        console.log(`  ${name.padEnd(5)} n=${ids.length}: fewer than ${MIN_SUBSET}, no verdict (I3)`);
+        continue;
+      }
+      const j = overAll(jevQualifiedPreds, ids, 'v2');
+      const b = overAll(baseQualifiedPreds, ids, 'v2');
+      const right = (preds: Map<string, boolean | null>, id: string) => isRight(preds.get(id), id, 'v2');
+      const jb = ids.filter(id => right(jevQualifiedPreds, id) && !right(baseQualifiedPreds, id)).length;
+      const bj = ids.filter(id => !right(jevQualifiedPreds, id) && right(baseQualifiedPreds, id)).length;
+      console.log(`  ${name.padEnd(5)} n=${ids.length}: v2 jev ${pct(j.accuracyAll)}  regex ${pct(b.accuracyAll)}  McNemar ${jb} vs ${bj}, p = ${mcnemarExact(jb, bj).toPrecision(3)}`);
+      const mix = Object.entries(ids.reduce((m: Record<string, number>, id) => ((m[categoryOf(id)] = (m[categoryOf(id)] ?? 0) + 1), m), {}));
+      console.log(`         by category: ${mix.sort((a, b) => b[1] - a[1]).map(([c, k]) => `${c} ${k}`).join(', ')}`);
+    }
+    console.log(
+      `  [seen/novel is confounded with category: templates with few variants are always "seen", templates with ` +
+        `random slots are usually "novel". Compare within a category before calling a gap a wording effect.]`,
+    );
+    if (share > SEEN_SHARE_WARN) {
+      console.log(
+        `[LEAKAGE WARNING: ${pct(share)} of this holdout's messages appeared in seeds it was fit on. ` +
+          `The headline tests new records far more than new wording; quote the "novel" line for wording.]`,
+      );
+    }
+  }
+}
 
 const perCategory: Array<Record<string, unknown>> = [];
 for (const cat of ['clean_in_icp', 'clean_out_icp', 'non_buyer', 'ambiguous', 'garbage', 'adversarial', 'near_duplicate'] as LeadCategory[]) {
