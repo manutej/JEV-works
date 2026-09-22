@@ -7,8 +7,8 @@ Read this first. A fresh session should be able to start from this file plus `ha
 
 | thing | where | state |
 |---|---|---|
-| `main` | `~/JEV-works` | **0cefc2d**: baseline + leads fixes (merged, Manu-approved) |
-| `feat/jev-selector` | `~/JEV-works` (main tree) | **15 commits ahead, rebased on 0cefc2d**, tsc OK, leads tests 11/11. **Merge waits on Manu confirming in the orchestrator session.** |
+| `main` | `~/JEV-works` | **b1b504a**: baseline + leads fixes + selector/drift/P6/registries/handoffs |
+| `feat/jev-selector` | `~/JEV-works` (main tree) | **merged → main b1b504a** (Manu approved in-session) |
 | `feat/e3-blind-test` | `~/JEV-works-wt/e3` | done, **VOID** result + review dashboard. Merge for the record (Manu). |
 | `feat/leads-literal-questions` | `~/JEV-works-wt/leads-pipeline` | **in progress** (session b4f08e): replace `inboundSubstantive` with literal questions, fresh pre-registered seed |
 | `feat/eval-system` | `~/JEV-works-wt/eval-system` | worktree ready, **no session opened yet** |
@@ -27,6 +27,11 @@ Read this first. A fresh session should be able to start from this file plus `ha
 2. **E3/E4 holdout source.** No disjoint labelled CETI set exists locally (wave2/wave3 are subsets too). Options: (a) Manu labels hooks written after today, the only real generalisation test; (b) k-fold on the 80, reported as in-sample.
 3. **Open the 4 sessions** from `handoffs/{eval-system,siblings-survey,jev-operad,business-automation}.md` (kickoff prompt in each).
 4. **Weekly drift rerun:** schedule it (a cloud routine or cron) or run it by hand? ~$0.004/run.
+
+## 3b · Manu's decisions (2026-09-21, in the orchestrator session)
+- Merge feat/jev-selector: **yes** (done, b1b504a). E3 branch: not merged yet.
+- E3/E4 holdout: **k-fold on the 80, reported as in-sample** (not a generalisation test).
+- Next: **Q3 batch contamination, Q4 baseline-wins table, weekly drift schedule.**
 
 ## 4 · Work queue (ready = can start now without Manu)
 
