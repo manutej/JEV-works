@@ -1,0 +1,2 @@
+{ "version": "v1", "stage1": "decisions/stage1.v1.json", "stage2": "decisions/stage2.v1.json", "segment": "jev-choice",
+  "note": "the rules every run up to bb6203 used (replay-proven identical to the former hand-written code)" }

@@ -1,0 +1,2 @@
+{ "version": "v3", "stage1": "decisions/stage1.v1.json", "stage2": "decisions/stage2.v3.json", "segment": "band-lookup",
+  "note": "segment edge fix: segment looked up from employeeBand in code (P21); stage 2 no longer escalates on segment uncertainty" }

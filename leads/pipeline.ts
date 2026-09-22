@@ -33,6 +33,8 @@ import {
 import type { Lead, Segment, NextAction } from './types.ts';
 import { JEV, JEV_ID, answeredBy } from '../lib/jev.ts';
 import { SEEN_SHARE_WARN, messagesOf, partitionBySeen, requireSplit } from './splits.ts';
+import { loadPipelineConfig } from './pipeline-config.ts';
+import { decide } from '../kit/gate/decide.ts';
 
 const MODEL = JEV_ID;
 
@@ -43,6 +45,9 @@ function argValue(flag: string, fallback: string): string {
 
 const SEED = argValue('--seed', '42');
 const CONCURRENCY = Number(argValue('--concurrency', '8'));
+// Stage rules are data: pipeline.<version>.json names the decision files (v1 = every run up to bb6203).
+const CONFIG = loadPipelineConfig(argValue('--config', 'pipeline.v1.json'));
+const BAND_SEGMENT: Record<string, Segment> = { '1000+': 'enterprise', '201-1000': 'enterprise', '51-200': 'mid_market', '11-50': 'smb', '1-10': 'smb' };
 
 // ─────────────────────────────────────────────────────────── verdict thresholds
 //
@@ -225,21 +230,9 @@ async function main() {
 
     try {
       const s1 = await runStage(lead.id, stage1State(lead), STAGE1_ACQUISITION.questions);
-      const a1 = s1.answers as any;
-      // isRealBusiness can reject but cannot hold a lead back: "does this entity exist" is not
-      // answerable from one record (P18), and on seed 42 it sat mid-band for 503/540 leads, so
-      // requiring it confident-true escalated every clean in-ICP lead. The literal questions admit.
-      // inboundSubstantive is recorded, not gated: it judges intent (stage 2's question) and sat
-      // mid-band on 72/73 escalated out-of-ICP leads. senderWroteASentence asks only "is this noise?".
-      const coreTrue = ['hasNamedCompany', 'senderWroteASentence', 'onTopicParseable'].map(
-        n => boolVerdict(a1[n].probability),
-      );
-      const realBusiness = boolVerdict(a1.isRealBusiness.probability);
-      const emptyVerdict = boolVerdict(a1.isEmptyOrMarkup.probability);
-      let outcome1: Stage1Outcome;
-      if (realBusiness === 'false' || coreTrue.some(v => v === 'false') || emptyVerdict === 'true') outcome1 = 'reject';
-      else if (coreTrue.every(v => v === 'true') && emptyVerdict === 'false') outcome1 = 'admit';
-      else outcome1 = 'escalate';
+      // Stage-1 rule from CONFIG.stage1 (decisions/stage1.v1.json encodes the former hand-written gate:
+      // isRealBusiness may reject but not hold back; literal questions admit; replay-proven identical).
+      const outcome1: Stage1Outcome = ({ true: 'admit', false: 'reject', escalate: 'escalate' } as const)[String(decide(s1.answers as any, CONFIG.stage1).verdict) as 'true'];
 
       const stage1Result = { ...s1, outcome: outcome1 };
       if (outcome1 !== 'admit') {
@@ -253,20 +246,11 @@ async function main() {
 
       const s2 = await runStage(lead.id, stage2State(lead), STAGE2_QUALIFICATION.questions);
       const a2 = s2.answers as any;
-      const segmentEntropy = s2.entropies.segment ?? 1;
-      const segment = a2.segment.choice as Segment;
-      const icpFit = a2.icpFit.score as number;
-      let outcome2: Stage2Outcome;
-      // A confident "no buying intent" overrides the record's shape: an ICP-shaped support request,
-      // job application or unsubscribe is not a lead. Only the confident end acts (mid-band keeps
-      // the old rule). Chosen on dev seeds 42 (changes nothing) and p3001 (rejects 50 wrongly
-      // qualified non-buyers, loses 0 buyers); escalating the mid-band too would have escalated
-      // 49 real buyers on seed 42.
+      // Stage-2 rule from CONFIG.stage2. Segment is either Jev's choice (v1) or, since v3, a lookup from
+      // employeeBand in code: segment is a table, not a judgement (P21), and asking it cost real buyers.
+      const outcome2: Stage2Outcome = ({ true: 'qualified', false: 'not_qualified', escalate: 'escalate' } as const)[String(decide(a2, CONFIG.stage2).verdict) as 'true'];
+      const segment: Segment = CONFIG.segment === 'band-lookup' ? BAND_SEGMENT[lead.employeeBand] ?? 'smb' : (a2.segment.choice as Segment);
       const noIntent = boolVerdict(a2.buyingSignal.probability) === 'false';
-      if (segmentEntropy > SEGMENT_ENTROPY_GATE) outcome2 = 'escalate';
-      else if (segment !== 'not_qualified' && icpFit >= 2 && !noIntent) outcome2 = 'qualified';
-      else outcome2 = 'not_qualified';
-
       const stage2Result = { ...s2, outcome: outcome2, segment: noIntent ? 'not_qualified' as Segment : segment };
       if (outcome2 !== 'qualified') {
         return {
@@ -330,7 +314,7 @@ async function main() {
   const outPath = new URL(`./pipeline-${SEED}.json`, outDir);
   await writeFile(
     outPath,
-    JSON.stringify({ seed: SEED, model: MODEL, resolvedModels, wallMs, savings, results }, null, 2) + '\n',
+    JSON.stringify({ seed: SEED, model: MODEL, resolvedModels, config: { version: CONFIG.version, segment: CONFIG.segment, provenance: CONFIG.provenance }, wallMs, savings, results }, null, 2) + '\n',
   );
 
   console.log(`\nwrote ${results.length} lead results -> ${outPath.pathname}`);

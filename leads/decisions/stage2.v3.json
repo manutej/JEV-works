@@ -1,0 +1,9 @@
+{
+  "positive": "the lead is qualified (segment is then looked up from employeeBand in code)",
+  "thresholds": { "yes": 0.85, "no": 0.15 },
+  "rules": [
+    { "when": { "q": "buyingSignal", "is": "no" }, "then": false },
+    { "when": { "q": "icpFit", "scoreAtLeast": 2 }, "then": true }
+  ],
+  "default": false
+}
