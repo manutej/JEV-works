@@ -1,0 +1,1898 @@
+{
+  "validity": {
+    "addedAfterRun": true,
+    "valid": false,
+    "verdict": "VOID \u2014 not a blind test; the pre-registered hypothesis could not be tested with this data",
+    "because": {
+      "holdoutIdsInFitSet": "39/39",
+      "identicalText": "39/39",
+      "identicalLabel": "39/39",
+      "holdoutStatus": {
+        "approved": 39
+      },
+      "fitStatus": {
+        "approved": 39,
+        "killed": 41
+      },
+      "explanation": "ceti-silver-hooks-approved.json is exactly the status=\"approved\" rows of ceti-silver-hooks.json. Both the v2 option descriptions and the E3 keyword rules were written by reading all 80 labelled fit items, so the \"holdout\" was seen during fitting by both systems."
+    },
+    "mechanicalOutcome": {
+      "falsified": true,
+      "falsifiedBecause": {
+        "dropExceeds5Points": false,
+        "baselineWins": true,
+        "drop": -0.0186,
+        "holdoutVsBaseline": -0.1538
+      },
+      "reading": "The falsifier fired (keyword \u2212 Jev = 0.15 \u2265 0.11) but on in-sample data: it shows hand-written regexes memorise 80 items harder than 9 option descriptions do, which says nothing about which transfers to unseen hooks."
+    },
+    "byProducts": {
+      "jevRepeatability": "38/39 identical choices between the fit run and the holdout run on the same items (direct backend, same question)",
+      "unfittedComparison": "The only fitting-free comparison on these items: E1 wording (v1) vs E1 unfitted keyword baseline \u2014 see results/e3-fit.json v1 and fit.baselines.e1Keyword."
+    },
+    "neededToTestE3": "A labelled hook set disjoint from the 80 (by id and normalised text), checked blind \u2014 by hashing texts and printing only the overlap count \u2014 BEFORE the run."
+  },
+  "validityAnnotatedAt": "2026-09-22 (MoE panel condition for merging; results unchanged)",
+  "experiment": "E3",
+  "hypothesis": "Holdout accuracy drops less than 5 points from fit, and beats the baseline.",
+  "falsifier": "Falsified if the drop exceeds 5 points (overfitting to the fit set) or the baseline wins.",
+  "readings": {
+    "drop": "fit accuracy \u2212 holdout accuracy of the PRIMARY system; falsified if > 0.05 (applied as written, below P4's 0.11; see E3-PROGRESS A3)",
+    "baseline": "E3 keyword baseline fitted on the same 80. Jev beats it if holdout \u0394 \u2265 0.11; it wins if \u0394 \u2264 \u22120.11; else a tie (P4)",
+    "primarySystem": "Jev choice argmax with the frozen variant. The \u03c4-hybrid is secondary and never decides the verdict."
+  },
+  "approval": {
+    "by": "Manu (human-of-record)",
+    "date": "2026-09-21",
+    "question": "Pre-approve the one-shot holdout run?",
+    "answer": "Run evaluation upon the questions and move forward with consensus but also create an html dashboard for manual review. NO stopping, keep going in the meantime and track the logs and results and assumptions."
+  },
+  "model": "jev-latest (direct)",
+  "holdoutCustody": {
+    "path": "/Users/manu/CETI/PISCES-MARKETING/assets/ceti-silver-hooks-approved.json",
+    "sha256": "3948c5b38d1b48efdfc745021ea03fc689039a2ae2143161e3852b6e52a099c1",
+    "items": 39,
+    "recordedAt": "2026-09-21T21:24:05Z",
+    "inspectedBeforeRun": false
+  },
+  "frozen": {
+    "frozenAt": "2026-09-21T21:27:36.087Z",
+    "codeCommit": "0afc3ddbdc0717903645a9389bce02ab6eeedf83",
+    "codeFiles": [
+      "program/e3-blind.ts",
+      "program/e3-questions.ts",
+      "program/e3-keyword-baseline.ts",
+      "program/keyword-baseline.ts",
+      "program/formulas.ts",
+      "lib/jev.ts",
+      "lib/jev-direct.ts"
+    ],
+    "variant": "v2",
+    "selectionRule": "highest fit accuracy; tie \u2192 higher macro recall; tie \u2192 earlier variant",
+    "variantRanking": [
+      {
+        "variant": "v2",
+        "accuracy": 0.725,
+        "macroRecall": 0.7611
+      },
+      {
+        "variant": "v3",
+        "accuracy": 0.6875,
+        "macroRecall": 0.7074
+      },
+      {
+        "variant": "v1",
+        "accuracy": 0.375,
+        "macroRecall": 0.3362
+      }
+    ],
+    "question": {
+      "instructions": "Which single mechanism does this marketing hook rely on most?",
+      "criteria": {
+        "deprivation-moment": "Evokes a specific, recognisable moment of the reader's current frustration or loss \u2014 a late-night desk, a Sunday rewrite, a tab closed in defeat, the fear of being left behind \u2014 as a scene, a pointed question, or a short aphorism, without offering a method, a number or proof.",
+        "number-outcome-time": "Carries its payload in figures: a before\u2192after transformation (\"6 hr \u2192 90 min\", \"17 tabs \u2192 1 brief\"), a price, a count of seats or files, a duration, or a named deadline or day.",
+        "call-out": "Tells a particular kind of reader \"this is for you\": names the audience (\"For solo consultants:\"), greets them personally (\"[NAME] \u2014\"), or positions the reader against what others do or offer (\"They demo cats. You need your deck read.\").",
+        "how-to-without": "Promises the desired result while removing a cost, effort or prerequisite \u2014 \"how to X without Y\", or an imperative swap that drops the old burden for the new outcome (\"Stop reading 40-page reports. Get a 1-page brief.\", \"You don't need another course \u2014 you need\u2026\").",
+        "halbert-a-pile": "Reads like a personal email subject line from someone the reader knows: a short, usually lowercase fragment referring to a specific shared item (\"re: the deck you sent Thursday\", \"that clause on page 12\"), with no visible pitch, offer or selling language.",
+        "damaging-admission": "Volunteers something unflattering or risky up front: an admission that something failed or was not enough, a disclosed limitation (\"AI is in the mix\"), a concession that the reader may walk away (\"if week one flops, you walk\"), or what an unhappy customer said.",
+        "adjective-good": "Names the offer itself as a characterful thing with an evaluative adjective or image (\"A free AI win\", \"The lazy proposal-reader\", \"Furnished room, not another empty chat tab\"), selling by how the thing is described rather than by numbers, method or proof.",
+        "mistakes": "Warns that the reader is doing something wrong or falling behind: named mistakes or bad habits, an error they may have missed, or a warning that others have already moved on without them.",
+        "receipt": "Points to proof or credentials instead of making a claim: a receipt, citations, a comparison with an elite or named benchmark (a Fortune 500 standard, a named competitor and its price), or evidence already earned."
+      }
+    },
+    "hybridTau": 0.85,
+    "tauCurve": [
+      {
+        "tau": 0,
+        "accuracy": 0.725
+      },
+      {
+        "tau": 0.2,
+        "accuracy": 0.725
+      },
+      {
+        "tau": 0.25,
+        "accuracy": 0.725
+      },
+      {
+        "tau": 0.3,
+        "accuracy": 0.725
+      },
+      {
+        "tau": 0.35,
+        "accuracy": 0.7375
+      },
+      {
+        "tau": 0.4,
+        "accuracy": 0.7625
+      },
+      {
+        "tau": 0.45,
+        "accuracy": 0.775
+      },
+      {
+        "tau": 0.5,
+        "accuracy": 0.8
+      },
+      {
+        "tau": 0.55,
+        "accuracy": 0.8
+      },
+      {
+        "tau": 0.6,
+        "accuracy": 0.825
+      },
+      {
+        "tau": 0.65,
+        "accuracy": 0.825
+      },
+      {
+        "tau": 0.7,
+        "accuracy": 0.8125
+      },
+      {
+        "tau": 0.75,
+        "accuracy": 0.8125
+      },
+      {
+        "tau": 0.8,
+        "accuracy": 0.8125
+      },
+      {
+        "tau": 0.85,
+        "accuracy": 0.8375
+      },
+      {
+        "tau": 0.9,
+        "accuracy": 0.8375
+      }
+    ],
+    "concurrency": 4,
+    "maxRetries": 2
+  },
+  "fit": {
+    "n": 80,
+    "primary": {
+      "n": 80,
+      "correct": 58,
+      "accuracy": 0.725,
+      "macroRecall": 0.7611,
+      "perClass": {
+        "number-outcome-time": {
+          "n": 15,
+          "correct": 15,
+          "recall": 1,
+          "insufficientData": false
+        },
+        "receipt": {
+          "n": 4,
+          "correct": 3,
+          "recall": 0.75,
+          "insufficientData": true
+        },
+        "damaging-admission": {
+          "n": 5,
+          "correct": 4,
+          "recall": 0.8,
+          "insufficientData": true
+        },
+        "deprivation-moment": {
+          "n": 21,
+          "correct": 13,
+          "recall": 0.619,
+          "insufficientData": false
+        },
+        "adjective-good": {
+          "n": 5,
+          "correct": 4,
+          "recall": 0.8,
+          "insufficientData": true
+        },
+        "mistakes": {
+          "n": 5,
+          "correct": 5,
+          "recall": 1,
+          "insufficientData": true
+        },
+        "how-to-without": {
+          "n": 7,
+          "correct": 5,
+          "recall": 0.7143,
+          "insufficientData": true
+        },
+        "call-out": {
+          "n": 12,
+          "correct": 4,
+          "recall": 0.3333,
+          "insufficientData": false
+        },
+        "halbert-a-pile": {
+          "n": 6,
+          "correct": 5,
+          "recall": 0.8333,
+          "insufficientData": true
+        }
+      }
+    },
+    "hybrid": {
+      "n": 80,
+      "correct": 67,
+      "accuracy": 0.8375,
+      "macroRecall": 0.8037,
+      "perClass": {
+        "number-outcome-time": {
+          "n": 15,
+          "correct": 15,
+          "recall": 1,
+          "insufficientData": false
+        },
+        "receipt": {
+          "n": 4,
+          "correct": 3,
+          "recall": 0.75,
+          "insufficientData": true
+        },
+        "damaging-admission": {
+          "n": 5,
+          "correct": 5,
+          "recall": 1,
+          "insufficientData": true
+        },
+        "deprivation-moment": {
+          "n": 21,
+          "correct": 20,
+          "recall": 0.9524,
+          "insufficientData": false
+        },
+        "adjective-good": {
+          "n": 5,
+          "correct": 3,
+          "recall": 0.6,
+          "insufficientData": true
+        },
+        "mistakes": {
+          "n": 5,
+          "correct": 4,
+          "recall": 0.8,
+          "insufficientData": true
+        },
+        "how-to-without": {
+          "n": 7,
+          "correct": 5,
+          "recall": 0.7143,
+          "insufficientData": true
+        },
+        "call-out": {
+          "n": 12,
+          "correct": 7,
+          "recall": 0.5833,
+          "insufficientData": false
+        },
+        "halbert-a-pile": {
+          "n": 6,
+          "correct": 5,
+          "recall": 0.8333,
+          "insufficientData": true
+        }
+      }
+    },
+    "baselines": {
+      "e3Keyword": {
+        "n": 80,
+        "correct": 69,
+        "accuracy": 0.8625,
+        "macroRecall": 0.8479,
+        "perClass": {
+          "number-outcome-time": {
+            "n": 15,
+            "correct": 14,
+            "recall": 0.9333,
+            "insufficientData": false
+          },
+          "receipt": {
+            "n": 4,
+            "correct": 4,
+            "recall": 1,
+            "insufficientData": true
+          },
+          "damaging-admission": {
+            "n": 5,
+            "correct": 5,
+            "recall": 1,
+            "insufficientData": true
+          },
+          "deprivation-moment": {
+            "n": 21,
+            "correct": 21,
+            "recall": 1,
+            "insufficientData": false
+          },
+          "adjective-good": {
+            "n": 5,
+            "correct": 3,
+            "recall": 0.6,
+            "insufficientData": true
+          },
+          "mistakes": {
+            "n": 5,
+            "correct": 4,
+            "recall": 0.8,
+            "insufficientData": true
+          },
+          "how-to-without": {
+            "n": 7,
+            "correct": 5,
+            "recall": 0.7143,
+            "insufficientData": true
+          },
+          "call-out": {
+            "n": 12,
+            "correct": 7,
+            "recall": 0.5833,
+            "insufficientData": false
+          },
+          "halbert-a-pile": {
+            "n": 6,
+            "correct": 6,
+            "recall": 1,
+            "insufficientData": true
+          }
+        }
+      },
+      "e1Keyword": {
+        "n": 80,
+        "correct": 25,
+        "accuracy": 0.3125,
+        "macroRecall": 0.1929,
+        "perClass": {
+          "number-outcome-time": {
+            "n": 15,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": false
+          },
+          "receipt": {
+            "n": 4,
+            "correct": 1,
+            "recall": 0.25,
+            "insufficientData": true
+          },
+          "damaging-admission": {
+            "n": 5,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "deprivation-moment": {
+            "n": 21,
+            "correct": 21,
+            "recall": 1,
+            "insufficientData": false
+          },
+          "adjective-good": {
+            "n": 5,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "mistakes": {
+            "n": 5,
+            "correct": 1,
+            "recall": 0.2,
+            "insufficientData": true
+          },
+          "how-to-without": {
+            "n": 7,
+            "correct": 2,
+            "recall": 0.2857,
+            "insufficientData": true
+          },
+          "call-out": {
+            "n": 12,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": false
+          },
+          "halbert-a-pile": {
+            "n": 6,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          }
+        }
+      },
+      "majorityClass": {
+        "guess": "deprivation-moment",
+        "n": 80,
+        "correct": 21,
+        "accuracy": 0.2625,
+        "macroRecall": 0.1111,
+        "perClass": {
+          "number-outcome-time": {
+            "n": 15,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": false
+          },
+          "receipt": {
+            "n": 4,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "damaging-admission": {
+            "n": 5,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "deprivation-moment": {
+            "n": 21,
+            "correct": 21,
+            "recall": 1,
+            "insufficientData": false
+          },
+          "adjective-good": {
+            "n": 5,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "mistakes": {
+            "n": 5,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "how-to-without": {
+            "n": 7,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "call-out": {
+            "n": 12,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": false
+          },
+          "halbert-a-pile": {
+            "n": 6,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          }
+        }
+      }
+    },
+    "confusion": {
+      "number-outcome-time": {
+        "number-outcome-time": 15
+      },
+      "receipt": {
+        "receipt": 3,
+        "number-outcome-time": 1
+      },
+      "damaging-admission": {
+        "damaging-admission": 4,
+        "number-outcome-time": 1
+      },
+      "deprivation-moment": {
+        "halbert-a-pile": 4,
+        "deprivation-moment": 13,
+        "number-outcome-time": 1,
+        "mistakes": 1,
+        "how-to-without": 1,
+        "damaging-admission": 1
+      },
+      "adjective-good": {
+        "adjective-good": 4,
+        "how-to-without": 1
+      },
+      "mistakes": {
+        "mistakes": 5
+      },
+      "how-to-without": {
+        "how-to-without": 5,
+        "mistakes": 1,
+        "(failed)": 1
+      },
+      "call-out": {
+        "number-outcome-time": 2,
+        "deprivation-moment": 1,
+        "halbert-a-pile": 1,
+        "how-to-without": 2,
+        "call-out": 4,
+        "adjective-good": 1,
+        "receipt": 1
+      },
+      "halbert-a-pile": {
+        "halbert-a-pile": 5,
+        "mistakes": 1
+      }
+    }
+  },
+  "holdoutRunStartedAt": "2026-09-21T21:27:52.452Z",
+  "holdoutHeadAtRun": "e9e0ae3f982f441ec9f76d14421f750a86319b60",
+  "headline": "E3 VOID: holdout \u2282 fit set (39/39); as-run Jev 74% vs keyword 90% is in-sample",
+  "n": {
+    "fit": 80,
+    "holdout": 39
+  },
+  "baseline": {
+    "name": "E3 keyword baseline (fitted on the same 80)",
+    "fitAccuracy": 0.8625,
+    "holdoutAccuracy": 0.8974,
+    "holdoutMacroRecall": 0.9037
+  },
+  "result": {
+    "system": "Jev choice, variant v2",
+    "fitAccuracy": 0.725,
+    "holdoutAccuracy": 0.7436,
+    "holdoutMacroRecall": 0.7265
+  },
+  "delta": {
+    "fitToHoldoutDrop": -0.0186,
+    "fitToHoldoutDropCI95": [
+      -0.1837,
+      0.1484
+    ],
+    "holdoutVsBaseline": -0.1538,
+    "holdoutVsBaselineCI95": [
+      -0.3333,
+      0
+    ],
+    "baselineFitToHoldoutDrop": -0.0349
+  },
+  "falsified": true,
+  "falsifiedBecause": {
+    "dropExceeds5Points": false,
+    "baselineWins": true,
+    "drop": -0.0186,
+    "holdoutVsBaseline": -0.1538
+  },
+  "hypothesisSupported": false,
+  "baselineAheadRaw": true,
+  "holdout": {
+    "ranAt": "2026-09-21T21:27:52.452Z",
+    "schema": {
+      "n": 39,
+      "matchesRecordedCount": true,
+      "missingFields": [],
+      "keys": "artifact,audience,channel,formula,id,objection,persona,source,status,swapTestPass,text",
+      "outOfSetLabels": []
+    },
+    "fitOverlap": {
+      "count": 39,
+      "ids": [
+        "h01",
+        "h03",
+        "h05",
+        "h06",
+        "h07",
+        "h10",
+        "h11",
+        "h12",
+        "h13",
+        "h15",
+        "h19",
+        "h20",
+        "h21",
+        "h25",
+        "h26",
+        "h29",
+        "h30",
+        "h31",
+        "h32",
+        "h34",
+        "h36",
+        "h38",
+        "h42",
+        "h45",
+        "h51",
+        "h56",
+        "h60",
+        "h62",
+        "h63",
+        "h64",
+        "h68",
+        "h69",
+        "h70",
+        "h71",
+        "h72",
+        "h74",
+        "h77",
+        "h79",
+        "h80"
+      ]
+    },
+    "primary": {
+      "n": 39,
+      "correct": 29,
+      "accuracy": 0.7436,
+      "macroRecall": 0.7265,
+      "perClass": {
+        "number-outcome-time": {
+          "n": 11,
+          "correct": 11,
+          "recall": 1,
+          "insufficientData": false
+        },
+        "damaging-admission": {
+          "n": 1,
+          "correct": 1,
+          "recall": 1,
+          "insufficientData": true
+        },
+        "adjective-good": {
+          "n": 4,
+          "correct": 3,
+          "recall": 0.75,
+          "insufficientData": true
+        },
+        "deprivation-moment": {
+          "n": 9,
+          "correct": 5,
+          "recall": 0.5556,
+          "insufficientData": false
+        },
+        "how-to-without": {
+          "n": 6,
+          "correct": 5,
+          "recall": 0.8333,
+          "insufficientData": true
+        },
+        "call-out": {
+          "n": 5,
+          "correct": 2,
+          "recall": 0.4,
+          "insufficientData": true
+        },
+        "halbert-a-pile": {
+          "n": 1,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        },
+        "receipt": {
+          "n": 1,
+          "correct": 1,
+          "recall": 1,
+          "insufficientData": true
+        },
+        "mistakes": {
+          "n": 1,
+          "correct": 1,
+          "recall": 1,
+          "insufficientData": true
+        }
+      }
+    },
+    "hybrid": {
+      "tau": 0.85,
+      "n": 39,
+      "correct": 32,
+      "accuracy": 0.8205,
+      "macroRecall": 0.758,
+      "perClass": {
+        "number-outcome-time": {
+          "n": 11,
+          "correct": 11,
+          "recall": 1,
+          "insufficientData": false
+        },
+        "damaging-admission": {
+          "n": 1,
+          "correct": 1,
+          "recall": 1,
+          "insufficientData": true
+        },
+        "adjective-good": {
+          "n": 4,
+          "correct": 2,
+          "recall": 0.5,
+          "insufficientData": true
+        },
+        "deprivation-moment": {
+          "n": 9,
+          "correct": 8,
+          "recall": 0.8889,
+          "insufficientData": false
+        },
+        "how-to-without": {
+          "n": 6,
+          "correct": 5,
+          "recall": 0.8333,
+          "insufficientData": true
+        },
+        "call-out": {
+          "n": 5,
+          "correct": 3,
+          "recall": 0.6,
+          "insufficientData": true
+        },
+        "halbert-a-pile": {
+          "n": 1,
+          "correct": 0,
+          "recall": 0,
+          "insufficientData": true
+        },
+        "receipt": {
+          "n": 1,
+          "correct": 1,
+          "recall": 1,
+          "insufficientData": true
+        },
+        "mistakes": {
+          "n": 1,
+          "correct": 1,
+          "recall": 1,
+          "insufficientData": true
+        }
+      }
+    },
+    "baselines": {
+      "e3Keyword": {
+        "n": 39,
+        "correct": 35,
+        "accuracy": 0.8974,
+        "macroRecall": 0.9037,
+        "perClass": {
+          "number-outcome-time": {
+            "n": 11,
+            "correct": 11,
+            "recall": 1,
+            "insufficientData": false
+          },
+          "damaging-admission": {
+            "n": 1,
+            "correct": 1,
+            "recall": 1,
+            "insufficientData": true
+          },
+          "adjective-good": {
+            "n": 4,
+            "correct": 2,
+            "recall": 0.5,
+            "insufficientData": true
+          },
+          "deprivation-moment": {
+            "n": 9,
+            "correct": 9,
+            "recall": 1,
+            "insufficientData": false
+          },
+          "how-to-without": {
+            "n": 6,
+            "correct": 5,
+            "recall": 0.8333,
+            "insufficientData": true
+          },
+          "call-out": {
+            "n": 5,
+            "correct": 4,
+            "recall": 0.8,
+            "insufficientData": true
+          },
+          "halbert-a-pile": {
+            "n": 1,
+            "correct": 1,
+            "recall": 1,
+            "insufficientData": true
+          },
+          "receipt": {
+            "n": 1,
+            "correct": 1,
+            "recall": 1,
+            "insufficientData": true
+          },
+          "mistakes": {
+            "n": 1,
+            "correct": 1,
+            "recall": 1,
+            "insufficientData": true
+          }
+        }
+      },
+      "e1Keyword": {
+        "n": 39,
+        "correct": 11,
+        "accuracy": 0.2821,
+        "macroRecall": 0.1481,
+        "perClass": {
+          "number-outcome-time": {
+            "n": 11,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": false
+          },
+          "damaging-admission": {
+            "n": 1,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "adjective-good": {
+            "n": 4,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "deprivation-moment": {
+            "n": 9,
+            "correct": 9,
+            "recall": 1,
+            "insufficientData": false
+          },
+          "how-to-without": {
+            "n": 6,
+            "correct": 2,
+            "recall": 0.3333,
+            "insufficientData": true
+          },
+          "call-out": {
+            "n": 5,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "halbert-a-pile": {
+            "n": 1,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "receipt": {
+            "n": 1,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "mistakes": {
+            "n": 1,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          }
+        }
+      },
+      "majorityClass": {
+        "guess": "deprivation-moment",
+        "n": 39,
+        "correct": 9,
+        "accuracy": 0.2308,
+        "macroRecall": 0.1111,
+        "perClass": {
+          "number-outcome-time": {
+            "n": 11,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": false
+          },
+          "damaging-admission": {
+            "n": 1,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "adjective-good": {
+            "n": 4,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "deprivation-moment": {
+            "n": 9,
+            "correct": 9,
+            "recall": 1,
+            "insufficientData": false
+          },
+          "how-to-without": {
+            "n": 6,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "call-out": {
+            "n": 5,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "halbert-a-pile": {
+            "n": 1,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "receipt": {
+            "n": 1,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          },
+          "mistakes": {
+            "n": 1,
+            "correct": 0,
+            "recall": 0,
+            "insufficientData": true
+          }
+        }
+      }
+    },
+    "dedup": null,
+    "confusion": {
+      "number-outcome-time": {
+        "number-outcome-time": 11
+      },
+      "damaging-admission": {
+        "damaging-admission": 1
+      },
+      "adjective-good": {
+        "adjective-good": 3,
+        "how-to-without": 1
+      },
+      "deprivation-moment": {
+        "deprivation-moment": 5,
+        "number-outcome-time": 2,
+        "halbert-a-pile": 1,
+        "how-to-without": 1
+      },
+      "how-to-without": {
+        "how-to-without": 5,
+        "mistakes": 1
+      },
+      "call-out": {
+        "number-outcome-time": 2,
+        "deprivation-moment": 1,
+        "call-out": 2
+      },
+      "halbert-a-pile": {
+        "mistakes": 1
+      },
+      "receipt": {
+        "receipt": 1
+      },
+      "mistakes": {
+        "mistakes": 1
+      }
+    },
+    "baselineConfusion": {
+      "number-outcome-time": {
+        "number-outcome-time": 11
+      },
+      "damaging-admission": {
+        "damaging-admission": 1
+      },
+      "adjective-good": {
+        "adjective-good": 2,
+        "number-outcome-time": 1,
+        "deprivation-moment": 1
+      },
+      "deprivation-moment": {
+        "deprivation-moment": 9
+      },
+      "how-to-without": {
+        "how-to-without": 5,
+        "deprivation-moment": 1
+      },
+      "call-out": {
+        "call-out": 4,
+        "deprivation-moment": 1
+      },
+      "halbert-a-pile": {
+        "halbert-a-pile": 1
+      },
+      "receipt": {
+        "receipt": 1
+      },
+      "mistakes": {
+        "mistakes": 1
+      }
+    },
+    "errors": 0,
+    "cost": {
+      "totalUsd": null
+    },
+    "telemetry": {
+      "completed": 39,
+      "failed": 0,
+      "retried": [],
+      "p50": 124,
+      "p95": 242,
+      "tokens": 35699,
+      "dollars": 0.0015,
+      "drift": []
+    },
+    "wallClockMs": 1569,
+    "rows": [
+      {
+        "id": "h01",
+        "formula": "number-outcome-time",
+        "text": "Companies pay $3,000 a seat for this. Once, it's $499.",
+        "choice": "number-outcome-time",
+        "probabilities": {
+          "receipt": 0.12,
+          "deprivation-moment": 0,
+          "halbert-a-pile": 0,
+          "how-to-without": 0,
+          "damaging-admission": 0,
+          "mistakes": 0,
+          "adjective-good": 0,
+          "call-out": 0,
+          "number-outcome-time": 0.88
+        },
+        "entropy": 0.167,
+        "baseline": "number-outcome-time",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h03",
+        "formula": "damaging-admission",
+        "text": "What a logistics C-suite told Manu after they'd already paid",
+        "choice": "damaging-admission",
+        "probabilities": {
+          "how-to-without": 0.01,
+          "halbert-a-pile": 0.05,
+          "mistakes": 0.03,
+          "call-out": 0.11,
+          "receipt": 0.16,
+          "deprivation-moment": 0.08,
+          "number-outcome-time": 0,
+          "adjective-good": 0,
+          "damaging-admission": 0.56
+        },
+        "entropy": 0.6207,
+        "baseline": "damaging-admission",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h05",
+        "formula": "number-outcome-time",
+        "text": "Try this on one of your own documents \u2014 takes five minutes",
+        "choice": "number-outcome-time",
+        "probabilities": {
+          "receipt": 0,
+          "deprivation-moment": 0,
+          "halbert-a-pile": 0,
+          "how-to-without": 0.03,
+          "damaging-admission": 0,
+          "mistakes": 0,
+          "call-out": 0.02,
+          "number-outcome-time": 0.95,
+          "adjective-good": 0
+        },
+        "entropy": 0.1057,
+        "baseline": "number-outcome-time",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h06",
+        "formula": "adjective-good",
+        "text": "A free AI win you can do before lunch today",
+        "choice": "adjective-good",
+        "probabilities": {
+          "damaging-admission": 0,
+          "call-out": 0,
+          "halbert-a-pile": 0,
+          "receipt": 0,
+          "mistakes": 0,
+          "adjective-good": 0.7,
+          "number-outcome-time": 0.28,
+          "deprivation-moment": 0,
+          "how-to-without": 0.02
+        },
+        "entropy": 0.3115,
+        "baseline": "adjective-good",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h07",
+        "formula": "deprivation-moment",
+        "text": "Remember learning SEO when Google was brand new?",
+        "choice": "deprivation-moment",
+        "probabilities": {
+          "how-to-without": 0,
+          "halbert-a-pile": 0.13,
+          "mistakes": 0,
+          "damaging-admission": 0,
+          "adjective-good": 0,
+          "call-out": 0.06,
+          "receipt": 0.03,
+          "deprivation-moment": 0.78,
+          "number-outcome-time": 0
+        },
+        "entropy": 0.3336,
+        "baseline": "deprivation-moment",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h10",
+        "formula": "number-outcome-time",
+        "text": "Last call: CETI Silver closes Tuesday, price goes up after",
+        "choice": "number-outcome-time",
+        "probabilities": {
+          "mistakes": 0.01,
+          "deprivation-moment": 0.03,
+          "halbert-a-pile": 0,
+          "number-outcome-time": 0.96,
+          "adjective-good": 0,
+          "call-out": 0,
+          "receipt": 0,
+          "how-to-without": 0,
+          "damaging-admission": 0
+        },
+        "entropy": 0.0867,
+        "baseline": "number-outcome-time",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h11",
+        "formula": "number-outcome-time",
+        "text": "Get 5 to 10 hours a week back \u2014 in six weeks",
+        "choice": "number-outcome-time",
+        "probabilities": {
+          "mistakes": 0,
+          "how-to-without": 0,
+          "call-out": 0,
+          "deprivation-moment": 0,
+          "receipt": 0,
+          "damaging-admission": 0,
+          "adjective-good": 0,
+          "number-outcome-time": 1,
+          "halbert-a-pile": 0
+        },
+        "entropy": 0,
+        "baseline": "number-outcome-time",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h12",
+        "formula": "how-to-without",
+        "text": "How to put AI on your docs without six months of trial and error",
+        "choice": "how-to-without",
+        "probabilities": {
+          "damaging-admission": 0,
+          "call-out": 0,
+          "number-outcome-time": 0,
+          "receipt": 0,
+          "halbert-a-pile": 0,
+          "mistakes": 0,
+          "deprivation-moment": 0,
+          "how-to-without": 1,
+          "adjective-good": 0
+        },
+        "entropy": 0,
+        "baseline": "how-to-without",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h13",
+        "formula": "call-out",
+        "text": "For solo consultants: six weeks, $499, your own proposals",
+        "choice": "number-outcome-time",
+        "probabilities": {
+          "deprivation-moment": 0,
+          "number-outcome-time": 0.86,
+          "call-out": 0.14,
+          "receipt": 0,
+          "damaging-admission": 0,
+          "mistakes": 0,
+          "how-to-without": 0,
+          "adjective-good": 0,
+          "halbert-a-pile": 0
+        },
+        "entropy": 0.1843,
+        "baseline": "call-out",
+        "jevCorrect": false,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h15",
+        "formula": "deprivation-moment",
+        "text": "The wave doesn't wait for anyone",
+        "choice": "deprivation-moment",
+        "probabilities": {
+          "halbert-a-pile": 0,
+          "number-outcome-time": 0,
+          "adjective-good": 0,
+          "mistakes": 0.24,
+          "damaging-admission": 0,
+          "call-out": 0,
+          "receipt": 0,
+          "deprivation-moment": 0.76,
+          "how-to-without": 0
+        },
+        "entropy": 0.2508,
+        "baseline": "deprivation-moment",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h19",
+        "formula": "adjective-good",
+        "text": "The lazy proposal-reader that runs in 4 minutes",
+        "choice": "adjective-good",
+        "probabilities": {
+          "mistakes": 0,
+          "adjective-good": 0.71,
+          "damaging-admission": 0,
+          "receipt": 0,
+          "call-out": 0.02,
+          "number-outcome-time": 0.26,
+          "halbert-a-pile": 0,
+          "how-to-without": 0.01,
+          "deprivation-moment": 0
+        },
+        "entropy": 0.3266,
+        "baseline": "number-outcome-time",
+        "jevCorrect": true,
+        "baselineCorrect": false,
+        "inFitSet": true
+      },
+      {
+        "id": "h20",
+        "formula": "how-to-without",
+        "text": "How to ship AI on client docs without losing your voice, even if you're not technical",
+        "choice": "how-to-without",
+        "probabilities": {
+          "deprivation-moment": 0,
+          "damaging-admission": 0,
+          "adjective-good": 0,
+          "number-outcome-time": 0,
+          "mistakes": 0,
+          "receipt": 0,
+          "call-out": 0,
+          "how-to-without": 1,
+          "halbert-a-pile": 0
+        },
+        "entropy": 0,
+        "baseline": "how-to-without",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h21",
+        "formula": "call-out",
+        "text": "For freelance devs: stop donating Sundays to rewrites",
+        "choice": "deprivation-moment",
+        "probabilities": {
+          "halbert-a-pile": 0,
+          "damaging-admission": 0,
+          "mistakes": 0.04,
+          "adjective-good": 0,
+          "number-outcome-time": 0.01,
+          "deprivation-moment": 0.53,
+          "how-to-without": 0.18,
+          "call-out": 0.24,
+          "receipt": 0
+        },
+        "entropy": 0.5291,
+        "baseline": "call-out",
+        "jevCorrect": false,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h25",
+        "formula": "deprivation-moment",
+        "text": "6 proposals before lunch \u2014 one of them is yours",
+        "choice": "number-outcome-time",
+        "probabilities": {
+          "call-out": 0.05,
+          "receipt": 0,
+          "halbert-a-pile": 0,
+          "adjective-good": 0,
+          "damaging-admission": 0,
+          "how-to-without": 0,
+          "mistakes": 0,
+          "number-outcome-time": 0.94,
+          "deprivation-moment": 0.01
+        },
+        "entropy": 0.1156,
+        "baseline": "deprivation-moment",
+        "jevCorrect": false,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h26",
+        "formula": "call-out",
+        "text": "Marcus: 14 extensions due Monday, staff still copy-pasting",
+        "choice": "number-outcome-time",
+        "probabilities": {
+          "halbert-a-pile": 0.07,
+          "adjective-good": 0,
+          "mistakes": 0.06,
+          "damaging-admission": 0,
+          "number-outcome-time": 0.8,
+          "deprivation-moment": 0.07,
+          "how-to-without": 0,
+          "call-out": 0,
+          "receipt": 0
+        },
+        "entropy": 0.3275,
+        "baseline": "deprivation-moment",
+        "jevCorrect": false,
+        "baselineCorrect": false,
+        "inFitSet": true
+      },
+      {
+        "id": "h29",
+        "formula": "number-outcome-time",
+        "text": "Your contract in 90 sec \u2014 3 risky clauses flagged",
+        "choice": "number-outcome-time",
+        "probabilities": {
+          "halbert-a-pile": 0,
+          "how-to-without": 0,
+          "mistakes": 0.19,
+          "receipt": 0,
+          "damaging-admission": 0,
+          "adjective-good": 0,
+          "number-outcome-time": 0.81,
+          "call-out": 0,
+          "deprivation-moment": 0
+        },
+        "entropy": 0.2213,
+        "baseline": "number-outcome-time",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h30",
+        "formula": "number-outcome-time",
+        "text": "47-email thread \u2192 one memo you keep",
+        "choice": "number-outcome-time",
+        "probabilities": {
+          "adjective-good": 0,
+          "halbert-a-pile": 0,
+          "call-out": 0,
+          "number-outcome-time": 1,
+          "damaging-admission": 0,
+          "how-to-without": 0,
+          "mistakes": 0,
+          "deprivation-moment": 0,
+          "receipt": 0
+        },
+        "entropy": 0,
+        "baseline": "number-outcome-time",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h31",
+        "formula": "how-to-without",
+        "text": "Your team sounds like 6 writers \u2014 lock one voice",
+        "choice": "mistakes",
+        "probabilities": {
+          "halbert-a-pile": 0.02,
+          "how-to-without": 0.02,
+          "call-out": 0.08,
+          "receipt": 0,
+          "damaging-admission": 0.04,
+          "mistakes": 0.58,
+          "number-outcome-time": 0.17,
+          "deprivation-moment": 0.09,
+          "adjective-good": 0
+        },
+        "entropy": 0.6013,
+        "baseline": "deprivation-moment",
+        "jevCorrect": false,
+        "baselineCorrect": false,
+        "inFitSet": true
+      },
+      {
+        "id": "h32",
+        "formula": "how-to-without",
+        "text": "You don't need another course \u2014 you need 5 tools that stay",
+        "choice": "how-to-without",
+        "probabilities": {
+          "how-to-without": 1,
+          "adjective-good": 0,
+          "damaging-admission": 0,
+          "number-outcome-time": 0,
+          "halbert-a-pile": 0,
+          "receipt": 0,
+          "mistakes": 0,
+          "deprivation-moment": 0,
+          "call-out": 0
+        },
+        "entropy": 0,
+        "baseline": "how-to-without",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h34",
+        "formula": "adjective-good",
+        "text": "The buyer who kills deals \u2014 on your side before you pitch",
+        "choice": "adjective-good",
+        "probabilities": {
+          "deprivation-moment": 0.12,
+          "damaging-admission": 0,
+          "mistakes": 0.28,
+          "call-out": 0.19,
+          "adjective-good": 0.41,
+          "receipt": 0,
+          "halbert-a-pile": 0,
+          "how-to-without": 0,
+          "number-outcome-time": 0
+        },
+        "entropy": 0.588,
+        "baseline": "adjective-good",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h36",
+        "formula": "deprivation-moment",
+        "text": "Still rewriting the same memo 3 times?",
+        "choice": "deprivation-moment",
+        "probabilities": {
+          "deprivation-moment": 0.93,
+          "damaging-admission": 0,
+          "receipt": 0,
+          "halbert-a-pile": 0,
+          "adjective-good": 0,
+          "number-outcome-time": 0.01,
+          "how-to-without": 0,
+          "mistakes": 0.05,
+          "call-out": 0
+        },
+        "entropy": 0.1198,
+        "baseline": "deprivation-moment",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h38",
+        "formula": "deprivation-moment",
+        "text": "This proposal sounds like last week's",
+        "choice": "halbert-a-pile",
+        "probabilities": {
+          "number-outcome-time": 0.05,
+          "deprivation-moment": 0.05,
+          "adjective-good": 0.01,
+          "how-to-without": 0,
+          "mistakes": 0.19,
+          "damaging-admission": 0.26,
+          "receipt": 0.01,
+          "call-out": 0.01,
+          "halbert-a-pile": 0.42
+        },
+        "entropy": 0.6681,
+        "baseline": "deprivation-moment",
+        "jevCorrect": false,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h42",
+        "formula": "deprivation-moment",
+        "text": "How do you price work when AI did part of the lift?",
+        "choice": "deprivation-moment",
+        "probabilities": {
+          "how-to-without": 0.11,
+          "damaging-admission": 0.24,
+          "receipt": 0,
+          "halbert-a-pile": 0,
+          "mistakes": 0,
+          "number-outcome-time": 0,
+          "adjective-good": 0,
+          "deprivation-moment": 0.64,
+          "call-out": 0.01
+        },
+        "entropy": 0.4173,
+        "baseline": "deprivation-moment",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h45",
+        "formula": "halbert-a-pile",
+        "text": "wrong question about AI",
+        "choice": "mistakes",
+        "probabilities": {
+          "mistakes": 0.95,
+          "call-out": 0,
+          "receipt": 0,
+          "deprivation-moment": 0.03,
+          "halbert-a-pile": 0,
+          "adjective-good": 0,
+          "how-to-without": 0,
+          "damaging-admission": 0.02,
+          "number-outcome-time": 0
+        },
+        "entropy": 0.1057,
+        "baseline": "halbert-a-pile",
+        "jevCorrect": false,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h51",
+        "formula": "call-out",
+        "text": "For freelance devs: prompt packs don't ship your specs",
+        "choice": "call-out",
+        "probabilities": {
+          "how-to-without": 0.03,
+          "damaging-admission": 0.02,
+          "adjective-good": 0,
+          "receipt": 0,
+          "mistakes": 0.33,
+          "number-outcome-time": 0,
+          "call-out": 0.58,
+          "halbert-a-pile": 0,
+          "deprivation-moment": 0.04
+        },
+        "entropy": 0.4524,
+        "baseline": "call-out",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h56",
+        "formula": "receipt",
+        "text": "First cohort outside a Fortune 500 wall \u2014 20 seats",
+        "choice": "receipt",
+        "probabilities": {
+          "receipt": 0.65,
+          "deprivation-moment": 0,
+          "halbert-a-pile": 0,
+          "damaging-admission": 0,
+          "adjective-good": 0,
+          "number-outcome-time": 0.32,
+          "how-to-without": 0,
+          "mistakes": 0,
+          "call-out": 0.03
+        },
+        "entropy": 0.3413,
+        "baseline": "receipt",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h60",
+        "formula": "how-to-without",
+        "text": "Stop reading 40-page reports. Get a 1-page brief.",
+        "choice": "how-to-without",
+        "probabilities": {
+          "how-to-without": 1,
+          "damaging-admission": 0,
+          "halbert-a-pile": 0,
+          "receipt": 0,
+          "number-outcome-time": 0,
+          "mistakes": 0,
+          "deprivation-moment": 0,
+          "adjective-good": 0,
+          "call-out": 0
+        },
+        "entropy": 0,
+        "baseline": "how-to-without",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h62",
+        "formula": "number-outcome-time",
+        "text": "Linda: 17 tabs \u2192 1 brief",
+        "choice": "number-outcome-time",
+        "probabilities": {
+          "adjective-good": 0,
+          "halbert-a-pile": 0,
+          "call-out": 0,
+          "mistakes": 0,
+          "receipt": 0,
+          "deprivation-moment": 0,
+          "number-outcome-time": 1,
+          "damaging-admission": 0,
+          "how-to-without": 0
+        },
+        "entropy": 0,
+        "baseline": "number-outcome-time",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h63",
+        "formula": "number-outcome-time",
+        "text": "Email 30 min \u2192 2 min",
+        "choice": "number-outcome-time",
+        "probabilities": {
+          "mistakes": 0,
+          "damaging-admission": 0,
+          "deprivation-moment": 0,
+          "halbert-a-pile": 0,
+          "number-outcome-time": 1,
+          "adjective-good": 0,
+          "how-to-without": 0,
+          "receipt": 0,
+          "call-out": 0
+        },
+        "entropy": 0,
+        "baseline": "number-outcome-time",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h64",
+        "formula": "number-outcome-time",
+        "text": "Deck 2 hr \u2192 30 min",
+        "choice": "number-outcome-time",
+        "probabilities": {
+          "number-outcome-time": 1,
+          "receipt": 0,
+          "deprivation-moment": 0,
+          "halbert-a-pile": 0,
+          "how-to-without": 0,
+          "call-out": 0,
+          "adjective-good": 0,
+          "damaging-admission": 0,
+          "mistakes": 0
+        },
+        "entropy": 0,
+        "baseline": "number-outcome-time",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h68",
+        "formula": "mistakes",
+        "text": "Approve before embarrass \u2014 every send",
+        "choice": "mistakes",
+        "probabilities": {
+          "call-out": 0,
+          "damaging-admission": 0,
+          "halbert-a-pile": 0,
+          "receipt": 0,
+          "mistakes": 0.8,
+          "adjective-good": 0,
+          "how-to-without": 0.02,
+          "deprivation-moment": 0.18,
+          "number-outcome-time": 0
+        },
+        "entropy": 0.2573,
+        "baseline": "mistakes",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h69",
+        "formula": "number-outcome-time",
+        "text": "Sarah: client proposal 6 hr \u2192 90 min",
+        "choice": "number-outcome-time",
+        "probabilities": {
+          "adjective-good": 0,
+          "receipt": 0,
+          "damaging-admission": 0,
+          "halbert-a-pile": 0,
+          "deprivation-moment": 0,
+          "call-out": 0,
+          "mistakes": 0,
+          "how-to-without": 0,
+          "number-outcome-time": 1
+        },
+        "entropy": 0,
+        "baseline": "number-outcome-time",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h70",
+        "formula": "number-outcome-time",
+        "text": "Maya: board-pack 6 hr \u2192 90 min",
+        "choice": "number-outcome-time",
+        "probabilities": {
+          "call-out": 0,
+          "how-to-without": 0,
+          "number-outcome-time": 1,
+          "receipt": 0,
+          "damaging-admission": 0,
+          "deprivation-moment": 0,
+          "mistakes": 0,
+          "halbert-a-pile": 0,
+          "adjective-good": 0
+        },
+        "entropy": 0,
+        "baseline": "number-outcome-time",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h71",
+        "formula": "deprivation-moment",
+        "text": "Tuesday stops starting from zero",
+        "choice": "how-to-without",
+        "probabilities": {
+          "deprivation-moment": 0.4,
+          "damaging-admission": 0,
+          "how-to-without": 0.42,
+          "number-outcome-time": 0.16,
+          "halbert-a-pile": 0,
+          "adjective-good": 0,
+          "call-out": 0,
+          "receipt": 0,
+          "mistakes": 0.02
+        },
+        "entropy": 0.5017,
+        "baseline": "deprivation-moment",
+        "jevCorrect": false,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h72",
+        "formula": "how-to-without",
+        "text": "Stop prompt lottery. Load the room.",
+        "choice": "how-to-without",
+        "probabilities": {
+          "how-to-without": 0.8,
+          "halbert-a-pile": 0,
+          "mistakes": 0.08,
+          "receipt": 0,
+          "damaging-admission": 0,
+          "adjective-good": 0.02,
+          "number-outcome-time": 0,
+          "call-out": 0,
+          "deprivation-moment": 0.1
+        },
+        "entropy": 0.3136,
+        "baseline": "how-to-without",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h74",
+        "formula": "call-out",
+        "text": "Generic AI voice? Not in this house.",
+        "choice": "call-out",
+        "probabilities": {
+          "halbert-a-pile": 0,
+          "damaging-admission": 0.01,
+          "deprivation-moment": 0.12,
+          "receipt": 0,
+          "adjective-good": 0.15,
+          "number-outcome-time": 0,
+          "mistakes": 0.15,
+          "how-to-without": 0.09,
+          "call-out": 0.48
+        },
+        "entropy": 0.6548,
+        "baseline": "call-out",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h77",
+        "formula": "deprivation-moment",
+        "text": "Scar tissue from solo AI \u2014 drill on your real doc Friday",
+        "choice": "number-outcome-time",
+        "probabilities": {
+          "adjective-good": 0,
+          "halbert-a-pile": 0.11,
+          "call-out": 0.07,
+          "mistakes": 0.15,
+          "receipt": 0,
+          "deprivation-moment": 0.03,
+          "number-outcome-time": 0.34,
+          "damaging-admission": 0.28,
+          "how-to-without": 0.01
+        },
+        "entropy": 0.7227,
+        "baseline": "deprivation-moment",
+        "jevCorrect": false,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h79",
+        "formula": "deprivation-moment",
+        "text": "The reflex before you open the generic ChatGPT tab",
+        "choice": "deprivation-moment",
+        "probabilities": {
+          "how-to-without": 0.09,
+          "adjective-good": 0.02,
+          "deprivation-moment": 0.82,
+          "mistakes": 0.05,
+          "halbert-a-pile": 0,
+          "damaging-admission": 0,
+          "number-outcome-time": 0,
+          "call-out": 0.02,
+          "receipt": 0
+        },
+        "entropy": 0.3121,
+        "baseline": "deprivation-moment",
+        "jevCorrect": true,
+        "baselineCorrect": true,
+        "inFitSet": true
+      },
+      {
+        "id": "h80",
+        "formula": "adjective-good",
+        "text": "That Monday chore? Schedule it and walk.",
+        "choice": "how-to-without",
+        "probabilities": {
+          "adjective-good": 0,
+          "number-outcome-time": 0.21,
+          "call-out": 0.01,
+          "receipt": 0,
+          "halbert-a-pile": 0.18,
+          "damaging-admission": 0.01,
+          "how-to-without": 0.3,
+          "deprivation-moment": 0.29,
+          "mistakes": 0
+        },
+        "entropy": 0.6593,
+        "baseline": "deprivation-moment",
+        "jevCorrect": false,
+        "baselineCorrect": false,
+        "inFitSet": true
+      }
+    ]
+  },
+  "headlineAsRun": "E3: holdout acc 74% vs keyword 90%, drop -2 pts \u2014 FALSIFIED",
+  "corrections": [
+    {
+      "field": "model",
+      "recordedAtFreeze": "typesafe-ai/jev (gateway)",
+      "corrected": "jev-latest (direct)",
+      "why": "freeze ran without TYPESAFE_API_KEY so JEV_ID resolved to the gateway; freeze makes no calls. Fit runs record jev-latest (direct) and the holdout RunLog announced \"model jev-latest (direct)\" (p50 124 ms, consistent with direct)."
+    }
+  ]
+}
