@@ -22,7 +22,7 @@ Durable record of this session's state. Chat is ephemeral; this file is not. New
 
 ## Round 3 (in flight, 2026-09-21 evening)
 - main = b1b504a (feat/jev-selector merged, Manu-approved in-session). feat/jev-selector continues: e3df648 (tie fix, I6, Q2 log, drift wrapper), **needs Manu to merge again**.
-- Background agents: q3-contamination (program/q3-*), q4-baseline-wins (program/BASELINE-WINS.md, q4-*), e3-kfold (worktree e3, rebased on main; in-sample k-fold per Manu).
+- Background agents: all done. Q3 none (P31, b9133b8); Q4 table (79494b4); E3 k-fold P32 (85808bc). Leads Q2 no difference (79494b4).
 - Leads Q2 (b4f08e): seed 2718 declared + logged; harness switch 070828b done; asked whether to cherry-pick the tie fix.
 - Weekly drift: wrapper `program/drift-weekly.sh` tested (skip path OK). **crontab install blocked by a macOS permission prompt**; Manu to run: `! (crontab -l 2>/dev/null; echo "0 9 * * 1 /Users/manu/JEV-works/program/drift-weekly.sh") | crontab -`
 

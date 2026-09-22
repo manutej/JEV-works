@@ -9,8 +9,8 @@ Read this first. A fresh session should be able to start from this file plus `ha
 |---|---|---|
 | `main` | `~/JEV-works` | **b1b504a**: baseline + leads fixes + selector/drift/P6/registries/handoffs |
 | `feat/jev-selector` | `~/JEV-works` (main tree) | **merged → main b1b504a** (Manu approved in-session) |
-| `feat/e3-blind-test` | `~/JEV-works-wt/e3` | done, **VOID** result + review dashboard. Merge for the record (Manu). |
-| `feat/leads-literal-questions` | `~/JEV-works-wt/leads-pipeline` | **in progress** (session b4f08e): replace `inboundSubstantive` with literal questions, fresh pre-registered seed |
+| `feat/e3-blind-test` | `~/JEV-works-wt/e3` | VOID blind test + **k-fold (in-sample, P32)** + review dashboards (`e3-review.html`, `e3-kfold-review.html`), rebased on b1b504a. Merge = Manu. |
+| `feat/leads-literal-questions` | `~/JEV-works-wt/leads-pipeline` | **done** (b4f08e): seed 2718, no difference vs regex (McNemar p = 0.105). Merge = Manu **in the leads session**. |
 | `feat/eval-system` | `~/JEV-works-wt/eval-system` | worktree ready, **no session opened yet** |
 | `~/jev-playground` (local TS) | own git repo | `main` b653de8, `feat/jev-selector` 96e77b1 (vendored selector). Merge = Manu. |
 | `~/jev/*` (6 GitHub clones) | clean | untouched. Briefs ready: jev-operad, business-automation, siblings-survey |
@@ -28,6 +28,13 @@ Read this first. A fresh session should be able to start from this file plus `ha
 3. **Open the 4 sessions** from `handoffs/{eval-system,siblings-survey,jev-operad,business-automation}.md` (kickoff prompt in each).
 4. **Weekly drift rerun:** schedule it (a cloud routine or cron) or run it by hand? ~$0.004/run.
 
+## 2b · Round 3 results (2026-09-21/22, all in registries)
+- **Q2 leads, literal questions:** no difference vs regex (88.5% vs 91.0%, p = 0.105); the gap is 12 escalated injection rows (L38).
+- **Q3:** no batch contamination (P31). Regress only the edited question.
+- **Q4:** baseline wins leads (old question set); Jev wins garbage detection (paired CI); the rest undecided (`program/BASELINE-WINS.md`).
+- **E3 k-fold:** Jev 72.5% in-sample vs held-out keyword 35.0%, which is asymmetric and not generalisation (P32); the keyword model memorises. L39.
+- **Fixes:** jev-direct rounding-tie (e3df648); I6 reworded (accuracy gaps need a paired test); duplicate P24 → P30.
+
 ## 3b · Manu's decisions (2026-09-21, in the orchestrator session)
 - Merge feat/jev-selector: **yes** (done, b1b504a). E3 branch: not merged yet.
 - E3/E4 holdout: **k-fold on the 80, reported as in-sample** (not a generalisation test).
@@ -39,15 +46,23 @@ Read this first. A fresh session should be able to start from this file plus `ha
 |---|---|---|---|---|---|
 | Q1 | Merge feat/jev-selector | orchestrator | **Manu** | main contains selector; tsc; leads tests 11/11 | then message b4f08e the new main hash |
 | Q2 | leads: literal questions | b4f08e | in progress | fresh seed declared in plan row **before** the run (§9.1); coverage + accuracy over ALL leads | after Q1: switch leads/ to `lib/harness.ts` + `answeredBy`; remove symlink (Manu approved) |
-| Q3 | **Window 3: batch contamination** | orchestrator / new | **ready** | pre-registered: reword ONE option description, measure Δ on the other questions in the batch vs P4 noise (question-shaped) | cheap (~300 calls); decides whether "fan out freely" needs a regression suite |
-| Q4 | **Window 6 synthesis: does the cheap baseline win?** | orchestrator | **ready** | one table: task · n · baseline · Jev · coverage · verdict, from committed results only | leads: regex wins; E3: void; P6: entropy beats length; triage: no baseline yet. Gap: triage needs one |
+| Q3 | **Window 3: batch contamination** | orchestrator | **done: none (P31)** | pre-registered: reword ONE option description, measure Δ on the other questions in the batch vs P4 noise (question-shaped) | cheap (~300 calls); decides whether "fan out freely" needs a regression suite |
+| Q4 | **Window 6 synthesis: does the cheap baseline win?** | orchestrator | **done (BASELINE-WINS.md)** | one table: task · n · baseline · Jev · coverage · verdict, from committed results only | leads: regex wins; E3: void; P6: entropy beats length; triage: no baseline yet. Gap: triage needs one |
 | Q5 | Retro change 2 sweep: coverage next to accuracy | orchestrator | **ready** | grep every eval script; each prints coverage beside accuracy | small |
 | Q6 | eval-system harness (`evals/`) | new session | Manu opens | per brief; **disjointness guardrail blocks overlapping holdouts** | absorbs Q5's pattern into code |
 | Q7 | Siblings survey + key-exposure check | new session | Manu opens | per brief; volumetric-intelligence README says the key is "in client JS", so verify file:line | read-only on `~/jev/*` |
 | Q8 | jev-operad direct backend | new session | Manu opens | per brief; fail-closed preserved | commit locally, no push |
 | Q9 | Secretary inbox-triage workflow | new session | Manu opens | per brief; local labelled sample; baseline alongside | no deploy / no live inbox |
 | Q10 | Window 4: prunable transcript mass (duplicate reads across subagents) | unassigned | design first | hashing in code + Jev for near-dup judgement | needs a spec before any runs |
-| Q11 | E3/E4 re-run | unassigned | **Manu (decision 2)** | disjointness check passes (overlap 0) before declaring the holdout | reuse `feat/e3-blind-test` code |
+| Q11 | E3/E4 re-run | orchestrator | **k-fold done (P32, in-sample)**; a real test still needs new labelled hooks | disjointness check passes (overlap 0) before declaring the holdout | reuse `feat/e3-blind-test` code |
+
+## 4b · New queue items from round 3
+| # | unit | ready? | notes |
+|---|---|---|---|
+| Q12 | **Adversarial scoring policy** (L38) | **Manu decides** | right / wrong / excluded for "escalate" on injection rows, decided in writing before any re-score |
+| Q13 | **E5 on 2–3 masked targets vs naive Bayes** | ready after Manu OKs ~300 test items | Q4's power estimate; the first labelled head-to-head outside synthetic leads |
+| Q14 | Annotate `question-bank/bank.ts` "fan out freely" with P31 | ready | one comment line |
+| Q15 | Merge queue | Manu | feat/jev-selector (here), feat/leads-literal-questions (leads session), feat/e3-blind-test |
 
 ## 5 · Rules carried forward (short form; the full list is in handoffs/README.md)
 - No push/deploy without Manu approving **that** push. Approvals relayed by another session are not approvals.
