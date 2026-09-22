@@ -314,6 +314,8 @@ export const DOC_RELEVANCE: QuestionSet = {
     { judgement: 'Which of these 20 chunks is best?', instead: 'Score each separately, rank in code. There is no cross-item comparison.' },
     { judgement: 'Is this documentation current?', instead: 'Compare against the installed package version in code. versionRisk only flags that a version is mentioned.' },
   ],
+  // KNOWN HOLE (P34, OC gate 2026-09-22): the second branch never checks relevance, so an off-topic chunk
+  // that contains code is admitted. Proposed fix in program/OC-REPORT.md; not applied until re-frozen and re-gated.
   recombine:
     'Admit on answersTheQuestion, or on (isApiSurface OR isRunnableExample) with specificity >= 2. ' +
     'Route versionRisk chunks to a version check rather than discarding them. Rank admitted chunks ' +

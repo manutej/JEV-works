@@ -510,3 +510,12 @@ judge" instead of issuing a verdict.
 actually have: false-alarm rate ≤ its α, power reported. An evaluator without an audit is a hand-set threshold in disguise.
 *Attached to:* `kit/threshold.ts` (`auditCalibrationEvaluator`), `program/calib-audit.ts`, test "passes its own audit".
 
+### L43 · The edge you fear is not the edge that breaks
+**Happened.** Each question tree declared a `high_risk_edge` before the OC run: the least literal leaf, by the author's
+judgement. In 2 of 3 trees it never flipped the root. The real failures were a mid-node asking something unverifiable
+from one record ("is there a *real* company", answered no on all 150) and a composition rule with a relevance hole
+(the same hole already sitting in `bank.ts` DOC_RELEVANCE, unnoticed since it was drafted).
+**Rule.** Declare the suspected edge (it costs nothing), but let the full collapse set localise the failure. Also OC-gate
+the lab's existing `recombine` rules, not just new trees: a composition rule is a question too.
+*Attached to:* `.toq/*/toq.yaml` (frozen), `program/OC-REPORT.md`.
+
