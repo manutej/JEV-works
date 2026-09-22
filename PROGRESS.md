@@ -20,6 +20,12 @@ Durable record of this session's state. Chat is ephemeral; this file is not. New
 - [x] U9 part 2: drift (dc1cd80), E3 void + L31 amendment + P24 + PROGRAM E3/E4 notes (df34df8)
 - [ ] Manu to open 4 sessions from handoffs/*.md
 
+## Round 3 (in flight, 2026-09-21 evening)
+- main = b1b504a (feat/jev-selector merged, Manu-approved in-session). feat/jev-selector continues: e3df648 (tie fix, I6, Q2 log, drift wrapper), **needs Manu to merge again**.
+- Background agents: q3-contamination (program/q3-*), q4-baseline-wins (program/BASELINE-WINS.md, q4-*), e3-kfold (worktree e3, rebased on main; in-sample k-fold per Manu).
+- Leads Q2 (b4f08e): seed 2718 declared + logged; harness switch 070828b done; asked whether to cherry-pick the tie fix.
+- Weekly drift: wrapper `program/drift-weekly.sh` tested (skip path OK). **crontab install blocked by a macOS permission prompt**; Manu to run: `! (crontab -l 2>/dev/null; echo "0 9 * * 1 /Users/manu/JEV-works/program/drift-weekly.sh") | crontab -`
+
 ## Waiting on Manu
 - Approve merges: feat/leads-pipeline → main first (b4f08e is holding it for Manu), then feat/jev-selector (rebased), then feat/e3-blind-test (void result + dashboard, kept for the record).
 - E3/E4 need a disjoint, independently labelled CETI set. **None exists locally:** wave2 (36/36) and wave3 (20/20) are also subsets of the 80-item fit file (checked 2026-09-21, counts only). Options: new hooks labelled by Manu, or a k-fold design on the 80 with the in-sample caveat stated.
