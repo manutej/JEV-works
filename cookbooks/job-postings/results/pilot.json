@@ -1,0 +1,1032 @@
+{
+  "kit": 1,
+  "spec": "job-postings-pilot",
+  "specPath": "cookbooks/job-postings/spec.pilot.json",
+  "model": "jev-1.13.0 (direct)",
+  "answeredBy": [
+    "jev-1.13.0"
+  ],
+  "startedAt": "2026-09-22T07:53:53.453Z",
+  "wallMs": 1332,
+  "calls": 30,
+  "coverage": 1,
+  "privacyScan": "passed",
+  "disjointness": null,
+  "gate": {
+    "minCoverage": null,
+    "verdict": "none"
+  },
+  "quality": [
+    {
+      "question": "directContactToApply",
+      "kind": "boolean",
+      "meanConf": 0.8966666666666672,
+      "atEnds": 0.9666666666666667,
+      "spread": 0.16040538921398148,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "promisesEasyEarnings",
+      "kind": "boolean",
+      "meanConf": 0.9106666666666671,
+      "atEnds": 0.9333333333333333,
+      "spread": 0.18232449704365622,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "asksForPaymentOrDetails",
+      "kind": "boolean",
+      "meanConf": 0.8573333333333336,
+      "atEnds": 0.9,
+      "spread": 0.12839868465923715,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "describesCompany",
+      "kind": "boolean",
+      "meanConf": 0.8226666666666667,
+      "atEnds": 0.8333333333333334,
+      "spread": 0.38335999907252827,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "listsSpecificDuties",
+      "kind": "boolean",
+      "meanConf": 0.7640000000000001,
+      "atEnds": 0.7333333333333333,
+      "spread": 0.26703807468848584,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "isFraudulent",
+      "kind": "boolean",
+      "meanConf": 0.532,
+      "atEnds": 0.16666666666666666,
+      "spread": 0.19221400110871795,
+      "verdict": "MOVE-TO-CODE"
+    }
+  ],
+  "scorecards": [],
+  "items": [
+    {
+      "id": "f001",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.35
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.53
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.23
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.99
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 265,
+      "correct": {}
+    },
+    {
+      "id": "f002",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.18
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 252,
+      "correct": {}
+    },
+    {
+      "id": "f003",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.13
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 247,
+      "correct": {}
+    },
+    {
+      "id": "f004",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.29
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 388,
+      "correct": {}
+    },
+    {
+      "id": "f005",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.13
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.92
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 292,
+      "correct": {}
+    },
+    {
+      "id": "f006",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.77
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.56
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.77
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.96
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 217,
+      "correct": {}
+    },
+    {
+      "id": "f007",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.49
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 154,
+      "correct": {}
+    },
+    {
+      "id": "f008",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.27
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 149,
+      "correct": {}
+    },
+    {
+      "id": "f009",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.17
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.44
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 135,
+      "correct": {}
+    },
+    {
+      "id": "f010",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.16
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.92
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 162,
+      "correct": {}
+    },
+    {
+      "id": "f011",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.78
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.12
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.28
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.16
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.53
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 127,
+      "correct": {}
+    },
+    {
+      "id": "f012",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.14
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.51
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 145,
+      "correct": {}
+    },
+    {
+      "id": "f013",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.82
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.17
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.55
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 121,
+      "correct": {}
+    },
+    {
+      "id": "f014",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.3
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.4
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 121,
+      "correct": {}
+    },
+    {
+      "id": "f015",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.22
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.48
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 125,
+      "correct": {}
+    },
+    {
+      "id": "f016",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.13
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.99
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 113,
+      "correct": {}
+    },
+    {
+      "id": "f017",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.18
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.96
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 118,
+      "correct": {}
+    },
+    {
+      "id": "f018",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.18
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 133,
+      "correct": {}
+    },
+    {
+      "id": "f019",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.19
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 169,
+      "correct": {}
+    },
+    {
+      "id": "f020",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.35
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.6
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 219,
+      "correct": {}
+    },
+    {
+      "id": "f021",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.17
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.21
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 120,
+      "correct": {}
+    },
+    {
+      "id": "f022",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.19
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.92
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 150,
+      "correct": {}
+    },
+    {
+      "id": "f023",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.34
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.18
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 146,
+      "correct": {}
+    },
+    {
+      "id": "f024",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.29
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 94,
+      "correct": {}
+    },
+    {
+      "id": "f025",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.14
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 158,
+      "correct": {}
+    },
+    {
+      "id": "f026",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.2
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.12
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.99
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 104,
+      "correct": {}
+    },
+    {
+      "id": "f027",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.51
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.45
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.31
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 129,
+      "correct": {}
+    },
+    {
+      "id": "f028",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.33
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.76
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.92
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.97
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 129,
+      "correct": {}
+    },
+    {
+      "id": "f029",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.2
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 132,
+      "correct": {}
+    },
+    {
+      "id": "f030",
+      "answers": {
+        "isFraudulent": {
+          "type": "noul",
+          "p": 0.18
+        },
+        "asksForPaymentOrDetails": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "promisesEasyEarnings": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "describesCompany": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "directContactToApply": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "listsSpecificDuties": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 126,
+      "correct": {}
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "choice",
+  "target": "domain",
+  "fittedOn": {
+    "result": "cookbooks/intent-routing/results/fit.json",
+    "n": 100,
+    "unanswered": 0
+  },
+  "gate": {
+    "confidenceAtLeast": 0.362,
+    "maxAutoError": 0.05,
+    "why": "A wrong auto-route costs a bounce: the user lands in the wrong skill (or an in-scope request is refused as none) and has to rephrase or be handed back. Auto-route only above the lowest confidence where the fit split made at most 1 error in 20; everything below goes to a clarifying question or a human.",
+    "fitCoverage": 1,
+    "fitAutoError": 0.05
+  },
+  "fitAccuracy": 0.95,
+  "_exact": {
+    "cut": 0.362
+  },
+  "frozenAt": "2026-09-22T07:55:27.292Z"
+}

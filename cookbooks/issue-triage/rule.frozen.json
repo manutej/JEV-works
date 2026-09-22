@@ -1,0 +1,21 @@
+{
+  "kind": "choice",
+  "target": "issueType",
+  "fittedOn": {
+    "result": "cookbooks/issue-triage/results/fit.json",
+    "n": 100,
+    "unanswered": 0
+  },
+  "gate": {
+    "confidenceAtLeast": 0.973,
+    "maxAutoError": 0.1,
+    "why": "A wrong auto-label sends an issue to the wrong queue (a bug lands with the roadmap owner instead of on-call, or a question waits for a fix that never comes), but a triager re-labels it in seconds, and the ground truth here is itself maintainer labels with visible noise. Auto-label only above the confidence where the fit split erred at most 1 in 10; everything below stays in the human triage queue unlabelled.",
+    "fitCoverage": 0.6,
+    "fitAutoError": 0.1
+  },
+  "fitAccuracy": 0.82,
+  "_exact": {
+    "cut": 0.9733333333333333
+  },
+  "frozenAt": "2026-09-22T07:55:27.736Z"
+}

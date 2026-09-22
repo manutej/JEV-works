@@ -43,6 +43,11 @@ const dir = resolve(dirArg);
 const { rule } = await import(join(dir, 'rule.ts')) as { rule: Rule };
 const spec = JSON.parse(readFileSync(join(dir, 'spec.json'), 'utf8')) as Spec;
 const result = JSON.parse(readFileSync(resolve(resultArg), 'utf8')) as Result;
+// Labels and baseline come from items.meta.json (written by writeSpecs for every domain), so a decision target that is
+// not itself a Jev question (job-postings, after its pilot) is scored exactly like one that is.
+type Meta = { id: string; split: 'fit' | 'test'; labels?: Record<string, Label>; baseline?: Record<string, Label> };
+const meta = JSON.parse(readFileSync(join(dir, 'items.meta.json'), 'utf8')) as Meta[];
+spec.items = meta.map(m => ({ id: m.id, state: null, split: m.split, labels: m.labels, baseline: m.baseline }));
 const byId = new Map(spec.items.map(i => [i.id, i]));
 const r3 = (x: number) => +x.toFixed(3);
 

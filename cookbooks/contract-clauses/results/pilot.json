@@ -1,0 +1,1268 @@
+{
+  "kit": 1,
+  "spec": "contract-clauses-pilot",
+  "specPath": "cookbooks/contract-clauses/spec.pilot.json",
+  "model": "jev-1.13.0 (direct)",
+  "answeredBy": [
+    "jev-1.13.0"
+  ],
+  "startedAt": "2026-09-22T07:53:51.910Z",
+  "wallMs": 1359,
+  "calls": 30,
+  "coverage": 1,
+  "privacyScan": "passed",
+  "disjointness": null,
+  "gate": {
+    "minCoverage": null,
+    "verdict": "none"
+  },
+  "quality": [
+    {
+      "question": "namesJurisdiction",
+      "kind": "boolean",
+      "meanConf": 0.9526666666666672,
+      "atEnds": 1,
+      "spread": 0.1738482735669877,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "restrictsDisclosure",
+      "kind": "boolean",
+      "meanConf": 0.9280000000000004,
+      "atEnds": 1,
+      "spread": 0.16965455097540608,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "clauseType",
+      "kind": "choice",
+      "meanConf": 0.9721434425835125,
+      "atEnds": 0.9,
+      "spread": 1,
+      "keysUsed": 9,
+      "optionCount": 9,
+      "entropyMax": 0.3153738467938334,
+      "entropyMean": 0.0279,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "saysAgreementEnds",
+      "kind": "boolean",
+      "meanConf": 0.8400000000000002,
+      "atEnds": 0.8666666666666667,
+      "spread": 0.269529631436364,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "requiresCoveringLosses",
+      "kind": "boolean",
+      "meanConf": 0.8646666666666669,
+      "atEnds": 0.8666666666666667,
+      "spread": 0.30245311849754314,
+      "verdict": "JEV-SAFE"
+    }
+  ],
+  "scorecards": [],
+  "items": [
+    {
+      "id": "f001",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "other",
+          "probabilities": {
+            "amendment": 0,
+            "confidentiality": 0,
+            "other": 1,
+            "governingLaw": 0,
+            "notices": 0,
+            "assignment": 0,
+            "indemnification": 0,
+            "termination": 0,
+            "entireAgreement": 0
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.03
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 242,
+      "correct": {}
+    },
+    {
+      "id": "f002",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "other",
+          "probabilities": {
+            "amendment": 0,
+            "notices": 0,
+            "governingLaw": 0,
+            "termination": 0.49,
+            "entireAgreement": 0,
+            "other": 0.51,
+            "indemnification": 0,
+            "confidentiality": 0,
+            "assignment": 0
+          },
+          "entropy": 0.3153738467938334
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.77
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.03
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 259,
+      "correct": {}
+    },
+    {
+      "id": "f003",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "indemnification",
+          "probabilities": {
+            "confidentiality": 0,
+            "governingLaw": 0,
+            "entireAgreement": 0,
+            "other": 0,
+            "assignment": 0,
+            "amendment": 0,
+            "notices": 0,
+            "indemnification": 1,
+            "termination": 0
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.03
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 333,
+      "correct": {}
+    },
+    {
+      "id": "f004",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "other",
+          "probabilities": {
+            "other": 1,
+            "confidentiality": 0,
+            "governingLaw": 0,
+            "notices": 0,
+            "indemnification": 0,
+            "amendment": 0,
+            "entireAgreement": 0,
+            "termination": 0,
+            "assignment": 0
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.03
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 283,
+      "correct": {}
+    },
+    {
+      "id": "f005",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "entireAgreement",
+          "probabilities": {
+            "indemnification": 0,
+            "assignment": 0,
+            "other": 0,
+            "termination": 0,
+            "entireAgreement": 1,
+            "notices": 0,
+            "governingLaw": 0,
+            "amendment": 0,
+            "confidentiality": 0
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.51
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.04
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 215,
+      "correct": {}
+    },
+    {
+      "id": "f006",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "other",
+          "probabilities": {
+            "entireAgreement": 0,
+            "governingLaw": 0,
+            "indemnification": 0,
+            "confidentiality": 0,
+            "notices": 0,
+            "termination": 0,
+            "other": 1,
+            "assignment": 0,
+            "amendment": 0
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.04
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 126,
+      "correct": {}
+    },
+    {
+      "id": "f007",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "assignment",
+          "probabilities": {
+            "other": 0.01,
+            "confidentiality": 0,
+            "governingLaw": 0,
+            "termination": 0,
+            "indemnification": 0,
+            "assignment": 0.99,
+            "notices": 0,
+            "entireAgreement": 0,
+            "amendment": 0
+          },
+          "entropy": 0.025487396660536253
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.65
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.05
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 103,
+      "correct": {}
+    },
+    {
+      "id": "f008",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "other",
+          "probabilities": {
+            "termination": 0,
+            "notices": 0,
+            "amendment": 0,
+            "governingLaw": 0,
+            "confidentiality": 0,
+            "entireAgreement": 0,
+            "other": 1,
+            "assignment": 0,
+            "indemnification": 0
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.36
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.03
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 114,
+      "correct": {}
+    },
+    {
+      "id": "f009",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "governingLaw",
+          "probabilities": {
+            "governingLaw": 1,
+            "entireAgreement": 0,
+            "confidentiality": 0,
+            "other": 0,
+            "assignment": 0,
+            "amendment": 0,
+            "termination": 0,
+            "indemnification": 0,
+            "notices": 0
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.03
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 161,
+      "correct": {}
+    },
+    {
+      "id": "f010",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "entireAgreement",
+          "probabilities": {
+            "notices": 0,
+            "amendment": 0,
+            "confidentiality": 0,
+            "termination": 0,
+            "governingLaw": 0,
+            "entireAgreement": 1,
+            "indemnification": 0,
+            "assignment": 0,
+            "other": 0
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.05
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 144,
+      "correct": {}
+    },
+    {
+      "id": "f011",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "entireAgreement",
+          "probabilities": {
+            "entireAgreement": 1,
+            "notices": 0,
+            "amendment": 0,
+            "assignment": 0,
+            "other": 0,
+            "termination": 0,
+            "governingLaw": 0,
+            "indemnification": 0,
+            "confidentiality": 0
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.05
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 140,
+      "correct": {}
+    },
+    {
+      "id": "f012",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "entireAgreement",
+          "probabilities": {
+            "termination": 0,
+            "notices": 0,
+            "amendment": 0.02,
+            "confidentiality": 0,
+            "governingLaw": 0,
+            "entireAgreement": 0.98,
+            "other": 0,
+            "assignment": 0,
+            "indemnification": 0
+          },
+          "entropy": 0.044619523325462075
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.04
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 136,
+      "correct": {}
+    },
+    {
+      "id": "f013",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "other",
+          "probabilities": {
+            "entireAgreement": 0,
+            "notices": 0,
+            "amendment": 0,
+            "confidentiality": 0,
+            "indemnification": 0,
+            "assignment": 0,
+            "governingLaw": 0,
+            "termination": 0,
+            "other": 1
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.03
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 132,
+      "correct": {}
+    },
+    {
+      "id": "f014",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "amendment",
+          "probabilities": {
+            "notices": 0,
+            "termination": 0.02,
+            "assignment": 0,
+            "amendment": 0.98,
+            "entireAgreement": 0,
+            "confidentiality": 0,
+            "governingLaw": 0,
+            "other": 0,
+            "indemnification": 0
+          },
+          "entropy": 0.044619523325462075
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.03
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 89,
+      "correct": {}
+    },
+    {
+      "id": "f015",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "entireAgreement",
+          "probabilities": {
+            "confidentiality": 0,
+            "termination": 0,
+            "entireAgreement": 1,
+            "other": 0,
+            "assignment": 0,
+            "amendment": 0,
+            "notices": 0,
+            "indemnification": 0,
+            "governingLaw": 0
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.04
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 140,
+      "correct": {}
+    },
+    {
+      "id": "f016",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "entireAgreement",
+          "probabilities": {
+            "indemnification": 0,
+            "confidentiality": 0,
+            "other": 0,
+            "notices": 0,
+            "assignment": 0,
+            "governingLaw": 0,
+            "amendment": 0,
+            "entireAgreement": 1,
+            "termination": 0
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.07
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 103,
+      "correct": {}
+    },
+    {
+      "id": "f017",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "indemnification",
+          "probabilities": {
+            "indemnification": 1,
+            "termination": 0,
+            "notices": 0,
+            "assignment": 0,
+            "amendment": 0,
+            "governingLaw": 0,
+            "entireAgreement": 0,
+            "confidentiality": 0,
+            "other": 0
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.37
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.03
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 205,
+      "correct": {}
+    },
+    {
+      "id": "f018",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "indemnification",
+          "probabilities": {
+            "termination": 0,
+            "other": 0,
+            "governingLaw": 0,
+            "indemnification": 1,
+            "amendment": 0,
+            "confidentiality": 0,
+            "notices": 0,
+            "entireAgreement": 0,
+            "assignment": 0
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.04
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 114,
+      "correct": {}
+    },
+    {
+      "id": "f019",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "notices",
+          "probabilities": {
+            "notices": 1,
+            "termination": 0,
+            "assignment": 0,
+            "other": 0,
+            "confidentiality": 0,
+            "governingLaw": 0,
+            "amendment": 0,
+            "entireAgreement": 0,
+            "indemnification": 0
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.03
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 90,
+      "correct": {}
+    },
+    {
+      "id": "f020",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "other",
+          "probabilities": {
+            "indemnification": 0,
+            "confidentiality": 0,
+            "assignment": 0,
+            "termination": 0,
+            "notices": 0.14,
+            "entireAgreement": 0,
+            "other": 0.86,
+            "governingLaw": 0,
+            "amendment": 0
+          },
+          "entropy": 0.1843068247283541
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.06
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 95,
+      "correct": {}
+    },
+    {
+      "id": "f021",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "notices",
+          "probabilities": {
+            "other": 0,
+            "assignment": 0,
+            "termination": 0,
+            "entireAgreement": 0,
+            "governingLaw": 0,
+            "notices": 1,
+            "amendment": 0,
+            "indemnification": 0,
+            "confidentiality": 0
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.03
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 133,
+      "correct": {}
+    },
+    {
+      "id": "f022",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "confidentiality",
+          "probabilities": {
+            "governingLaw": 0,
+            "amendment": 0,
+            "termination": 0,
+            "assignment": 0,
+            "entireAgreement": 0,
+            "notices": 0,
+            "indemnification": 0,
+            "confidentiality": 1,
+            "other": 0
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.98
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 179,
+      "correct": {}
+    },
+    {
+      "id": "f023",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "assignment",
+          "probabilities": {
+            "governingLaw": 0,
+            "assignment": 1,
+            "termination": 0,
+            "other": 0,
+            "indemnification": 0,
+            "confidentiality": 0,
+            "entireAgreement": 0,
+            "notices": 0,
+            "amendment": 0
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.36
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.04
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 181,
+      "correct": {}
+    },
+    {
+      "id": "f024",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "other",
+          "probabilities": {
+            "confidentiality": 0,
+            "amendment": 0,
+            "other": 0.81,
+            "governingLaw": 0,
+            "notices": 0,
+            "termination": 0.19,
+            "indemnification": 0,
+            "entireAgreement": 0,
+            "assignment": 0
+          },
+          "entropy": 0.2212896076609789
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.29
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.03
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 179,
+      "correct": {}
+    },
+    {
+      "id": "f025",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "notices",
+          "probabilities": {
+            "other": 0,
+            "confidentiality": 0,
+            "termination": 0,
+            "governingLaw": 0,
+            "indemnification": 0,
+            "assignment": 0,
+            "amendment": 0,
+            "notices": 1,
+            "entireAgreement": 0
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.03
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 90,
+      "correct": {}
+    },
+    {
+      "id": "f026",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "other",
+          "probabilities": {
+            "amendment": 0,
+            "notices": 0,
+            "governingLaw": 0,
+            "confidentiality": 0,
+            "indemnification": 0,
+            "other": 1,
+            "termination": 0,
+            "entireAgreement": 0,
+            "assignment": 0
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.03
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 152,
+      "correct": {}
+    },
+    {
+      "id": "f027",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "other",
+          "probabilities": {
+            "indemnification": 0,
+            "confidentiality": 0,
+            "other": 1,
+            "notices": 0,
+            "assignment": 0,
+            "governingLaw": 0,
+            "termination": 0,
+            "entireAgreement": 0,
+            "amendment": 0
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.21
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.03
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 110,
+      "correct": {}
+    },
+    {
+      "id": "f028",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "amendment",
+          "probabilities": {
+            "entireAgreement": 0,
+            "notices": 0,
+            "amendment": 1,
+            "assignment": 0,
+            "other": 0,
+            "termination": 0,
+            "governingLaw": 0,
+            "indemnification": 0,
+            "confidentiality": 0
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.03
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 140,
+      "correct": {}
+    },
+    {
+      "id": "f029",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "amendment",
+          "probabilities": {
+            "assignment": 0,
+            "other": 0,
+            "indemnification": 0,
+            "governingLaw": 0,
+            "entireAgreement": 0,
+            "termination": 0,
+            "confidentiality": 0,
+            "notices": 0,
+            "amendment": 1
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.03
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 93,
+      "correct": {}
+    },
+    {
+      "id": "f030",
+      "answers": {
+        "clauseType": {
+          "type": "choice",
+          "choice": "termination",
+          "probabilities": {
+            "entireAgreement": 0,
+            "notices": 0,
+            "confidentiality": 0,
+            "amendment": 0,
+            "indemnification": 0,
+            "assignment": 0,
+            "governingLaw": 0,
+            "termination": 1,
+            "other": 0
+          },
+          "entropy": 0
+        },
+        "namesJurisdiction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "saysAgreementEnds": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "requiresCoveringLosses": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "restrictsDisclosure": {
+          "type": "noul",
+          "p": 0.03
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 217,
+      "correct": {}
+    }
+  ]
+}

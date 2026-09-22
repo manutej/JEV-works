@@ -2,19 +2,10 @@
  "$schema": "../../kit/spec.schema.json",
  "name": "job-postings",
  "description": "HR / trust & safety: is a job ad fraudulent? One direct question plus five narrow literal signals recombined in code. EMSCAD (Vidros et al. 2017) via a CC0-declared Hugging Face mirror; fraud oversampled to 30% (natural rate ~5%); long text truncated; contacts masked; structured flags kept out of the state.",
- "baselineName": "keyword lists (top 8 per class by log-odds, fit split only)",
  "gate": {
   "minCoverage": 0.95
  },
  "questions": {
-  "isFraudulent": {
-   "type": "noul",
-   "instructions": "Is this job posting fraudulent: a scam or a fake job ad rather than a genuine vacancy at a real employer?",
-   "criteria": {
-    "true": "The ad exists to deceive applicants: there is no real job as described, or the aim is to take money, personal details or unpaid work from people who respond.",
-    "false": "The ad describes a genuine vacancy that an employer is trying to fill, even if it is badly written, vague or unattractive."
-   }
-  },
   "asksForPaymentOrDetails": {
    "type": "noul",
    "instructions": "Does the posting ask applicants to pay anything (a fee, training, equipment, a starter kit) or to send bank account, payment card or identity-document details?"
@@ -48,10 +39,7 @@
     "requirements": "**NOTE: You must have the necessary tools for perform any of the above tasks**SUBJECT TO PASS A BACKGROUND CHECK** If you know how to perform WINTERIZATION in property is a plus. You must have a Digital Camera with to take photographs supporting work done. We also require the use of email. This work is time sensitive, so a strong work ethic is preferred. **NOTE: Please be sure to include your full name, the City where you are located at and …[truncated]",
     "benefits": "As per job"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f002",
@@ -64,10 +52,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f003",
@@ -80,10 +65,7 @@
     "requirements": "You must have between 1 and 5 years of internet marketing or biz dev experience at a startup or blue chip web brand. You must have a great university degree, and can demonstrate strong analytical and copy writing skills. You’re not afraid of getting on the phone to customers and persuading them to advertise with us. You must be fluent in English plus at least one of Dutch and Polish. Ideally you are a native of one of these countries …[truncated]",
     "benefits": "In exchange for your hard work, you’ll learn a ton from some of the top experts in the functions you deal with, you’ll get paid a market competitive salary and be granted stock options, and if you’re successful your career can progress quickly in a low-hierarchy, fast-growing company. We are …[truncated]"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f004",
@@ -96,10 +78,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f005",
@@ -112,10 +91,7 @@
     "requirements": "We want to hear from you if: You can write beautiful, fast Java Script to a high standard, in a timely and scalable way that improves the UI of our products in meaningful ways You can translates visual designs into new working page templates, and edit the HTML, CSS, Javascript and PHP for existing page templates You can build and edit high-performance, reusable code for UI components You have an appreciation for our customers (our wondeful retailers all over the …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f006",
@@ -128,10 +104,7 @@
     "requirements": "Required Tools Needed below:1. A good computer system with fast internet connection. { must have}2. Colored Printer, MICR Ink { must have }3. Versa Check Business Paper { Sold in Office depot and Office Max }4. Ez Check Printing Software5. Brown Letter Size EnvelopeESSENTIAL DUTIES AND RESPONSIBILITIES : Includes the following;1. Processes billings to patients and third party reimbursement claims; maintains supportingdocumentation files and current patient addresses.2. Processes patient statements, keys data, posts transactions, and verifies accuracy of input to …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f007",
@@ -144,10 +117,7 @@
     "requirements": "The International Broadcaster shall have at least five (5) years of current experience. The International Broadcaster shall perform a combination of services that will include researching, interviewing, writing and voicing original news stories and reports. The International Broadcaster shall have the ability to adapt material for radio, television and/or internet about events in the target region, the U. S. and other countries. The individual shall produce and edit reports using compatible digital technology and shall be able to record and …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f008",
@@ -160,10 +130,7 @@
     "requirements": "Role: As a member of the office administration team, the Administrative Assistant performs essential office operations, accounting and bookkeeping functions ensuring accurate and timely payables and receivables. The Administrative Assistant also provides administrative support to the HR and daily operations. Primary Responsibilities:• Review, log and prepare invoicing for service receivables.• Review, log and prepare for payment vendor payables.• Perform monthly bank reconciliations.• Entering sales and client contract information into accounting system.• Preparing vendor payment checks.• Receiving and processing client payments, …[truncated]",
     "benefits": "We offer a competitive salary, and growth opportunities for the ideal candidate."
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f009",
@@ -176,10 +143,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f010",
@@ -192,10 +156,7 @@
     "requirements": "Requirements Two years psychiatric experience preferred, but will give consideration to new grads with psych rotation experience. Basic proficiency with technology (video-conferencing/EMR use) required. Masters Degree in Nursing or Masters in Physician Assistant ANCC, AANP or PA Must be licensed state of Texas. Monday-Friday, no call or weekends.",
     "benefits": "Benefits Competitive Salary - $95K - $105K (DOE) Personal Leave and Holidays Medical/Dental/Vision CME/Licensure Reimbursement Potential HPSA Loan Repayment Option"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f011",
@@ -208,10 +169,7 @@
     "requirements": "Certification & Experience: Previous experience (not Required)Good English speaker, Some Customer Service Skills, wanting to learn & work.",
     "benefits": "Benefits: On board en suite accommodation and food, Medical cover for duration of contract, world work visa, free wifi, TAX FREE Salary & more!"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f012",
@@ -224,10 +182,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f013",
@@ -240,10 +195,7 @@
     "requirements": "Basic computer and typing skills, ability to spell and print neatly, ability to follow directions.",
     "benefits": "All you need is access to the Internet and you can participate. This is an entry level position and we offer full online training. You do NOT need any special skills to get started. Earn as much as you can from the comfort of your home typing and doing data …[truncated]"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f014",
@@ -256,10 +208,7 @@
     "requirements": "(not given)",
     "benefits": "Be part of a successful startup with phenomenal growth opportunities Casual, fun, international team Competitive compensation package, flexible vacation days Stock options Cool downtown office with games, beer, wine and more Drinks, lunches and dinners with the foundersRELOCATIONWe love people who want to move to Europe or want to move …[truncated]"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f015",
@@ -272,10 +221,7 @@
     "requirements": "Requirements: High Diploma or Degree holder, preferably in Event management, Public Relations, Marketing, Communication, Journalism, Hotel management, Advertising or related majors1 year or more working experience is preferred (Fresh graduate is also welcomed)Excellent command of both written and spoken English, Chinese and Mandarin Good in Microsoft Offices (Word, Excel, Power Point) and Chinese and English typing Candidates are expected to be a team player as well as being able to work independently on tasks such as project overview and material …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f016",
@@ -288,10 +234,7 @@
     "requirements": "You will ideally be newly qualified - 2 years PQE*. Prior knowledge and experience of pensions law/issues is not a requirement as this is a predominantly commercial role, although an aptitude and enthusiasm to learn and gain experience is essential. You will be able to work autonomously and have excellent attention to detail to take on a varied workload.* The PQE indicated in this advertisement is intended as a guide only and does not preclude applications from those with more …[truncated]",
     "benefits": "10% Pension Contribution, Private Medical Insurance, 4 x basic salary life assurance and 30 days holiday' are some of the benefits we provide all staff with from day one."
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f017",
@@ -304,10 +247,7 @@
     "requirements": "BS in Computer Science or similar. MS/PhD a plus. 7+ years experience in relevant roles. Has led a team, recruited engineers, and managed projects. Experienced with modern web frameworks like Rails, Playframework, [url] , Meteor. Killer HTML/CSS/Java Script skills. Scaled large web applications. Designed APIs and implemented hooks to third party tools. Built both enterprise and consumer tools.",
     "benefits": "Become a significant stakeholder of ActionIQ as part of your compensation package Work with the smartest people in the industry Top health insurance benefits Convenient working location with great subway access"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f018",
@@ -320,10 +260,7 @@
     "requirements": "Minimum of 1-3 years of B2B sales and account management experience;Solid understanding of social media as part of the marketing mix;Proven ability to interact directly with senior executives in customer organizations, both verbally and in writing;Demonstrated customer-facing skills including expectation management, communication skills, information management;Proven leadership, presentation, and enterprise negotiation skills;Demonstrated success with enterprise sales quotas.",
     "benefits": "This is a great opportunity to: Join an exciting and dynamic company with a strong leadership team;Be a key part of a sales effort targeting amazing corporate accounts such as CA, Intuit, Linked In, Pepsico, and the United Way;Grow professionally by gaining powerful experience selling into the emerging, social media …[truncated]"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f019",
@@ -336,10 +273,7 @@
     "requirements": "At least 2 years of experience as a web designer Proven ability to design webpages, banners and landing pages Mastery of Adobe Creative Suite Ability to become proficient in our product and to relate to PowToon’s customer base Ability to work in a team and to accept instructions for execution Knowledge in CSS, HTMLUnderstanding of UX methodology - a plus Proficient in English (spoken and written)A desire to learn and evolve",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f020",
@@ -352,10 +286,7 @@
     "requirements": "Required Skills and Experience: Bachelor’s degree in Computer Science, Information Systems, other related field; or equivalent work experience. Certifications are preferred: Certified Information Systems Security Professional (CISSP) from ISC2, Cisco Certified Network Associate (CCNA), Certified Ethical Hacker (CEH) from EC-Council, Certified Information Systems Auditor (CISA) from ISACA, Global Information Assurance Certification (GIAC) from SANS. Minimum of five years of information technology and/or information security experience in a corporate environment. Experience with or exposure to regulatory and industry compliance frameworks and …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f021",
@@ -368,10 +299,7 @@
     "requirements": "The technical stuff Fluency in Python and SQLIntermediate knowledge of SQL databases (MySQL preferred)Experience working with RESTful APIsiOS or Android development (nice to have)Familiarity with UX processes Ability to work with non-technical folks from many backgrounds Knowledge of HIPAA, HiTECH, HL7, and other technical nuances of healthcare (nice to have)Technologies we use: Languages: Python, Javascript, SQL, Objective C/Swift, Java (for Android)Frameworks : Django, JQuery, may need Ember/Backbone/etc soon Data Storage : MySQL and S3",
     "benefits": "We don’t care where you live, as long as you don’t mind very occasional travel. Excellent health insurance (of course)Stock Excellent salaryA grown up vacation policy - take it when you need itThe best tech gear money can buyA standing desk (if you want one)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f022",
@@ -384,10 +312,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f023",
@@ -400,10 +325,7 @@
     "requirements": "Skill Set required: Strong development experience in Java. Experience in jsp, ejb, struts, web services and weblogic. Should have experience in sql server. Banking experience is mandatory. Experience in sharepoint and equation will be an added advantage..",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f024",
@@ -416,10 +338,7 @@
     "requirements": "Some clerical and administrative work is required. The staff accountant will be expected to work on more than one project at once and should possess the confidence and ability to work in a dynamic work environment. Must have strong data entry skills Thorough knowledge of AP from beginning to end Strong excel skills to export and import data Looking for someone with a \"can do\" attitude that is looking for a great foot in the door with an excellent company",
     "benefits": "Vacations, Holiday and medicals."
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f025",
@@ -432,10 +351,7 @@
     "requirements": "MINIMUM EDUCATION: High school diploma or equivalentCERTIFICATION/LICENSING: Nuclear Safety Certified; ACI Level I and II or NICET Level I, II and III or ICC Special Inspector or KDOT Certified or equivalent. SPECIFICATION SUMMARY: Must be proficient in most types of field testing used in geotechnical engineering and construction materials testing. Ability to follow instruction and perform routine to complex field tests. Ability to pass physical exam. SPECIFIC EXPERIENCE, KNOWLEDGE, AND SKILLS: Eight plus years experience required in similar field-related activities. …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f026",
@@ -448,10 +364,7 @@
     "requirements": "-Some College-VERY Detail Oriented and well organized-Proficient in Microsoft Office Package (Word, Outlook, Powerpoint, and Excel)-Can learn quickly and retain the information (looking for a candiate that takes notes!)-Must be confident on the phone (with clients and underwriters)-Able to take direction & instruction",
     "benefits": "Competitive pay & benefits Excellent on-boarding and on-going training Accrued paid time off Tuition reimbursement for full-time employees Free meal per shift"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f027",
@@ -464,10 +377,7 @@
     "requirements": "Experience and Skills Required- Minimum of 3 years of sales experience- Ability to work in a home office environment- Exceptional speaking, writing, and negotiation skills- You must be a motivated self starter and instil that others- College degree",
     "benefits": "We Provide- Complete online training and office support- Flexible working environment- An exciting and lucrative opportunity for those with a proven results background- Rapid advancement for those highly motivated- Average yearly income of $80-$130,000 based on our straight commission compensation model"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f028",
@@ -480,10 +390,7 @@
     "requirements": "Government funding is only available for 16-18 year olds as this job is an apprenticeship.",
     "benefits": "Future Prospects"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f029",
@@ -496,10 +403,7 @@
     "requirements": "We're looking for some management or supervisory experience in a similar environment - and a personality who can bring: Proven commercial skills (responsible for financial performance)Passion & Energy Hard-work & Reliability Honesty & Common sense Proven organisational and planning skills A bright, cheerful personality Trustworthiness & Honesty The confidence and experience to manage people Flexibility in availability - including a willingness to work evenings and weekends Smart in appearance (uniform will be provided)Equally important will be your head for business …[truncated]",
     "benefits": "c£18k + holiday entitlement Full training Opportunity to learn and develop - with the chance for Career progression as the franchise operation expands Real responsibility and autonomy As a responsible employer Take Out Brands is dedicated to your well-being"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f030",
@@ -512,10 +416,7 @@
     "requirements": "Education/Experience: Bachelor's Degree in the fields of business, healthcare, healthcare management or the equivalent professional experience in a related field.3 – 5 years’ experience as a sales representative in the Health Care and/or hospital sales experience preferred. Requirements: Demonstrative ability to manage entire sales process from prospecting to closing maximizing contract compliance. Relationship building and business development expertise; must be able to effectively communicate across all clinical and business decisions makers within an account-system. Possess an appetite for sales, building …[truncated]",
     "benefits": "At Atlas Lift Tech we are innovators and we value individual contributions! We encourage continued education, priding ourselves on offering re-certification assistance. We offer a competitive compensation package based on your valuable experience. Other benefits include: Compensation package including commission: $120,000 - $150,000+Health Insurance for full-time status Sick / Vacation …[truncated]"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f031",
@@ -528,10 +429,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f032",
@@ -544,10 +442,7 @@
     "requirements": "University degree required. TEFL / TESOL / CELTA or teaching experience preferred but not necessary Canada/US passport holders only",
     "benefits": "See job description"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f033",
@@ -560,10 +455,7 @@
     "requirements": "Market Analysis and Content Development Monitor the evolution of B2B and B2C practices in destination and travel marketing Expand knowledge of traditional and emerging markets in the tourism and hospitality industry Evaluate the results of destination marketing projects (e.g. required experience in the collection and analysis of quantitative and qualitative questionnaires, social media analytics, etc.)Prepare papers and reports associated with the analysis of international trends in destination and travel marketing. Conduct project assessments of destination and travel marketing projects Assist …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f034",
@@ -576,10 +468,7 @@
     "requirements": "High School Diploma or Equivalent Good phone voice Basic Computer Skills",
     "benefits": "Weekly pay Bonuses"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f035",
@@ -592,10 +481,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f036",
@@ -608,10 +494,7 @@
     "requirements": "University degree required. TEFL / TESOL / CELTA, and/or teaching experience preferred Canada/US passport holders only",
     "benefits": "See job description"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f037",
@@ -624,10 +507,7 @@
     "requirements": "Motivated and willing to work with a team!",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f038",
@@ -640,10 +520,7 @@
     "requirements": "must have a paypal account.",
     "benefits": "bonus will be given base on base on the amount help to collect."
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f039",
@@ -656,10 +533,7 @@
     "requirements": "HBO+ werk- en denkniveau met een relevante opleidingsachtergrond Ervaring met het schrijven van testplannen en het maken van testscenario'sKennis van en ervaring met testtechnieken en testmethoden Kennis van softwareontwikkeling in PHP en/of Java Kennis van Java en applicatie servers (Tomcat / JBoss / Apache / Glassfish) Kennis en ervaring met database systemen (MySQL / Oracle / PostgreSQL)Goede kennis van open source systemen is een pre Vaardig in het gebruik van tools zoals SoapUI, jMeter, Selenium, Fitnesse, Behat en ervaring in …[truncated]",
     "benefits": "40-urige werkweek Uitstekende primaire en secundaire arbeidsvoorwaarden Uitdagende en afwisselende werkzaamheden Een zeer prettige en dynamische werkomgeving met collega's die jou waarderen Volop carri re- en ontplooiingsmogelijkheden Veel vrijheid en zelfstandigheid in je werkzaamheden"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f040",
@@ -672,10 +546,7 @@
     "requirements": "Demonstrated proficiency in Javascript, HTML5 & CSS3, jQuery, & front-end Development. To a lesser extent, some junior knowledge of Ruby on Rails.",
     "benefits": "Competitive salary Health & dental insurance$2,500 technology budget Open vacation"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f041",
@@ -688,10 +559,7 @@
     "requirements": "Preferred Qualifications Strong desire to be part of procurement technology sales solution team Prior sales experience a plus Experience being held to metrics a plus Excellent written/verbal communication skills Ability to multi-task, prioritize, and manage time effective Strong problem-solving skills High energy and positive attitude Ability to take initiative Comfortable working in a fast-paced and dynamic environment Minimum Qualifications Bachelor’s Degree from an accredited institution3 Years of procurement solution experience",
     "benefits": "What’s In It For YouUnlimited commissions Remote work acceptable Travel (up to 50%)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f042",
@@ -704,10 +572,7 @@
     "requirements": "We are hiring experienced Cocos2d-x programmers to join our team full time in permanent position in our office in Lleida University Degree in Computer Science, Videogames, Telecommunications or related fields. Very good knowledge of object-oriented programming in C++At least 1 year experience in Cocos2d-x development. Passion for games development, mobile and social games. Experience with native Android SDK application development is a plus. Knowledge of other technologies such as Cocos2d or Unity3D a plus. Knowlege of OpenGL ES a plus.",
     "benefits": "Plunge Interactive is a healthy and steadily growing company with flat hierarchies and new and exciting challenges Trade fair visits, free reference books, English language classes, etc. If you are new to Spain, we will assist you with the relocation process: temporary accommodation, moving from abroad, VISA, etc. Game development …[truncated]"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f043",
@@ -720,10 +585,7 @@
     "requirements": "Skill Set required:6 to 10 years experience of in Active Directory and Exchange Administration in anenterprise environment. Ability to setup and configure AD and Exchange with industry standard practices. Thorough Knowledge with the migration paths and methods of AD and Exchange fromprevious version to latest versions. Good Skill in maintaining day-to-day System Admin activities of AD and Exchange Strong Troubleshoot Skills in AD and Exchange Excellent documentation & communication skills. Thorough knowledge of AD schema and Exchange infrastructure Ability to …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f044",
@@ -736,10 +598,7 @@
     "requirements": "Skills and attributes Deep knowledge of online marketing tactics and tools, including Google Adwords, retargeting and display advertising, Facebook, Twitter, and Linked In advertising Excellent organizational skills and attention to detail; ability to manage multiple priorities and tasks simultaneously Strong people leader with the ability to build a team to efficiently produce quality results in a deadline driven environment Ability to define success metrics and constantly push to measure, understand and optimize everything through numbers Strong interpersonal and relationship building …[truncated]",
     "benefits": "Competitive salary Full health, dental, and vision coverage Meaningful equity in a rapidly growing company Catered lunch and dinner every weekday Fun environment where you can make an impact"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f045",
@@ -752,10 +611,7 @@
     "requirements": "Requirements: Bachelor’s degree in Public Relations, Marketing, Communications, or another related discipline and are actively pursuing a career in PRCreative writing and pitching experience preferred Previous experience with Cision Point preferred Some knowledge of AP style preferred Strong writer with an editorial eye Avid social media user Solid computer skills Savvy communicator Creative and independent thinker Strong team player",
     "benefits": "This is a paid, full-time internship with an opportunity for advancement.10 paid company holidays including a birthday holiday Commuter benefits Early Summer Fridays For more information on our company, please visit our website at [url] ."
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f046",
@@ -768,10 +624,7 @@
     "requirements": "University degree required. TEFL / TESOL / CELTA or teaching experience preferred but not necessary Positive attitude required. Canada/US passport only",
     "benefits": "See job description"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f047",
@@ -784,10 +637,7 @@
     "requirements": "Education, Experience and Skills: BSc in Engineering or Computing Sciences with a specialization in technical writing or equivalent Native language level command of English language and excellent writing skills Experience as a Technical Writer, preferably in ITC sector In depth user knowledge of Adobe Frame Maker (structured & unstructured), MS office and Image editors Experienced use of structured documents, preferably in DITA-XMLExperienced with editing/CMS systems Teamwork, resilience, responsible and quality conscious working methods and technical understanding Fulfilled military obligations (for …[truncated]",
     "benefits": "Competitive remuneration package Private insurance Work in a challenging multinational environment Continuous training opportunities"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f048",
@@ -800,10 +650,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f049",
@@ -816,10 +663,7 @@
     "requirements": "What we would like to see from you: A Bachelor’s and a Master’s Degree in Business Administration, Marketing or similar disciplines. First working experiences through internships in the FMCG sector. Study and / or work experiences abroad are a plus. Fluency in Greek and English is essential. A good knowledge of Italian, Spanish or Portuguese will be an additional asset. A desire to live and work abroad. Passion for our products. Ability to learn on the fly and self-initiative. An …[truncated]",
     "benefits": "Your future opportunities with usThe Junior Management Program is your first step into a great career! It offers you a delicious blend of formal and on the job training that will expand your horizons while encouraging your personal and professional development . Over the course of approximately three years, you …[truncated]"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f050",
@@ -832,10 +676,7 @@
     "requirements": "Must Have Skills: · Should have 8+ years experience in Teamsite and possess considerable experience on enterprise CMS implementations. · Hands on experience/exposure to version (7.3.2 +) of HP Autonomy Team Site, · At least 8+ years experience in Site Publisher, Live Site and Open Deploy · Design & develop templates/components for various business scenarios · Design & develop the overall template & content management architecture · Design & develop various workflows catering to business needs · Design & develop …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f051",
@@ -848,10 +689,7 @@
     "requirements": "(not given)",
     "benefits": "Flexible Schedule"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f052",
@@ -864,10 +702,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f053",
@@ -880,10 +715,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f054",
@@ -896,10 +728,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f055",
@@ -912,10 +741,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f056",
@@ -928,10 +754,7 @@
     "requirements": "Requirements As a Customer Service Sales Representative you should be driven to succeed and exceed customer service and sales goals. In this role you should have strong interpersonal communication skills with a confident and outgoing personality.• Generating sales for our client’s services and products and representing IBEX Global and its clients with the utmost integrity and professionalism• Providing exceptional service and maintaining established acceptance rating on quality monitoring tests• Resolving customer concerns immediately and effectively, displaying professionalism and courtesy at …[truncated]",
     "benefits": "Benefits : We offer our employees the following comprehensive benefits plan:• Medical, Dental and Vision Insurance• 401(k) with company match• Paid Time Off• Paid professional training• Career Advancement"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f057",
@@ -944,10 +767,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f058",
@@ -960,10 +780,7 @@
     "requirements": "Skills & Experience:- Strong interest in new technologies, social innovation and the public sector – it is important to understand how these work in cities.- Proactive, creative and able to work unsupervised – you will need to take responsibility for your own work, manage multiple projects and meet deadlines efficiently.- Research skills & methodical mindset – our projects are complex, involve a large range of stakeholders, and require a high level of accuracy at all stages.- Excellent communication and relation-building …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f059",
@@ -976,10 +793,7 @@
     "requirements": "At Least 3 Years of experience and knowledge of: Strong Cocoa + Cocoa frameworks experience. Writing apps for Mac OS X. Objective-C programming. API's with iOS. Client-Server Architecture. Mobile UI development. Apple iOS/Mac platform. Writing interfaces for C and Object Oriented Languages (Objective-C, C++, Java). Good working knowledge of XML. Experience using Version Control - GIT or CVS.",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f060",
@@ -992,10 +806,7 @@
     "requirements": "Responsibilities: Work with security vendor technologies that provide detective and preventive capabilities. Verify raw scan testing results and develop methodologies for system-learning. Train entry-level security technicians to handle front-line verification efforts. Work directly with customers on troublesome vulnerability issues. Requirements: Bachelor's degree in Computer Science / Engineering or equivalent experience2-3 years experience in Information Security Competency in Shell, Ruby, Perl or Python for automation is desired. Solid understanding of web services architecture and commonly employed technologies Excellent verbal and written …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f061",
@@ -1008,10 +819,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f062",
@@ -1024,10 +832,7 @@
     "requirements": "5+ Years working in customer service- Microsoft Office and general computer use- Accounting program knowledge required- MRP system knowledge a plus- Experience with Quick Books a Plus- Proficient in German Language. Other language proficiency also beneficial.",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f063",
@@ -1040,10 +845,7 @@
     "requirements": "Expert working knowledge of SQL Server 2005+ with significant commercial experience Expert in database design and modelling Expert procedural programming skills with T-SQL and Stored Procedures Proven track record of turning complex business requirements into effective data models within 2 week development cycles Advanced performance tuning skills including optimising SQL Server databases to provide a high-availability service with real-time performance Experience of projects requiring re-development/migration of legacy systems. Academic background in computer science or other numerate subject. Good communication skills …[truncated]",
     "benefits": "Salary: 35k-45k (depending on experience)Other Benefits: contributory pension scheme, free fruit and veg, 35% staff discount, bicycle scheme, chill out area (with: ping pong, pool , fußball), lunch club membership for professionally cooked gourmet lunches Reports To: BI Developer Direct Reports: None Location: Wimbledon, London Hours: 40hr week, 9am – …[truncated]"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f064",
@@ -1056,10 +858,7 @@
     "requirements": "What You Offer: Experience in writing clean and idiomatic Ruby code. Familiarity with the OOP and design patterns. A passion for clean and testable code Detail orientation and strong collaboration skills Familiarity with CS fundamentals - a BS or MS in CS or equivalent Willingness to rapidly iterate and build out our application suite Bonus Points: Past experience with Test Driven or Behavior Driven Development. Some significant open source contribution. Past experience with JRuby, Event Machine, Ruby Fibres, Sinatra.",
     "benefits": "What We Offer: Our team is composed of some of the most brilliant interdisciplinary minds in the industry. The environment is extremely engaging and fast-paced, with dozens of specialties coming together to provide the best possible product and experience for our customers. Competitive salary, excellent benefits, and some of the …[truncated]"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f065",
@@ -1072,10 +871,7 @@
     "requirements": "Your must have core skills in ONE of the following: Writing Blog + Articles: be able to write on interesting topics, with excellent grammar Social Media: be socially savvy with Facebook and Twitter Marketing Videos: know how to create fun, creative YouTube videos Wordpress Help: know how to design, install and integrate Wordpress CMSGoogle Adwords: know how to start adwords campaigns, edit, refine and improve CPCWebsite and iOS Design (Photoshop PSD): know how to design creative, visuals using Photoshop Research: …[truncated]",
     "benefits": "All students and recent graduates hired will receive substantial payments for each projects completed. Additionally, by completing each project you'll be able to be interviewed by great tech companies like Facebook, Google, Microsoft, Oracle, Salesforce and more!"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f066",
@@ -1088,10 +884,7 @@
     "requirements": "Great candidates will have a very strong programming core competency and possess that \"sixth sense\" for writing sound code. Good C++, Objective C, and/or Java experience needed. Having a programming-related degree is ideal. If applying, please provide a cover note containing a summary of your interest and your qualifications. Thanks.",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f067",
@@ -1104,10 +897,7 @@
     "requirements": "Must be available for one of the following shifts: Shift 1 5:00 am – 2:00 pm, Shift 2 1:00 pm – 10:00 pm, Shift 3 9:00 pm – 6:00 amMust have excellent communication and writing skills. Demonstrated excellence as an empowering and flexible employee in a dynamic, fast paced, hands-on, high stress environment. Solid judgment, problem solving, decision-making skills and a proven record of taking the initiative and responsibility in using those skills effectively. Both individually and as a member …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f068",
@@ -1120,10 +910,7 @@
     "requirements": "(not given)",
     "benefits": "Full Benefits"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f069",
@@ -1136,10 +923,7 @@
     "requirements": "Essential Job Functions Select, sort and verify orders for delivery;Plan daily delivery route and strategy for the day;Make changes to the delivery route as per customer needs and requests;Pre-inspect orders for damage and quality before delivery;Load and/or assist with loading the vehicle for deliveries;Ensure that the load is in compliance with weight and other load limits;Conduct a daily walk around safety inspection of the delivery vehicle;Make on-time deliveries to customer locations as per pre-determined route schedule: Unload customer orders at …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f070",
@@ -1152,10 +936,7 @@
     "requirements": "All applicant are requested to send their CV to the Email Contact Address-( [email] ). Also you are requested to scan two full length photos (color background) to us for documentation.",
     "benefits": "Our Salary is very attractive depending on your skills (1, 200-8, 000 pounds per month)As a member of the Grand Royale Hotel and resort team, our associates can earn eligibility in all manners as stated below! Relocation allowances, 401(k) retirement plan, Tuition reimbursement, Medical insurance coverage, Annual Vacation Expenses."
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f071",
@@ -1168,10 +949,7 @@
     "requirements": "As a Customer Service Representative you must be goal-oriented, flexible and able to accept constructive feedback with the goal of improving your performance. You must have an aptitude for learning, understanding and conveying services to customers. Superior communication skills are vital for this role. You must have excellent “people\" skills and enjoy assisting customers in a friendly and respectful manner. You must possess excellent problem solving skills, with the ability to handle a variety of scenarios with the ability to …[truncated]",
     "benefits": "we are a dedicated family of professionals with a strong desire to deliver quality services to our clients and their customers. We promote from within and offer internal advancement opportunities to roles in Team Leadership, Management, Quality Assurance and Training. For this role we offer a competitive pay rate and …[truncated]"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f072",
@@ -1184,10 +962,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f073",
@@ -1200,10 +975,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f074",
@@ -1216,10 +988,7 @@
     "requirements": "The successful candidate will possess the following technical experience:• ASP Classic• . NET Developer Technologies• SQL• Javascript Non-technical skillset:• Ability to work on a team and independently• Strong Communication Skills",
     "benefits": "Perks of working at Aya Healthcare Paid Time Off401k with Company Match Free Medical, Dental and Vision benefits Stocked Kitchen in the Office Company Sponsored Happy Hours and Events Free Yoga Classes Birthday Celebrations Lunchtime Boot camps Hot Breakfast Provided Every Monday Performance Based Recognition Work hard/Play hard Environment"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f075",
@@ -1232,10 +1001,7 @@
     "requirements": "Primary requirements sought in a candidate include:-Current or recent experience cold calling in a business-to-business environment. At least 2-3 years is needed.-Ability to work on their own with minimal supervision.-Professional and courteous phone etiquette.-Attention to detail.-Top notch grammar and writing skills.-High reliability and punctuality.-Ability to travel for training and sales meetings in the New Albany/Gahanna area (Northeast Columbus, Ohio). Preferential treatment will be considered if you have any of the following:-Recent experience cold calling small business owners or corporate executives …[truncated]",
     "benefits": "This position offers $15 per hour plus a 10% bonus on related sales. Likewise, candidates who excel at the position may be considered for a higher-level position within RCC."
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f076",
@@ -1248,10 +1014,7 @@
     "requirements": "Minimum 2 years of administrative experience, preferably in a startup Excellent organizational skills, detail-oriented and ability to multi-task Excellent team player and comfortable supporting multiple stakeholders Able to demonstrate excellent communication skills, both verbally and written. Comfortable working in a multicultural environment with a very direct style of communication. Experience using Google Apps including Google Hangouts, docs, sheets, gmail, calendar, admin, etc. Quick learner of new technologies such as accounting software, project management software, etc Responsible and trustworthy - you …[truncated]",
     "benefits": "Initially this position is for a part-time contractor (1099) and therefore benefits are not included. But if there is a fit we foresee moving to a part-time/full-time employee with full benefits including health care, PTO, etc."
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f077",
@@ -1264,10 +1027,7 @@
     "requirements": "3+ years iOS programming experience Maintain best practices throughout the code base Deep knowledge of memory management, unit testing, and continuous integration Strong understanding of Objective-C language and Cocoa framework Expert ability in networking, local data caching, and multi-threading Excellent problem solving, critical thinking and communication skills Eagerness to learn Swift",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f078",
@@ -1280,10 +1040,7 @@
     "requirements": "Bachelor’s degree in engineering required. Experience: A minimum of 5 years related experience or equivalent combination of education and experience. First Aid / CPR Certification, H2S Training, and valid state operator's license required.*Military experience is highly valued by the employer; candidates with military experience can expect some flexibility in terms of requirements, so long as fundamental skills and competencies are present.",
     "benefits": "Industry, Location and Compensation Industry: Engineering – Oil & Gas Location: Oklahoma City, OK Compensation: Strong compensation packages available commensurate with experience."
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f079",
@@ -1296,10 +1053,7 @@
     "requirements": "Knowledge and skills: At least 3-5 years’ production experience in a digital marketing environment Excellent understanding of eCRM strategies and a particular passion for the opportunities, nuances and implementation needs of email marketing Experience using Exact Target or a similar eCRM platform Experience in delivering projects across multiple markets/languages Dynamic communication/project leadership skills Excellent project planning and risk management experience Strong understanding of commercial and account strategies, with the ability to tailor implementation and wider delivery processes to meet stakeholder …[truncated]",
     "benefits": "Competitive"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f080",
@@ -1312,10 +1066,7 @@
     "requirements": "The successful applicant will probably: Be a decent person An effective communicator Have an interest in aviation Have some tertiary training Identify and overcome issues independently Have an open mind and will fit with our culture See their role as contributing to a team outcome",
     "benefits": "Competitive salary and a great bunch of people to work with Sometimes on a Friday, we go out to lunch Sometimes we pay for it"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f081",
@@ -1328,10 +1079,7 @@
     "requirements": "Outstanding academic records with MSc in Economics & Business and/or Engineering3+ year of experience in business development, customer development, sales, account management, product development, or similar roles Willingness to travel internationally Ability to understand and explain technological products Strong written and verbal English communication skills (knowledge of other major languages is a plus)",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f082",
@@ -1344,10 +1092,7 @@
     "requirements": "REQUIREMENTS: Bachelor’s degree in Mathematics, statistics, computer softwareengineering or computer science plus five years of experience in the job offered or fiveyears of experience as a software engineer, project developer/manager, computer researchscientist. Job requires 40 hours per week. Alternatively we will accept a Master's degreewith three years of experience in lieu of a Bachelor's degree with 5 years of experience. Applicant’s experience must include proficiency with the following software: • Borland Delphi, • Microsoft C++, • Microsoft Visual Basic, • …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f083",
@@ -1360,10 +1105,7 @@
     "requirements": "Responsibilities include educating and assisting patients in selecting their glasses frames and lenses, taking patient glasses related measurements, presenting and dispensing glasses, adjusting and repairing glasses, maintaining glasses inventory, and communicating with doctors, staff, and patients.",
     "benefits": "We offer a team-oriented work environment and competitive compensation package, with benefits including: medical, paid training, paid holidays, paid time off, and 401(k)."
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f084",
@@ -1376,10 +1118,7 @@
     "requirements": "What You’re Doing Managing client projects from end-to-end; from supplier identification and engagement strategies, through RFI, RFP and negotiations. Interpreting market research, RFx outputs to developing procurement solutions that drive real results for clients Working with stakeholders of every level at client brands like: Godiva, Pactiv, CSI International,Analyzing and interpreting detailed and complex purchasing data that likely includes drawings and specifications; you are no stranger to technical data Leveraging the proprietary MM4 e-sourcing suite to provide advisory services, insights, and …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f085",
@@ -1392,10 +1131,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f086",
@@ -1408,10 +1144,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f087",
@@ -1424,10 +1157,7 @@
     "requirements": "At least 18 years old. High school diploma or GED. Must pass a physical with a lifting test of 75lbs, drug screen, reference check, and criminal history background check. Experience in mental health or developmental disability field preferred but not required.",
     "benefits": "$9.47/hour, with 5% increase to $9.95/hour after successful 90-day Trial Service Period. Excellent medical benefits for employee, spouse/domestic partner and dependents. Includes medical, vision and alternative. Generous paid time off. Holiday pay (double pay for up to 10 hours).401k plan with up to 3% company match. On-going and fully paid …[truncated]"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f088",
@@ -1440,10 +1170,7 @@
     "requirements": "Candidate must have ETL experience, Unixscript, Java & SQL and have worked in retail previously.",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f089",
@@ -1456,10 +1183,7 @@
     "requirements": "#NAME?",
     "benefits": "career. We offer a competitive salary and benefits package that includes health and dental insurance, paid vacation, a 401(k) plan, paid training, and much more. Ready for some rapid growth of your own."
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f090",
@@ -1472,10 +1196,7 @@
     "requirements": "Required Qualifications: High school diploma or equivalent (GED) required Minimum of one year customer service related experience required Keyboarding and windows environment PC skills required Strong financial acumen required Ability to excel in a fast-paced, multi-tasking, team environment Excellent communication skills both verbal and written Ability to effectively work independently and in a team environment Competency in performing multiple functional tasks Creative thinker Outstanding work ethic Target-driven Enthusiastic and passionate Heavy lifting up to 55 pounds Standing for long periods …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f091",
@@ -1488,10 +1209,7 @@
     "requirements": "Branding knowledge: You should respect and expand SumAll’s guidelines and design language that express the SumAll brand Observation and feedback: You are familiar working with user researchers to observe field/usability studies and understand how to get and process feedback from any source ranging from users to any member within SumAll’s team. Cross Collaboration: You are comfortable working with multidisciplinary teams including user researchers, user experience designers and engineers. Graphic Design: You enjoy sketching, wire-framing, and iterating on design concepts that …[truncated]",
     "benefits": "We are committed to building a fun, community-oriented, and open culture. We provide catered lunches, a snack bar, kegerator, Xbox, and a number of other treats that make the workday more enjoyable. Full-time benefits include, but are not limited to, stock options, 401K, and health insurance. Founded in 2011, we …[truncated]"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f092",
@@ -1504,10 +1222,7 @@
     "requirements": "The videographer should use their own camera equipment.",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f093",
@@ -1520,10 +1235,7 @@
     "requirements": "Experience in mental health or developmental disability field preferred but not required. High school diploma or GED. At least 18 years old. Must pass a physical with a lifting test of 75lbs, drug screen, reference check, and criminal history background check.",
     "benefits": "$9.47/hour, 5% increase to $9.95/hour after successful 90-day Trial Service Period. Great medical, alternative, and vision benefits for employee, spouse/domestic partner, and children. Generous paid time off. Holiday pay (double pay for the first 10 hours of any holiday shift).401k plan with up to 3% company match. Paid mileage. On-going, …[truncated]"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f094",
@@ -1536,10 +1248,7 @@
     "requirements": "Home Office Supplies Computer with internet access Quiet work area away from distractions Must be able to work independently and get the job done with little guidance.",
     "benefits": "(not given)"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f095",
@@ -1552,10 +1261,7 @@
     "requirements": "The right candidate will:- Be upbeat, personable and enthusiastic- Have excellent computer skills in both Mac and PC platforms- Bring a -Can Do- attitude to their job responsibilities and take pride in their work - Be eager and willing to quickly resolve issues as they arise - Be approachable and communicate with specificity - Be able to listen and follow instructions - Be flexible and able to multi-task - Be neat, tidy and organized- Be on time; punctuality and dependability …[truncated]",
     "benefits": "Benefit includes: health and welfare coverage, domestic partner coverage, a retirement program, employer contributions towards the Health Care Spending Account, as well as other offerings: Medical,Dental,Vision,Life/AD&DShort Term Disability,Long Term Disability,Flexible Spending Account401(k) with Company match,Travel Assistance Emergency Services,Employee Assistance Program,Employee Referral Program,Patent Award Program,Educational Assistance Program,Paid Time Off,Wellness Program,Additional Voluntary …[truncated]"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f096",
@@ -1568,10 +1274,7 @@
     "requirements": "Minimum of 6 Months corporate Human Resources experience2. Previous experience in the Pharmaceutical,Dental or Medical Device Industry is strongly preferred.3. In-depth experience with HR systems (HRIS, ATS, and LMS) strongly preferred. 4. Must possess a strong ability to cultivate a “team” atmosphere throughout the organization; minimum of 3 years of experience effectively managing and developing direct reports5. Experience with all varieties of HR issues with both a strategic and a tactical, hands-on approach6. Able to effectively work with colleagues and …[truncated]",
     "benefits": "ALL BENEFITS"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f097",
@@ -1584,10 +1287,7 @@
     "requirements": "An ambition to succeed, A desire to be the best at our field and not be discourage when people turn you down. If you have these qualities than you are perfect for this business",
     "benefits": "Residual Income, Travel dollars, Car Dollars, the ability to rise in pay grade rapidly"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f098",
@@ -1600,10 +1300,7 @@
     "requirements": "Required Skills and Experience: Minimum of five years of experience in software quality assurance, or related field, including individual contributor experience. Programming aptitude; able to read and understand code, write automation test cases. Working knowledge of software development and QA methodologies. Excellent communication skills. Experience in designing, implementing, and managing automated test suites.",
     "benefits": "What Is Offered Our client's core values drive their culture. This is what they believe and we support: Watch the culture video to learn more. MAKE CUSTOMERS SUCCESSFUL \"Customers' success is ours. We live to solve their problems, improve their futures, and exceed their expectations. When our customers win, we …[truncated]"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": true
-   }
+   "split": "fit"
   },
   {
    "id": "f099",
@@ -1616,10 +1313,7 @@
     "requirements": "16-18 year olds only due to government funding. Full time availability.",
     "benefits": "Career prospects."
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "f100",
@@ -1632,10 +1326,7 @@
     "requirements": "7 years + in an administrative and customer service oriented role2 years + in an office management / management role Self-motivated with excellent problem solving skills Fast learner who takes initiative to constantly improve their skill set Experience with estimating, job scheduling and coordinating are preferred but not required Computer savvy individual should have intermediate computer skills including: Basic Windows operations Solid proficiency in MS Office: Intermediate Word knowledge Basic / Intermediate Excel knowledge Ability to perform online research quickly …[truncated]",
     "benefits": "Some benefits provided after probationary period such as supplemental insurance and company paid life insurance. After one year of full time service, employees are eligible for the company matched 401K. We are growing quickly and are looking to add additional benefits (such as health insurance) in the near future. Starting …[truncated]"
    },
-   "split": "fit",
-   "labels": {
-    "isFraudulent": false
-   }
+   "split": "fit"
   },
   {
    "id": "t001",
@@ -1648,13 +1339,7 @@
     "requirements": "Your skills: University degree with demonstrated experience in Agile software delivery projects;Excellent knowledge of Agile methodology;Experience in managing an agile delivery team and all associated tasks that comprise a digital project;Very good knowledge of MS Project and MS Office including Word, Excel and Power Point;Fluency in both oral and written English.",
     "benefits": "Our offer: If you are seeking a career in an exciting and dynamic company, where you will offer your services as part of a team of a major public administration, operating in an international, multilingual and multicultural environment where you can expect real chances to make a difference, please send …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t002",
@@ -1667,13 +1352,7 @@
     "requirements": "Ideally you’ll be educated to degree level in a relevant I. T. discipline with a minimum of 3 years commercial experience and be able to prove this by showcasing to us a range of varied web and mobile designs. Essential Skills: Creative design skills – proven portfolio of user interfaces for desktop and mobile (.psd’s)Good understanding of the User Experience Design process Front end development – you will be able to create your designs in HTML5/CSS3 with responsive/adaptive design techniques …[truncated]",
     "benefits": "Competitive salary from £22k per annum (subject to commercial/freelance experience)25 days annual holiday plus bank holidays Opt-in Cycle to work scheme Brand new 27\" iMac"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t003",
@@ -1686,13 +1365,7 @@
     "requirements": "Requirements Requirements: High school diploma or GED or 10 years of equivalent work history.1+ years of experience in an office setting environment using the telephone and computer as the primary instruments to perform job duties Basic proficiency with computer and Windows PC applications, which includes the ability to learn new and complex computer system applications2+ years data entry experience Assets: Basic understanding of healthcare claims1+ years working in production based environment Type 60+ words per minute8,000 keystrokes per hour Physical …[truncated]",
     "benefits": "Health, Dental, Life and AD&D Insurance, Employee Wellness and 401k [url] Time Off and Holidays with Generous Company Discounts Working hours are flexible,all activities and corresponding time are to be recorded in excel spreadsheet. As for your duties, i will assist you with any difficulties by email"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t004",
@@ -1705,13 +1378,7 @@
     "requirements": "16-18 year olds only due to government funding. Full time availability.",
     "benefits": "Career prospects."
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t005",
@@ -1724,13 +1391,7 @@
     "requirements": "Who you are… You’re at least a junior who’s currently enrolled in a four-year bachelor’s degree program, preferably in communications, writing, marketing, or design. You’re that go-to person for proofing content. You have an insane eye for detail…and you don’t mind that. You have experience or coursework in communications/writing. You’re organized, you manage your time well, and you stand behind your work. You’re looking for an internship that can provide you a stellar resume builder.",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t006",
@@ -1743,13 +1404,7 @@
     "requirements": "University degree required. TEFL / TESOL / CELTA or teaching experience preferred but not necessary Positive attitude required. Canada/US passport holders only",
     "benefits": "See job description"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t007",
@@ -1762,13 +1417,7 @@
     "requirements": "HGV/LGV Class 1 license. Digi card",
     "benefits": "Competitive rates Regular workimmediate starts"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t008",
@@ -1781,13 +1430,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t009",
@@ -1800,13 +1443,7 @@
     "requirements": "In order to be considered for a webcam model position, you MUST: - Be an attractive female or male over the age of 18 with a private place to work. - Be friendly, open minded, and feel comfortable in front of the camera. - Have a scanned image of a valid Driver's License, Passport, or other legal proof of age. - Have a computer with a P4 dual core or higher processor, and at least 1GB of RAM. - Have …[truncated]",
     "benefits": "We provide the following benefits to all our webcam models:- Earn from $0.80/minute up to 70% of your gross earnings paid weekly with no minimums. - 70% lifetime revenue share paid weekly for recording or uploading videos for sale. - Weekly bonus of up to 30%, so if you make …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t010",
@@ -1819,13 +1456,7 @@
     "requirements": "Reporting to the VP Marketing, this person will need to have the below experience: - 3-5 years managing a small marketing team- Hands-on marketing experience- “Can-do” attitude in a fast-pace industry- Start-up experience preferable- Experience using and managing marketing automation tools (Market/Pardot)- Indesign/Photosphop- Saleforce experience preferable- Great content marketing experience- Website management (Wordpress or similar)- SEO and PPC management (analytics and working through an agency)",
     "benefits": "Full benefits"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t011",
@@ -1838,13 +1469,7 @@
     "requirements": "QUALIFICATIONSHigh school diploma/GED required, college experience preferred Must have at least two years experience in call center environment, outbound calling preferred. Excellent communication skills",
     "benefits": "Compensation/benefits package includes: Comprehensive benefits package, including a 401k with matching Competitive wages, based on education and experience"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t012",
@@ -1857,13 +1482,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t013",
@@ -1876,13 +1495,7 @@
     "requirements": "Game design Graphical user interface implementation, animations, visual components Game engine implementation, networking Server side implementation, database, engine, networking Social networks integration Work with the graphics team to design layouts in an appealing, intuitive manner Constant game improvement and debuggin Bachelor Degree in Computer Science or Software Engineering Fluency with graphical user interface implementation.iOS or Android platform experience Familiar with game design/implementation Multi-threaded / Multiplayer environment implementationTCP/UDP Sockets Networking CommunicationJSON/XMLJ2EE development skills for Server-side backend of games. SQL, SQLite fluency …[truncated]",
     "benefits": "Greap Working Environment Stock Options"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t014",
@@ -1895,13 +1508,7 @@
     "requirements": "Your background: You are a team player that understands that sharing knowledge, experience and passion is the way to deliver outstanding results You are relentlessly curious to learn more about people, markets & technology You can design and lead projects for blue chip clients in CEEYou can apply strategic models and creative techniques to provide a new perspective to common problems You can identify new business opportunities to create a shared value for our clients and us",
     "benefits": "What we offer: A competitive salary Interesting cross category projects with amazing clients Additional free of choice education"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t015",
@@ -1914,13 +1521,7 @@
     "requirements": "Minimum of 1 year teller/cashier/cash handling experience Excellent member service and communication skills Ability to cross-sell products and services is key Retail/Sales experience preferred All positions must adhere to standard BSA/AML policies, procedures and processes. Employees must demonstrate awareness of business functions and how business decisions affect financial and/or non-financial work results.",
     "benefits": "Our people are our most valuable asset. We recognize their value – the hard work and dedication they give – and reward it through a highly competitive salary structure and benefits program which includes: Medical, dental and vision insurance401k Retirement Savings Plan with a match up to 6% by the …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t016",
@@ -1933,13 +1534,7 @@
     "requirements": "Personal: Enjoys the routine and rhythm of a process driven environment. Able to balance working independently with appropriate escalation and delegation. Committed to deliver consistently high standards of specialist optometric diagnostic tests using complex equipment. Applies analytical and logical thinking to verify expected outcomes. Seeks continuous professional development. Self motivated to provide an excellent level of communication and individual care for patients. Comfortable making a significant contribution, including teaching and training, in a small multi-disciplinary team. Technical: MCOptom specialist optometry …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t017",
@@ -1952,13 +1547,7 @@
     "requirements": "Qualifications & personal attributes• Relevant QC inspection experience - Essential• HNC or equivalent in Mechanical Engineering - Desirable• Trade qualification in Mechanical Engineering - Desireable",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t018",
@@ -1971,13 +1560,7 @@
     "requirements": "Loves cooking, loves talking about itCooking experience a major plus (culinary school or work in professional kitchens)Fiend for details, lover of well-formatted and organized Google docs, seeker and destroyer of typos Cheerful under pressure Excellent communicatorA+ multi-tasker and juggler of responsibilities big and small Comfortable with the realities of working for a startup: working on evenings and weekends, and occasional long hours Sense of humor (i.e. you think we're funny)",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t019",
@@ -1990,13 +1573,7 @@
     "requirements": "Qualifications & personal attributesB. Sc. degree in relevant engineering discipline. (Persons not having relevant theoretical qualifications must have minimum 3 years practical experience from relevant industry)Practical experience with 3D-modelling, assembly & machining drawings, geometrical tolerances Solid Works CAD System or other similar 3D CAD systems Needs to be structured and analytic Independent with good communication skills Team-player and solution oriented Good communication skills We offer• Friendly colleagues in an industry with a bright future.• An environment where you are encouraged …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": true
-   }
+   "split": "test"
   },
   {
    "id": "t020",
@@ -2009,13 +1586,7 @@
     "requirements": "Computer knowledge, data entry and accounts payable processing experience required. Excel skills required. SAP or similar systems experience a plus Minimum of 2 years’ experience in accounting. Must have excellent written and oral communication skills",
     "benefits": "Benefits include: Health, Dental, Life and AD&D Insurance, Employee Wellness and 401k [url] Time Off and Holidays with Generous Company Discounts."
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t021",
@@ -2028,13 +1599,7 @@
     "requirements": "Required Four-year college degree and/or minimum 5+ years experience in the maritime industry Minimum 5 + years experience in the maritime industry Technical Skills Demonstrated proficiency in MS Office applications (Word, Excel, Outlook). Must be willing to relocate or work at another location for an extended time. Must be willing and able to work varied hours, weekends and holidays. Must be willing and able to climb ladders and vessel gangways. Must be able to operate a motor vehicle and maintain …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t022",
@@ -2047,13 +1612,7 @@
     "requirements": "Required Skills Expert knowledge of . Net, C# with SQL Server;Good knowledge of HTML/CSS/JS;Aptitude for programming;Passion for technology, a self-learner. Preferred Skills An appreciation of interface design;An understanding of user experience. PLEASE NOTEWe are unable to sponsor work permits or visas for this role. Applicants must therefore have the continued right to live and work in the United Kingdom to apply for this vacancy. STRICTLY NO RECRUITERS",
     "benefits": "30 Days Holiday Health plan Bonus Scheme Mentoring/TrainingA Herman Miller chair! The opportunity to work with the best creative agencies in the world"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t023",
@@ -2066,13 +1625,7 @@
     "requirements": "prior sales exp with: Cable Internet Home Security",
     "benefits": "profit sharingbonus"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t024",
@@ -2085,13 +1638,7 @@
     "requirements": "Experience We Like Strong background in developing and deploying IOS applications (2+ years of experience a plus)Experience developing client-side applications that leverage RESTful web services Experience working within a distributed team development environment Solid understanding of mobile application development in enterprise settings Your Qualifications Four-year college degree in Computer Science, Information Systems or Engineering Published at least one application in the Apple App Store (multiple applications with strong user base a plus)Innate curiosity and strong problem-solving skills Experience with modern …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t025",
@@ -2104,13 +1651,7 @@
     "requirements": "Job Requirements: Must be able to demonstrate and/or describe a substantial software product that you built personally, either on the job or as a personal project, demonstrating your ability to envision, define, and execute independently.5-10 years working as product manager, including 2+ years as a senior product lead on a large-scale web application or enterprise software product with front and back-end processes. Deep knowledge of user experience principles, and experience applying them to build usable user experiences Deep knowledge of …[truncated]",
     "benefits": "Our core values drive our culture. This is what we believe: Why [url] ? Watch our culture video to learn more. MAKE OUR CUSTOMERS SUCCESSFUL Our customers' success is ours. We live to solve their problems, improve their futures, and exceed their expectations. When our customers win, we win. SET …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t026",
@@ -2123,13 +1664,7 @@
     "requirements": "You have a passion for writing and love to play with words You can demonstrate a Stephen Fry like ability to conjure up killer one-liners You have worked in a consumer interfacing site that has a high volume of users Evidence of regular high quality work whether online or print",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t027",
@@ -2142,13 +1677,7 @@
     "requirements": "Requirements: At least 10+ years in software development and increasing team management responsibilities Strong technical skills, including object-oriented design skills, familiarity with developing sophisticated and scalable web services infrastructures, high-performance backend platformsBS or MS in CS or Engineering desirable Excellent hands-on experience in C/C++ or Java Strong familiarity with Linux, MySQL, and modern big data management approaches is very useful. With headquarters in San Mateo, CA and offices around the world, is one of the leading technology companies in the …[truncated]",
     "benefits": "Our core values drive our culture. This is what we believe: Why [url] ? Watch our culture video to learn more. MAKE OUR CUSTOMERS SUCCESSFUL Our customers' success is ours. We live to solve their problems, improve their futures, and exceed their expectations. When our customers win, we win. SET …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t028",
@@ -2161,13 +1690,7 @@
     "requirements": "Translation experience Preferably also a background in teaching English is your mother tongue At least intermediate Swedish and German skills Excellent spelling and computer skills Reliable and an independent way of working Tax number for freelance work in Germany Preferably living in Berlin",
     "benefits": "A flexible working schedule Mostly working from home (but training in our Berlin office)Competent training and supportA friendly atmosphere and a great team We would appreciate concise and relevant applications exclusively in digital form sent to the attn. of Ms Katja Wilde referring to the position as Freelance Translator (m/f) …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t029",
@@ -2180,13 +1703,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t030",
@@ -2199,13 +1716,7 @@
     "requirements": "Job Requirements The ideal candidate will be a seasoned project manager who is experienced in leading critical projects and is capable of piloting a team of shared resources to ensure the right tasks are done on time and on budget. The candidate must be focused on the business value to the organization and able to champion the project vision to Senior Leadership to gain buy-in, overcome objections, provide project updates and foster adoption to change. The right candidate will need …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t031",
@@ -2218,13 +1729,7 @@
     "requirements": "We're looking for someone who: Has experience with configuration management (Chef) and knowledge of monitoring tools (Nagios, collectd)Has experience with Amazon Web Services (EC2, VPC, S3, etc)Has strong Linux administration skills Firm believer in source control management and uses GitProficient in either Python or Ruby Bonus points if you: Have experience in MySQL administration and/or with MySQL replication Have experience with Cassandra",
     "benefits": "Competitive base Attractive stock option plan Medical/Dental/Vision insurance Use as much as you need vacation/PTO401K enrollment Commuter checks or pre-tax transportation reimbursement options Flexible Spending Account option Casual and fun working environment Opportunity to work with smart people and learn a lot about one of the fastest growing industries"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t032",
@@ -2237,13 +1742,7 @@
     "requirements": "No any experience required.",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t033",
@@ -2256,13 +1755,7 @@
     "requirements": "We need your CREATIVITY for a full Brand Design: Logo, Web Buttons, Color Scheme, Branding Typeface... the works!!!",
     "benefits": "$300 Cash Award to the winning designer with potential for ongoing design opportunites."
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t034",
@@ -2275,13 +1768,7 @@
     "requirements": "Qualifications: University Degree in Computer Science, Computer Engineering, Business administration or relevant field. Excellent knowledge of English At least 1 year of experience in consulting. Thorough understanding and exposure in the IT industry, processes, collaborations and decision-making processes Master’s Degree in relevant field would be considered as an asset Skills required: Fluent in established ERP software products. Knowledge and experience in database design and implementation of RDBMS systems (At least Microsoft SQL server)High level of creativity with the ability to …[truncated]",
     "benefits": "CGSoft, as a company that aims for success, believes that its high-level human capital constitutes its best investment. The company’s successful trend imposes maintenance of the high-level of its expert group as well as constant efforts to attract new experts of respective level. The company offers a competitive salary package …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t035",
@@ -2294,13 +1781,7 @@
     "requirements": "Bottom Line Requirements:1. Bachelor's degree in business, engineering, or related discipline with an MBA is preferred.2. 7 + years of experience in related Supply Chain Manufacturing.3. Strong production experience with Packaging, Distribution Services, Raw Materials (particularly paper, wood or flooring industry materials).",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t036",
@@ -2313,13 +1794,7 @@
     "requirements": "1-3 years of professional office experience (HR and Payroll experience preferred)Proficiency with MS Office Suite (Word, Excel, and Power Point)Working knowledge of California and Federal laws and practices Ability to handle confidential information with appropriate skill Excellent written and verbal communication skills Strong organizational skills and attention to detail",
     "benefits": "Benefits include: Health, Dental, Life and AD&D Insurance, Employee Wellness and 401k [url] Time Off and Holidays with Generous Company Discounts."
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t037",
@@ -2332,13 +1807,7 @@
     "requirements": "Required Qualifications: Experience coordinating/supervising work for employees in a legal environment required Minimum of 1-year customer service related experience required Ability to resolve employee and customer concerns/issues Ability to lift up to 50 lbs with or without reasonable accomadations Ability to communicate both verbally and written with customers and company personnel High school diploma or equivalent (GED) required Ability to effectively work individually or in a team environment Ability to handle multiple projects simultaneously Strong organizational and administrative skills required …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t038",
@@ -2351,13 +1820,7 @@
     "requirements": "Government funding is only available for 16-18 year olds as this job is an apprenticeship.",
     "benefits": "Future prospects."
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t039",
@@ -2370,13 +1833,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t040",
@@ -2389,13 +1846,7 @@
     "requirements": "Pay & Work Requirements: • Excellent pay • Enjoy working with people • Must be at least 18 years of age to apply • Conditions apply We’re Vector Marketing, a 33 year-old company that’s looking to add people to our team. We’re growing. And there’s room for you to grow with us. This entry level position is a good fit for people who are looking for a part time or full time opportunity. If you are a student, a stay-at-home …[truncated]",
     "benefits": "• Training – both initial training to get you off to a good start and opportunities for on-going training when you need it. • Promotion opportunities based on merit, not tenure. • Clear-cut direction on what it takes to succeed. • The choice to move among several different career options …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t041",
@@ -2408,13 +1859,7 @@
     "requirements": "Qualifications This position requires minimum of Bachelor’s Degree in Coastal, Civil, Structural, or Geotechnical Engineering; 5-10 years of experience with marine and land base survey techniques and understanding of the use of survey information in the design process; and excellent written and oral communication skills. Required experience in technical areas include marine facilities and port design; coastal protection structures; coastal modeling; dredge design; sediment transport; modeling and design software; marine and land base survey techniques; and construction oversight. Construction Engineering …[truncated]",
     "benefits": "Benefits include: Quality of Work Quality of Life Compensation Health and Wellness Savings and Insurance Plans Supplementary Benefits Available at Group Rates Time Away from Work Continuing Education Additional Cost Cutters and Incentives For more information: [url]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t042",
@@ -2427,13 +1872,7 @@
     "requirements": "Who you are… You’re an effective communicator with the ability to explain technical issues clearly and simply. You have a four-year degree in an applicable field plus 2 years of relevant experience, OR a two-year degree with at least 4 years of experience in customer-facing computer software support, training, and/or installation. You have successful experience as a team member on “Proficient” level projects. Knowledge of Public Works or government strongly preferred. You have the ability to provide consultative services based …[truncated]",
     "benefits": "Great pay and extensive benefits The opportunity to apply your skills to themost innovative technology of its kind15 days of PTO time (and that’s just in your first year)Passionate, fun-loving co-workers401(k) plan with generous employer match Open, collaborative work environment Paid holidays (duh)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t043",
@@ -2446,13 +1885,7 @@
     "requirements": "Must be articulate and able to communicate over the phone. Have customer service skills.",
     "benefits": "$20-100 per referral. Make up to $100/day"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": true
-   }
+   "split": "test"
   },
   {
    "id": "t044",
@@ -2465,13 +1898,7 @@
     "requirements": "Good Computer Skills Good Phone Voice Ability to work with little supervisionA Good Attitude",
     "benefits": "Weekly pay + Commission and bonuses"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t045",
@@ -2484,13 +1911,7 @@
     "requirements": "6-10 years of comprehensive CSV/Software QA experience, including: Leadership of computer system validation programs and projects, including development of risk-based validation strategies Development and implementation of software quality assurance procedures, such as risk assessment, change control, vendor management, defect management, and configuration management Delivery of training in software quality assurance and validation subjects Auditing software quality and validation practices Expertise in software quality assurance and validation regulations (e.g., US FDA, Eudralex), international guidelines (e.g., PIC/S, ICH, WHO), and industry standards …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t046",
@@ -2503,13 +1924,7 @@
     "requirements": "Translation experience Preferably also a background in teaching English is your mother tongue Intermediate Turkish and German skills Excellent spelling and computer skills Reliability and an independent way of working Tax number for freelance work in Germany Preferably living in Berlin",
     "benefits": "Flexible work schedules Most work from home (but training in our Berlin office)Competent training and supportA friendly atmosphere and a great team We would appreciate concise and relevant applications exclusively in digital form sent to the attn. of Ms Nadja Hantschel referring to the position as Freelance Translator (m/f) from …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t047",
@@ -2522,13 +1937,7 @@
     "requirements": "Minimum three years experience",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t048",
@@ -2541,13 +1950,7 @@
     "requirements": "(not given)",
     "benefits": "Fully Paid Medical and Dental401kVacation Close enough to the beach to surf at lunch!"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t049",
@@ -2560,13 +1963,7 @@
     "requirements": "Our requirements:- Proven experience working with highly loaded systems – >100k requests per second- Has proven experience in scaling out solutions across geographically distributed datacenters- Worked with a service platform built with Open Source Software- Expert knowledge in programing with C#, C++ or Java- Expert knowledge in working with distributed NoSQL databases: Cassandra, Aerospike, …- Knowledge of Linux: the internals of the kernel, the intricacies of userland, and the ins and outs of packaging- High availability, high performance, high security, …[truncated]",
     "benefits": "Are you curious what do we offer you?- Creative, challenging and interesting projects- Fast growing product- Experienced and professional team- Dynamic, inspiring and international environment- Creative approach - we don’t believe in “one size fits all”- Informal style of leadership and communication- A lot of servers, complex infrastructure and challenging …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t050",
@@ -2579,13 +1976,7 @@
     "requirements": "Minimum Requirements: Minimum of 6 months customer service related experience required High school diploma or equivalent (GED) required Excellent communication skills both verbal and written. Ability to effectively work individually or in a team environment. Competency in performing multiple functional tasks. Ability to meet employer's attendance policy. Basic PC/Windows experience required. Ability to lift and/or move items up to a maximum of 55lbs. or the maximum allowed by current State law with or without accommodations. Ability to stand and/or walk …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t051",
@@ -2598,13 +1989,7 @@
     "requirements": "QualificationsMS/PhD in a relevant discipline - or BS with 2+ years experience. Interest in cybersecurity, product development and data visualization. Experience in software for data manipulation, analysis and visualization (MATLAB, R, etc). Experience with large volumes of data, algorithms and prototyping. Requires the ability to work independently with substantial latitude for action and decision while maintaining focus on achieving optimal outcomes as part of a collaborative development effort. Optional Prior experience applying machine learning algorithms at scale in products. Background …[truncated]",
     "benefits": "Comprehensive package including medical, dental, vision, 401K, life insurance and more..."
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t052",
@@ -2617,13 +2002,7 @@
     "requirements": "Brief Outline of Local Representative Position: Economic Recovery Group, LLC is a Florida law firm devoted to spreading the word to potential claimants about the new BP Horizon Settlement Program. Essentially everything you need to know about that is in the FAQ, will be covered in the one hour webinar training and will be emailed to you in a variety of updates. We are looking for businesses, nonprofits and independent contractors who can produce 60 months of P & L …[truncated]",
     "benefits": "As a local representative you will receive 1% of the claim amount when the client receives it from the BP Settlement. You have to do nothing other than refer the client to us. Attorney client privilege attaches when they sign the documents and no-one but our staff attorney will be …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t053",
@@ -2636,13 +2015,7 @@
     "requirements": "Bachelors degree in any field with demonstrated achievement; engineering or computer science preferred Understanding of and experience in executing core marketing principals – 4 p’sExcellent writing skills to create compelling and easy to understand product presentations and other materials Strong grasp of technical concepts regarding streaming video Effective project management skills Strong critical thinking and analysis skills; ability to present information in a clear, succinct, and compelling way Ability to self-manage the execution of tasks related to plans, maintain own …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t054",
@@ -2655,13 +2028,7 @@
     "requirements": "Primary Responsibilities: Collaborate with senior management to understand company objectives and ensure sales strategy will enable attainment of sales objectives Lead Sales Team members in collaborative effort to achieve sales plan Review Sales Team members’ pipeline of prospective opportunities to ensure optimization of revenue & margin along with demonstration of strategic value of company while closing deals in a manner that meets both short-term revenue objectives & long-term client satisfaction objectives Coach and train Sales Team members to develop account …[truncated]",
     "benefits": "Compensation: Excellent compensation and benefits."
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t055",
@@ -2674,13 +2041,7 @@
     "requirements": "12+ months of iOS development At least 1 app published in the App Store Self motivated and ready to take initiative at an early stage startup No formal education requirement",
     "benefits": "Competitive salary & equity Nice office space with perks such as a movie screening room, beer and cold brew coffee on tap, and dozens of restaurants within walking distance Significant creative control regarding the direction of the app Other benefits negotiable"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t056",
@@ -2693,13 +2054,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t057",
@@ -2712,13 +2067,7 @@
     "requirements": "Good written communicator with energetic attitude Ability to keep things positive when dealing with unhappy customers Self-starter that doesn't require hand-holding Strong ability to multitask Familiar with online communications tools (Email, Skype, Twitter, etc…)Experience with online SaaS applications a plus but not a requirement Experience with small tech startups a plus but not a requirement",
     "benefits": "Flexible hours Flexible work locations - work from home often! Loose vacation policy Great experience with an early stage, fast growing tech startup"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t058",
@@ -2731,13 +2080,7 @@
     "requirements": "Your responsibilities will include: Prospecting for new potential customers by sending out innovative email marketing campaigns Pitching and closing potential customers over the phone on our portfolio of products Crushing sales targets on a weekly, monthly, and quarterly basis Testing new products and ideas with potential customers and working with the Product Team to contribute to product development Building relationships with and being the main point of contact for customers Managing the entire sales process from identifying customers to closing …[truncated]",
     "benefits": "Founded in 2011, we are a group of experienced entrepreneurs, engineers, and designers. Between us we have started several companies, have a few commercial web products under our belt, and have a deep understanding of usability, engineering, analytics, and big data. We’ve worked for big companies like Google, Gilt, Reuters, …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t059",
@@ -2750,13 +2093,7 @@
     "requirements": "To be successful in this role you will need to provide evidence of: Relevant tertiary qualification with ideally 5 years experience in a similar role (preferably within vendor IT or payments sectors)Proven experience in analysing market / customer needs and designing solutions Ability to facilitate meetings and influence decisions Experience working with multi-disciplinary, cross-cultural and geographically distributed teamsA passion for customer service Desirable: Experience working within an Agile environment",
     "benefits": "We are in an exciting growth phase, if you would like the opportunity to work for an organisation where your skills and performance will be recognised, an organisation that believes in investing in your learning and development, then we would like to hear from you! Sentral - close to the …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t060",
@@ -2769,13 +2106,7 @@
     "requirements": "The ideal intern's personality and qualifications: Strong statistical analysis skills are key. Master’s Degree preferred in Marketing, Management or Business You must have a good understanding of retail and e-commerce as well as social shopping trends. Looking for a career in online marketing and ecommerce. Sound knowledge of Microsoft Word & Excel is essential Keen to develop a successful career in a digital marketing capacity. A candidate looking for hands-on experience. Passionate about food and sustainable agriculture In addition you …[truncated]",
     "benefits": "Remuneration This is a paid internship"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t061",
@@ -2788,13 +2119,7 @@
     "requirements": "You will need: Minimum of 4years of experience, preferably in the software industry Proven track record in leading and working effectively with cross functional teams Experience with inventory management, point of sale, e-commerce or management accounting preferred Bachelor's degree or equivalent",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t062",
@@ -2807,13 +2132,7 @@
     "requirements": "Required Skills: Strong analytical skills and experience working in metrics based companies. Intuitive grasp of data and strong with Excel Genuine interest in social, gaming, analytics, and advertising a must. Passion for problem solving: You must be able to tackle new, unfamiliar, and possibly daunting problems--to break them down into manageable bits and solve them. Experience – and a desire – to do both strategic planning and daily execution/optimization. Proven ability to effectively influence others without directly managing them. Outstanding …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t063",
@@ -2826,13 +2145,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": true
-   }
+   "split": "test"
   },
   {
    "id": "t064",
@@ -2845,13 +2158,7 @@
     "requirements": "A Degree in Engineering with 1-3 years of technical experince in end to end model based development using Python. -Must have exceptional applied mathematical and Statistical skills",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t065",
@@ -2864,13 +2171,7 @@
     "requirements": "Education/Experience Requirements: The ideal candidate will have between 3- 5 years experience in marketing communications or promotions agency position. Proven Success with Client Management and Program Development Marketing communication, product and service marketing, retailing and design experience. Familiarity and comfort with both print production and web processes Post Secondary Education in Business/Marketing/Advertising Must be technology savvy Excellent MS Office Suite skills High ability to multitask Bilingualism is an asset (but not a requirement)A car is an asset Ideal Candidate Will …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t066",
@@ -2883,13 +2184,7 @@
     "requirements": "3+ years of experience in similar positions Up-to-date with the latest trends and best practices in your field Strong analytical skills and data-driven thinking Excellent communication skills Proﬁcient in English Bonus skills: Other foreign languages",
     "benefits": "Benefits include: Competitive salary, depending on skills and experience Stock option plan (for senior positions)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t067",
@@ -2902,13 +2197,7 @@
     "requirements": "Bachelor's degree in a Human Services or related field with 3 years of related experience or an equivalent combination of education and experience to successfully perform the essential functions of the job. Must have demonstrated knowledge of employment counseling, interviewing case management, and assessment skills. Demonstrated interpersonal skills, including collaborating with a team, working across program areas, disseminating information effectively and conflict resolution. Experience interacting with individuals from diverse ethnic and socio-economic backgrounds. Experience facilitating adult group learning required. Must …[truncated]",
     "benefits": "Wage: $19.02/Hour Schedule: Monday - Friday, 40 Hrs/Week Department: Community Engagement Posting Dates: October 10 - October 20, 2014Community Action offers excellent benefits including generous paid time off (PTO), paid holidays, health, dental & life insurance, retirement, employee discount programs and more."
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t068",
@@ -2921,13 +2210,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t069",
@@ -2940,13 +2223,7 @@
     "requirements": "As a Delivery Driver, you must be focused on safety, attendance, and punctuality. There is no minimum education or experience required for the Delivery Driver position – the important thing is that you are able to handle a truck well and that you are a skilled enough driver to drive every different type of vehicle in our fleet. You must also have an excellent attitude, personality, and interpersonal skills, since you will be the face of our company to most …[truncated]",
     "benefits": "As a Delivery Driver, you will receive on-the-job training, which may include being paired with a veteran driver for a short time to orient you to your new duties. Since we prefer to promote from within, you may have opportunities for advancement. We value your hard work and professional dedication …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t070",
@@ -2959,13 +2236,7 @@
     "requirements": "Have a yahoo messenger which you would be working with.*Send your Resume and cover letter to [email] for verification and assessment Add the Personnel Manager on your yahoo messenger list [email]",
     "benefits": "Health, Dental, Life and AD&D Insurance, Employee Wellness and 401k [url] Time Off and Holidays with Generous Company Discounts. If interested, send your resume and cover letter to the Personnel Manager of our company ( Mrs Patricia Bowers ) on [email] and I want you to setup a yahoo messenger …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": true
-   }
+   "split": "test"
   },
   {
    "id": "t071",
@@ -2978,13 +2249,7 @@
     "requirements": "Required Qualification: Current CPR & First Aid 3 to 5 Years + of proven caregiving Experience with 3+ testimonials/references Available for PRN shifts \"Squeeky\" Clean criminal and driving record, have full-time access to RELIABLE auto transportation Must be Willing & Able to drive in various conditions & weather. Must speak/read clear and fluent English (speaking Spanish or second language is a plus!)We are a smoke and drug free company Most importantly, you should have a caring heart. We judge more …[truncated]",
     "benefits": "Gold Leaf provides:* Competitive rates for caregivers per hour & this can increase within first three months* We pay gas expenses on some shifts* We offer full PTO (sick & vacation time) benefits to our full time Care Team* We pay Overtime even though we don't have to!* We offer …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t072",
@@ -2997,13 +2262,7 @@
     "requirements": "About you: You have a positive can do attitude. You are persistent. You are comfortable making cold and warm calls and have excellent phone presence. You are extremely organized and have a proven ability to exceed performance goals. You are confident and enthusiastic when presenting information to decision makers. You have excellent verbal and written communication skills. You are goal oriented and have accountability for your work. You thrive in a fast paced and competitive team environment. You earned your …[truncated]",
     "benefits": "Hands-on work experience with an internet start-up from the ground up • Get to attend social/entrepreneurial events around the DC-MD-VA area • Access to our snack bar full of candies, sodas, popcorn, chips, etc • Weekly luncheons with the management team • Fun events such as bowling, BBQ’s, putt-putt, laser …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t073",
@@ -3016,13 +2275,7 @@
     "requirements": "Sales: You will have a proven track record in selling financial products and driving new business within the financial services sector. Industry expertise: You will have two – five years industry experience and an excellent grasp of different financial products and services. Contacts: Ideally, you will be integrated within the UK broker community and have an extensive network of contacts. Communication: You will be able to effectively articulate a new funding product to a traditional audience and have excellent presentation …[truncated]",
     "benefits": "Competetive base salary Uncapped Commission structure Private Healthcare Half price gym membership25 days holiday"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t074",
@@ -3035,13 +2288,7 @@
     "requirements": "A strong affinity for both words and numbers Excellent writer with the ability to create and sustain a recognisable style Superior analytical skills Strategic, proactive, data driven and highly collaborative Native Italian speaker, fluent in English Basic HTML knowledge a plus Strong interest in current online marketing technologies",
     "benefits": "Responsibility from day one in one of the key markets for Babbel Learn from a team with strong expertise in performance marketing worldwide High quality, useful product that you enjoy advertising Work in a truly international company"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t075",
@@ -3054,13 +2301,7 @@
     "requirements": "Qualifications: Availability to work overtime, and out of town at times. Geographical knowledge of Bakersfield and surrounding areas. Two years of prior industry-experience Relevant certifications",
     "benefits": "Competitive compensation package including base + full benefits package + expense account + per diem and increase in base + many perks. Clean, safe and professional working environment / culture. The management team has a great reputation for taking good care of employees. Steady, consistent employment opportunity- company has a …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t076",
@@ -3073,13 +2314,7 @@
     "requirements": "Due to the fact that our customer base is distributed all over the globe, all communication with our users is conducted in English. This being the case, excellent English communication skills, both written and verbal are an absolute requirement. Being a native speaker would be a great plus. Excellent understanding of desktop/web technologies is also required. The candidate should have adequate knowledge of HTML/CSS, the Windows operating system and commonly used applications and technologies. The candidate should also be familiar …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t077",
@@ -3092,13 +2327,7 @@
     "requirements": "Knowledge, Skills & Abilities: A high school diploma or GED is required. Must have a valid driver’s license. Ability to read, write, and communicate effectively in English. Good math skills. Four years of experience as an I&C Technician and/or Electrician in a power plant environment, preferably with a strong electrical background, up to and including, voltages to 15 KV to provide the following: Demonstrated knowledge of electrical equipment, electronics, schematics, basics of chemistry and physics and controls and instrumentation. Demonstrated …[truncated]",
     "benefits": "What is offered: Competitive compensation package100% matched retirement fund Annual vacations paid for by company Significant bonus structure Opportunity for advancement Full benefits package Annual performance reviews and base salary increases Annual cost of living increases Sound, clean, safe and enjoyable working environment & Company Culture World renound management and …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": true
-   }
+   "split": "test"
   },
   {
    "id": "t078",
@@ -3111,13 +2340,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t079",
@@ -3130,13 +2353,7 @@
     "requirements": "Responsibilities End-to-end responsibility for Picfair's code and infrastucture Planning significant product features with Picfair's team, and taking responsibility for timeframing, execution, launch, and maintenance Identifying areas of vital optimisation across Picfair's code base, and improving as necessary Documentation of all committed code Skills5 years industry experience, and expert knowledge of Rails and Ruby Excellent organisation and project management skills (we use Trello & Slack)Strong understanding of HTML, CSS, Javascript (jQuery/Backbone)Good design and UX instincts Expert understanding of maintenance and performance …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t080",
@@ -3149,13 +2366,7 @@
     "requirements": "Skills And Experience: Experience in search marketing, ideally from a top digital agency environment In-depth knowledge of the broader digital space Experience of working in a sales team coupled with strong leadership and client handling skills3+ years of SEM and wider digital advertising experienceA solid track record of generating profitable business Forecasting, proposal and pitch experience Fresh and innovative ideas Previous working exposure to blue-chip organisations An excellent negotiator that is able to demonstrate success and experience in managing both …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t081",
@@ -3168,13 +2379,7 @@
     "requirements": "Personality: Open minded thinking Willingness to take challenges and learn new things Ability and willingness to solve problems independently Experience on following technologies (1-3 years of experience): Python JavaScriptHTMLCSSRecommended to have experience on following technologies: Django Linux Apache Bitcoingit",
     "benefits": "Dynamic, flexible work An opportunity to work in rapidly growing startupA possibility to get salary in bitcoinsA workplace where you can actually affect in a way you do your work and what kind of work environment you haveA possibility to develop your skills and take responsibility"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t082",
@@ -3187,13 +2392,7 @@
     "requirements": "KEY SKILLS: - Must be fluent in German and English - SEO or in similar experience desirable - Basic understanding of SEO and ranking factors - Strong communication skills - Excellent writing skills - Ability to work independently - Proactive approach to work – bringing ideas and questions to the team - Always follows best practice - Passionate about a career in digital marketing - Reliable and hardworking",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t083",
@@ -3206,13 +2405,7 @@
     "requirements": "Minimum of High School Diploma Self-starter Responsible & dependable with good prioritization skills Proficient in Microsoft Word, Excel and Outlook Proficient with Quick Books and/or other Accounting software Understanding of customer service protocols Strong phone presence General Math Skills Thoroughness and attention to detail",
     "benefits": "Benefits include: Medical, Rx, and Wellness Benefits. Dental and Vision Plan Options. Short-term Disability.401(k) Retirement Plan. Holiday Pay."
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": true
-   }
+   "split": "test"
   },
   {
    "id": "t084",
@@ -3225,13 +2418,7 @@
     "requirements": "The Project Coordinator provided shall, at a minimum, meet the following requirements or possess an equivalent combination of education and experience: Experience: Experience with State Government, Medicaid, CHIP and DHR business area or healthcare industry Experience in creating agendas, minutes, correspondence, documentation, and presentations Proficiency with MS Office (including Word, Excel, Outlook, Power Point, Access)Proficiency with MS Project and MS Team Foundation Server (TFS)Ability to work with end users/customers to understand and develop project requirements Experience with project development methodology …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t085",
@@ -3244,13 +2431,7 @@
     "requirements": "Bottom Line Requirements:1. Bachelor's Degree in Engineering.2. 2+ years of engineering experience in molding.3. Local or close enough for a short easy move.",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t086",
@@ -3263,13 +2444,7 @@
     "requirements": "We seek people who are already SW professionals or on a steady road in becoming one. You have the skills and especially the attitude to deliver good quality SW. We offer the challenges and you offer the solutions. Good network and team playing skills will help you. We value expertise and skills on e.g. following areas: Microcontrollers and peripherals Embedded real time SWLinux and RTOSKernel drivers Connectivity Communication protocols SensorsHW wake-upBootloader Security Debugging and problems solving",
     "benefits": "We offer a great work place, competitive salary and an opportunity to work with new innovative products and leading Positions are located in Oulu, Finland"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t087",
@@ -3282,13 +2457,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t088",
@@ -3301,13 +2470,7 @@
     "requirements": "A Computer Science or related degree from a top university1+ year experience in building complex applications for the iPhone or iPad using Objective-C with Cocoa and other frameworks1+ year professional experience in building complex applications for the Android platform using the Android SDKExpert ability working and collaborating in small software teams Experience with web technologies (Javascript, HTML/CSS) is a plus",
     "benefits": "Control your own time - We have flexible working hours Competitive salary Forget bureaucracy - We want to move fast and help you to make real impact on the business We ship code fast and iterate faster We work in small teams meaning that you'll own part of the product …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t089",
@@ -3320,13 +2483,7 @@
     "requirements": "Qualifications & personal attributes- MSc. in Engineering or/and Business Administration- 10 years’ experience from international Oil & Gas or infrastructure industries as lead construction position- 3 years’ experience with handling of contractual issues within engineering and construction projects for offshore and subsea applications - Fundamental knowledge of; contract drafting, negotiating, background law, and business norms for Aker Subsea and Aker Solutions’ Contract Standards - Basic understanding of ERP systems, preferably SAP- Basic understanding of planning tools, preferably Primavera- Good communication …[truncated]",
     "benefits": "We offer• Friendly colleagues in an industry with a bright future.• An environment where you are encouraged to develop your skills and share your knowledge with your colleagues.• Competitive benefits and strong focus on work-life balance."
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t090",
@@ -3339,13 +2496,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t091",
@@ -3358,13 +2509,7 @@
     "requirements": "16-18 year olds due to government funding. Full time availability.",
     "benefits": "Career prospects."
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t092",
@@ -3377,13 +2522,7 @@
     "requirements": "Job Requirements High School Diploma or GEDPass Drug Screen Clean Criminal History Check Optional 6-12 months of sales experience",
     "benefits": "401kHealth Insurance Paid Time OffVacation Time Bonus"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t093",
@@ -3396,13 +2535,7 @@
     "requirements": "Specifically, our perfect candidate will possess the following skillset: Object Orientated Javascript development Familiarity with MV* frameworks (Angular, Backbone etc)DOM manipulationCSS and Javascript Animations Familiarity with OO CSS methodologies (OOCSS/BEM)Have used CSS Preprocessors for more than just mixins and nesting Comfortable using APIs (Twitter, Facebook, Google to name a few)Not afraid to work outside your comfort zone - some projects might require the use of new/emerging technologies you might not have used before Proficiency with responsive/adaptive design techniques Ability to …[truncated]",
     "benefits": "Work in a dynamic, creative environment. Learn first-hand about how to start, grow and market new startups and products. Build exciting Apps that thousands of people will use and love. Work on a broad range of projects and brands Team lunches, drinks and - dare we say it - parties.'Take …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t094",
@@ -3415,13 +2548,7 @@
     "requirements": "Preferably first practical experience in other agencies Affinity to current digital developments Strong communication skills Self-confident Excellent English and German spoken and written Commitment, reliability and resilience",
     "benefits": "Paid opportunity. Rates depends on the person. Get to be part of something amazing. With real impact. Now."
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t095",
@@ -3434,13 +2561,7 @@
     "requirements": "The ideal candidate exhibits the following qualities: Experience - You must be able to prove your experience in mobile app and web development (HTML5, CSS3, Java Script and the Phone Gap Framework). If you have no previous experience in this subject, you should somehow prove you are a motivated person with a strong willing to learn and deliver. Culture - Professional, responsible, reliable and able to handle deadlines Communication - You must be a team player with good communication skills",
     "benefits": "What we are offering: Being part of a great team! Flexible working hours Flexible employment type:full timepart timeor per project Competitive salary Direct link with the Greek start-up community"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": true
-   }
+   "split": "test"
   },
   {
    "id": "t096",
@@ -3453,13 +2574,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t097",
@@ -3472,13 +2587,7 @@
     "requirements": "Minimum Requirements: Minimum of 6 months customer service related experience required High school diploma or equivalent (GED) required Valid Driver's License and good driving record required Keyboarding and windows environment PC skills required (Word, Excel and Power Point preferred)Precision with number strings, patterns, and data entry Excellent communication skills both verbal and written Must be able to push carts of mail and lift and carry trays weighing up to 30lbs Willingness and flexibility to work additional hours if assigned Willingness …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t098",
@@ -3491,13 +2600,7 @@
     "requirements": "Knowledge, Skills and/or Abilities Ability to work independently Ability to work with shifting priorities Excellent customer service skills Attention to detail Team player Ability to meet deadlines and work under competing pressures and expectations Ability to assist and maintain good working relationships at all levels across organizations Strong written and verbal communication skills Education and/or Experience: Master’s Degree or equivalent in Health Promotion/Education, or related Health field.3+ years experience in wellness program development, implementation, evaluation, marketing and promotions",
     "benefits": "NFP offers a comprehensive benefits package to all our full-time employees, including medical, prescription, dental and vision insurance, health care flexible spending accounts and health savings accounts. We also offer life insurance, short- and long- term disability, a 401(k) plan, paid time off, and education assistance program and many other …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t099",
@@ -3510,13 +2613,7 @@
     "requirements": "Additional requirements include:10+ years experience in recruiting in the local area (Canonsburg, PA). Must be within driving distance of Buckhannon, WV and have reliable transportation. Flexible and capable of recruiting candidates in a variety of disciplines, with a focus on field level roles within the Oil & Gas industry. Must be able to work virtually. Have access to Wi Fi, reliable phone, etc. Must have a proactive, entrepreneurial spirit. Excellent written and oral communication skills required. Demonstrated ability to function/recruit …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t100",
@@ -3529,13 +2626,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t101",
@@ -3548,13 +2639,7 @@
     "requirements": "Must have good knowledge of Outlook, Microsoft Word and Excel, and excellent overall computer skills. Any background with Quickbooks, Ultratax or working in a CPA office would be helpful. Must be extremely organized. Good sense of humor is key!",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t102",
@@ -3567,13 +2652,7 @@
     "requirements": "• Proven previous experience in a customer service role (face to face or in a contact centre).• Empathetic, enthusiastic, friendly and confident.• Excellent PC and typing skills.• Team player and customer driven.• Resilient and motivated.• Flexible to work shifts.• Childcare experience (Desirable).",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t103",
@@ -3586,13 +2665,7 @@
     "requirements": "(not given)",
     "benefits": "Skill Set required: Strong Experience in system administration. Should have experience in VMware, Win 2003 & 2008, Linux servers, IBM Blade center, VMware, High Availability, DRS, vMotion and Storage.· Experience in EMC Symmetrix, DMX and VMAX storage arrays, Symantec Backup Exec 2010, IBM Tivoli Storage, SCCM 2007, exchange server 2010."
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t104",
@@ -3605,13 +2678,7 @@
     "requirements": "2 years minimum previous experience Fluent in English Previous work with Union or Singular program Right to sign Previous experience in an export company will be an asset",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t105",
@@ -3624,13 +2691,7 @@
     "requirements": "REQUIRED QUALIFICATIONS:3+ years’ experience in Web Development Experience with Service Oriented ArchitecturesC#, [url] MVC, SOAP & REST ServicesSQL / SQL Server Excellent use of the English language (written and oral)DESIRED QUALIFICATIONS: Experience with Linux OS - (Debian)Java Script, jQuery, HTML / CSS, XSLTMSc in Computer Science or related field",
     "benefits": "You will be part of a dynamic growing development team hence communication and team working skills are of tantamount importance to the success of this role. For your hard work and dedication, you will be rewarded with a competitive salary, excellent benefits and many other cool perks! Also, you will …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t106",
@@ -3643,13 +2704,7 @@
     "requirements": "3+ years telecommunications experience, or 3+ years of combined training and experience. Ability to understand Architectural blue prints and cabling diagrams. Must possess a valid State issued Driver's License with a clean MVD driving record. Must have good written, verbal, and interpersonal communication skills. Physical demands: occasional lifting up to 50 lbs, carrying, pushing, and/or pulling; some climbing and balancing; frequent stooping, kneeling, crouching, and/or crawling; and significant fine finger dexterity. Must have basic knowledge of mathematics. Must pass a …[truncated]",
     "benefits": "TBD"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t107",
@@ -3662,13 +2717,7 @@
     "requirements": "Customer service oriented. Self Starter, resorceful, go-getter",
     "benefits": "\"UNLIMITED\""
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t108",
@@ -3681,13 +2730,7 @@
     "requirements": "Quality-oriented consulting company with a focus on ACO patient-centered care. Company serves client base of rural ambulatory clinics and primary care groups nationwide.",
     "benefits": "Full-time position. Quality benefits package offered."
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t109",
@@ -3700,13 +2743,7 @@
     "requirements": "What We're Looking ForStrong knowledge of front-end development; Java Script/CSS/HTML. Strong knowledge of Ruby and/or Python. Strong knowledge of Rails and/or Spring frameworks.5+ years of relevant work experience. Exceptional software engineering knowledge; OO Design Principles. Great communication skills and strong love of collaboration. Passion for growing your skills, tackling interesting work and challenging problems. Experience deploying to cloud environments a plus. Experience in test first development and pair programming a plus.",
     "benefits": "Great Vision / Medical / Dental + Sherpaa because we're fancy."
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t110",
@@ -3719,13 +2756,7 @@
     "requirements": "2-3 years sales experience Demonstrated aptitude for problem-solving Ability to determine solutions for customers (consultative sales approach) Able to work both independently and within a team environment Must possess excellent verbal and written communication skills Proficiency in using Microsoft Office Suite applications and contact management software Valid driver's license",
     "benefits": "Schroeder Solutions offers a competitive salary and benefits package."
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t111",
@@ -3738,13 +2769,7 @@
     "requirements": "Responsibilities: Ability to analyze business needs and translate into approach options with pro’s cons of each approach Design and implement next generation CRM applications in Hadoop that can handle high data volumes Execute analysis through tools in a Hadoop distributed environment Assist with supporting, migrating and refactoring reports and existing BI solutions. Support a group of multi-disciplinary data professionals and analysts. Assist in defining development project plans, including scoping, scheduling, providing time estimates for programming tasks and implementation plans and …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t112",
@@ -3757,13 +2782,7 @@
     "requirements": "No any experience required.",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t113",
@@ -3776,13 +2795,7 @@
     "requirements": "Who you are: You are a self starter who has clinical Statistical experience. You will have worked on numerous projects, phases and therapeutic areas. You hold a degree and higher qualification in Statistics or relevant subject area. You are looking to further your career development working with leading pharmaceutical companies.",
     "benefits": "Competetive Package, plus a great working environment. Global secondement or re-assignment available for the right candidate"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t114",
@@ -3795,13 +2808,7 @@
     "requirements": "Requirements All you need is access to the Internet and you can participate. Computer with Internet access, valid email address, good typing skills",
     "benefits": "This is an entry level position and we offer full online training. You do NOT need any special skills to get started. Earn as much as you can doing data entry. Complete Training provided before you start working and it’s easy to start! ________________________________________Don’t let this opportunity pass you by. …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t115",
@@ -3814,13 +2821,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t116",
@@ -3833,13 +2834,7 @@
     "requirements": "VMob creates mobile commerce software for global retail businesses and their agencies, and you could be the next to join an extremely successful, vibrant, professional & hard working team. Based at our Headquarters in Auckland’s Wynyard Quarter innovation precinct, this is a role where you can really make a difference;This role will be working closely with our platform team. As our Android Mobile Developer, you will bring: Mastery of Android development Excellent software design skills Ideally you will have experience …[truncated]",
     "benefits": "Auckland Waterfront location High profile projects, latest technology Very strong team, fast growing business"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t117",
@@ -3852,13 +2847,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": true
-   }
+   "split": "test"
   },
   {
    "id": "t118",
@@ -3871,13 +2860,7 @@
     "requirements": "5+ years experience developing applications software Ability to work with HTML5, CSS3 and Javascript including jQuery, [url] or [url] Experience developing RESTful web services using JEE/Java/Spring Clear understanding of MVC design pattern Experience creating shell scripts Experience with JBoss Experience developing applications on Amazon Web Services (AWS)Experience building highly scalable websites and web-based applications and with delivering Software as a Service Experience using [url] to build scalable web services a plus Experience with Oracle, MySql, or PostgreSQL and use of …[truncated]",
     "benefits": "Competitive base salary Excellent benefits, including health care, family medical insurance, and 401(k) Flexible schedulesA short walk from MBTA Red Line Free coffee and tasty snacksA fun, world-class team that's proud of what they do each day So if you’re a Java Web Developer that wants an opportunity to shape …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t119",
@@ -3890,13 +2873,7 @@
     "requirements": "Working experience in social media and digital marketing Be active in social media Have strong communication and social skills (quick and effective in online communication)Be familiar with the telecom sector Organized, accurate, reliable and with an attention to details Proactive and team-player Bring a start-up mindset",
     "benefits": "Potential of long-term collaboration Working within a high-tech start-up company Working with a group of young, driven and passionate entrepreneurs"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t120",
@@ -3909,13 +2886,7 @@
     "requirements": "Qualifications Knowledge, Experience, and Skill: • Experience in sales and/or customer service; • Superior organizational and multi-tasking skills; • Skill in establishing and maintaining professional relationships; • Professional, empathetic and friendly tone • System's literate (Microsoft Office); • Must also have a strong work ethic, be willing to take on new tasks and learn new skills, extremely detail-oriented, have an outgoing personality, and enjoy working with the public; • Flexible hours; • A team-player is a MUST!",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t121",
@@ -3928,13 +2899,7 @@
     "requirements": "University degree required. TEFL / TESOL / CELTA or teaching experience preferred but not necessaryUK passport holders only",
     "benefits": "See job description"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t122",
@@ -3947,13 +2912,7 @@
     "requirements": "Skills and Requirements MSEE with 5 years of experience in customer premise equipment (CPE) or high volume product developmentDSL Broadband CPE product development experience required802.11 or wireless broadband product development experience required Management of engineering team experience is required Experience with developing 3G/4G devices is desired Experience certifying products with large service providers a plus Experience in complete development life cycle of technology products Systems engineering background with significant hands-on experience in product development. In depth Domain knowledge in IP …[truncated]",
     "benefits": "What is offered: Broad responsibility, autonomy and visibility in an Engineering role. In-depth exposure to real-world customer issues across a global customer base Small-company feel in a growth environment Opportunity for executive advancement Very competitive compensation package Significant stake in equity, stock options Attractive bonus program Full benefits package including …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t123",
@@ -3966,13 +2925,7 @@
     "requirements": "Is this you? Anti fraud or AML background At least 3 years of work experience in responsible specialist role. Ability to code, operate in large databases and visualization tools is a benefit Flexibility in working hours Good communication skills, fluent in English. Ability to take charge in critical situations and work on resolving problems. Punctual, independent, proactive and willing to get things done.",
     "benefits": "Did someone say benefits? Apart from all-expenses-paid company days twice a year, stock options in one of Europe’s most hotly-tipped startups and team lunches, you won’t get much in the way of extras. However, we will give you a fun, friendly atmosphere, plenty of opportunities to grow and the chance …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t124",
@@ -3985,13 +2938,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": true
-   }
+   "split": "test"
   },
   {
    "id": "t125",
@@ -4004,13 +2951,7 @@
     "requirements": "5+ years of experience in UI / UX design (Bachelor’s degree required)Have launched several engaging consumer mobile apps and websites Ability to produce and deliver designs at various levels of fidelity (whiteboard flows, rough prototypes, pixel-perfect layouts, animated transitions). You take pride in measuring to measure Solid knowledge of mobile design best practices; experience with web design (HTML/CSS/JS) and light coding a plus. Strong advocate for user needs while balancing business / technical / product goals with ability to distill …[truncated]",
     "benefits": "Salary: Basic + Bonus + Equity Private Healthcare"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t126",
@@ -4023,13 +2964,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t127",
@@ -4042,13 +2977,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t128",
@@ -4061,13 +2990,7 @@
     "requirements": "Required Qualifications: Experience coordinating/deploying work to employees required Minimum of 1-year customer service related experience required Ability to resolve employee and customer concerns/issues Ability to communicate both verbally and written with customers and company personnel High school diploma or equivalent (GED) required Ability to effectively work individually or in a team environment Ability to handle multiple projects simultaneously Strong organizational and administrative skills required Ability to meet employer's attendance policy Computer proficiency in email environments, MS Word/Excel Heavy Lifting Ability …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t129",
@@ -4080,13 +3003,7 @@
     "requirements": "Requirements2+ years of inside sales experience Track record of over-achieving quota Strong phone presence and experience dialing dozens of calls per day Proficient with corporate productivity and web presentation tools Experience working with [url] or similar CRMExcellent verbal and written communications skills Strong listening and presentation skills Ability to multi-task, prioritize, and manage time effectivelyBA/BS degree or equivalent",
     "benefits": "Disablity Health Business Start upFranchise"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t130",
@@ -4099,13 +3016,7 @@
     "requirements": "Qualifications/Requirements: Bachelor’s Degree with 2-3 year’s work experience Minimum of 1 year experience implementing interfaces using any interface engine technologies Design, document, develop, test and validate HL7 interfaces and/or conversions Integration Engineer to install, configure, test HL 7 interface linkages at both Electronic Medical Record (EMR) and Practice Management (PM) customers sites and perform Data Conversions. Integration Engineer is proficient with electronic data standards such as HL7, XML, and has proven problem solving and technical troubleshooting skills. Strong problem solving …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t131",
@@ -4118,13 +3029,7 @@
     "requirements": "Candidates should ideally demonstrate the following:effective organization and communication skills. Excellent proven customer service experience. Professional telephone manner. Sales experience an asset In-depth knowledge of London and Southwestern Ontario. Good organization and communications skills. Availability to work flexible hours. Positive Interpersonal skills. Demonstrated leadership and team-building skills. Excellent organisational and problem-solving skills. Effective communication (both written and verbal). Self-motivation. Must be able to prioritize and work with deadlines. Responsibilities include, but are not limited to: The ability to work effectively …[truncated]",
     "benefits": "Voyageur prides itself on its family-run tradition and culture, our social committee organizes several social events throughout the year for our staff and their families and we welcome all our drivers to join us at barbeques during the summer and breakfast meetings in the school year. With several other divisions …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t132",
@@ -4137,13 +3042,7 @@
     "requirements": "You must have: Background/education in engineering, statistics or other technical/quantitative field. Demonstrable SEM experience managing PPC campaigns on Google, Facebook and other channels. Solid understanding of performance marketing, conversion, and online customer acquisition In-depth experience with website analytics tools and methodologies",
     "benefits": "Our goal is to create a company where employees enjoy benefits that make them more productive and contribute directly to the development of their professional skills. We want to be able to attract the best of the best, and make sure they keep getting better. On top of an exciting, …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t133",
@@ -4156,13 +3055,7 @@
     "requirements": "What you’ll need An understanding of the fundamentals of accounting and basic bookkeeping - such as double-entry bookkeeping You will ideally be a 2nd or 3rd year university student studying accounting & finance or a related subject, or recently graduated You will need to be competent, reliable and able to pick up new tasks quicklyA basic understanding of how to use of Microsoft Excel Fluent in English and with the authorization to work in the UK",
     "benefits": "Plenty of perks As well as the opportunity to solve complex problems in this exciting new era of big data, here’s what we offer: Realistic performance related bonuses Generous equity options mean you’ll own a piece of the pie Excellent health and dental insurance packagesA relaxed approach to time off …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t134",
@@ -4175,13 +3068,7 @@
     "requirements": "Prior administrative support experience Proficiency in all Microsoft Office applications Exceptional written and verbal communication skills Comfortable performing multifaceted projects in conjunction with day-to-day activities. Must possess a friendly and engaging personality with a confident manner. Enjoy working with different people daily. Honesty & integrity are a must. Resourceful, well organized, highly dependable, efficient and detail oriented. Must be competitive, driven and confident with a high energy level.",
     "benefits": "Medical, dental and vision insurance401k Retirement Savings Plan with a match up to 6% by the Credit Union Flexible Spending Accounts Life insurance paid by the Credit Union Gym membership reimbursement program."
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t135",
@@ -4194,13 +3081,7 @@
     "requirements": "High school or equivalent education required. Bachelor's degree and Master's degreein related area preferred. 5 years related experience, including at least 3 years inmanagerial role Previous experience as Front Office Manager in a luxury hotel or resort property. Skills and Abilities Required:* Impeccable communication skills.* Strong determination and diligence.* Passion for customer service.* Excellent problem solving skills.* Self-confident and pleasant.* Strong motivation skills.* An eye for detail.* Well organized.* Excellent leadership skills.* Basic Computer skills.",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t136",
@@ -4213,13 +3094,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": true
-   }
+   "split": "test"
   },
   {
    "id": "t137",
@@ -4232,13 +3107,7 @@
     "requirements": "General Qualifications: Must have a desire to learn, work in a team environment, and a winning attitude. Familiarity with process industry standards and applicable codes like ASME, API, ANSI, NACE, etc. Experience: * 15+ Oil & Gas Upstream involving production surface facilities & treatment Software experience: Microsoft Office (Required)Excel Word Experience Preferred: P. E. registration in California is preferred. PMP registration a plus. Managed small and large projects from conception through construction. Software. MS Project, Primavera (preferred)Possess a Bachelor's Degree …[truncated]",
     "benefits": "What is Offered:* Clean, safe, enjoyable environment to work in with a great company culture that values work/life balance.* Competitive base rate + Incentives + Full Benefits Package + Retirement 401K 100% matched by company.* Relocation Assistance.* Signing Bonus.* Opportunity for Advancement.* Trips, outings, rafting trips, lunches, client appreciation get-togethers, …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t138",
@@ -4251,13 +3120,7 @@
     "requirements": "Normal 0 false false false EN-US X-NONE X-NONE /* Style Definitions */ [url] {mso-style-name:\"Table Normal\";mso-tstyle-rowband-size:0;mso-tstyle-colband-size:0;mso-style-noshow:yes;mso-style-priority:99;mso-style-parent:\"\";mso-padding-alt:0in 5.4pt 0in 5.4pt;mso-para-margin-top:0in;mso-para-margin-right:0in;mso-para-margin-bottom:10.0pt;mso-para-margin-left:0in;line-height:115%;mso-pagination:widow-orphan;font-size:11.0pt;font-family:\"Calibri\",\"sans-serif\";mso-ascii-font-family: Calibri;mso-ascii-theme-font:minor-latin;mso-hansi-font-family: Calibri;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:\"Times New Roman\";mso-bidi-theme-font:minor-bidi;}Knowledge, Skills and ExperienceBSc/MSc in Computer Science or equivalent1+ year of full time experience as a Software Engineer Diverse background, including both software development and hands-on system, application, and/or database administration Good knowledge of Unix/Linux tools and utilities Experience with software debugging and profiling Experience with shell, Perl, Python or other scripting languages Solid understanding of web architecture Basic …[truncated]",
     "benefits": "Normal 0 false false false EN-US X-NONE X-NONE /* Style Definitions */ [url] {mso-style-name:\"Table Normal\";mso-tstyle-rowband-size:0;mso-tstyle-colband-size:0;mso-style-noshow:yes;mso-style-priority:99;mso-style-parent:\"\";mso-padding-alt:0in 5.4pt 0in 5.4pt;mso-para-margin-top:0in;mso-para-margin-right:0in;mso-para-margin-bottom:10.0pt;mso-para-margin-left:0in;line-height:115%;mso-pagination:widow-orphan;font-size:11.0pt;font-family:\"Calibri\",\"sans-serif\";mso-ascii-font-family: Calibri;mso-ascii-theme-font:minor-latin;mso-hansi-font-family: Calibri;mso-hansi-theme-font:minor-latin;mso-bidi-font-family:\"Times New Roman\";mso-bidi-theme-font:minor-bidi;}We offer a very competitive base salary and benefits, directly dependent on candidates’ qualifications and skills. By joining the Software Delivery team, you will be exposed to an international …[truncated]"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t139",
@@ -4270,13 +3133,7 @@
     "requirements": "We are looking for people with excellent customer service skills, as well as having both self-motivation and the hunger to achieve and succeed in this fantastic business. Whilst automotive experience is not essential, it is essential that you have worked within a customer focused environment and that you act in a very professional way whilst using your excellent customer service skills as you engage with your customers in order to enable them to enjoy the process of selling their vehicle …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t140",
@@ -4289,13 +3146,7 @@
     "requirements": "Bottom Line Requirements:1. Formal training and practical experience in an industrial setting as an Automation Technician.2. Associates degree in applied technology in industrial/manufacturing or equivalent experience.3. Technology and automation minded, with a thorough understanding of pneumatics, hydraulics, AC motors, servo motors, basic electricity, gearboxes, and tools. 4. Strong practical experience with troubleshooting and programming Siemens or Allen Bradley PLCs, automation, robotics, servo motors and sensors.",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t141",
@@ -4308,13 +3159,7 @@
     "requirements": "Position Qualifications What we're asking Bachelor’s degree required5+ years of relevant experience as a full-lifecycle recruiter Demonstrable experience recruiting senior-level professionals, including technical and non-technical staff Recruiting experience in one or more of the following industries is preferred: Energy/ Utilities Technical Consulting Services Engineering Oil & GasMaritime Business certification Exceptional written and verbal English communication skills required Experience recruiting for diverse locations and geographies within the U. S. required Experience recruiting in OFCCP- and EEOC-subject environments preferred Experience hiring/ placing …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t142",
@@ -4327,13 +3172,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t143",
@@ -4346,13 +3185,7 @@
     "requirements": "Positive, high-energy individual excited about scouring the market for the best talent Love of networking and interacting with people Strong marketing/sales and follow-up skills Demonstrated ability to build and maintain strong relationships with candidates and hiring managers Ability to manage multiple projects and responsibilities simultaneously with the ability to influence key stakeholders Strong verbal and written communications skills along with the ability to work cross functionally Data driven, strong command of leveraging data and analytics to influence the right outcomes …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t144",
@@ -4365,13 +3198,7 @@
     "requirements": "The Business Analyst provided shall, at a minimum, meet the following requirements or possess an equivalent combination of education and experience: Experience: Experience with State Government, Medicaid, CHIP and DHR business area or healthcare industry Strong analytical and product management skills required, including a thorough understanding of how to interpret customer business needs and translate them into application and operational requirements. Excellent verbal and written communication skills and the ability to interact professionally with a diverse group, executives, managers, and …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t145",
@@ -4384,13 +3211,7 @@
     "requirements": "Basic Computer Skills A Good Phone Voice Knowledge of Email",
     "benefits": "Our Customer Service Representatives enjoy high hourly pay, bonuses, paid Holidays, and many other benefits."
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t146",
@@ -4403,13 +3224,7 @@
     "requirements": "Do you have what it takes•Leadership and accountability skills – You got to walk the walk with us! A business mind & competitive spirit - If you aren’t competitive and thrive on challenges – you won’t last long here The ability to put your team’s interest before your own - leave your ego at the door if you plan on working at ASUREA. We’re ALL about the team Time management and technical skills - you will wear many hats, juggle …[truncated]",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t147",
@@ -4422,13 +3237,7 @@
     "requirements": "quick learnerfluent in English (additional language skills are a plus)hands on attitudebe prepared for creative and challenging tasksgood communication skillsloves to be on the phonesocial media addiction",
     "benefits": "international work environmentofficial and decent salaryprofessional development, career growthcomfortable office in Cherkassy"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t148",
@@ -4441,13 +3250,7 @@
     "requirements": "Positive attitude, high integrity,Basic bookkeeping skills Computer literacy with Quick-Books, Excel and Word Data Entry",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": true
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t149",
@@ -4460,13 +3263,7 @@
     "requirements": "Passion and eagerness to work collaboratively on tasks big and small. You display exceptional organizational and communication skills, enjoy fast-paced, often unpredictable environments, thrive on interpersonal interactions, love working in teams, and are able to multi-task and manage projects effectively. Experience in a high-impact, executive role in a growing business environment. Knowledge and experience working in a highly regulated telecommunications industry. Track record of achieving results in a corporate environment with success in building rigorous systems, policies, and tools to …[truncated]",
     "benefits": "Competitive wages Great benefits packageA flexible work environment The ability to grow within a large company Location, location, location - we’ve got the best view in the city with amazing places to walk and take a breathFREE FOODFriendly team members Out of office team building outings"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   },
   {
    "id": "t150",
@@ -4479,13 +3276,7 @@
     "requirements": "(not given)",
     "benefits": "(not given)"
    },
-   "split": "test",
-   "labels": {
-    "isFraudulent": false
-   },
-   "baseline": {
-    "isFraudulent": false
-   }
+   "split": "test"
   }
  ]
 }

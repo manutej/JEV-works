@@ -3,14 +3,6 @@
  "name": "job-postings-pilot",
  "description": "Label-free question-quality pass on the first 30 fit items.",
  "questions": {
-  "isFraudulent": {
-   "type": "noul",
-   "instructions": "Is this job posting fraudulent: a scam or a fake job ad rather than a genuine vacancy at a real employer?",
-   "criteria": {
-    "true": "The ad exists to deceive applicants: there is no real job as described, or the aim is to take money, personal details or unpaid work from people who respond.",
-    "false": "The ad describes a genuine vacancy that an employer is trying to fill, even if it is badly written, vague or unattractive."
-   }
-  },
   "asksForPaymentOrDetails": {
    "type": "noul",
    "instructions": "Does the posting ask applicants to pay anything (a fee, training, equipment, a starter kit) or to send bank account, payment card or identity-document details?"

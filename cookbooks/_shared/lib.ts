@@ -205,20 +205,22 @@ export type Built = { id: string; state: JsonValue; labels: Record<string, Label
 export function writeSpecs(dir: string, o: {
   name: string; description: string; questions: Record<string, Question>; items: Built[];
   baselineName: string; pilot?: number; minCoverage?: number;
+  /** The decision label is not a Jev question (it was moved to code after the pilot): keep labels + baseline in items.meta.json only. */
+  labelsInMetaOnly?: boolean;
 }): void {
   const hits = privacyScan(o.items as Item[]);
   if (hits.length) throw new Error(`privacy scan still hits after masking: ${hits.slice(0, 5).map(h => `${h.itemId}:${h.kind}`).join(', ')}`);
   const strip = (it: Built, keep: ('labels' | 'baseline' | 'split')[]): Item => {
     const x: Item = { id: it.id, state: it.state };
     if (keep.includes('split')) x.split = it.split;
-    if (keep.includes('labels')) x.labels = it.labels;
-    if (keep.includes('baseline') && it.baseline) x.baseline = it.baseline;
+    if (keep.includes('labels') && !o.labelsInMetaOnly) x.labels = it.labels;
+    if (keep.includes('baseline') && it.baseline && !o.labelsInMetaOnly) x.baseline = it.baseline;
     return x;
   };
   const base = { $schema: '../../kit/spec.schema.json', questions: o.questions, gate: { minCoverage: o.minCoverage ?? 0.95 } };
   const fit = o.items.filter(i => i.split === 'fit'), test = o.items.filter(i => i.split === 'test');
   const w = (f: string, v: unknown) => writeFileSync(join(dir, f), JSON.stringify(v, null, 1) + '\n');
-  w('spec.json', { $schema: base.$schema, name: o.name, description: o.description, baselineName: o.baselineName, gate: base.gate, questions: o.questions,
+  w('spec.json', { $schema: base.$schema, name: o.name, description: o.description, ...(o.labelsInMetaOnly ? {} : { baselineName: o.baselineName }), gate: base.gate, questions: o.questions,
     items: [...fit.map(i => strip(i, ['split', 'labels'])), ...test.map(i => strip(i, ['split', 'labels', 'baseline']))] });
   w('spec.fit.json', { $schema: base.$schema, name: `${o.name}-fit`, description: `FIT split only (${fit.length} items): Jev's answers here are what every threshold is fitted on. ${o.description}`, gate: base.gate, questions: o.questions,
     items: fit.map(i => strip(i, ['labels'])) });

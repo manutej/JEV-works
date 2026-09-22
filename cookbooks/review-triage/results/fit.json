@@ -1,0 +1,4709 @@
+{
+  "kit": 1,
+  "spec": "review-triage-fit",
+  "specPath": "cookbooks/review-triage/spec.fit.json",
+  "model": "jev-1.13.0 (direct)",
+  "answeredBy": [
+    "jev-1.13.0"
+  ],
+  "startedAt": "2026-09-22T07:55:04.671Z",
+  "wallMs": 4047,
+  "calls": 100,
+  "coverage": 1,
+  "privacyScan": "passed",
+  "disjointness": null,
+  "gate": {
+    "minCoverage": 0.95,
+    "verdict": "PASS"
+  },
+  "quality": [
+    {
+      "question": "returned",
+      "kind": "boolean",
+      "meanConf": 0.9391999999999993,
+      "atEnds": 0.96,
+      "spread": 0.34658309249009805,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "flawDescribed",
+      "kind": "boolean",
+      "meanConf": 0.8393999999999998,
+      "atEnds": 0.88,
+      "spread": 0.258944221793034,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "differsFromListing",
+      "kind": "boolean",
+      "meanConf": 0.8083999999999999,
+      "atEnds": 0.79,
+      "spread": 0.2933895703667736,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "fitProblem",
+      "kind": "boolean",
+      "meanConf": 0.7413999999999997,
+      "atEnds": 0.69,
+      "spread": 0.3916525373337955,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "likesItem",
+      "kind": "boolean",
+      "meanConf": 0.6994000000000001,
+      "atEnds": 0.64,
+      "spread": 0.37485595900292146,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "wouldNotRecommend",
+      "kind": "boolean",
+      "meanConf": 0.6788000000000003,
+      "atEnds": 0.59,
+      "spread": 0.3617402382926181,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "mainIssue",
+      "kind": "choice",
+      "meanConf": 0.8339782445735271,
+      "atEnds": 0.56,
+      "spread": 1,
+      "keysUsed": 5,
+      "optionCount": 5,
+      "entropyMax": 0.6501364083245385,
+      "entropyMean": 0.166,
+      "verdict": "JEV-SAFE"
+    }
+  ],
+  "scorecards": [
+    {
+      "question": "wouldNotRecommend",
+      "n": 100,
+      "coverage": 1,
+      "accuracy": 0.88,
+      "majority": {
+        "label": true,
+        "fittedOn": "scored items (in-sample)",
+        "accuracy": 0.5,
+        "vsJev": {
+          "n": 100,
+          "accuracyA": 0.88,
+          "accuracyB": 0.5,
+          "b": 42,
+          "c": 4,
+          "p": 5.1e-9,
+          "different": true,
+          "deltaCI95": [
+            0.27,
+            0.49
+          ]
+        }
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "f001",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.9
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.83
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.18
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "none": 0,
+            "quality": 0,
+            "other": 0,
+            "fit": 0.69,
+            "appearance": 0.31
+          },
+          "entropy": 0.3846688708166844
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 405,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f002",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.75
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.5
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "quality": 0,
+            "fit": 0.95,
+            "other": 0,
+            "appearance": 0.05,
+            "none": 0
+          },
+          "entropy": 0.12334445573339317
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 343,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f003",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.13
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.87
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.52
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.89
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "none": 0.01,
+            "fit": 0.99,
+            "other": 0,
+            "appearance": 0,
+            "quality": 0
+          },
+          "entropy": 0.03479570968360693
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 263,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f004",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.37
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.63
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "none": 0,
+            "fit": 1,
+            "appearance": 0,
+            "quality": 0,
+            "other": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 232,
+      "correct": {
+        "wouldNotRecommend": false
+      }
+    },
+    {
+      "id": "f005",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "quality": 0,
+            "fit": 0,
+            "other": 0,
+            "appearance": 0,
+            "none": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 228,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f006",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.59
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.33
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.9
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "other": 0.01,
+            "fit": 0.83,
+            "appearance": 0,
+            "quality": 0.16,
+            "none": 0
+          },
+          "entropy": 0.3068886858838514
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 107,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f007",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.17
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.56
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "none": 0,
+            "other": 0,
+            "fit": 1,
+            "appearance": 0,
+            "quality": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 175,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f008",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.76
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.34
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "quality",
+          "probabilities": {
+            "quality": 0.81,
+            "fit": 0,
+            "none": 0,
+            "other": 0.19,
+            "appearance": 0
+          },
+          "entropy": 0.3021073139295151
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 161,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f009",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.5
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.68
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.25
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "appearance",
+          "probabilities": {
+            "none": 0,
+            "quality": 0,
+            "appearance": 1,
+            "fit": 0,
+            "other": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 118,
+      "correct": {
+        "wouldNotRecommend": false
+      }
+    },
+    {
+      "id": "f010",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.19
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.48
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "none": 0,
+            "appearance": 0,
+            "quality": 0,
+            "other": 0,
+            "fit": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 119,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f011",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.86
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "quality",
+          "probabilities": {
+            "other": 0,
+            "none": 0,
+            "appearance": 0,
+            "quality": 1,
+            "fit": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 144,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f012",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.34
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.73
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.87
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "appearance": 0,
+            "quality": 0,
+            "other": 0,
+            "fit": 1,
+            "none": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 179,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f013",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.86
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.39
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "none": 0,
+            "appearance": 0.15,
+            "fit": 0.85,
+            "other": 0,
+            "quality": 0
+          },
+          "entropy": 0.26264392340968856
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 85,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f014",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.4
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.85
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "none": 0.9,
+            "fit": 0.07,
+            "other": 0.01,
+            "appearance": 0.02,
+            "quality": 0
+          },
+          "entropy": 0.25180519578593924
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 131,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f015",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.9
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.69
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "quality",
+          "probabilities": {
+            "fit": 0,
+            "quality": 0.99,
+            "none": 0,
+            "appearance": 0,
+            "other": 0.01
+          },
+          "entropy": 0.03479570968360693
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 188,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f016",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.73
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.2
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.33
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "none": 0,
+            "fit": 1,
+            "other": 0,
+            "appearance": 0,
+            "quality": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 111,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f017",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.15
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.11
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "fit": 0.04,
+            "quality": 0,
+            "none": 0.96,
+            "appearance": 0,
+            "other": 0
+          },
+          "entropy": 0.10434956604208216
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 175,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f018",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.18
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.9
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.86
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "other": 0,
+            "quality": 0,
+            "none": 0.2,
+            "appearance": 0,
+            "fit": 0.8
+          },
+          "entropy": 0.31091750708257115
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 129,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f019",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.5
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.43
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "quality": 0,
+            "fit": 1,
+            "other": 0,
+            "appearance": 0,
+            "none": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 143,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f020",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.24
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.15
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.31
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "fit": 0.92,
+            "other": 0,
+            "none": 0.07,
+            "appearance": 0,
+            "quality": 0.01
+          },
+          "entropy": 0.19193718644412192
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 109,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f021",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.7
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.38
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.2
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "none": 0,
+            "appearance": 0,
+            "fit": 1,
+            "other": 0,
+            "quality": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 102,
+      "correct": {
+        "wouldNotRecommend": false
+      }
+    },
+    {
+      "id": "f022",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.73
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "appearance": 0,
+            "fit": 0.98,
+            "other": 0.02,
+            "quality": 0,
+            "none": 0
+          },
+          "entropy": 0.06091512603394465
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 126,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f023",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "quality": 0,
+            "none": 1,
+            "fit": 0,
+            "appearance": 0,
+            "other": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 154,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f024",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.82
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.29
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "other": 0,
+            "none": 0,
+            "appearance": 0.01,
+            "quality": 0,
+            "fit": 0.99
+          },
+          "entropy": 0.03479570968360693
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 149,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f025",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.61
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.21
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.86
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "appearance",
+          "probabilities": {
+            "other": 0,
+            "appearance": 0.89,
+            "none": 0,
+            "fit": 0.11,
+            "quality": 0
+          },
+          "entropy": 0.21530208418826127
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 124,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f026",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.23
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.8
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.65
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "other": 0,
+            "fit": 1,
+            "none": 0,
+            "appearance": 0,
+            "quality": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 134,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f027",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.77
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.22
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.44
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "other",
+          "probabilities": {
+            "other": 0.88,
+            "fit": 0.12,
+            "quality": 0,
+            "appearance": 0,
+            "none": 0
+          },
+          "entropy": 0.22798331544071518
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 143,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f028",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.7
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.16
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "none": 0.72,
+            "fit": 0.28,
+            "other": 0,
+            "appearance": 0,
+            "quality": 0
+          },
+          "entropy": 0.3684226106931313
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 101,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f029",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.33
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "other",
+          "probabilities": {
+            "none": 0.08,
+            "other": 0.9,
+            "fit": 0,
+            "quality": 0.02,
+            "appearance": 0
+          },
+          "entropy": 0.23307715870687667
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 157,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f030",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.75
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "fit": 0,
+            "appearance": 0,
+            "quality": 0,
+            "none": 1,
+            "other": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 126,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f031",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "fit": 0,
+            "other": 0,
+            "none": 1,
+            "appearance": 0,
+            "quality": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 122,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f032",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.85
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "appearance": 0,
+            "quality": 0,
+            "fit": 0.39,
+            "none": 0.61,
+            "other": 0
+          },
+          "entropy": 0.41551654878093464
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 108,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f033",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.27
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.88
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "fit": 0.63,
+            "appearance": 0,
+            "quality": 0,
+            "none": 0.37,
+            "other": 0
+          },
+          "entropy": 0.4094321847348953
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 168,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f034",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.13
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.12
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.13
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "appearance",
+          "probabilities": {
+            "fit": 0,
+            "none": 0,
+            "other": 0.07,
+            "appearance": 0.92,
+            "quality": 0.01
+          },
+          "entropy": 0.19193718644412192
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 164,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f035",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.66
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.41
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "fit": 1,
+            "quality": 0,
+            "appearance": 0,
+            "none": 0,
+            "other": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 180,
+      "correct": {
+        "wouldNotRecommend": false
+      }
+    },
+    {
+      "id": "f036",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.8
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.51
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.56
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "appearance",
+          "probabilities": {
+            "fit": 0.07,
+            "other": 0,
+            "none": 0,
+            "appearance": 0.93,
+            "quality": 0
+          },
+          "entropy": 0.15759473848735797
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 186,
+      "correct": {
+        "wouldNotRecommend": false
+      }
+    },
+    {
+      "id": "f037",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.62
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.9
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "quality": 0.01,
+            "fit": 0.56,
+            "other": 0.42,
+            "appearance": 0.01,
+            "none": 0
+          },
+          "entropy": 0.4853570264888228
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 142,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f038",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.4
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.83
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "appearance": 0.15,
+            "none": 0,
+            "fit": 0.85,
+            "quality": 0,
+            "other": 0
+          },
+          "entropy": 0.26264392340968856
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 170,
+      "correct": {
+        "wouldNotRecommend": false
+      }
+    },
+    {
+      "id": "f039",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.48
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.77
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "none": 0,
+            "other": 0.37,
+            "fit": 0.53,
+            "appearance": 0,
+            "quality": 0.1
+          },
+          "entropy": 0.5807104005734472
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 207,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f040",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "fit": 1,
+            "other": 0,
+            "appearance": 0,
+            "quality": 0,
+            "none": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 102,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f041",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.19
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "fit": 0.71,
+            "other": 0,
+            "appearance": 0,
+            "none": 0.29,
+            "quality": 0
+          },
+          "entropy": 0.374137876298683
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 157,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f042",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "none": 1,
+            "appearance": 0,
+            "quality": 0,
+            "other": 0,
+            "fit": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 138,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f043",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.76
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.18
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "none": 0,
+            "fit": 1,
+            "appearance": 0,
+            "other": 0,
+            "quality": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 275,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f044",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.2
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.76
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.9
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "appearance": 0,
+            "quality": 0,
+            "fit": 1,
+            "none": 0,
+            "other": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 130,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f045",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.53
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "other": 0,
+            "fit": 0,
+            "quality": 0,
+            "none": 1,
+            "appearance": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 194,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f046",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.88
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.52
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.36
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "none": 0,
+            "other": 0,
+            "fit": 1,
+            "quality": 0,
+            "appearance": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 171,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f047",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "none": 1,
+            "appearance": 0,
+            "fit": 0,
+            "quality": 0,
+            "other": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 115,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f048",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.9
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.52
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "appearance",
+          "probabilities": {
+            "other": 0,
+            "fit": 0.06,
+            "quality": 0,
+            "appearance": 0.9400000000000001,
+            "none": 0
+          },
+          "entropy": 0.14102285074007023
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 155,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f049",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.9
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.28
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.35
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "other",
+          "probabilities": {
+            "appearance": 0,
+            "quality": 0.01,
+            "none": 0,
+            "fit": 0,
+            "other": 0.99
+          },
+          "entropy": 0.03479570968360693
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 142,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f050",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.77
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "other": 0,
+            "quality": 0,
+            "appearance": 0,
+            "fit": 0.3,
+            "none": 0.7
+          },
+          "entropy": 0.37955133114208023
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 103,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f051",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.86
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.89
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "appearance",
+          "probabilities": {
+            "none": 0,
+            "fit": 0.08,
+            "other": 0.03,
+            "appearance": 0.84,
+            "quality": 0.05
+          },
+          "entropy": 0.37497469314044357
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 137,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f052",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.2
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.88
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "other": 0,
+            "fit": 1,
+            "appearance": 0,
+            "quality": 0,
+            "none": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 123,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f053",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.81
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "fit": 0.25,
+            "quality": 0,
+            "none": 0.75,
+            "appearance": 0,
+            "other": 0
+          },
+          "entropy": 0.3493984702822971
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 142,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f054",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.36
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "appearance",
+          "probabilities": {
+            "other": 0,
+            "fit": 0.01,
+            "appearance": 0.99,
+            "quality": 0,
+            "none": 0
+          },
+          "entropy": 0.03479570968360693
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 279,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f055",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.36
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.18
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.28
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "appearance": 0.03,
+            "fit": 0.63,
+            "none": 0.34,
+            "quality": 0,
+            "other": 0
+          },
+          "entropy": 0.474124758362266
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 96,
+      "correct": {
+        "wouldNotRecommend": false
+      }
+    },
+    {
+      "id": "f056",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "none": 1,
+            "other": 0,
+            "fit": 0,
+            "quality": 0,
+            "appearance": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 183,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f057",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.73
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.8
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.92
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.92
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "appearance": 0,
+            "none": 0,
+            "other": 0.03,
+            "quality": 0.01,
+            "fit": 0.96
+          },
+          "entropy": 0.11832550485337405
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 155,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f058",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.4
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "appearance": 0,
+            "quality": 0,
+            "other": 0,
+            "none": 1,
+            "fit": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 141,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f059",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.84
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.7
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "quality",
+          "probabilities": {
+            "appearance": 0,
+            "fit": 0,
+            "none": 0,
+            "quality": 1,
+            "other": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 114,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f060",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.77
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.62
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "quality",
+          "probabilities": {
+            "none": 0,
+            "appearance": 0,
+            "quality": 1,
+            "other": 0,
+            "fit": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 272,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f061",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.95
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.39
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.26
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "other": 0.17,
+            "fit": 0.83,
+            "quality": 0,
+            "appearance": 0,
+            "none": 0
+          },
+          "entropy": 0.28325803033798297
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 136,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f062",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.81
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.33
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "quality",
+          "probabilities": {
+            "other": 0,
+            "none": 0,
+            "fit": 0,
+            "quality": 1,
+            "appearance": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 158,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f063",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.81
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.57
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.22
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "quality",
+          "probabilities": {
+            "other": 0.04,
+            "quality": 0.83,
+            "appearance": 0.13,
+            "fit": 0,
+            "none": 0
+          },
+          "entropy": 0.34088751505323084
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 150,
+      "correct": {
+        "wouldNotRecommend": false
+      }
+    },
+    {
+      "id": "f064",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.89
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "appearance",
+          "probabilities": {
+            "other": 0,
+            "quality": 0,
+            "fit": 0.38,
+            "none": 0,
+            "appearance": 0.62
+          },
+          "entropy": 0.4126062406220959
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 182,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f065",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.9
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.57
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "quality",
+          "probabilities": {
+            "quality": 0.96,
+            "fit": 0,
+            "other": 0.04,
+            "appearance": 0,
+            "none": 0
+          },
+          "entropy": 0.10434956604208216
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 141,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f066",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "appearance": 0,
+            "none": 0.74,
+            "fit": 0,
+            "quality": 0,
+            "other": 0.26
+          },
+          "entropy": 0.35606028210478397
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 121,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f067",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "other": 0,
+            "quality": 0,
+            "appearance": 0,
+            "fit": 0,
+            "none": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 226,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f068",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.7
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "other": 0.02,
+            "fit": 0,
+            "quality": 0.01,
+            "appearance": 0,
+            "none": 0.97
+          },
+          "entropy": 0.0955846709215073
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 170,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f069",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.59
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.87
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.11
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.63
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "other": 0,
+            "fit": 1,
+            "appearance": 0,
+            "quality": 0,
+            "none": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 128,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f070",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.88
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.92
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.27
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.21
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "none": 0,
+            "other": 0,
+            "fit": 0.99,
+            "quality": 0,
+            "appearance": 0.01
+          },
+          "entropy": 0.03479570968360693
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 175,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f071",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.57
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "appearance": 0,
+            "none": 1,
+            "fit": 0,
+            "quality": 0,
+            "other": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 140,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f072",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.38
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "none": 0.83,
+            "other": 0,
+            "fit": 0.17,
+            "appearance": 0,
+            "quality": 0
+          },
+          "entropy": 0.28325803033798297
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 174,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f073",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.39
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "fit": 1,
+            "other": 0,
+            "appearance": 0,
+            "none": 0,
+            "quality": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 126,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f074",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.53
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.11
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "other",
+          "probabilities": {
+            "other": 0.83,
+            "appearance": 0.01,
+            "quality": 0,
+            "fit": 0.16,
+            "none": 0
+          },
+          "entropy": 0.3068886858838514
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 150,
+      "correct": {
+        "wouldNotRecommend": false
+      }
+    },
+    {
+      "id": "f075",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.26
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.17
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.11
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.7
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "appearance": 0.01,
+            "none": 0,
+            "quality": 0,
+            "other": 0.09,
+            "fit": 0.9
+          },
+          "entropy": 0.22218394879848144
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 174,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f076",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.78
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "quality": 0,
+            "fit": 0,
+            "none": 1,
+            "other": 0,
+            "appearance": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 136,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f077",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.76
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.77
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.19
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "none": 0,
+            "other": 0.02,
+            "appearance": 0.43,
+            "fit": 0.55,
+            "quality": 0
+          },
+          "entropy": 0.4784017667300528
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 179,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f078",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.87
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.11
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.63
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "none": 0,
+            "other": 0,
+            "fit": 1,
+            "appearance": 0,
+            "quality": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 148,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f079",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.11
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.72
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "other": 0,
+            "fit": 0.39,
+            "appearance": 0.01,
+            "quality": 0,
+            "none": 0.6
+          },
+          "entropy": 0.4472209838624269
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 208,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f080",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.2
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.89
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.08
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.83
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "fit": 1,
+            "none": 0,
+            "other": 0,
+            "appearance": 0,
+            "quality": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 161,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f081",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.12
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.15
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.65
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "appearance": 0,
+            "none": 0.66,
+            "other": 0,
+            "quality": 0,
+            "fit": 0.34
+          },
+          "entropy": 0.3982977366996773
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 94,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f082",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.79
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.76
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.32
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.84
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "quality",
+          "probabilities": {
+            "quality": 0.54,
+            "none": 0,
+            "fit": 0.38,
+            "appearance": 0.05,
+            "other": 0.03
+          },
+          "entropy": 0.5936269976520315
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 190,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f083",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.92
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.14
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "appearance": 0,
+            "quality": 0,
+            "fit": 1,
+            "none": 0,
+            "other": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 126,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f084",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.85
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "none": 0,
+            "other": 0,
+            "fit": 0.91,
+            "appearance": 0.09,
+            "quality": 0
+          },
+          "entropy": 0.18797731851609137
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 179,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f085",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.82
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.25
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "none": 0,
+            "quality": 0,
+            "appearance": 0,
+            "other": 0,
+            "fit": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 167,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f086",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.64
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "other": 0,
+            "fit": 0.56,
+            "none": 0.44,
+            "appearance": 0,
+            "quality": 0
+          },
+          "entropy": 0.4261921475522957
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 136,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f087",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.61
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "none": 1,
+            "fit": 0,
+            "appearance": 0,
+            "quality": 0,
+            "other": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 172,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f088",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.18
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.12
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.22
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "other",
+          "probabilities": {
+            "none": 0,
+            "other": 0.49,
+            "appearance": 0.25,
+            "fit": 0,
+            "quality": 0.26
+          },
+          "entropy": 0.6501364083245385
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 143,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f089",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.8
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "appearance",
+          "probabilities": {
+            "appearance": 0.53,
+            "none": 0,
+            "fit": 0.47,
+            "quality": 0,
+            "other": 0
+          },
+          "entropy": 0.4295574831812886
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 149,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f090",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.26
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "fit": 0.21,
+            "other": 0,
+            "appearance": 0.07,
+            "none": 0.72,
+            "quality": 0
+          },
+          "entropy": 0.4662541823721745
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 127,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f091",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.88
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.29
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.9
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.44
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "quality": 0,
+            "fit": 1,
+            "other": 0,
+            "appearance": 0,
+            "none": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 122,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f092",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.86
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "appearance": 0,
+            "fit": 0,
+            "none": 0.99,
+            "quality": 0,
+            "other": 0.01
+          },
+          "entropy": 0.03479570968360693
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 138,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f093",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.89
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.71
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.1
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.29
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "other": 0.01,
+            "none": 0,
+            "fit": 0.95,
+            "quality": 0,
+            "appearance": 0.04
+          },
+          "entropy": 0.13889033108752172
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 227,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f094",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.33
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.85
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "none": 0,
+            "fit": 1,
+            "other": 0,
+            "appearance": 0,
+            "quality": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 208,
+      "correct": {
+        "wouldNotRecommend": false
+      }
+    },
+    {
+      "id": "f095",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.7
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.83
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.38
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "appearance",
+          "probabilities": {
+            "none": 0,
+            "fit": 0.37,
+            "other": 0,
+            "appearance": 0.63,
+            "quality": 0
+          },
+          "entropy": 0.4094321847348953
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 206,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f096",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.81
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.56
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "fit": 0.75,
+            "none": 0,
+            "quality": 0.01,
+            "appearance": 0,
+            "other": 0.24
+          },
+          "entropy": 0.3754858617928177
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 155,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f097",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.88
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.24
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.09
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.2
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.5
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "none": 0,
+            "quality": 0,
+            "appearance": 0,
+            "fit": 1,
+            "other": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 189,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f098",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.65
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.27
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.74
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "quality",
+          "probabilities": {
+            "none": 0.02,
+            "appearance": 0,
+            "other": 0.06,
+            "fit": 0,
+            "quality": 0.92
+          },
+          "entropy": 0.2011610269876431
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 178,
+      "correct": {
+        "wouldNotRecommend": false
+      }
+    },
+    {
+      "id": "f099",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.91
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "none": 0.25,
+            "other": 0,
+            "fit": 0.75,
+            "quality": 0,
+            "appearance": 0
+          },
+          "entropy": 0.3493984702822971
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 112,
+      "correct": {
+        "wouldNotRecommend": true
+      }
+    },
+    {
+      "id": "f100",
+      "answers": {
+        "wouldNotRecommend": {
+          "type": "noul",
+          "p": 0.59
+        },
+        "returned": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "fitProblem": {
+          "type": "noul",
+          "p": 0.69
+        },
+        "flawDescribed": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "differsFromListing": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "likesItem": {
+          "type": "noul",
+          "p": 0.19
+        },
+        "mainIssue": {
+          "type": "choice",
+          "choice": "fit",
+          "probabilities": {
+            "other": 0,
+            "none": 0,
+            "appearance": 0.24,
+            "quality": 0,
+            "fit": 0.76
+          },
+          "entropy": 0.34240521105503485
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 116,
+      "correct": {
+        "wouldNotRecommend": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "kind": "binary",
+  "target": "isFraudulent",
+  "fittedOn": {
+    "result": "cookbooks/job-postings/results/fit.json",
+    "n": 100,
+    "unanswered": 0
+  },
+  "features": [
+    "asksForPaymentOrDetails",
+    "promisesEasyEarnings",
+    "describesCompany",
+    "directContactToApply",
+    "listsSpecificDuties"
+  ],
+  "weights": {
+    "asksForPaymentOrDetails": 0.898,
+    "promisesEasyEarnings": 1.127,
+    "describesCompany": -1.454,
+    "directContactToApply": 0.202,
+    "listsSpecificDuties": -0.393
+  },
+  "bias": 0.083,
+  "lambda": 1,
+  "threshold": {
+    "t": 0.553,
+    "how": "lowest cut with fit precision ≥ 0.8 (≥ 5 flagged)",
+    "why": "A false fraud flag takes down a real employer's ad and costs a paying customer a hire; a missed scam still meets the next line of defence (applicant reports, payment checks). So a flag must be right at least 4 times in 5 on the fit split before it acts. With 30 fit positives this is a coarse estimate, and the fit split is 30% fraud, not the ~5% seen live: live precision at the same cut will be lower."
+  },
+  "band": {
+    "lo": 0.163,
+    "hi": 0.669,
+    "maxAutoError": 0.05,
+    "why": "Auto-remove or auto-keep only where the fit split made at most 1 error in 20; everything between goes to a human trust & safety reviewer, who also sees the code features (logo, salary, screening questions).",
+    "fitCoverage": 0.2,
+    "fitAutoError": 0.05
+  },
+  "fitAccuracy": 0.76,
+  "_exact": {
+    "w": [
+      0.8976984488647263,
+      1.1274126637786426,
+      -1.453822941618605,
+      0.20171520371019708,
+      -0.3928641521351775
+    ],
+    "b": 0.08331739017099708,
+    "t": 0.5525745785314945,
+    "lo": 0.16344006005710762,
+    "hi": 0.6689866827930977
+  },
+  "frozenAt": "2026-09-22T07:55:27.638Z"
+}

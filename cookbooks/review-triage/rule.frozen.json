@@ -1,0 +1,56 @@
+{
+  "kind": "binary",
+  "target": "wouldNotRecommend",
+  "fittedOn": {
+    "result": "cookbooks/review-triage/results/fit.json",
+    "n": 100,
+    "unanswered": 0
+  },
+  "features": [
+    "returned",
+    "fitProblem",
+    "flawDescribed",
+    "differsFromListing",
+    "likesItem",
+    "mainIssue=none"
+  ],
+  "weights": {
+    "returned": 0.117,
+    "fitProblem": 0.729,
+    "flawDescribed": 0.667,
+    "differsFromListing": -0.265,
+    "likesItem": -2.541,
+    "mainIssue=none": -1.989
+  },
+  "bias": 1.351,
+  "lambda": 1,
+  "threshold": {
+    "t": 0.42,
+    "how": "minimises 1·FP + 3·FN on the fit split (fit cost 16)",
+    "why": "A missed unhappy customer (false negative) is a lost repeat buyer and an unanswered public complaint; a false flag costs a CX agent about a minute to read a satisfied review and close it. 3:1 favours recall without flooding the queue. Chosen, not measured; note the fit split is 50/50 while live traffic is ~18% not-recommended, so live precision will be lower than on fit."
+  },
+  "band": {
+    "lo": 0.42,
+    "hi": 0.502,
+    "maxAutoError": 0.1,
+    "why": "Auto-flag or auto-skip only where the fit split made at most 1 error in 10: a wrong call here costs a minute or a delayed reply, not a safety or money decision, so a looser band than moderation (0.05) is acceptable; everything between goes to a human skim.",
+    "fitCoverage": 0.91,
+    "fitAutoError": 0.099
+  },
+  "fitAccuracy": 0.86,
+  "_exact": {
+    "w": [
+      0.11677556479714334,
+      0.7294129915046047,
+      0.667432556114349,
+      -0.2653033605504632,
+      -2.541254196639899,
+      -1.9890187847243064
+    ],
+    "b": 1.351222138455834,
+    "t": 0.4204320734956951,
+    "lo": 0.4204320734956951,
+    "hi": 0.5021840594312891
+  },
+  "frozenAt": "2026-09-22T07:55:27.413Z"
+}

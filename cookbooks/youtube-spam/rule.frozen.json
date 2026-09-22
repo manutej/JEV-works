@@ -1,0 +1,56 @@
+{
+  "kind": "binary",
+  "target": "isSpam",
+  "fittedOn": {
+    "result": "cookbooks/youtube-spam/results/fit.json",
+    "n": 100,
+    "unanswered": 0
+  },
+  "features": [
+    "asksToVisit",
+    "mentionsVideo",
+    "offersMoney",
+    "kind=promotion",
+    "kind=request",
+    "kind=reaction"
+  ],
+  "weights": {
+    "asksToVisit": 1.942,
+    "mentionsVideo": -1.64,
+    "offersMoney": 0.377,
+    "kind=promotion": 1.515,
+    "kind=request": 0.306,
+    "kind=reaction": -1.743
+  },
+  "bias": 0.519,
+  "lambda": 1,
+  "threshold": {
+    "t": 0.5,
+    "how": "minimises 3·FP + 1·FN on the fit split (fit cost 5)",
+    "why": "Hiding a genuine comment (false positive) silences a real person and costs a moderator appeal; a missed spam comment is one more link in a thread. 3:1 is a moderation-team convention, not a measured cost."
+  },
+  "band": {
+    "lo": 0.5,
+    "hi": 0.5,
+    "maxAutoError": 0.05,
+    "why": "Auto-hide or auto-keep only where the fit split made at most 1 error in 20; everything between goes to the moderation queue.",
+    "fitCoverage": 1,
+    "fitAutoError": 0.03
+  },
+  "fitAccuracy": 0.97,
+  "_exact": {
+    "w": [
+      1.9423668984873421,
+      -1.6397428690360494,
+      0.37746028696806044,
+      1.5151733859523153,
+      0.30576547729093445,
+      -1.7431469777428252
+    ],
+    "b": 0.5185032351277222,
+    "t": 0.5,
+    "lo": 0.5,
+    "hi": 0.5
+  },
+  "frozenAt": "2026-09-22T07:55:27.187Z"
+}

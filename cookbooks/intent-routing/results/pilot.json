@@ -1,0 +1,1200 @@
+{
+  "kit": 1,
+  "spec": "intent-routing-pilot",
+  "specPath": "cookbooks/intent-routing/spec.pilot.json",
+  "model": "jev-1.13.0 (direct)",
+  "answeredBy": [
+    "jev-1.13.0"
+  ],
+  "startedAt": "2026-09-22T07:53:48.693Z",
+  "wallMs": 1467,
+  "calls": 30,
+  "coverage": 1,
+  "privacyScan": "passed",
+  "disjointness": null,
+  "gate": {
+    "minCoverage": null,
+    "verdict": "none"
+  },
+  "quality": [
+    {
+      "question": "mentionsMoney",
+      "kind": "boolean",
+      "meanConf": 0.9393333333333336,
+      "atEnds": 0.9666666666666667,
+      "spread": 0.32805978452444035,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "domain",
+      "kind": "choice",
+      "meanConf": 0.9473537793995274,
+      "atEnds": 0.9333333333333333,
+      "spread": 0.9090909090909091,
+      "keysUsed": 10,
+      "optionCount": 11,
+      "entropyMax": 0.46283501772811864,
+      "entropyMean": 0.0526,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "asksAction",
+      "kind": "boolean",
+      "meanConf": 0.8813333333333335,
+      "atEnds": 0.9,
+      "spread": 0.42981391322292023,
+      "verdict": "JEV-SAFE"
+    },
+    {
+      "question": "aboutAssistant",
+      "kind": "boolean",
+      "meanConf": 0.8800000000000003,
+      "atEnds": 0.8666666666666667,
+      "spread": 0.29330984754465134,
+      "verdict": "JEV-SAFE"
+    }
+  ],
+  "scorecards": [],
+  "items": [
+    {
+      "id": "f001",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "travel": 0,
+            "work": 0,
+            "none": 1,
+            "kitchen_and_dining": 0,
+            "utility": 0,
+            "banking": 0,
+            "meta": 0,
+            "home": 0,
+            "small_talk": 0,
+            "auto_and_commute": 0,
+            "credit_cards": 0
+          },
+          "entropy": 0
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.01
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 290,
+      "correct": {}
+    },
+    {
+      "id": "f002",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "kitchen_and_dining": 0,
+            "auto_and_commute": 0,
+            "credit_cards": 0,
+            "travel": 0,
+            "none": 0.99,
+            "banking": 0,
+            "work": 0,
+            "utility": 0,
+            "small_talk": 0.01,
+            "meta": 0,
+            "home": 0
+          },
+          "entropy": 0.023354453795429074
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.01
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 260,
+      "correct": {}
+    },
+    {
+      "id": "f003",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "meta",
+          "probabilities": {
+            "credit_cards": 0,
+            "none": 0.04,
+            "banking": 0,
+            "small_talk": 0,
+            "kitchen_and_dining": 0,
+            "work": 0,
+            "auto_and_commute": 0,
+            "utility": 0,
+            "home": 0,
+            "travel": 0,
+            "meta": 0.96
+          },
+          "entropy": 0.07003814955528907
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.95
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 252,
+      "correct": {}
+    },
+    {
+      "id": "f004",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "kitchen_and_dining",
+          "probabilities": {
+            "small_talk": 0,
+            "kitchen_and_dining": 1,
+            "meta": 0,
+            "utility": 0,
+            "none": 0,
+            "auto_and_commute": 0,
+            "travel": 0,
+            "banking": 0,
+            "home": 0,
+            "credit_cards": 0,
+            "work": 0
+          },
+          "entropy": 0
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.02
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 249,
+      "correct": {}
+    },
+    {
+      "id": "f005",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "meta",
+          "probabilities": {
+            "home": 0,
+            "banking": 0,
+            "credit_cards": 0,
+            "work": 0,
+            "kitchen_and_dining": 0,
+            "none": 0.03,
+            "meta": 0.9400000000000001,
+            "travel": 0,
+            "small_talk": 0.03,
+            "utility": 0,
+            "auto_and_commute": 0
+          },
+          "entropy": 0.11199669826313674
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.93
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.76
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 212,
+      "correct": {}
+    },
+    {
+      "id": "f006",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "credit_cards": 0,
+            "meta": 0,
+            "travel": 0,
+            "small_talk": 0,
+            "none": 0.99,
+            "banking": 0,
+            "kitchen_and_dining": 0,
+            "auto_and_commute": 0,
+            "work": 0,
+            "home": 0,
+            "utility": 0.01
+          },
+          "entropy": 0.023354453795429074
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.01
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 119,
+      "correct": {}
+    },
+    {
+      "id": "f007",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "home",
+          "probabilities": {
+            "banking": 0,
+            "travel": 0,
+            "small_talk": 0,
+            "none": 0,
+            "work": 0,
+            "kitchen_and_dining": 0,
+            "meta": 0,
+            "utility": 0,
+            "credit_cards": 0,
+            "home": 1,
+            "auto_and_commute": 0
+          },
+          "entropy": 0
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.02
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 99,
+      "correct": {}
+    },
+    {
+      "id": "f008",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "home": 0,
+            "work": 0,
+            "travel": 0,
+            "meta": 0,
+            "auto_and_commute": 0,
+            "banking": 0,
+            "credit_cards": 0,
+            "small_talk": 0,
+            "kitchen_and_dining": 0,
+            "none": 1,
+            "utility": 0
+          },
+          "entropy": 0
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.01
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 335,
+      "correct": {}
+    },
+    {
+      "id": "f009",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "home",
+          "probabilities": {
+            "utility": 0,
+            "work": 0,
+            "credit_cards": 0,
+            "auto_and_commute": 0,
+            "banking": 0,
+            "none": 0.04,
+            "home": 0.96,
+            "small_talk": 0,
+            "kitchen_and_dining": 0,
+            "meta": 0,
+            "travel": 0
+          },
+          "entropy": 0.07003814955528907
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.02
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 173,
+      "correct": {}
+    },
+    {
+      "id": "f010",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "utility",
+          "probabilities": {
+            "kitchen_and_dining": 0,
+            "small_talk": 0,
+            "travel": 0,
+            "banking": 0,
+            "auto_and_commute": 0,
+            "home": 0,
+            "none": 0.1,
+            "utility": 0.9,
+            "credit_cards": 0,
+            "meta": 0,
+            "work": 0
+          },
+          "entropy": 0.13557012980474029
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.01
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 154,
+      "correct": {}
+    },
+    {
+      "id": "f011",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "work",
+          "probabilities": {
+            "credit_cards": 0,
+            "meta": 0,
+            "travel": 0,
+            "small_talk": 0,
+            "utility": 0,
+            "banking": 0,
+            "kitchen_and_dining": 0,
+            "auto_and_commute": 0,
+            "work": 0.99,
+            "home": 0,
+            "none": 0.01
+          },
+          "entropy": 0.023354453795429074
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.9
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.01
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 203,
+      "correct": {}
+    },
+    {
+      "id": "f012",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "kitchen_and_dining",
+          "probabilities": {
+            "travel": 0,
+            "kitchen_and_dining": 0.99,
+            "work": 0,
+            "banking": 0,
+            "small_talk": 0,
+            "meta": 0,
+            "auto_and_commute": 0,
+            "utility": 0,
+            "none": 0.01,
+            "home": 0,
+            "credit_cards": 0
+          },
+          "entropy": 0.023354453795429074
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.01
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 157,
+      "correct": {}
+    },
+    {
+      "id": "f013",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "home": 0,
+            "utility": 0,
+            "meta": 0,
+            "travel": 0,
+            "none": 1,
+            "credit_cards": 0,
+            "banking": 0,
+            "kitchen_and_dining": 0,
+            "auto_and_commute": 0,
+            "work": 0,
+            "small_talk": 0
+          },
+          "entropy": 0
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.01
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 172,
+      "correct": {}
+    },
+    {
+      "id": "f014",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "meta",
+          "probabilities": {
+            "credit_cards": 0,
+            "work": 0,
+            "auto_and_commute": 0,
+            "small_talk": 0,
+            "banking": 0,
+            "utility": 0,
+            "meta": 1,
+            "home": 0,
+            "none": 0,
+            "travel": 0,
+            "kitchen_and_dining": 0
+          },
+          "entropy": 0
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.9
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 154,
+      "correct": {}
+    },
+    {
+      "id": "f015",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "home",
+          "probabilities": {
+            "credit_cards": 0,
+            "work": 0,
+            "banking": 0,
+            "small_talk": 0,
+            "auto_and_commute": 0,
+            "meta": 0,
+            "utility": 0,
+            "home": 0.89,
+            "none": 0.11,
+            "travel": 0,
+            "kitchen_and_dining": 0
+          },
+          "entropy": 0.14450811962036977
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.03
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 139,
+      "correct": {}
+    },
+    {
+      "id": "f016",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "auto_and_commute",
+          "probabilities": {
+            "banking": 0,
+            "home": 0,
+            "small_talk": 0,
+            "none": 0.01,
+            "work": 0,
+            "kitchen_and_dining": 0,
+            "meta": 0,
+            "utility": 0,
+            "credit_cards": 0,
+            "travel": 0,
+            "auto_and_commute": 0.99
+          },
+          "entropy": 0.023354453795429074
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.01
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 137,
+      "correct": {}
+    },
+    {
+      "id": "f017",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "credit_cards",
+          "probabilities": {
+            "kitchen_and_dining": 0,
+            "small_talk": 0,
+            "credit_cards": 1,
+            "auto_and_commute": 0,
+            "utility": 0,
+            "home": 0,
+            "meta": 0,
+            "none": 0,
+            "banking": 0,
+            "work": 0,
+            "travel": 0
+          },
+          "entropy": 0
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.75
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.01
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 128,
+      "correct": {}
+    },
+    {
+      "id": "f018",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "small_talk",
+          "probabilities": {
+            "home": 0,
+            "banking": 0,
+            "credit_cards": 0,
+            "work": 0,
+            "none": 0.03,
+            "kitchen_and_dining": 0,
+            "meta": 0,
+            "travel": 0,
+            "small_talk": 0.97,
+            "utility": 0,
+            "auto_and_commute": 0
+          },
+          "entropy": 0.056191848621696114
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.39
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 102,
+      "correct": {}
+    },
+    {
+      "id": "f019",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "meta",
+          "probabilities": {
+            "home": 0,
+            "utility": 0,
+            "banking": 0,
+            "travel": 0,
+            "meta": 0.92,
+            "kitchen_and_dining": 0,
+            "credit_cards": 0,
+            "auto_and_commute": 0,
+            "none": 0.08,
+            "work": 0,
+            "small_talk": 0
+          },
+          "entropy": 0.11625585776448878
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.92
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.8
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 205,
+      "correct": {}
+    },
+    {
+      "id": "f020",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "home",
+          "probabilities": {
+            "travel": 0,
+            "auto_and_commute": 0,
+            "utility": 0,
+            "small_talk": 0,
+            "credit_cards": 0,
+            "banking": 0,
+            "work": 0,
+            "meta": 0,
+            "home": 1,
+            "none": 0,
+            "kitchen_and_dining": 0
+          },
+          "entropy": 0
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.96
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.05
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 178,
+      "correct": {}
+    },
+    {
+      "id": "f021",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "banking": 0.24,
+            "credit_cards": 0.02,
+            "auto_and_commute": 0,
+            "kitchen_and_dining": 0,
+            "utility": 0,
+            "work": 0,
+            "meta": 0,
+            "home": 0,
+            "travel": 0.24,
+            "small_talk": 0,
+            "none": 0.5
+          },
+          "entropy": 0.46283501772811864
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.9
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.94
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.02
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 174,
+      "correct": {}
+    },
+    {
+      "id": "f022",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "work",
+          "probabilities": {
+            "auto_and_commute": 0,
+            "home": 0,
+            "credit_cards": 0,
+            "banking": 0,
+            "utility": 0,
+            "none": 0,
+            "travel": 0,
+            "work": 1,
+            "small_talk": 0,
+            "kitchen_and_dining": 0,
+            "meta": 0
+          },
+          "entropy": 0
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.73
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.01
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 184,
+      "correct": {}
+    },
+    {
+      "id": "f023",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "credit_cards",
+          "probabilities": {
+            "travel": 0,
+            "small_talk": 0,
+            "auto_and_commute": 0,
+            "utility": 0,
+            "credit_cards": 1,
+            "meta": 0,
+            "home": 0,
+            "kitchen_and_dining": 0,
+            "none": 0,
+            "work": 0,
+            "banking": 0
+          },
+          "entropy": 0
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.99
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.02
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 137,
+      "correct": {}
+    },
+    {
+      "id": "f024",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "work": 0,
+            "auto_and_commute": 0,
+            "small_talk": 0,
+            "utility": 0.01,
+            "home": 0,
+            "credit_cards": 0,
+            "travel": 0,
+            "none": 0.99,
+            "banking": 0,
+            "meta": 0,
+            "kitchen_and_dining": 0
+          },
+          "entropy": 0.023354453795429074
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.01
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 226,
+      "correct": {}
+    },
+    {
+      "id": "f025",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "travel",
+          "probabilities": {
+            "travel": 0.98,
+            "small_talk": 0,
+            "auto_and_commute": 0,
+            "utility": 0,
+            "credit_cards": 0,
+            "meta": 0,
+            "home": 0,
+            "none": 0.02,
+            "kitchen_and_dining": 0,
+            "work": 0,
+            "banking": 0
+          },
+          "entropy": 0.04088548586415922
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.13
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.01
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 167,
+      "correct": {}
+    },
+    {
+      "id": "f026",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "small_talk": 0,
+            "meta": 0,
+            "none": 1,
+            "work": 0,
+            "home": 0,
+            "auto_and_commute": 0,
+            "kitchen_and_dining": 0,
+            "utility": 0,
+            "credit_cards": 0,
+            "banking": 0,
+            "travel": 0
+          },
+          "entropy": 0
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.29
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.02
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 185,
+      "correct": {}
+    },
+    {
+      "id": "f027",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "home": 0,
+            "travel": 0,
+            "utility": 0,
+            "meta": 0,
+            "banking": 0,
+            "none": 1,
+            "credit_cards": 0,
+            "kitchen_and_dining": 0,
+            "auto_and_commute": 0,
+            "work": 0,
+            "small_talk": 0
+          },
+          "entropy": 0
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.87
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.01
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 175,
+      "correct": {}
+    },
+    {
+      "id": "f028",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "kitchen_and_dining",
+          "probabilities": {
+            "meta": 0,
+            "home": 0,
+            "credit_cards": 0,
+            "small_talk": 0,
+            "work": 0,
+            "kitchen_and_dining": 1,
+            "auto_and_commute": 0,
+            "none": 0,
+            "banking": 0,
+            "utility": 0,
+            "travel": 0
+          },
+          "entropy": 0
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.19
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.01
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 109,
+      "correct": {}
+    },
+    {
+      "id": "f029",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "small_talk",
+          "probabilities": {
+            "kitchen_and_dining": 0,
+            "auto_and_commute": 0,
+            "small_talk": 0.85,
+            "travel": 0,
+            "home": 0,
+            "work": 0,
+            "utility": 0,
+            "credit_cards": 0,
+            "none": 0.12,
+            "banking": 0,
+            "meta": 0.03
+          },
+          "entropy": 0.20758598466888695
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.45
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 195,
+      "correct": {}
+    },
+    {
+      "id": "f030",
+      "answers": {
+        "domain": {
+          "type": "choice",
+          "choice": "utility",
+          "probabilities": {
+            "travel": 0,
+            "kitchen_and_dining": 0,
+            "meta": 0,
+            "work": 0,
+            "small_talk": 0,
+            "banking": 0,
+            "auto_and_commute": 0,
+            "utility": 0.99,
+            "none": 0.01,
+            "home": 0,
+            "credit_cards": 0
+          },
+          "entropy": 0.023354453795429074
+        },
+        "asksAction": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "mentionsMoney": {
+          "type": "noul",
+          "p": 0.01
+        },
+        "aboutAssistant": {
+          "type": "noul",
+          "p": 0.02
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 123,
+      "correct": {}
+    }
+  ]
+}

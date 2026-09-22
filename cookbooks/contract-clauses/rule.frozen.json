@@ -1,0 +1,21 @@
+{
+  "kind": "choice",
+  "target": "clauseType",
+  "fittedOn": {
+    "result": "cookbooks/contract-clauses/results/fit.json",
+    "n": 100,
+    "unanswered": 0
+  },
+  "gate": {
+    "confidenceAtLeast": 0.955,
+    "maxAutoError": 0.05,
+    "why": "A mis-filed clause in a contract review means the clause is checked against the wrong playbook (or not at all) and costs a lawyer a re-read; auto-file only where the fit split made at most 1 error in 20, and send the rest to the review queue.",
+    "fitCoverage": 0.87,
+    "fitAutoError": 0.046
+  },
+  "fitAccuracy": 0.87,
+  "_exact": {
+    "cut": 0.9550000000000001
+  },
+  "frozenAt": "2026-09-22T07:55:27.512Z"
+}

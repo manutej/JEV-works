@@ -32,16 +32,10 @@ const URL = 'https://huggingface.co/datasets/victor/real-or-fake-fake-jobposting
 const BUDGET = { company_profile: 60, description: 150, requirements: 80, benefits: 50 } as const;
 
 export const QUESTIONS: Record<string, Question> = {
-  // The decision itself, asked directly: the ONE labelled question, scored by the kit against the keyword baseline.
-  // Polarity: true = fraud.
-  isFraudulent: {
-    type: 'noul',
-    instructions: 'Is this job posting fraudulent: a scam or a fake job ad rather than a genuine vacancy at a real employer?',
-    criteria: {
-      true: 'The ad exists to deceive applicants: there is no real job as described, or the aim is to take money, personal details or unpaid work from people who respond.',
-      false: 'The ad describes a genuine vacancy that an employer is trying to fill, even if it is badly written, vague or unattractive.',
-    },
-  },
+  // isFraudulent (the decision asked directly) was REMOVED after the label-free pilot, before any labelled run:
+  // results/pilot.json rated it MOVE-TO-CODE (17% of answers at the ends, mean confidence 0.53). It is a degree
+  // judgement (P18, L37), so it moved to the Not-for-Jev list; the decision comes only from the literal signals below.
+  // Its wording is kept in MOVED_AFTER_PILOT for the record. Labels and baseline live in items.meta.json.
   // Narrow, literal signals about this one ad (recombined in code by rule.ts; none is labelled).
   // Polarity: true → more likely fraud.
   asksForPaymentOrDetails: {
@@ -68,6 +62,18 @@ export const QUESTIONS: Record<string, Question> = {
   listsSpecificDuties: {
     type: 'noul',
     instructions: 'Does the posting describe specific tasks or responsibilities that the person hired would carry out in this job?',
+  },
+};
+
+/** Removed after the pilot (MOVE-TO-CODE); never sent in a labelled run. */
+export const MOVED_AFTER_PILOT: Record<string, Question> = {
+  isFraudulent: {
+    type: 'noul',
+    instructions: 'Is this job posting fraudulent: a scam or a fake job ad rather than a genuine vacancy at a real employer?',
+    criteria: {
+      true: 'The ad exists to deceive applicants: there is no real job as described, or the aim is to take money, personal details or unpaid work from people who respond.',
+      false: 'The ad describes a genuine vacancy that an employer is trying to fill, even if it is badly written, vague or unattractive.',
+    },
   },
 };
 
@@ -156,5 +162,5 @@ report(items, 'isFraudulent');
 writeSpecs(import.meta.dirname, {
   name: 'job-postings',
   description: 'HR / trust & safety: is a job ad fraudulent? One direct question plus five narrow literal signals recombined in code. EMSCAD (Vidros et al. 2017) via a CC0-declared Hugging Face mirror; fraud oversampled to 30% (natural rate ~5%); long text truncated; contacts masked; structured flags kept out of the state.',
-  questions: QUESTIONS, items, baselineName: base.name,
+  questions: QUESTIONS, items, baselineName: base.name, labelsInMetaOnly: true,
 });
