@@ -1,0 +1,4262 @@
+{
+  "lead-0001": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0002": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0003": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0004": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0005": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0006": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0007": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0008": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0009": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0010": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0011": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0012": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0013": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0014": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0015": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0016": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0017": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0018": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0019": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0020": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0021": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0022": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0023": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0024": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0025": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0026": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0027": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0028": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0029": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0030": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0031": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0032": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0033": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0034": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0035": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0036": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0037": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0038": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0039": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0040": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0041": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0042": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0043": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0044": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0045": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0046": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0047": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0048": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0049": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0050": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0051": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0052": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0053": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0054": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0055": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0056": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0057": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0058": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0059": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0060": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0061": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0062": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0063": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0064": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0065": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0066": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0067": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0068": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0069": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0070": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0071": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0072": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0073": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0074": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0075": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0076": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0077": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0078": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0079": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0080": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0081": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0082": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0083": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0084": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0085": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0086": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0087": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0088": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0089": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0090": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0091": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0092": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0093": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0094": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0095": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0096": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0097": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0098": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0099": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0100": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0101": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0102": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0103": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0104": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0105": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0106": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0107": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0108": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0109": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0110": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0111": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0112": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0113": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0114": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0115": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0116": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0117": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0118": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0119": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0120": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0121": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0122": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0123": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0124": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0125": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0126": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0127": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0128": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0129": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0130": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0131": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0132": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0133": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0134": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0135": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0136": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0137": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0138": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0139": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0140": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0141": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0142": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0143": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0144": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0145": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0146": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0147": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0148": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0149": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0150": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0151": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0152": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0153": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0154": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0155": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0156": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0157": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0158": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0159": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0160": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0161": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0162": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0163": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0164": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0165": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0166": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0167": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0168": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0169": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0170": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0171": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0172": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0173": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0174": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0175": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0176": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0177": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0178": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0179": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0180": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "clean_in_icp"
+  },
+  "lead-0181": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0182": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0183": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0184": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0185": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0186": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0187": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0188": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0189": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0190": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0191": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0192": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0193": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0194": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0195": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0196": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0197": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0198": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0199": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0200": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0201": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0202": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0203": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0204": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0205": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0206": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0207": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0208": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0209": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0210": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0211": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0212": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0213": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0214": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0215": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0216": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0217": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0218": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0219": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0220": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0221": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0222": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0223": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0224": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0225": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0226": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0227": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0228": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0229": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0230": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0231": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0232": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0233": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0234": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0235": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0236": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0237": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0238": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0239": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0240": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0241": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0242": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0243": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0244": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0245": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0246": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0247": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0248": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0249": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0250": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0251": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0252": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0253": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0254": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0255": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0256": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0257": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0258": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0259": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0260": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0261": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0262": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0263": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0264": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0265": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0266": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0267": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0268": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0269": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0270": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0271": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0272": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0273": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0274": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0275": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0276": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0277": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0278": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0279": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0280": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0281": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0282": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0283": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0284": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0285": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0286": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0287": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0288": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0289": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0290": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0291": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0292": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0293": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0294": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0295": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0296": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0297": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0298": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0299": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0300": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "clean_out_icp"
+  },
+  "lead-0301": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0302": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0303": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0304": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0305": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0306": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0307": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0308": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0309": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0310": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0311": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0312": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0313": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0314": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0315": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0316": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0317": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0318": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0319": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0320": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0321": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0322": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0323": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0324": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0325": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0326": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0327": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0328": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0329": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0330": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0331": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0332": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0333": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0334": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0335": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0336": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0337": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0338": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0339": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0340": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0341": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0342": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0343": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0344": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0345": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0346": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0347": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0348": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0349": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0350": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0351": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0352": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0353": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0354": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0355": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0356": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0357": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0358": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0359": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0360": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0361": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0362": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0363": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0364": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0365": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0366": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0367": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0368": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0369": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0370": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0371": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0372": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0373": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0374": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0375": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0376": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0377": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0378": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0379": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0380": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0381": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0382": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0383": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0384": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0385": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0386": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0387": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0388": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0389": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0390": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0391": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0392": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0393": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0394": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0395": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0396": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0397": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0398": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0399": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0400": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0401": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0402": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0403": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0404": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0405": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0406": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0407": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0408": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0409": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0410": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0411": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0412": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0413": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0414": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0415": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0416": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0417": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0418": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0419": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0420": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "non_buyer"
+  },
+  "lead-0421": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0422": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0423": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0424": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0425": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0426": {
+    "trueSegment": "smb",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0427": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0428": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0429": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0430": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0431": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0432": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0433": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0434": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0435": {
+    "trueSegment": "smb",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0436": {
+    "trueSegment": "smb",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0437": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0438": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0439": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0440": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0441": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0442": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0443": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0444": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0445": {
+    "trueSegment": "smb",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0446": {
+    "trueSegment": "smb",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0447": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0448": {
+    "trueSegment": "smb",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0449": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0450": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0451": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0452": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0453": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0454": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0455": {
+    "trueSegment": "smb",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0456": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0457": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0458": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0459": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0460": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0461": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0462": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0463": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0464": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0465": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0466": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0467": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0468": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0469": {
+    "trueSegment": "smb",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0470": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0471": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0472": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0473": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0474": {
+    "trueSegment": "smb",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0475": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0476": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0477": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0478": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0479": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0480": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "ambiguous"
+  },
+  "lead-0481": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0482": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0483": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0484": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0485": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0486": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0487": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0488": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0489": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0490": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0491": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0492": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0493": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0494": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0495": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0496": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0497": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0498": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0499": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0500": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0501": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0502": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0503": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0504": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0505": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0506": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0507": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0508": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0509": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0510": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "garbage"
+  },
+  "lead-0511": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0512": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0513": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0514": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0515": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0516": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0517": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0518": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0519": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0520": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0521": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0522": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0523": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0524": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0525": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0526": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0527": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0528": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0529": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0530": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0531": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0532": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0533": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0534": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0535": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0536": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0537": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0538": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0539": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0540": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "adversarial"
+  },
+  "lead-0541": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0326"
+  },
+  "lead-0542": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0172"
+  },
+  "lead-0543": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0414"
+  },
+  "lead-0544": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0193"
+  },
+  "lead-0545": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0309"
+  },
+  "lead-0546": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0016"
+  },
+  "lead-0547": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0095"
+  },
+  "lead-0548": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0037"
+  },
+  "lead-0549": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0169"
+  },
+  "lead-0550": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0456"
+  },
+  "lead-0551": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0423"
+  },
+  "lead-0552": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0069"
+  },
+  "lead-0553": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0348"
+  },
+  "lead-0554": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0060"
+  },
+  "lead-0555": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0434"
+  },
+  "lead-0556": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0119"
+  },
+  "lead-0557": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0064"
+  },
+  "lead-0558": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0437"
+  },
+  "lead-0559": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0407"
+  },
+  "lead-0560": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0162"
+  },
+  "lead-0561": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0298"
+  },
+  "lead-0562": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0289"
+  },
+  "lead-0563": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0456"
+  },
+  "lead-0564": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0256"
+  },
+  "lead-0565": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0337"
+  },
+  "lead-0566": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0300"
+  },
+  "lead-0567": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0115"
+  },
+  "lead-0568": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0201"
+  },
+  "lead-0569": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0303"
+  },
+  "lead-0570": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0048"
+  },
+  "lead-0571": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0307"
+  },
+  "lead-0572": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0114"
+  },
+  "lead-0573": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0189"
+  },
+  "lead-0574": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0357"
+  },
+  "lead-0575": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0414"
+  },
+  "lead-0576": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0402"
+  },
+  "lead-0577": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0182"
+  },
+  "lead-0578": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0421"
+  },
+  "lead-0579": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0347"
+  },
+  "lead-0580": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0266"
+  },
+  "lead-0581": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0372"
+  },
+  "lead-0582": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0114"
+  },
+  "lead-0583": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0171"
+  },
+  "lead-0584": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0025"
+  },
+  "lead-0585": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0110"
+  },
+  "lead-0586": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0480"
+  },
+  "lead-0587": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0275"
+  },
+  "lead-0588": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0036"
+  },
+  "lead-0589": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0143"
+  },
+  "lead-0590": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0174"
+  },
+  "lead-0591": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0422"
+  },
+  "lead-0592": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0222"
+  },
+  "lead-0593": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0047"
+  },
+  "lead-0594": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0372"
+  },
+  "lead-0595": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0061"
+  },
+  "lead-0596": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0392"
+  },
+  "lead-0597": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0153"
+  },
+  "lead-0598": {
+    "trueSegment": "mid_market",
+    "trueQualified": true,
+    "trueNextAction": "route_to_ae",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0064"
+  },
+  "lead-0599": {
+    "trueSegment": "not_qualified",
+    "trueQualified": false,
+    "trueNextAction": "disqualify",
+    "difficulty": "hard",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0450"
+  },
+  "lead-0600": {
+    "trueSegment": "enterprise",
+    "trueQualified": true,
+    "trueNextAction": "nurture_sequence",
+    "difficulty": "easy",
+    "category": "near_duplicate",
+    "duplicateOf": "lead-0123"
+  }
+}
