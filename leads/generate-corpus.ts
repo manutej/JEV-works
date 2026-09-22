@@ -20,14 +20,22 @@
  *   near_duplicate    — same company, different contact; must be caught by
  *                       CODE (code-gates.ts), never by asking Jev "is this a
  *                       duplicate" (P21 — that's a cross-record question).
+ *   non_buyer        — PARAPHRASE VARIANT ONLY (seed `p<n>`): an ICP-shaped
+ *                       record whose sender is not buying. Record shape says
+ *                       qualified; only the message says no. In this variant
+ *                       buyers also write without the regex's keywords. A
+ *                       stress test built against the regex (see
+ *                       paraphrase-templates.ts), not a generalisation test.
  *
  * Usage:
- *   node generate-corpus.ts [--n 600] [--seed 42]
+ *   node generate-corpus.ts [--n 600] [--seed 42 | --seed p3001]
  */
 import { mkdir, writeFile } from 'node:fs/promises';
 import type { EmployeeBand, Lead, LeadCategory, PlantedTruth, Segment, TruthMap } from './types.ts';
 import { ALL_ACTIONS } from './types.ts';
 import { EXCLUSION_LIST, normalizeCompanyName } from './code-gates.ts';
+import { CURRENT_SOLUTIONS, ICP_INDUSTRIES } from './word-pools.ts';
+import { NON_BUYER_TEMPLATES, PARAPHRASE_BUYER_TEMPLATES, SAMPLE_TEAMS } from './paraphrase-templates.ts';
 
 // ─────────────────────────────────────────────────────────────── CLI args
 
@@ -37,21 +45,39 @@ function argValue(flag: string, fallback: string): string {
 }
 
 const N = Number(argValue('--n', '600'));
-const SEED = Number(argValue('--seed', '42'));
+// `--seed 42` is the base corpus; `--seed p3001` is the PARAPHRASE variant with PRNG seed 3001.
+// The variant is part of the seed's name, so every file name says which corpus it is.
+const SEED = argValue('--seed', '42');
+const PARAPHRASE = /^p\d+$/.test(SEED);
+const RNG_SEED = Number(PARAPHRASE ? SEED.slice(1) : SEED);
+if (!Number.isInteger(RNG_SEED)) throw new Error(`--seed must be <int> or p<int>, got ${SEED}`);
 
 // ───────────────────────────────────────────────────── named proportions
 //
 // These are the contract with the rest of the pipeline — evaluate.ts checks
 // the realised corpus against these, not the other way around.
 
-export const PROPORTIONS: Record<LeadCategory, number> = {
+const BASE_PROPORTIONS: Record<LeadCategory, number> = {
   clean_in_icp: 0.35,
   clean_out_icp: 0.25,
+  non_buyer: 0,
   ambiguous: 0.15,
   garbage: 0.1,
   adversarial: 0.05,
   near_duplicate: 0.1,
 };
+// Paraphrase variant: buyers write without the regex's keywords (paraphrase-templates.ts), and a
+// fifth of the corpus is ICP-shaped non-buyers, whose record shape alone scores as qualified.
+const PARAPHRASE_PROPORTIONS: Record<LeadCategory, number> = {
+  clean_in_icp: 0.3,
+  clean_out_icp: 0.2,
+  non_buyer: 0.2,
+  ambiguous: 0.1,
+  garbage: 0.05,
+  adversarial: 0.05,
+  near_duplicate: 0.1,
+};
+export const PROPORTIONS = PARAPHRASE ? PARAPHRASE_PROPORTIONS : BASE_PROPORTIONS;
 
 const propSum = Object.values(PROPORTIONS).reduce((a, b) => a + b, 0);
 if (Math.abs(propSum - 1) > 1e-9) throw new Error(`PROPORTIONS must sum to 1, got ${propSum}`);
@@ -69,7 +95,7 @@ function mulberry32(seed: number) {
   };
 }
 
-const rng = mulberry32(SEED);
+const rng = mulberry32(RNG_SEED);
 const pick = <T,>(xs: readonly T[]): T => xs[Math.floor(rng() * xs.length)];
 const int = (lo: number, hi: number): number => lo + Math.floor(rng() * (hi - lo + 1));
 const bool = (pTrue = 0.5): boolean => rng() < pTrue;
@@ -87,7 +113,6 @@ const shuffle = <T,>(xs: readonly T[]): T[] => {
 const NAME_ADJ = ['Nimbus', 'Ironclad', 'Vertex', 'Northwind', 'Bluepeak', 'Cascade', 'Solstice', 'Anchor', 'Meridian', 'Fathom', 'Redwood', 'Slate', 'Amber', 'Halcyon', 'Cobalt'];
 const NAME_NOUN = ['Systems', 'Labs', 'Works', 'Group', 'Technologies', 'Partners', 'Dynamics', 'Networks', 'Analytics', 'Solutions', 'Studio', 'Collective'];
 
-const ICP_INDUSTRIES = ['B2B SaaS', 'Fintech', 'DevTools', 'Cybersecurity', 'Cloud Infrastructure', 'HR Tech'];
 const OUT_ICP_INDUSTRIES = ['Retail', 'Restaurants', 'Non-profit', 'Personal Blog', 'Local Landscaping', 'Artisanal Bakery', 'Community Theater'];
 const AMBIGUOUS_INDUSTRIES = ['IT Consulting', 'Managed Services', 'Systems Integration']; // plausibly ICP or not, depending on size/signals
 
@@ -104,7 +129,6 @@ const BANDS_SMALL: EmployeeBand[] = ['1-10', '11-50'];
 const ALL_BANDS: EmployeeBand[] = ['1-10', '11-50', '51-200', '201-1000', '1000+'];
 
 const COMPETITORS = ['Salesforce', 'HubSpot', 'Zendesk', 'Segment', 'Workato'];
-const CURRENT_SOLUTIONS = ['a spreadsheet', 'an in-house script', 'Zapier', 'a legacy on-prem tool', 'nothing formal yet'];
 const QUARTERS = ['Q1', 'Q2', 'Q3', 'Q4'];
 const BUDGETS = ['$5k/mo', '$20k/mo', '$50k/mo', 'around $100k annually', 'not yet approved'];
 
@@ -172,13 +196,16 @@ function buildCleanInIcp(): { lead: Lead; truth: PlantedTruth } {
   const band = pick(BANDS_ICP);
   const decisionMaker = bool(0.65);
   const title = decisionMaker ? pick(DECISION_TITLES) : pick(IMPLEMENTER_TITLES);
-  const requestsDemo = bool(0.6);
-  const urgent = bool(0.4);
-  const message =
-    `We're a ${band}-person ${industry.toLowerCase()} company evaluating vendors to replace ${pick(CURRENT_SOLUTIONS)}. ` +
-    `Looking to have something live by ${pick(QUARTERS)}. Budget is ${pick(BUDGETS)}. ` +
-    (requestsDemo ? 'Can we get a demo this week? ' : 'Could someone walk us through pricing and options? ') +
-    (urgent ? "We're trying to close this out before end of quarter." : 'No rush, just starting to scope it out.');
+  // The paraphrase message states no demo request and no urgency, so its planted next action
+  // must not assume them. The base branch draws exactly as before (base corpora stay byte-identical).
+  const requestsDemo = bool(0.6) && !PARAPHRASE;
+  const urgent = bool(0.4) && !PARAPHRASE;
+  const message = PARAPHRASE
+    ? pick(PARAPHRASE_BUYER_TEMPLATES)({ team: pick(SAMPLE_TEAMS), current: pick(CURRENT_SOLUTIONS), industry })
+    : `We're a ${band}-person ${industry.toLowerCase()} company evaluating vendors to replace ${pick(CURRENT_SOLUTIONS)}. ` +
+      `Looking to have something live by ${pick(QUARTERS)}. Budget is ${pick(BUDGETS)}. ` +
+      (requestsDemo ? 'Can we get a demo this week? ' : 'Could someone walk us through pricing and options? ') +
+      (urgent ? "We're trying to close this out before end of quarter." : 'No rush, just starting to scope it out.');
 
   const lead: Lead = {
     id: leadId(),
@@ -199,6 +226,40 @@ function buildCleanInIcp(): { lead: Lead; truth: PlantedTruth } {
     trueNextAction: nextActionFor({ qualified: true, requestsDemo, decisionMaker, urgent }),
     difficulty: 'easy',
     category: 'clean_in_icp',
+  };
+  return { lead, truth };
+}
+
+/**
+ * ICP-shaped record (target industry, 51+ employees) whose sender is not buying: an existing
+ * customer's support request, a job applicant, an unsubscribe, a partnership pitch, an analyst.
+ * Its structured fields alone score as qualified under the regex; only the message says otherwise.
+ */
+function buildNonBuyer(): { lead: Lead; truth: PlantedTruth } {
+  const company = companyName();
+  const industry = pick(ICP_INDUSTRIES);
+  const band = pick(BANDS_ICP);
+  const title = bool(0.5) ? pick(DECISION_TITLES) : pick(IMPLEMENTER_TITLES);
+  const message = pick(NON_BUYER_TEMPLATES)({ team: pick(SAMPLE_TEAMS), current: pick(CURRENT_SOLUTIONS), industry });
+  const lead: Lead = {
+    id: leadId(),
+    source: pick(SOURCES),
+    companyName: company,
+    industry,
+    employeeBand: band,
+    country: pick(COUNTRIES),
+    contactTitle: title,
+    inboundMessage: message,
+    websiteBlurb: `${company} builds ${industry.toLowerCase()} products for growing teams.`,
+    tags: someTags(),
+    capturedAt: isoDateWithinDays(60),
+  };
+  const truth: PlantedTruth = {
+    trueSegment: 'not_qualified',
+    trueQualified: false,
+    trueNextAction: 'disqualify',
+    difficulty: 'hard',
+    category: 'non_buyer',
   };
   return { lead, truth };
 }
@@ -385,6 +446,7 @@ function buildNearDuplicate(source: { lead: Lead; truth: PlantedTruth }): { lead
 const counts: Record<LeadCategory, number> = {
   clean_in_icp: Math.round(N * PROPORTIONS.clean_in_icp),
   clean_out_icp: Math.round(N * PROPORTIONS.clean_out_icp),
+  non_buyer: Math.round(N * PROPORTIONS.non_buyer),
   ambiguous: Math.round(N * PROPORTIONS.ambiguous),
   garbage: Math.round(N * PROPORTIONS.garbage),
   adversarial: Math.round(N * PROPORTIONS.adversarial),
@@ -407,6 +469,12 @@ for (let i = 0; i < counts.clean_in_icp; i++) {
 }
 for (let i = 0; i < counts.clean_out_icp; i++) {
   const r = buildCleanOutIcp();
+  leads.push(r.lead);
+  truth[r.lead.id] = r.truth;
+  nonDupSourcePool.push(r);
+}
+for (let i = 0; i < counts.non_buyer; i++) {
+  const r = buildNonBuyer();
   leads.push(r.lead);
   truth[r.lead.id] = r.truth;
   nonDupSourcePool.push(r);

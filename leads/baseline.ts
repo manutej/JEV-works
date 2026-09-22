@@ -17,6 +17,7 @@
  */
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
 import type { Lead, NextAction, PlantedTruth, Segment, TruthMap } from './types.ts';
+import { MESSAGE_PATTERNS } from './baseline-patterns.ts';
 
 function argValue(flag: string, fallback: string): string {
   const i = process.argv.indexOf(flag);
@@ -29,16 +30,11 @@ const SEED = argValue('--seed', '42');
 const ICP_INDUSTRY_KEYWORDS = /\b(saas|b2b|fintech|devtools?|cyber ?security|cloud infrastructure|hr tech)\b/i;
 const OUT_ICP_INDUSTRY_KEYWORDS = /\b(retail|restaurant|non-?profit|blog|landscap|bakery|theater|theatre)\b/i;
 
-const BUYING_SIGNAL = /\b(evaluat(e|ing)|purchas|budget|pricing|price|quote|demo|trial|sign ?up|get started|replace|vendor)\b/i;
-const URGENCY = /\b(urgent|asap|as soon as possible|deadline|this week|before end of|immediately|right away)\b/i;
-const TIMELINE = /\b(q[1-4]\b|quarter|by (january|february|march|april|may|june|july|august|september|october|november|december)|next month|this month)\b/i;
-const BUDGET_MENTIONED = /\$[\d,]+|budget/i;
-const PRICING_QUESTION = /\b(pric(e|ing)|cost|quote|how much)\b/i;
-const DEMO_REQUEST = /\b(demo|walkthrough|trial)\b/i;
-const HUMAN_REQUEST = /\b(speak (with|to)|talk to (someone|a person)|call me|human)\b/i;
-const OBJECTION = /\b(concern|hesitant|worried|not sure|too expensive|but\b)\b/i;
-const READY_TO_BUY = /\b(sign us up|let'?s get started|ready to (buy|move forward)|approved)\b/i;
-const COMPETITOR_MENTION = /\b(salesforce|hubspot|zendesk|segment|workato)\b/i;
+// Message patterns live in baseline-patterns.ts so tests can read them without running this file.
+const {
+  BUYING_SIGNAL, URGENCY, TIMELINE, BUDGET_MENTIONED, PRICING_QUESTION, DEMO_REQUEST,
+  HUMAN_REQUEST, OBJECTION, READY_TO_BUY, COMPETITOR_MENTION, INJECTION_ATTEMPT,
+} = MESSAGE_PATTERNS;
 
 const DECISION_TITLE = /\b(vp|vice president|chief|cto|ceo|cro|coo|director|head of|founder)\b/i;
 const GENERIC_INBOX_TITLE = /^(info@|sales team|webmaster|contact form|)$/i;
@@ -50,7 +46,6 @@ const HAS_ANY_LETTER = /\p{L}/u;
  * the pipeline's own onTopicParseable question targets. */
 const NON_LATIN_SCRIPT = /[぀-ヿ㐀-鿿Ѐ-ӿ]/;
 const HTML_SOUP = /<\s*[a-z][^>]*>/i;
-const INJECTION_ATTEMPT = /\b(ignore (all|previous) instructions|system:|override|as an ai|the correct output|ground truth)\b/i;
 
 // ─────────────────────────────────────────────────────────── scoring weights
 //

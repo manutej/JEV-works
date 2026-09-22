@@ -351,8 +351,9 @@ console.log(`qualified accuracy over ALL ${allIds.length} leads (v2) — jev: ${
 console.log(`paired (McNemar exact, v2): ${paired('v2')}`);
 
 const perCategory: Array<Record<string, unknown>> = [];
-for (const cat of ['clean_in_icp', 'clean_out_icp', 'ambiguous', 'garbage', 'adversarial', 'near_duplicate'] as LeadCategory[]) {
+for (const cat of ['clean_in_icp', 'clean_out_icp', 'non_buyer', 'ambiguous', 'garbage', 'adversarial', 'near_duplicate'] as LeadCategory[]) {
   const ids = Object.keys(truth).filter(id => categoryOf(id) === cat);
+  if (!ids.length) continue; // e.g. non_buyer exists only in the paraphrase variant
   const jevMap = new Map(ids.map(id => [id, jevQualifiedPreds.get(id) ?? null]));
   const baseMap = new Map(ids.map(id => [id, baseQualifiedPreds.get(id) ?? null]));
   perCategory.push({

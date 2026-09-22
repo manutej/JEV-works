@@ -60,6 +60,7 @@ export interface Lead {
 export type LeadCategory =
   | 'clean_in_icp'
   | 'clean_out_icp'
+  | 'non_buyer'
   | 'ambiguous'
   | 'garbage'
   | 'adversarial'
