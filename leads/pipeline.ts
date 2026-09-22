@@ -20,7 +20,7 @@
  */
 import { experimental_evaluate as evaluate } from 'ai';
 import { readFile, mkdir, writeFile } from 'node:fs/promises';
-import { pool } from '../../jev-playground/experiments/_harness.ts';
+import { pool } from '../lib/harness.ts';
 import { STAGE1_ACQUISITION, STAGE2_QUALIFICATION, STAGE3_SALES } from './questions.ts';
 import {
   detectNearDuplicates,
@@ -31,7 +31,7 @@ import {
   normalizedEntropy,
 } from './code-gates.ts';
 import type { Lead, Segment, NextAction } from './types.ts';
-import { JEV, JEV_ID } from '../lib/jev.ts';
+import { JEV, JEV_ID, answeredBy } from '../lib/jev.ts';
 
 const MODEL = JEV_ID;
 
@@ -156,7 +156,7 @@ async function runStage<Q extends Record<string, unknown>>(
     latencyMs,
     tokens: result.usage,
     estimatedStateTokens,
-    resolvedModel: result.response.modelId,
+    resolvedModel: answeredBy(result),
   };
 }
 

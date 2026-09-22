@@ -1,7 +1,7 @@
 /**
  * EVALUATE — scores pipeline.ts against planted truth AND against baseline.ts.
  *
- * Reuses ../../jev-playground/experiments/_harness.ts for reliability, ece,
+ * Reuses ../lib/harness.ts for reliability, ece,
  * brier, thresholdSweep, percentile, latencyReport, and pool — those are not
  * reimplemented here (see that file's own header: "do not reimplement them").
  *
@@ -31,7 +31,7 @@ import {
   table,
   livePricing,
   dollars,
-} from '../../jev-playground/experiments/_harness.ts';
+} from '../lib/harness.ts';
 import { STAGE1_ACQUISITION, STAGE2_QUALIFICATION, STAGE3_SALES } from './questions.ts';
 import type { JevQuestion } from './questions.ts';
 import type { Lead, LeadCategory, PlantedTruth, Segment, TruthMap } from './types.ts';
