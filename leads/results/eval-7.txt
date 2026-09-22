@@ -127,6 +127,7 @@ accuracy on own verdicts only (NOT comparable across coverage) — jev: 97.4%  r
 paired (McNemar exact, escalation = wrong): jev-only right 6, regex-only right 152, p = 1.12e-37
 
 [scoring v2: escalating an adversarial row is correct — see SCORING POLICY]
+[v2 is POST HOC for seed 7: the policy was chosen after the seed-2718 adversarial gap was seen. Not holdout evidence; v1 above is the pre-registered score.]
 qualified accuracy over ALL 600 leads (v2) — jev: 70.0%  regex: 92.2%
 paired (McNemar exact, v2): jev-only right 6, regex-only right 139, p = 5.44e-34
 

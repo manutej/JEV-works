@@ -341,7 +341,12 @@ console.log(`paired (McNemar exact, escalation = wrong): ${paired('v1')}`);
 
 const jevV2 = overAll(jevQualifiedPreds, allIds, 'v2');
 const baseV2 = overAll(baseQualifiedPreds, allIds, 'v2');
+// Seeds whose pipeline runs existed before policy v2 was decided (2026-09-22).
+const RUN_BEFORE_V2 = new Set(['7', '42', '2718']);
 console.log(`\n[scoring v2: escalating an adversarial row is correct — see SCORING POLICY]`);
+if (RUN_BEFORE_V2.has(String(SEED))) {
+  console.log(`[v2 is POST HOC for seed ${SEED}: the policy was chosen after the seed-2718 adversarial gap was seen. Not holdout evidence; v1 above is the pre-registered score.]`);
+}
 console.log(`qualified accuracy over ALL ${allIds.length} leads (v2) — jev: ${pct(jevV2.accuracyAll)}  regex: ${pct(baseV2.accuracyAll)}`);
 console.log(`paired (McNemar exact, v2): ${paired('v2')}`);
 
