@@ -498,3 +498,15 @@ to the *claim*, not just to the questions).
 direction, the headline does not ship; report the stratum.
 *Attached to:* leads/claim-gate.ts (61ceba6), leads/EVAL-TREE.md.
 
+### L42 · Audit the evaluator before trusting its verdict
+**Happened.** The first `judgeCalibration` rejected calibration when the calibration slope fell outside a fixed
+[0.8, 1.25] band. Audited by simulation on data calibrated *by construction*, it called calibrated data miscalibrated
+**80% of the time at n=40, 54% at n=100, 36% at n=150**. It looked rigorous and would have forced every small cookbook
+to "recalibrate" on noise. Switching to CI-based checks (the slope's CI must exclude 1) fixed the small-n bias; three
+evaluators each at α=0.05 then false-alarmed ~10% combined, and a Bonferroni correction brought it to 2–4.5% at every
+n ≥ 100, with power 100% on a known distortion. Below n≈100 the power is < 80%, so the kit now says "too few items to
+judge" instead of issuing a verdict.
+**Rule.** Every evaluator that gates a decision is itself audited on synthetic data with a known answer, at the n you
+actually have: false-alarm rate ≤ its α, power reported. An evaluator without an audit is a hand-set threshold in disguise.
+*Attached to:* `kit/threshold.ts` (`auditCalibrationEvaluator`), `program/calib-audit.ts`, test "passes its own audit".
+

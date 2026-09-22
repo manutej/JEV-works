@@ -317,4 +317,12 @@ latency, question count does not.
   segment-entropy gate or segment/icpFit, likely because the paraphrased buyers never state company size); 6011 REFUSE (E1).
   **Every leads headline so far is conditional on seen wording.** The base corpora cannot pass E1 as built (~61% of messages repeat across
   seeds through shared templates).
+- **Leads Q2c: blind holdout bb6203 (session b4f08e, prereg 8de23b6, `jev-1.13.0`, 5.0% seen, 570 novel).** Claim gate **REFUSE** (E2 coverage
+  78.0%). Headline v2: Jev 73.3% vs regex 71.7%, McNemar 101 vs 91, p = 0.516 (no difference). **Strata:** non_buyer Jev 61.7% vs regex 0%
+  (p ≈ 1e-22), **the lab's first evidence on never-seen wording**, so the intent mechanism generalises; clean_in_icp 70.0% vs 100% (p ≈ 1e-16):
+  54 real buyers escalated (28 at stage 1 on senderWroteASentence/hasNamedCompany mid-band, 26 at stage 2 on segment entropy > 0.6).
+  The binding constraint is the segment/size edge, not intent. Predictions: 2 right, 2 wrong (recorded as such). Third case of a null
+  headline hiding two opposite effects (L41: 2718, p6029, bb6203).
+- **Thresholds are now fitted, not set (`kit/threshold.ts`).** Cost cut on calibrated p, or a selective gate with a Clopper-Pearson
+  error bound, fitted on the fit split and tested once on held-out data; calibration is judged by evaluators that pass their own audit (L42).
 
