@@ -292,6 +292,32 @@ console.log(`qualified accuracy over ALL ${allIds.length} leads (escalation = no
 console.log(`coverage (leads given a verdict)                              — jev: ${pct(jevAll.coverage)}  regex: ${pct(baseAll.coverage)}`);
 console.log(`accuracy on own verdicts only (NOT comparable across coverage) — jev: ${pct(qualifiedAccuracy(jevQualifiedPreds))}  regex: ${pct(qualifiedAccuracy(baseQualifiedPreds))}`);
 
+/**
+ * Exact McNemar test on per-lead correctness (escalation = wrong), both systems on the same leads.
+ * Only discordant leads carry information: b = Jev right & regex wrong, c = regex right & Jev wrong.
+ * Under "no difference" b ~ Binomial(b + c, 0.5); two-sided p. P4's 0.11 band is about one answer's
+ * probability across repeated calls, not about accuracy gaps, so it does not apply here.
+ */
+function mcnemarExact(b: number, c: number): number {
+  const n = b + c;
+  if (n === 0) return 1;
+  const logChoose = (k: number) => lgammaSum(n) - lgammaSum(k) - lgammaSum(n - k);
+  let tail = 0;
+  for (let k = 0; k <= Math.min(b, c); k++) tail += Math.exp(logChoose(k) - n * Math.LN2);
+  return Math.min(1, 2 * tail);
+}
+function lgammaSum(k: number): number {
+  let s = 0;
+  for (let i = 2; i <= k; i++) s += Math.log(i);
+  return s; // log(k!)
+}
+{
+  const right = (preds: Map<string, boolean | null>, id: string) => preds.get(id) === truth[id].trueQualified;
+  const b = allIds.filter(id => right(jevQualifiedPreds, id) && !right(baseQualifiedPreds, id)).length;
+  const c = allIds.filter(id => !right(jevQualifiedPreds, id) && right(baseQualifiedPreds, id)).length;
+  console.log(`paired (McNemar exact, escalation = wrong): jev-only right ${b}, regex-only right ${c}, p = ${mcnemarExact(b, c).toPrecision(3)}`);
+}
+
 const perCategory: Array<Record<string, unknown>> = [];
 for (const cat of ['clean_in_icp', 'clean_out_icp', 'ambiguous', 'garbage', 'adversarial', 'near_duplicate'] as LeadCategory[]) {
   const ids = Object.keys(truth).filter(id => categoryOf(id) === cat);
