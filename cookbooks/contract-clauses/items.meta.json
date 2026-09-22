@@ -1,0 +1,3202 @@
+[
+ {
+  "id": "f001",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 4652,
+  "ledgarLabel": "Compliance With Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "f002",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 91,
+  "ledgarLabel": "Vesting",
+  "headingStripped": false
+ },
+ {
+  "id": "f003",
+  "split": "fit",
+  "labels": {
+   "clauseType": "indemnification"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 966,
+  "ledgarLabel": "Indemnifications",
+  "headingStripped": false
+ },
+ {
+  "id": "f004",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 2589,
+  "ledgarLabel": "Existence",
+  "headingStripped": false
+ },
+ {
+  "id": "f005",
+  "split": "fit",
+  "labels": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 1960,
+  "ledgarLabel": "Entire Agreements",
+  "headingStripped": false
+ },
+ {
+  "id": "f006",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 2878,
+  "ledgarLabel": "Warranties",
+  "headingStripped": false
+ },
+ {
+  "id": "f007",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 1879,
+  "ledgarLabel": "Participations",
+  "headingStripped": false
+ },
+ {
+  "id": "f008",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 2428,
+  "ledgarLabel": "Withholdings",
+  "headingStripped": false
+ },
+ {
+  "id": "f009",
+  "split": "fit",
+  "labels": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 3722,
+  "ledgarLabel": "Governing Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "f010",
+  "split": "fit",
+  "labels": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 1763,
+  "ledgarLabel": "Entire Agreements",
+  "headingStripped": false
+ },
+ {
+  "id": "f011",
+  "split": "fit",
+  "labels": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 121,
+  "ledgarLabel": "Entire Agreements",
+  "headingStripped": false
+ },
+ {
+  "id": "f012",
+  "split": "fit",
+  "labels": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 1103,
+  "ledgarLabel": "Entire Agreements",
+  "headingStripped": false
+ },
+ {
+  "id": "f013",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 2052,
+  "ledgarLabel": "Capitalization",
+  "headingStripped": false
+ },
+ {
+  "id": "f014",
+  "split": "fit",
+  "labels": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 3627,
+  "ledgarLabel": "Amendments",
+  "headingStripped": false
+ },
+ {
+  "id": "f015",
+  "split": "fit",
+  "labels": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 2771,
+  "ledgarLabel": "Entire Agreements",
+  "headingStripped": false
+ },
+ {
+  "id": "f016",
+  "split": "fit",
+  "labels": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 1625,
+  "ledgarLabel": "Entire Agreements",
+  "headingStripped": false
+ },
+ {
+  "id": "f017",
+  "split": "fit",
+  "labels": {
+   "clauseType": "indemnification"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 3942,
+  "ledgarLabel": "Indemnifications",
+  "headingStripped": false
+ },
+ {
+  "id": "f018",
+  "split": "fit",
+  "labels": {
+   "clauseType": "indemnification"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 802,
+  "ledgarLabel": "Indemnifications",
+  "headingStripped": false
+ },
+ {
+  "id": "f019",
+  "split": "fit",
+  "labels": {
+   "clauseType": "notices"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 4250,
+  "ledgarLabel": "Notices",
+  "headingStripped": false
+ },
+ {
+  "id": "f020",
+  "split": "fit",
+  "labels": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 4117,
+  "ledgarLabel": "Amendments",
+  "headingStripped": false
+ },
+ {
+  "id": "f021",
+  "split": "fit",
+  "labels": {
+   "clauseType": "notices"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 460,
+  "ledgarLabel": "Notices",
+  "headingStripped": false
+ },
+ {
+  "id": "f022",
+  "split": "fit",
+  "labels": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 236,
+  "ledgarLabel": "Confidentiality",
+  "headingStripped": false
+ },
+ {
+  "id": "f023",
+  "split": "fit",
+  "labels": {
+   "clauseType": "assignment"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 787,
+  "ledgarLabel": "Assignments",
+  "headingStripped": false
+ },
+ {
+  "id": "f024",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 3425,
+  "ledgarLabel": "Releases",
+  "headingStripped": false
+ },
+ {
+  "id": "f025",
+  "split": "fit",
+  "labels": {
+   "clauseType": "notices"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 177,
+  "ledgarLabel": "Notices",
+  "headingStripped": false
+ },
+ {
+  "id": "f026",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 809,
+  "ledgarLabel": "Severability",
+  "headingStripped": false
+ },
+ {
+  "id": "f027",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 760,
+  "ledgarLabel": "Transactions With Affiliates",
+  "headingStripped": false
+ },
+ {
+  "id": "f028",
+  "split": "fit",
+  "labels": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 842,
+  "ledgarLabel": "Amendments",
+  "headingStripped": true
+ },
+ {
+  "id": "f029",
+  "split": "fit",
+  "labels": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 3484,
+  "ledgarLabel": "Amendments",
+  "headingStripped": false
+ },
+ {
+  "id": "f030",
+  "split": "fit",
+  "labels": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 4838,
+  "ledgarLabel": "Terminations",
+  "headingStripped": false
+ },
+ {
+  "id": "f031",
+  "split": "fit",
+  "labels": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 685,
+  "ledgarLabel": "Terminations",
+  "headingStripped": false
+ },
+ {
+  "id": "f032",
+  "split": "fit",
+  "labels": {
+   "clauseType": "assignment"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 2820,
+  "ledgarLabel": "Assignments",
+  "headingStripped": false
+ },
+ {
+  "id": "f033",
+  "split": "fit",
+  "labels": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 2566,
+  "ledgarLabel": "Amendments",
+  "headingStripped": false
+ },
+ {
+  "id": "f034",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 1371,
+  "ledgarLabel": "Effective Dates",
+  "headingStripped": false
+ },
+ {
+  "id": "f035",
+  "split": "fit",
+  "labels": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 1478,
+  "ledgarLabel": "Amendments",
+  "headingStripped": false
+ },
+ {
+  "id": "f036",
+  "split": "fit",
+  "labels": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 3242,
+  "ledgarLabel": "Governing Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "f037",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 4729,
+  "ledgarLabel": "Survival",
+  "headingStripped": false
+ },
+ {
+  "id": "f038",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 742,
+  "ledgarLabel": "Insurances",
+  "headingStripped": false
+ },
+ {
+  "id": "f039",
+  "split": "fit",
+  "labels": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 49,
+  "ledgarLabel": "Terminations",
+  "headingStripped": false
+ },
+ {
+  "id": "f040",
+  "split": "fit",
+  "labels": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 1382,
+  "ledgarLabel": "Terminations",
+  "headingStripped": false
+ },
+ {
+  "id": "f041",
+  "split": "fit",
+  "labels": {
+   "clauseType": "indemnification"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 88,
+  "ledgarLabel": "Indemnifications",
+  "headingStripped": false
+ },
+ {
+  "id": "f042",
+  "split": "fit",
+  "labels": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 2385,
+  "ledgarLabel": "Governing Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "f043",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 1419,
+  "ledgarLabel": "Disclosures",
+  "headingStripped": false
+ },
+ {
+  "id": "f044",
+  "split": "fit",
+  "labels": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 2436,
+  "ledgarLabel": "Terminations",
+  "headingStripped": false
+ },
+ {
+  "id": "f045",
+  "split": "fit",
+  "labels": {
+   "clauseType": "assignment"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 1686,
+  "ledgarLabel": "Assignments",
+  "headingStripped": false
+ },
+ {
+  "id": "f046",
+  "split": "fit",
+  "labels": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 2080,
+  "ledgarLabel": "Governing Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "f047",
+  "split": "fit",
+  "labels": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 1363,
+  "ledgarLabel": "Terminations",
+  "headingStripped": false
+ },
+ {
+  "id": "f048",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 208,
+  "ledgarLabel": "Use Of Proceeds",
+  "headingStripped": false
+ },
+ {
+  "id": "f049",
+  "split": "fit",
+  "labels": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 3958,
+  "ledgarLabel": "Governing Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "f050",
+  "split": "fit",
+  "labels": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 1451,
+  "ledgarLabel": "Confidentiality",
+  "headingStripped": false
+ },
+ {
+  "id": "f051",
+  "split": "fit",
+  "labels": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 547,
+  "ledgarLabel": "Confidentiality",
+  "headingStripped": false
+ },
+ {
+  "id": "f052",
+  "split": "fit",
+  "labels": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 4106,
+  "ledgarLabel": "Amendments",
+  "headingStripped": false
+ },
+ {
+  "id": "f053",
+  "split": "fit",
+  "labels": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 3226,
+  "ledgarLabel": "Entire Agreements",
+  "headingStripped": false
+ },
+ {
+  "id": "f054",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 1187,
+  "ledgarLabel": "Headings",
+  "headingStripped": false
+ },
+ {
+  "id": "f055",
+  "split": "fit",
+  "labels": {
+   "clauseType": "indemnification"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 2509,
+  "ledgarLabel": "Indemnifications",
+  "headingStripped": false
+ },
+ {
+  "id": "f056",
+  "split": "fit",
+  "labels": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 2345,
+  "ledgarLabel": "Entire Agreements",
+  "headingStripped": false
+ },
+ {
+  "id": "f057",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 3285,
+  "ledgarLabel": "Interpretations",
+  "headingStripped": false
+ },
+ {
+  "id": "f058",
+  "split": "fit",
+  "labels": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 3536,
+  "ledgarLabel": "Entire Agreements",
+  "headingStripped": false
+ },
+ {
+  "id": "f059",
+  "split": "fit",
+  "labels": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 4267,
+  "ledgarLabel": "Confidentiality",
+  "headingStripped": false
+ },
+ {
+  "id": "f060",
+  "split": "fit",
+  "labels": {
+   "clauseType": "assignment"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 2089,
+  "ledgarLabel": "Assignments",
+  "headingStripped": false
+ },
+ {
+  "id": "f061",
+  "split": "fit",
+  "labels": {
+   "clauseType": "notices"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 481,
+  "ledgarLabel": "Notices",
+  "headingStripped": false
+ },
+ {
+  "id": "f062",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 3545,
+  "ledgarLabel": "Closings",
+  "headingStripped": false
+ },
+ {
+  "id": "f063",
+  "split": "fit",
+  "labels": {
+   "clauseType": "indemnification"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 3410,
+  "ledgarLabel": "Indemnifications",
+  "headingStripped": false
+ },
+ {
+  "id": "f064",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 781,
+  "ledgarLabel": "Authorizations",
+  "headingStripped": false
+ },
+ {
+  "id": "f065",
+  "split": "fit",
+  "labels": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 4578,
+  "ledgarLabel": "Governing Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "f066",
+  "split": "fit",
+  "labels": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 4794,
+  "ledgarLabel": "Governing Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "f067",
+  "split": "fit",
+  "labels": {
+   "clauseType": "notices"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 475,
+  "ledgarLabel": "Notices",
+  "headingStripped": false
+ },
+ {
+  "id": "f068",
+  "split": "fit",
+  "labels": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 2124,
+  "ledgarLabel": "Amendments",
+  "headingStripped": false
+ },
+ {
+  "id": "f069",
+  "split": "fit",
+  "labels": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 2336,
+  "ledgarLabel": "Terminations",
+  "headingStripped": false
+ },
+ {
+  "id": "f070",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 2429,
+  "ledgarLabel": "Waiver Of Jury Trials",
+  "headingStripped": false
+ },
+ {
+  "id": "f071",
+  "split": "fit",
+  "labels": {
+   "clauseType": "assignment"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 2021,
+  "ledgarLabel": "Assignments",
+  "headingStripped": false
+ },
+ {
+  "id": "f072",
+  "split": "fit",
+  "labels": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 1683,
+  "ledgarLabel": "Amendments",
+  "headingStripped": false
+ },
+ {
+  "id": "f073",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 171,
+  "ledgarLabel": "Payments",
+  "headingStripped": false
+ },
+ {
+  "id": "f074",
+  "split": "fit",
+  "labels": {
+   "clauseType": "notices"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 3310,
+  "ledgarLabel": "Notices",
+  "headingStripped": false
+ },
+ {
+  "id": "f075",
+  "split": "fit",
+  "labels": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 783,
+  "ledgarLabel": "Confidentiality",
+  "headingStripped": false
+ },
+ {
+  "id": "f076",
+  "split": "fit",
+  "labels": {
+   "clauseType": "indemnification"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 287,
+  "ledgarLabel": "Indemnifications",
+  "headingStripped": false
+ },
+ {
+  "id": "f077",
+  "split": "fit",
+  "labels": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 386,
+  "ledgarLabel": "Terminations",
+  "headingStripped": false
+ },
+ {
+  "id": "f078",
+  "split": "fit",
+  "labels": {
+   "clauseType": "assignment"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 2634,
+  "ledgarLabel": "Assignments",
+  "headingStripped": false
+ },
+ {
+  "id": "f079",
+  "split": "fit",
+  "labels": {
+   "clauseType": "indemnification"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 2413,
+  "ledgarLabel": "Indemnifications",
+  "headingStripped": false
+ },
+ {
+  "id": "f080",
+  "split": "fit",
+  "labels": {
+   "clauseType": "notices"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 358,
+  "ledgarLabel": "Notices",
+  "headingStripped": false
+ },
+ {
+  "id": "f081",
+  "split": "fit",
+  "labels": {
+   "clauseType": "assignment"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 1316,
+  "ledgarLabel": "Assignments",
+  "headingStripped": false
+ },
+ {
+  "id": "f082",
+  "split": "fit",
+  "labels": {
+   "clauseType": "assignment"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 1836,
+  "ledgarLabel": "Assignments",
+  "headingStripped": false
+ },
+ {
+  "id": "f083",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 1928,
+  "ledgarLabel": "Taxes",
+  "headingStripped": false
+ },
+ {
+  "id": "f084",
+  "split": "fit",
+  "labels": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 1611,
+  "ledgarLabel": "Confidentiality",
+  "headingStripped": false
+ },
+ {
+  "id": "f085",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 204,
+  "ledgarLabel": "Further Assurances",
+  "headingStripped": false
+ },
+ {
+  "id": "f086",
+  "split": "fit",
+  "labels": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 4349,
+  "ledgarLabel": "Confidentiality",
+  "headingStripped": false
+ },
+ {
+  "id": "f087",
+  "split": "fit",
+  "labels": {
+   "clauseType": "notices"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 4721,
+  "ledgarLabel": "Notices",
+  "headingStripped": false
+ },
+ {
+  "id": "f088",
+  "split": "fit",
+  "labels": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 2277,
+  "ledgarLabel": "Governing Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "f089",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 3965,
+  "ledgarLabel": "Benefits",
+  "headingStripped": false
+ },
+ {
+  "id": "f090",
+  "split": "fit",
+  "labels": {
+   "clauseType": "indemnification"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 1572,
+  "ledgarLabel": "Indemnifications",
+  "headingStripped": false
+ },
+ {
+  "id": "f091",
+  "split": "fit",
+  "labels": {
+   "clauseType": "assignment"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 1399,
+  "ledgarLabel": "Assignments",
+  "headingStripped": false
+ },
+ {
+  "id": "f092",
+  "split": "fit",
+  "labels": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 2642,
+  "ledgarLabel": "Confidentiality",
+  "headingStripped": false
+ },
+ {
+  "id": "f093",
+  "split": "fit",
+  "labels": {
+   "clauseType": "notices"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 1555,
+  "ledgarLabel": "Notices",
+  "headingStripped": false
+ },
+ {
+  "id": "f094",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 964,
+  "ledgarLabel": "Liens",
+  "headingStripped": false
+ },
+ {
+  "id": "f095",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 2876,
+  "ledgarLabel": "Financial Statements",
+  "headingStripped": false
+ },
+ {
+  "id": "f096",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 3985,
+  "ledgarLabel": "Arbitration",
+  "headingStripped": false
+ },
+ {
+  "id": "f097",
+  "split": "fit",
+  "labels": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 3733,
+  "ledgarLabel": "Counterparts",
+  "headingStripped": false
+ },
+ {
+  "id": "f098",
+  "split": "fit",
+  "labels": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 965,
+  "ledgarLabel": "Confidentiality",
+  "headingStripped": false
+ },
+ {
+  "id": "f099",
+  "split": "fit",
+  "labels": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 4834,
+  "ledgarLabel": "Terminations",
+  "headingStripped": false
+ },
+ {
+  "id": "f100",
+  "split": "fit",
+  "labels": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/validation",
+  "sourceRow": 1056,
+  "ledgarLabel": "Governing Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "t001",
+  "split": "test",
+  "labels": {
+   "clauseType": "assignment"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4765,
+  "ledgarLabel": "Assignments",
+  "headingStripped": false
+ },
+ {
+  "id": "t002",
+  "split": "test",
+  "labels": {
+   "clauseType": "termination"
+  },
+  "baseline": {
+   "clauseType": "assignment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1589,
+  "ledgarLabel": "Terminations",
+  "headingStripped": false
+ },
+ {
+  "id": "t003",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 473,
+  "ledgarLabel": "Headings",
+  "headingStripped": false
+ },
+ {
+  "id": "t004",
+  "split": "test",
+  "labels": {
+   "clauseType": "confidentiality"
+  },
+  "baseline": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3301,
+  "ledgarLabel": "Confidentiality",
+  "headingStripped": false
+ },
+ {
+  "id": "t005",
+  "split": "test",
+  "labels": {
+   "clauseType": "amendment"
+  },
+  "baseline": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3344,
+  "ledgarLabel": "Amendments",
+  "headingStripped": false
+ },
+ {
+  "id": "t006",
+  "split": "test",
+  "labels": {
+   "clauseType": "entireAgreement"
+  },
+  "baseline": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1845,
+  "ledgarLabel": "Entire Agreements",
+  "headingStripped": false
+ },
+ {
+  "id": "t007",
+  "split": "test",
+  "labels": {
+   "clauseType": "notices"
+  },
+  "baseline": {
+   "clauseType": "notices"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 388,
+  "ledgarLabel": "Notices",
+  "headingStripped": false
+ },
+ {
+  "id": "t008",
+  "split": "test",
+  "labels": {
+   "clauseType": "confidentiality"
+  },
+  "baseline": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1566,
+  "ledgarLabel": "Confidentiality",
+  "headingStripped": false
+ },
+ {
+  "id": "t009",
+  "split": "test",
+  "labels": {
+   "clauseType": "indemnification"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 471,
+  "ledgarLabel": "Indemnifications",
+  "headingStripped": false
+ },
+ {
+  "id": "t010",
+  "split": "test",
+  "labels": {
+   "clauseType": "indemnification"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4776,
+  "ledgarLabel": "Indemnifications",
+  "headingStripped": false
+ },
+ {
+  "id": "t011",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1063,
+  "ledgarLabel": "Insurances",
+  "headingStripped": false
+ },
+ {
+  "id": "t012",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 509,
+  "ledgarLabel": "Participations",
+  "headingStripped": false
+ },
+ {
+  "id": "t013",
+  "split": "test",
+  "labels": {
+   "clauseType": "entireAgreement"
+  },
+  "baseline": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1685,
+  "ledgarLabel": "Entire Agreements",
+  "headingStripped": false
+ },
+ {
+  "id": "t014",
+  "split": "test",
+  "labels": {
+   "clauseType": "indemnification"
+  },
+  "baseline": {
+   "clauseType": "indemnification"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1648,
+  "ledgarLabel": "Indemnifications",
+  "headingStripped": false
+ },
+ {
+  "id": "t015",
+  "split": "test",
+  "labels": {
+   "clauseType": "entireAgreement"
+  },
+  "baseline": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 94,
+  "ledgarLabel": "Entire Agreements",
+  "headingStripped": false
+ },
+ {
+  "id": "t016",
+  "split": "test",
+  "labels": {
+   "clauseType": "indemnification"
+  },
+  "baseline": {
+   "clauseType": "indemnification"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4168,
+  "ledgarLabel": "Indemnifications",
+  "headingStripped": false
+ },
+ {
+  "id": "t017",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "indemnification"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1839,
+  "ledgarLabel": "Remedies",
+  "headingStripped": false
+ },
+ {
+  "id": "t018",
+  "split": "test",
+  "labels": {
+   "clauseType": "governingLaw"
+  },
+  "baseline": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1192,
+  "ledgarLabel": "Governing Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "t019",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4074,
+  "ledgarLabel": "Capitalization",
+  "headingStripped": false
+ },
+ {
+  "id": "t020",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 591,
+  "ledgarLabel": "Withholdings",
+  "headingStripped": false
+ },
+ {
+  "id": "t021",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 443,
+  "ledgarLabel": "Litigations",
+  "headingStripped": false
+ },
+ {
+  "id": "t022",
+  "split": "test",
+  "labels": {
+   "clauseType": "assignment"
+  },
+  "baseline": {
+   "clauseType": "assignment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 556,
+  "ledgarLabel": "Assignments",
+  "headingStripped": false
+ },
+ {
+  "id": "t023",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 259,
+  "ledgarLabel": "Adjustments",
+  "headingStripped": false
+ },
+ {
+  "id": "t024",
+  "split": "test",
+  "labels": {
+   "clauseType": "assignment"
+  },
+  "baseline": {
+   "clauseType": "assignment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4641,
+  "ledgarLabel": "Assignments",
+  "headingStripped": false
+ },
+ {
+  "id": "t025",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1226,
+  "ledgarLabel": "Tax Withholdings",
+  "headingStripped": false
+ },
+ {
+  "id": "t026",
+  "split": "test",
+  "labels": {
+   "clauseType": "entireAgreement"
+  },
+  "baseline": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4470,
+  "ledgarLabel": "Entire Agreements",
+  "headingStripped": false
+ },
+ {
+  "id": "t027",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3359,
+  "ledgarLabel": "Arbitration",
+  "headingStripped": false
+ },
+ {
+  "id": "t028",
+  "split": "test",
+  "labels": {
+   "clauseType": "amendment"
+  },
+  "baseline": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4210,
+  "ledgarLabel": "Amendments",
+  "headingStripped": false
+ },
+ {
+  "id": "t029",
+  "split": "test",
+  "labels": {
+   "clauseType": "notices"
+  },
+  "baseline": {
+   "clauseType": "notices"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1811,
+  "ledgarLabel": "Notices",
+  "headingStripped": false
+ },
+ {
+  "id": "t030",
+  "split": "test",
+  "labels": {
+   "clauseType": "termination"
+  },
+  "baseline": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 882,
+  "ledgarLabel": "Terminations",
+  "headingStripped": false
+ },
+ {
+  "id": "t031",
+  "split": "test",
+  "labels": {
+   "clauseType": "confidentiality"
+  },
+  "baseline": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2032,
+  "ledgarLabel": "Confidentiality",
+  "headingStripped": false
+ },
+ {
+  "id": "t032",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 126,
+  "ledgarLabel": "Consent To Jurisdiction",
+  "headingStripped": false
+ },
+ {
+  "id": "t033",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2001,
+  "ledgarLabel": "No Defaults",
+  "headingStripped": false
+ },
+ {
+  "id": "t034",
+  "split": "test",
+  "labels": {
+   "clauseType": "governingLaw"
+  },
+  "baseline": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4388,
+  "ledgarLabel": "Governing Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "t035",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "notices"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2323,
+  "ledgarLabel": "Payments",
+  "headingStripped": false
+ },
+ {
+  "id": "t036",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 317,
+  "ledgarLabel": "Change In Control",
+  "headingStripped": false
+ },
+ {
+  "id": "t037",
+  "split": "test",
+  "labels": {
+   "clauseType": "amendment"
+  },
+  "baseline": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2696,
+  "ledgarLabel": "Amendments",
+  "headingStripped": false
+ },
+ {
+  "id": "t038",
+  "split": "test",
+  "labels": {
+   "clauseType": "entireAgreement"
+  },
+  "baseline": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4415,
+  "ledgarLabel": "Entire Agreements",
+  "headingStripped": false
+ },
+ {
+  "id": "t039",
+  "split": "test",
+  "labels": {
+   "clauseType": "confidentiality"
+  },
+  "baseline": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 773,
+  "ledgarLabel": "Confidentiality",
+  "headingStripped": false
+ },
+ {
+  "id": "t040",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 922,
+  "ledgarLabel": "Construction",
+  "headingStripped": false
+ },
+ {
+  "id": "t041",
+  "split": "test",
+  "labels": {
+   "clauseType": "notices"
+  },
+  "baseline": {
+   "clauseType": "notices"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4086,
+  "ledgarLabel": "Notices",
+  "headingStripped": false
+ },
+ {
+  "id": "t042",
+  "split": "test",
+  "labels": {
+   "clauseType": "indemnification"
+  },
+  "baseline": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1148,
+  "ledgarLabel": "Indemnifications",
+  "headingStripped": false
+ },
+ {
+  "id": "t043",
+  "split": "test",
+  "labels": {
+   "clauseType": "termination"
+  },
+  "baseline": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4121,
+  "ledgarLabel": "Terminations",
+  "headingStripped": false
+ },
+ {
+  "id": "t044",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1993,
+  "ledgarLabel": "Vesting",
+  "headingStripped": false
+ },
+ {
+  "id": "t045",
+  "split": "test",
+  "labels": {
+   "clauseType": "confidentiality"
+  },
+  "baseline": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 797,
+  "ledgarLabel": "Confidentiality",
+  "headingStripped": false
+ },
+ {
+  "id": "t046",
+  "split": "test",
+  "labels": {
+   "clauseType": "amendment"
+  },
+  "baseline": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3109,
+  "ledgarLabel": "Amendments",
+  "headingStripped": false
+ },
+ {
+  "id": "t047",
+  "split": "test",
+  "labels": {
+   "clauseType": "confidentiality"
+  },
+  "baseline": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2803,
+  "ledgarLabel": "Confidentiality",
+  "headingStripped": false
+ },
+ {
+  "id": "t048",
+  "split": "test",
+  "labels": {
+   "clauseType": "notices"
+  },
+  "baseline": {
+   "clauseType": "notices"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1784,
+  "ledgarLabel": "Notices",
+  "headingStripped": false
+ },
+ {
+  "id": "t049",
+  "split": "test",
+  "labels": {
+   "clauseType": "indemnification"
+  },
+  "baseline": {
+   "clauseType": "indemnification"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3903,
+  "ledgarLabel": "Indemnifications",
+  "headingStripped": false
+ },
+ {
+  "id": "t050",
+  "split": "test",
+  "labels": {
+   "clauseType": "amendment"
+  },
+  "baseline": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3704,
+  "ledgarLabel": "Amendments",
+  "headingStripped": false
+ },
+ {
+  "id": "t051",
+  "split": "test",
+  "labels": {
+   "clauseType": "confidentiality"
+  },
+  "baseline": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4909,
+  "ledgarLabel": "Confidentiality",
+  "headingStripped": false
+ },
+ {
+  "id": "t052",
+  "split": "test",
+  "labels": {
+   "clauseType": "amendment"
+  },
+  "baseline": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3968,
+  "ledgarLabel": "Amendments",
+  "headingStripped": false
+ },
+ {
+  "id": "t053",
+  "split": "test",
+  "labels": {
+   "clauseType": "notices"
+  },
+  "baseline": {
+   "clauseType": "notices"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2905,
+  "ledgarLabel": "Notices",
+  "headingStripped": false
+ },
+ {
+  "id": "t054",
+  "split": "test",
+  "labels": {
+   "clauseType": "indemnification"
+  },
+  "baseline": {
+   "clauseType": "indemnification"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1997,
+  "ledgarLabel": "Indemnifications",
+  "headingStripped": false
+ },
+ {
+  "id": "t055",
+  "split": "test",
+  "labels": {
+   "clauseType": "notices"
+  },
+  "baseline": {
+   "clauseType": "notices"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3042,
+  "ledgarLabel": "Notices",
+  "headingStripped": false
+ },
+ {
+  "id": "t056",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3129,
+  "ledgarLabel": "Transactions With Affiliates",
+  "headingStripped": false
+ },
+ {
+  "id": "t057",
+  "split": "test",
+  "labels": {
+   "clauseType": "governingLaw"
+  },
+  "baseline": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3836,
+  "ledgarLabel": "Governing Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "t058",
+  "split": "test",
+  "labels": {
+   "clauseType": "assignment"
+  },
+  "baseline": {
+   "clauseType": "assignment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1318,
+  "ledgarLabel": "Assignments",
+  "headingStripped": false
+ },
+ {
+  "id": "t059",
+  "split": "test",
+  "labels": {
+   "clauseType": "entireAgreement"
+  },
+  "baseline": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2623,
+  "ledgarLabel": "Entire Agreements",
+  "headingStripped": false
+ },
+ {
+  "id": "t060",
+  "split": "test",
+  "labels": {
+   "clauseType": "confidentiality"
+  },
+  "baseline": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4109,
+  "ledgarLabel": "Confidentiality",
+  "headingStripped": false
+ },
+ {
+  "id": "t061",
+  "split": "test",
+  "labels": {
+   "clauseType": "termination"
+  },
+  "baseline": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3558,
+  "ledgarLabel": "Terminations",
+  "headingStripped": false
+ },
+ {
+  "id": "t062",
+  "split": "test",
+  "labels": {
+   "clauseType": "assignment"
+  },
+  "baseline": {
+   "clauseType": "assignment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 948,
+  "ledgarLabel": "Assignments",
+  "headingStripped": false
+ },
+ {
+  "id": "t063",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "assignment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 57,
+  "ledgarLabel": "Further Assurances",
+  "headingStripped": false
+ },
+ {
+  "id": "t064",
+  "split": "test",
+  "labels": {
+   "clauseType": "governingLaw"
+  },
+  "baseline": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4479,
+  "ledgarLabel": "Governing Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "t065",
+  "split": "test",
+  "labels": {
+   "clauseType": "governingLaw"
+  },
+  "baseline": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1129,
+  "ledgarLabel": "Governing Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "t066",
+  "split": "test",
+  "labels": {
+   "clauseType": "termination"
+  },
+  "baseline": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 454,
+  "ledgarLabel": "Terminations",
+  "headingStripped": false
+ },
+ {
+  "id": "t067",
+  "split": "test",
+  "labels": {
+   "clauseType": "assignment"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4289,
+  "ledgarLabel": "Assignments",
+  "headingStripped": false
+ },
+ {
+  "id": "t068",
+  "split": "test",
+  "labels": {
+   "clauseType": "governingLaw"
+  },
+  "baseline": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1735,
+  "ledgarLabel": "Governing Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "t069",
+  "split": "test",
+  "labels": {
+   "clauseType": "assignment"
+  },
+  "baseline": {
+   "clauseType": "assignment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1597,
+  "ledgarLabel": "Assignments",
+  "headingStripped": false
+ },
+ {
+  "id": "t070",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4532,
+  "ledgarLabel": "Base Salary",
+  "headingStripped": false
+ },
+ {
+  "id": "t071",
+  "split": "test",
+  "labels": {
+   "clauseType": "assignment"
+  },
+  "baseline": {
+   "clauseType": "assignment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4004,
+  "ledgarLabel": "Assignments",
+  "headingStripped": false
+ },
+ {
+  "id": "t072",
+  "split": "test",
+  "labels": {
+   "clauseType": "entireAgreement"
+  },
+  "baseline": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4485,
+  "ledgarLabel": "Entire Agreements",
+  "headingStripped": false
+ },
+ {
+  "id": "t073",
+  "split": "test",
+  "labels": {
+   "clauseType": "termination"
+  },
+  "baseline": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2234,
+  "ledgarLabel": "Terminations",
+  "headingStripped": false
+ },
+ {
+  "id": "t074",
+  "split": "test",
+  "labels": {
+   "clauseType": "notices"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 731,
+  "ledgarLabel": "Notices",
+  "headingStripped": false
+ },
+ {
+  "id": "t075",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3644,
+  "ledgarLabel": "Counterparts",
+  "headingStripped": false
+ },
+ {
+  "id": "t076",
+  "split": "test",
+  "labels": {
+   "clauseType": "confidentiality"
+  },
+  "baseline": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2096,
+  "ledgarLabel": "Confidentiality",
+  "headingStripped": false
+ },
+ {
+  "id": "t077",
+  "split": "test",
+  "labels": {
+   "clauseType": "indemnification"
+  },
+  "baseline": {
+   "clauseType": "indemnification"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2178,
+  "ledgarLabel": "Indemnifications",
+  "headingStripped": false
+ },
+ {
+  "id": "t078",
+  "split": "test",
+  "labels": {
+   "clauseType": "governingLaw"
+  },
+  "baseline": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4218,
+  "ledgarLabel": "Governing Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "t079",
+  "split": "test",
+  "labels": {
+   "clauseType": "confidentiality"
+  },
+  "baseline": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3276,
+  "ledgarLabel": "Confidentiality",
+  "headingStripped": false
+ },
+ {
+  "id": "t080",
+  "split": "test",
+  "labels": {
+   "clauseType": "assignment"
+  },
+  "baseline": {
+   "clauseType": "assignment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4431,
+  "ledgarLabel": "Assignments",
+  "headingStripped": false
+ },
+ {
+  "id": "t081",
+  "split": "test",
+  "labels": {
+   "clauseType": "indemnification"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2466,
+  "ledgarLabel": "Indemnifications",
+  "headingStripped": false
+ },
+ {
+  "id": "t082",
+  "split": "test",
+  "labels": {
+   "clauseType": "termination"
+  },
+  "baseline": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2457,
+  "ledgarLabel": "Terminations",
+  "headingStripped": false
+ },
+ {
+  "id": "t083",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1482,
+  "ledgarLabel": "Severability",
+  "headingStripped": false
+ },
+ {
+  "id": "t084",
+  "split": "test",
+  "labels": {
+   "clauseType": "termination"
+  },
+  "baseline": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4309,
+  "ledgarLabel": "Terminations",
+  "headingStripped": false
+ },
+ {
+  "id": "t085",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2300,
+  "ledgarLabel": "Consents",
+  "headingStripped": false
+ },
+ {
+  "id": "t086",
+  "split": "test",
+  "labels": {
+   "clauseType": "confidentiality"
+  },
+  "baseline": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3338,
+  "ledgarLabel": "Confidentiality",
+  "headingStripped": false
+ },
+ {
+  "id": "t087",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1972,
+  "ledgarLabel": "Employment",
+  "headingStripped": false
+ },
+ {
+  "id": "t088",
+  "split": "test",
+  "labels": {
+   "clauseType": "notices"
+  },
+  "baseline": {
+   "clauseType": "notices"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4717,
+  "ledgarLabel": "Notices",
+  "headingStripped": false
+ },
+ {
+  "id": "t089",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3318,
+  "ledgarLabel": "Subsidiaries",
+  "headingStripped": true
+ },
+ {
+  "id": "t090",
+  "split": "test",
+  "labels": {
+   "clauseType": "assignment"
+  },
+  "baseline": {
+   "clauseType": "assignment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2888,
+  "ledgarLabel": "Assignments",
+  "headingStripped": false
+ },
+ {
+  "id": "t091",
+  "split": "test",
+  "labels": {
+   "clauseType": "amendment"
+  },
+  "baseline": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3690,
+  "ledgarLabel": "Amendments",
+  "headingStripped": false
+ },
+ {
+  "id": "t092",
+  "split": "test",
+  "labels": {
+   "clauseType": "termination"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4793,
+  "ledgarLabel": "Terminations",
+  "headingStripped": false
+ },
+ {
+  "id": "t093",
+  "split": "test",
+  "labels": {
+   "clauseType": "indemnification"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3961,
+  "ledgarLabel": "Indemnifications",
+  "headingStripped": false
+ },
+ {
+  "id": "t094",
+  "split": "test",
+  "labels": {
+   "clauseType": "confidentiality"
+  },
+  "baseline": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 161,
+  "ledgarLabel": "Confidentiality",
+  "headingStripped": false
+ },
+ {
+  "id": "t095",
+  "split": "test",
+  "labels": {
+   "clauseType": "entireAgreement"
+  },
+  "baseline": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2670,
+  "ledgarLabel": "Entire Agreements",
+  "headingStripped": false
+ },
+ {
+  "id": "t096",
+  "split": "test",
+  "labels": {
+   "clauseType": "notices"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3423,
+  "ledgarLabel": "Notices",
+  "headingStripped": false
+ },
+ {
+  "id": "t097",
+  "split": "test",
+  "labels": {
+   "clauseType": "termination"
+  },
+  "baseline": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4416,
+  "ledgarLabel": "Terminations",
+  "headingStripped": false
+ },
+ {
+  "id": "t098",
+  "split": "test",
+  "labels": {
+   "clauseType": "assignment"
+  },
+  "baseline": {
+   "clauseType": "assignment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3796,
+  "ledgarLabel": "Assignments",
+  "headingStripped": false
+ },
+ {
+  "id": "t099",
+  "split": "test",
+  "labels": {
+   "clauseType": "entireAgreement"
+  },
+  "baseline": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 956,
+  "ledgarLabel": "Entire Agreements",
+  "headingStripped": false
+ },
+ {
+  "id": "t100",
+  "split": "test",
+  "labels": {
+   "clauseType": "assignment"
+  },
+  "baseline": {
+   "clauseType": "assignment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2669,
+  "ledgarLabel": "Assignments",
+  "headingStripped": false
+ },
+ {
+  "id": "t101",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1739,
+  "ledgarLabel": "Intellectual Property",
+  "headingStripped": false
+ },
+ {
+  "id": "t102",
+  "split": "test",
+  "labels": {
+   "clauseType": "entireAgreement"
+  },
+  "baseline": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 106,
+  "ledgarLabel": "Entire Agreements",
+  "headingStripped": false
+ },
+ {
+  "id": "t103",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "assignment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1859,
+  "ledgarLabel": "Brokers",
+  "headingStripped": false
+ },
+ {
+  "id": "t104",
+  "split": "test",
+  "labels": {
+   "clauseType": "assignment"
+  },
+  "baseline": {
+   "clauseType": "assignment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 372,
+  "ledgarLabel": "Assignments",
+  "headingStripped": false
+ },
+ {
+  "id": "t105",
+  "split": "test",
+  "labels": {
+   "clauseType": "confidentiality"
+  },
+  "baseline": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 61,
+  "ledgarLabel": "Confidentiality",
+  "headingStripped": false
+ },
+ {
+  "id": "t106",
+  "split": "test",
+  "labels": {
+   "clauseType": "confidentiality"
+  },
+  "baseline": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 321,
+  "ledgarLabel": "Confidentiality",
+  "headingStripped": false
+ },
+ {
+  "id": "t107",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 272,
+  "ledgarLabel": "Survival",
+  "headingStripped": false
+ },
+ {
+  "id": "t108",
+  "split": "test",
+  "labels": {
+   "clauseType": "governingLaw"
+  },
+  "baseline": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 64,
+  "ledgarLabel": "Governing Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "t109",
+  "split": "test",
+  "labels": {
+   "clauseType": "entireAgreement"
+  },
+  "baseline": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3521,
+  "ledgarLabel": "Entire Agreements",
+  "headingStripped": false
+ },
+ {
+  "id": "t110",
+  "split": "test",
+  "labels": {
+   "clauseType": "governingLaw"
+  },
+  "baseline": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1267,
+  "ledgarLabel": "Governing Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "t111",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2638,
+  "ledgarLabel": "Interests",
+  "headingStripped": false
+ },
+ {
+  "id": "t112",
+  "split": "test",
+  "labels": {
+   "clauseType": "indemnification"
+  },
+  "baseline": {
+   "clauseType": "indemnification"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2107,
+  "ledgarLabel": "Indemnifications",
+  "headingStripped": false
+ },
+ {
+  "id": "t113",
+  "split": "test",
+  "labels": {
+   "clauseType": "termination"
+  },
+  "baseline": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3156,
+  "ledgarLabel": "Terminations",
+  "headingStripped": false
+ },
+ {
+  "id": "t114",
+  "split": "test",
+  "labels": {
+   "clauseType": "termination"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 871,
+  "ledgarLabel": "Terminations",
+  "headingStripped": false
+ },
+ {
+  "id": "t115",
+  "split": "test",
+  "labels": {
+   "clauseType": "amendment"
+  },
+  "baseline": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4659,
+  "ledgarLabel": "Amendments",
+  "headingStripped": false
+ },
+ {
+  "id": "t116",
+  "split": "test",
+  "labels": {
+   "clauseType": "amendment"
+  },
+  "baseline": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2362,
+  "ledgarLabel": "Amendments",
+  "headingStripped": false
+ },
+ {
+  "id": "t117",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1883,
+  "ledgarLabel": "Warranties",
+  "headingStripped": false
+ },
+ {
+  "id": "t118",
+  "split": "test",
+  "labels": {
+   "clauseType": "governingLaw"
+  },
+  "baseline": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2976,
+  "ledgarLabel": "Governing Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "t119",
+  "split": "test",
+  "labels": {
+   "clauseType": "notices"
+  },
+  "baseline": {
+   "clauseType": "notices"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2129,
+  "ledgarLabel": "Notices",
+  "headingStripped": false
+ },
+ {
+  "id": "t120",
+  "split": "test",
+  "labels": {
+   "clauseType": "governingLaw"
+  },
+  "baseline": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4752,
+  "ledgarLabel": "Governing Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "t121",
+  "split": "test",
+  "labels": {
+   "clauseType": "notices"
+  },
+  "baseline": {
+   "clauseType": "notices"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1734,
+  "ledgarLabel": "Notices",
+  "headingStripped": false
+ },
+ {
+  "id": "t122",
+  "split": "test",
+  "labels": {
+   "clauseType": "indemnification"
+  },
+  "baseline": {
+   "clauseType": "indemnification"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3345,
+  "ledgarLabel": "Indemnifications",
+  "headingStripped": false
+ },
+ {
+  "id": "t123",
+  "split": "test",
+  "labels": {
+   "clauseType": "notices"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1302,
+  "ledgarLabel": "Notices",
+  "headingStripped": false
+ },
+ {
+  "id": "t124",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3168,
+  "ledgarLabel": "Financial Statements",
+  "headingStripped": false
+ },
+ {
+  "id": "t125",
+  "split": "test",
+  "labels": {
+   "clauseType": "amendment"
+  },
+  "baseline": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2147,
+  "ledgarLabel": "Amendments",
+  "headingStripped": false
+ },
+ {
+  "id": "t126",
+  "split": "test",
+  "labels": {
+   "clauseType": "entireAgreement"
+  },
+  "baseline": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2556,
+  "ledgarLabel": "Entire Agreements",
+  "headingStripped": false
+ },
+ {
+  "id": "t127",
+  "split": "test",
+  "labels": {
+   "clauseType": "notices"
+  },
+  "baseline": {
+   "clauseType": "notices"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2549,
+  "ledgarLabel": "Notices",
+  "headingStripped": false
+ },
+ {
+  "id": "t128",
+  "split": "test",
+  "labels": {
+   "clauseType": "assignment"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2317,
+  "ledgarLabel": "Assignments",
+  "headingStripped": false
+ },
+ {
+  "id": "t129",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 86,
+  "ledgarLabel": "Taxes",
+  "headingStripped": false
+ },
+ {
+  "id": "t130",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "indemnification"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4598,
+  "ledgarLabel": "Costs",
+  "headingStripped": false
+ },
+ {
+  "id": "t131",
+  "split": "test",
+  "labels": {
+   "clauseType": "governingLaw"
+  },
+  "baseline": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 708,
+  "ledgarLabel": "Governing Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "t132",
+  "split": "test",
+  "labels": {
+   "clauseType": "indemnification"
+  },
+  "baseline": {
+   "clauseType": "indemnification"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 186,
+  "ledgarLabel": "Indemnifications",
+  "headingStripped": false
+ },
+ {
+  "id": "t133",
+  "split": "test",
+  "labels": {
+   "clauseType": "termination"
+  },
+  "baseline": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4016,
+  "ledgarLabel": "Terminations",
+  "headingStripped": false
+ },
+ {
+  "id": "t134",
+  "split": "test",
+  "labels": {
+   "clauseType": "indemnification"
+  },
+  "baseline": {
+   "clauseType": "indemnification"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 390,
+  "ledgarLabel": "Indemnifications",
+  "headingStripped": false
+ },
+ {
+  "id": "t135",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 237,
+  "ledgarLabel": "Liens",
+  "headingStripped": false
+ },
+ {
+  "id": "t136",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1692,
+  "ledgarLabel": "Solvency",
+  "headingStripped": false
+ },
+ {
+  "id": "t137",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "other"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2417,
+  "ledgarLabel": "Non-Disparagement",
+  "headingStripped": false
+ },
+ {
+  "id": "t138",
+  "split": "test",
+  "labels": {
+   "clauseType": "amendment"
+  },
+  "baseline": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 3323,
+  "ledgarLabel": "Amendments",
+  "headingStripped": false
+ },
+ {
+  "id": "t139",
+  "split": "test",
+  "labels": {
+   "clauseType": "notices"
+  },
+  "baseline": {
+   "clauseType": "notices"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 946,
+  "ledgarLabel": "Notices",
+  "headingStripped": false
+ },
+ {
+  "id": "t140",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 71,
+  "ledgarLabel": "Terms",
+  "headingStripped": false
+ },
+ {
+  "id": "t141",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2465,
+  "ledgarLabel": "Effective Dates",
+  "headingStripped": false
+ },
+ {
+  "id": "t142",
+  "split": "test",
+  "labels": {
+   "clauseType": "governingLaw"
+  },
+  "baseline": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1103,
+  "ledgarLabel": "Governing Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "t143",
+  "split": "test",
+  "labels": {
+   "clauseType": "entireAgreement"
+  },
+  "baseline": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4728,
+  "ledgarLabel": "Entire Agreements",
+  "headingStripped": false
+ },
+ {
+  "id": "t144",
+  "split": "test",
+  "labels": {
+   "clauseType": "entireAgreement"
+  },
+  "baseline": {
+   "clauseType": "entireAgreement"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2974,
+  "ledgarLabel": "Entire Agreements",
+  "headingStripped": false
+ },
+ {
+  "id": "t145",
+  "split": "test",
+  "labels": {
+   "clauseType": "amendment"
+  },
+  "baseline": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1349,
+  "ledgarLabel": "Amendments",
+  "headingStripped": false
+ },
+ {
+  "id": "t146",
+  "split": "test",
+  "labels": {
+   "clauseType": "amendment"
+  },
+  "baseline": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 4708,
+  "ledgarLabel": "Amendments",
+  "headingStripped": false
+ },
+ {
+  "id": "t147",
+  "split": "test",
+  "labels": {
+   "clauseType": "governingLaw"
+  },
+  "baseline": {
+   "clauseType": "governingLaw"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 157,
+  "ledgarLabel": "Governing Laws",
+  "headingStripped": false
+ },
+ {
+  "id": "t148",
+  "split": "test",
+  "labels": {
+   "clauseType": "other"
+  },
+  "baseline": {
+   "clauseType": "confidentiality"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 862,
+  "ledgarLabel": "Disclosures",
+  "headingStripped": false
+ },
+ {
+  "id": "t149",
+  "split": "test",
+  "labels": {
+   "clauseType": "termination"
+  },
+  "baseline": {
+   "clauseType": "termination"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 1334,
+  "ledgarLabel": "Terminations",
+  "headingStripped": false
+ },
+ {
+  "id": "t150",
+  "split": "test",
+  "labels": {
+   "clauseType": "amendment"
+  },
+  "baseline": {
+   "clauseType": "amendment"
+  },
+  "source": "lex_glue/ledgar/test",
+  "sourceRow": 2079,
+  "ledgarLabel": "Amendments",
+  "headingStripped": false
+ }
+]

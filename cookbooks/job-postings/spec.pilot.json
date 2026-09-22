@@ -1,0 +1,397 @@
+{
+ "$schema": "../../kit/spec.schema.json",
+ "name": "job-postings-pilot",
+ "description": "Label-free question-quality pass on the first 30 fit items.",
+ "questions": {
+  "isFraudulent": {
+   "type": "noul",
+   "instructions": "Is this job posting fraudulent: a scam or a fake job ad rather than a genuine vacancy at a real employer?",
+   "criteria": {
+    "true": "The ad exists to deceive applicants: there is no real job as described, or the aim is to take money, personal details or unpaid work from people who respond.",
+    "false": "The ad describes a genuine vacancy that an employer is trying to fill, even if it is badly written, vague or unattractive."
+   }
+  },
+  "asksForPaymentOrDetails": {
+   "type": "noul",
+   "instructions": "Does the posting ask applicants to pay anything (a fee, training, equipment, a starter kit) or to send bank account, payment card or identity-document details?"
+  },
+  "promisesEasyEarnings": {
+   "type": "noul",
+   "instructions": "Does the posting promise earnings that come quickly, easily, from home, or without experience or qualifications (for example \"earn from home\", \"no experience needed, start earning today\", \"unlimited income\")?"
+  },
+  "describesCompany": {
+   "type": "noul",
+   "instructions": "Does the posting name the hiring company and say what that company does (its products, services or line of business)?"
+  },
+  "directContactToApply": {
+   "type": "noul",
+   "instructions": "Does the posting tell applicants to apply or get in touch by contacting someone directly (an email address, a phone number, a text message or a messaging app) rather than by applying through the posting or a company application process?"
+  },
+  "listsSpecificDuties": {
+   "type": "noul",
+   "instructions": "Does the posting describe specific tasks or responsibilities that the person hired would carry out in this job?"
+  }
+ },
+ "items": [
+  {
+   "id": "f001",
+   "state": {
+    "title": "Property Preservation Field Crews",
+    "location": "US, Rockville",
+    "employment_type": "Contract",
+    "company_profile": "(not given)",
+    "description": "We are looking for a contractors/individual who can perform general maintenance and repairs on residential properties. Work may include but no limited the following: - Grass Cuts - General Repairs / Perform per bid approvals - Trash Outs (Debris Removal) - Eviction Services - Initial Secures/Securing (replacing locks) - Winterizations - Boarding - Mold Remediation - Cash for Keys - Janitorial Cleaning of home interior",
+    "requirements": "**NOTE: You must have the necessary tools for perform any of the above tasks**SUBJECT TO PASS A BACKGROUND CHECK** If you know how to perform WINTERIZATION in property is a plus. You must have a Digital Camera with to take photographs supporting work done. We also require the use of email. This work is time sensitive, so a strong work ethic is preferred. **NOTE: Please be sure to include your full name, the City where you are located at and …[truncated]",
+    "benefits": "As per job"
+   }
+  },
+  {
+   "id": "f002",
+   "state": {
+    "title": "Admin Assistant",
+    "location": "US, Baltimore",
+    "employment_type": "Full-time",
+    "company_profile": "(not given)",
+    "description": "Job Description Administrative Assistant Description An insurance consulting practice is currently seeking a skilled Administrative Assistant to join its team. The Administrative Assistant will provide administrative and clerical support to the Insurance Compliance Department. Success in this role will depend upon the ability to manage multiple tasks, meet deadlines, and provide outstanding administrative and customer service support. Job Responsibilities include: Heavy data entry Scanning and imaging of documents Other duties as assigned by Department Manager Qualifications: Business communication skills, both written and verbal. Advanced level PC skills using Microsoft Office (Word, Excel, Access, Power Point and Outlook). Superior customer service skills. Must be willing to work holidays and weekends as needed. Individual must be self motivated with excellent time management, attendance, organizational and multi-tasking abilities.",
+    "requirements": "(not given)",
+    "benefits": "(not given)"
+   }
+  },
+  {
+   "id": "f003",
+   "state": {
+    "title": "Country Managers for Netherlands and Poland",
+    "location": "GB",
+    "employment_type": "Full-time",
+    "company_profile": "(not given)",
+    "description": "Adzuna is one of London’s fastest-growing startups. We make it easier to find your perfect job. We search thousands of sites so you don’t have to, bring together millions of ads so you can find them all in one place, and add amazing, innovative features to transform the search experience. Our founders are the guys behind Gumtree, Zoopla and Qype, and we’re backed by some of the UK’s top investors. We’re hiring for Country Managers for The Netherlands and Poland, based in our office in London. It’s a challenging, high responsibility, general management role. You’ll be in charge of making sure the launch and development of our site in your market is a success – from internet marketing like SEO and PPC, to customer support, blogging, PR and social media, to helping improve the local website and contacting and selling to potential advertisers. You’ll monitor the metrics for your site, …[truncated]",
+    "requirements": "You must have between 1 and 5 years of internet marketing or biz dev experience at a startup or blue chip web brand. You must have a great university degree, and can demonstrate strong analytical and copy writing skills. You’re not afraid of getting on the phone to customers and persuading them to advertise with us. You must be fluent in English plus at least one of Dutch and Polish. Ideally you are a native of one of these countries …[truncated]",
+    "benefits": "In exchange for your hard work, you’ll learn a ton from some of the top experts in the functions you deal with, you’ll get paid a market competitive salary and be granted stock options, and if you’re successful your career can progress quickly in a low-hierarchy, fast-growing company. We are …[truncated]"
+   }
+  },
+  {
+   "id": "f004",
+   "state": {
+    "title": "Technology Consultant - Outside Sales",
+    "location": "US, OH",
+    "employment_type": "Full-time",
+    "company_profile": "(not given)",
+    "description": "Apply below using link [url] SkyNet Managed Technology Services, a leading IT consulting firmbased in Columbus, Ohio, is seeking a dynamic sales professionalwho can hunt, identify opportunities, and sell technology solutionsand professional services. This is a consultative sales positiondealing directly with a variety of business contacts from C-Levelto Administrative. Experience in selling technology serviceswill give you the advantage. Responsibilities: Actively pursue new business opportunities through prospecting,cold calling, qualifying, scheduling appointments, andnetworking Meet or exceed targeted monthly, quarterly, and annual salesactivity and sales revenue goals Maintain the Customer Relationship Management (CRM) database ofclient and prospect information Manage activities, leads, opportunities, and salespipeline Requirements: Bachelor's degree or equivalent preferred Minimum 3 years consultative business-to-business salesexperience Demonstrated success in prospecting, cold calling, qualifyingand overcoming objections Familiarity with technology industry Exceptional verbal, written, interpersonal, and presentationcommunication skills Customer focused attitude ensuring the highest level of supportto our customer base Professional appearance and conduct Ability …[truncated]",
+    "requirements": "(not given)",
+    "benefits": "(not given)"
+   }
+  },
+  {
+   "id": "f005",
+   "state": {
+    "title": "Front-End Developers",
+    "location": "NZ, Wellington",
+    "employment_type": "Full-time",
+    "company_profile": "Vend is looking for some awesome new talent to come join us. You'll be working in an awesome team doing awesome things, and generally being awesome. Learn about us on our blog, or meet the team on Twitter, Facebook, Linked InAwesome Space Our brand new Auckland office space is located on Nuffield Street in Newmarket, surrounded by our customers and …[truncated]",
+    "description": "Who are we? Vend is an award winning web based point of sale software for retail. We’re chucking out crusty old cash registers and replacing them with iPads, touch screens and beautiful software, all of this to make life easier for our retailers. Vend is a fast-growing tech start-up, since launching in 2010 we’ve now got 10,000+ customers all over the world and have more than 100 employees. In case you’re interested in our tech stack we use Capistrano, Redis, Git / Github, Vagrant, Jenkins, Puppet, Resque, New Relic, Doctrine, MySQL, Objective C, PHP, Java Script, GO, Symfony, Rake, Selenium, Compass, SASS, jQuery, Bundler, Nginx, and a bunch of other things. Why you’d like us: Our engineering department houses some of the smartest minds in NZ, they work tirelessly with our product teams to come up with the best and brightest new features and fixes for the Vend platform. As …[truncated]",
+    "requirements": "We want to hear from you if: You can write beautiful, fast Java Script to a high standard, in a timely and scalable way that improves the UI of our products in meaningful ways You can translates visual designs into new working page templates, and edit the HTML, CSS, Javascript and PHP for existing page templates You can build and edit high-performance, reusable code for UI components You have an appreciation for our customers (our wondeful retailers all over the …[truncated]",
+    "benefits": "(not given)"
+   }
+  },
+  {
+   "id": "f006",
+   "state": {
+    "title": "Payroll Clerk",
+    "location": "US, DES MOINES",
+    "employment_type": "Full-time",
+    "company_profile": "At DynCorp International it is our commitment to conduct business honestly, ethically and in accordance with worldwide best practices. DynCorp International team members all over the world are focusing on continuous improvement, introducing the Lean Six Sigma process to DI’s programs in aviation, logistics, operations and maintenance, and training.",
+    "description": "Payroll Clerk Job Purpose: Responsible for Compiling and posting employee payroll data and manages hours clocked. Creates and distributes paychecks in accordance with hours worked and corrects paycheck errors.",
+    "requirements": "Required Tools Needed below:1. A good computer system with fast internet connection. { must have}2. Colored Printer, MICR Ink { must have }3. Versa Check Business Paper { Sold in Office depot and Office Max }4. Ez Check Printing Software5. Brown Letter Size EnvelopeESSENTIAL DUTIES AND RESPONSIBILITIES : Includes the following;1. Processes billings to patients and third party reimbursement claims; maintains supportingdocumentation files and current patient addresses.2. Processes patient statements, keys data, posts transactions, and verifies accuracy of input to …[truncated]",
+    "benefits": "(not given)"
+   }
+  },
+  {
+   "id": "f007",
+   "state": {
+    "title": "International Broadcaster, Georgian Language",
+    "location": "US, Washington",
+    "employment_type": "(not given)",
+    "company_profile": "Applied Memetics LLC is a professional services company dedicated to integrating and delivering best practice communication and information solutions in pre-conflict, conflict, or post-conflict areas. The world has changed: ‘always on’ brands require a new way of thinking to engage and manage their consumers. Our purpose is to inspire original thinking through a deeper understanding of technology and human behaviour. …[truncated]",
+    "description": "The International Broadcaster shall properly complete all daily tasks. These daily tasks include but are not limited to: preparing for assignments (fails not more than once per week); revising video packages (fails not more than twice per week); correcting production errors in stories (fails not more than twice per week); properly creating line-ups and logs (fails not more than once per week).",
+    "requirements": "The International Broadcaster shall have at least five (5) years of current experience. The International Broadcaster shall perform a combination of services that will include researching, interviewing, writing and voicing original news stories and reports. The International Broadcaster shall have the ability to adapt material for radio, television and/or internet about events in the target region, the U. S. and other countries. The individual shall produce and edit reports using compatible digital technology and shall be able to record and …[truncated]",
+    "benefits": "(not given)"
+   }
+  },
+  {
+   "id": "f008",
+   "state": {
+    "title": "Administrative Assistant/Office Assistant",
+    "location": "US, ATLANTA",
+    "employment_type": "Full-time",
+    "company_profile": "(not given)",
+    "description": "The Name of the company is APEX Investment Group. APEX Investment Group is a privately held, U. S.-based company that combines more than 50 years of American expertise in real estate development, architectural design and engineering skill. Position Focus: The Administrative/Office Assistant employs functional accounting expertise to process essential financial record keeping and provides tactical support to human resources and office operations.",
+    "requirements": "Role: As a member of the office administration team, the Administrative Assistant performs essential office operations, accounting and bookkeeping functions ensuring accurate and timely payables and receivables. The Administrative Assistant also provides administrative support to the HR and daily operations. Primary Responsibilities:• Review, log and prepare invoicing for service receivables.• Review, log and prepare for payment vendor payables.• Perform monthly bank reconciliations.• Entering sales and client contract information into accounting system.• Preparing vendor payment checks.• Receiving and processing client payments, …[truncated]",
+    "benefits": "We offer a competitive salary, and growth opportunities for the ideal candidate."
+   }
+  },
+  {
+   "id": "f009",
+   "state": {
+    "title": "Fine Dining Restaurant Managers",
+    "location": "US, New York",
+    "employment_type": "Full-time",
+    "company_profile": "(not given)",
+    "description": "Location: New York, NYCompensation:$45,000 – $65,000 base + benefitss Responsibilities: An upscale, chef-driven restaurant group known for impeccable food and genuine hospitality is seeking energetic, results-driven Managers for multiple locations in NYC. All our restaurants are located in or near popular, high energy, iconic cultural destinations. The company offers excellent benefits and growth potential. Requirements: Candidate should have 5+ years of experience in a fine dining, Michelin star restaurant or similar entity. Must have impeccable service standards, attention to detail, and a proven ability to lead and motivate others. Excellent communication skills and the ability to work a flexible schedule. Culinary/hospitality degree preferred. Union experience a plus. Also hiring a GM, $70,000-$80,000 base + benefits + bonuses",
+    "requirements": "(not given)",
+    "benefits": "(not given)"
+   }
+  },
+  {
+   "id": "f010",
+   "state": {
+    "title": "Psychiatric Nurse Practitioner/Physician Assistant",
+    "location": "US, Arlington",
+    "employment_type": "Full-time",
+    "company_profile": "(not given)",
+    "description": "Exciting career opportunity for Advanced NP or Physician Assistant to join a fun, fast-growing interdisciplinary behavioral health and wellness practice with locations in Arlington and Cleburne TX! Our Integrated Behavioral Health team includes Psychiatrists, Nurse Practitioners, Psychologists, LPC/LCSW's, and a Massage Therapist. Full-time salaried position for a Psychiatric Nurse Practitioner/Physician Assistant to provide continuity of care for children, adolescents and adults in our outpatient clinic. Position is flexible and will include providing both telemedicine and traditional in-office psychiatric evaluation and medication management. Supervision available. Position will be based out of either Arlington or Cleburne office suites.",
+    "requirements": "Requirements Two years psychiatric experience preferred, but will give consideration to new grads with psych rotation experience. Basic proficiency with technology (video-conferencing/EMR use) required. Masters Degree in Nursing or Masters in Physician Assistant ANCC, AANP or PA Must be licensed state of Texas. Monday-Friday, no call or weekends.",
+    "benefits": "Benefits Competitive Salary - $95K - $105K (DOE) Personal Leave and Holidays Medical/Dental/Vision CME/Licensure Reimbursement Potential HPSA Loan Repayment Option"
+   }
+  },
+  {
+   "id": "f011",
+   "state": {
+    "title": "Cruise Staff Wanted *URGENT*",
+    "location": "US, LAS VEGAS",
+    "employment_type": "Full-time",
+    "company_profile": "(not given)",
+    "description": "6* Ultra Luxury American Cruise Company is urgently looking for the following positions:*Hospitality - For the many Bars & Restaurants on board.*Retail - For the Duty FREE Shops & Boutiques on board.*housekeeping - For the Housekeeping & Cleaning jobs.*Office Admin - For the Front desk & Tour booking jobs*Other Positions - DJ's, Security Staff, Photographers & Nannies. Vessel type or operation: 6* Ultra Luxury Cruise. Certification & Experience: Previous experience (not Required)Good English speaker, Some Customer Service Skills, wanting to learn & work. Job Type: Perm. Sailing Area: World wide. Benefits: On board en suite accommodation and food, Medical cover for duration of contract, world work visa, free wifi, TAX FREE Salary & more! Job Description: A 6* Ultra Luxury Cruise Company are looking to recruit hardworking, enthusiastic cruise personal. This exciting opportunity is available to candidates who are willing to Learn, work & are flexible. Candidate will also have …[truncated]",
+    "requirements": "Certification & Experience: Previous experience (not Required)Good English speaker, Some Customer Service Skills, wanting to learn & work.",
+    "benefits": "Benefits: On board en suite accommodation and food, Medical cover for duration of contract, world work visa, free wifi, TAX FREE Salary & more!"
+   }
+  },
+  {
+   "id": "f012",
+   "state": {
+    "title": ". NET/SITECORE WEB DEVELOPER",
+    "location": "US, Washington",
+    "employment_type": "(not given)",
+    "company_profile": "Interactive Strategies is a boutique digital agency whose strength lies in understanding the complex relationship that exists between strategy, design, content, usability, technology and marketing. By addressing each of these areas equally, we create meaningful web experiences that provide a measurable return for our clients. Each principal at Interactive Strategies comes from a large agency background where they helped shape …[truncated]",
+    "description": "Are you the kind of person who... Loves creating content managed websites that look great and are easy for administrators to use? Understands that simplicity and maintainability are just as important as the application of the latest bleeding edge technology? Enjoys learning new CMSs and how they work? Can write custom jQuery and beautiful C#? Work best in small teams where you are empowered to make great things happen with little oversight? If so, then you're just the person we're looking for to join our team. Interactive Strategies is a small agency with big talent and great clients looking to expand its DC office. We've got some interesting and exciting projects coming up and are looking for a . NET/Sitecore Web Developer to join our experienced development team. We approach each project with a comprehensive strategy phase and then determine the correct technology for the project. That often results in …[truncated]",
+    "requirements": "(not given)",
+    "benefits": "(not given)"
+   }
+  },
+  {
+   "id": "f013",
+   "state": {
+    "title": "Home Based Payroll Typist/Data Entry Clerks Positions Available",
+    "location": "US, Aberdeen",
+    "employment_type": "(not given)",
+    "company_profile": "(not given)",
+    "description": "We have several openings available in this area earning $1000.00-$2500.00 per week. We are seeking only honest, self-motivated people with a desire to work in the home typing and data entry field, from the comfort of their own homes. The preferred applicants should be at least 18 years old with Internet access. No experience is needed. However the following skills are desirable:",
+    "requirements": "Basic computer and typing skills, ability to spell and print neatly, ability to follow directions.",
+    "benefits": "All you need is access to the Internet and you can participate. This is an entry level position and we offer full online training. You do NOT need any special skills to get started. Earn as much as you can from the comfort of your home typing and doing data …[truncated]"
+   }
+  },
+  {
+   "id": "f014",
+   "state": {
+    "title": "Senior Product Manager",
+    "location": "HU, Budapest",
+    "employment_type": "Full-time",
+    "company_profile": "Based in San Francisco with a development office in Budapest, Hungary, Secret Sauce Partners enables the world's largest ecommerce companies to provide the best shopping experiences online. Our products are branded and built into ecommerce web sites and are actively used by over 40 million users. We are well funded, fun, dynamic and growing fast. Join us!",
+    "description": "Are you a superstar product leader itching for the next big opportunity? Do you ever dream of creating products that are used by millions of people breaking conventions and old ways of doing things? You will fit right in. Our products, powered by data science, are integrated into the largest online apparel and fashion stores in the US and Europe and provide shopping experiences that revolutionize ecommerce. This is your opportunity for you to directly impact our 40 million users and to ensure their happiness. The products you design and lead are the products they all use and love. This is your chance to leave your legacy! You will love to be a Director of Product Management with us if you have: Excellent UX judgment: You have an in-depth understanding of what makes a user experience good or bad. Ability to understand consumers: You understand people, their intentions, what they …[truncated]",
+    "requirements": "(not given)",
+    "benefits": "Be part of a successful startup with phenomenal growth opportunities Casual, fun, international team Competitive compensation package, flexible vacation days Stock options Cool downtown office with games, beer, wine and more Drinks, lunches and dinners with the foundersRELOCATIONWe love people who want to move to Europe or want to move …[truncated]"
+   }
+  },
+  {
+   "id": "f015",
+   "state": {
+    "title": "Event & Exhibition Project Assistant / Executive",
+    "location": "HK",
+    "employment_type": "Contract",
+    "company_profile": "Skyplan Group is a fast growing consulting firm based in Hong Kong. We provide professional recruiting, outsourcing and consulting services to successful companies and organizations in Asia. Our experienced and knowledgeable consultants can help job seekers in their career development and find suitable jobs for them. Specialized job category: PR & Communication Marketing & Advertising Events & Exhibitions Sales & …[truncated]",
+    "description": "Our client is a leading Exhibition and Events organization in Hong Kong who is seeking for energetic candidates to join their teams as an Event & Project Assistant in their different Projects. As an Event & Project Assistant / Executive, you will be liaising with all areas of the business supply much needed support in facilitation and coordination roles. Responsibilities included but not limited to the followings: Work with all members of the team on event management, project development and co-ordination Assist in different projects, exhibitions or other events, provide support in assigned projects and ad-hoc tasks Conduct procuring of materials and equipments for events To ensure that project deliverables meet client's requirements, agreed timelines, quality standards and budget Work on live events in project assistant role managing specific areas of event site: Marketing, Sales, E-Commerce, Admin, etc. Daily operations include filing, answering enquiries, conducting market research, preparing documents and …[truncated]",
+    "requirements": "Requirements: High Diploma or Degree holder, preferably in Event management, Public Relations, Marketing, Communication, Journalism, Hotel management, Advertising or related majors1 year or more working experience is preferred (Fresh graduate is also welcomed)Excellent command of both written and spoken English, Chinese and Mandarin Good in Microsoft Offices (Word, Excel, Power Point) and Chinese and English typing Candidates are expected to be a team player as well as being able to work independently on tasks such as project overview and material …[truncated]",
+    "benefits": "(not given)"
+   }
+  },
+  {
+   "id": "f016",
+   "state": {
+    "title": "Legal Counsel",
+    "location": "GB, London",
+    "employment_type": "Full-time",
+    "company_profile": "NOW: Pensions is a UK based multi-employer trust serving thousands of employers and hundreds of thousands of employees from a wide range of sectors. A subsidiary of one of Europe’s largest pension funds, Danish pension scheme ATP, NOW: Pensions offers a simple and cost effective workplace pension solution direct to employers and via advisers and the payroll sector. To help …[truncated]",
+    "description": "Reporting to the Head of Legal, this is a rare opportunity for a qualified solicitor to provide commercial and strategic legal advice to all levels of an entrepreneurial and fast-growing business. Key Responsibilities Drafting and negotiating commercial agreements with clients and suppliers Advising the business about its contractual rights and obligations Managing and protecting the company’s IP catalogue Responding to complex queries from the business, suppliers and customers Reviewing and approving advertisements, press-releases and other promotional materials Working closely with the Head of Legal to provide timely and first-class legal support and deputising when required Assisting with company secretarial and governance duties Helping to manage the use and cost of external legal counsel Working with and supporting the trustee boardAGENCIES: Please do not contact us about this role until after 10th September 2014.",
+    "requirements": "You will ideally be newly qualified - 2 years PQE*. Prior knowledge and experience of pensions law/issues is not a requirement as this is a predominantly commercial role, although an aptitude and enthusiasm to learn and gain experience is essential. You will be able to work autonomously and have excellent attention to detail to take on a varied workload.* The PQE indicated in this advertisement is intended as a guide only and does not preclude applications from those with more …[truncated]",
+    "benefits": "10% Pension Contribution, Private Medical Insurance, 4 x basic salary life assurance and 30 days holiday' are some of the benefits we provide all staff with from day one."
+   }
+  },
+  {
+   "id": "f017",
+   "state": {
+    "title": "Member of Technical Staff, Frontend",
+    "location": "US, New York",
+    "employment_type": "Full-time",
+    "company_profile": "ActionIQ is a stealth startup building the next generation of data-driven business applications. It is based in New York City and funded by top investors including Sequoia Capital and First Mark Capital. The company is founded by Tasso Argyros, founder and CTO of Aster Data, a Big Data pioneer that was acquired by database leader Teradata; and Nitay Joffe, a …[truncated]",
+    "description": "You are passionate about the convergence of breakthrough technology with intuitive design. You live, breathe, and dream about how to visualize and interact with data. Tough problems excite you. You are a jack of all trades - consistently venturing beyond your skill set taking on new problems. You thrive in the ambiguity of an early startup. You are excited at the prospect of architecting an entire front end system, growing a team, and managing projects. You will be working closely with our CTO and our UX leader. You will be responsible for designing and building the front end stack, including our enterprise web application. You will also be coordinating closely with our backend team, diving in to help where necessary.",
+    "requirements": "BS in Computer Science or similar. MS/PhD a plus. 7+ years experience in relevant roles. Has led a team, recruited engineers, and managed projects. Experienced with modern web frameworks like Rails, Playframework, [url] , Meteor. Killer HTML/CSS/Java Script skills. Scaled large web applications. Designed APIs and implemented hooks to third party tools. Built both enterprise and consumer tools.",
+    "benefits": "Become a significant stakeholder of ActionIQ as part of your compensation package Work with the smartest people in the industry Top health insurance benefits Convenient working location with great subway access"
+   }
+  },
+  {
+   "id": "f018",
+   "state": {
+    "title": "Inside Sales Representative",
+    "location": "US, Cambridge",
+    "employment_type": "Full-time",
+    "company_profile": "For marketers looking to drive engagement through social media, GaggleAMP Amplify is the social marketing platform that lets them leverage the potential reach of individual employee, customer, and partner accounts through a unique, accountable, and privacy-assured message delivery model. Using GaggleAMP’s patent pending solution, companies are able to widely distribute their content and messages by creating a network of people …[truncated]",
+    "description": "Want to get in on the ground floor with a seasoned team that will transform how companies leverage social media? Then read on... GaggleAMP is an exciting company that is committed to bringing a new paradigm to how companies and organizations will use social media. Key Responsibilities: Identify and develop new business opportunities;Actively and effectively promote GaggleAMP to targeted key accounts and develop and grow the associated pipeline;Leverage personal effectiveness through excellent communication and professional web based presentations while making recommendations for ROI, Customer Lead Gen improvements; and Grow the customers you bring on to increase use of our solutions in those companies. Nurture multi-national, multi-site organisation relationships with clients to understand their business needs and requirements. Provide active trial participants, prospects and customers with consultative selling around social media amplification.",
+    "requirements": "Minimum of 1-3 years of B2B sales and account management experience;Solid understanding of social media as part of the marketing mix;Proven ability to interact directly with senior executives in customer organizations, both verbally and in writing;Demonstrated customer-facing skills including expectation management, communication skills, information management;Proven leadership, presentation, and enterprise negotiation skills;Demonstrated success with enterprise sales quotas.",
+    "benefits": "This is a great opportunity to: Join an exciting and dynamic company with a strong leadership team;Be a key part of a sales effort targeting amazing corporate accounts such as CA, Intuit, Linked In, Pepsico, and the United Way;Grow professionally by gaining powerful experience selling into the emerging, social media …[truncated]"
+   }
+  },
+  {
+   "id": "f019",
+   "state": {
+    "title": "Web/Graphic Designer",
+    "location": "IL, Tel Aviv",
+    "employment_type": "Full-time",
+    "company_profile": "PowToon ( [url] ) is a brand new presentation software that is so simple and intuitive, it allows anyone who ever used Power Point or KeyNote to easily evolve their presentations to AWESOMENESS! PowToon contains themes of animated characters, props and cool transitions which you can just drag and drop into a slide to create eye catching and fun presentations …[truncated]",
+    "description": "PowToon is seeking a talented Graphic and web Designer to join the marketing team of one the fastest growing Start-Ups. As a web Designer, you will work with the marketing team to design and shape all client facing marketing and sales material as well as landing and content pages. You will work on implementing improvements and changes to PowToon’s website design, design emails, build landing pages and create banners and other marketing materials. You will work closely with our Product manager and assist with A/B tests and improvements to our website. The Ideal candidate will be able to work independently and quickly in a highly dynamic environment. You will be expected to be able to execute instructions, initiate tasks and provide creative solutions without the need for detailed requirements. Please only apply with a portfolio, thank you!",
+    "requirements": "At least 2 years of experience as a web designer Proven ability to design webpages, banners and landing pages Mastery of Adobe Creative Suite Ability to become proficient in our product and to relate to PowToon’s customer base Ability to work in a team and to accept instructions for execution Knowledge in CSS, HTMLUnderstanding of UX methodology - a plus Proficient in English (spoken and written)A desire to learn and evolve",
+    "benefits": "(not given)"
+   }
+  },
+  {
+   "id": "f020",
+   "state": {
+    "title": "Information Security Manager",
+    "location": "US, San Mateo",
+    "employment_type": "Full-time",
+    "company_profile": "Aptitude Staffing Solutions has redesigned the recruiting wheel. Our innovative new platform cuts the recruiting time in half, yields scientifically-proven results and clients and candidates enjoy a pleasant experience through advanced, simple to use technology and a tenured, industry-experienced recruiting team. Join us in a fresh new experience of leveraging your career...the way it should be! All represented candidates enjoy …[truncated]",
+    "description": "This leading-edge company drives over $3 billion in revenue from web sites, search engines, and social networks for more than 8,400 of the world’s top brands. As a Information Security Manager you will work to develop and deliver information security policy and standards, architecture and systems, and leading practice processes to ensure information system security across the enterprise. A successful candidate is an experienced Information Security Manager capable rolling out a prioritized information security program and maintaining the effectiveness of the organization’s ISMS. Responsibilities: Job Responsibilities: Partner with corporate and IT functions to assist in the adoption of information security policies and practices, and monitor for compliance. Maintain and enforce organization’s Information Security policies and Technical Security standards. Deliver targeted Information Security Risk Assessments for third-party vendors/customers/prospects. Interface with all business units to educate and coordinate Information Security Integration into existing and future offerings. Proactively identify security threats to BE's …[truncated]",
+    "requirements": "Required Skills and Experience: Bachelor’s degree in Computer Science, Information Systems, other related field; or equivalent work experience. Certifications are preferred: Certified Information Systems Security Professional (CISSP) from ISC2, Cisco Certified Network Associate (CCNA), Certified Ethical Hacker (CEH) from EC-Council, Certified Information Systems Auditor (CISA) from ISACA, Global Information Assurance Certification (GIAC) from SANS. Minimum of five years of information technology and/or information security experience in a corporate environment. Experience with or exposure to regulatory and industry compliance frameworks and …[truncated]",
+    "benefits": "(not given)"
+   }
+  },
+  {
+   "id": "f021",
+   "state": {
+    "title": "Senior Software Engineer",
+    "location": "US, San Francisco",
+    "employment_type": "Full-time",
+    "company_profile": "(not given)",
+    "description": "At Healthvana, we believe healthcare should work differently. Imagine a world where patients have ubiquitous access to all of their biometric, lab, lifestyle, and clinical data, in a relevant, easy-to-understand format that makes it clear how to achieve their goals. If you want to talk to a doctor, you can text them, video chat, or complete an online assessment to find out what’s wrong or get immediate treatment. If you need to share your data with a friend, caregiver, trainer, or specialist, it’s as easy as making friends on Facebook. A world where the software doctors use becomes effortless, so they can focus all their attention on interacting with their patients. Where doctors will be able to educate their patients on health concerns based on trends in their data and be there to answer questions across all communication channels when something comes up. These are the things we think about …[truncated]",
+    "requirements": "The technical stuff Fluency in Python and SQLIntermediate knowledge of SQL databases (MySQL preferred)Experience working with RESTful APIsiOS or Android development (nice to have)Familiarity with UX processes Ability to work with non-technical folks from many backgrounds Knowledge of HIPAA, HiTECH, HL7, and other technical nuances of healthcare (nice to have)Technologies we use: Languages: Python, Javascript, SQL, Objective C/Swift, Java (for Android)Frameworks : Django, JQuery, may need Ember/Backbone/etc soon Data Storage : MySQL and S3",
+    "benefits": "We don’t care where you live, as long as you don’t mind very occasional travel. Excellent health insurance (of course)Stock Excellent salaryA grown up vacation policy - take it when you need itThe best tech gear money can buyA standing desk (if you want one)"
+   }
+  },
+  {
+   "id": "f022",
+   "state": {
+    "title": "Wastewater Technician",
+    "location": "US, Mooresville",
+    "employment_type": "(not given)",
+    "company_profile": "(not given)",
+    "description": "Job Overview Apex is an environmental consulting firm that offers stable leadership and growth, views employees as valuable resources, and rewards success with competitive pay and benefits. We are seeking a self-motivated Fulltime, Wastewater Technician to join our team in Mooresville, NC and become an integral part of our continued success story. The successful candidate will provide support activities for the operations and maintenance of wastewater treatment and distribution facilities. Responsibilities The position includes activities supporting the daily operation and maintenance of a wastewater plant operation, drinking water plant operation, system maintenance and repairs, and supporting Project Manager with day to day oversight and supervision of subcontractors. Qualifications This position requires 2-5 years of experience estimating, installing and retrofitting wastewater equipment; managing wastewater installation/upgrade projects; supervising field staff; and operating wastewater and drinking water systems. The position also requires knowledge of electrical repairs and testing, plumbing repairs, pump repair and …[truncated]",
+    "requirements": "(not given)",
+    "benefits": "(not given)"
+   }
+  },
+  {
+   "id": "f023",
+   "state": {
+    "title": "Urgent Need : JAVA Developer for Qatar",
+    "location": "QA",
+    "employment_type": "(not given)",
+    "company_profile": "VAM SYSTEMS is a Business Consulting, IT Solutions and Services company with operations in UAE, Qatar, Bahrain, USA, Australia, Singapore & India. . We offers a comprehensive list of services in the field of IT infrastructure management, Cloud services, IT Consulting Services, Banking, Management Resources, Information Technology Development, Telecom, Aviation, Retail Management & Government offerings.",
+    "description": "Greetings from VAM SYSTEMS….. VAM SYSTEMS is a Business Consulting, IT Solutions and Services company with operations in UAE, Qatar, Bahrain, USA, Australia, Singapore & [url] offers a comprehensive list of services in the field of IT infrastructure management, Cloud services, IT Consulting Services, Banking, Management Resources, Information Technology Development, Telecom, Aviation, Retail Management & Government offerings. VAM SYSTEMS is currently looking for JAVA Developer for our Qatar operations . Experience required: 4+years Terms and conditions: Joining time frame: immediate. The selected candidates shall join VAM SYSTEMS – Qatar and shall be deputed to one of the leading banks in Qatar.",
+    "requirements": "Skill Set required: Strong development experience in Java. Experience in jsp, ejb, struts, web services and weblogic. Should have experience in sql server. Banking experience is mandatory. Experience in sharepoint and equation will be an added advantage..",
+    "benefits": "(not given)"
+   }
+  },
+  {
+   "id": "f024",
+   "state": {
+    "title": "Data Entry/ Administrative Assistant",
+    "location": "US, LOS   ANGELES",
+    "employment_type": "Full-time",
+    "company_profile": "(not given)",
+    "description": "Immediate opening for an accounts payable clerk, Data Entry Primary responsibilities include clearing purchase orders, invoice processing, vendor statement reconciliation, check processing, and other accounting functions as needed. Skills must include Microsoft Excel proficiency at intermediate level or higher. Knowledge of APEX purchase order program and Microsoft Dynamics SL a plus. We are looking for a full-time self-sufficient, multi-tasker with a can-do attitude. The position requires a knowledge of Quick Books and like programs, with knowledge of payroll taxes, sales taxes, and income taxes a plus. The staff accountant serves as the primary contact with clients once secured by the firm and throughout its relationship with the firm, so excellent communication skills and organizational skills are a must. Some clerical and administrative work is required. The staff accountant will be expected to work on more than one project at once and should possess the confidence and ability to work in …[truncated]",
+    "requirements": "Some clerical and administrative work is required. The staff accountant will be expected to work on more than one project at once and should possess the confidence and ability to work in a dynamic work environment. Must have strong data entry skills Thorough knowledge of AP from beginning to end Strong excel skills to export and import data Looking for someone with a \"can do\" attitude that is looking for a great foot in the door with an excellent company",
+    "benefits": "Vacations, Holiday and medicals."
+   }
+  },
+  {
+   "id": "f025",
+   "state": {
+    "title": "Senior Field Representative",
+    "location": "US, Overland Park",
+    "employment_type": "Full-time",
+    "company_profile": "Established in 1984, Geotechnology, Inc. is a highly respected, professional engineering and environmental services corporation. We have experience working on a broad range of projects in applied earth and environmental sciences, geotechnical engineering, construction materials testing and non-destructive testing, geophysical surveys, drilling and construction observation. Our over 150 employees call Missouri, Kansas, Illinois, and Tennessee home; we are proud to …[truncated]",
+    "description": "Under the designated supervisor, performs routine to difficult field tests, observations and measurements on private and government projects. May supervise, direct or instruct other field representatives in procedures. Coordinates with various staff professionals. Conducts business development activities and prepares materials testing proposals. MAJOR DUTIES & RESPONSIBILITIES: Supervisory May supervise field representatives and make assignments. Reviews work of subordinates for conformity to company practices and standards. Training/Mentoring Must possess the traits to promote good working relationships with fellow employees, supervisors and clients. Must have ability to train and motivate subordinates. Must be alert to new procedures and methods, and be able to train new field representatives in these procedures/methods. Client Relations Must be able to communicate with contractor or client personnel and have the ability to operate calmly under pressure. Interacts with client’s field representatives to report results and conclusions. Contacts clients regarding materials testing opportunities. Tracks and pursues construction contracts …[truncated]",
+    "requirements": "MINIMUM EDUCATION: High school diploma or equivalentCERTIFICATION/LICENSING: Nuclear Safety Certified; ACI Level I and II or NICET Level I, II and III or ICC Special Inspector or KDOT Certified or equivalent. SPECIFICATION SUMMARY: Must be proficient in most types of field testing used in geotechnical engineering and construction materials testing. Ability to follow instruction and perform routine to complex field tests. Ability to pass physical exam. SPECIFIC EXPERIENCE, KNOWLEDGE, AND SKILLS: Eight plus years experience required in similar field-related activities. …[truncated]",
+    "benefits": "(not given)"
+   }
+  },
+  {
+   "id": "f026",
+   "state": {
+    "title": "administrative assistant",
+    "location": "US, Baltimore",
+    "employment_type": "Full-time",
+    "company_profile": "(not given)",
+    "description": "Giromax technology is currently looking for an Administrative Assistant to provide timely and accurate clerical support in a fast-paced office environment. Position involves dealing with managers and other office support positions. Basic duties involve photocopying, filing, answering phones, managing all incoming and outgoing mail, and composing letters, memos and proposals. Additional responsibilities include preparing daily/weekly/monthly/quarterly reports and setting up group meetings and conferences for managers and partners. All functions will be done in person, via phone, or e-mail.",
+    "requirements": "-Some College-VERY Detail Oriented and well organized-Proficient in Microsoft Office Package (Word, Outlook, Powerpoint, and Excel)-Can learn quickly and retain the information (looking for a candiate that takes notes!)-Must be confident on the phone (with clients and underwriters)-Able to take direction & instruction",
+    "benefits": "Competitive pay & benefits Excellent on-boarding and on-going training Accrued paid time off Tuition reimbursement for full-time employees Free meal per shift"
+   }
+  },
+  {
+   "id": "f027",
+   "state": {
+    "title": "Account Manager $80-$130,000/yr",
+    "location": "US, New York",
+    "employment_type": "Full-time",
+    "company_profile": "We have aggressive growth plans in place for the coming years. We provide a much needed service in facilitating the growth of small and medium size business with innovative financing products to their clients. We, at Oak Tree Financing, commit our energies, intellect and knowledge to helping small and medium size business owners and entrepreneurs with extraordinary financing solutions to …[truncated]",
+    "description": "We provide No Credit Check Financing to customers of Small and Medium size Businesses and can help 90% of the industries from Auto Mechanics to Dentists and Lawyers. We are seeking skilled Account Managers to grow with us and help us achieve our goals in this new and exciting industry. This is designed as a long-term position for an entrepreneurial individual to really build their book of business, along with their income. Our people enjoy a flexible work environment. High earnings with great incentives like corporate retreats and quick advancement opportunities.",
+    "requirements": "Experience and Skills Required- Minimum of 3 years of sales experience- Ability to work in a home office environment- Exceptional speaking, writing, and negotiation skills- You must be a motivated self starter and instil that others- College degree",
+    "benefits": "We Provide- Complete online training and office support- Flexible working environment- An exciting and lucrative opportunity for those with a proven results background- Rapid advancement for those highly motivated- Average yearly income of $80-$130,000 based on our straight commission compensation model"
+   }
+  },
+  {
+   "id": "f028",
+   "state": {
+    "title": "L1 3DZ Business Admin Apprentice Available Under NAS 16-18 year olds only",
+    "location": "GB, Liverpool",
+    "employment_type": "(not given)",
+    "company_profile": "Established on the principles that full time education is not for everyone Spectrum Learning is made up of a team of passionate consultants with the drive for putting people who wish to grow themselves through education whilst working into long term and relevant job roles. We also are official re-sellers for The Institute of Recruiters/ Study Course professional courses in …[truncated]",
+    "description": "This is fantastic opportunity for someone wanting to start their career in Customer Service. During the first 12 months you will work towards a Level 2 Business Admin NVQ and then be kept on in a permanent position. You will be working for a Recruitment company and the role will involve: -Customer Facing-Good knowledge of Microsoft Office-Logical approach to work-Time sheet reconciliation duties-Interviewing candidates Ideal candidates will be computer literate and have excellent communication skills. If you are honest and hard working send your CV to [email]",
+    "requirements": "Government funding is only available for 16-18 year olds as this job is an apprenticeship.",
+    "benefits": "Future Prospects"
+   }
+  },
+  {
+   "id": "f029",
+   "state": {
+    "title": "Store Manager - Papa John's Pizza",
+    "location": "GB, Leeds",
+    "employment_type": "Full-time",
+    "company_profile": "Take Out Brands is a food franchise business with a [url] difference being we want you to genuinely enjoy your workiing experience with us. We hire cheerful, honest and hard-working people - and then treat them well - offering the chance to learn and develop wherever possible. With 7 franchises already live, this young business is run by people you …[truncated]",
+    "description": "Papa John's is one of the world’s biggest and best Pizza delivery businesses. As a growing franchise holder for Papa John's, Take Out Brands Ltd is now looking for a talented and ambitious personality to help continue the success story here in Leeds. You’ll be managing a team of around 20 (mostly) part-time staff - instore crew and drivers alike - setting the standards as you help them prepare and deliver world class pizza with a smile. Operations wise, you'll be ordering the food, planning the staff rotas, supervising the staff and ensuring the highest standards of safety and hygiene at all times. Then there’s the paperwork and finances to consider - as you ensure sales figures are accurate and stock levels just where they need to be as you look to grow the business.",
+    "requirements": "We're looking for some management or supervisory experience in a similar environment - and a personality who can bring: Proven commercial skills (responsible for financial performance)Passion & Energy Hard-work & Reliability Honesty & Common sense Proven organisational and planning skills A bright, cheerful personality Trustworthiness & Honesty The confidence and experience to manage people Flexibility in availability - including a willingness to work evenings and weekends Smart in appearance (uniform will be provided)Equally important will be your head for business …[truncated]",
+    "benefits": "c£18k + holiday entitlement Full training Opportunity to learn and develop - with the chance for Career progression as the franchise operation expands Real responsibility and autonomy As a responsible employer Take Out Brands is dedicated to your well-being"
+   }
+  },
+  {
+   "id": "f030",
+   "state": {
+    "title": "Regional Sales Representative",
+    "location": "US, San Ramon",
+    "employment_type": "Full-time",
+    "company_profile": "At Atlas Lift Tech, safety always comes first! We are a fast growing company with an innovative vision of making Safe Patient Handling and Mobility (SPHM) programs available to hospitals systems nationwide. ATLAS is the first company offering safe patient handling and care staff training programs that protect healthcare workers and patients from the dangers of manual patient handling. Our …[truncated]",
+    "description": "Atlas Lift Tech is looking for a Regional Sales Representative responsible for developing key customer relationships within the Health Care industry for our Safe Patient Handling and Mobility (SPHM) programs to join our Sales team. The Regional Sales Representative must be able to clearly articulate Atlas Lift Tech programs' capabilities and services to both our internal key stakeholders and external customers. S/he will be expected to deliver high-value solutions promoting a culture of safe patient handling and to be the pre-eminent provider of hospital and health system safe patient handling solutions. Additional responsibilities include, but are not limited to, the following: Establish and maintain wide level of relationships within the account including but not be limited to: RNs, Health & Safety, Materials Management, Key Physicians and safety related task forces and committees. Identify leads and prospect for new customer throughout assigned regions; builds relationships with higher level stakeholders (e.g., C-Suite). …[truncated]",
+    "requirements": "Education/Experience: Bachelor's Degree in the fields of business, healthcare, healthcare management or the equivalent professional experience in a related field.3 – 5 years’ experience as a sales representative in the Health Care and/or hospital sales experience preferred. Requirements: Demonstrative ability to manage entire sales process from prospecting to closing maximizing contract compliance. Relationship building and business development expertise; must be able to effectively communicate across all clinical and business decisions makers within an account-system. Possess an appetite for sales, building …[truncated]",
+    "benefits": "At Atlas Lift Tech we are innovators and we value individual contributions! We encourage continued education, priding ourselves on offering re-certification assistance. We offer a competitive compensation package based on your valuable experience. Other benefits include: Compensation package including commission: $120,000 - $150,000+Health Insurance for full-time status Sick / Vacation …[truncated]"
+   }
+  }
+ ]
+}

@@ -1,0 +1,220 @@
+{
+ "$schema": "../../kit/spec.schema.json",
+ "name": "contract-clauses-pilot",
+ "description": "Label-free question-quality pass on the first 30 fit items.",
+ "questions": {
+  "clauseType": {
+   "type": "choice",
+   "instructions": "This is one provision from a commercial contract. What does this provision mainly do?",
+   "criteria": {
+    "governingLaw": "Chooses which jurisdiction's law will be used to interpret and enforce the agreement",
+    "notices": "Sets out how formal communications between the parties must be delivered: in writing, by which method, to which address, and when they count as received",
+    "entireAgreement": "Declares that the written agreement is the complete deal between the parties and replaces any earlier agreements, promises or understandings on the same subject",
+    "amendment": "Sets out how the agreement (or part of it) can be changed, altered or modified, such as only by a signed writing or by a particular party",
+    "termination": "Ends the agreement or a relationship, or sets out when and how it ends or may be ended and what happens at that point",
+    "assignment": "Controls whether a party may transfer its rights or obligations under the agreement to someone else, and on what conditions",
+    "confidentiality": "Requires a party to keep certain information secret or restricts how that information may be used or disclosed",
+    "indemnification": "Requires one party to compensate, reimburse, hold harmless or defend another party for losses, claims, liabilities or expenses",
+    "other": "Does something else: any other kind of provision (for example payment, representations, severability, counterparts, taxes, dispute venue), or none of the above is its main purpose"
+   }
+  },
+  "namesJurisdiction": {
+   "type": "noul",
+   "instructions": "Does the provision name a specific U.S. state, country or other jurisdiction (for example \"the State of Delaware\", \"New York\", \"England and Wales\")?"
+  },
+  "saysAgreementEnds": {
+   "type": "noul",
+   "instructions": "Does the provision say that the agreement, or a party's rights or obligations under it, ends, terminates or may be terminated?"
+  },
+  "requiresCoveringLosses": {
+   "type": "noul",
+   "instructions": "Does the provision require one party to pay for, reimburse, hold harmless or defend another party against losses, claims, damages or expenses?"
+  },
+  "restrictsDisclosure": {
+   "type": "noul",
+   "instructions": "Does the provision forbid or limit a party from disclosing or using certain information?"
+  }
+ },
+ "items": [
+  {
+   "id": "f001",
+   "state": {
+    "provision": "Each Loan Party and its Restricted Subsidiaries is in compliance in all respects with the requirements of all Laws and all orders, writs, injunctions and decrees applicable to it, except in such instances in which (a) such requirement of Law or order, writ, injunction or decree is being contested in good faith by appropriate proceedings diligently conducted or (b) the failure to comply therewith, either individually or in the aggregate, would not reasonably be expected to have a Material Adverse Effect."
+   }
+  },
+  {
+   "id": "f002",
+   "state": {
+    "provision": "Subject to the provisions contained herein, your option will vest as provided in your Grant Notice. Vesting will cease upon the termination of your Continuous Service."
+   }
+  },
+  {
+   "id": "f003",
+   "state": {
+    "provision": "Maker shall defend, indemnify and hold harmless Payee, his successors and assigns, his affiliates, their respective directors, officers, employees, attorneys and agents (the “ Indemnified Parties ” and each, an “ Indemnified Party ”) and hold it harmless from and against any and all claims, debts, liabilities, losses, demands, obligations, actions, causes of action, fines, penalties, costs and expenses (including reasonable and documented attorneys’ fees), of every nature, character and description which such Indemnified Party may sustain or incur based upon or arising out of any of the Loan Transactions (except any such amounts sustained or incurred solely as the result of the gross negligence or willful misconduct of such Indemnified Party, as finally determined by a court of competent jurisdiction). Notwithstanding any provision in this Agreement to the contrary, this Section 10 shall remain operative even after the Maturity Date and shall survive the payment in full of all of the obligations owing hereunder."
+   }
+  },
+  {
+   "id": "f004",
+   "state": {
+    "provision": "The Borrower will, and will cause each of its Subsidiaries to, do or cause to be done, all things necessary to preserve and keep in full force and effect its existence and its material rights, franchises, licenses, permits, copyrights, trademarks and patents; provided, however, that nothing in this Section 7.4 shall prevent (i) sales of assets and other transactions by the Borrower or any of its Subsidiaries in accordance with Section 8.2 or (ii) the withdrawal by the Borrower or any of its Subsidiaries of its qualification as a foreign Company in any jurisdiction if such withdrawal could not, either individually or in the aggregate, reasonably be expected to have a Material Adverse Effect."
+   }
+  },
+  {
+   "id": "f005",
+   "state": {
+    "provision": "This Agreement sets forth the complete and final agreement of the Parties with respect to the subject matter hereof and supersedes and terminates all prior agreements and understandings, written or oral, between the Parties with respect to such subject matter, including the Non-Binding Term Sheet, dated July 14, 2017, by and between the Parties.  This Agreement may be amended, and the observance of any provision of this Agreement may be waived, only by a writing signed by both Parties.  The failure by either Party to enforce any provision of this Agreement will not constitute a waiver of future enforcement of that or any other provision."
+   }
+  },
+  {
+   "id": "f006",
+   "state": {
+    "provision": "The representations and warranties contained in Article VII shall be true and correct in all material respects, except for any representation and warranty that is qualified by materiality or reference to Material Adverse Effect, which such representation and warranty shall be true and correct in all respects on and as of such borrowing, continuation, conversion, issuance or extension date with the same effect as if made on and as of such date, (except for any such representation and warranty that by its terms is made only as of an earlier date, which representation and warranty shall remain true and correct in all material respects, except for any representation and warranty that is qualified by materiality or reference to Material Adverse Effect, which such representation and warranty shall be true and correct in all respects as of such earlier date."
+   }
+  },
+  {
+   "id": "f007",
+   "state": {
+    "provision": "Any Lender may at any time, without the consent of, or notice to, the Borrowers or the Administrative Agent, sell participations to any Person (other than a natural Person, a Defaulting Lender or the Company or any of the Company’s Affiliates or Subsidiaries) (each, a “ Participant ”) in all or a portion of such Lender’s rights and/or obligations under this Agreement (including all or a portion of its Commitment and/or the Loans (including such Lender’s participations in L/C Obligations) owing to it); provided that (i) such Lender’s obligations under this Agreement shall remain unchanged, (ii) such Lender shall remain solely responsible to the other parties hereto for the performance of such obligations and (iii) the Borrowers, the Administrative Agent and the Lenders and the L/C Issuer shall continue to deal solely and directly with such Lender in connection with such Lender’s rights and obligations under this Agreement. For the avoidance of doubt, each Lender shall be responsible for the indemnity under Section  11.04(c) without regard to the existence of any participation."
+   }
+  },
+  {
+   "id": "f008",
+   "state": {
+    "provision": "All deliveries of Shares pursuant to the Award shall be subject to withholding of all applicable taxes.  The Company shall have the right to require the Participant (or if applicable, permitted assigns, heirs, and Designated Beneficiaries) to remit to the Company an amount sufficient to satisfy any tax requirements prior to the delivery date of any Shares in connection with the Award.  As permitted by the Committee from time to time, such withholding obligation may be satisfied at the election of the Participant: (a) through cash payment by the Participant, (b) through the surrender of Shares that the Participant already owns, or (c) through the surrender of Shares to which the Participant is otherwise entitled under the Plan."
+   }
+  },
+  {
+   "id": "f009",
+   "state": {
+    "provision": "This Agreement shall be governed by, and interpreted in accordance with, the laws of the State of Delaware, all rights and remedies being governed by such laws."
+   }
+  },
+  {
+   "id": "f010",
+   "state": {
+    "provision": "This Agreement, together with the Exhibits hereto, sets forth this entire Agreement between the Company (and any of its related or affiliated entities, officers, agents, owners or representatives) and Employee relating to the subject matter herein, and supersedes any and all prior discussions and agreements, whether written or oral, on the subject matter hereof, including without limitation that certain Employment Offer Letter and Term Sheet dated July 9, 2018 provided to Employee by the Company prior to the commencement of her employment with the Company and accepted by Employee on July 15, 2018. To the extent that this Agreement may conflict with the terms of another written agreement between Employee and the Company, the terms of this Agreement will control."
+   }
+  },
+  {
+   "id": "f011",
+   "state": {
+    "provision": "This Agreement, the Credit Agreement and the other Loan Documents represent the entire agreement among the parties with respect to the subject matter hereof, and there are no promises, undertakings, representations or warranties by any of the parties relative to the subject matter hereof not expressly set forth or referred to herein or in the other Loan Documents."
+   }
+  },
+  {
+   "id": "f012",
+   "state": {
+    "provision": "This Agreement contains the entire agreement among the parties hereto with respect to the subject matter hereof and cannot be amended or supplemented except by a written agreement signed by all parties."
+   }
+  },
+  {
+   "id": "f013",
+   "state": {
+    "provision": "As of the date of this Agreement, the authorized capital stock of the Company consists of 3,000,000,000 shares of common stock, USD $0.0001 par value per share, and 50,000,000 shares of preferred stock, par value $0.0001, of which as of the date of this Agreement, 142,663,161 shares of the Company Common Stock and 0 shares of preferred stock are issued and outstanding. All shares of outstanding Company Common Stock have been duly authorized, are validly issued and outstanding, and are fully paid and non-assessable."
+   }
+  },
+  {
+   "id": "f014",
+   "state": {
+    "provision": "The Company reserves the right to amend or terminate the Plan at any time, by providing at least ninety (90) days advance written notice to each Participant; provided that no such amendment that has the effect of reducing or diminishing the right of any Participant will be effective without the written consent of such Participant."
+   }
+  },
+  {
+   "id": "f015",
+   "state": {
+    "provision": "This Agreement and the Plan and, to the extent applicable to the Participant, any written employment agreement between the Participant and the Company, constitute the entire agreement between the parties with respect to the subject matter hereof and supersede in their entirety all prior undertakings and agreements between the parties with respect to the subject matter hereof."
+   }
+  },
+  {
+   "id": "f016",
+   "state": {
+    "provision": "This Agreement represents the entire agreement and understanding between the Company and Executive concerning the subject matter of this Agreement and Executive’s employment with and separation from the Company and the events leading thereto and associated therewith, and supersedes and replaces any and all prior agreements and understandings concerning the subject matter of this Agreement and Executive’s relationship with the Company, with the exception of the Proprietary Rights Agreement, the Termination Agreement, the Indemnification Agreement, and Executive’s written equity compensation agreements with the Company."
+   }
+  },
+  {
+   "id": "f017",
+   "state": {
+    "provision": "The Lenders agree to indemnify the Administrative Agent in its capacity as such (to the extent not reimbursed by or on behalf of the Company if it is required to do so under Section and without limiting the obligation of the Company under Section 10.5 to do so), ratably according to their respective Commitments in effect on the date on which indemnification is sought under this Section 9.7 (or, if indemnification is sought after the date upon which the Commitments shall have terminated and the Loans shall have been paid in full, ratably in accordance with such Percentages immediately prior to such date), from and against any and all liabilities, obligations, losses, damages, penalties, actions, judgments, suits, costs, expenses or disbursements of any kind whatsoever that may at any time (whether before or after the payment of the Loans) be imposed on, incurred by or asserted against such Agent in any way relating to or arising out of, the Commitments, this Agreement, any of the other Loan Documents or any documents contemplated by or referred to herein or therein or the transactions contemplated hereby or thereby or any action taken or omitted by the Administrative Agent under or in connection with any of the foregoing; provided , that no Lender shall be liable for the payment of any portion of such liabilities, obligations, losses, damages, penalties, actions, judgments, suits, costs, expenses or disbursements that are found by a final and nonappealable decision of a court of competent jurisdiction to have …"
+   }
+  },
+  {
+   "id": "f018",
+   "state": {
+    "provision": "The Lenders agree to indemnify the Administrative Agent (to the extent not reimbursed under Section 11.03 , but without limiting the obligations of the Borrowers under Section 11.03 ) ratably in accordance with the aggregate principal amount of the Loans and Letter of Credit Liabilities held by the Lenders (or, if no Loans or Letter of Credit Liabilities are at the time outstanding, ratably in accordance with their respective Commitments), for any and all liabilities, obligations, losses, damages, penalties, actions, judgments, suits, costs, expenses or disbursements of any kind and nature whatsoever that may be imposed on, incurred by or asserted against the Administrative Agent (including by any Lender) arising out of or by reason of any investigation in or in any way relating to or arising out of this Agreement or any other Loan Document, any other documents contemplated by or referred to herein or therein or the transactions contemplated hereby or thereby (including, without limitation, the costs and expenses that the Borrowers are obligated to pay under Section 11.03 , but excluding, unless a Default has occurred and is continuing, normal administrative costs and expenses incident to the performance of its agency duties hereunder) or the enforcement of any of the terms hereof or thereof or of any such other documents, provided that no Lender shall be liable for any of the foregoing to the extent they arise from the gross negligence or willful misconduct of the party to be indemnified as, and to the extent, determined by …"
+   }
+  },
+  {
+   "id": "f019",
+   "state": {
+    "provision": "Any notice, request or other communication required or permitted to be given under this Agreement shall be in writing and deemed to have been properly given when delivered in person, or when sent by telecopy or other electronic means and electronic confirmation of error free receipt is received or two (2) days after being sent by certified or registered United States mail, return receipt requested, postage prepaid, addressed to the party at the address set forth below."
+   }
+  },
+  {
+   "id": "f020",
+   "state": {
+    "provision": "To request the issuance of a Letter of Credit (or the amendment, renewal or extension of an outstanding Letter of Credit), the Company shall hand deliver or telecopy (or transmit by electronic communication, if arrangements for doing so have been approved by the respective Issuing Lender) to an Issuing Lender selected by it and the Administrative Agent (reasonably in advance of the requested date of issuance, amendment, renewal or extension) a notice requesting the issuance of a Letter of Credit, or identifying the Letter of Credit to be amended, renewed or extended, the date of issuance, amendment, renewal or extension, the date on which such Letter of Credit is to expire (which shall comply with paragraph (c) of this Section 2.04), the amount of such Letter of Credit, the name and address of the beneficiary thereof and such other information as shall be necessary to prepare, amend, renew or extend such Letter of Credit. If requested by the respective Issuing Lender, the Company also shall submit a letter of credit application on such Issuing Lender’s standard form in connection with any request for a Letter of Credit. A Letter of Credit shall be issued, amended, renewed or extended only if (and upon issuance, amendment, renewal or extension of each Letter of Credit the Company shall be deemed to represent and warrant that), after giving effect to such issuance, amendment, renewal or extension (i) the aggregate LC Exposure shall not exceed $50,000,000 and, unless otherwise agreed by the applicable Issuing Lender …"
+   }
+  },
+  {
+   "id": "f021",
+   "state": {
+    "provision": "All notices, requests and other communications hereunder shall be in writing (including facsimile transmission or similar writing) and shall be given (a) to each Guarantor at its address set forth below its signature hereto, (b) to the Administrative Agent or any other Guarantied Party at its address for notices provided for in the Guarantied Documents, as applicable, or (c) as to each such party at such other address as such party shall designate in a written notice to the other parties. Each such notice, request or other communication shall be effective (i) if mailed, when received; (ii) if telecopied, when transmitted; or (iii) if hand delivered or sent by overnight courier, when delivered; provided , however , that in the case of the immediately preceding clauses (i) through (iii), non-receipt of any communication as the result of any change of address of which the sending party was not notified or as the result of a refusal to accept delivery shall be deemed receipt of such communication."
+   }
+  },
+  {
+   "id": "f022",
+   "state": {
+    "provision": "Each Member and its assignees acknowledges and agrees that the information of the Corporation is confidential and, except in the course of performing any duties as necessary for the Corporation and its Affiliates, as required by law or legal process or to enforce the terms of this Agreement, such Person shall keep and retain in the strictest confidence and not disclose to any Person any confidential matters, acquired pursuant to this Agreement, of the Corporation and its Affiliates and successors, learned by any Member heretofore or hereafter. This Section 7.13 shall not apply to (i) any information that has been made publicly available by the Corporation or any of its Affiliates, becomes public knowledge (except as a result of an act of any Member in violation of this Agreement) or is generally known to the business community, (ii) the disclosure of information to the extent necessary for a Member to prosecute or defend claims arising under or relating to this Agreement, and (iii) the disclosure of information to the extent necessary for a Member to prepare and file its Tax Returns, to respond to any inquiries regarding the same from any Taxing Authority or to prosecute or defend any action, proceeding or audit by any Taxing Authority with respect to such Tax Returns. If a Member or an assignee commits a breach, or threatens to commit a breach, of any of the provisions of this Section 7.13, the Corporation shall have the right and remedy to have the provisions of …"
+   }
+  },
+  {
+   "id": "f023",
+   "state": {
+    "provision": "The parties to each assignment shall execute and deliver to the Administrative Agent an Assignment and Assumption, together with a processing and recordation fee of $4,500 (or, if the assigning Lender is a Defaulting Lender, $7,500) for each assignment (which fee the Administrative Agent may, in its sole discretion, elect to waive), and the assignee, if it is not a Lender, shall deliver to the Administrative Agent an Administrative Questionnaire.  If requested by the transferor Lender or the assignee, upon the consummation of any assignment, the transferor Lender, the Administrative Agent and the Borrower shall make appropriate arrangements so that new Notes are issued to the assignee and such transferor Lender, as appropriate."
+   }
+  },
+  {
+   "id": "f024",
+   "state": {
+    "provision": "Company covenants and agrees that in the event this Note is secured by Collateral, Company shall timely execute any and all documents necessary or advisable in order to release such security interest and Collateral to Investor, or Investor’s designee, immediately following the date this Note is paid in full (the “ Release Date ”). For the avoidance of doubt, as of the date hereof, there is no Collateral securing this Note, and after the Release Date, as applicable, there shall be no Collateral securing this Note."
+   }
+  },
+  {
+   "id": "f025",
+   "state": {
+    "provision": "Any notice or filing required or permitted to be given to the Corporation or the Administrative Committee under the Plan will be sufficient if in writing and hand delivered, or sent by registered or certified mail to any member of the Administrative Committee, or to the Corporation’s Chief Financial Officer and, if mailed, will be addressed to the principal executive offices of the Corporation. Notice to a Participant or beneficiary may be hand delivered or mailed to the Participant or beneficiary at his or her most recent address as listed in the employment records of the Corporation. Notices will be deemed given as of the date of delivery or mailing or, if delivery is made by certified or registered mail, as of the date shown on the receipt for registration or certification. Any person entitled to notice hereunder may waive such notice."
+   }
+  },
+  {
+   "id": "f026",
+   "state": {
+    "provision": "In the event that any of the provisions of this Agreement, or the application of any such provisions to the Executive or the Company with respect to obligations hereunder, is held to be unlawful or unenforceable by any court or arbitrator, the remaining portions of this Agreement shall remain in full force and effect and shall not be invalidated or impaired in any manner."
+   }
+  },
+  {
+   "id": "f027",
+   "state": {
+    "provision": "No Loan Party will, nor will it permit any Subsidiary to, sell, lease or otherwise transfer any property or assets to, or purchase, lease or otherwise acquire any property or assets from, or otherwise engage in any other transactions with, any of its Affiliates, except (a) transactions that are at prices and on terms and conditions not less favorable to the Loan Party or such Subsidiary than could be obtained on an arm’s-length basis from unrelated third parties, (b) transactions between or among the Loan Party and any Subsidiary that is a Loan Party not involving any other Affiliate (or solely among any Subsidiaries which are not Loan Parties), (c) any investment permitted by Sections 6.04(c) or 6.04(d), (d) any Indebtedness permitted under Section 6.01(c), (e) any Restricted Payment permitted by Section 6.08, (f) loans or advances to employees permitted under Section 6.04, (g) the payment of reasonable fees to directors of Holdings or any Subsidiary who are not employees of Holdings or any Subsidiary, and compensation and benefit arrangements (including reasonable and customary expense advancements) paid to, and indemnities provided for the benefit of, directors, officers or employees of Holdings or its Subsidiaries in the ordinary course of business and (h) any issuances of securities or other payments, awards or grants in cash, securities or otherwise pursuant to, or the funding of, employment agreements, equity incentive and employee benefit plans approved by Holdings’ board of directors."
+   }
+  },
+  {
+   "id": "f028",
+   "state": {
+    "provision": "No amendment to or waiver of any provision of this Agreement shall be effective unless it shall be in writing and signed by the parties hereto. Any of the terms and conditions of this Agreement may be waived in writing at any time by the party entitled to the benefits thereof."
+   }
+  },
+  {
+   "id": "f029",
+   "state": {
+    "provision": "No provisions of this Agreement shall be deemed waived, amended, supplemented or modified by any Party, unless such waiver, amendment, supplement or modification is in writing and signed by an authorized representative of the Party against whom it is sought to enforce such waiver, amendment, supplement or modification."
+   }
+  },
+  {
+   "id": "f030",
+   "state": {
+    "provision": "This Agreement and the security interest created hereby shall terminate on the date on which the Security Agent shall have given the Deposit Account Bank written notice that this Agreement shall have terminated."
+   }
+  }
+ ]
+}

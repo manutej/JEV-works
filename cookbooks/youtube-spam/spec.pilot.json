@@ -1,0 +1,250 @@
+{
+ "$schema": "../../kit/spec.schema.json",
+ "name": "youtube-spam-pilot",
+ "description": "Label-free question-quality pass on the first 30 fit items.",
+ "questions": {
+  "isSpam": {
+   "type": "noul",
+   "instructions": "Is this YouTube comment spam?",
+   "criteria": {
+    "true": "The comment exists to advertise or promote something (a channel, a website, a product, money-making) or to farm subscribers, likes or views.",
+    "false": "The comment is a genuine reaction, opinion, question or conversation, even if it is rude, off-topic or low effort."
+   }
+  },
+  "asksToVisit": {
+   "type": "noul",
+   "instructions": "Does the comment ask readers to visit, watch, check out, subscribe to or like something that belongs to the commenter (their channel, video, page, site or product)?"
+  },
+  "mentionsVideo": {
+   "type": "noul",
+   "instructions": "Does the comment say something about this video, this song or this artist?"
+  },
+  "offersMoney": {
+   "type": "noul",
+   "instructions": "Does the comment offer money, prizes, free items, gift cards, or a way to earn money?"
+  },
+  "kind": {
+   "type": "choice",
+   "instructions": "What is this comment mainly doing?",
+   "criteria": {
+    "reaction": "Reacting to the video, song or artist: praise, criticism, a memory, a joke about it",
+    "promotion": "Promoting something: a channel, video, website, product, app or offer",
+    "request": "Asking readers for subscribers, likes, views or shares, without describing what is being promoted",
+    "conversation": "Talking to other commenters or about something unrelated to the video, without promoting anything",
+    "none": "None of these: empty, unreadable, only symbols or emoji, or not in a language you can read"
+   }
+  }
+ },
+ "items": [
+  {
+   "id": "f001",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Hey check out my channel!!!! Please"
+   }
+  },
+  {
+   "id": "f002",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "Almost 1 billion views, nice."
+   }
+  },
+  {
+   "id": "f003",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "<a href=\"http://www.gofundme.com/Helpmypitbull\">http://www.gofundme.com/Helpmypitbull</a> Can you please donate to help my pitbull PLEASE!!! I just need 50 dollars to take it to the vet!!!"
+   }
+  },
+  {
+   "id": "f004",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "even without make up she is still  hot     http://uk.eonline.com/eol_images/Entire_Site/2012430/reg_1024.katy.mkup.mh.053012.jpg"
+   }
+  },
+  {
+   "id": "f005",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "this song is NICE"
+   }
+  },
+  {
+   "id": "f006",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "Subscribe to me and I'll subscribe back!!!"
+   }
+  },
+  {
+   "id": "f007",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "Check out this video on YouTube:"
+   }
+  },
+  {
+   "id": "f008",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "i like this song the video goes perfect with it"
+   }
+  },
+  {
+   "id": "f009",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "CHECK OUT THESE LYRICS /watch?v=yUTTX04oyqQ"
+   }
+  },
+  {
+   "id": "f010",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "PSY - GANGNAM STYLE (강남스타일) M/V: http://youtu.be/9bZkp7q19f0"
+   }
+  },
+  {
+   "id": "f011",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "if i reach 100 subscribers i will go round in public pouring a bucket of  ice water over people and then running away acting like it wasn't me! like  so people can see!!"
+   }
+  },
+  {
+   "id": "f012",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Check out this video on YouTube:but I&#39;m not Rhinnah"
+   }
+  },
+  {
+   "id": "f013",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "I love this song so much"
+   }
+  },
+  {
+   "id": "f014",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "check out my Eminem &amp; Kid Cudi M a s h up /watch?v=XYTcq5NzMuA"
+   }
+  },
+  {
+   "id": "f015",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "hey again if you guys wouldnt mind chacking out my rap give it like and il  giver 3 of your vids a like"
+   }
+  },
+  {
+   "id": "f016",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "katy perry will u sit on my face please. it would be really awesome and  i'll give you 5 dollars. ok if you want to do this then please call me and  subscribe to my channel first ok thats good and then u sit on my face and  ill get an erection then you sit more k?"
+   }
+  },
+  {
+   "id": "f017",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "LoL"
+   }
+  },
+  {
+   "id": "f018",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "adf.ly / KlD3Y"
+   }
+  },
+  {
+   "id": "f019",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "I really am madly in love with this woman!!"
+   }
+  },
+  {
+   "id": "f020",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "People, here is a new network like FB...you register also free, the  difference is only that you get paid for sharing, commenting and liking  posts and so one...don't waste your time on fb for sharing and not being  paid!! Register here to make also money with your everyday posts!!  https://www.tsu.co/slema13 Wellcome to everyone! ;)"
+   }
+  },
+  {
+   "id": "f021",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "https://www.facebook.com/photo.php?v=[phone number]&amp;set=vb.1727483389&amp;type=2&amp;theater"
+   }
+  },
+  {
+   "id": "f022",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Check out my channel for some lyricism....."
+   }
+  },
+  {
+   "id": "f023",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "it is wonderful"
+   }
+  },
+  {
+   "id": "f024",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "View 851.247.920<br /><br /> Best youtube Video<br />If Subscribe to My Channel please!<br />Thank you! &lt;3<br /><br />Melhor Vídeo do youtube<br />Se Inscreva no Meu canal por favor!<br />Obrigado! &lt;3<br /><br />Mejor Video youtube<br />Si suscriba a mi canal por favor!<br />Gracias! &lt;3<br /><br />Meilleur vidéo youtube<br />Si vous abonner à Ma Chaîne se il vous plaît!<br />Merci! &lt;3"
+   }
+  },
+  {
+   "id": "f025",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "Such a good song ans Katy sounds great over the melody. Im growing as an  artist everyday from my hit song 'CRAZY' which has got my name out there.  cant thank my fans more for their support. If you could take a moment? to  check it and my music? maybe you'll join me to make my dream come true :)  thank you for your time"
+   }
+  },
+  {
+   "id": "f026",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "psy=korean"
+   }
+  },
+  {
+   "id": "f027",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "just came here to check the views :P"
+   }
+  },
+  {
+   "id": "f028",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "How can this song have 629 million views while there are only 7 million  people in the world?"
+   }
+  },
+  {
+   "id": "f029",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "2 Billions in 2014"
+   }
+  },
+  {
+   "id": "f030",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "Hi. Check out and share our songs."
+   }
+  }
+ ]
+}

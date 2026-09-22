@@ -1,0 +1,284 @@
+{
+ "$schema": "../../kit/spec.schema.json",
+ "name": "review-triage-pilot",
+ "description": "Label-free question-quality pass on the first 30 fit items.",
+ "questions": {
+  "wouldNotRecommend": {
+   "type": "noul",
+   "instructions": "Based on this product review, would the reviewer NOT recommend this item to other shoppers?",
+   "criteria": {
+    "true": "The reviewer is disappointed with the item overall and would not suggest others buy it.",
+    "false": "The reviewer is satisfied overall and would suggest others buy it, even if they mention a minor flaw."
+   }
+  },
+  "returned": {
+   "type": "noul",
+   "instructions": "Does the reviewer say they returned the item, are returning it, or will send it back?"
+  },
+  "fitProblem": {
+   "type": "noul",
+   "instructions": "Does the reviewer say the item did not fit them: too big, too small, too long, too short, too tight, too loose, or the wrong shape for their body?"
+  },
+  "flawDescribed": {
+   "type": "noul",
+   "instructions": "Does the reviewer describe a flaw in the item itself: arrived damaged, a hole, a tear, loose threads, pilling, fading, shrinking, see-through fabric, a broken zipper, or fabric or stitching that feels cheap?"
+  },
+  "differsFromListing": {
+   "type": "noul",
+   "instructions": "Does the reviewer say the item looked different in person than in the online photo or description (a different colour, pattern, fabric or cut)?"
+  },
+  "likesItem": {
+   "type": "noul",
+   "instructions": "Does the reviewer say they love, like, or are happy with the item?"
+  },
+  "mainIssue": {
+   "type": "choice",
+   "instructions": "What problem with the item does the reviewer give as the reason they are unhappy? If they give several, pick the one they mention first.",
+   "criteria": {
+    "fit": "Size or fit: the item was too big, too small, too long, too short, or cut wrong for their body",
+    "quality": "A defect or damage: holes, tears, pilling, broken parts, poor stitching, fabric that feels cheap or wears out",
+    "appearance": "How it looks, while it fits and is not defective: the colour, pattern or style is different from the photo, or unflattering on them",
+    "other": "A problem that is none of the above: price, delivery, comfort, smell, care instructions, or something else",
+    "none": "No problem: the reviewer is not unhappy with the item, or mentions no problem at all"
+   }
+  }
+ },
+ "items": [
+  {
+   "id": "f001",
+   "state": {
+    "category": "Pants",
+    "title": "Didn't work for me",
+    "review": "They look nice on the page, but they didn't work on my body. made me look big and boxy. maybe if you're super-skinny, they'll be fine."
+   }
+  },
+  {
+   "id": "f002",
+   "state": {
+    "category": "Blouses",
+    "title": "Such a great, classic top with a big issue",
+    "review": "I really like both colors in this top. i love the way it lays, the length, the material, etc. what i don't like is that the arm holes are very large and shows the entire side of your bra. this is definitely a summer top so why would someone want to have to wear a cami when it's warm enough to go sleeveless? too bad, i would have bought it for sure."
+   }
+  },
+  {
+   "id": "f003",
+   "state": {
+    "category": "Skirts",
+    "title": "Cute- runs a little snug on me",
+    "review": "Adorable skirt. the eyelet part on the bottom is cut-out so see through but cute and subtle. found it fit a little snug on me- could just be my build, but i ordered it in normal size and 1 size up. the size up fit best."
+   }
+  },
+  {
+   "id": "f004",
+   "state": {
+    "category": "Jackets",
+    "review": "This is the tiniest blazer i've ever purchased in a size 10. i usually wear an 8, but sized up based on other reviews and it was still too small. it's very attractive but please size true to size"
+   }
+  },
+  {
+   "id": "f005",
+   "state": {
+    "category": "Lounge",
+    "review": "I love this cozy jacket. i wanted a neutral colored jacket for casual outings. this does fit true to size. i am 5' 2'' and 105 pounds. i purchased the xs. you can cuff the sleeves to shorten the length of the arms. it has a piping so it doesn't look odd if cuffed. i do find most things/brands at retailer run big on me but not this item."
+   }
+  },
+  {
+   "id": "f006",
+   "state": {
+    "category": "Knits",
+    "review": "Love the fabric of this shirt even though it was thinner than i expected. it is soft to the skin and flattering. however i returned it because it is made for women with long torso and shorter shoulders."
+   }
+  },
+  {
+   "id": "f007",
+   "state": {
+    "category": "Blouses",
+    "title": "Awesome print but horrible fit!",
+    "review": "I own two poodles and love anything poodle print. i was estatic to see this and i snagged it on sale. but it is horrible. the fit is like wearing a pillowcase. it was about 5 inches too wide on each side while the arms fit. it looked like it was attempting to have a dolman shape but it was way too short, wide, and wrong. i was in love with the print however i had to return it."
+   }
+  },
+  {
+   "id": "f008",
+   "state": {
+    "category": "Fine gauge",
+    "title": "Love this artist's work, not the material for this",
+    "review": "I have a collection of this artist's paintings throughout my home. she is a favorite. i was so excited to see the first clothing item offered at retailer. i ordered it at full-price. it looks the same in person as in the photos. the fit was true to size--it fits me as shown on the models. the knit was comfortable. the problem was the printed fabric. it was so flimsy and kept attracting static. no matter what i tried, i couldn't get the static problem solved. it was unwearable because of how messy"
+   }
+  },
+  {
+   "id": "f009",
+   "state": {
+    "category": "Sweaters",
+    "title": "Sweater review",
+    "review": "I bought this sweater to wear with leggings for fall and winter.  the quality is nice, but the color is a bit different than the pic.  it has more brown than true berry in it.  it is very soft and stretchy, but is a bit boxy on.  i am debating whether to keep it or not.  it was a little cheaper with my birthday discount applied, but not sure i'd keep it if it was full price."
+   }
+  },
+  {
+   "id": "f010",
+   "state": {
+    "category": "Pants",
+    "title": "Great pants, too long for short people",
+    "review": "I love the look and design of these pants. i'm 5'1, 110lbs and i ordered a 25p and still had to get them hemmed to even fit like pants. on the model, these look cropped but mine were even too long to be pants when i got them. i love the pant but if you are a petite, be ready to need alterations to the length!!"
+   }
+  },
+  {
+   "id": "f011",
+   "state": {
+    "category": "Sleep",
+    "title": "Poor quality",
+    "review": "Recently received this and was very disappointed with the quality. the fabric was very thin, easily stretched out of shape. price is ridiculous for this item!"
+   }
+  },
+  {
+   "id": "f012",
+   "state": {
+    "category": "Blouses",
+    "title": "Cute top. sizing not correct.",
+    "review": "I just purchased this cute top at my local retailer store and definetely the size is way off! in blouses i wear a size 6 (small or medium) with a 34b bust, tall and slender and i had to purchase a size 12 (what????).\n\noverall so cute and could not pass it up. good luck. try it on before purchasing."
+   }
+  },
+  {
+   "id": "f013",
+   "state": {
+    "category": "Blouses",
+    "title": "Boxy",
+    "review": "This top is too boxy and has too much going on. it should have no buttons or different ones."
+   }
+  },
+  {
+   "id": "f014",
+   "state": {
+    "category": "Jeans",
+    "title": "Please make more pants like these!",
+    "review": "These pants are uh-mazing!! i love that they have a seam in the front of the leg and in the back of the leg. i didn't notice it in the photo online but in person it stands out more and anything vertical on my petite frame is a+. way to go! these are my new favorite pants...i wish pilcro would make this style in more colors, and fabrics. \n\ni wear a 25p or a 24p and i'm glad i got the 25p because it's true these are tight in the leg but i think that's a good thing since cords look awful when the"
+   }
+  },
+  {
+   "id": "f015",
+   "state": {
+    "category": "Knits",
+    "title": "Just ok",
+    "review": "I ordered this in tan and white, but ended up returning it. the material is a bit thin (but soft). the shape of the top was decent, i didn't think it was too boxy but i didn't like how the seams looked on the sides. ultimately i didn't think it was worth the price."
+   }
+  },
+  {
+   "id": "f016",
+   "state": {
+    "category": "Blouses",
+    "title": "Too boxy, pretty material",
+    "review": "I really wanted to like this top. in person though, the fit was too large and boxy. i did order a smaller size based on other reviews but it was still too sacklike. i got the grey motif pattern which i thought was quite pretty and interesting. the material was nice and lightweight. perhaps it would look better on someone with a straight figure and small bust."
+   }
+  },
+  {
+   "id": "f017",
+   "state": {
+    "category": "Dresses",
+    "title": "Funky plaid!",
+    "review": "The moment i saw this dress, i knew i had to have it. the plaid is beautiful with tones of red, blue and periwinkle. the photos on the website are very true. the unexpected pockets make it even cuter. i also got the sandals as pictured because i love the whole look. i an 5'5\" and usually wear a 4 or 6. i got the small and then wondered if it were too big. i ended up going back and trying on the extra small, but it turns out the small was correct. it should hang and drape and it not meant to be f"
+   }
+  },
+  {
+   "id": "f018",
+   "state": {
+    "category": "Sweaters",
+    "title": "Cosy and roomy",
+    "review": "This is a very nice top, but it is very loose and swingy indeed. i sized down one size, and it still is very relaxes. the material is soft, the colors are nice."
+   }
+  },
+  {
+   "id": "f019",
+   "state": {
+    "category": "Blouses",
+    "title": "Wanted to like this more",
+    "review": "I really wanted to like this top, but couldn't seem to find the right fit. i tried it on in 3 different sizes and none of them were right - they were either too wide in the hips, or a little narrow in the shoulder. it is cute overall though - and a good way to do a short top, without feeling like you're in a \"crop top\""
+   }
+  },
+  {
+   "id": "f020",
+   "state": {
+    "category": "Dresses",
+    "title": "This is better in person",
+    "review": "I tossed this in my bag (online) at the last minute thinking i'd give it a shot. so glad i did. this is dress is so simple and so much more flattering then i expected. you can dress it up or down. i wish it was about 1/2 inch longer but still a good length for me (things are always too short for me). the material could be a little thicker but then i suppose it would lose the bounce that is so key to the flow of thing with this dress."
+   }
+  },
+  {
+   "id": "f021",
+   "state": {
+    "category": "Blouses",
+    "title": "Chambray top",
+    "review": "I just received the top today, and will send back for a larger size. i am i between a 4 and 6, so tried the 4 thinking it would be boxy. it is very fitted with no opening to assist in pulling over shoulders. i am hoping the 6 is only slightly bigger. the shirt also had a slight musty odor. it's a rather thin chambray....with 3/4 sleeves. the top came to just the top of my jeans, which should work for higher waisted skirts or layering."
+   }
+  },
+  {
+   "id": "f022",
+   "state": {
+    "category": "Intimates",
+    "review": "It seemed to stay in place and did not require constant readjustment. however, i found the band to be extremely small and tight. it is not the most comfortable bra because of the way the band just presses into your skin."
+   }
+  },
+  {
+   "id": "f023",
+   "state": {
+    "category": "Blouses",
+    "title": "Great top",
+    "review": "Love this top! the color is very pretty, great for the holidays. i haven't washed it yet, but it says machine wash which is a plus for me."
+   }
+  },
+  {
+   "id": "f024",
+   "state": {
+    "category": "Dresses",
+    "title": "Does not hang well",
+    "review": "I am typically a small/6 in dresses, but i should have gone with the other reviewers and sized down. it had no shape, but hung like a paper sack. the armholes fit perfectly though, if i had sized down they may have been too tight. i am 5'6\" 140 lb\ni will return, too bad because it is a pretty dress!"
+   }
+  },
+  {
+   "id": "f025",
+   "state": {
+    "category": "Jeans",
+    "title": "Don't bother",
+    "review": "These are terribly unflattering the wash looks dirty and the rise is not 10.5 like the description says, which is the only reason i gambled on these it is 13\"."
+   }
+  },
+  {
+   "id": "f026",
+   "state": {
+    "category": "Knits",
+    "title": "An immediate return",
+    "review": "The fit on this shirt is bizarre--it very much resembles a nursing top (but wouldn't actually work for that purpose). the side visible in the picture is nicely draped, but the other side can flap open and is completely different. i tried two different sizes and both were equally unfortunate!"
+   }
+  },
+  {
+   "id": "f027",
+   "state": {
+    "category": "Knits",
+    "title": "Pretty but not worth the price",
+    "review": "Pretty tee, but not worth the price.  lace is beautiful, but fit is blah."
+   }
+  },
+  {
+   "id": "f028",
+   "state": {
+    "category": "Jackets",
+    "title": "Jacket even better in person!",
+    "review": "This jacket is beautiful! the embroidery is very well done! the jacket is fully lined in black. i usually wear a l/xl and definitely needed the xl as it runs a little small."
+   }
+  },
+  {
+   "id": "f029",
+   "state": {
+    "category": "Sweaters",
+    "title": "Vintage , cozy, unique adorable sweater",
+    "review": "I agree with the others...this is the type sweater that hooked me on retailer ten years ago. i love my new sweater. i do recommend wearing a long sleeve tee underneath. the sleeves are itchy."
+   }
+  },
+  {
+   "id": "f030",
+   "state": {
+    "category": "Dresses",
+    "title": "Tulle perfection!",
+    "review": "I was looking for a holiday dress to wear to the nutcracker and what is more appropriate than a tulle skirt?! the tulle lays fairly flat so it's flattering rather than being poufy. the top is a thick material, but not quite sweater material. since the top is warmer, it should be fine for winter even with short sleeves (and a cute cardigan or furry coat#. i'm going to sparkle it up a bit with a necklace or belt, but it also looks fine without extra accessories. fits true to size, i'm typically a"
+   }
+  }
+ ]
+}

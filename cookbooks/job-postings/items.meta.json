@@ -1,0 +1,3202 @@
+[
+ {
+  "id": "f001",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 9761,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f002",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 5942,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f003",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 3788,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f004",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 538,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f005",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 15803,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f006",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 4146,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f007",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 3977,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f008",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 17639,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f009",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 8291,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f010",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 16450,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f011",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 17709,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f012",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 14593,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f013",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 5517,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f014",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 15812,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f015",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 4043,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f016",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 9808,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f017",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 6369,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f018",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 8064,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f019",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 13326,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f020",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 11728,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f021",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 6838,
+  "has_company_logo": 0,
+  "telecommuting": 1,
+  "has_questions": 0
+ },
+ {
+  "id": "f022",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 4668,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f023",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 16679,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f024",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 17658,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f025",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 16671,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f026",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 17784,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f027",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 17597,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f028",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 11005,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f029",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 15704,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f030",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 12544,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f031",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 5914,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f032",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 11177,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f033",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 11249,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f034",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 7945,
+  "has_company_logo": 1,
+  "telecommuting": 1,
+  "has_questions": 0
+ },
+ {
+  "id": "f035",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 6507,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f036",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 2021,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f037",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 17649,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f038",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 4762,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f039",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 7025,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f040",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 8086,
+  "has_company_logo": 1,
+  "telecommuting": 1,
+  "has_questions": 0
+ },
+ {
+  "id": "f041",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 9004,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f042",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 8785,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f043",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 3275,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f044",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 7179,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f045",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 12281,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f046",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 254,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f047",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 12165,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f048",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 17635,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f049",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 9210,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f050",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 5863,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f051",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 2467,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f052",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 17713,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f053",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 16548,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f054",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 16816,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f055",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 2376,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f056",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 10903,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f057",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 5419,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f058",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 3912,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f059",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 9646,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f060",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 9033,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f061",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 668,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f062",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 17554,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f063",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 6150,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f064",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 1961,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f065",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 3125,
+  "has_company_logo": 1,
+  "telecommuting": 1,
+  "has_questions": 0
+ },
+ {
+  "id": "f066",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 11232,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f067",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 7249,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f068",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 501,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f069",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 6421,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f070",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 5573,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f071",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 3645,
+  "has_company_logo": 0,
+  "telecommuting": 1,
+  "has_questions": 0
+ },
+ {
+  "id": "f072",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 3990,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f073",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 17719,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f074",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 13118,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f075",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 4933,
+  "has_company_logo": 0,
+  "telecommuting": 1,
+  "has_questions": 1
+ },
+ {
+  "id": "f076",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 14432,
+  "has_company_logo": 1,
+  "telecommuting": 1,
+  "has_questions": 1
+ },
+ {
+  "id": "f077",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 9760,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f078",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 9830,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f079",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 16468,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f080",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 12559,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f081",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 8454,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f082",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 65,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f083",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 17536,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f084",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 13217,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f085",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 12927,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f086",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 15819,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f087",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 7104,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f088",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 13523,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f089",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 8690,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f090",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 88,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f091",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 2073,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f092",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 4882,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f093",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 15495,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f094",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 7662,
+  "has_company_logo": 0,
+  "telecommuting": 1,
+  "has_questions": 0
+ },
+ {
+  "id": "f095",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 3346,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f096",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 4669,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f097",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 5692,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "f098",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 9846,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f099",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 8856,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "f100",
+  "split": "fit",
+  "labels": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 5292,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t001",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 1351,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t002",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 8887,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t003",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 7354,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t004",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 9281,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t005",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 1102,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t006",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 8065,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t007",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 2094,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t008",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 9612,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t009",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 17822,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t010",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 96,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t011",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 5689,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t012",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 1139,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t013",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 16632,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t014",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 14440,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t015",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 13012,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t016",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 13112,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t017",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 7020,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t018",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 4236,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t019",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 2014,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t020",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 17702,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t021",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 14164,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t022",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 468,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t023",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 17717,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t024",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 15320,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t025",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 9835,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t026",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 16050,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t027",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 10397,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t028",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 1262,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t029",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 5105,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t030",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 17859,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t031",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 13328,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t032",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 17783,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t033",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 17741,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t034",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 12772,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t035",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 2970,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t036",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 17755,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t037",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 10753,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t038",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 2438,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t039",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 11803,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t040",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 17701,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t041",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 2469,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t042",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 12049,
+  "has_company_logo": 1,
+  "telecommuting": 1,
+  "has_questions": 1
+ },
+ {
+  "id": "t043",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 17644,
+  "has_company_logo": 1,
+  "telecommuting": 1,
+  "has_questions": 1
+ },
+ {
+  "id": "t044",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 17669,
+  "has_company_logo": 1,
+  "telecommuting": 1,
+  "has_questions": 0
+ },
+ {
+  "id": "t045",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 17131,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t046",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 9995,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t047",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 3306,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t048",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 323,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t049",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 9711,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t050",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 4839,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t051",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 291,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t052",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 4165,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t053",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 8734,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t054",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 7843,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t055",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 15775,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t056",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 5435,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t057",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 15512,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t058",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 8111,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t059",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 14979,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t060",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 6331,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t061",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 9047,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t062",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 15021,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t063",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 7474,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t064",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 9408,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t065",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 17289,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t066",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 14947,
+  "has_company_logo": 1,
+  "telecommuting": 1,
+  "has_questions": 1
+ },
+ {
+  "id": "t067",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 13603,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t068",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 16789,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t069",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 9338,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t070",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 17688,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t071",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 15542,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t072",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 13260,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t073",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 7939,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t074",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 17389,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t075",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 11755,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t076",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 5832,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t077",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 9879,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t078",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 6325,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t079",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 4149,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t080",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 10417,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t081",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 14949,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t082",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 7006,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t083",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 17770,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t084",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 16751,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t085",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 7003,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t086",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 13931,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t087",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 17828,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t088",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 12244,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t089",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 6576,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t090",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 13734,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t091",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 5216,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t092",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 6800,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t093",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 14423,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t094",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 14634,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t095",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 6475,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t096",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 5474,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t097",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 9347,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t098",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 2177,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t099",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 6502,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t100",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 1570,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t101",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 494,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t102",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 207,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t103",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 5586,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t104",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 1235,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t105",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 15887,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t106",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 5267,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t107",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 17586,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t108",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 12186,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t109",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 16429,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t110",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 9418,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t111",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 1203,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t112",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 17611,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t113",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 3459,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t114",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 17707,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t115",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 5313,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t116",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 17378,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t117",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 7485,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t118",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 6971,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t119",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 6039,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t120",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 16614,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t121",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 15297,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t122",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 8289,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t123",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 7105,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t124",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 7412,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t125",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 8669,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t126",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 1179,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t127",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 12247,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t128",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 357,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t129",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 4968,
+  "has_company_logo": 1,
+  "telecommuting": 1,
+  "has_questions": 1
+ },
+ {
+  "id": "t130",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 6364,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t131",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 4270,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t132",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 10304,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t133",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 5562,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t134",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 1193,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t135",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 9104,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t136",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": true
+  },
+  "sourceJobId": 8602,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t137",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 3934,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t138",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 6124,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t139",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 6394,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t140",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 17624,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t141",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 6993,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t142",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 6793,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t143",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 16081,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t144",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 16578,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t145",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 16730,
+  "has_company_logo": 1,
+  "telecommuting": 1,
+  "has_questions": 0
+ },
+ {
+  "id": "t146",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 15420,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t147",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 13216,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t148",
+  "split": "test",
+  "labels": {
+   "isFraudulent": true
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 17795,
+  "has_company_logo": 0,
+  "telecommuting": 0,
+  "has_questions": 0
+ },
+ {
+  "id": "t149",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 6168,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ },
+ {
+  "id": "t150",
+  "split": "test",
+  "labels": {
+   "isFraudulent": false
+  },
+  "baseline": {
+   "isFraudulent": false
+  },
+  "sourceJobId": 631,
+  "has_company_logo": 1,
+  "telecommuting": 0,
+  "has_questions": 1
+ }
+]

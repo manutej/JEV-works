@@ -1,0 +1,3244 @@
+{
+ "$schema": "../../kit/spec.schema.json",
+ "name": "youtube-spam",
+ "description": "Trust & safety: is a public YouTube comment spam? One direct question plus narrow literal signals recombined in code. UCI YouTube Spam Collection (CC BY 4.0); authors, ids and dates dropped.",
+ "baselineName": "keyword lists (top 8 per class by log-odds, fit split only)",
+ "gate": {
+  "minCoverage": 0.95
+ },
+ "questions": {
+  "isSpam": {
+   "type": "noul",
+   "instructions": "Is this YouTube comment spam?",
+   "criteria": {
+    "true": "The comment exists to advertise or promote something (a channel, a website, a product, money-making) or to farm subscribers, likes or views.",
+    "false": "The comment is a genuine reaction, opinion, question or conversation, even if it is rude, off-topic or low effort."
+   }
+  },
+  "asksToVisit": {
+   "type": "noul",
+   "instructions": "Does the comment ask readers to visit, watch, check out, subscribe to or like something that belongs to the commenter (their channel, video, page, site or product)?"
+  },
+  "mentionsVideo": {
+   "type": "noul",
+   "instructions": "Does the comment say something about this video, this song or this artist?"
+  },
+  "offersMoney": {
+   "type": "noul",
+   "instructions": "Does the comment offer money, prizes, free items, gift cards, or a way to earn money?"
+  },
+  "kind": {
+   "type": "choice",
+   "instructions": "What is this comment mainly doing?",
+   "criteria": {
+    "reaction": "Reacting to the video, song or artist: praise, criticism, a memory, a joke about it",
+    "promotion": "Promoting something: a channel, video, website, product, app or offer",
+    "request": "Asking readers for subscribers, likes, views or shares, without describing what is being promoted",
+    "conversation": "Talking to other commenters or about something unrelated to the video, without promoting anything",
+    "none": "None of these: empty, unreadable, only symbols or emoji, or not in a language you can read"
+   }
+  }
+ },
+ "items": [
+  {
+   "id": "f001",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Hey check out my channel!!!! Please"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f002",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "Almost 1 billion views, nice."
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f003",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "<a href=\"http://www.gofundme.com/Helpmypitbull\">http://www.gofundme.com/Helpmypitbull</a> Can you please donate to help my pitbull PLEASE!!! I just need 50 dollars to take it to the vet!!!"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f004",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "even without make up she is still  hot     http://uk.eonline.com/eol_images/Entire_Site/2012430/reg_1024.katy.mkup.mh.053012.jpg"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f005",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "this song is NICE"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f006",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "Subscribe to me and I'll subscribe back!!!"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f007",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "Check out this video on YouTube:"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f008",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "i like this song the video goes perfect with it"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f009",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "CHECK OUT THESE LYRICS /watch?v=yUTTX04oyqQ"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f010",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "PSY - GANGNAM STYLE (강남스타일) M/V: http://youtu.be/9bZkp7q19f0"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f011",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "if i reach 100 subscribers i will go round in public pouring a bucket of  ice water over people and then running away acting like it wasn't me! like  so people can see!!"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f012",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Check out this video on YouTube:but I&#39;m not Rhinnah"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f013",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "I love this song so much"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f014",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "check out my Eminem &amp; Kid Cudi M a s h up /watch?v=XYTcq5NzMuA"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f015",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "hey again if you guys wouldnt mind chacking out my rap give it like and il  giver 3 of your vids a like"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f016",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "katy perry will u sit on my face please. it would be really awesome and  i'll give you 5 dollars. ok if you want to do this then please call me and  subscribe to my channel first ok thats good and then u sit on my face and  ill get an erection then you sit more k?"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f017",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "LoL"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f018",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "adf.ly / KlD3Y"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f019",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "I really am madly in love with this woman!!"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f020",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "People, here is a new network like FB...you register also free, the  difference is only that you get paid for sharing, commenting and liking  posts and so one...don't waste your time on fb for sharing and not being  paid!! Register here to make also money with your everyday posts!!  https://www.tsu.co/slema13 Wellcome to everyone! ;)"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f021",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "https://www.facebook.com/photo.php?v=[phone number]&amp;set=vb.1727483389&amp;type=2&amp;theater"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f022",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Check out my channel for some lyricism....."
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f023",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "it is wonderful"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f024",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "View 851.247.920<br /><br /> Best youtube Video<br />If Subscribe to My Channel please!<br />Thank you! &lt;3<br /><br />Melhor Vídeo do youtube<br />Se Inscreva no Meu canal por favor!<br />Obrigado! &lt;3<br /><br />Mejor Video youtube<br />Si suscriba a mi canal por favor!<br />Gracias! &lt;3<br /><br />Meilleur vidéo youtube<br />Si vous abonner à Ma Chaîne se il vous plaît!<br />Merci! &lt;3"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f025",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "Such a good song ans Katy sounds great over the melody. Im growing as an  artist everyday from my hit song 'CRAZY' which has got my name out there.  cant thank my fans more for their support. If you could take a moment? to  check it and my music? maybe you'll join me to make my dream come true :)  thank you for your time"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f026",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "psy=korean"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f027",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "just came here to check the views :P"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f028",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "How can this song have 629 million views while there are only 7 million  people in the world?"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f029",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "2 Billions in 2014"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f030",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "Hi. Check out and share our songs."
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f031",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "#2015 FUCK YEAH"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f032",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "this fucking song like a&#39;n oreo the only white part is the good 1"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f033",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Eminem and Rihanna sing the song very well."
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f034",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "Follow me on Instagram. _chris_cz"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f035",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "Hello everyone :) I know most of you probably pass up these kind of comments, but for those who are still reading this, thanks! I don’t have any money for advertisements, no chance of getting heard, nothing. I live in such a small town... If this comes off as spam, sorry. I’m an instrumental songwriter from Columbus, Mississippi. Please go to my channel and check out my original music. It would be highly appreciated if you thumbs up this comment so my music can be heard! Thank you, Adam Whitney"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f036",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "shakira is the best!"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f037",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "Damn, this was everywhere"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f038",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "I'm only checking the views"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f039",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Subscribe to me for clean Eminem!"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f040",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "share and like this page to win a hand signed Rihanna photo!!! fb -  Fans of Rihanna"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f041",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "This is a weird video."
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f042",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "http://thepiratebay.se/torrent/10626835/The.Expendables.3.2014.DVDSCR.Xvid-DiNGO"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f043",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "Check out this playlist on YouTube:<br /><br />"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f044",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "subscribe to <span class=\"proflinkWrapper\"><span class=\"proflinkPrefix\">+</span><a class=\"proflink\" href=\"https://plus.google.com/[phone number]\" oid=\"[phone number]\">SuperMarioLogan</a></span>  if you thot the robot dudes r epic and awsome"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f045",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "BEST PARTY SONG LITERALLY PARTY ROCK IS IN THE HOUSEE TONIGHT!!!!"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f046",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "I #votekatyperry for the 2014 MTV #VMA Best Lyric Video! See who's in the  lead and vote:  http://on.mtv.com/Ut15kX"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f047",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "Why does a song like this have more views than Michael Jackson SMH"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f048",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "You guys should check out this EXTRAORDINARY website called ZONEPA.COM .   You can make money online and start working from home today as I am!   I am making over $3,000+ per month at ZONEPA.COM !   Visit Zonepa.com and check it out!  Why does the view disclose the macho lift? Why does the letter frame the thundering cause? Why does the talk prevent the conscious memory?"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f049",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "NICE :3"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f050",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "To help shakira become the first female to hit 1billiom views, I&#39;ve decided to watch this Video at least one a day. Everyday! Shakifans we r so close just hit the replay button !!!"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f051",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "Don't mind me, I'm just checking what the views are up to : )"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f052",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "great song you go katy!"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f053",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Hey Go To My Channel Check Out My Dongs Thanks YouTuber&#39;s"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f054",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "Hi everyone! My dream is to have passionate sex with Katy Perry. Some people do not believe in me…but maybe you will. Sex is a giant part of my life and it pushes me to be a better person! Please give me a chance by giving me a thumbs up! If you love my ambition please SUBSCRIBE!"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f055",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "Hey guys subscribe to my channel for no reason! Please!.."
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f056",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "That shake and that golden and black robot were really partying"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f057",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "SUBSCRIBE TO MY CHANNEL X PLEASE!. SPARE"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f058",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "I love that you subscribed"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f059",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "Its 2015 and still shuffling to this song🎶🎵🎧"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f060",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "I love KATY PERRY &lt;3 &lt;3"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f061",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "Hey Music Fans I really appreciate all of you who take time to read this, and check my music out! I&#39;m just a 15 year old boy DREAMING of being a successful MUSICIAN in the music world. I do lots of covers, and piano covers. But I dont have money to advertise. A simple thumbs up to my comment, a comment on my videos or a SUBSCRIPTION would be a step forward! It will only be a few seconds of your life that u won&#39;t regret!!! Thank u to all the people who just give me a chance it means a lot! :)"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f062",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "I love katty perry"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f063",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "this has so many views"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f064",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "shuffle!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f065",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "Hi Guys! check this awesome EDM &amp; House mix :) thanks a lot..  https://soundcloud.com/soundhase/edm-house-mix-2"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f066",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "We get it, you came here for the views..."
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f067",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "Take a look at this video on YouTube:"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f068",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "I love this song, it´s for empowering every woman :)  \"you´re gonna hear me roar\" ;)"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f069",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "good music"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f070",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "like if ur watchin in [phone number]"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f071",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "plz i wilsubscribe me frndzzl subscribe u back"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f072",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "The first billion viewed this because they thought it was really cool, the  other billion and a half came to see how stupid the first billion were..."
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f073",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "My honest opinion. It's a very mediocre song. Nothing unique or special  about her music, lyrics or voice. Nothing memorable like Billie Jean or  Beat It. Before her millions of fans reply with hate comments, i know this  is a democracy and people are free to see what they want. But then don't I  have the right to express my opinion? Please don't reply with dumb comments  lie \"if you don't like it don't watch it\". I just came here to see what's  the buzz about(661 million views??) and didn't like what i saw. OK?"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f074",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "That's Good :)"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f075",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "/watch?v=aImbWbfQbzg watch and subscrible"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f076",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "I like you . Katy Perry 600▲60▲6▲"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f077",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "This song is just insane.<br />Do you dance listening to this song?( i do, lol)"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f078",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "❤️ ❤️ ❤️ ❤️ ❤️❤️❤️❤️"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f079",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "subscribe to my channel who can"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f080",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "Good video"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f081",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "Part 5. Comforter of the afflicted, pray for us Help of Christians, pray for us Queen of Angels, pray for us Queen of Patriarchs, pray for us Queen of Prophets, pray for us Queen of Apostles, pray for us Queen of Martyrs, pray for us Queen of Confessors, pray for us Queen of Virgins, pray for us Queen of all Saints, pray for us Queen conceived without original sin, pray for us Queen of the most holy Rosary, pray for us Queen of the family, pray for us Queen of peace, pray for us"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f082",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "Hey, check out my new website!! This site is about kids stuff. kidsmediausa  . com"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f083",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Hey everyone check out my channel leave a like and subscribe please and if there is a song you want me to do post the name in the comments and I will get on to it(: Thanks"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f084",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "how does this video have 2,127,322,484 views if there are only 7 million  people on earth?"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f085",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "Hey guys! My mom said if i got 100 subs before christmas I'll get a kitten  and I always have wanted an kitten so please watch my videos and if you  like it subscribe or like :) Please no mean comments"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f086",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "&lt;script&gt;document.write('&lt;a target=\"_self\" href=\" http://rover.ebay.com/rover/1/[phone number]/1?icep_ff3=1&amp;pub=[phone number]&amp;toolid=10001&amp;campid=[phone number]&amp;customid=bogdan+grigore&amp;ipn=psmain&amp;icep_vectorid=229508&amp;kwid=902099&amp;mtid=824&amp;kw=lg\"&gt;check  this out new arive on ebay&lt;/a&gt;&lt;img  style=\"text-decoration:none;border:0;padding:0;margin:0;\" src=\" http://rover.ebay.com/roverimp/1/[phone number]/1?ff3=1&amp;pub=[phone number]&amp;toolid=10001&amp;campid=[phone number]&amp;customid=bogdan+grigore&amp;mpt='+Math.floor(Math.random()*999999999)+'\"&gt;');&lt;/script&gt;&lt;noscript&gt;&lt;a  target=\"_self\" href=\" http://rover.ebay.com/rover/1/[phone number]/1?icep_ff3=1&amp;pub=[phone number]&amp;toolid=10001&amp;campid=[phone number]&amp;customid=bogdan+grigore&amp;ipn=psmain&amp;icep_vectorid=229508&amp;kwid=902099&amp;mtid=824&amp;kw=lg\"&gt;check  this out new arive on ebay&lt;/a&gt;&lt;img  style=\"text-decoration:none;border:0;padding:0;margin:0;\" src=\" http://rover.ebay.com/roverimp/1/[phone number]/1?ff3=1&amp;pub=[phone number]&amp;toolid=10001&amp;campid=[phone number]&amp;customid=bogdan+grigore&amp;mpt=[CACHEBUSTER] \"&gt;&lt;/noscript&gt;"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f087",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "SUB 4 SUB PLEASE LIKE THIS COMMENT I WANT A SUCCESFULL YOUTUBE SO PPLEASE LIKE THIS  COMMENT AND SUBSCRIBE IT ONLY TAKES 10 SECONDS PLEASE IF YOU SUBSCRIBE ILL  SUBSCRIBE BACK THANKS"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f088",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "Like getting Gift cards..but hate spending the cash.... Try Juno Wallet !!! At Juno Wallet you can earn money for gift cards such as ; Nike, Gamestop,  Amazon , Ebay Etc &amp; its easy  Earn money by doing simple task like watching videos..downloading apps &amp;  you can even earn money by inviting your friends to join...its free for  signup Sign up today &amp; use promo code BD3721315"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f089",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "Good thing she brought her spray-on tan, hairstylist, makeup artist, and  cameraman."
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f090",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "super rihanna"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f091",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "sorry but eminmem is a worthless wife beating bastard"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f092",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "Subscribe to my channel :)  &lt;3"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f093",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "subscribe to my chanell"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f094",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "C'mon 3 billion views!!!!!!!!"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f095",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "Thanks to this video we know that Nokia phones can survive a plane crash."
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f096",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "why are they 5million comments when there is only 279.898 youtube Users.   5million fake account or PSY hacked youtube"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f097",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "Check me out! I'm kyle. I rap so yeah"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f098",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "Shakira is perfect"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "f099",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "Get free gift cards and pay pal money!"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "f100",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "Best song for ever💜💜😢<br />"
+   },
+   "split": "fit",
+   "labels": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t001",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "Check out this playlist on YouTube:a"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t002",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "hey guys i know its annoying getting spammed sorry bout that but please take a moment to check out my channel  IM A RAPPER with DECENT skills. i want to share my music with more people so take a listen   THUMBS UP SO MORE CAN SEE THIS"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t003",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Was that Meghan fox??"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t004",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "SO THEN HOW ARE YOU GOING TO CALL YOURSELF A INSTRUMENTAL SONGWRITER IF THERES NO SINGING THERES NO SONG TO WRITE!?!?! LOL.   YOU GOT ALOT TO LEARN KID BUT HEY DON&#39;T FORGET TO SUBSCRIBE!"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t005",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "You guys should check out this EXTRAORDINARY website called ZONEPA.COM .   You can make money online and start working from home today as I am!   I am making over $3,000+ per month at ZONEPA.COM !   Visit Zonepa.com and check it out!  Why does the statement conciliate the acidic stretch? The earth recognizes the money. When does the numberless number transport the trade?"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t006",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "wtf. subscribe my channel thanx ;)"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t007",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "5 years later i still love this song <br />~Axy665"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t008",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "How did you know that people makes another account just for subscribing itself and liking??? :)"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t009",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "she is horrible at acting. cringe-worhty."
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t010",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Hello. İ am from Azerbaijan<br />"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t011",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "Best world cup offical song"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t012",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "There are beautiful songs please subscribe"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t013",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "hey its M.E.S here I&#39;m a young up and coming rapper and i wanna get my music heard i know spam wont get me fame. but at the moment i got no way of getting a little attention so please do me a favour and check out my channel and drop a sub if you enjoy yourself. im just getting started so i really appreciate those who take time to leave constructive criticism i already got 200 subscribers and 4000 views on my first vid ive been told i have potential"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t014",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Hay dakota u earned a subscribee"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t015",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "You guys should check out this EXTRAORDINARY website called MONEYGQ.COM .   You can make money online and start working from home today as I am!   I am making over $3,000+ per month at MONEYGQ.COM !   Visit MONEYGQ.COM and check it out!   Lake   . Magnificent . Noodile . Unequaled . Moderock . Gogopo . Lulerain . Olielle . Zesty . Laughable . Accidental . Pepelexa . Delightful . Wiry . Toogit . Uncovered . Chesture . Woozy . Adhoc . Weak . Shallow"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t016",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "I like it<br />"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t017",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "https://www.indiegogo.com/projects/help-stop-my-poverty-cyber-pan-handleing/x/8692160#home"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t018",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "Like this in 2015! :D"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t019",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "DO YOU KNOW HOW SEAN KINGSTON GOT FAMOUS WHY DON&#39;T YOU LOOK IT UP KID BEFORE YOUR SO HARD ON YOURSELF!!  IF YOU HIT ME UP WITH A MESSAGE IN MY INBOX AND SUBSCRIBE I WILL CHECK OUT YOUR CHANNEL....SOUNDS FAIR TO ME."
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t020",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "This awesome song needed 4 years to reach to 800 mil views while Tango Switch bitch needed 1 year. its not fairrrrrrr"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t021",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Eminem is the greatest artist to ever touch the mic."
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t022",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "Like"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t023",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "http://www.aaas.org/tech-i/vote#view/25874/2177367 VOTE SHELDON PLEASE  GUYS. GIVE IT 5 STARS. THANKS IN ADVANCE"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t024",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Getting too 1billion views, holy moly.!!!"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t025",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "hey guys if you guys can please SUBSCRIBE to my channel ,i&#39;m a young rapper really dedicated i post a video everyday ,i post a verse (16 bars)(part of a song)everyday to improve i&#39;m doing this for 365 days ,right now i&#39;m on day 41  i&#39;m doing it for a whole year without missing one day if you guys can please SUBSCRIBE and follow me on my journey to my dream watch me improve, it really means a lot to me  thank you (:, i won&#39;t let you down i promise(: i&#39;m lyrical i keep it real!"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t026",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "How are there 2 billion views and theres only 2 million people in the  world!?!?!?!! MULTIPLE ACCOUNTS!!!1111"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t027",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "How To Make A Lot Of Money Fast"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t028",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "Love this song makes me wanna dance!"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t029",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "<a href=\"http://www.youtube.com/watch?v=KQ6zr6kCPj8&amp;t=2m19s\">2:19</a> best part"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t030",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "Cutie girl and beautiful song"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t031",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Made five years ago and people still don&#39;t understand the message this song is conveying. For those of you who don&#39;t, understand that domestic violence is no game, women like the fictional one in this video do exist. Living their lives with a man who abuses her, but still chooses to stay for not the love, but for the sexual feeling he gives her. This is quite sad, actually."
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t032",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Check out this video on YouTube<br /><br /><br />"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t033",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "sorry to all my haters<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />for party rock en"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t034",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Check Out The New Hot Video By Dante B Called Riled Up"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t035",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "Wow...5 years<br />"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t036",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "do you want to make some easy money? check out my page tvcmcadavid.weebly . com dont miss out on this opportunity give thumbs up i would  apprecitate it."
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t037",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "I love your music"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t038",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "2,000,000,000 out of 7,000,000,000 people in the would saw this video just  in 2 years and yeat i only get 2 words out of the hole song"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t039",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "I just wanna see how many people like this comment. I&#39;ll give it a month or so :)"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t040",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "Very Nice !!!<br />Yeah Fucking."
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t041",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "everyday I&#39;m shufflin"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t042",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "Katty perry please say in one of your new videoes that they follow the  Girls Girls please"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t043",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "NICE GIRL :D"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t044",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "Anybody who subscribes to me will get 10 subscribers"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t045",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "BR"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t046",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "I believe that soccer promotes terrorism. Bad choice, Shakira."
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t047",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "He is good boy!!!<br />I am krean I like to eminem~!~"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t048",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "Subscribe to me plz plz plz plz plz plZ"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t049",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "Cool"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t050",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "HI!:D!:) We’ re TWIN MELODY ,17 year old twins :) WE DID SOME COVERS!!WE DID A COVER OF BIRTHDAY BY KATY PERRY!!  PLEASE JUST TAKE 1 SECOND AND WATCH IT!! THANKS,MERCI,GRACIAS,DANKE,OBRIGADO,GRAZIE ….    !!!  &lt;3  XX HAVE A NICE DAY!!:D"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t051",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "Hi there, have you heard about DribbleProShot? Just do a search on Google. On their web site you can watch a smart free video featuring the best way to significantly boost your football aka soccer skills in no time... It turned Nick into a much better football or soccer player...His team mates were definitily amazed! I hope it will help you also..."
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t052",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Im gonna share a little ryhme canibus blows eminem away a quadrillion times especially about the categories of intelligent things in his mind. That he learned and rapped about and forgot before eminem spit his first ryme.luv ya linz 4e"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t053",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Eminem is idol for very people in España and Mexico or Latinoamerica"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t054",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "OPPA &lt;3"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t055",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "and how many subscribers compared to her over a million"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t056",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "katy perry does remind me of a tiger,like as if its her spirit animal :3 &lt;3"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t057",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "look at my channel i make minecraft pe lets play"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t058",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "this is increidebl"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t059",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "Screw this Chinese crap i dont even understand what he is saying. Why isn't  he speaking English like everyone should?"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t060",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "http://www.ermail.pl/dolacz/UnNfY2I=                  Please click on the  link"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t061",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "-----&gt;&gt;&gt;&gt;  https://www.facebook.com/video.php?v=[phone number]&amp;set=vb.201470069872822&amp;type=3&amp;permPage=1  &lt;--------"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t062",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "Waka best one"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t063",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "why the elephant have a broken horn"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t064",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "i like and love so much people all friends..... I love Shakira ^^"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t065",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "New way to make money easily and spending 20 minutes daily --&gt; <a href=\"https://www.paidverts.com/ref/Marius1533\">https://www.paidverts.com/ref/Marius1533</a>"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t066",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "ｈｔｔｐ://ｗｗｗ.ｅｂａｙ.ｃｏｍ/ｕｓｒ/ｓｈｏｅｃｏｌｌｅｃｔｏｒ314"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t067",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "Check out this playlist on YouTube:"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t068",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": ":)"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t069",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "Katty is the best! ! ! !"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t070",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Every collaboration between them, we know it will be number 1"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t071",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "Who&#39;s watching in 2015 Subscribe for me !"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t072",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "subscribe to my channel yo - DJ Feelz"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t073",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "9 year olds be like, 'How does this have 2 billion views when there are  only 3 people in the world'"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t074",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "Free itunes $25 giftcard codes: http://shhort.com/a?r=OOCnjqU2b"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t075",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "Message :   GTA V  $20  FIFA 14 $15  PS4  $200  Galaxy S4 mini $250  Ipad 4   $200  visit the site hh.nl"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t076",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "http://flipagram.com/f/LUkA1QMrhF"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t077",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "like me"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t078",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "I am going to blow my mind"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t079",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "Incmedia.org where the truth meets you."
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t080",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "What&#39;s with the guys jacket? 1 sleeve and a sleeveless arm"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t081",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "BEAUTIFUL"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t082",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "Like this comment for no reason"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t083",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "Nicee!!sabrosura viva https://soundcloud.com/yerki-elinmigrante/yerki-myb-move-your-body"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t084",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "Good song:-)"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t085",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "Best song ever"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t086",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "EHI GUYS CAN YOU SUBSCRIBE IN MY CHANNEL? I AM A NEW YOUTUBER AND I PLAY  MINECRAFT THANKS GUYS!... SUBSCRIBE!"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t087",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "Hello! I'm Marian, I'm a singer from Venezuela! I was part of a boy-girl band named cubik, and I'm now singing on my own  'cause I wanted to play my own pop and pop-rock songs.  It would mean a lot if you could have a look at my channel to check my  music and watch my new video!! and if u like, subscribe to it! XOXO THANKS!!  PS: if you like a lot my channel, you can share it with your friends!!  Haha!! LOL MARIAN"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t088",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "WOW VERY NICE CONGRASULATION I LIVE SO MUCH http://en.prothom-alo.com/sport/news/53331/Zimbabwe-A-team-due-in-Dhaka-Wednesday"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t089",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "In what South American jungle or any jungle for that matter do you find an  African elephant and a bengal tiger in the same place. Who made this video."
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t090",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "LMFAO IS THE BEST"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t091",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "Thumbs up if your watching in 2015"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t092",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "She's an old Whore!"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t093",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "Check out my covers I have a video coming out  please subscribe"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t094",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "I remember back when this was so popular everyone on our school was shuffling it was crazy"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t095",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Finally someone shares the same opinion as me. I&#39;ve tried really hard to like Gangnam style but I just can&#39;t, I don&#39;t even get the dance either. A song like this should be more popular than Gangnam Style, at least it makes sense."
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t096",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "860,000,000 lets make it first female to reach one billion!! Share it and replay it!"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t097",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "Check Out Daneja Good Girl"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t098",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "KATY PERRY, I AM THE \"DÉCIO CABELO\", \"DECIO HAIR\". I AM 60 YEARS OF AGE. I  DON\"T HAVE FAMILY. I\"M SINGLE. ALONE. HOMELESS. I WAS AN ALCOHOLIC: 15 AT  THE AGE OF 46. I AM AN INVISIBLE COMPOSER. MY DREAM IS TO RECORD MY SONGS.  COULD YOU HELP ME? PLEASE! PLEASE! I TRUST THAT THE YOU WILL GIVE ME A  CHANCE. I HAVE 109 VIDEOS IN THE YOUTUBE: deciocabelo canal. KATY PERRY, I  WAS BORN IN OCTOBER 25, TOO. THANK YOU VERY MUCH!!! DECIO HAIR."
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t099",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "#nowplaying \"Weekendmix\" track 04 : Katy Perry - Roar (DJ Denis Shmelev &amp; DJ Alex Serov Remix) http://youtu.be/CevxZvSJLk8   Listen live at: www.smartfm.nl/livestream.html"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t100",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "goot"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t101",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "j aiiima plzzz  https://www.facebook.com/pages/%C3%89c%C3%B8l%CE%B5-al-ma%CE%B7b%CE%B5t/[phone number]"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t102",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "I felt old when I realized that this song was 5 years old..."
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t103",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "Dance dance,,,,,Psy  http://www.reverbnation.com/msmarilynmiles"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t104",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "http://www.gcmforex.com/partners/aw.aspx?Task=JoinT2&amp;AffiliateID=9107"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t105",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "Can you check my videos please? Don't hate me :( Give me one oportunity"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t106",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "hi guys please my android photo editor download. thanks https://play.google.com/store/apps/details?id=com.butalabs.photo.editor"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t107",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "https://binbox.io/DNCkM#qT4Q1JB1"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t108",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "really want this video to get 1 billion views, would be amazing!"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t109",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "Hiya😊 I just started YouTube and it would mean a lot if some of you could  subscribe and watch my first video?xx"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t110",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "the views...... They&#39;re over 90,000!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t111",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "😫😓😏😪😔😖😌😭😎😚😘😙😗😋😝😜😛😍😒😞😷😶😵😳😲😱😟😰😩😨😧😦😥😤😣😮😴😢😡😠😬😕😑😐😯😉😈😇😆😅😄😃😂😁😀😊☺  every single types of face on earth"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t112",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "Nice to meet You - this is Johnny: 1. If You already know my music - thumb this up, because You found it this way, too. 2. If You want to hear original songs completely made by 1 person, continue reading:  I sing, write original music+lyrics &amp; play guitar, bass, drums &amp; keyboards. I&#39;m a 1-man-band. My music is completely independent &amp; 100% listener-supported. If You want to hear it &amp; if You&#39;re willing to help record new album - click on my name/picture.  Enjoy the music - wish You awesome day!"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t113",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "People who believe in Illuminati are stupid the same people believe that  911 was made by the American government"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t114",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "This video is so cool, again and again!"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t115",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Hi loving it"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t116",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "Party Rock<br />"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t117",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "Nature is beautiful, no need to place tits in video to impress people."
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t118",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "Check out my drum cover of E.T. here! thanks -&gt;   /watch?v=NO9pOVZ9OIQ&amp;list=UUltuCDIHsDeI01by1OW7WuQ"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t119",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "EVERYBODY PLEASE VOTE KATY AT EMA 2014 !!!!!  Best song  Best female Best pop Best live Best look  Best video  PLEASE VOTE KATY !!!!! PLEASE PLEASE PLEASE !!!!! VOTE VOTE VOTE !!!!! KATY KATY KATY !!!!!"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t120",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "Www.youniqueproducts.com/joannagordon Younique by Joanna Gordon www.youniqueproducts.com"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t121",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "http://woobox.com/33gxrf/brt0u5 FREE CS GO!!!!"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t122",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "I shared my first song &quot;I Want You&quot;, and I hope you&#39;ll like it. Take a listen!✌️😊 <a href=\"https://youtu.be/-YfUY4gKr1c\">https://youtu.be/-YfUY4gKr1c</a>"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t123",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "Came here to check the views, goodbye."
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t124",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "This the best song i ever hire<br />"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t125",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "http://www.wattpad.com/story/26032883-she-can-love-you-good"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t126",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "Please help me go to college guys! Thanks from the bottom of my heart.  https://www.indiegogo.com/projects/i-want-to-go-to-college--19/x/9082175"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t127",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "I'm not a big fan of the song but this video is awesome!"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t128",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "plz subscribe to my channel i need subs and if you do i will sub back i  need help"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t129",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "I think this is now a place to promote channels in the comment section lol."
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t130",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "This guy win dollars sleeping... m m m he loves the planet its full of RETARDS"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t131",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Is that Charlie from lost?<br />"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t132",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "i am a big fan of you and i love you"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t133",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "Stop,is a very TOP 1"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t134",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "Like this comment for no reason."
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t135",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "You guys should check out this EXTRAORDINARY website called MONEYGQ.COM .   You can make money online and start working from home today as I am!   I am making over $3,000+ per month at MONEYGQ.COM !   Visit MONEYGQ.COM and check it out!  Why does the innocent woman prioritize the desire? The flight searchs the sad polish. When does the tax zip the omniscient record?"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t136",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "Yea stil the best WK song ever<br />Thumbs up of you think the same<br />"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t137",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "i turned it on mute as soon is i came on i just wanted to check the  views..."
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t138",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "Youtube comments in a nut shell:<br /><br />.First<br />.301 club<br />.Skip to <a href=\"http://www.youtube.com/watch?v=KQ6zr6kCPj8&amp;t=3m57s\">3:57</a> and close your eyes<br />.Advertisements<br />.like this comment for no reason<br />.Christianity arguements<br />.Other religious arguements<br />.Console wars<br />.#PCMASTERACE<br />.Trolls<br />.&quot;How is there 1 million views on the this video if theres online 10 people on earth/<br />.Complaints<br />.Pewdiepie fangirls<br />.Minecraft scrubs<br />./r/MontageParodies<br /><br /><br />AND ANY OTHER SHIT!!"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t139",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "I&#39;m subscribing to you just because your comment was that great."
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t140",
+   "state": {
+    "video": "LMFAO - Party Rock Anthem",
+    "comment": "hey guys im 17 years old remixer and producer and i want you guys to help me checking my videos i am sure you will love those music if you love them then subscribe so you will know more about me:)"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t141",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "COME AND CHECK OUT MY NEW YOUTUBE CHHANEL, GOING TO BE POSTING DAILY!"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t142",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "hello friends. i am a young 15 year old rapper trying to make something out of nothing..Please can you take a second of your life and check out my videos and help me reach my Dreams! GoD Bless YOU"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t143",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "LOVE IT!!!!!!!"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t144",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "GO TO MY CHANNEL and check out my written songs"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": true
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t145",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "this video is great .....!!! I love this........and like much katy perry"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t146",
+   "state": {
+    "video": "PSY - Gangnam Style",
+    "comment": "You think you're smart?        Headbutt your face."
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t147",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Me and my big sister like you"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t148",
+   "state": {
+    "video": "Katy Perry - Roar",
+    "comment": "Since when has Katy Perry had her own YouTube channel?"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": true
+   }
+  },
+  {
+   "id": "t149",
+   "state": {
+    "video": "Shakira - Waka Waka",
+    "comment": "i love u  shakira"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  },
+  {
+   "id": "t150",
+   "state": {
+    "video": "Eminem - Love the Way You Lie ft. Rihanna",
+    "comment": "Eminem is my insperasen and fav"
+   },
+   "split": "test",
+   "labels": {
+    "isSpam": false
+   },
+   "baseline": {
+    "isSpam": false
+   }
+  }
+ ]
+}

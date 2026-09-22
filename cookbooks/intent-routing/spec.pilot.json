@@ -1,0 +1,218 @@
+{
+ "$schema": "../../kit/spec.schema.json",
+ "name": "intent-routing-pilot",
+ "description": "Label-free question-quality pass on the first 30 fit items.",
+ "questions": {
+  "domain": {
+   "type": "choice",
+   "instructions": "A user said this to a task assistant that supports only the tasks listed below. Which area does the request belong to? If it is not one of the listed supported tasks, answer none.",
+   "criteria": {
+    "banking": "Bank accounts, bills and payments. The request is one of these supported tasks: freeze account; routing; pin change; bill due; pay bill; account blocked; interest rate; min payment; bill balance; transfer; order checks; balance; spending history; transactions; report fraud.",
+    "credit_cards": "Credit cards, card rewards and credit scores. The request is one of these supported tasks: replacement card duration; expiration date; damaged card; improve credit score; report lost card; card declined; credit limit change; apr; redeem rewards; credit limit; rewards balance; application status; credit score; new card; international fees.",
+    "kitchen_and_dining": "Cooking, food and restaurants. The request is one of these supported tasks: food last; confirm reservation; how busy; ingredients list; calories; nutrition info; recipe; restaurant reviews; restaurant reservation; meal suggestion; restaurant suggestion; cancel reservation; ingredient substitution; cook time; accept reservations.",
+    "home": "Household organising: lists, reminders, calendar, music, shopping orders and smart-home devices. The request is one of these supported tasks: what song; play music; todo list update; reminder; reminder update; calendar update; order status; update playlist; shopping list; calendar; next song; order; todo list; shopping list update; smart home.",
+    "auto_and_commute": "The car and getting around by road. The request is one of these supported tasks: current location; oil change when; oil change how; uber; traffic; tire pressure; schedule maintenance; gas; mpg; distance; directions; last maintenance; gas type; tire change; jump start.",
+    "travel": "Trips abroad, flights, hotels and travel documents. The request is one of these supported tasks: plug type; travel notification; translate; flight status; international visa; timezone; exchange rate; travel suggestion; travel alert; vaccines; lost luggage; book flight; book hotel; carry on; car rental.",
+    "utility": "Everyday phone utilities: time, weather, alarms, timers, calls, texts, quick lookups and conversions. The request is one of these supported tasks: weather; alarm; date; find phone; share location; timer; make call; calculator; definition; measurement conversion; flip coin; spelling; time; roll dice; text.",
+    "work": "The user's job: pay, time off, benefits, taxes and meetings. The request is one of these supported tasks: pto request status; next holiday; insurance change; insurance; meeting schedule; payday; taxes; income; rollover 401k; pto balance; pto request; w2; schedule meeting; direct deposit; pto used.",
+    "small_talk": "Chit-chat with the assistant about itself or social pleasantries. The request is one of these supported tasks: who made you; meaning of life; who do you work for; do you have pets; what are your hobbies; fun fact; what is your name; where are you from; goodbye; thank you; greeting; tell joke; are you a bot; how old are you; what can i ask you.",
+    "meta": "Controlling the conversation or the assistant's own settings, and bare replies such as yes, no or maybe. The request is one of these supported tasks: change speed; user name; whisper mode; yes; change volume; no; change language; repeat; change accent; cancel; sync device; change user name; change ai name; reset settings; maybe.",
+    "none": "The request is not one of the supported tasks listed in any option above, even if it is about a similar topic (for example a banking or car question that is not one of the listed banking or car tasks), or it is a general-knowledge, news, maths or other request the assistant does not support."
+   }
+  },
+  "asksAction": {
+   "type": "noul",
+   "instructions": "Does the user ask the assistant to perform an action or change something (for example set, book, send, play, add, cancel, change, turn on), rather than ask for information?"
+  },
+  "mentionsMoney": {
+   "type": "noul",
+   "instructions": "Does the utterance mention money, a payment, a bill, a price, a bank account, a credit card or pay?"
+  },
+  "aboutAssistant": {
+   "type": "noul",
+   "instructions": "Is the utterance about the assistant itself: who or what it is, its name, its voice, its language, its speed or volume, or its settings?"
+  }
+ },
+ "items": [
+  {
+   "id": "f001",
+   "state": {
+    "utterance": "who's toledo's starting point guard for the next game"
+   }
+  },
+  {
+   "id": "f002",
+   "state": {
+    "utterance": "is time travel to the past theoretically possible"
+   }
+  },
+  {
+   "id": "f003",
+   "state": {
+    "utterance": "start speaking in a male british voice"
+   }
+  },
+  {
+   "id": "f004",
+   "state": {
+    "utterance": "make a reservation for 2 at red lobster at 8pm"
+   }
+  },
+  {
+   "id": "f005",
+   "state": {
+    "utterance": "i would like to call you andre 3000"
+   }
+  },
+  {
+   "id": "f006",
+   "state": {
+    "utterance": "when was the theory of evolution first considered"
+   }
+  },
+  {
+   "id": "f007",
+   "state": {
+    "utterance": "i want to listen to the next song on this playlist instead"
+   }
+  },
+  {
+   "id": "f008",
+   "state": {
+    "utterance": "what is the solution to the grandfather paradox"
+   }
+  },
+  {
+   "id": "f009",
+   "state": {
+    "utterance": "what did i include on my list of things to remember"
+   }
+  },
+  {
+   "id": "f010",
+   "state": {
+    "utterance": "what does the word ataraxy mean"
+   }
+  },
+  {
+   "id": "f011",
+   "state": {
+    "utterance": "what do i currently pay in taxes"
+   }
+  },
+  {
+   "id": "f012",
+   "state": {
+    "utterance": "does chili's have good reviews"
+   }
+  },
+  {
+   "id": "f013",
+   "state": {
+    "utterance": "how many people fall victim to internet scams per year"
+   }
+  },
+  {
+   "id": "f014",
+   "state": {
+    "utterance": "select a new language"
+   }
+  },
+  {
+   "id": "f015",
+   "state": {
+    "utterance": "do me a favor and put sharpies on my list for shopping"
+   }
+  },
+  {
+   "id": "f016",
+   "state": {
+    "utterance": "what is the recommended time frame to change my oil"
+   }
+  },
+  {
+   "id": "f017",
+   "state": {
+    "utterance": "are there ways for me to make my credit score better"
+   }
+  },
+  {
+   "id": "f018",
+   "state": {
+    "utterance": "your age please"
+   }
+  },
+  {
+   "id": "f019",
+   "state": {
+    "utterance": "please talk quietly"
+   }
+  },
+  {
+   "id": "f020",
+   "state": {
+    "utterance": "new reminder, please"
+   }
+  },
+  {
+   "id": "f021",
+   "state": {
+    "utterance": "i'm driving from la to denver and need my bank notified"
+   }
+  },
+  {
+   "id": "f022",
+   "state": {
+    "utterance": "can i take a pto for two days, starting on february 7"
+   }
+  },
+  {
+   "id": "f023",
+   "state": {
+    "utterance": "i must know my visa card's apr"
+   }
+  },
+  {
+   "id": "f024",
+   "state": {
+    "utterance": "where was john denver born"
+   }
+  },
+  {
+   "id": "f025",
+   "state": {
+    "utterance": "tell me when my flight scheduled to board"
+   }
+  },
+  {
+   "id": "f026",
+   "state": {
+    "utterance": "give me the local newsi"
+   }
+  },
+  {
+   "id": "f027",
+   "state": {
+    "utterance": "how much is 1 share of aapl"
+   }
+  },
+  {
+   "id": "f028",
+   "state": {
+    "utterance": "can you suggest some quality chinese restaurants in oklahoma city"
+   }
+  },
+  {
+   "id": "f029",
+   "state": {
+    "utterance": "what questions do you respond to"
+   }
+  },
+  {
+   "id": "f030",
+   "state": {
+    "utterance": "i need to send my current location to sean"
+   }
+  }
+ ]
+}

@@ -1,0 +1,2992 @@
+{
+ "$schema": "../../kit/spec.schema.json",
+ "name": "intent-routing",
+ "description": "Assistant intent routing with real out-of-scope inputs: route an utterance to one of CLINC150's 10 domains or none. One labelled choice plus three narrow literal signals. CLINC150 OOS+ (CC BY 3.0).",
+ "baselineName": "keyword lists (top 8 per class by log-odds, fit split only)",
+ "gate": {
+  "minCoverage": 0.95
+ },
+ "questions": {
+  "domain": {
+   "type": "choice",
+   "instructions": "A user said this to a task assistant that supports only the tasks listed below. Which area does the request belong to? If it is not one of the listed supported tasks, answer none.",
+   "criteria": {
+    "banking": "Bank accounts, bills and payments. The request is one of these supported tasks: freeze account; routing; pin change; bill due; pay bill; account blocked; interest rate; min payment; bill balance; transfer; order checks; balance; spending history; transactions; report fraud.",
+    "credit_cards": "Credit cards, card rewards and credit scores. The request is one of these supported tasks: replacement card duration; expiration date; damaged card; improve credit score; report lost card; card declined; credit limit change; apr; redeem rewards; credit limit; rewards balance; application status; credit score; new card; international fees.",
+    "kitchen_and_dining": "Cooking, food and restaurants. The request is one of these supported tasks: food last; confirm reservation; how busy; ingredients list; calories; nutrition info; recipe; restaurant reviews; restaurant reservation; meal suggestion; restaurant suggestion; cancel reservation; ingredient substitution; cook time; accept reservations.",
+    "home": "Household organising: lists, reminders, calendar, music, shopping orders and smart-home devices. The request is one of these supported tasks: what song; play music; todo list update; reminder; reminder update; calendar update; order status; update playlist; shopping list; calendar; next song; order; todo list; shopping list update; smart home.",
+    "auto_and_commute": "The car and getting around by road. The request is one of these supported tasks: current location; oil change when; oil change how; uber; traffic; tire pressure; schedule maintenance; gas; mpg; distance; directions; last maintenance; gas type; tire change; jump start.",
+    "travel": "Trips abroad, flights, hotels and travel documents. The request is one of these supported tasks: plug type; travel notification; translate; flight status; international visa; timezone; exchange rate; travel suggestion; travel alert; vaccines; lost luggage; book flight; book hotel; carry on; car rental.",
+    "utility": "Everyday phone utilities: time, weather, alarms, timers, calls, texts, quick lookups and conversions. The request is one of these supported tasks: weather; alarm; date; find phone; share location; timer; make call; calculator; definition; measurement conversion; flip coin; spelling; time; roll dice; text.",
+    "work": "The user's job: pay, time off, benefits, taxes and meetings. The request is one of these supported tasks: pto request status; next holiday; insurance change; insurance; meeting schedule; payday; taxes; income; rollover 401k; pto balance; pto request; w2; schedule meeting; direct deposit; pto used.",
+    "small_talk": "Chit-chat with the assistant about itself or social pleasantries. The request is one of these supported tasks: who made you; meaning of life; who do you work for; do you have pets; what are your hobbies; fun fact; what is your name; where are you from; goodbye; thank you; greeting; tell joke; are you a bot; how old are you; what can i ask you.",
+    "meta": "Controlling the conversation or the assistant's own settings, and bare replies such as yes, no or maybe. The request is one of these supported tasks: change speed; user name; whisper mode; yes; change volume; no; change language; repeat; change accent; cancel; sync device; change user name; change ai name; reset settings; maybe.",
+    "none": "The request is not one of the supported tasks listed in any option above, even if it is about a similar topic (for example a banking or car question that is not one of the listed banking or car tasks), or it is a general-knowledge, news, maths or other request the assistant does not support."
+   }
+  },
+  "asksAction": {
+   "type": "noul",
+   "instructions": "Does the user ask the assistant to perform an action or change something (for example set, book, send, play, add, cancel, change, turn on), rather than ask for information?"
+  },
+  "mentionsMoney": {
+   "type": "noul",
+   "instructions": "Does the utterance mention money, a payment, a bill, a price, a bank account, a credit card or pay?"
+  },
+  "aboutAssistant": {
+   "type": "noul",
+   "instructions": "Is the utterance about the assistant itself: who or what it is, its name, its voice, its language, its speed or volume, or its settings?"
+  }
+ },
+ "items": [
+  {
+   "id": "f001",
+   "state": {
+    "utterance": "who's toledo's starting point guard for the next game"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "f002",
+   "state": {
+    "utterance": "is time travel to the past theoretically possible"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "f003",
+   "state": {
+    "utterance": "start speaking in a male british voice"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "meta"
+   }
+  },
+  {
+   "id": "f004",
+   "state": {
+    "utterance": "make a reservation for 2 at red lobster at 8pm"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "kitchen_and_dining"
+   }
+  },
+  {
+   "id": "f005",
+   "state": {
+    "utterance": "i would like to call you andre 3000"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "meta"
+   }
+  },
+  {
+   "id": "f006",
+   "state": {
+    "utterance": "when was the theory of evolution first considered"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "f007",
+   "state": {
+    "utterance": "i want to listen to the next song on this playlist instead"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "home"
+   }
+  },
+  {
+   "id": "f008",
+   "state": {
+    "utterance": "what is the solution to the grandfather paradox"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "f009",
+   "state": {
+    "utterance": "what did i include on my list of things to remember"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "home"
+   }
+  },
+  {
+   "id": "f010",
+   "state": {
+    "utterance": "what does the word ataraxy mean"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "utility"
+   }
+  },
+  {
+   "id": "f011",
+   "state": {
+    "utterance": "what do i currently pay in taxes"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "work"
+   }
+  },
+  {
+   "id": "f012",
+   "state": {
+    "utterance": "does chili's have good reviews"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "kitchen_and_dining"
+   }
+  },
+  {
+   "id": "f013",
+   "state": {
+    "utterance": "how many people fall victim to internet scams per year"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "f014",
+   "state": {
+    "utterance": "select a new language"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "meta"
+   }
+  },
+  {
+   "id": "f015",
+   "state": {
+    "utterance": "do me a favor and put sharpies on my list for shopping"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "home"
+   }
+  },
+  {
+   "id": "f016",
+   "state": {
+    "utterance": "what is the recommended time frame to change my oil"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "auto_and_commute"
+   }
+  },
+  {
+   "id": "f017",
+   "state": {
+    "utterance": "are there ways for me to make my credit score better"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "credit_cards"
+   }
+  },
+  {
+   "id": "f018",
+   "state": {
+    "utterance": "your age please"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "small_talk"
+   }
+  },
+  {
+   "id": "f019",
+   "state": {
+    "utterance": "please talk quietly"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "meta"
+   }
+  },
+  {
+   "id": "f020",
+   "state": {
+    "utterance": "new reminder, please"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "home"
+   }
+  },
+  {
+   "id": "f021",
+   "state": {
+    "utterance": "i'm driving from la to denver and need my bank notified"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "travel"
+   }
+  },
+  {
+   "id": "f022",
+   "state": {
+    "utterance": "can i take a pto for two days, starting on february 7"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "work"
+   }
+  },
+  {
+   "id": "f023",
+   "state": {
+    "utterance": "i must know my visa card's apr"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "credit_cards"
+   }
+  },
+  {
+   "id": "f024",
+   "state": {
+    "utterance": "where was john denver born"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "f025",
+   "state": {
+    "utterance": "tell me when my flight scheduled to board"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "travel"
+   }
+  },
+  {
+   "id": "f026",
+   "state": {
+    "utterance": "give me the local newsi"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "f027",
+   "state": {
+    "utterance": "how much is 1 share of aapl"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "f028",
+   "state": {
+    "utterance": "can you suggest some quality chinese restaurants in oklahoma city"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "kitchen_and_dining"
+   }
+  },
+  {
+   "id": "f029",
+   "state": {
+    "utterance": "what questions do you respond to"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "small_talk"
+   }
+  },
+  {
+   "id": "f030",
+   "state": {
+    "utterance": "i need to send my current location to sean"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "utility"
+   }
+  },
+  {
+   "id": "f031",
+   "state": {
+    "utterance": "do i have a note on the calendar for black friday"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "home"
+   }
+  },
+  {
+   "id": "f032",
+   "state": {
+    "utterance": "how can i apply for a discover card"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "credit_cards"
+   }
+  },
+  {
+   "id": "f033",
+   "state": {
+    "utterance": "i wish i knew how to spell mississippi"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "utility"
+   }
+  },
+  {
+   "id": "f034",
+   "state": {
+    "utterance": "adjust windshield wipers"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "f035",
+   "state": {
+    "utterance": "what is the colour of your pets"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "small_talk"
+   }
+  },
+  {
+   "id": "f036",
+   "state": {
+    "utterance": "how much did i spend this week"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "banking"
+   }
+  },
+  {
+   "id": "f037",
+   "state": {
+    "utterance": "where do frogs come from"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "f038",
+   "state": {
+    "utterance": "who is the oscar who \"the oscar's\" is named after"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "f039",
+   "state": {
+    "utterance": "is there any meaning to being alive"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "small_talk"
+   }
+  },
+  {
+   "id": "f040",
+   "state": {
+    "utterance": "do i pay my rent this week"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "banking"
+   }
+  },
+  {
+   "id": "f041",
+   "state": {
+    "utterance": "what are some ways to jump start a car"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "auto_and_commute"
+   }
+  },
+  {
+   "id": "f042",
+   "state": {
+    "utterance": "where were you made"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "small_talk"
+   }
+  },
+  {
+   "id": "f043",
+   "state": {
+    "utterance": "is patriarchy wrong"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "f044",
+   "state": {
+    "utterance": "please cancel what you are doing, i've changed my mind"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "meta"
+   }
+  },
+  {
+   "id": "f045",
+   "state": {
+    "utterance": "help me get some new checks since i ran out of them"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "banking"
+   }
+  },
+  {
+   "id": "f046",
+   "state": {
+    "utterance": "i need to know if i must have an international visa to go to france"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "travel"
+   }
+  },
+  {
+   "id": "f047",
+   "state": {
+    "utterance": "i need to know the conversion for dollars to pesos"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "travel"
+   }
+  },
+  {
+   "id": "f048",
+   "state": {
+    "utterance": "do i have enough to cover new skis in my bank of america account"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "banking"
+   }
+  },
+  {
+   "id": "f049",
+   "state": {
+    "utterance": "please buy me flowers"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "home"
+   }
+  },
+  {
+   "id": "f050",
+   "state": {
+    "utterance": "please look up the this cars mpg"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "auto_and_commute"
+   }
+  },
+  {
+   "id": "f051",
+   "state": {
+    "utterance": "i didnt understand what you just said, can you say it again"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "meta"
+   }
+  },
+  {
+   "id": "f052",
+   "state": {
+    "utterance": "tell me something funny about animals"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "small_talk"
+   }
+  },
+  {
+   "id": "f053",
+   "state": {
+    "utterance": "how would you describe my health benefits"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "work"
+   }
+  },
+  {
+   "id": "f054",
+   "state": {
+    "utterance": "how do i find information about my credit score"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "credit_cards"
+   }
+  },
+  {
+   "id": "f055",
+   "state": {
+    "utterance": "i need information on today's date"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "utility"
+   }
+  },
+  {
+   "id": "f056",
+   "state": {
+    "utterance": "i would like to know the amount of gas i have"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "auto_and_commute"
+   }
+  },
+  {
+   "id": "f057",
+   "state": {
+    "utterance": "will i be charged if i use my card in detroit"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "credit_cards"
+   }
+  },
+  {
+   "id": "f058",
+   "state": {
+    "utterance": "how do i know what the outlets are like"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "travel"
+   }
+  },
+  {
+   "id": "f059",
+   "state": {
+    "utterance": "i am thinking it is either"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "meta"
+   }
+  },
+  {
+   "id": "f060",
+   "state": {
+    "utterance": "it turns out i have had pizza in the fridge since monday, so is it safe to eat"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "kitchen_and_dining"
+   }
+  },
+  {
+   "id": "f061",
+   "state": {
+    "utterance": "are my tires good on pressure"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "auto_and_commute"
+   }
+  },
+  {
+   "id": "f062",
+   "state": {
+    "utterance": "where can i find the cruise control on my kia sportage 2010"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "f063",
+   "state": {
+    "utterance": "find a new voice that is slower than your current voice"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "meta"
+   }
+  },
+  {
+   "id": "f064",
+   "state": {
+    "utterance": "how do i find a common denominator"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "f065",
+   "state": {
+    "utterance": "call my best friend"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "utility"
+   }
+  },
+  {
+   "id": "f066",
+   "state": {
+    "utterance": "i require my w2 for taxes and need to locate it"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "work"
+   }
+  },
+  {
+   "id": "f067",
+   "state": {
+    "utterance": "how much paid time off do i have"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "work"
+   }
+  },
+  {
+   "id": "f068",
+   "state": {
+    "utterance": "oven should be set to 350 now"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "home"
+   }
+  },
+  {
+   "id": "f069",
+   "state": {
+    "utterance": "i think my luggage has been lost"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "travel"
+   }
+  },
+  {
+   "id": "f070",
+   "state": {
+    "utterance": "where did the first tattoo originate"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "f071",
+   "state": {
+    "utterance": "i need you to place a stop on my bank account, thank you"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "banking"
+   }
+  },
+  {
+   "id": "f072",
+   "state": {
+    "utterance": "what holiday can i expect next"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "work"
+   }
+  },
+  {
+   "id": "f073",
+   "state": {
+    "utterance": "can you tell me something about the nfl"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "f074",
+   "state": {
+    "utterance": "tell me how i can tell if my tires need to be changed"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "auto_and_commute"
+   }
+  },
+  {
+   "id": "f075",
+   "state": {
+    "utterance": "how much can i spend wth my visa"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "credit_cards"
+   }
+  },
+  {
+   "id": "f076",
+   "state": {
+    "utterance": "is there another entity you work for"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "small_talk"
+   }
+  },
+  {
+   "id": "f077",
+   "state": {
+    "utterance": "i really need to set a timer"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "utility"
+   }
+  },
+  {
+   "id": "f078",
+   "state": {
+    "utterance": "i will be in aiken on may 12 to may 16, i need to rent a car"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "travel"
+   }
+  },
+  {
+   "id": "f079",
+   "state": {
+    "utterance": "help me move my money please"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "banking"
+   }
+  },
+  {
+   "id": "f080",
+   "state": {
+    "utterance": "i'd like my 401k to be rolled over"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "work"
+   }
+  },
+  {
+   "id": "f081",
+   "state": {
+    "utterance": "where am i located"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "auto_and_commute"
+   }
+  },
+  {
+   "id": "f082",
+   "state": {
+    "utterance": "do i have enough funds in my card"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "credit_cards"
+   }
+  },
+  {
+   "id": "f083",
+   "state": {
+    "utterance": "how safe is it to travel to mongolia (how safe is mongolia)"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "travel"
+   }
+  },
+  {
+   "id": "f084",
+   "state": {
+    "utterance": "i appreciate that"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "small_talk"
+   }
+  },
+  {
+   "id": "f085",
+   "state": {
+    "utterance": "do you have any good recommendations for swiss cuisine"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "kitchen_and_dining"
+   }
+  },
+  {
+   "id": "f086",
+   "state": {
+    "utterance": "when will my paycheck be available"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "work"
+   }
+  },
+  {
+   "id": "f087",
+   "state": {
+    "utterance": "can you remind me to mop later by putting it on my to do list today"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "home"
+   }
+  },
+  {
+   "id": "f088",
+   "state": {
+    "utterance": "will you check there is a reservation for laura at black pearl"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "kitchen_and_dining"
+   }
+  },
+  {
+   "id": "f089",
+   "state": {
+    "utterance": "can you tell me when the bank closes"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "f090",
+   "state": {
+    "utterance": "find me the closest public bathroom"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "auto_and_commute"
+   }
+  },
+  {
+   "id": "f091",
+   "state": {
+    "utterance": "i would like a coin flip"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "utility"
+   }
+  },
+  {
+   "id": "f092",
+   "state": {
+    "utterance": "i'd like to change my pin number for my savings account"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "banking"
+   }
+  },
+  {
+   "id": "f093",
+   "state": {
+    "utterance": "pay my water bill from my checking account"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "banking"
+   }
+  },
+  {
+   "id": "f094",
+   "state": {
+    "utterance": "how many ways can i make $1 using standard us coins"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "f095",
+   "state": {
+    "utterance": "what are my local news stations"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "f096",
+   "state": {
+    "utterance": "what is the next football game"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "f097",
+   "state": {
+    "utterance": "i need to report credit card theft"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "credit_cards"
+   }
+  },
+  {
+   "id": "f098",
+   "state": {
+    "utterance": "how long will it take me to be seated at ihop"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "kitchen_and_dining"
+   }
+  },
+  {
+   "id": "f099",
+   "state": {
+    "utterance": "i need to find out do you know if zeus does reservations"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "kitchen_and_dining"
+   }
+  },
+  {
+   "id": "f100",
+   "state": {
+    "utterance": "roll a pair of eight sided dice"
+   },
+   "split": "fit",
+   "labels": {
+    "domain": "utility"
+   }
+  },
+  {
+   "id": "t001",
+   "state": {
+    "utterance": "i need an uber for 5 people to go to the statue of liberty"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "auto_and_commute"
+   },
+   "baseline": {
+    "domain": "travel"
+   }
+  },
+  {
+   "id": "t002",
+   "state": {
+    "utterance": "can you disconnect yourself from my phone"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "meta"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t003",
+   "state": {
+    "utterance": "who played ronald weasly"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t004",
+   "state": {
+    "utterance": "make slower your speech"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "meta"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t005",
+   "state": {
+    "utterance": "please return to default settings"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "meta"
+   },
+   "baseline": {
+    "domain": "home"
+   }
+  },
+  {
+   "id": "t006",
+   "state": {
+    "utterance": "do i have a ways to go or am i close to getting to penn station"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "auto_and_commute"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t007",
+   "state": {
+    "utterance": "what would you say my gas and phone bills are at"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "banking"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t008",
+   "state": {
+    "utterance": "make a reservation for chik-fil-a at 3 o' clock please"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "kitchen_and_dining"
+   },
+   "baseline": {
+    "domain": "home"
+   }
+  },
+  {
+   "id": "t009",
+   "state": {
+    "utterance": "tell me what i have on my shopping list"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "home"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t010",
+   "state": {
+    "utterance": "what are the required shots in mozambique"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "travel"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t011",
+   "state": {
+    "utterance": "what's the current prevailing interest rate for mortgages in my area"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t012",
+   "state": {
+    "utterance": "how long is the wait at fridays"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "kitchen_and_dining"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t013",
+   "state": {
+    "utterance": "if i use my discover card in cuba are there transaction fees"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "credit_cards"
+   },
+   "baseline": {
+    "domain": "credit_cards"
+   }
+  },
+  {
+   "id": "t014",
+   "state": {
+    "utterance": "am i able to order more checkbooks for my chase account"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "banking"
+   },
+   "baseline": {
+    "domain": "banking"
+   }
+  },
+  {
+   "id": "t015",
+   "state": {
+    "utterance": "what do i do if i suspect my car battery is dead"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "auto_and_commute"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t016",
+   "state": {
+    "utterance": "what do you know me by"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "meta"
+   },
+   "baseline": {
+    "domain": "travel"
+   }
+  },
+  {
+   "id": "t017",
+   "state": {
+    "utterance": "what's the latest vc funded company"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t018",
+   "state": {
+    "utterance": "can you please say that again"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "meta"
+   },
+   "baseline": {
+    "domain": "home"
+   }
+  },
+  {
+   "id": "t019",
+   "state": {
+    "utterance": "what should i do if it hurts when i pee"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t020",
+   "state": {
+    "utterance": "can i use butter instead of margarine"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "kitchen_and_dining"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t021",
+   "state": {
+    "utterance": "close all internet tabs"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t022",
+   "state": {
+    "utterance": "put a freeze on my account"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "banking"
+   },
+   "baseline": {
+    "domain": "banking"
+   }
+  },
+  {
+   "id": "t023",
+   "state": {
+    "utterance": "what did trump do todayu"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t024",
+   "state": {
+    "utterance": "what's the nutrition info for a cucumber"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "kitchen_and_dining"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t025",
+   "state": {
+    "utterance": "give me a list of tax attorneys that practice in my city"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "home"
+   }
+  },
+  {
+   "id": "t026",
+   "state": {
+    "utterance": "what company did the design for this"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "small_talk"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t027",
+   "state": {
+    "utterance": "look up prices for parking at the airport over the weekend"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t028",
+   "state": {
+    "utterance": "how much interest is my nfcu accrueing"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "banking"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t029",
+   "state": {
+    "utterance": "do you know my state tax total"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "work"
+   },
+   "baseline": {
+    "domain": "travel"
+   }
+  },
+  {
+   "id": "t030",
+   "state": {
+    "utterance": "is my request going to be approved for vacation"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "work"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t031",
+   "state": {
+    "utterance": "what is the minimum i can pay on my insurance bill"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "banking"
+   },
+   "baseline": {
+    "domain": "banking"
+   }
+  },
+  {
+   "id": "t032",
+   "state": {
+    "utterance": "can you identify this song playing through the speaker right now"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "home"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t033",
+   "state": {
+    "utterance": "i have points on my capital one card and i'd like to know how many i've earned"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "credit_cards"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t034",
+   "state": {
+    "utterance": "help me add this song to my country music playlist"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "home"
+   },
+   "baseline": {
+    "domain": "banking"
+   }
+  },
+  {
+   "id": "t035",
+   "state": {
+    "utterance": "program my new robot to bring me snacks"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "banking"
+   }
+  },
+  {
+   "id": "t036",
+   "state": {
+    "utterance": "please note vacuuming on my to do list"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "home"
+   },
+   "baseline": {
+    "domain": "home"
+   }
+  },
+  {
+   "id": "t037",
+   "state": {
+    "utterance": "what are the ai's hobbies"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "small_talk"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t038",
+   "state": {
+    "utterance": "what's 15% of 68"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "utility"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t039",
+   "state": {
+    "utterance": "when should i get my oil changed"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "auto_and_commute"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t040",
+   "state": {
+    "utterance": "why would the water be turned off"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t041",
+   "state": {
+    "utterance": "ai, please flip a simulated coin"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "utility"
+   },
+   "baseline": {
+    "domain": "home"
+   }
+  },
+  {
+   "id": "t042",
+   "state": {
+    "utterance": "i heard i can transfer my 401k, but don't know how, do you"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "work"
+   },
+   "baseline": {
+    "domain": "travel"
+   }
+  },
+  {
+   "id": "t043",
+   "state": {
+    "utterance": "has my mastercard application been processed"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "credit_cards"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t044",
+   "state": {
+    "utterance": "what's the best make-up to cover a black eye"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t045",
+   "state": {
+    "utterance": "vacation request please"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "work"
+   },
+   "baseline": {
+    "domain": "home"
+   }
+  },
+  {
+   "id": "t046",
+   "state": {
+    "utterance": "is it possible to read my to-do list again"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "home"
+   },
+   "baseline": {
+    "domain": "home"
+   }
+  },
+  {
+   "id": "t047",
+   "state": {
+    "utterance": "i made a transaction recently"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "banking"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t048",
+   "state": {
+    "utterance": "how long does it take to cook meal of tuscan"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "kitchen_and_dining"
+   },
+   "baseline": {
+    "domain": "kitchen_and_dining"
+   }
+  },
+  {
+   "id": "t049",
+   "state": {
+    "utterance": "how many weeks ago was my car in the shop"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "auto_and_commute"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t050",
+   "state": {
+    "utterance": "i need to rent a car for may 11thto may 13th in chicago and i'd like a coupe"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "travel"
+   },
+   "baseline": {
+    "domain": "travel"
+   }
+  },
+  {
+   "id": "t051",
+   "state": {
+    "utterance": "i'd like you to check on my credit score"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "credit_cards"
+   },
+   "baseline": {
+    "domain": "credit_cards"
+   }
+  },
+  {
+   "id": "t052",
+   "state": {
+    "utterance": "what is the carry-on policy for flights on the airline called jetblue"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "travel"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t053",
+   "state": {
+    "utterance": "can i redeem my points for flights"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "credit_cards"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t054",
+   "state": {
+    "utterance": "what would the word for grass be in finland"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "travel"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t055",
+   "state": {
+    "utterance": "give me a list of ingredients for making pasta"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "kitchen_and_dining"
+   },
+   "baseline": {
+    "domain": "home"
+   }
+  },
+  {
+   "id": "t056",
+   "state": {
+    "utterance": "\"when the credit score improve"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "credit_cards"
+   },
+   "baseline": {
+    "domain": "credit_cards"
+   }
+  },
+  {
+   "id": "t057",
+   "state": {
+    "utterance": "what can i use to convert from centimeters to inches"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "utility"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t058",
+   "state": {
+    "utterance": "please move $100 from my checking to saving account"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "banking"
+   },
+   "baseline": {
+    "domain": "banking"
+   }
+  },
+  {
+   "id": "t059",
+   "state": {
+    "utterance": "alter the pin on my savings account to be 1234"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "banking"
+   },
+   "baseline": {
+    "domain": "banking"
+   }
+  },
+  {
+   "id": "t060",
+   "state": {
+    "utterance": "i would love to know the closest gas station to glendale"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "auto_and_commute"
+   },
+   "baseline": {
+    "domain": "travel"
+   }
+  },
+  {
+   "id": "t061",
+   "state": {
+    "utterance": "give me my reminders"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "home"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t062",
+   "state": {
+    "utterance": "how do you spell the word comity, i need to know"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "utility"
+   },
+   "baseline": {
+    "domain": "travel"
+   }
+  },
+  {
+   "id": "t063",
+   "state": {
+    "utterance": "is there a better bus route i should be taking"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t064",
+   "state": {
+    "utterance": "how to activate direct deposit to chase account"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "work"
+   },
+   "baseline": {
+    "domain": "banking"
+   }
+  },
+  {
+   "id": "t065",
+   "state": {
+    "utterance": "thank you for your assistance"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "small_talk"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t066",
+   "state": {
+    "utterance": "is there enough in my wells fargo account to buy some nike's"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "banking"
+   },
+   "baseline": {
+    "domain": "banking"
+   }
+  },
+  {
+   "id": "t067",
+   "state": {
+    "utterance": "how many sick days do i have"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "work"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t068",
+   "state": {
+    "utterance": "check to see why us bank placed a hold on my account"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "banking"
+   },
+   "baseline": {
+    "domain": "banking"
+   }
+  },
+  {
+   "id": "t069",
+   "state": {
+    "utterance": "play a song"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "home"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t070",
+   "state": {
+    "utterance": "what bands are touring in my city this week"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "banking"
+   }
+  },
+  {
+   "id": "t071",
+   "state": {
+    "utterance": "what pets do you own"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "small_talk"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t072",
+   "state": {
+    "utterance": "i need help locating my phone"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "utility"
+   },
+   "baseline": {
+    "domain": "banking"
+   }
+  },
+  {
+   "id": "t073",
+   "state": {
+    "utterance": "can you tell me the process for obtaining a copy of my w2 for my taxes"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "work"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t074",
+   "state": {
+    "utterance": "adjust volume setting to 4"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "meta"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t075",
+   "state": {
+    "utterance": "create a portrait for me using post modern art"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t076",
+   "state": {
+    "utterance": "do i have any appoints set for my calendar april 3rd"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "home"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t077",
+   "state": {
+    "utterance": "what oil do i use when changing oil and how do i do it"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "auto_and_commute"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t078",
+   "state": {
+    "utterance": "i have to make a phone call"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "utility"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t079",
+   "state": {
+    "utterance": "what is the date in 5 days"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "utility"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t080",
+   "state": {
+    "utterance": "is $30 usd more or less in canada"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "travel"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t081",
+   "state": {
+    "utterance": "tell me when today's meeting is supposed to happen"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "work"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t082",
+   "state": {
+    "utterance": "can you give me the timezone for the country"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "travel"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t083",
+   "state": {
+    "utterance": "how many movies are in the star wars series"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t084",
+   "state": {
+    "utterance": "is it possible to get reservations at ihop"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "kitchen_and_dining"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t085",
+   "state": {
+    "utterance": "what is albert einstein famous for"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t086",
+   "state": {
+    "utterance": "how do i pay my electric bill"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "banking"
+   },
+   "baseline": {
+    "domain": "banking"
+   }
+  },
+  {
+   "id": "t087",
+   "state": {
+    "utterance": "how long does it take to get your yellow belt in karate"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "kitchen_and_dining"
+   }
+  },
+  {
+   "id": "t088",
+   "state": {
+    "utterance": "what is in a burrito recipe"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "kitchen_and_dining"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t089",
+   "state": {
+    "utterance": "how do i change the windshield wipers"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t090",
+   "state": {
+    "utterance": "what is the interesting trivia about human bodies"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "small_talk"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t091",
+   "state": {
+    "utterance": "next song, please!"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "home"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t092",
+   "state": {
+    "utterance": "do you have any ideas for a mexican meal"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "kitchen_and_dining"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t093",
+   "state": {
+    "utterance": "absolutely"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "meta"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t094",
+   "state": {
+    "utterance": "tell me where you're from"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "small_talk"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t095",
+   "state": {
+    "utterance": "how to i change the policy on my insurace"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "work"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t096",
+   "state": {
+    "utterance": "let's hear a joke from you please"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "small_talk"
+   },
+   "baseline": {
+    "domain": "home"
+   }
+  },
+  {
+   "id": "t097",
+   "state": {
+    "utterance": "how long can i freeze tofu before it goes bad"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "kitchen_and_dining"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t098",
+   "state": {
+    "utterance": "can my credit limit be increased to $1000"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "credit_cards"
+   },
+   "baseline": {
+    "domain": "credit_cards"
+   }
+  },
+  {
+   "id": "t099",
+   "state": {
+    "utterance": "please switch to the girl voice"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "meta"
+   },
+   "baseline": {
+    "domain": "meta"
+   }
+  },
+  {
+   "id": "t100",
+   "state": {
+    "utterance": "is it safe for me to go to turkey"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "travel"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t101",
+   "state": {
+    "utterance": "erase all voicemails in my inbox please"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "home"
+   }
+  },
+  {
+   "id": "t102",
+   "state": {
+    "utterance": "let me know when it's been 5 minutes"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "utility"
+   },
+   "baseline": {
+    "domain": "travel"
+   }
+  },
+  {
+   "id": "t103",
+   "state": {
+    "utterance": "at the olympics, what country won the gold medal in basketball"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t104",
+   "state": {
+    "utterance": "when will our next day off be"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "work"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t105",
+   "state": {
+    "utterance": "what is my state bank of india card credit limit"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "credit_cards"
+   },
+   "baseline": {
+    "domain": "credit_cards"
+   }
+  },
+  {
+   "id": "t106",
+   "state": {
+    "utterance": "text emily"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "utility"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t107",
+   "state": {
+    "utterance": "what are the best personal finance practices"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t108",
+   "state": {
+    "utterance": "can you get me a flight from san francisco to san jose using american airlines"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "travel"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t109",
+   "state": {
+    "utterance": "i need to know what the point of life is"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "small_talk"
+   },
+   "baseline": {
+    "domain": "travel"
+   }
+  },
+  {
+   "id": "t110",
+   "state": {
+    "utterance": "let me know if you are a human or are a computer"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "small_talk"
+   },
+   "baseline": {
+    "domain": "travel"
+   }
+  },
+  {
+   "id": "t111",
+   "state": {
+    "utterance": "what do i wear on my feet when it rains"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t112",
+   "state": {
+    "utterance": "whats the mpg of this car"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "auto_and_commute"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t113",
+   "state": {
+    "utterance": "the statement is false"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "meta"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t114",
+   "state": {
+    "utterance": "is my order on its way or what's going on"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "home"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t115",
+   "state": {
+    "utterance": "turn whisper mode off"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "meta"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t116",
+   "state": {
+    "utterance": "time to replace my credit card"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "credit_cards"
+   },
+   "baseline": {
+    "domain": "credit_cards"
+   }
+  },
+  {
+   "id": "t117",
+   "state": {
+    "utterance": "i'd like to you order everything that's on my shopping list"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "home"
+   },
+   "baseline": {
+    "domain": "home"
+   }
+  },
+  {
+   "id": "t118",
+   "state": {
+    "utterance": "where is flight dl123"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "travel"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t119",
+   "state": {
+    "utterance": "are you doing alright"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "small_talk"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t120",
+   "state": {
+    "utterance": "what's the tire pressure of my tires"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "auto_and_commute"
+   },
+   "baseline": {
+    "domain": "auto_and_commute"
+   }
+  },
+  {
+   "id": "t121",
+   "state": {
+    "utterance": "can you confirm that i have a reservation for 2/20 at 6:00 pm"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "kitchen_and_dining"
+   },
+   "baseline": {
+    "domain": "kitchen_and_dining"
+   }
+  },
+  {
+   "id": "t122",
+   "state": {
+    "utterance": "i can't use my card because it’s damaged badly"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "credit_cards"
+   },
+   "baseline": {
+    "domain": "credit_cards"
+   }
+  },
+  {
+   "id": "t123",
+   "state": {
+    "utterance": "i need reviews for places serving tacos in chicago"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "kitchen_and_dining"
+   },
+   "baseline": {
+    "domain": "travel"
+   }
+  },
+  {
+   "id": "t124",
+   "state": {
+    "utterance": "make me a map of all earthquake hotspots in the continental us"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t125",
+   "state": {
+    "utterance": "are socket converters something i need to bring if going to australia"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "travel"
+   },
+   "baseline": {
+    "domain": "travel"
+   }
+  },
+  {
+   "id": "t126",
+   "state": {
+    "utterance": "open map and pin point my location"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "auto_and_commute"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t127",
+   "state": {
+    "utterance": "can you tell me what the traffic is usually like at 7:00 pm from philadelphia to ocean city, new jersey"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "auto_and_commute"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t128",
+   "state": {
+    "utterance": "i think there's a fraudulent charge from mcdonald's on my account"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "banking"
+   },
+   "baseline": {
+    "domain": "banking"
+   }
+  },
+  {
+   "id": "t129",
+   "state": {
+    "utterance": "how long does it take the irs to issue a tax refund"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "kitchen_and_dining"
+   }
+  },
+  {
+   "id": "t130",
+   "state": {
+    "utterance": "check the nanny cam and send the feed to my phone"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t131",
+   "state": {
+    "utterance": "what are some cool tourist attractions in england"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "travel"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t132",
+   "state": {
+    "utterance": "share my current location with kristen"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "utility"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t133",
+   "state": {
+    "utterance": "what are my health insurance benefits"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "work"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t134",
+   "state": {
+    "utterance": "roll a four sided die for me"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "utility"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t135",
+   "state": {
+    "utterance": "i'd like to hire someone to wash my car"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t136",
+   "state": {
+    "utterance": "tell me the price of bananas at whole foods this week"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t137",
+   "state": {
+    "utterance": "what are the hours for disney world"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t138",
+   "state": {
+    "utterance": "i need to get a hotel in phoenix near chase field from january 4th to the 8th"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "travel"
+   },
+   "baseline": {
+    "domain": "travel"
+   }
+  },
+  {
+   "id": "t139",
+   "state": {
+    "utterance": "be quiet"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "meta"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t140",
+   "state": {
+    "utterance": "what does a flashing yellow light mean"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "kitchen_and_dining"
+   }
+  },
+  {
+   "id": "t141",
+   "state": {
+    "utterance": "does my apr rate suck"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "credit_cards"
+   },
+   "baseline": {
+    "domain": "kitchen_and_dining"
+   }
+  },
+  {
+   "id": "t142",
+   "state": {
+    "utterance": "what is the weather doing now"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "utility"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t143",
+   "state": {
+    "utterance": "i was in thailand trying to buy candies and my card got declined"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "credit_cards"
+   },
+   "baseline": {
+    "domain": "credit_cards"
+   }
+  },
+  {
+   "id": "t144",
+   "state": {
+    "utterance": "i need to set a reminder to call lisa for her birthday"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "home"
+   },
+   "baseline": {
+    "domain": "travel"
+   }
+  },
+  {
+   "id": "t145",
+   "state": {
+    "utterance": "reserve a meeting room for 5pm on friday"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "work"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t146",
+   "state": {
+    "utterance": "i need gas what type do i need for this car"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "auto_and_commute"
+   },
+   "baseline": {
+    "domain": "travel"
+   }
+  },
+  {
+   "id": "t147",
+   "state": {
+    "utterance": "change name for me"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "meta"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t148",
+   "state": {
+    "utterance": "so, hang out around this house often"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "none"
+   },
+   "baseline": {
+    "domain": "none"
+   }
+  },
+  {
+   "id": "t149",
+   "state": {
+    "utterance": "ok good chatting goodbye"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "small_talk"
+   },
+   "baseline": {
+    "domain": "kitchen_and_dining"
+   }
+  },
+  {
+   "id": "t150",
+   "state": {
+    "utterance": "what things do you know how to do"
+   },
+   "split": "test",
+   "labels": {
+    "domain": "small_talk"
+   },
+   "baseline": {
+    "domain": "travel"
+   }
+  }
+ ]
+}

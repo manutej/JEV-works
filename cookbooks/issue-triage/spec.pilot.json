@@ -1,0 +1,249 @@
+{
+ "$schema": "../../kit/spec.schema.json",
+ "name": "issue-triage-pilot",
+ "description": "Label-free question-quality pass on the first 30 fit items.",
+ "questions": {
+  "issueType": {
+   "type": "choice",
+   "instructions": "What kind of GitHub issue is this?",
+   "criteria": {
+    "bug": "A defect report: the software does something wrong, gives an error, or crashes, compared with what it should do.",
+    "feature": "A request for new behaviour, a new option, or a change to existing behaviour that currently works as designed.",
+    "question": "The author asks how to do something, or asks for help or clarification, without reporting a defect or requesting a change.",
+    "none": "None of these: not an issue about the software (spam, an empty or placeholder text, a test post), or unreadable."
+   }
+  },
+  "hasErrorOutput": {
+   "type": "noul",
+   "instructions": "Does the issue include an error message, exception, stack trace or log output produced by the software?",
+   "criteria": {
+    "true": "Some error text, exception, traceback or log lines from the software are quoted or pasted in the issue.",
+    "false": "No error text or log output from the software appears in the issue."
+   }
+  },
+  "hasReproSteps": {
+   "type": "noul",
+   "instructions": "Does the issue say what the author did (steps, commands or code they ran) to make the described behaviour happen?"
+  },
+  "asksHowTo": {
+   "type": "noul",
+   "instructions": "Does the author ask how to do something, or ask whether something is possible?"
+  },
+  "proposesNew": {
+   "type": "noul",
+   "instructions": "Does the author ask for a new option, new behaviour, or a change to how the software currently works?"
+  }
+ },
+ "items": [
+  {
+   "id": "f001",
+   "state": {
+    "title": "question: Distributed tracing with contrib packages gorm and fiber",
+    "body": "Hello there, I'm looking for a bit of guidance, with a caveat: that I am still learning about tracing and my use of these contrib packages is somewhat fresh to me, so I apologize in advance if any of my questions are a bit off the mark.\n\nI have three services that are successfully reporting traces, but the traces are not correlated when they should be, and they are not 'connected' on the Datadog service map.\n\nServices (Service C calls into A, which does a look up on B.):\n-  A: instrumented fiber api\n-  B: instrumented gorm db\n-  C: instrumented js client\n\nI am wondering whether I need to do more than the basic setup of the contrib tracing packages. I am hoping to see correlation between C and A, and A and B.\n\nThis currently what I have:\n\nCurrent fiber setup:\n```\nfunc main() {\n  tracer.Start()\n  defer tracer.Stop()\n  ...\n  // Add fibertrace Middleware\n  api.Use(fibertrace.Middleware(\n    fibertrace.WithServiceName(\"service-A\"),\n  ))\n```\n\nGorm setup\n```\ngormtrace.Open(postgres.New(postgres.Config{DSN: dsn}), &gorm.Config{})\n```\n\nAdditionally I have set the propagation environment variables:\n\n```\nDD_PROPAGATION_STYLE_INJECT=Datadog,B3\nDD_PROPAGATION_STYLE_EXTRACT=Datadog,B3\n```\n\nAnd I can confirm that service A is receiving the parent trace and span id's from service C on the headers:\n\n```\nX-Datadog-Trace-Id: [phone number] // example ids\nX-Datadog-Parent-Id: [phone number]\n```\n\nIs it possible that I need to explicitly set the propagation style as a fibertrace middleware option or is having it set as an environment variable sufficient? And do I need to somehow pass fibertrace's span id onto the […]"
+   }
+  },
+  {
+   "id": "f002",
+   "state": {
+    "title": "cant register on orientdb discourse",
+    "body": "Hello,\n\nI dont know where to send a message about it ... but it is not possible to open new account on dicourse forum from [link]\n\nRgds,"
+   }
+  },
+  {
+   "id": "f003",
+   "state": {
+    "title": "[d.gg utilities] Bot Flair Missing from \"Hide Individual Flairs\"",
+    "body": "[This 'Bot' flair]([link]) is not an option under `Settings -> Hide Individual Flairs`\n\nHere are the options I do see: [link]"
+   }
+  },
+  {
+   "id": "f004",
+   "state": {
+    "title": "Improve first scene, when selecting the settings",
+    "body": "Make the UI look nicer."
+   }
+  },
+  {
+   "id": "f005",
+   "state": {
+    "title": "Add color2 support",
+    "body": "Should be easy, just set color2 instead of color if color2 = true"
+   }
+  },
+  {
+   "id": "f006",
+   "state": {
+    "title": "Using under Windows",
+    "body": "I've installed it using pip in a Windows machine\n\nWhen executing it always throws:\n\n`Traceback (most recent call last):\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\runpy.py\", line 193, in _run_module_as_main\n    \"__main__\", mod_spec)\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\runpy.py\", line 85, in _run_code\n    exec(code, run_globals)\n  File \"C:\\Users\\[user]\\AppData\\Local\\Programs\\Python\\Python37\\Scripts\\micropy.exe\\__main__.py\", line 4, in <module>\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\micropy\\__init__.py\", line 18, in <module>\n    from micropy import data, lib, project, stubs, utils\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\micropy\\project\\__init__.py\", line 5, in <module>\n    from . import modules\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\micropy\\project\\modules\\__init__.py\", line 7, in <module>\n    from .packages import DevPackagesModule, PackagesModule\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\micropy\\project\\modules\\packages.py\", line 12, in <module>\n    from micropy.packages import (\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\micropy\\packages\\__init__.py\", line 16, in <module>\n    from .source_package import PackageDependencySource, VCSDependencySource\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\micropy\\packages\\source_package.py\", line 9, in <module>\n    from git import Repo\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\git\\__init__.py\", line 8, in <module>\n    from git.exc import *                       # @someone @someone\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\git\\exc.py\", line 10, in <module>\n    from git.compat import safe_decode\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\git\\compat.py\", line 32, in <module>\n    from git.types import TBD\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\git\\types.py\", line 12, in <module>\n    from typing_extensions import Final, Literal, SupportsIndex  # noqa: F401\nImportError: cannot import name 'SupportsIndex' from 'typing_extensions' (c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\typing_extensions.py)`\n\nI'm not sure how to solve it..."
+   }
+  },
+  {
+   "id": "f007",
+   "state": {
+    "title": "Error in build",
+    "body": "Hello, first of all thanks for your work, but I could not start the service, I get the following error\n[image]\nRegards"
+   }
+  },
+  {
+   "id": "f008",
+   "state": {
+    "title": "Vue calendar example - events are not editable",
+    "body": "## Version\nvue-calendar@2.0.4\n\n## Test Environment\nMozilla Firefox 102.0.1, Windows 11\n\n## Current Behavior\n1. Create new Vue 2 app via CLI\n2. Install Tui Calendar\n`npm install --save @someone/vue-calendar`\n3. Copy code from example to App.Vue\n[code block: 83 lines]\nEvent are not changing on dragging nor through edit pop-up, am i missing something?\nThanks in advance!\n## Expected Behavior\nEvents are changed on dragging or in popup"
+   }
+  },
+  {
+   "id": "f009",
+   "state": {
+    "title": "IOT: The search_index action has not been implemented",
+    "body": "## NotImplementedError: The search_index action has not been implemented\n\nHi,\n\nI am trying to mock `search_index` in iot client but it's yet to be implemented. No other issue currently mentions this, so it might be great to have it as an enhancement"
+   }
+  },
+  {
+   "id": "f010",
+   "state": {
+    "title": "Items with big enough item data will kick players out of the server",
+    "body": "**Describe the bug**\nWhen items with big enough item data are sent to client, it gonna exceed the limitation of itemstack buffer, casuing a network exception and kicking players out of the server.\n\n**To Reproduce**\n1. Create an item with big enough item data.\n2. Put it in the player's inventory.\n3. The player will be kicked out of the server.\n\n**Expected behavior**\nNothing wrong will happen. Players can play the game normally.\n\n**Environment:**\n - OS: Any\n - Version: Any\n - Server Type: Any\n\n**Additional context**\nIt's a must not to send item data to client to solve this problem. Item data must be server-side only."
+   }
+  },
+  {
+   "id": "f011",
+   "state": {
+    "title": "python script for deployment to dev databus not working any more",
+    "body": "The python code for deploying to the dev databus does not work.\n\nNot sure if it's worth fixing as the dev databus seems to be [pretty unstable now]([link]) anyway.\n\nThe question is rather which databus will the LOD-GEOSS project be using? If it's the dev databus then we need to discuss how to proceed."
+   }
+  },
+  {
+   "id": "f012",
+   "state": {
+    "title": "5 Seekers DRONES!!! Fix it!",
+    "body": "[image]"
+   }
+  },
+  {
+   "id": "f013",
+   "state": {
+    "title": "How to disable the icon_close_tab and icon_close_tab_modified ?",
+    "body": "Because we can't click the `x` and `●` in Vim/Nvim ,so I think I don't need the icon_close_*  and don't show my nvim window."
+   }
+  },
+  {
+   "id": "f014",
+   "state": {
+    "title": "Nomad issues after changing its config",
+    "body": "## Expected Behavior\nNomad jobs start nearly instant and memory oversubscription is enabled if stated so in the config.\n\n## Current Behavior\n```\ncurl [link]\n{\"SchedulerConfig\":{\"SchedulerAlgorithm\":\"binpack\",\"PreemptionConfig\":{\"SystemSchedulerEnabled\":false,\"SysBatchSchedulerEnabled\":false,\"BatchSchedulerEnabled\":false,\"ServiceSchedulerEnabled\":false},\"MemoryOversubscriptionEnabled\":true,\"RejectJobRegistration\":false,\"CreateIndex\":5,\"ModifyIndex\":5},\"Index\":5,\"LastContact\":0,\"KnownLeader\":true,\"NextToken\":\"\"}\n```\n- Nomad behaves just like it has not read the config\n  - Not only the `MemoryOversubscriptionEnabled` flag is wrong, but also the `SchedulerAlgorithm`.\n  - When you set the option manually it works fine: `curl --cert cli.pem --key cli-key.pem --cacert ca.pem -X POST -d '{\"MemoryOversubscriptionEnabled\": false}' [link]`\n\n- Runner need about 4.6 minutes to start (not only the first runner of each client). See [this Poseidon.log]([link]).\n  - In the Ui the job is related to one client nearly instantly\n  - But in the job details you see that nearly all time is spend before the client receives the job. See [this Nomad.log]([link]).\n  - After the 4.6 minutes Nomad aborts the scheduled allocation and tries it another time. This time it is scheduled nearly instand.\n  - A scheduling error?\n\n## Possible Solution\n- Workaround for the memory oversubscription.\n  - Reset and restart all Nomad Server: `sudo rm -rf /opt/nomad/data/*`\n  - With only one server having the old data it does not work.\n    - Regardless of whether the server becomes a leader or not.\n\n(At this point Nomad still takes 4.6 minutes to start an allocation)\n\n- Workaround for the scheduling issue.\n  - Reset and restart also all Nomad Clients: `sudo rm -rf /opt/nomad/data/*`\n\n## How can this be reproduced?\n- Total Reset of Nomad\n  - Stop all nodes\n  - Delete the data of all nodes […]"
+   }
+  },
+  {
+   "id": "f015",
+   "state": {
+    "title": "How to get historical data of indices?",
+    "body": "Dear sir,\n\nThere is absolute no documentation on how to read indices like NIFTY from historical_data() function or by any other way.\n\nPlease help me.\nThank you in advance sir."
+   }
+  },
+  {
+   "id": "f016",
+   "state": {
+    "title": "Fire onLayout in depth-first order",
+    "body": "### Problem Description\n\nOther RN platforms fire the `onLayout` event in depth-first order. See, for example, this code in the Android Paper UIManager: [link]\n\nOne example where this can cause issues is likely in VirtualizedList, which could presume that the list items fire `onLayout` before the scroll container fires `onLayout`.\n\n### Steps To Reproduce\n\nPretty simple to confirm on other platforms. Create an app like:\n```\n<View onLayout={() => console.log('Layout Parent')}>\n  <View onLayout={() => console.log('Layout Child')} />\n</View>\n```\n\nObserve that the event order is different on RN Windows than other platforms.\n\n### Expected Results\n\nEvent ordering should be consistent across platforms.\n\n### CLI version\n\nnpx react-native --version\n\n### Environment\n\n```markdown\nnpx react-native info\n```\n\n### Target Platform Version\n\n_No response_\n\n### Target Device(s)\n\n_No response_\n\n### Visual Studio Version\n\n_No response_\n\n### Build Configuration\n\n_No response_\n\n### Snack, code example, screenshot, or link to a repository\n\n_No response_"
+   }
+  },
+  {
+   "id": "f017",
+   "state": {
+    "title": "[Precaution(Перестороги)] [Profile] Ended precaution is visible in the profile",
+    "body": "**Environment:** Mac OS Monterey 12.3.1, Google Chrome version 100.0.4896.127 (arm64)\n**Reproducible:** always\n**Build found:** 2e7fbaf49a9551280a7ba7c22f04cd47a678dc43\n**Priority:** medium\n**Severity:** medium\n\n**Preconditions**\nUser is logged in as super admin ([link])\n\n**Steps to reproduce**\n1. Go to the left side menu --> Довідник --> Перестороги\n2. Find any user, who has a precaution (пересторогу) with end date that has already passed (e.g. Nazario Nazario or Радагаст Брунатний)\n3. Right click and choose 'Переглянути профіль'\n5. Look at the left bottom part of user's profile\n\n**Actual result**\nInformation about precaution which is finished is still visible\n\n**Expected result**\nInformation about precaution which is finished shouldn't be visible\n[image]"
+   }
+  },
+  {
+   "id": "f018",
+   "state": {
+    "title": "internal/integration/aioxmpp: create integration testing package to run tests against aioxmpp",
+    "body": "It would be nice to have the ability to run tests against [`aioxmpp`], a popular Python XMPP library.\nWe can likely do this by creating a small wrapper script that starts a client and then runs a test function, similar to [`examples/framework.py`]. We would then write this file to the integration testing temporary working directory in the `integration/aioxmpp` package, and individual integration tests written against it could write their own Python file that overwrites the test method and runs it.\n\nSomehow we would want to detect if `aioxmpp` is installed on the system and only write the file if it was (that way the tests would be skipped if aioxmpp isn't installed, just like we do for other integration tests because the file we're executing doesn't exist). We could also return a specific error code if importing `aioxmpp` doesn't work, detect that, and support skipping tests if the underlying process returns that code.\n\n[`aioxmpp`]: [link]\n[`examples/framework.py`]: [link]"
+   }
+  },
+  {
+   "id": "f019",
+   "state": {
+    "title": "pip install not including modules",
+    "body": "### Bug Description\n\n`setup.py` is missing `packages` so `pip install fideslib` installs the packages but does not include the modules.\n\n#### Steps to Reproduce\n\n1. `pip install fideslib`\n1. Add `from fideslib.db.base import FidesUser, FidesUserPermissions` to a file. This will result in an error: `No module named 'fideslib'`\n\n### Expected behavior\n\nModules should be present after `pip install fideslib`\n\n### Screenshots\n\n_If applicable, add screenshots to help explain your problem._\n\n### Environment\n\n* Version:\n* OS:\n* Python Version:\n* Docker Version:\n\n### Additional context\n\n_Add any other context about the problem here._"
+   }
+  },
+  {
+   "id": "f020",
+   "state": {
+    "title": "Duplicate sample warnings in cortex ingester",
+    "body": "**Describe the bug**\n\nWe are running multiple Prometheus scraping instances that are sending duplicate data to the cortex ingesters.\n\n```\nlevel=warn ts=2020-12-23T09:17:57.435754493Z caller=grpc_logging.go:38 method=/cortex.Ingester/Push duration=431.348µs err=\"rpc error: code = Code(400) desc = user=system: series={__name__=\\\"cluster_quantile:apiserver_request_duration_seconds:histogram_quantile\\\", component=\\\"apiserver\\\", endpoint=\\\"https\\\", group=\\\"coordination.k8s.io\\\", job=\\\"apiserver\\\", namespace=\\\"default\\\", prometheus=\\\"system-tenant/system-prometheus\\\", quantile=\\\"0.9\\\", resource=\\\"leases\\\", scope=\\\"namespace\\\", service=\\\"kubernetes\\\", verb=\\\"GET\\\", version=\\\"v1beta1\\\"}, timestamp=2020-12-23T09:17:56.932Z: duplicate sample for timestamp\" msg=\"gRPC\\n\"\n```\n\nThis increases the number of errors when ingesting data.\n\n[image]\n\nThis is a graph of the ingesters sample failure rate when running Prometheus with the default configuration and then with 1 replica."
+   }
+  },
+  {
+   "id": "f021",
+   "state": {
+    "title": "Print links somewhere else than in `mal23` branch",
+    "body": "Getting the links is slow because it means running the `mal23` branch with all the sensitivity analysis scenarios.\n\n- Could links be printed in `olusanya`? Pros: faster to run. Cons: `links.txt` is 33 MB while all other result files are less than 1 MB.\n- Could links be printed via separate script manually after the model run? Like a toolbox script or something?"
+   }
+  },
+  {
+   "id": "f022",
+   "state": {
+    "title": "Allow Button Overflow",
+    "body": "I have alot of modules lol and I love this one but it does not allow for button overflow. Is that an option that can be added?\n[image]"
+   }
+  },
+  {
+   "id": "f023",
+   "state": {
+    "title": "Failed to create (dynamic) label for `hostname`",
+    "body": "### Description\n\n**What happened**:\nThe server's hostname label has the output of an error\n[image]\n\n**What you expected to happen**:\nIt should have the correct hostname\n\n### Reproduction Steps\nAs minimally and precisely as possible, describe step-by-step how to reproduce the problem.\n1) run `docker run --rm -it redhat/ubi8:8.5 sh -c \"hostname\"`\n\n(I can provide a real reproduction steps if necessary, but it should be reproducible when using the docker image above)\n\n### Server Details\n- Teleport version (run `teleport version`): 9.0.1\n- Server OS (e.g. from `/etc/os-release`): \"Red Hat Enterprise Linux\" / \"8.5 (Ootpa)\"\n- Where are you running Teleport? (e.g. AWS, GCP, Dedicated Hardware): local/docker\n- Additional details:\n\n### Client Details\n- Tsh version (`tsh version`): 9.0.1\n- Computer OS (e.g. Linux, macOS, Windows): Linux - redhat/ubi8:8.5\n- Browser version (for UI-related issues): -\n- Installed via (e.g. apt, yum, brew, website download): yum\n- Additional details:\n\n### Debug Logs\n\nWe are relying on the `hostname` binary to set the value for the `hostname` dynamic value\n[link]\n\nThis works fine for most Linux, Windows and Mac\nHowever, some Linux distros don't ship this binary and spit out this message\n```\n2022-03-28T11:02:31Z ERRO             Failed to run command and update label: exec: \"hostname\": executable file not found in $PATH. labels/labels.go:152\n```\nAs an example:\n```\n$ docker run --rm -it redhat/ubi8:8.5 sh -c \"hostname\"\nsh: hostname: command not found\n```\nA better approach for *Linux* would be to read `/proc/sys/kernel/hostname`\n```\n$ docker run --rm -it redhat/ubi8:8.5 sh -c \"cat […]"
+   }
+  },
+  {
+   "id": "f024",
+   "state": {
+    "title": "MD029 ordered list items: combining two modes",
+    "body": "Following this answer [link]\nDoes it mean that I am not able to combine both types?\nFor instance, I have the following project structure\n```\ntree -L 2\n.\n├── README.md\n├── task1\n│   ├── README.md\n├── task2\n│   ├── README.md\n├── task3\n│   ├── README.md\n└── task4\n    ├── README.md\n```\nFor some reason I'd like in `task1/README.md` to follow an unordered list, however in `task2/README.md` I need to have an ordered list.\n\nIs it possible to combine both checks? I also took a look at [link] but I didn't find"
+   }
+  },
+  {
+   "id": "f025",
+   "state": {
+    "title": "Bump Microsoft.AspNetCore.Identity.UI from 6.0.7 to 6.0.8",
+    "body": "TBD"
+   }
+  },
+  {
+   "id": "f026",
+   "state": {
+    "title": "Karpenter adds hardcoded Node Name to Pod Spec for scheduling.",
+    "body": "## Version\n\n**Karpenter**: v0.5.2\n\n**Kubernetes**: v1.21\n\n## Expected Behavior\nKarpenter scales nodes and schedules pods onto those without depending on the kube-scheduler. This reduces latency of the pod scheduling process. At the same time there should be a reasonable logic behind the scenes.\n\n## Actual Behavior\nAfter scaling the nodes Karpenter adds node name's to the pods spec hardcoded. When you delete the node manually, pod enters the pending state and when new node comes in, Karpenter adds the new node's name to the pending pod's spec and schedule the pod.\n\n## Question\nThis approach doesn't seem like best practice. Can there be any other way to schedule the pods onto newly launched nodes?"
+   }
+  },
+  {
+   "id": "f027",
+   "state": {
+    "title": "[question] activate google's use_mobile_ui by default?",
+    "body": "From time to time we hear that SearXNG admins do not get google results, most often we recommend to activate `use_mobile_ui: true` .. may be it is time, we set the default to this value? ...\n\n[link]"
+   }
+  },
+  {
+   "id": "f028",
+   "state": {
+    "title": "AssertionError: Non-consecutive added token '<obj>' found. Should have index 50272 but has index 50265 in saved vocabulary.",
+    "body": "Traceback:\nFile \"/home/[user]/anaconda3/envs/rebel/lib/python3.7/site-packages/streamlit/script_runner.py\", line 338, in _run_script\n    exec(code, module.__dict__)\nFile \"/home/[user]/Documents/rebel-main/demo.py\", line 57, in <module>\n    tokenizer, model, dataset = load_models()\nFile \"/home/[user]/anaconda3/envs/rebel/lib/python3.7/site-packages/streamlit/caching.py\", line 573, in wrapped_func\n    return get_or_create_cached_value()\nFile \"/home/[user]/anaconda3/envs/rebel/lib/python3.7/site-packages/streamlit/caching.py\", line 555, in get_or_create_cached_value\n    return_value = func(*args, **kwargs)\nFile \"/home/[user]/Documents/rebel-main/demo.py\", line 18, in load_models\n    tokenizer = AutoTokenizer.from_pretrained(\"Babelscape/rebel-large\")\nFile \"/home/[user]/anaconda3/envs/rebel/lib/python3.7/site-packages/transformers/models/auto/tokenization_auto.py\", line 416, in from_pretrained\n    return tokenizer_class_fast.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)\nFile \"/home/[user]/anaconda3/envs/rebel/lib/python3.7/site-packages/transformers/tokenization_utils_base.py\", line 1705, in from_pretrained\n    resolved_vocab_files, pretrained_model_name_or_path, init_configuration, *init_inputs, **kwargs\nFile \"/home/[user]/anaconda3/envs/rebel/lib/python3.7/site-packages/transformers/tokenization_utils_base.py\", line 1811, in _from_pretrained\n    f\"Non-consecutive added token '{token}' found. \""
+   }
+  },
+  {
+   "id": "f029",
+   "state": {
+    "title": "Can't copy email addresses from viewing pane",
+    "body": "You can't copy the email address of a sender or recipient of a message in the viewing pane because when you highlight the email address you are taken to the page to add the contact to your address book.\n\nIt seems that the whole name and email address are a link to this Contacts feature rather than just the icon after the address and I think this might just be an oversight and an easy fix?"
+   }
+  },
+  {
+   "id": "f030",
+   "state": {
+    "title": "Optimize vector_mix",
+    "body": "While `vector_mix` is optimized for most cases with SSE2, we can do better with SSE4.1: `blendps` should be used where we can and the `insertps` and if all else fails, we need a general optimized implementation (2 shuffles?).\n\nSimilarly, a NEON implementation should be provided."
+   }
+  }
+ ]
+}

@@ -1,0 +1,1042 @@
+{
+ "$schema": "../../kit/spec.schema.json",
+ "name": "issue-triage-fit",
+ "description": "FIT split only (100 items): Jev's answers here are what every threshold is fitted on. Developer tools: is a GitHub issue a bug report, a feature request or a question? One labelled choice plus narrow literal signals. NLBSE'23 issue-report classification data (AGPL-3.0); maintainer labels (noisy); ids, authors, URLs and @mentions dropped; long code blocks replaced by a line count; body truncated to 250 words.",
+ "gate": {
+  "minCoverage": 0.95
+ },
+ "questions": {
+  "issueType": {
+   "type": "choice",
+   "instructions": "What kind of GitHub issue is this?",
+   "criteria": {
+    "bug": "A defect report: the software does something wrong, gives an error, or crashes, compared with what it should do.",
+    "feature": "A request for new behaviour, a new option, or a change to existing behaviour that currently works as designed.",
+    "question": "The author asks how to do something, or asks for help or clarification, without reporting a defect or requesting a change.",
+    "none": "None of these: not an issue about the software (spam, an empty or placeholder text, a test post), or unreadable."
+   }
+  },
+  "hasErrorOutput": {
+   "type": "noul",
+   "instructions": "Does the issue include an error message, exception, stack trace or log output produced by the software?",
+   "criteria": {
+    "true": "Some error text, exception, traceback or log lines from the software are quoted or pasted in the issue.",
+    "false": "No error text or log output from the software appears in the issue."
+   }
+  },
+  "hasReproSteps": {
+   "type": "noul",
+   "instructions": "Does the issue say what the author did (steps, commands or code they ran) to make the described behaviour happen?"
+  },
+  "asksHowTo": {
+   "type": "noul",
+   "instructions": "Does the author ask how to do something, or ask whether something is possible?"
+  },
+  "proposesNew": {
+   "type": "noul",
+   "instructions": "Does the author ask for a new option, new behaviour, or a change to how the software currently works?"
+  }
+ },
+ "items": [
+  {
+   "id": "f001",
+   "state": {
+    "title": "question: Distributed tracing with contrib packages gorm and fiber",
+    "body": "Hello there, I'm looking for a bit of guidance, with a caveat: that I am still learning about tracing and my use of these contrib packages is somewhat fresh to me, so I apologize in advance if any of my questions are a bit off the mark.\n\nI have three services that are successfully reporting traces, but the traces are not correlated when they should be, and they are not 'connected' on the Datadog service map.\n\nServices (Service C calls into A, which does a look up on B.):\n-  A: instrumented fiber api\n-  B: instrumented gorm db\n-  C: instrumented js client\n\nI am wondering whether I need to do more than the basic setup of the contrib tracing packages. I am hoping to see correlation between C and A, and A and B.\n\nThis currently what I have:\n\nCurrent fiber setup:\n```\nfunc main() {\n  tracer.Start()\n  defer tracer.Stop()\n  ...\n  // Add fibertrace Middleware\n  api.Use(fibertrace.Middleware(\n    fibertrace.WithServiceName(\"service-A\"),\n  ))\n```\n\nGorm setup\n```\ngormtrace.Open(postgres.New(postgres.Config{DSN: dsn}), &gorm.Config{})\n```\n\nAdditionally I have set the propagation environment variables:\n\n```\nDD_PROPAGATION_STYLE_INJECT=Datadog,B3\nDD_PROPAGATION_STYLE_EXTRACT=Datadog,B3\n```\n\nAnd I can confirm that service A is receiving the parent trace and span id's from service C on the headers:\n\n```\nX-Datadog-Trace-Id: [phone number] // example ids\nX-Datadog-Parent-Id: [phone number]\n```\n\nIs it possible that I need to explicitly set the propagation style as a fibertrace middleware option or is having it set as an environment variable sufficient? And do I need to somehow pass fibertrace's span id onto the […]"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f002",
+   "state": {
+    "title": "cant register on orientdb discourse",
+    "body": "Hello,\n\nI dont know where to send a message about it ... but it is not possible to open new account on dicourse forum from [link]\n\nRgds,"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f003",
+   "state": {
+    "title": "[d.gg utilities] Bot Flair Missing from \"Hide Individual Flairs\"",
+    "body": "[This 'Bot' flair]([link]) is not an option under `Settings -> Hide Individual Flairs`\n\nHere are the options I do see: [link]"
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f004",
+   "state": {
+    "title": "Improve first scene, when selecting the settings",
+    "body": "Make the UI look nicer."
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f005",
+   "state": {
+    "title": "Add color2 support",
+    "body": "Should be easy, just set color2 instead of color if color2 = true"
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f006",
+   "state": {
+    "title": "Using under Windows",
+    "body": "I've installed it using pip in a Windows machine\n\nWhen executing it always throws:\n\n`Traceback (most recent call last):\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\runpy.py\", line 193, in _run_module_as_main\n    \"__main__\", mod_spec)\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\runpy.py\", line 85, in _run_code\n    exec(code, run_globals)\n  File \"C:\\Users\\[user]\\AppData\\Local\\Programs\\Python\\Python37\\Scripts\\micropy.exe\\__main__.py\", line 4, in <module>\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\micropy\\__init__.py\", line 18, in <module>\n    from micropy import data, lib, project, stubs, utils\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\micropy\\project\\__init__.py\", line 5, in <module>\n    from . import modules\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\micropy\\project\\modules\\__init__.py\", line 7, in <module>\n    from .packages import DevPackagesModule, PackagesModule\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\micropy\\project\\modules\\packages.py\", line 12, in <module>\n    from micropy.packages import (\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\micropy\\packages\\__init__.py\", line 16, in <module>\n    from .source_package import PackageDependencySource, VCSDependencySource\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\micropy\\packages\\source_package.py\", line 9, in <module>\n    from git import Repo\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\git\\__init__.py\", line 8, in <module>\n    from git.exc import *                       # @someone @someone\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\git\\exc.py\", line 10, in <module>\n    from git.compat import safe_decode\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\git\\compat.py\", line 32, in <module>\n    from git.types import TBD\n  File \"c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\git\\types.py\", line 12, in <module>\n    from typing_extensions import Final, Literal, SupportsIndex  # noqa: F401\nImportError: cannot import name 'SupportsIndex' from 'typing_extensions' (c:\\users\\[user]\\appdata\\local\\programs\\python\\python37\\lib\\site-packages\\typing_extensions.py)`\n\nI'm not sure how to solve it..."
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f007",
+   "state": {
+    "title": "Error in build",
+    "body": "Hello, first of all thanks for your work, but I could not start the service, I get the following error\n[image]\nRegards"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f008",
+   "state": {
+    "title": "Vue calendar example - events are not editable",
+    "body": "## Version\nvue-calendar@2.0.4\n\n## Test Environment\nMozilla Firefox 102.0.1, Windows 11\n\n## Current Behavior\n1. Create new Vue 2 app via CLI\n2. Install Tui Calendar\n`npm install --save @someone/vue-calendar`\n3. Copy code from example to App.Vue\n[code block: 83 lines]\nEvent are not changing on dragging nor through edit pop-up, am i missing something?\nThanks in advance!\n## Expected Behavior\nEvents are changed on dragging or in popup"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f009",
+   "state": {
+    "title": "IOT: The search_index action has not been implemented",
+    "body": "## NotImplementedError: The search_index action has not been implemented\n\nHi,\n\nI am trying to mock `search_index` in iot client but it's yet to be implemented. No other issue currently mentions this, so it might be great to have it as an enhancement"
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f010",
+   "state": {
+    "title": "Items with big enough item data will kick players out of the server",
+    "body": "**Describe the bug**\nWhen items with big enough item data are sent to client, it gonna exceed the limitation of itemstack buffer, casuing a network exception and kicking players out of the server.\n\n**To Reproduce**\n1. Create an item with big enough item data.\n2. Put it in the player's inventory.\n3. The player will be kicked out of the server.\n\n**Expected behavior**\nNothing wrong will happen. Players can play the game normally.\n\n**Environment:**\n - OS: Any\n - Version: Any\n - Server Type: Any\n\n**Additional context**\nIt's a must not to send item data to client to solve this problem. Item data must be server-side only."
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f011",
+   "state": {
+    "title": "python script for deployment to dev databus not working any more",
+    "body": "The python code for deploying to the dev databus does not work.\n\nNot sure if it's worth fixing as the dev databus seems to be [pretty unstable now]([link]) anyway.\n\nThe question is rather which databus will the LOD-GEOSS project be using? If it's the dev databus then we need to discuss how to proceed."
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f012",
+   "state": {
+    "title": "5 Seekers DRONES!!! Fix it!",
+    "body": "[image]"
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f013",
+   "state": {
+    "title": "How to disable the icon_close_tab and icon_close_tab_modified ?",
+    "body": "Because we can't click the `x` and `●` in Vim/Nvim ,so I think I don't need the icon_close_*  and don't show my nvim window."
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f014",
+   "state": {
+    "title": "Nomad issues after changing its config",
+    "body": "## Expected Behavior\nNomad jobs start nearly instant and memory oversubscription is enabled if stated so in the config.\n\n## Current Behavior\n```\ncurl [link]\n{\"SchedulerConfig\":{\"SchedulerAlgorithm\":\"binpack\",\"PreemptionConfig\":{\"SystemSchedulerEnabled\":false,\"SysBatchSchedulerEnabled\":false,\"BatchSchedulerEnabled\":false,\"ServiceSchedulerEnabled\":false},\"MemoryOversubscriptionEnabled\":true,\"RejectJobRegistration\":false,\"CreateIndex\":5,\"ModifyIndex\":5},\"Index\":5,\"LastContact\":0,\"KnownLeader\":true,\"NextToken\":\"\"}\n```\n- Nomad behaves just like it has not read the config\n  - Not only the `MemoryOversubscriptionEnabled` flag is wrong, but also the `SchedulerAlgorithm`.\n  - When you set the option manually it works fine: `curl --cert cli.pem --key cli-key.pem --cacert ca.pem -X POST -d '{\"MemoryOversubscriptionEnabled\": false}' [link]`\n\n- Runner need about 4.6 minutes to start (not only the first runner of each client). See [this Poseidon.log]([link]).\n  - In the Ui the job is related to one client nearly instantly\n  - But in the job details you see that nearly all time is spend before the client receives the job. See [this Nomad.log]([link]).\n  - After the 4.6 minutes Nomad aborts the scheduled allocation and tries it another time. This time it is scheduled nearly instand.\n  - A scheduling error?\n\n## Possible Solution\n- Workaround for the memory oversubscription.\n  - Reset and restart all Nomad Server: `sudo rm -rf /opt/nomad/data/*`\n  - With only one server having the old data it does not work.\n    - Regardless of whether the server becomes a leader or not.\n\n(At this point Nomad still takes 4.6 minutes to start an allocation)\n\n- Workaround for the scheduling issue.\n  - Reset and restart also all Nomad Clients: `sudo rm -rf /opt/nomad/data/*`\n\n## How can this be reproduced?\n- Total Reset of Nomad\n  - Stop all nodes\n  - Delete the data of all nodes […]"
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f015",
+   "state": {
+    "title": "How to get historical data of indices?",
+    "body": "Dear sir,\n\nThere is absolute no documentation on how to read indices like NIFTY from historical_data() function or by any other way.\n\nPlease help me.\nThank you in advance sir."
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f016",
+   "state": {
+    "title": "Fire onLayout in depth-first order",
+    "body": "### Problem Description\n\nOther RN platforms fire the `onLayout` event in depth-first order. See, for example, this code in the Android Paper UIManager: [link]\n\nOne example where this can cause issues is likely in VirtualizedList, which could presume that the list items fire `onLayout` before the scroll container fires `onLayout`.\n\n### Steps To Reproduce\n\nPretty simple to confirm on other platforms. Create an app like:\n```\n<View onLayout={() => console.log('Layout Parent')}>\n  <View onLayout={() => console.log('Layout Child')} />\n</View>\n```\n\nObserve that the event order is different on RN Windows than other platforms.\n\n### Expected Results\n\nEvent ordering should be consistent across platforms.\n\n### CLI version\n\nnpx react-native --version\n\n### Environment\n\n```markdown\nnpx react-native info\n```\n\n### Target Platform Version\n\n_No response_\n\n### Target Device(s)\n\n_No response_\n\n### Visual Studio Version\n\n_No response_\n\n### Build Configuration\n\n_No response_\n\n### Snack, code example, screenshot, or link to a repository\n\n_No response_"
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f017",
+   "state": {
+    "title": "[Precaution(Перестороги)] [Profile] Ended precaution is visible in the profile",
+    "body": "**Environment:** Mac OS Monterey 12.3.1, Google Chrome version 100.0.4896.127 (arm64)\n**Reproducible:** always\n**Build found:** 2e7fbaf49a9551280a7ba7c22f04cd47a678dc43\n**Priority:** medium\n**Severity:** medium\n\n**Preconditions**\nUser is logged in as super admin ([link])\n\n**Steps to reproduce**\n1. Go to the left side menu --> Довідник --> Перестороги\n2. Find any user, who has a precaution (пересторогу) with end date that has already passed (e.g. Nazario Nazario or Радагаст Брунатний)\n3. Right click and choose 'Переглянути профіль'\n5. Look at the left bottom part of user's profile\n\n**Actual result**\nInformation about precaution which is finished is still visible\n\n**Expected result**\nInformation about precaution which is finished shouldn't be visible\n[image]"
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f018",
+   "state": {
+    "title": "internal/integration/aioxmpp: create integration testing package to run tests against aioxmpp",
+    "body": "It would be nice to have the ability to run tests against [`aioxmpp`], a popular Python XMPP library.\nWe can likely do this by creating a small wrapper script that starts a client and then runs a test function, similar to [`examples/framework.py`]. We would then write this file to the integration testing temporary working directory in the `integration/aioxmpp` package, and individual integration tests written against it could write their own Python file that overwrites the test method and runs it.\n\nSomehow we would want to detect if `aioxmpp` is installed on the system and only write the file if it was (that way the tests would be skipped if aioxmpp isn't installed, just like we do for other integration tests because the file we're executing doesn't exist). We could also return a specific error code if importing `aioxmpp` doesn't work, detect that, and support skipping tests if the underlying process returns that code.\n\n[`aioxmpp`]: [link]\n[`examples/framework.py`]: [link]"
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f019",
+   "state": {
+    "title": "pip install not including modules",
+    "body": "### Bug Description\n\n`setup.py` is missing `packages` so `pip install fideslib` installs the packages but does not include the modules.\n\n#### Steps to Reproduce\n\n1. `pip install fideslib`\n1. Add `from fideslib.db.base import FidesUser, FidesUserPermissions` to a file. This will result in an error: `No module named 'fideslib'`\n\n### Expected behavior\n\nModules should be present after `pip install fideslib`\n\n### Screenshots\n\n_If applicable, add screenshots to help explain your problem._\n\n### Environment\n\n* Version:\n* OS:\n* Python Version:\n* Docker Version:\n\n### Additional context\n\n_Add any other context about the problem here._"
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f020",
+   "state": {
+    "title": "Duplicate sample warnings in cortex ingester",
+    "body": "**Describe the bug**\n\nWe are running multiple Prometheus scraping instances that are sending duplicate data to the cortex ingesters.\n\n```\nlevel=warn ts=2020-12-23T09:17:57.435754493Z caller=grpc_logging.go:38 method=/cortex.Ingester/Push duration=431.348µs err=\"rpc error: code = Code(400) desc = user=system: series={__name__=\\\"cluster_quantile:apiserver_request_duration_seconds:histogram_quantile\\\", component=\\\"apiserver\\\", endpoint=\\\"https\\\", group=\\\"coordination.k8s.io\\\", job=\\\"apiserver\\\", namespace=\\\"default\\\", prometheus=\\\"system-tenant/system-prometheus\\\", quantile=\\\"0.9\\\", resource=\\\"leases\\\", scope=\\\"namespace\\\", service=\\\"kubernetes\\\", verb=\\\"GET\\\", version=\\\"v1beta1\\\"}, timestamp=2020-12-23T09:17:56.932Z: duplicate sample for timestamp\" msg=\"gRPC\\n\"\n```\n\nThis increases the number of errors when ingesting data.\n\n[image]\n\nThis is a graph of the ingesters sample failure rate when running Prometheus with the default configuration and then with 1 replica."
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f021",
+   "state": {
+    "title": "Print links somewhere else than in `mal23` branch",
+    "body": "Getting the links is slow because it means running the `mal23` branch with all the sensitivity analysis scenarios.\n\n- Could links be printed in `olusanya`? Pros: faster to run. Cons: `links.txt` is 33 MB while all other result files are less than 1 MB.\n- Could links be printed via separate script manually after the model run? Like a toolbox script or something?"
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f022",
+   "state": {
+    "title": "Allow Button Overflow",
+    "body": "I have alot of modules lol and I love this one but it does not allow for button overflow. Is that an option that can be added?\n[image]"
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f023",
+   "state": {
+    "title": "Failed to create (dynamic) label for `hostname`",
+    "body": "### Description\n\n**What happened**:\nThe server's hostname label has the output of an error\n[image]\n\n**What you expected to happen**:\nIt should have the correct hostname\n\n### Reproduction Steps\nAs minimally and precisely as possible, describe step-by-step how to reproduce the problem.\n1) run `docker run --rm -it redhat/ubi8:8.5 sh -c \"hostname\"`\n\n(I can provide a real reproduction steps if necessary, but it should be reproducible when using the docker image above)\n\n### Server Details\n- Teleport version (run `teleport version`): 9.0.1\n- Server OS (e.g. from `/etc/os-release`): \"Red Hat Enterprise Linux\" / \"8.5 (Ootpa)\"\n- Where are you running Teleport? (e.g. AWS, GCP, Dedicated Hardware): local/docker\n- Additional details:\n\n### Client Details\n- Tsh version (`tsh version`): 9.0.1\n- Computer OS (e.g. Linux, macOS, Windows): Linux - redhat/ubi8:8.5\n- Browser version (for UI-related issues): -\n- Installed via (e.g. apt, yum, brew, website download): yum\n- Additional details:\n\n### Debug Logs\n\nWe are relying on the `hostname` binary to set the value for the `hostname` dynamic value\n[link]\n\nThis works fine for most Linux, Windows and Mac\nHowever, some Linux distros don't ship this binary and spit out this message\n```\n2022-03-28T11:02:31Z ERRO             Failed to run command and update label: exec: \"hostname\": executable file not found in $PATH. labels/labels.go:152\n```\nAs an example:\n```\n$ docker run --rm -it redhat/ubi8:8.5 sh -c \"hostname\"\nsh: hostname: command not found\n```\nA better approach for *Linux* would be to read `/proc/sys/kernel/hostname`\n```\n$ docker run --rm -it redhat/ubi8:8.5 sh -c \"cat […]"
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f024",
+   "state": {
+    "title": "MD029 ordered list items: combining two modes",
+    "body": "Following this answer [link]\nDoes it mean that I am not able to combine both types?\nFor instance, I have the following project structure\n```\ntree -L 2\n.\n├── README.md\n├── task1\n│   ├── README.md\n├── task2\n│   ├── README.md\n├── task3\n│   ├── README.md\n└── task4\n    ├── README.md\n```\nFor some reason I'd like in `task1/README.md` to follow an unordered list, however in `task2/README.md` I need to have an ordered list.\n\nIs it possible to combine both checks? I also took a look at [link] but I didn't find"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f025",
+   "state": {
+    "title": "Bump Microsoft.AspNetCore.Identity.UI from 6.0.7 to 6.0.8",
+    "body": "TBD"
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f026",
+   "state": {
+    "title": "Karpenter adds hardcoded Node Name to Pod Spec for scheduling.",
+    "body": "## Version\n\n**Karpenter**: v0.5.2\n\n**Kubernetes**: v1.21\n\n## Expected Behavior\nKarpenter scales nodes and schedules pods onto those without depending on the kube-scheduler. This reduces latency of the pod scheduling process. At the same time there should be a reasonable logic behind the scenes.\n\n## Actual Behavior\nAfter scaling the nodes Karpenter adds node name's to the pods spec hardcoded. When you delete the node manually, pod enters the pending state and when new node comes in, Karpenter adds the new node's name to the pending pod's spec and schedule the pod.\n\n## Question\nThis approach doesn't seem like best practice. Can there be any other way to schedule the pods onto newly launched nodes?"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f027",
+   "state": {
+    "title": "[question] activate google's use_mobile_ui by default?",
+    "body": "From time to time we hear that SearXNG admins do not get google results, most often we recommend to activate `use_mobile_ui: true` .. may be it is time, we set the default to this value? ...\n\n[link]"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f028",
+   "state": {
+    "title": "AssertionError: Non-consecutive added token '<obj>' found. Should have index 50272 but has index 50265 in saved vocabulary.",
+    "body": "Traceback:\nFile \"/home/[user]/anaconda3/envs/rebel/lib/python3.7/site-packages/streamlit/script_runner.py\", line 338, in _run_script\n    exec(code, module.__dict__)\nFile \"/home/[user]/Documents/rebel-main/demo.py\", line 57, in <module>\n    tokenizer, model, dataset = load_models()\nFile \"/home/[user]/anaconda3/envs/rebel/lib/python3.7/site-packages/streamlit/caching.py\", line 573, in wrapped_func\n    return get_or_create_cached_value()\nFile \"/home/[user]/anaconda3/envs/rebel/lib/python3.7/site-packages/streamlit/caching.py\", line 555, in get_or_create_cached_value\n    return_value = func(*args, **kwargs)\nFile \"/home/[user]/Documents/rebel-main/demo.py\", line 18, in load_models\n    tokenizer = AutoTokenizer.from_pretrained(\"Babelscape/rebel-large\")\nFile \"/home/[user]/anaconda3/envs/rebel/lib/python3.7/site-packages/transformers/models/auto/tokenization_auto.py\", line 416, in from_pretrained\n    return tokenizer_class_fast.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)\nFile \"/home/[user]/anaconda3/envs/rebel/lib/python3.7/site-packages/transformers/tokenization_utils_base.py\", line 1705, in from_pretrained\n    resolved_vocab_files, pretrained_model_name_or_path, init_configuration, *init_inputs, **kwargs\nFile \"/home/[user]/anaconda3/envs/rebel/lib/python3.7/site-packages/transformers/tokenization_utils_base.py\", line 1811, in _from_pretrained\n    f\"Non-consecutive added token '{token}' found. \""
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f029",
+   "state": {
+    "title": "Can't copy email addresses from viewing pane",
+    "body": "You can't copy the email address of a sender or recipient of a message in the viewing pane because when you highlight the email address you are taken to the page to add the contact to your address book.\n\nIt seems that the whole name and email address are a link to this Contacts feature rather than just the icon after the address and I think this might just be an oversight and an easy fix?"
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f030",
+   "state": {
+    "title": "Optimize vector_mix",
+    "body": "While `vector_mix` is optimized for most cases with SSE2, we can do better with SSE4.1: `blendps` should be used where we can and the `insertps` and if all else fails, we need a general optimized implementation (2 shuffles?).\n\nSimilarly, a NEON implementation should be provided."
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f031",
+   "state": {
+    "title": "[Bug] When used in a child component in multiselect mode items not added when selected",
+    "body": "**Describe the bug**\nWhen using BlazoredTypeahead in a child component in multiselect mode, selecting an item does not add it to the selected values.\n\n**To Reproduce**\nCreate a component named \"MultiPicker\" like this:\n[code block: 27 lines]\nand then use it in a parent component like this:\n`<MultiPicker @someone=\"model.SelectedItems\" SearchOptions=\"SearchOptions\" />`\n\nNotice that nothing happens when you select an item.\n\n**Expected behavior**\nSelecting an item should add it to the Values\n\n**Hosting Model (is this issue happening with a certain hosting model?):**\n - Blazor WebAssembly"
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f032",
+   "state": {
+    "title": "BSC (Binance Smart Chain) local testnet",
+    "body": "Hello,\ni am trying to start a local testnet/private network for binance smart chain just like ganache/geth-dev mode.\nIn official docs  [link]  it is extremely unclear how to do so, they have started geth local node which has native currency ETH and not BNB and also PoW consensus mechanism, i'm highly confused about that or maybe i'm missing something (i know its ethereum hard-fork)\n\nThanks."
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f033",
+   "state": {
+    "title": "[Question] Will disable the recipe remove the item entirely?",
+    "body": "Would be great if so to remove duplicate like many mods add copper equipment which I prefer only 1 of them."
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f034",
+   "state": {
+    "title": "[Question] How about add code style file ?",
+    "body": "### Question\n\nThe current code style is still not uniform enough. For example, there is no certain standard whether the two methods are empty or not. I intend to add a `shenyu_codestyle.xml` to unify the standard, later, when people write Shenyu's code, they need to import `shenyu_codestyle.xml` first. Guys, what do you think? Please leave a message."
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f035",
+   "state": {
+    "title": "1.19 port",
+    "body": "Work on 1.19 port for this mod. Maybe adding some new stuff and updating my code."
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f036",
+   "state": {
+    "title": "Consumer health check",
+    "body": "what could be the preferred way to check status of the consumer ?\nI would like to implemented some kind of health check: bool Consumer.IsConnected()\n\nIf for some reason consumer is not connected, what is the preferred way to reconnect ?:\n\n- consumer.Subscribe()\nor\n- consumer = new ConsumerBuilder()"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f037",
+   "state": {
+    "title": "volume questions about tts results",
+    "body": "When I use the tts model trained on csmsc dataset with fastspeech2 , I have following issues\n1. when do tts on a long sentence, I will split it into several short sentences, then do tts on each short sentence, and finally concatenate short audio to a long audio. In the long audio, I find the volume of the beginning of next sentence is a little larger than previous sentence, which is a little strange. I don't know this phenomenon is introduced by training data or the model."
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f038",
+   "state": {
+    "title": "[PLUGIN PACKS] Some centreon-plugins don't plugin packaged",
+    "body": "Hello,\n\nI could see, we have a little part of plugins who don't have their Plugin Packs and documentation associated.\n\nMaybe it's normal (outdated or others), or not, just a forgot 🙂\n\nThe list :\n**Apcupsd** [link]\n**Checkmyws** [link]\n**Arcserve UDP Job Status** [link]\n**NetApp SnapCenter** [link]\n**Citrix** [link]\n**Interactive Intelligence Interaction Gateway** -> **Interactive Intelligence become Genesys** [link]\n**Interactive Intelligence Media Server** -> **Interactive Intelligence become Genesys** [link]\n**Jive ETL Jobs** -> **Jive Software become Aurea Software** [link]\n**Apache Jmeter** [link]\n**Kingdee EAS Application & DB Server Status** [link]\n**IBM Lotus (Domino) Mail Server** -> **IBM Lotus become HCL** [link]\n**ActiveDirectory WSMan** [link]\n**IIS WSMan** [link]\n**SolarWinds Loggly** [link]\n**Quanta.io application probes** [link]\n**PineApp Mail Secure** [link]\n**RRDCached** [link]\n**Sahi Pro scenario** [link]\n**Toshiba Storemate** [link]\n**oVirt** [link]\n**Cisco Meeting Place** [link]\n**Zoom** [link]\n**Nginx Ingress Controller metrics through Prometheus server** [link]\n**Safenet HSM with ProtectToolkit** [link]\n**Isovision AppeartTV** [link]\n**TemPerHum Sensors** [link]\n**Avaya Communication Manager** [link]\n**Alcatel DSL ISAM Family** [link]\n**Alcatel 1830 Photonic Service Switch** [link]\n**Cambium ePMP equipments** [link]\n**Evertz Audio Embedder Card** [link]\n**Evertz Reclocking Distribution Amplifier Card** [link]\n**HP Moonshot Switch Module for HP Moonshot chassis** [link]\n**Libraesva appliance** [link]\n**Netgear Smart Switches** [link]\n\nAnd the plugins dedicated to the notifications/tickets :\n\n**Centreon Open Tickets** [link]\n**Foxbox Notifications** [link]\n**HighSMS notifications** [link]\n**Jasmin SMS** [link]\n**Microsoft 365 Teams notifications** [link]\n**OVH SMS** [link]\n**iOS push notifications via Prowl** [link]\n**Sirportly tickets** [link]\n**Slack/Mattermost notifications** [link]\n**Telegram notifications** [link]\n\nRegards,"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f039",
+   "state": {
+    "title": "fix(elasticsearch): inconsistent order of extracted records",
+    "body": "**Describe the bug**\nThe indices of elasticsearch are sometimes not in ascending order, also the columns. Thus leading to failing tests on our CI\n\n**To Reproduce**\nSteps to reproduce the behavior:\nrun `make test-plugins` locally for a few times, and the test will break.\n\n**Expected behavior**\nThe test should pass consistently without false-negatives."
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f040",
+   "state": {
+    "title": "Placing bets fails 100% of the time",
+    "body": "**Describe the bug**\nEver since updating from 40dcf78 to 76679e9, placing bets fails consistently. Each bet fails with:\n\n```\nINFO - [make_predictions]: 😥  Oh no! The event is not active anymore! Current status: LOCKED\n```\nor\n```\nERROR - [make_predictions]: 🍀  Failed to place bet, error: EVENT_NOT_ACTIVE\n```\n\nIt looks like it tries placing the bets too late, but it's hard to tell exactly what the problem is:\n\n```\n02/09/21 20:36:05 - INFO - [on_message]: ⏰  Place the bet after: 299.99s for: EventPrediction(...\n02/09/21 20:41:05 - INFO - [make_predictions]: 🍀  Going to complete bet for EventPrediction(...\n02/09/21 20:41:05 - INFO - [make_predictions]: 🍀  Place 6.01k channel points on: Yes (PINK), Points: 1M, Users: 59 (66.29%), Odds: 1.14 (87.72%)\n02/09/21 20:41:06 - ERROR - [make_predictions]: 🍀  Failed to place bet, error: EVENT_NOT_ACTIVE\n```\n\n**To Reproduce**\nSteps to reproduce the behavior:\n1. Run the channel points miner for a channel that has bets\n2. Wait for a bet\n3. Placing the bet will fail because the bet is no longer active\n\n**Expected behavior**\nThe bet should be successfully placed.\n\n**Desktop (please complete the following information):**\n - OS: mac\n - Python version 3.9.5\n\n**Additional context**\nI'm not using any custom values for delay in the bet settings and I didn't change any settings after updating."
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f041",
+   "state": {
+    "title": "Tighten AutoScalingGroup lookups using tags",
+    "body": "/kind feature\n\n**Describe the solution you'd like**\n[A clear and concise description of what you want to happen.]\n\nThe [autoscaling API now supports lookups by tag]([link]), so the AWS MachinePool controller could be made more robust by only matching tagged ASGs, using the same rules as the other services.\n\n**Anything else you would like to add:**\n[Miscellaneous information that will assist in solving the issue.]\n\n**Environment:**\n\n- Cluster-api-provider-aws version: 1.0.0\n- Kubernetes version: (use `kubectl version`):\n- OS (e.g. from `/etc/os-release`):"
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f042",
+   "state": {
+    "title": "unable change leaf value when edit path reach to a leaf",
+    "body": "hi olof, there is astrange behavior with cli_auto_edit and cli_auto_set.\nmy yang file as below:\n```\nmodule unigw {\n...\n    container a {\n        leaf b {\n            type string;\n        }\n    }\n...\n```\nand in cli i input `edit a b`, it suggest me input more data,\nwhen inputing `edit a b xxx`, there is no way to change `b` value\n```\n[email] /> edit a b\nCLI syntax error: \"edit a b\": Incomplete command\n[email] /> edit a b xxx\n[email] /unigw:a/b> set xxx\nCLI syntax error: \"set xxx\": Unknown command\n[email] /unigw:a/b>\n```\nthere may be a logic error."
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f043",
+   "state": {
+    "title": "Device Provisioning IoT Hub ESP32",
+    "body": "For a project at school use an ESP32 running an IoT Hub script for connecting to the cloud.\n\nNow this is all static and in practice this should be possible across a few 100 devices. I had thought about DPS for this purpose.\n\nIn case: \"Zero-touch provisioning to a single IoT solution without hardcoding IoT Hub connection information at the factory (initial setup)\"\n\nDoes anyone have a sample script? I can \"t found out for using it on a ESP32.\n\nWhat I would like is that when it has WiFi connection at its intial startup that it would create a device via the MAC Address.\n\nThanks in advance"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f044",
+   "state": {
+    "title": "Compilations are improperly tagged as \"1\"",
+    "body": "Record type is not being overridden in api.py:147. A new record type designation is required (temporarily use \"album\")."
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f045",
+   "state": {
+    "title": "[Bug]: Application entry duplicates when reinstalled",
+    "body": "### Describe the bug\n\nWhen reinstalling any application using the provided installers, the entry for that application get's added another time, even though it already exists, causing multiple entries for the same application to exist.\n\n### To Reproduce\n\n1. Open bottle\n2. Go to \"Installers\"\n3. Install random application\n4. Install application again\n5. Entry for that applicaiton now appears twice in the Programs list\n\n### Package\n\nFlatpak from Flathub\n\n### Distribution\n\nFedora 36 Silverblue\n\n### Health Check\n\n[code block: 40 lines]\n\n### Display Protocol\n\nWayland\n\n### Display Backend used by Bottles\n\nWayland\n\n### Additional context\n\n_No response_"
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f046",
+   "state": {
+    "title": "Evaluate the use of SSH service in a container",
+    "body": "In the future, Garden Linux will run the SSH service inside a container. This could also make sense for us in OSISM."
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f047",
+   "state": {
+    "title": "Configuring emqx_rule_engine plugin events events cannot take effect",
+    "body": "### What happened?\n\nMy meqx version is 4.3.5, started via docker. Configured in environment variables\nEMQX_RULE-ENGINE__EVENTS__CLIENT_CONNECTED: on, qos1\nEMQX_RULE-ENGINE__EVENTS__CLIENT_DISCONNECTED: on, qos1\nOr configure it in the configuration file /opt/emqx/etc/plugins/emqx_rule_engine.conf\n\nSubscribe via Subscription Super Admin\n$events/client_connected\nDidn't receive the notification of the client going offline\n\n### What did you expect to happen?\n\nReceive notification of client going offline\n\n### How can we reproduce it (as minimally and precisely as possible)?\n\n_No response_\n\n### Anything else we need to know?\n\n_No response_\n\n### EMQX version\n\n4.4\n\n### OS version\n\n<details>\n\n```console\n# On Linux:\n$ cat /etc/os-release\n# paste output here\n$ uname -a\n# paste output here\n\n# On Windows:\nC:\\> wmic os get Caption, Version, BuildNumber, OSArchitecture\n# paste output here\n```\n\n</details>\n\n### Log files\n\n<details>\n\n</details>"
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f048",
+   "state": {
+    "title": "ManyVids (former)",
+    "body": "## Checklist\n\n- [ ] I'm asking a question\n- [ ] I've looked through the README and FAQ for similar questions\n- [ ] I've searched the bugtracker for similar questions including closed ones\n\n## Question"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f049",
+   "state": {
+    "title": "Compile error splines",
+    "body": "@someone\nHello, I tried to compile the occSketcher, but I get compilation issues.\nSome are related to opencascade : I am using version 7.6.0, and there are some deprecated classes, but I can deal with it.\nBut others are related to Spline classes (see image below).\nCould you please help me ?\nI am using VisualStudio 2017 compiler on WIn10 x64.\n\n[image]"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f050",
+   "state": {
+    "title": "Introduce CICD via Github Actions",
+    "body": "Following #10, it would be best to create a set of Github Workflows to cover the following:\n1. Code analysis via `CodeQL` action\n2. Build/test automation (I.e install dependencies, lint codebase with `black`/`isort`, run tests via `pytest`, pubblish coverage to `coveralls`\n3. Release automation (build automation, release via twine, update changelog)"
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f051",
+   "state": {
+    "title": "OpenShift route generated targetPort doesn't use the service \"normalizePort\"",
+    "body": "### Description\nIf \"normalizePort\" is enabled for service, the generated route's target port doesn't map to the normalized port\n\n### Info\n\n* Eclipse JKube version : 1.7.0\n* Maven version (`mvn -v`) : 3.6.4\n```\n\n```\n* Kubernetes / Red Hat OpenShift setup and version : OpenShift 3.11\n\n* If it's a bug, how to reproduce :\n\n   Enable the `normalizePort` to `true` in maven pom.xml\n```\n          <configuration>\n            <enricher>\n              <config>\n                <jkube-service>\n                  <normalizePort>true</normalizePort>\n                </jkube-service>\n            </enricher>\n          </configuration>\n```\n   The generated service with port 80 map to target port 8080\n\n```\n  kind: Service\n  spec:\n    ports:\n    - name: http\n      port: 80\n      protocol: TCP\n      targetPort: 8080\n```\n\n   But the route's targetPort still 8080 instead of 80\n\n```\n  kind: Route\n  spec:\n    port:\n      targetPort: 8080\n```"
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f052",
+   "state": {
+    "title": "missing jaxlib minimum version requirement in conda meta.yaml",
+    "body": "### Solution to issue cannot be found in the documentation.\n\n- [X] I checked the documentation.\n\n### Issue\n\n## Overview\n\nAfter updating `jax` to the current latest on `conda-forge` (`0.3.0`), we get a `RuntimeError` during import.\nIndeed, `jax=0.3.3` depends on `jaxlib>=0.3.0` but this feedstock doesn't say so in the `conda` requirements.\n\n## Steps to reproduce:\n\n```shell\n# check that jaxlib is unconstrained\nconda search -c conda-forge jax --info | grep jaxlib | sort -u\n  - jaxlib\n\n# simulate a previous install\nconda create -y -n test --force python=3.9\nconda activate test\nconda install -y -c conda-forge jax=0.3.0 'jaxlib>=0.1.74'\npython -c 'import jax'\n# no problem\n```\n\nBut now:\n\n```shell\n# update jax\nconda install -y -c conda-forge jax\npython -c 'import jax'\n(...)\nRuntimeError: jaxlib is version 0.1.75, but this version of jax requires version >= 0.3.0.\n```\n\n## Post-scriptum\n\nIt looks like a similar situation existed in previous versions. As far as `conda search -c conda-forge jax --info` can tell, there was never a minimum version imposed on `jaxlib`. Case in point, when I just try to install `jax=0.3.0` on a fresh `python3.9` miniconda environment, I get `jaxlib=0.1.69`, which is below the required `0.1.74` for that version.\n\n### Installed packages\n\n[code block: 40 lines]\n\n### Environment info\n\n[code block: 29 lines]"
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f053",
+   "state": {
+    "title": "[7.12.RC-1] Tribler freezes on upgrade",
+    "body": "I during the initial launch of a new Tribler version on my Mac notebook the upgrader screen with rotating gears freezes, so the gears were not rotating anymore. Then Tribler stays in this freezed state indefinitely.\n\nIn `tribler-gui-info.log` I discovered the following error:\n```python\n[PID:9095] [phone number]:45:28,661 - INFO - TriblerUpgrader(93) - Run\n[PID:9095] [phone number]:45:28,740 - INFO - TriblerUpgrader(244) - 13->14\n[PID:9095] [phone number]:45:28,742 - ERROR - ErrorHandler(32) - Traceback (most recent call last):\n  File \"tribler/gui/upgrade_manager.py\", line 34, in run\n  File \"tribler/run_tribler_upgrader.py\", line 40, in upgrade_state_dir\n  File \"tribler/core/upgrade/upgrade.py\", line 101, in run\n  File \"tribler/core/upgrade/upgrade.py\", line 111, in upgrade_pony_db_13to14\n  File \"tribler/core/upgrade/upgrade.py\", line 247, in do_upgrade_pony_db_13to14\nAttributeError: 'NoneType' object has no attribute 'instance'\n```\n\nThere are several related issues here:\n1. The actual reason for the error is that `do_upgrade_pony_db_13to14` function does not handle the situation when tags db was not previously created on that machine.\n2. As it is an error, it is strange that I see it in `tribler-gui-info.log`, it is more logical to see it in `tribler-gui-error.log`.\n3. An error in the upgrader should not lead to the freezing of Tribler process, ideally a user should see the an error message and a suggestion to report the error, and then the user probably should be able to skip problematic upgrade and run Tribler with initial state."
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f054",
+   "state": {
+    "title": "Add 2factor Auth",
+    "body": "Add 2factor auth support using the standard that Google Authenticator supports to further secure logins in accordance with common company policies."
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f055",
+   "state": {
+    "title": "Contact Form for Reach Out Section",
+    "body": "# Contact Form for Reach Out Section\n\n## Content Requirements\n* Heading: \"Contact Us\"\n* Name: Input Text field\n* Message: Large message area"
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f056",
+   "state": {
+    "title": "Imprint broken",
+    "body": "### Describe the Bug\nThe app cannot display the data from our imprint endpoint.\n\n### Steps to Reproduce\n\n1. Open any imprint on malteapp.de"
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f057",
+   "state": {
+    "title": "I can not receive an email",
+    "body": "I can not receive an email after the player is authorized, the line is empty\n\nif you log in to the site, then I get by standard PHP methods all the data name, email, avatar\n\nbut what about Unity, I need to save the user data if he deleted the game, and after a while returned to it - so that all his progress is saved"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f058",
+   "state": {
+    "title": "Aircraft past IAF will circle back",
+    "body": "Aircraft past GOSHI when given CAPP 4R will circle back to GOSHI"
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f059",
+   "state": {
+    "title": "Remove unused views",
+    "body": "Currently, we're only developing bot on the server side only so views here are still not needed."
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f060",
+   "state": {
+    "title": "Running `npm run dev` overwrites test/index.js",
+    "body": "### Expected behavior\n\nrunning `npm run dev` should not alter the files in the project\n\n### Current behavior\n\ntest/index.js gets overriten.\n\n### Reproducible sample\n\nrun `npm run dev`\n\n### Optional extra steps/info to reproduce\n\n_No response_\n\n### Possible solution\n\n_No response_\n\n### Context\n\n_No response_\n\n### chart.js version\n\ncurrent master\n\n### Browser name and version\n\n_No response_\n\n### Link to your project\n\n_No response_"
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f061",
+   "state": {
+    "title": "NMB - MittelAfrica Reconstruction Includes Côte d'Ivoire",
+    "body": "**Quick questions**\nOS: Windows 10\nHOI4 version: Barbarossa 1.11.7\nKaiserreich version:\nList any other mods used: Cold War Iron Curtain Graphics for Vanilla, Kaiserreich music mods\nWere you using Steam? Yes\nWere you in multiplayer? No\nWhich expansions do you NOT have? I have all DLC\n\n**Explanation of the issue:**\nAlthough Côte d'Ivoire was changed to French territory in the previous update, Namibia still needs Côte d'Ivoire to rebuild Mittel-Africa.\n\n**Steps to reproduce:**\n\n1. Destroy MittelAfrica\n\n2. Namibia reclaims MittelAfrica territories\n\n**Possible cause:**\nIt seems that they did not remove Côte d'Ivoire from the conditions of the MittelAfrica Reconstruction event.\n\n**Screenshots:**\n\n[image]\n[image]\n[image]"
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f062",
+   "state": {
+    "title": "Set coco pre-trained YoloV5 input size to native resolution > 4K, how does this affect predictions?",
+    "body": "### Search before asking\n\n- [X] I have searched the YOLOv5 [issues]([link]) and [discussions]([link]) and found no similar questions.\n\n### Question\n\nHi,\n\nI usually use your coco pre-trained yolov5-x model to test on my datasets to check the prediction/test performance. These datasets usually have images/video frames of high resolution usually > 4K and even > 8K, sometimes even 240 pixels, and contains usually small objects.\n\nWhen I increase the input resolution to the native resolution in some cases \"it looks visually\" (not tested on AP score) that is able to detect almost all the objects I need to detect, which is good news. But I want to have a better understanding if this is a good habit, or if I actually should tile the frames to the model's native training input resolution of 640x640?\n\nMy quick thoughts are that the model multi-scale prediction grid is expanded, and becomes less fine-grained, and thus harder to detect small objects or objects that are densely packed, and thus should not be the way to go?, and therefore should I better tile the input images in the native trained input resolution? If this is correct or not, could you provide a better (theoretical) explanation?\n\nI am focusing mainly on datasets that contain daily small images of area sizes in the range of 8-32 pixels (In the huge images). resizing/subsampling those images to the native training resolution will almost remove the small images. Therefore the images should be processed as much as possible on the […]"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f063",
+   "state": {
+    "title": "Auto Split Long Images after download",
+    "body": "### Describe your suggested feature\n\nThe feature is basically to add an option to enable auto splitting of the long images of 5000px height or more to equal parts.\nThis is doable via ImageMagick package or maybe make use of this project [TachiyomiImageSplitter]([link]) (This app doesn't work due to outdated libraries).\n\nWhole idea is to run a command to split the images after they are downloaded.\nFor example 001.png [2500x12000] will become:\n001.1.png [2500x4000]\n001.2.png [2500x4000]\n001.3.png [2500x4000].\n\n### Other details\n\nThis will solve many memory and loading issues / crashes affecting webtoons.\nEg.: [Long Strip Split for Webtoon]([link])\n\n**My suggestion is only affecting downloaded chapters so this has nothing to do with the reader code spaghetti at all to simplify solving the issue.**\n\n### Acknowledgements\n\n- [X] I have searched the existing issues and this is a new ticket, **NOT** a duplicate or related to another open issue.\n- [X] I have written a short but informative title.\n- [X] If this is an issue with an extension, I should be opening an issue in the [extensions repository]([link]).\n- [X] I have updated the app to version **[0.13.3]([link])**.\n- [X] I will fill out all of the requested information in this form."
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f064",
+   "state": {
+    "title": "Very slow upscaling",
+    "body": "## Component Versions\n\nPlease at least fill in the release version and GUI or CLI version.\n\n- **Video2X release version**: 4.7.0\n- **Upscaler version**: 4.4.0\n- **GUI version**: 2.8.0\n- **CLI version**: The latest one (I cannot find this info)\n\n## Symptom\nHello guys! This is the first time I am on this site. I downloaded this app last night to upscale a 2 minute, 11MB 480p video (2.5 ratio) with the driver being waifu2x-ncnn-vulkan. At first it took me 3 hrs for the first part, then it quickly devolved into more than 9 hrs. Is this supposed to be this long? My laptop is an Asus TUF gaming, 8GB ram, AMD Ryzen 5 3550H. It wasn't the best laptop, but I don't think it can't handle upscaling such a short video. Other similar apps like Waifu2x GUI runs just fine on my laptop (4 min for an image upscaling), so I though it was weird that running video2x would be this slow. My technical knowledge is very limited, so hope I can get an easy-to-understand answer (ELI5). Thanks a lot!\nP/s: I am typing this on my phone at 6 in the morning, so hope you guys can excuse some grammar mistakes. (Pls don't kill me for the bad screenshot).\n\n.\n\n## Error Log or Screenshots\n\nPlease upload or paste the error log here. You may also include screenshots.\n[image]\n\n**It is highly recommended to include your error log.**"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f065",
+   "state": {
+    "title": "sendMentoringRequest 500 Internal Server Error",
+    "body": "Error status : 500\nError Message : Internal Server Error"
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f066",
+   "state": {
+    "title": "Golang leaking",
+    "body": "Memory seems to be leaking, RAM usage is raising over time"
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f067",
+   "state": {
+    "title": "Can not search files in subfolder, why?",
+    "body": "### What's the Problem?\n\nas title.\n\n### Solution/Idea\n\nLet users can do this.\n\n### Alternatives\n\nNone\n\n### Priorities\n\n| Capability | Priority |\n| :---------- | :------- |\n| This proposal will allow developers to accomplish W | Must |\n| This proposal will allow end users to accomplish X | Should |\n| This proposal will allow developers to accomplish Y | Could |\n| This proposal will allow end users to accomplish Z | Won't |\n\n### Files Version\n\n_No response_\n\n### Windows Version\n\n_No response_\n\n### Comments\n\n_No response_"
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f068",
+   "state": {
+    "title": "[Bug] TypeError: Cannot read property 'paper' of undefined",
+    "body": "Sentry Issue: [APPSMITH-6H]([link])\n\n```\nTypeError: Cannot read property 'paper' of undefined\n  at SVGSVGElement.r (../../src/helpers.ts:87:17)\n```"
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f069",
+   "state": {
+    "title": "custom colors in symbols",
+    "body": "The symbols are now only in black.\nThese can be made in color by replacing stroke='black' in the stylesheet to \"sym-stroke\" and placing (s) after the name of the symbol\n\n[image]"
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f070",
+   "state": {
+    "title": "How to limit only one active slice per Pie chart?",
+    "body": "Hi, already opened this question on stackoverflow but no answers:\n[link]\n\nBasically I want to migrate this v4 code to v5: [link]\n\nIs it possible? v5 has very few tutorials at this time.\n\nThanks"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f071",
+   "state": {
+    "title": "Upgrade terraform-provider-oci to v4.86.0",
+    "body": "Release details: [link]"
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f072",
+   "state": {
+    "title": "--port argument doesn't report/error if port is already in use",
+    "body": "Steps to reproduce:\n\n* start up a localhost server on a specific port, e.g. angular watch or something e.g. on port 8888\n* run `miniflare --port 8888`\n\nOutput will be\n[mf:inf] Listening on :8888\n[mf:inf] - [link]\n\nBut since the port is not actually available, it will not be reachable.\n\nI would have expected some kind of error or notification that the port is already in use.\n\nUsing miniflare 2.3.0"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f073",
+   "state": {
+    "title": "i miss a mistake, how to resolve it",
+    "body": "when i have access_token, but i can`t get the item\n\nGoogle\\Service\\Analytics\\Webproperties Object\n(\n    [collection_key:protected] => items\n    [itemsType:protected] => Google\\Service\\Analytics\\Webproperty\n    [itemsDataType:protected] => array\n    [itemsPerPage] => 1000\n    [kind] => analytics#webproperties\n    [nextLink] =>\n    [previousLink] =>\n    [startIndex] => 1\n    [totalResults] => 0\n    [username] => [email]\n    [internal_gapi_mappings:protected] => Array\n        (\n        )\n\n    [modelData:protected] => Array\n        (\n            [items] => Array                                          ****why it is empty ??****\n                (\n                )\n\n        )\n\n    [processed:protected] => Array\n        (\n        )\n\n)\n\nwhen i run the demo, like this:\n\n`if (isset($_SESSION['access_token']) && $_SESSION['access_token']) {\n    // Set the access token on the client.\n    $client->setAccessToken($_SESSION['access_token']);\n\n    // Create an authorized analytics service object.\n    $analytics = new Google_Service_Analytics($client);\n\n    // Get the first view (profile) id for the authorized user.\n    $profile = getFirstProfileId($analytics);\n\n    // Get the results from the Core Reporting API and print the results.\n    $results = getResults($analytics, $profile);\n    printResults($results);\n} else {\n    $redirect_uri = 'http://' . $_SERVER['HTTP_HOST'] . '/google/oauth2callback.php';\n    header('Location: ' . filter_var($redirect_uri, FILTER_SANITIZE_URL));\n}\n\nfunction getFirstProfileId($analytics)\n{\n    // Get the user's first view (profile) ID.\n\n    // Get the list of accounts for the authorized user.\n    $accounts = $analytics->management_accounts->listManagementAccounts();\n\n    if (count($accounts->getItems()) > 0) {\n        $items = $accounts->getItems();\n        $firstAccountId = $items[0]->getId();\n\n        // Get the list of properties for the authorized user.\n        $properties = $analytics->management_webproperties\n            ->listManagementWebproperties($firstAccountId);\n\n        if (count($properties->getItems()) > 0) {   // cannot get the items,i donot know why???????????????\n            $items = $properties->getItems();\n            $firstPropertyId = $items[0]->getId();\n\n            // Get the list of views (profiles) for the authorized user.\n            $profiles = $analytics->management_profiles\n                ->listManagementProfiles($firstAccountId, $firstPropertyId);\n\n            if (count($profiles->getItems()) > 0) {\n                $items = $profiles->getItems();\n\n                // Return the first view (profile) ID.\n                return $items[0]->getId();\n\n            } else […]"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f074",
+   "state": {
+    "title": "How can I add Line number of code?",
+    "body": "I'm always frustrated when I want to take notes for certain line of code, because I don't know how to describe it without line number of code.\n\nI want to know how to achieve this function by adjusting plugins or CSS."
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f075",
+   "state": {
+    "title": "[email]",
+    "body": "### Terraform Version\n\n```\n1.2.4\n```\n\n### Terraform Configuration Files\n\n```\nterraform {\n  required_providers {\n    local = {\n      source = \"hashicorp/local\"\n      version = \"2.2.3\"\n    }\n    aws = {\n      source  = \"hashicorp/aws\"\n      version = \"~> 4.17\"\n    }\n  }\n  required_version = \">= 1.1.2\"\n}\n```\n\n### Debug Output\n\n```\n Error: Missing resource schema from provider\n\nNo resource schema found for local_file.\n```\n### Expected Behavior\n\n### Actual Behavior\n\n### Steps to Reproduce\n\n### Additional Context\n\n```\nAfter push in Gitlab repository the plan in terraform cloud dont pass because it dont see \"schema found for local_file\"\nI tried to change version in tf cloud. It works with 1.0..... but when i choose this version it shows wrong changing state (everything destroy). And from 1.1 to 1.2 version it doesnt work. What i can do to pass this plan check in right way? In tf cloud my organization account where im trying do it \"ilink-pro\"\n### References"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f076",
+   "state": {
+    "title": "How to concatenate knowledge graphs embeddings with Textual embeddings by Keras embedding layers and feed to Multi perceptron layer?",
+    "body": "I have generated knowledge graph embeddings by RDF2Vec(<s,p,o> RDF triples.ttl file with DBpedia URIs) of size (7536, 384) and I have embeddings for my text dataset generated by Sbert of size(14169,384). Now, how do I concatenate these embeddings using Keras embedding layers? and then model.fit the concatenated embeddings with target label for training the model? Could anyone help?\n**As of now, I am using this below code and  I want to add a Keras embedding layer to concatenate the above embeddings and train my model.**\n```\nModel = tf.keras.models.Sequential()\nModel.add(tf.keras.layers.Dense(128, activation = 'relu'))\nModel.add(tf.keras.layers.Dense(2, activation = 'sigmoid'))\nModel.compile(loss='sparse_categorical_crossentropy', optimizer='adam', metrics=['acc'])\nhistory = Model.fit(concat_embeddings, train_labels.values, epochs=30, validation_split=0.1,verbose=1, batch_size=128)\n```"
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f077",
+   "state": {
+    "title": "request help: install apisix-ingress fail",
+    "body": "### Issue description\n\nhelm install apisix apisix/apisix \\\n  --namespace ingress-apisix --create-namespace \\\n  --set gateway.type=LoadBalancer \\\n  --set ingress-controller.enabled=true \\\n  --set ingress-controller.config.apisix.serviceNamespace=ingress-apisix \\\n  --set etcd.persistence.enabled=false\n\nstatus\n\n[image]\n\n### Environment\n\n- your apisix-ingress-controller version (output of apisix-ingress-controller version --long):\n- your Kubernetes cluster version (output of kubectl version): 1.24.1\n- if you run apisix-ingress-controller in Bare-metal environment, also show your OS version (uname -a):\n k8smaster:~# uname -a\nLinux k8smaster 5.15.41-0-virt #1-Alpine SMP Fri, 20 May 2022 21:42:55 +0000 x86_64 Linux"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f078",
+   "state": {
+    "title": "v1.0",
+    "body": "- [x] Convert job-stats command to job-details.\n- [x] Restructure code: parsers\n- [x] Restructure code: decompressors (bzip2)\n- [x] Restructure code: clean-up workflow.\n- [x] Job history\n- [x] Include pool tasks.\n- [x] Include ds3 replication tasks\n- [x] Fix display table so it includes headers of single rows.\n- [x] Fix SerializeDataPolicies to size the output to the max number of storage domains.\n- [x] Fix SerializeStorageDomains to size the output to the max number of domain members."
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f079",
+   "state": {
+    "title": "[Mod Suggestion] Space Dimensions (Fabric)",
+    "body": "A nice mod that can add more flavor to the AOF5 Modpack. Available for fabric 1.18.1.\n\nLink: [link]"
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f080",
+   "state": {
+    "title": "Enable continues integration",
+    "body": "Add the file CI.yml and make it work."
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f081",
+   "state": {
+    "title": "Right prompt shifts cursor left onto Left prompt",
+    "body": "Since I updated spaceship, the right prompt moves my cursor left onto the left prompt:\n\n[image]\nWhat the left prompt should look like:\n[image]\n\nThe git plugin does this(and any plugin that takes up space)\nHere's the spaceship variables defined in `.zshrc`:\n[code block: 49 lines]\n\nMy entire `zshrc`:\n[code block: 272 lines]"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f082",
+   "state": {
+    "title": "Application is not working.",
+    "body": "# Application is not working.\n## The landing page is blank\nWhen I loaded the app, all the text fields (that were supposed to show information about my IP) were blank. Even after pasting my IP, the app was not able to show anything.\nWhen I opened the console, these were the errors:\n### Screenshot:\n[image]"
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f083",
+   "state": {
+    "title": "连表查询如何统计总数?",
+    "body": "## Your Question\n\n[image]\n`\n\n\tdb.Model(model.Banners{}).Count(&total)         //这么写的话会报 s.* 字段不存在\n\n\ts.data.DB.Model(&model.Banners{}).Count(&total) //这么写的话统计出来的就不是连表后的总数了`\n\n## The document you expected this should be explained\n\n## Expected answer"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f084",
+   "state": {
+    "title": "Integrate with sonarcloud code scanner",
+    "body": "See here - [link]"
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f085",
+   "state": {
+    "title": "Need a service that has a counter",
+    "body": "**As a** User\n **I need** a service that has a counter\n **So that** I can keep track of how many times something was done\n\n ### Details and Assumptions\n\n * Need a way to increment a counter\n * Need a way to get the current value\n\n ### Acceptance Criteria\n\n ```gherkin\n Given I have incremented the counter to 2\n When I make a call to get the current value\n Then it should return 2 as the counter value\n ```"
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f086",
+   "state": {
+    "title": "Is \"optimize final\" synchronized? We used it to update and delete records in batch job (CollapsingMergeTree)",
+    "body": "user.xml:  \"set optimize_throw_if_noop=1\"\n\nwe used \"optimize table xxx final\" after update or delete records (CollapsingMergeTree, sign=1/-1), with single thread batch job.  At that time, only the batch job operate the clickhouse database.\n\nAfter execute \"optimize table xxx final\", Our currect logic:\n\n1. If no exception, we judge the merge is done\n2. If got exception, execute \"optimize table xxx final\" after 5 seconds. After try 5 times, if also got exception, we judge the job failed\n\nI want to confirm and check whether my batch job logic is correct?\n\nThanks!"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f087",
+   "state": {
+    "title": "Bug Report: Mochimo block explorer - search for tag returns an unrelated block",
+    "body": "When searching for a tag on mochimap block explorer, there is a single search box, I enter my tag, copied directly from my wallet and search and it returns a window with block\n\nThis happens with multiple tags (all four of mine), not just one, and returns a very early block... like <20.\n\nPlease feel free to reach out to me on discord: JohnR for details in re-creating the problem.\n\nThere is of course a valid work-around for this issue, which is to simply follow the url: [link]>\nwhich displays correctly the results for the tag.  So this is an issue with the Search function not distinguishing a tag, not the actual search or results from the tag search."
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f088",
+   "state": {
+    "title": "How to validate the passcode in a callback instead of the correctString",
+    "body": "For instance, I have the passcode saved on the server and don't want to return it to the client.\n\nHow can I use the user input to call an async API to return a boolean indicating whether the passcode is correct or not?"
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f089",
+   "state": {
+    "title": "How to create user",
+    "body": "How can I create the user in datahub"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f090",
+   "state": {
+    "title": "Save image tarballs to GH action output on PR builds",
+    "body": "### What problem are you facing?\n\nCurrently, we publish artifacts built in CI pipelines for a specific PR. This includes all binaries as well as the helm chart tarball.\n\n### How could Crossplane help solve your problem?\n\nWhile it doesn't make sense to push images to a registry, it may be useful to save the image tarballs to the output directory such that they can be downloaded and then used to `docker load` for testing, especially on non amd64 platforms that are not already tested in our CI."
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f091",
+   "state": {
+    "title": "[feature] Storage Account services diagnostic settings",
+    "body": "**Describe the solution you'd like**\nCurrently only Storage Account diagnostic settings are supported. We need to be able to add diagnostic settings for Storage Account services such as Blob, Queue, Table, and Files\n\n**Describe alternatives you've considered**\nNo alternatives.\n\n**Additional context**\nHere's a discussion how it's done with terraform resources: [link]"
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f092",
+   "state": {
+    "title": "apt update: debian.sur5r.net/i3 bionic Release - Certificate verification failed",
+    "body": "## I'm submitting a…\n\n<pre>\n[x] Bug\n[ ] Feature Request\n[ ] Documentation Request\n[ ] Other (Please describe in detail)\n</pre>\n\n## Current Behavior\n\nWhen running `apt update`\n```\nIgn:26 [link] bionic InRelease\nErr:28 [link] bionic Release\n  Certificate verification failed: The certificate is NOT trusted. The received OCSP status response is invalid.  Could not handshake: Error in the certificate verification. [IP: 95.216.115.90 443]\nReading package lists... Done\nE: The repository '[link] bionic Release' no longer has a Release file.\nN: Updating from such a repository can't be done securely, and is therefore disabled by default.\nN: See apt-secure(8) manpage for repository creation and user configuration details.\n```\n\n## Expected Behavior\n\nI am able to successfully run apt update\n\n## Reproduction Instructions\n\n## Environment\n\n[code block: 34 lines]\n\nN/A\n\n<pre>\n- Linux Distribution & Version: Ubuntu 18\n- Are you using a compositor (e.g., xcompmgr or compton): picom\n</pre>"
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f093",
+   "state": {
+    "title": "Feature: Invoice Page",
+    "body": "# Epic Title\n\nFeature: Invoice Page\n\n## Epic Description\n\nThis feature will add an invoice page view where the user can read all the details of the invoice.\n\n## List of Tasks\n\n1. [x] [Task: Initial Layout of the Invoice Page]([link])\n2. [x] [Task: Editing an invoice]([link])\n3. [x] [Task: Deleting an invoice]([link])\n4. [x] [Task: Mark the invoice as paid]([link])\n5. [x] [Task: Route transitions]([link])\n6. [x] [Task: Firestore rules and checking ownership]([link])"
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f094",
+   "state": {
+    "title": "TikZ picture incorrectly translated",
+    "body": "I have a fairly complex TikZ plot that I'd like to convert to an SVG using dvisvgm.\n[code block: 118 lines]\nCompiled with tectonic,\n```\ntectonic t.tex\n```\nI'm getting this PDF:\n\n[image]\n\nWhen using the XDV route,\n```\ntectonic t.tex --outfmt xdv\ndvisvgm t.xdv --no-fonts -o t.svg\n```\nthe output SVG looks like\n\n[image]\n\nAny idea what might be going wrong?"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f095",
+   "state": {
+    "title": "Discord?",
+    "body": "do you have a discord channel for support?"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f096",
+   "state": {
+    "title": "Trying to dev: Missing \"Demo.vue\"",
+    "body": "I've forked the project and am trying to run `yarn dev` but getting the following error:\n\n```\n7:30:04 PM [vite] Internal server error: Failed to resolve import \"./Demo.vue\" from \"src/main.ts\". Does the file exist?\n  Plugin: vite:import-analysis\n  File: /Users/[user]/all/development/repos/polaris-vue/src/main.ts\n  1  |  import { createApp } from \"vue\";\n  2  |  import Demo from \"./Demo.vue\";\n     |                    ^\n  3  |  import PolarisVue from \"./polaris-vue\";\n  4  |  createApp(Demo).use(PolarisVue).mount(\"#app\");\n```\n\nThere doesn't seem to be a `Demo.vue` anywhere in the repo. Am I missing something?"
+   },
+   "labels": {
+    "issueType": "question"
+   }
+  },
+  {
+   "id": "f097",
+   "state": {
+    "title": "Deselect button pushed to the right",
+    "body": "## User story\n1. As a user\n2. I want to have the deselect button to the far right\n3. So that I have a similar experience to using Teams\n\n## Acceptance criteria\n* Deselect button is pushed to the far right, left from the logout button, so that it looks like this:\n[image]\n\n## Definition of done\n- [x] Code is reviewed and merged to main by RM (or at least a different person from the one, who has implemented it)\n- [x] The code builds without errors or if there are any - they are noted down and clearly communicated with the team\n- [x] A feature is to be implemented so that it is scalable on different devices and works consistently for the rest of the team"
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f098",
+   "state": {
+    "title": "Implement auto-save for customisation page",
+    "body": "Auto-save to `localStorage`.\n\nI just f*cking wiped out everything I was working on in the customise page for the demo. This is urgent, hope I can fix this by tonight."
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  },
+  {
+   "id": "f099",
+   "state": {
+    "title": "No errors for invalid parameter order in a function type descriptor with included record parameters",
+    "body": "**Description:**\n$title.\n\n**Steps to reproduce:**\n```ballerina\npublic function main() {\n    // No errors.\n    function (int a, *Foo b, int c) returns int x;\n    function (int a, *Foo b, int c = 2) returns int Y;\n\n    // errors: required parameter not allowed after defaultable parameters\n    function (int a = 1, *Foo b, int c) returns int z;\n}\n\ntype Foo record {|\n    int i;\n    int j;\n    never k?;\n|};\n```\n\n**Affected Versions:**\nslbeta1-rc4"
+   },
+   "labels": {
+    "issueType": "bug"
+   }
+  },
+  {
+   "id": "f100",
+   "state": {
+    "title": "Allow for typesAndWaits with milliseconds",
+    "body": "- BotMan Version: 2.5.0\n- PHP Version: 7.4.2\n- Messaging Service(s): Telegram, Web\n- Cache Driver: Redis\n\n### Description:\nI noticed the `typesAndWaits` uses the `sleep` method, but this only allows you to sleep whole seconds.\n\nWouldn't it be better to use `usleep`, so we can sleep for 2.5 seconds, or 0.5 seconds?\n\nI noticed the code moved from the BotMan class to the drivers, but the change woud likely be comparable to this:\n\n```diff\n class BotMan {\n     // …\n     /**\n-     * @someone int $seconds Number of seconds to wait\n+     * @someone float $seconds Number of seconds to wait\n      * @someone $this\n      */\n     public function typesAndWaits($seconds)\n     {\n         $this->getDriver()->types($this->message);\n-        sleep($seconds);\n+        usleep($seconds * 1000000);\n\n         return $this;\n     }\n     // …\n }\n```\n\nJust a suggestion, let me know what you think."
+   },
+   "labels": {
+    "issueType": "feature"
+   }
+  }
+ ]
+}
