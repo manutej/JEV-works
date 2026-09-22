@@ -9,7 +9,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { decide, holds, normalizedEntropy, type Answer, type Decision } from './decide.ts';
 import { scoreVerdict as isCorrect } from './policy.ts';
-import { checkAnswers, checkDecision, checkGateConfig, checkPolicy, loadDecision, loadPolicy } from './load.ts';
+import { checkAnswers, checkDecision, checkGateConfig, checkGateInput, checkPolicy, loadDecision, loadPolicy } from './load.ts';
 
 const json = (p: string) => JSON.parse(readFileSync(new URL(p, import.meta.url), 'utf8'));
 const yes: Answer = { type: 'boolean', probability: 0.95 };
@@ -124,4 +124,35 @@ test('boundary: kit/run.ts results ({type:"noul", p}) and SDK answers normalise 
   assert.deepEqual(errors, []);
   for (const a of Object.values(value!)) assert.ok(['boolean', 'choice', 'score'].includes(a.type));
   assert.deepEqual(checkAnswers({ a: { type: 'noul', p: 0.9 } }).value, { a: { type: 'boolean', probability: 0.9 } });
+});
+
+// Adversarial boundary review (MoE, boundary lens) regressions: each failed on the pre-fix load.ts.
+test('review P1: deeply nested conditions are an error, not an uncaught RangeError', () => {
+  let c: any = { q: 'a', is: 'yes' };
+  for (let i = 0; i < 50_000; i++) c = { not: c };
+  const r = checkDecision({ positive: 'x', rules: [{ when: c, then: true }], default: false });
+  assert.ok(r.errors.some(e => e.includes('nested deeper than')), r.errors.join(' | '));
+});
+
+test('review P1: a question id named __proto__ is rejected, not silently dropped', () => {
+  const raw = JSON.parse('{"__proto__": {"type": "noul", "p": 0.9}, "a": {"type": "noul", "p": 0.1}}');
+  assert.ok(checkAnswers(raw).errors.some(e => e.includes('reserved name')));
+});
+
+test('review P2: a NaN score is rejected at the boundary (it would read as a confident false)', () => {
+  assert.ok(checkAnswers({ s: { type: 'score', score: NaN } }).errors.some(e => e.includes('finite number')));
+  assert.ok(checkDecision({ positive: 'x', rules: [{ when: { q: 's', scoreAtLeast: NaN }, then: true }], default: false }).errors.length > 0);
+});
+
+test('review P3: malformed probability maps are rejected', () => {
+  assert.ok(checkAnswers({ c: { type: 'choice', choice: 'x', probabilities: { x: 'high' } } }).errors.length === 1);
+  assert.ok(checkAnswers({ c: { type: 'choice', choice: 'x', probabilities: [0.5, 0.5] } }).errors.length === 1);
+});
+
+test('review P1: the claim gate input is validated (bad reports cannot flip ACCEPT/REFUSE)', () => {
+  const ok = { seed: 's', role: 'holdout', seenShare: 0.05, coverage: 0.97, minCoverage: 0.95, policy: 'v2', policyDeclaredBeforeSeed: true,
+    headline: { name: 'all', n: 10, b: 3, c: 1 }, categories: [] };
+  assert.deepEqual(checkGateInput(ok).errors, []);
+  const e = checkGateInput({ ...ok, role: 'Holdout', coverage: 1.5, headline: { name: 'all', n: 3, b: 3, c: 1 }, policyDeclaredBeforeSeed: 'yes' }).errors.join(' | ');
+  for (const want of ['role', 'coverage', 'headline', 'policyDeclaredBeforeSeed']) assert.ok(e.includes(want), `${want}: ${e}`);
 });

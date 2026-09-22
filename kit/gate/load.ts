@@ -7,22 +7,29 @@
 import { readFileSync } from 'node:fs';
 import type { Answer, Cond, Decision, Verdict } from './decide.ts';
 import type { ScoringPolicy } from './policy.ts';
-import type { GateConfig } from './claim.ts';
+import type { GateConfig, GateInput } from './claim.ts';
 
 type Check<T> = (x: unknown, at: string) => { value?: T; errors: string[] };
 const isObj = (x: unknown): x is Record<string, any> => typeof x === 'object' && x !== null && !Array.isArray(x);
 const isVerdict = (x: unknown): x is Verdict => x === true || x === false || x === 'escalate';
 const isProb = (x: unknown): x is number => typeof x === 'number' && x >= 0 && x <= 1;
+const isNum = (x: unknown): x is number => typeof x === 'number' && Number.isFinite(x);
+/** Deeper than any real rule; bounds recursion so hostile JSON reports an error instead of a RangeError. */
+export const MAX_COND_DEPTH = 32;
+/** Ids that would collide with object internals ({}.__proto__ is not an own key). Rejected, not dropped. */
+const RESERVED_IDS = new Set(['__proto__', 'constructor', 'prototype']);
+const checkDist = (d: unknown) => d === undefined || (isObj(d) && Object.values(d).every(isProb));
 
-function checkCond(c: unknown, at: string, errors: string[], questions?: ReadonlySet<string>): void {
+function checkCond(c: unknown, at: string, errors: string[], questions?: ReadonlySet<string>, depth = 0): void {
+  if (depth > MAX_COND_DEPTH) return void errors.push(`${at}: conditions nested deeper than ${MAX_COND_DEPTH}`);
   if (!isObj(c)) return void errors.push(`${at}: a condition must be an object`);
   const keys = Object.keys(c);
   if ('all' in c || 'any' in c) {
     const k = 'all' in c ? 'all' : 'any';
     if (!Array.isArray(c[k]) || !c[k].length) return void errors.push(`${at}.${k}: a non-empty list of conditions`);
-    return void c[k].forEach((x: unknown, i: number) => checkCond(x, `${at}.${k}[${i}]`, errors, questions));
+    return void c[k].forEach((x: unknown, i: number) => checkCond(x, `${at}.${k}[${i}]`, errors, questions, depth + 1));
   }
-  if ('not' in c) return checkCond(c.not, `${at}.not`, errors, questions);
+  if ('not' in c) return checkCond(c.not, `${at}.not`, errors, questions, depth + 1);
   if (typeof c.q !== 'string') return void errors.push(`${at}: needs all, any, not, or q (got keys: ${keys.join(', ') || 'none'})`);
   if (questions && !questions.has(c.q)) errors.push(`${at}.q: "${c.q}" is not a question in this experiment`);
   const ops = ['is', 'choice', 'choiceIn', 'scoreAtLeast', 'entropyAbove'].filter(k => k in c);
@@ -32,7 +39,7 @@ function checkCond(c: unknown, at: string, errors: string[], questions?: Readonl
   if (op === 'choice' && typeof c.choice !== 'string') errors.push(`${at}.choice: an option name`);
   if (op === 'choiceIn' && (!Array.isArray(c.choiceIn) || !c.choiceIn.length || !c.choiceIn.every((x: unknown) => typeof x === 'string')))
     errors.push(`${at}.choiceIn: a non-empty list of option names`);
-  if (op === 'scoreAtLeast' && typeof c.scoreAtLeast !== 'number') errors.push(`${at}.scoreAtLeast: a number`);
+  if (op === 'scoreAtLeast' && !isNum(c.scoreAtLeast)) errors.push(`${at}.scoreAtLeast: a finite number`);
   if (op === 'entropyAbove' && !isProb(c.entropyAbove)) errors.push(`${at}.entropyAbove: a number in [0, 1]`);
 }
 
@@ -84,11 +91,13 @@ export const checkGateConfig: Check<Partial<GateConfig>> = (x, at = 'gate') => {
  */
 export function checkAnswers(x: unknown, at = 'answers'): { value?: Record<string, Answer>; errors: string[] } {
   const errors: string[] = [];
-  const out: Record<string, Answer> = {};
+  const out: Record<string, Answer> = {}; // safe: reserved ids (__proto__ …) are rejected before any write
   if (!isObj(x)) return { errors: [`${at}: must be an object of question id -> answer`] };
   for (const [id, a] of Object.entries(x)) {
     const here = `${at}.${id}`;
+    if (RESERVED_IDS.has(id)) { errors.push(`${here}: reserved name, not allowed as a question id`); continue; }
     if (!isObj(a)) { errors.push(`${here}: must be an object`); continue; }
+    if (!checkDist(a.probabilities)) { errors.push(`${here}.probabilities: an object of option -> probability in [0, 1]`); continue; }
     if (a.type === 'boolean' || a.type === 'noul') {
       const p = a.type === 'boolean' ? a.probability : a.p;
       if (!isProb(p)) errors.push(`${here}.${a.type === 'boolean' ? 'probability' : 'p'}: in [0, 1]`);
@@ -97,11 +106,31 @@ export function checkAnswers(x: unknown, at = 'answers'): { value?: Record<strin
       if (typeof a.choice !== 'string') errors.push(`${here}.choice: an option name`);
       else out[id] = { type: 'choice', choice: a.choice, probabilities: a.probabilities };
     } else if (a.type === 'score') {
-      if (typeof a.score !== 'number') errors.push(`${here}.score: a number`);
+      if (!isNum(a.score)) errors.push(`${here}.score: a finite number (NaN would read as a confident false)`);
       else out[id] = { type: 'score', score: a.score, probabilities: a.probabilities };
     } else errors.push(`${here}.type: noul (or the SDK's boolean), choice or score`);
   }
   return errors.length ? { errors } : { value: out, errors };
+}
+
+const isPaired = (p: any) => isObj(p) && typeof p.name === 'string' && [p.n, p.b, p.c].every(v => Number.isInteger(v) && v >= 0) && p.b + p.c <= p.n;
+
+/** The claim gate's input: every field it reads, checked, so a bad report cannot flip ACCEPT/REFUSE. */
+export function checkGateInput(x: unknown, at = 'gateInput'): { value?: GateInput; errors: string[] } {
+  const errors: string[] = [];
+  if (!isObj(x)) return { errors: [`${at}: must be an object`] };
+  if (typeof x.seed !== 'string' || !x.seed) errors.push(`${at}.seed: a non-empty string`);
+  if (!['dev', 'holdout'].includes(x.role)) errors.push(`${at}.role: dev or holdout`);
+  if (x.claimScope !== undefined && !['all', 'new_records', 'novel_wording'].includes(x.claimScope)) errors.push(`${at}.claimScope: all, new_records or novel_wording`);
+  if (x.leakageAccepted !== undefined && typeof x.leakageAccepted !== 'boolean') errors.push(`${at}.leakageAccepted: true or false`);
+  for (const k of ['seenShare', 'coverage']) if (!isProb(x[k])) errors.push(`${at}.${k}: in [0, 1]`);
+  if (x.minCoverage !== undefined && !isProb(x.minCoverage)) errors.push(`${at}.minCoverage: in [0, 1]`);
+  if (typeof x.policy !== 'string' || !x.policy) errors.push(`${at}.policy: a version name`);
+  if (typeof x.policyDeclaredBeforeSeed !== 'boolean') errors.push(`${at}.policyDeclaredBeforeSeed: true or false`);
+  if (!isPaired(x.headline)) errors.push(`${at}.headline: {name, n, b, c} with non-negative integers and b + c <= n`);
+  for (const k of ['seen', 'novel']) if (x[k] !== undefined && !isPaired(x[k])) errors.push(`${at}.${k}: {name, n, b, c}`);
+  if (!Array.isArray(x.categories) || !x.categories.every(isPaired)) errors.push(`${at}.categories: a list of {name, n, b, c}`);
+  return errors.length ? { errors } : { value: x as GateInput, errors };
 }
 
 function load<T>(path: string, check: (x: unknown, at: string) => { value?: T; errors: string[] }): T {
@@ -111,7 +140,7 @@ function load<T>(path: string, check: (x: unknown, at: string) => { value?: T; e
   } catch (cause) {
     throw new Error(`${path}: not readable JSON`, { cause });
   }
-  const { value, errors } = check(raw, path);
+  const { value, errors } = check(raw, path); // validators bound their own recursion (MAX_COND_DEPTH)
   if (errors.length) throw new Error(`${path} is invalid:\n  - ${errors.join('\n  - ')}`);
   return value as T;
 }
