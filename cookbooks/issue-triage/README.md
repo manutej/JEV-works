@@ -2,6 +2,11 @@
 
 > Label new issues as bug, feature request or question.
 
+> **Licence: AGPL-3.0.** Quote minimally and attribute: Kallis et al. (2023), NLBSE'23 Tool Competition. Issue text is public GitHub content by its authors; usernames and links were masked. Example cards here quote at most the title and the first 160 characters of the body.  
+> *Verified:* LICENSE file in github.com/nlbse2023/issue-report-classification, checked 2026-09-22
+
+**Gate suite (kit/standard-gate.ts): ACCEPT** · warnings: G8-threshold-fitted-and-held · post-hoc headline vs naive Bayes: **REFUSE** (G7.contradiction). Details: [results/gates.json](results/gates.json) and the Gates section below.
+
 **Verdict: Mixed.** Pooled, Jev is ahead: 76.0% against 40.0% for fit-only keyword lists (p = 1.8e-11) and 57.3% for naive Bayes on 1998 issues (p = 0.0013). But the strata disagree (L41): on issues maintainers labelled "question", Jev scored 48.0% and the naive Bayes 80.0%, significantly better (p = 4.0e-4). Jev wins on feature requests (88.0% vs 16.0%). So the headline "Jev better" does not ship on its own.
 
 Page: [demo/issue-triage.html](../../demo/issue-triage.html) · detailed data notes: [NOTES.md](NOTES.md)
@@ -78,14 +83,35 @@ Sources: [results/test.json](results/test.json) (kit), [results/decision-test.js
 
 The naive Bayes was added after the test run, because the declared keyword lists (fitted on 100 items) were near chance in several domains. It does not alter the declared comparison (the keyword row above); it answers "would a cheap model with far more labels have done as well?", and where that changes the practical verdict (job-postings), the verdict line says so.
 
-## Thresholds re-checked with kit/threshold.ts (post-hoc)
-kit/threshold.ts (feat/op-consist @ 756bdef) arrived after this rule was frozen and scored. [results/selective-posthoc.json](results/selective-posthoc.json) re-fits the gate with `fitSelective` on the fit answers (95% Clopper-Pearson upper bound on auto-decided error ≤ the same budget), applies it once to the test answers, and runs `judgeCalibration` on both splits. No Jev calls; the frozen rule above stays the result of record.
+## Gates
+Standard suite from [results/gates.json](results/gates.json) (`cookbooks/_shared/gates.ts`, no Jev calls). G5–G7 test the **declared** headline: the frozen rule vs the fit-only keyword lists, with true labels as strata (they partition the headline; Holm-corrected).
 
-| score gated | budget | fitted cuts (fit) | fit coverage | test coverage | test error (CP95 upper) | bound held | calibrated? fit / test | cuts stable (bootstrap) |
+| gate | verdict | why |
+|---|---|---|
+| G1-spec-valid | PASS | spec is valid |
+| G2-privacy | PASS | 0 hits in 150 states |
+| G3-text-disjoint | PASS | fit 100 / test 150, 0 overlap by id or text |
+| G4-coverage | PASS | coverage 100.0% ≥ 95% |
+| G5-policy-predeclared | PASS | the scoring policy was fixed before the holdout existed: passed |
+| G6-paired-test | PASS | the headline is an exact paired test (McNemar) with n ≥ 8: passed |
+| G7-strata-consistent | PASS | every stratum large enough to judge agrees with the pooled headline: passed |
+| G8-threshold-fitted-and-held | WARN (G8.unstable) | POST-HOC bounded gate on confidence on issueType (event: Jev correct): bound held, but the cut is unstable under resampling (bootstrapCuts) — no cut met the bound on the fit split, so this gate auto-decides nothing (everything escalates) |
+| G9-calibration-audited | SKIP | choice confidence gate; no cost threshold relies on calibrated probabilities |
+| G10-tree-consistent | SKIP | no question tree declared for this context |
+
+**Post-hoc headline** (frozen rule vs naive Bayes): suite **REFUSE**: G7-strata-consistent: stratum label=question (n=50, b+c=20) says naive_bayes_better, the headline says jev_better (Holm-corrected).
+
+### Bounded gate (POST-HOC, kit/threshold.ts)
+The method was chosen after the test run: `fitSelective` on the fit readings, `applyGate` once on the test readings, `bootstrapCuts` for stability. The frozen rule stays the record beside it.
+
+| | score | budget | cuts (fitted on fit) | fit coverage | test coverage | test error (95% upper) | bound held | stable |
 |---|---|---|---|---|---|---|---|---|
-| confidence on issueType (event: Jev correct) | 10.0% | no accept cut | 0.0% | 0.0% | – | n/a (nothing auto-decided) | no / no | no |
+| **post-hoc bounded gate** | confidence on issueType (event: Jev correct) | 10.0% | no cut met the bound | 0.0% | 0.0% | – | n/a: nothing auto-decided | no (G8.unstable) |
+| frozen rule (record) | | | | | 59.3% | 13.5% | no bound was promised | |
 
-With a 95% bound at n = 100 fit items, a 10.0% budget needs a long error-free run on one side; where no cut qualifies, the honest gate escalates everything. judgeCalibration rejects calibration on the test split for: confidence on issueType (event: Jev correct) (Spiegelhalter rejects calibration (z=10.97, p=0.0)). Confidence is not a probability of being right here; the gate is an empirical cut, not a calibrated one. (A near-degenerate slope means most confidences sit at 1.00.)
+A 95% bound on error ≤ 10.0% (a wrong label is re-labelled in seconds and maintainer labels are themselves noisy (rule.ts)) found no cut on the 100 fit readings: proving an error rate that low needs a long error-free run on one side. So the bounded gate auto-decides nothing and every item goes to a person. That is the honest answer at this sample size: the frozen gate's coverage came with no promise about its error.
+
+**Calibration:** confidence on issueType (event: Jev correct): calibration rejected on the test readings (Spiegelhalter rejects calibration (z=10.97, p=0.0)). G9 SKIP: choice confidence gate; no cost threshold relies on calibrated probabilities
 
 ## Where it fails
 - Many issues labelled "question" read as bug reports: "boolean values update issues" with a list of failing cases (t027), "TypeError: __init__() got an unexpected keyword argument" (t020), "barcodes_generator_product can't generate unique barcodes" with steps (t035). Maintainers often tag user-error reports as questions. Jev reads the text literally and says bug; a model trained on the repositories' own labels learns their habit.

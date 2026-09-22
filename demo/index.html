@@ -101,6 +101,15 @@ td.num{text-align:right;font-family:var(--mono);font-size:12.5px}
 .fails li{max-width:72ch}
 .foot{font-size:12.5px;color:var(--muted);border-top:1px solid var(--rule);padding-top:16px;display:flex;flex-direction:column;gap:6px}
 nav.crumbs{font-size:13px}
+p,li{overflow-wrap:break-word}
+.wrap>*,.card,.meta>div,.q>*{min-width:0}
+.licence{display:flex;flex-direction:column;gap:6px;border:1px solid var(--rule);border-left-width:4px;border-radius:8px;padding:12px 16px;background:var(--surface);font-size:14px}
+.licence.open{border-left-color:var(--good)} .licence.caution{border-left-color:var(--hold)} .licence.restricted{border-left-color:var(--bad)}
+.lic{font:500 11.5px/1.2 var(--mono);padding:4px 7px;border-radius:4px;border:1px solid var(--rule);width:max-content;max-width:100%}
+.lic.caution{color:var(--hold);border-color:currentColor} .lic.restricted{color:var(--bad);border-color:currentColor}
+.suite{display:flex;flex-direction:column;gap:8px}
+.suite-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:14px}
+table.gates td.why{white-space:normal;min-width:260px}
 @media (max-width:560px){
   .bar{grid-template-columns:minmax(0,1fr) 52px}.bar .track{grid-column:1/-1;grid-row:2}
   .nfj{grid-template-columns:1fr}.nfj>div:nth-child(odd){border-bottom:0;padding-bottom:0}
@@ -115,32 +124,38 @@ nav.crumbs{font-size:13px}
       <div class="mini"><div class="bar"><div>Jev</div><div class="track"><div class="fill" style="width:92.7%;background:var(--jev)"></div></div><div class="v">92.7%</div></div>
       <div class="bar"><div>Keywords</div><div class="track"><div class="fill" style="width:82.0%;background:var(--base)"></div></div><div class="v">82.0%</div></div>
       <div class="bar"><div>Naive Bayes</div><div class="track"><div class="fill" style="width:74.7%;background:var(--nb)"></div></div><div class="v">74.7%</div></div></div>
-      <span class="mono muted" style="font-size:12px">n=150 · gate acts on 100.0% at 92.7% · CC BY 4.0</span></a><a class="card dom" href="intent-routing.html"><div class="top"><span class="eyebrow">Customer support</span><span class="pill win">Jev better</span></div>
+      <span class="mono muted" style="font-size:12px">n=150 · gates ACCEPT (G8.unstable) · vs naive Bayes ACCEPT · bounded gate acts on 0.0%</span>
+      <span class="lic open">CC BY 4.0</span></a><a class="card dom" href="intent-routing.html"><div class="top"><span class="eyebrow">Customer support</span><span class="pill win">Jev better</span></div>
       <h2>Assistant Intent Router</h2><p class="muted">Send each request to the right skill, and say &quot;none&quot; when it fits none.</p>
       <div class="mini"><div class="bar"><div>Jev</div><div class="track"><div class="fill" style="width:94.7%;background:var(--jev)"></div></div><div class="v">94.7%</div></div>
       <div class="bar"><div>Keywords</div><div class="track"><div class="fill" style="width:33.3%;background:var(--base)"></div></div><div class="v">33.3%</div></div>
       <div class="bar"><div>Naive Bayes</div><div class="track"><div class="fill" style="width:74.0%;background:var(--nb)"></div></div><div class="v">74.0%</div></div></div>
-      <span class="mono muted" style="font-size:12px">n=150 · gate acts on 100.0% at 94.7% · CC BY 3.0</span></a><a class="card dom" href="review-triage.html"><div class="top"><span class="eyebrow">E-commerce</span><span class="pill win">Jev better</span></div>
+      <span class="mono muted" style="font-size:12px">n=150 · gates ACCEPT (G8.unstable) · vs naive Bayes ACCEPT · bounded gate acts on 66.7%</span>
+      <span class="lic open">CC BY 3.0 Unported</span></a><a class="card dom" href="review-triage.html"><div class="top"><span class="eyebrow">E-commerce</span><span class="pill win">Jev better</span></div>
       <h2>Review Complaint Triage</h2><p class="muted">Flag the reviews a customer-care agent should read today.</p>
       <div class="mini"><div class="bar"><div>Jev</div><div class="track"><div class="fill" style="width:92.7%;background:var(--jev)"></div></div><div class="v">92.7%</div></div>
       <div class="bar"><div>Keywords</div><div class="track"><div class="fill" style="width:52.7%;background:var(--base)"></div></div><div class="v">52.7%</div></div>
       <div class="bar"><div>Naive Bayes</div><div class="track"><div class="fill" style="width:85.3%;background:var(--nb)"></div></div><div class="v">85.3%</div></div></div>
-      <span class="mono muted" style="font-size:12px">n=150 · gate acts on 95.3% at 93.0% · CC0 (public domain)</span></a><a class="card dom" href="contract-clauses.html"><div class="top"><span class="eyebrow">Legal</span><span class="pill win">Jev better</span></div>
+      <span class="mono muted" style="font-size:12px">n=150 · gates REFUSE (G8.unstable, G9.uncalibrated) · vs naive Bayes ACCEPT · bounded gate acts on 36.0%</span>
+      <span class="lic open">CC0 1.0 (public domain)</span></a><a class="card dom" href="contract-clauses.html"><div class="top"><span class="eyebrow">Legal</span><span class="pill win">Jev better</span></div>
       <h2>Contract Clause Sorter</h2><p class="muted">File each contract provision under the playbook that reviews it.</p>
       <div class="mini"><div class="bar"><div>Jev</div><div class="track"><div class="fill" style="width:94.0%;background:var(--jev)"></div></div><div class="v">94.0%</div></div>
       <div class="bar"><div>Keywords</div><div class="track"><div class="fill" style="width:76.7%;background:var(--base)"></div></div><div class="v">76.7%</div></div>
       <div class="bar"><div>Naive Bayes</div><div class="track"><div class="fill" style="width:68.7%;background:var(--nb)"></div></div><div class="v">68.7%</div></div></div>
-      <span class="mono muted" style="font-size:12px">n=150 · gate acts on 83.3% at 97.6% · CC BY 4.0 (dataset card metadata)</span></a><a class="card dom" href="job-postings.html"><div class="top"><span class="eyebrow">HR / trust &amp; safety</span><span class="pill lose">Baseline wins</span></div>
+      <span class="mono muted" style="font-size:12px">n=150 · gates ACCEPT (G8.unstable) · vs naive Bayes ACCEPT · bounded gate acts on 0.0%</span>
+      <span class="lic caution">CC BY 4.0 per the LexGLUE dataset card metadata</span></a><a class="card dom" href="job-postings.html"><div class="top"><span class="eyebrow">HR / trust &amp; safety</span><span class="pill lose">Baseline wins</span></div>
       <h2>Job Ad Fraud Screen</h2><p class="muted">Catch fake job ads before applicants send money or ID.</p>
       <div class="mini"><div class="bar"><div>Jev</div><div class="track"><div class="fill" style="width:72.7%;background:var(--jev)"></div></div><div class="v">72.7%</div></div>
       <div class="bar"><div>Keywords</div><div class="track"><div class="fill" style="width:75.3%;background:var(--base)"></div></div><div class="v">75.3%</div></div>
       <div class="bar"><div>Naive Bayes</div><div class="track"><div class="fill" style="width:88.7%;background:var(--nb)"></div></div><div class="v">88.7%</div></div></div>
-      <span class="mono muted" style="font-size:12px">n=150 · gate acts on 25.3% at 89.5% · CC0 per the HF and Kaggle mirrors</span></a><a class="card dom" href="issue-triage.html"><div class="top"><span class="eyebrow">Developer tools</span><span class="pill mixed">Mixed</span></div>
+      <span class="mono muted" style="font-size:12px">n=150 · gates ACCEPT (G8.unstable) · vs naive Bayes ACCEPT · bounded gate acts on 0.0%</span>
+      <span class="lic restricted">No licence stated by the authors</span></a><a class="card dom" href="issue-triage.html"><div class="top"><span class="eyebrow">Developer tools</span><span class="pill mixed">Mixed</span></div>
       <h2>GitHub Issue Labeller</h2><p class="muted">Label new issues as bug, feature request or question.</p>
       <div class="mini"><div class="bar"><div>Jev</div><div class="track"><div class="fill" style="width:76.0%;background:var(--jev)"></div></div><div class="v">76.0%</div></div>
       <div class="bar"><div>Keywords</div><div class="track"><div class="fill" style="width:40.0%;background:var(--base)"></div></div><div class="v">40.0%</div></div>
       <div class="bar"><div>Naive Bayes</div><div class="track"><div class="fill" style="width:57.3%;background:var(--nb)"></div></div><div class="v">57.3%</div></div></div>
-      <span class="mono muted" style="font-size:12px">n=150 · gate acts on 59.3% at 86.5% · AGPL-3.0 (repository LICENSE)</span></a></div></section>
+      <span class="mono muted" style="font-size:12px">n=150 · gates ACCEPT (G8.unstable) · vs naive Bayes REFUSE · bounded gate acts on 0.0%</span>
+      <span class="lic caution">AGPL-3.0</span></a></div></section>
   <section><h2>How every domain was run</h2><ol class="changes">
     <li>Fetch a public labelled dataset; mask emails and phone numbers; draw 100 fit and 150 test items with a fixed seed, disjoint by id and text.</li>
     <li>Write the questions: literal, one record, typed, with an escape option on every choice. Run a 30-item label-free quality pass; move or reword anything MOVE-TO-CODE.</li>
@@ -152,4 +167,4 @@ nav.crumbs{font-size:13px}
     <li>Where the answer is a pattern across the corpus rather than in the record (fraudulent job ads), a model trained on the labels wins, and it wins clearly.</li>
     <li>Where the labels encode a team's habit rather than the text (maintainers tagging bug-shaped reports as questions), a trained model learns the habit and Jev does not. Check the strata before trusting a pooled win.</li>
     <li>A gate fitted honestly can hold nothing back: on intent routing and comment spam the fit split met the error budget everywhere, so every test item went through, the wrong ones included. Jev rarely says "not sure" (NETER P5); the escape option and the fit-split budget do that work.</li></ul></section>
-  <footer class="foot"><span>Built from commit <span class="mono">f030169</span> by <span class="mono">demo/build.ts</span>. Every number comes from <span class="mono">cookbooks/*/results/</span>.</span></footer></div></body></html>
+  <footer class="foot"><span>Built from commit <span class="mono">d35b2a9</span> by <span class="mono">demo/build.ts</span>. Every number comes from <span class="mono">cookbooks/*/results/</span>.</span></footer></div></body></html>

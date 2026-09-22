@@ -9,21 +9,15 @@ import { existsSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { DOMAINS, load, ROOT, type Loaded } from './load.ts';
 import { STORIES } from './stories.ts';
+import { bounded, calibrationNote, gateRows, suiteSummary } from './present.ts';
 
 const pct = (x: number | null | undefined) => (x === null || x === undefined ? '–' : `${(x * 100).toFixed(1)}%`);
 const pf = (p: number) => (p < 0.001 ? p.toExponential(1) : String(+p.toPrecision(2)));
 const reading = (p: { p: number; b: number; c: number }, other: string) => (p.p < 0.05 ? (p.b > p.c ? 'Jev better' : `${other} better`) : 'no difference shown');
 const ins = (q: any) => (typeof q.instructions === 'string' ? q.instructions : JSON.stringify(q.instructions));
 
+const licenceBox = (L: Loaded) => { const x = STORIES[L.id].licence; return `> **Licence: ${x.terms}.** ${x.use}  \n> *Verified:* ${x.verified}`; };
 const mWarn = (L: Loaded) => { const n = Object.entries(L.questions).filter(([, q]: [string, any]) => q.type === 'noul' && !(q.criteria && q.criteria.true !== undefined && q.criteria.false !== undefined)).length; return n ? `; ${n} M6 warning(s): nouls without criteria.true/false, left as measured rather than reworded after the test` : ''; };
-function calibNote(L: Loaded): string {
-  const bad = L.selective.filter(g => !g.calibrationTest.calibrated);
-  const parts = [`With a 95% bound at n = ${L.selective[0]?.calibrationFit.n} fit items, a ${pct(L.selective[0]?.maxError)} budget needs a long error-free run on one side; where no cut qualifies, the honest gate escalates everything.`];
-  if (bad.length) parts.push(`judgeCalibration rejects calibration on the test split for: ${bad.map(g => `${g.score} (${g.calibrationTest.reasons[0]})`).join('; ')}. ${L.kind === 'binary' ? (bad.some(g => g.score === 'frozen logistic score') ? 'The frozen cost cut assumes a calibrated score, so it is not justified by calibration here; prefer the selective gate. (A logistic score looks calibrated on the fit items it was fitted to, by construction.)' : 'The frozen logistic score itself passed on test, so its cost cut stands; the raw direct-question probability should not be read as a probability.') : 'Confidence is not a probability of being right here; the gate is an empirical cut, not a calibrated one. (A near-degenerate slope means most confidences sit at 1.00.)'}`);
-  else parts.push('judgeCalibration found no evidence against calibration on either split (at n ≈ 100–150 this is weak evidence, not proof).');
-  return parts.join(' ');
-}
-
 function readme(L: Loaded): string {
   const S = STORIES[L.id], V = S.verdict(L), d = L.decision, f = d.forced, g = d.gated;
   const qRow = (id: string) => L.quality.test.find(r => r.question === id);
@@ -36,6 +30,10 @@ function readme(L: Loaded): string {
   return `# ${S.title} (${S.area})
 
 > ${S.oneLine}
+
+${licenceBox(L)}
+
+**Gate suite (kit/standard-gate.ts): ${suiteSummary(L).verdict}**${suiteSummary(L).refusing.length ? ` (refused by ${suiteSummary(L).refusing.join(', ')}; ${suiteSummary(L).codes.join(', ')})` : ''}${suiteSummary(L).warnings.length ? ` · warnings: ${suiteSummary(L).warnings.join(', ')}` : ''} · post-hoc headline vs naive Bayes: **${suiteSummary(L).posthocVerdict}**${suiteSummary(L).posthocCodes.length ? ` (${suiteSummary(L).posthocCodes.join(', ')})` : ''}. Details: [results/gates.json](results/gates.json) and the Gates section below.
 
 **Verdict: ${V.label}.** ${V.text}
 
@@ -100,14 +98,26 @@ Sources: [results/test.json](results/test.json) (kit), [results/decision-test.js
 
 The naive Bayes was added after the test run, because the declared keyword lists (fitted on 100 items) were near chance in several domains. It does not alter the declared comparison (the keyword row above); it answers "would a cheap model with far more labels have done as well?", and where that changes the practical verdict (job-postings), the verdict line says so.
 
-## Thresholds re-checked with kit/threshold.ts (post-hoc)
-kit/threshold.ts (feat/op-consist @ 756bdef) arrived after this rule was frozen and scored. [results/selective-posthoc.json](results/selective-posthoc.json) re-fits the gate with \`fitSelective\` on the fit answers (95% Clopper-Pearson upper bound on auto-decided error ≤ the same budget), applies it once to the test answers, and runs \`judgeCalibration\` on both splits. No Jev calls; the frozen rule above stays the result of record.
+## Gates
+Standard suite from [results/gates.json](results/gates.json) (\`cookbooks/_shared/gates.ts\`, no Jev calls). G5–G7 test the **declared** headline: the frozen rule vs the fit-only keyword lists, with true labels as strata (they partition the headline; Holm-corrected).
 
-| score gated | budget | fitted cuts (fit) | fit coverage | test coverage | test error (CP95 upper) | bound held | calibrated? fit / test | cuts stable (bootstrap) |
+| gate | verdict | why |
+|---|---|---|
+${gateRows(L).map(r => `| ${r.id} | ${r.verdict}${r.code ? ` (${r.code})` : ''} | ${r.why.replace(/\|/g, '\\|')} |`).join('\n')}
+
+**Post-hoc headline** (frozen rule vs naive Bayes): suite **${suiteSummary(L).posthocVerdict}**${suiteSummary(L).posthocWhy ? `: ${suiteSummary(L).posthocWhy}` : ''}.
+
+### Bounded gate (POST-HOC, kit/threshold.ts)
+The method was chosen after the test run: \`fitSelective\` on the fit readings, \`applyGate\` once on the test readings, \`bootstrapCuts\` for stability. The frozen rule stays the record beside it.
+
+| | score | budget | cuts (fitted on fit) | fit coverage | test coverage | test error (95% upper) | bound held | stable |
 |---|---|---|---|---|---|---|---|---|
-${L.selective.map(g => `| ${g.score} | ${pct(g.maxError)} | ${g.fitted.acceptAtOrAbove === null ? 'no accept cut' : `accept ≥ ${g.fitted.acceptAtOrAbove}`}${'rejectAtOrBelow' in g.fitted ? (g.fitted.rejectAtOrBelow === null ? ', no reject cut' : `, reject ≤ ${g.fitted.rejectAtOrBelow}`) : ''} | ${pct(g.fitted.fit.coverage)} | ${pct(g.test.coverage)} | ${g.test.coverage ? `${pct(g.test.errorRate)} (${pct(g.test.errorUpper95)})` : '–'} | ${g.test.coverage ? (g.test.held ? 'yes' : '**no**') : 'n/a (nothing auto-decided)'} | ${g.calibrationFit.calibrated ? 'yes' : 'no'} / ${g.calibrationTest.calibrated ? 'yes' : 'no'} | ${g.stability.unstable ? 'no' : 'yes'} |`).join('\n')}
+| **post-hoc bounded gate** | ${bounded(L).score} | ${pct(bounded(L).maxError)} | ${bounded(L).cuts} | ${pct(bounded(L).fitCoverage)} | ${pct(bounded(L).testCoverage)} | ${bounded(L).testCoverage ? `${pct(bounded(L).testError)} (${pct(bounded(L).testErrorUpper)})` : '–'} | ${bounded(L).held === null ? 'n/a: nothing auto-decided' : bounded(L).held ? 'yes' : '**no**'} | ${bounded(L).unstable ? 'no (G8.unstable)' : 'yes'} |
+| frozen rule (record) | | | | | ${pct(L.decision.gated.coverage)} | ${pct(L.decision.gated.autoAccuracy === null ? null : 1 - L.decision.gated.autoAccuracy)} | no bound was promised | |
 
-${calibNote(L)}
+${bounded(L).text}
+
+**Calibration:** ${calibrationNote(L)}
 
 ## Where it fails
 ${S.fails(L).map(x => `- ${x}`).join('\n')}
@@ -140,9 +150,9 @@ writeFileSync(join(ROOT, 'README.md'), `# Jev cookbooks: six domains on public d
 
 Each cookbook asks Jev (TypeSafe's typed-decision model) a small set of literal questions about real public records, fits every threshold on a fit split, and scores the frozen rule **once** on 150 held-out items against a declared keyword baseline (fitted on the fit split only) and, post-hoc, a naive Bayes trained on 10–20× more labels. Paired exact McNemar throughout (kit/stats.ts). Pages: [demo/index.html](../demo/index.html).
 
-| domain | data (licence) | question set | Jev rule | keywords (declared) | naive Bayes (post-hoc) | gate: acts on / accuracy | verdict |
-|---|---|---|---|---|---|---|---|
-${all.map(L => { const S = STORIES[L.id], f = L.decision.forced, V = S.verdict(L); return `| [${S.title}](${L.id}/README.md) (${S.area}) | [${S.dataset.name.split(' (')[0]}](${S.dataset.url}) (${S.dataset.licence}) | ${Object.entries(L.questions).map(([id, q]) => `\`${id}\` ${q.type}`).join(', ')} | **${pct(f.jevAccuracy)}** | ${pct(f.baselineAccuracy)} (p = ${pf(f.vsBaseline.p)}) | ${pct(L.strong.forced.accuracyB)} (p = ${pf(L.strong.forced.p)}) | ${pct(L.decision.gated.coverage)} / ${pct(L.decision.gated.autoAccuracy)} | **${V.label}** |`; }).join('\n')}
+| domain | data (licence) | question set | Jev rule | keywords (declared) | naive Bayes (post-hoc) | frozen gate: acts on / accuracy | bounded gate (post-hoc): acts on / held | gate suite · vs NB | verdict |
+|---|---|---|---|---|---|---|---|---|---|
+${all.map(L => { const S = STORIES[L.id], f = L.decision.forced, V = S.verdict(L); return `| [${S.title}](${L.id}/README.md) (${S.area}) | [${S.dataset.name.split(' (')[0]}](${S.dataset.url}) (${S.dataset.licence}) | ${Object.entries(L.questions).map(([id, q]) => `\`${id}\` ${q.type}`).join(', ')} | **${pct(f.jevAccuracy)}** | ${pct(f.baselineAccuracy)} (p = ${pf(f.vsBaseline.p)}) | ${pct(L.strong.forced.accuracyB)} (p = ${pf(L.strong.forced.p)}) | ${pct(L.decision.gated.coverage)} / ${pct(L.decision.gated.autoAccuracy)} | ${pct(bounded(L).testCoverage)} / ${bounded(L).held === null ? 'n/a' : bounded(L).held ? 'held' : 'broke'} | ${suiteSummary(L).verdict}${suiteSummary(L).codes.length ? ` (${suiteSummary(L).codes.join(', ')})` : ''} · ${suiteSummary(L).posthocVerdict}${suiteSummary(L).posthocCodes.length ? ` (${suiteSummary(L).posthocCodes.join(', ')})` : ''} | **${V.label}** |`; }).join('\n')}
 
 n = 150 test items per domain; accuracy counts every item; coverage (answered) was 100% everywhere. ${calls} Jev calls in total (pilot + fit + test), \`${all[0].model}\`, answered by \`${[...new Set(all.flatMap(L => L.answeredBy))].join(', ')}\`.
 
@@ -152,9 +162,9 @@ n = 150 test items per domain; accuracy counts every item; coverage (answered) w
 3. The fit run's answers fit the decision rule (\`_shared/decide.ts\`): a logistic regression + cost- or precision-based cut + an escalate band for binary tasks, a confidence gate for choices, each within a stated error budget. The rule is frozen and committed before any test call.
 4. One labelled test run per domain; the frozen rule is applied once; results never overwritten.
 
-Each domain also has \`context.json\`, the same questions in the kit/modules registry format (feat/kit), linted with its meta-type: 0 errors in all six. Each README's "Thresholds re-checked" section re-fits the gate post-hoc with kit/threshold.ts (fitSelective + judgeCalibration) on the already-collected answers.
+Each domain also has \`context.json\`, the same questions in the kit/modules registry format, linted with \`node kit/modules/cli.ts lint\`: M1–M7 pass in all six (0 errors; 23 M6 warnings, nouls without criteria.true/false, left as measured). Each README's Gates section carries the standard suite (kit/standard-gate.ts, results/gates.json) and a post-hoc bounded gate from kit/threshold.ts (fitSelective, applyGate, bootstrapCuts) on the already-collected readings.
 
-Git order: questions and splits (3d1a0dc) → pilot, fit, frozen rules (76c9244) → test results (60f25de).
+Git order (after the rebase onto main): questions and splits (8ff0473) → pilot, fit, frozen rules (f109b05) → test results (d16b564).
 
 ## Changes made by the quality pass
 ${all.map(L => STORIES[L.id].changes.map(c => `- **${L.id}:** ${c}`).join('\n')).join('\n')}

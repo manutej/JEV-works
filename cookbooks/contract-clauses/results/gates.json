@@ -1,0 +1,704 @@
+{
+  "domain": "contract-clauses",
+  "generatedFrom": [
+    "spec.json",
+    "results/fit.json",
+    "results/test.json",
+    "results/decision-test.json",
+    "baseline.strong.json",
+    "rule.frozen.json"
+  ],
+  "suite": {
+    "contract": 1,
+    "verdict": "ACCEPT",
+    "refusing": [],
+    "warnings": [
+      "G8-threshold-fitted-and-held"
+    ],
+    "codes": [
+      "G8.unstable"
+    ],
+    "settings": {
+      "alpha": 0.05,
+      "minStratum": 8,
+      "minDiscordant": 8,
+      "seenShareLimit": 0.2
+    },
+    "results": [
+      {
+        "id": "G1-spec-valid",
+        "stage": "preflight",
+        "verdict": "PASS",
+        "why": "spec is valid",
+        "evidence": {}
+      },
+      {
+        "id": "G2-privacy",
+        "stage": "preflight",
+        "verdict": "PASS",
+        "why": "0 hits in 150 states",
+        "evidence": {}
+      },
+      {
+        "id": "G3-text-disjoint",
+        "stage": "preflight",
+        "verdict": "PASS",
+        "why": "fit 100 / test 150, 0 overlap by id or text",
+        "evidence": {
+          "fit": 100,
+          "test": 150,
+          "idOverlap": 0,
+          "textOverlap": 0,
+          "seenShare": 0
+        }
+      },
+      {
+        "id": "G4-coverage",
+        "stage": "run",
+        "verdict": "PASS",
+        "why": "coverage 100.0% ≥ 95%",
+        "evidence": {
+          "coverage": 1,
+          "minCoverage": 0.95
+        }
+      },
+      {
+        "id": "G5-policy-predeclared",
+        "stage": "claim",
+        "verdict": "PASS",
+        "why": "the scoring policy was fixed before the holdout existed: passed",
+        "evidence": {
+          "legacyEdge": "E3-policy-predeclared",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          }
+        }
+      },
+      {
+        "id": "G6-paired-test",
+        "stage": "claim",
+        "verdict": "PASS",
+        "why": "the headline is an exact paired test (McNemar) with n ≥ 8: passed",
+        "evidence": {
+          "legacyEdge": "E4-paired-test",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          },
+          "headline": {
+            "name": "all",
+            "n": 150,
+            "b": 27,
+            "c": 1,
+            "p": 2.1606683731079094e-7
+          },
+          "claim": "jev_better",
+          "test": "exact McNemar"
+        }
+      },
+      {
+        "id": "G7-strata-consistent",
+        "stage": "claim",
+        "verdict": "PASS",
+        "why": "every stratum large enough to judge agrees with the pooled headline: passed",
+        "evidence": {
+          "legacyEdge": "E5-strata-consistent",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          },
+          "systems": [
+            "jev",
+            "keywords"
+          ],
+          "correction": "holm",
+          "headline": {
+            "name": "all",
+            "n": 150,
+            "b": 27,
+            "c": 1,
+            "p": 2.1606683731079094e-7,
+            "direction": "a_better"
+          },
+          "strata": [
+            {
+              "name": "label=assignment",
+              "n": 14,
+              "b": 3,
+              "c": 0,
+              "p": 0.25000000000000006,
+              "direction": "too_small"
+            },
+            {
+              "name": "label=termination",
+              "n": 14,
+              "b": 4,
+              "c": 0,
+              "p": 0.125,
+              "direction": "too_small"
+            },
+            {
+              "name": "label=other",
+              "n": 38,
+              "b": 17,
+              "c": 0,
+              "p": 0.000015258789062500003,
+              "direction": "a_better"
+            },
+            {
+              "name": "label=confidentiality",
+              "n": 14,
+              "b": 0,
+              "c": 0,
+              "p": 1,
+              "direction": "too_small"
+            },
+            {
+              "name": "label=amendment",
+              "n": 14,
+              "b": 0,
+              "c": 0,
+              "p": 1,
+              "direction": "too_small"
+            },
+            {
+              "name": "label=entireAgreement",
+              "n": 14,
+              "b": 0,
+              "c": 0,
+              "p": 1,
+              "direction": "too_small"
+            },
+            {
+              "name": "label=notices",
+              "n": 14,
+              "b": 0,
+              "c": 1,
+              "p": 1,
+              "direction": "too_small"
+            },
+            {
+              "name": "label=indemnification",
+              "n": 14,
+              "b": 3,
+              "c": 0,
+              "p": 0.25000000000000006,
+              "direction": "too_small"
+            },
+            {
+              "name": "label=governingLaw",
+              "n": 14,
+              "b": 0,
+              "c": 0,
+              "p": 1,
+              "direction": "too_small"
+            }
+          ],
+          "scope": "all"
+        }
+      },
+      {
+        "id": "G8-threshold-fitted-and-held",
+        "stage": "claim",
+        "verdict": "WARN",
+        "why": "POST-HOC bounded gate on confidence on clauseType (event: Jev correct): bound held, but the cut is unstable under resampling (bootstrapCuts) — no cut met the bound on the fit split, so this gate auto-decides nothing (everything escalates)",
+        "code": "G8.unstable",
+        "evidence": {
+          "name": "POST-HOC bounded gate on confidence on clauseType (event: Jev correct)",
+          "hi": null,
+          "lo": null,
+          "maxError": 0.05,
+          "test": {
+            "n": 150,
+            "coverage": 0,
+            "accepted": 0,
+            "acceptErrors": 0,
+            "rejected": 0,
+            "rejectErrors": 0,
+            "errorRate": 0,
+            "errorUpper95": 1,
+            "held": true
+          }
+        }
+      },
+      {
+        "id": "G9-calibration-audited",
+        "stage": "claim",
+        "verdict": "SKIP",
+        "why": "choice confidence gate; no cost threshold relies on calibrated probabilities",
+        "evidence": {}
+      },
+      {
+        "id": "G10-tree-consistent",
+        "stage": "claim",
+        "verdict": "SKIP",
+        "why": "no question tree declared for this context",
+        "evidence": {}
+      }
+    ]
+  },
+  "posthocHeadlineVsNaiveBayes": {
+    "what": "G5–G7 on the post-hoc headline (frozen rule vs naive Bayes on 717–2,000 labelled rows)",
+    "suite": {
+      "contract": 1,
+      "verdict": "ACCEPT",
+      "refusing": [],
+      "warnings": [],
+      "codes": [],
+      "settings": {
+        "alpha": 0.05,
+        "minStratum": 8,
+        "minDiscordant": 8,
+        "seenShareLimit": 0.2
+      },
+      "results": [
+        {
+          "id": "G5-policy-predeclared",
+          "stage": "claim",
+          "verdict": "PASS",
+          "why": "the scoring policy was fixed before the holdout existed: passed",
+          "evidence": {
+            "legacyEdge": "E3-policy-predeclared",
+            "settings": {
+              "alpha": 0.05,
+              "minStratum": 8,
+              "minDiscordant": 8,
+              "seenShareLimit": 0.2
+            }
+          }
+        },
+        {
+          "id": "G6-paired-test",
+          "stage": "claim",
+          "verdict": "PASS",
+          "why": "the headline is an exact paired test (McNemar) with n ≥ 8: passed",
+          "evidence": {
+            "legacyEdge": "E4-paired-test",
+            "settings": {
+              "alpha": 0.05,
+              "minStratum": 8,
+              "minDiscordant": 8,
+              "seenShareLimit": 0.2
+            },
+            "headline": {
+              "name": "all",
+              "n": 150,
+              "b": 41,
+              "c": 3,
+              "p": 1.6183321349672042e-9
+            },
+            "claim": "jev_better",
+            "test": "exact McNemar"
+          }
+        },
+        {
+          "id": "G7-strata-consistent",
+          "stage": "claim",
+          "verdict": "PASS",
+          "why": "every stratum large enough to judge agrees with the pooled headline: passed",
+          "evidence": {
+            "legacyEdge": "E5-strata-consistent",
+            "settings": {
+              "alpha": 0.05,
+              "minStratum": 8,
+              "minDiscordant": 8,
+              "seenShareLimit": 0.2
+            },
+            "systems": [
+              "jev",
+              "naive_bayes"
+            ],
+            "correction": "holm",
+            "headline": {
+              "name": "all",
+              "n": 150,
+              "b": 41,
+              "c": 3,
+              "p": 1.6183321349672042e-9,
+              "direction": "a_better"
+            },
+            "strata": [
+              {
+                "name": "label=assignment",
+                "n": 14,
+                "b": 1,
+                "c": 0,
+                "p": 1,
+                "direction": "too_small"
+              },
+              {
+                "name": "label=termination",
+                "n": 14,
+                "b": 6,
+                "c": 0,
+                "p": 0.031250000000000014,
+                "direction": "too_small"
+              },
+              {
+                "name": "label=other",
+                "n": 38,
+                "b": 34,
+                "c": 0,
+                "p": 1.164153218269349e-10,
+                "direction": "a_better"
+              },
+              {
+                "name": "label=confidentiality",
+                "n": 14,
+                "b": 0,
+                "c": 0,
+                "p": 1,
+                "direction": "too_small"
+              },
+              {
+                "name": "label=amendment",
+                "n": 14,
+                "b": 0,
+                "c": 1,
+                "p": 1,
+                "direction": "too_small"
+              },
+              {
+                "name": "label=entireAgreement",
+                "n": 14,
+                "b": 0,
+                "c": 0,
+                "p": 1,
+                "direction": "too_small"
+              },
+              {
+                "name": "label=notices",
+                "n": 14,
+                "b": 0,
+                "c": 0,
+                "p": 1,
+                "direction": "too_small"
+              },
+              {
+                "name": "label=indemnification",
+                "n": 14,
+                "b": 0,
+                "c": 2,
+                "p": 0.5,
+                "direction": "too_small"
+              },
+              {
+                "name": "label=governingLaw",
+                "n": 14,
+                "b": 0,
+                "c": 0,
+                "p": 1,
+                "direction": "too_small"
+              }
+            ],
+            "scope": "all"
+          }
+        }
+      ]
+    },
+    "report": {
+      "seed": "contract-clauses-test",
+      "claim": "jev_better",
+      "policy": "frozen rule (rule.frozen.json), committed before the test run",
+      "headline": {
+        "name": "all",
+        "n": 150,
+        "b": 41,
+        "c": 3,
+        "p": 1.6183321349672042e-9
+      },
+      "strata": [
+        {
+          "name": "label=assignment",
+          "n": 14,
+          "b": 1,
+          "c": 0,
+          "p": 1,
+          "direction": "too_small"
+        },
+        {
+          "name": "label=termination",
+          "n": 14,
+          "b": 6,
+          "c": 0,
+          "p": 0.031250000000000014,
+          "direction": "too_small"
+        },
+        {
+          "name": "label=other",
+          "n": 38,
+          "b": 34,
+          "c": 0,
+          "p": 1.164153218269349e-10,
+          "direction": "jev_better"
+        },
+        {
+          "name": "label=confidentiality",
+          "n": 14,
+          "b": 0,
+          "c": 0,
+          "p": 1,
+          "direction": "too_small"
+        },
+        {
+          "name": "label=amendment",
+          "n": 14,
+          "b": 0,
+          "c": 1,
+          "p": 1,
+          "direction": "too_small"
+        },
+        {
+          "name": "label=entireAgreement",
+          "n": 14,
+          "b": 0,
+          "c": 0,
+          "p": 1,
+          "direction": "too_small"
+        },
+        {
+          "name": "label=notices",
+          "n": 14,
+          "b": 0,
+          "c": 0,
+          "p": 1,
+          "direction": "too_small"
+        },
+        {
+          "name": "label=indemnification",
+          "n": 14,
+          "b": 0,
+          "c": 2,
+          "p": 0.5,
+          "direction": "too_small"
+        },
+        {
+          "name": "label=governingLaw",
+          "n": 14,
+          "b": 0,
+          "c": 0,
+          "p": 1,
+          "direction": "too_small"
+        }
+      ],
+      "settings": {
+        "alpha": 0.05,
+        "minStratum": 8,
+        "minDiscordant": 8,
+        "seenShareLimit": 0.2
+      },
+      "systems": {
+        "a": "jev",
+        "b": "naive_bayes"
+      },
+      "caveat": "Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.",
+      "verdict": "ACCEPT",
+      "claimScope": "all",
+      "failingEdges": [],
+      "findings": [
+        "the headline's jev_better is significant within: label=other"
+      ]
+    }
+  },
+  "declaredClaim": {
+    "seed": "contract-clauses-test",
+    "claim": "jev_better",
+    "policy": "frozen rule (rule.frozen.json), committed before the test run",
+    "headline": {
+      "name": "all",
+      "n": 150,
+      "b": 27,
+      "c": 1,
+      "p": 2.1606683731079094e-7
+    },
+    "strata": [
+      {
+        "name": "label=assignment",
+        "n": 14,
+        "b": 3,
+        "c": 0,
+        "p": 0.25000000000000006,
+        "direction": "too_small"
+      },
+      {
+        "name": "label=termination",
+        "n": 14,
+        "b": 4,
+        "c": 0,
+        "p": 0.125,
+        "direction": "too_small"
+      },
+      {
+        "name": "label=other",
+        "n": 38,
+        "b": 17,
+        "c": 0,
+        "p": 0.000015258789062500003,
+        "direction": "jev_better"
+      },
+      {
+        "name": "label=confidentiality",
+        "n": 14,
+        "b": 0,
+        "c": 0,
+        "p": 1,
+        "direction": "too_small"
+      },
+      {
+        "name": "label=amendment",
+        "n": 14,
+        "b": 0,
+        "c": 0,
+        "p": 1,
+        "direction": "too_small"
+      },
+      {
+        "name": "label=entireAgreement",
+        "n": 14,
+        "b": 0,
+        "c": 0,
+        "p": 1,
+        "direction": "too_small"
+      },
+      {
+        "name": "label=notices",
+        "n": 14,
+        "b": 0,
+        "c": 1,
+        "p": 1,
+        "direction": "too_small"
+      },
+      {
+        "name": "label=indemnification",
+        "n": 14,
+        "b": 3,
+        "c": 0,
+        "p": 0.25000000000000006,
+        "direction": "too_small"
+      },
+      {
+        "name": "label=governingLaw",
+        "n": 14,
+        "b": 0,
+        "c": 0,
+        "p": 1,
+        "direction": "too_small"
+      }
+    ],
+    "settings": {
+      "alpha": 0.05,
+      "minStratum": 8,
+      "minDiscordant": 8,
+      "seenShareLimit": 0.2
+    },
+    "systems": {
+      "a": "jev",
+      "b": "keywords"
+    },
+    "caveat": "Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.",
+    "verdict": "ACCEPT",
+    "claimScope": "all",
+    "failingEdges": [],
+    "findings": [
+      "the headline's jev_better is significant within: label=other"
+    ]
+  },
+  "boundedGate": {
+    "posthoc": true,
+    "what": "kit/threshold.ts fitSelective on FIT readings; applyGate once on TEST readings; chosen after the test run",
+    "score": "confidence on clauseType (event: Jev correct)",
+    "maxError": 0.05,
+    "maxErrorWhy": "default: a mis-filed clause is checked against the wrong playbook",
+    "fitted": {
+      "hi": null,
+      "lo": null,
+      "maxError": 0.05,
+      "fit": {
+        "n": 100,
+        "acceptN": 0,
+        "acceptErrors": 0,
+        "acceptErrUpper": 1,
+        "rejectN": 0,
+        "rejectErrors": 0,
+        "rejectErrUpper": 1,
+        "coverage": 0
+      }
+    },
+    "test": {
+      "n": 150,
+      "coverage": 0,
+      "accepted": 0,
+      "acceptErrors": 0,
+      "rejected": 0,
+      "rejectErrors": 0,
+      "errorRate": 0,
+      "errorUpper95": 1,
+      "held": true
+    },
+    "stability": {
+      "draws": 200,
+      "hi": {
+        "p05": 0.9550000000000001,
+        "p50": 0.98875,
+        "p95": 1
+      },
+      "lo": {
+        "p05": null,
+        "p50": null,
+        "p95": null
+      },
+      "hiNeverFits": 0.825,
+      "loNeverFits": 1,
+      "unstable": true
+    },
+    "calibrationTest": {
+      "n": 150,
+      "ece": 0.039333333333333415,
+      "eceCI95": [
+        0.023125000000000014,
+        0.08547499999999997
+      ],
+      "brier": 0.05078025,
+      "slope": 5532.765932245362,
+      "intercept": -6947.26401290369,
+      "spiegelhalterZ": 3.232008244721649,
+      "spiegelhalterP": 0.00122936008151453,
+      "calibrated": false,
+      "reasons": [
+        "Spiegelhalter rejects calibration (z=3.23, p=0.0012)",
+        "slope 5532.77 ± 4.61 excludes 1 (<1 overconfident, >1 underconfident)",
+        "intercept -6947.26 ± 6.15 excludes 0 (miscalibrated in the large)"
+      ]
+    },
+    "calibrationFit": {
+      "n": 100,
+      "ece": 0.09076249999999991,
+      "eceCI95": [
+        0.04637500000000013,
+        0.15748749999999995
+      ],
+      "brier": 0.091987234375,
+      "slope": 47150.43369572028,
+      "intercept": -31623.905267627048,
+      "spiegelhalterZ": 7.803796839619869,
+      "spiegelhalterP": 6.217248937900877e-15,
+      "calibrated": false,
+      "reasons": [
+        "Spiegelhalter rejects calibration (z=7.80, p=6.2e-15)",
+        "slope 47150.43 ± 16.34 excludes 1 (<1 overconfident, >1 underconfident)",
+        "intercept -31623.91 ± 11.53 excludes 0 (miscalibrated in the large)"
+      ]
+    },
+    "frozenRuleOfRecord": {
+      "confidenceAtLeast": 0.955,
+      "how": "retired point-error cut (decide.ts at f109b05)"
+    }
+  }
+}

@@ -2,6 +2,11 @@
 
 > File each contract provision under the playbook that reviews it.
 
+> **Licence: CC BY 4.0 per the LexGLUE dataset card metadata.** Attribute LexGLUE and LEDGAR. The provision text comes from public SEC EDGAR filings. Treat the licence as the card states it, with that caveat.  
+> *Verified:* huggingface.co/datasets/coastalcph/lex_glue card (the LexGLUE authors' own distribution), checked 2026-09-22. Its prose licence section is blank, and no separate licence for the original LEDGAR release was found.
+
+**Gate suite (kit/standard-gate.ts): ACCEPT** · warnings: G8-threshold-fitted-and-held · post-hoc headline vs naive Bayes: **ACCEPT**. Details: [results/gates.json](results/gates.json) and the Gates section below.
+
 **Verdict: Jev better.** 94.0% against 76.7% for fit-only keyword lists (p = 2.2e-7) and 68.7% for naive Bayes on 717 provisions (p = 1.6e-9). Boilerplate is lexically stereotyped, and on governing law, confidentiality and entire-agreement clauses the keyword lists were already perfect. Most of the gap is `other` (17 of the 27 items only Jev got right): Jev 94.7%, keywords 50.0%. With the gate, 83.3% was auto-filed at 97.6% accuracy.
 
 Page: [demo/contract-clauses.html](../../demo/contract-clauses.html) · detailed data notes: [NOTES.md](NOTES.md)
@@ -84,14 +89,35 @@ Sources: [results/test.json](results/test.json) (kit), [results/decision-test.js
 
 The naive Bayes was added after the test run, because the declared keyword lists (fitted on 100 items) were near chance in several domains. It does not alter the declared comparison (the keyword row above); it answers "would a cheap model with far more labels have done as well?", and where that changes the practical verdict (job-postings), the verdict line says so.
 
-## Thresholds re-checked with kit/threshold.ts (post-hoc)
-kit/threshold.ts (feat/op-consist @ 756bdef) arrived after this rule was frozen and scored. [results/selective-posthoc.json](results/selective-posthoc.json) re-fits the gate with `fitSelective` on the fit answers (95% Clopper-Pearson upper bound on auto-decided error ≤ the same budget), applies it once to the test answers, and runs `judgeCalibration` on both splits. No Jev calls; the frozen rule above stays the result of record.
+## Gates
+Standard suite from [results/gates.json](results/gates.json) (`cookbooks/_shared/gates.ts`, no Jev calls). G5–G7 test the **declared** headline: the frozen rule vs the fit-only keyword lists, with true labels as strata (they partition the headline; Holm-corrected).
 
-| score gated | budget | fitted cuts (fit) | fit coverage | test coverage | test error (CP95 upper) | bound held | calibrated? fit / test | cuts stable (bootstrap) |
+| gate | verdict | why |
+|---|---|---|
+| G1-spec-valid | PASS | spec is valid |
+| G2-privacy | PASS | 0 hits in 150 states |
+| G3-text-disjoint | PASS | fit 100 / test 150, 0 overlap by id or text |
+| G4-coverage | PASS | coverage 100.0% ≥ 95% |
+| G5-policy-predeclared | PASS | the scoring policy was fixed before the holdout existed: passed |
+| G6-paired-test | PASS | the headline is an exact paired test (McNemar) with n ≥ 8: passed |
+| G7-strata-consistent | PASS | every stratum large enough to judge agrees with the pooled headline: passed |
+| G8-threshold-fitted-and-held | WARN (G8.unstable) | POST-HOC bounded gate on confidence on clauseType (event: Jev correct): bound held, but the cut is unstable under resampling (bootstrapCuts) — no cut met the bound on the fit split, so this gate auto-decides nothing (everything escalates) |
+| G9-calibration-audited | SKIP | choice confidence gate; no cost threshold relies on calibrated probabilities |
+| G10-tree-consistent | SKIP | no question tree declared for this context |
+
+**Post-hoc headline** (frozen rule vs naive Bayes): suite **ACCEPT**.
+
+### Bounded gate (POST-HOC, kit/threshold.ts)
+The method was chosen after the test run: `fitSelective` on the fit readings, `applyGate` once on the test readings, `bootstrapCuts` for stability. The frozen rule stays the record beside it.
+
+| | score | budget | cuts (fitted on fit) | fit coverage | test coverage | test error (95% upper) | bound held | stable |
 |---|---|---|---|---|---|---|---|---|
-| confidence on clauseType (event: Jev correct) | 5.0% | no accept cut | 0.0% | 0.0% | – | n/a (nothing auto-decided) | no / no | no |
+| **post-hoc bounded gate** | confidence on clauseType (event: Jev correct) | 5.0% | no cut met the bound | 0.0% | 0.0% | – | n/a: nothing auto-decided | no (G8.unstable) |
+| frozen rule (record) | | | | | 83.3% | 2.4% | no bound was promised | |
 
-With a 95% bound at n = 100 fit items, a 5.0% budget needs a long error-free run on one side; where no cut qualifies, the honest gate escalates everything. judgeCalibration rejects calibration on the test split for: confidence on clauseType (event: Jev correct) (Spiegelhalter rejects calibration (z=3.23, p=0.0012)). Confidence is not a probability of being right here; the gate is an empirical cut, not a calibrated one. (A near-degenerate slope means most confidences sit at 1.00.)
+A 95% bound on error ≤ 5.0% (default: a mis-filed clause is checked against the wrong playbook) found no cut on the 100 fit readings: proving an error rate that low needs a long error-free run on one side. So the bounded gate auto-decides nothing and every item goes to a person. That is the honest answer at this sample size: the frozen gate's coverage came with no promise about its error.
+
+**Calibration:** confidence on clauseType (event: Jev correct): calibration rejected on the test readings (Spiegelhalter rejects calibration (z=3.23, p=0.0012)). G9 SKIP: choice confidence gate; no cost threshold relies on calibrated probabilities
 
 ## Where it fails
 - Notices is the weak type (71.4%). Several LEDGAR "Notices" provisions are really an obligation to notify ("Each Party shall promptly notify the other of any ... infringement", t096) or a waiting period ("You have up to twenty-one days to consider this Agreement", t123). Jev called them `other`, at confidence 1.00 for t123. Arguably the label is the odd one out: LEDGAR labels come from the heading the drafter used.

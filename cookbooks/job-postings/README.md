@@ -2,6 +2,11 @@
 
 > Catch fake job ads before applicants send money or ID.
 
+> **Licence: No licence stated by the authors.** Do not redistribute the data. This page shows aggregate results and short paraphrased examples only. The data files in this cookbook's directory (spec.json, items.meta.json) contain ad text: keep them out of any public copy of the repository.  
+> *Verified:* The authors' site (emscad.samos.aegean.gr) calls the data "publicly available" and states no licence (earlier check, 2019 Wayback capture; the site was unreachable on 2026-09-22). The CC0 tag appears only on third-party mirrors and is not relied on.
+
+**Gate suite (kit/standard-gate.ts): ACCEPT** · warnings: G8-threshold-fitted-and-held · post-hoc headline vs naive Bayes: **ACCEPT**. Details: [results/gates.json](results/gates.json) and the Gates section below.
+
 **Verdict: Baseline wins.** The declared comparison is a draw: the frozen rule scored 72.7%, the fit-only keyword lists 75.3% (p = 0.45), and always saying "legitimate" 70.0%. A naive Bayes trained on 1843 labelled ads (post-hoc) scored 88.7%, significantly better (p = 8.4e-6). The literal signals caught 13.3% of fraudulent ads; the naive Bayes caught 66.7%. Use a trained text model plus the structured fields here, not Jev.
 
 Page: [demo/job-postings.html](../../demo/job-postings.html) · detailed data notes: [NOTES.md](NOTES.md)
@@ -9,7 +14,7 @@ Page: [demo/job-postings.html](../../demo/job-postings.html) · detailed data no
 ## The problem
 A job board wants to remove fraudulent postings (fake vacancies that harvest fees, ID or unpaid work) without taking down real employers' ads.
 
-**Data:** [EMSCAD, Employment Scam Aegean Dataset (Vidros et al., 2017)](https://huggingface.co/datasets/victor/real-or-fake-fake-jobposting-prediction). **Licence:** CC0 per the HF and Kaggle mirrors. The authors' site (emscad.samos.aegean.gr) calls it "publicly available" and states no licence. Treat the licence as unconfirmed by the rights holder before publishing widely.
+**Data:** [EMSCAD, Employment Scam Aegean Dataset (Vidros et al., 2017)](https://doi.org/10.3390/fi9010006). **Licence:** no licence stated by the authors: do not redistribute. Fetched from a pinned third-party mirror (see prepare.ts); the mirror's CC0 tag is not the authors' and is not relied on.
 S. Vidros, C. Kolias, G. Kambourakis, L. Akoglu. "Automatic Detection of Online Recruitment Frauds." Future Internet 9(1):6, 2017.
 
 **What Jev reads:** { title, location, employment_type, company_profile, description, requirements, benefits }, cut to about 350 words. Contacts are masked. Structured fields (logo, salary, screening questions) are left to code.
@@ -83,14 +88,35 @@ Sources: [results/test.json](results/test.json) (kit), [results/decision-test.js
 
 The naive Bayes was added after the test run, because the declared keyword lists (fitted on 100 items) were near chance in several domains. It does not alter the declared comparison (the keyword row above); it answers "would a cheap model with far more labels have done as well?", and where that changes the practical verdict (job-postings), the verdict line says so.
 
-## Thresholds re-checked with kit/threshold.ts (post-hoc)
-kit/threshold.ts (feat/op-consist @ 756bdef) arrived after this rule was frozen and scored. [results/selective-posthoc.json](results/selective-posthoc.json) re-fits the gate with `fitSelective` on the fit answers (95% Clopper-Pearson upper bound on auto-decided error ≤ the same budget), applies it once to the test answers, and runs `judgeCalibration` on both splits. No Jev calls; the frozen rule above stays the result of record.
+## Gates
+Standard suite from [results/gates.json](results/gates.json) (`cookbooks/_shared/gates.ts`, no Jev calls). G5–G7 test the **declared** headline: the frozen rule vs the fit-only keyword lists, with true labels as strata (they partition the headline; Holm-corrected).
 
-| score gated | budget | fitted cuts (fit) | fit coverage | test coverage | test error (CP95 upper) | bound held | calibrated? fit / test | cuts stable (bootstrap) |
+| gate | verdict | why |
+|---|---|---|
+| G1-spec-valid | PASS | spec is valid |
+| G2-privacy | PASS | 0 hits in 150 states |
+| G3-text-disjoint | PASS | fit 100 / test 150, 0 overlap by id or text |
+| G4-coverage | PASS | coverage 100.0% ≥ 95% |
+| G5-policy-predeclared | PASS | the scoring policy was fixed before the holdout existed: passed |
+| G6-paired-test | PASS | the headline is an exact paired test (McNemar) with n ≥ 8: passed |
+| G7-strata-consistent | PASS | every stratum large enough to judge agrees with the pooled headline: passed |
+| G8-threshold-fitted-and-held | WARN (G8.unstable) | POST-HOC bounded gate on frozen logistic score: bound held, but the cut is unstable under resampling (bootstrapCuts) — no cut met the bound on the fit split, so this gate auto-decides nothing (everything escalates) |
+| G9-calibration-audited | SKIP | the frozen cut is a target-precision cut, not a cost threshold on calibrated p; the post-hoc gate is selective |
+| G10-tree-consistent | SKIP | no question tree declared for this context |
+
+**Post-hoc headline** (frozen rule vs naive Bayes): suite **ACCEPT**.
+
+### Bounded gate (POST-HOC, kit/threshold.ts)
+The method was chosen after the test run: `fitSelective` on the fit readings, `applyGate` once on the test readings, `bootstrapCuts` for stability. The frozen rule stays the record beside it.
+
+| | score | budget | cuts (fitted on fit) | fit coverage | test coverage | test error (95% upper) | bound held | stable |
 |---|---|---|---|---|---|---|---|---|
-| frozen logistic score | 5.0% | no accept cut, no reject cut | 0.0% | 0.0% | – | n/a (nothing auto-decided) | yes / no | no |
+| **post-hoc bounded gate** | frozen logistic score | 5.0% | no cut met the bound | 0.0% | 0.0% | – | n/a: nothing auto-decided | no (G8.unstable) |
+| frozen rule (record) | | | | | 25.3% | 10.5% | no bound was promised | |
 
-With a 95% bound at n = 100 fit items, a 5.0% budget needs a long error-free run on one side; where no cut qualifies, the honest gate escalates everything. judgeCalibration rejects calibration on the test split for: frozen logistic score (slope 2.12 ± 0.88 excludes 1 (<1 overconfident, >1 underconfident)). The frozen cost cut assumes a calibrated score, so it is not justified by calibration here; prefer the selective gate. (A logistic score looks calibrated on the fit items it was fitted to, by construction.)
+A 95% bound on error ≤ 5.0% (default: a false fraud flag takes down a real employer's ad) found no cut on the 100 fit readings: proving an error rate that low needs a long error-free run on one side. So the bounded gate auto-decides nothing and every item goes to a person. That is the honest answer at this sample size: the frozen gate's coverage came with no promise about its error.
+
+**Calibration:** frozen logistic score: calibration rejected on the test readings (slope 2.12 ± 0.88 excludes 1 (<1 overconfident, >1 underconfident)). G9 SKIP: the frozen cut is a target-precision cut, not a cost threshold on calibrated p; the post-hoc gate is selective
 
 ## Where it fails
 - Most fraud in this corpus does not look like a scam. It looks like an ordinary vacancy: an administrative assistant in Newark (t012), a QC inspector in Houston (t017), even a design-engineer ad that copies a real oil-services firm's company profile (t019). None asks for money or promises easy earnings, so every literal signal says "legitimate". What gives them away is corpus-level pattern (a missing company profile, recurring locations and stock wording), which a model trained on 1,800 labelled ads learns and a zero-shot reader of one ad cannot.

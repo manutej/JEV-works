@@ -2,6 +2,11 @@
 
 > Hide spam comments under a video, keep real people talking.
 
+> **Licence: CC BY 4.0.** Share and adapt with attribution: Alberto, Lochter & Almeida (2015), UCI Machine Learning Repository. Comments are public posts; author names were dropped.  
+> *Verified:* UCI dataset page (archive.ics.uci.edu/dataset/380), checked 2026-09-22
+
+**Gate suite (kit/standard-gate.ts): ACCEPT** · warnings: G8-threshold-fitted-and-held · post-hoc headline vs naive Bayes: **ACCEPT**. Details: [results/gates.json](results/gates.json) and the Gates section below.
+
 **Verdict: Jev better.** The frozen rule beat the fit-only keyword lists (92.7% vs 82.0%, McNemar p = 0.0015) and the post-hoc naive Bayes trained on 1412 comments (p = 2.5e-5). The win is on catching spam; on genuine comments the keyword lists were already right. The one broad question (isSpam) scored 93.3%, level with the decomposed rule: here decomposition bought an explainable rule, not accuracy.
 
 Page: [demo/youtube-spam.html](../../demo/youtube-spam.html) · data notes: the header of [prepare.ts](prepare.ts)
@@ -83,15 +88,35 @@ Sources: [results/test.json](results/test.json) (kit), [results/decision-test.js
 
 The naive Bayes was added after the test run, because the declared keyword lists (fitted on 100 items) were near chance in several domains. It does not alter the declared comparison (the keyword row above); it answers "would a cheap model with far more labels have done as well?", and where that changes the practical verdict (job-postings), the verdict line says so.
 
-## Thresholds re-checked with kit/threshold.ts (post-hoc)
-kit/threshold.ts (feat/op-consist @ 756bdef) arrived after this rule was frozen and scored. [results/selective-posthoc.json](results/selective-posthoc.json) re-fits the gate with `fitSelective` on the fit answers (95% Clopper-Pearson upper bound on auto-decided error ≤ the same budget), applies it once to the test answers, and runs `judgeCalibration` on both splits. No Jev calls; the frozen rule above stays the result of record.
+## Gates
+Standard suite from [results/gates.json](results/gates.json) (`cookbooks/_shared/gates.ts`, no Jev calls). G5–G7 test the **declared** headline: the frozen rule vs the fit-only keyword lists, with true labels as strata (they partition the headline; Holm-corrected).
 
-| score gated | budget | fitted cuts (fit) | fit coverage | test coverage | test error (CP95 upper) | bound held | calibrated? fit / test | cuts stable (bootstrap) |
+| gate | verdict | why |
+|---|---|---|
+| G1-spec-valid | PASS | spec is valid |
+| G2-privacy | PASS | 0 hits in 150 states |
+| G3-text-disjoint | PASS | fit 100 / test 150, 0 overlap by id or text |
+| G4-coverage | PASS | coverage 100.0% ≥ 95% |
+| G5-policy-predeclared | PASS | the scoring policy was fixed before the holdout existed: passed |
+| G6-paired-test | PASS | the headline is an exact paired test (McNemar) with n ≥ 8: passed |
+| G7-strata-consistent | PASS | every stratum large enough to judge agrees with the pooled headline: passed |
+| G8-threshold-fitted-and-held | WARN (G8.unstable) | POST-HOC bounded gate on frozen logistic score: bound held, but the cut is unstable under resampling (bootstrapCuts) — no cut met the bound on the fit split, so this gate auto-decides nothing (everything escalates) |
+| G9-calibration-audited | PASS | calibrated by audited evaluators (n=150) |
+| G10-tree-consistent | SKIP | no question tree declared for this context |
+
+**Post-hoc headline** (frozen rule vs naive Bayes): suite **ACCEPT**.
+
+### Bounded gate (POST-HOC, kit/threshold.ts)
+The method was chosen after the test run: `fitSelective` on the fit readings, `applyGate` once on the test readings, `bootstrapCuts` for stability. The frozen rule stays the record beside it.
+
+| | score | budget | cuts (fitted on fit) | fit coverage | test coverage | test error (95% upper) | bound held | stable |
 |---|---|---|---|---|---|---|---|---|
-| frozen logistic score | 5.0% | no accept cut, no reject cut | 0.0% | 0.0% | – | n/a (nothing auto-decided) | yes / yes | no |
-| direct noul isSpam | 5.0% | no accept cut, no reject cut | 0.0% | 0.0% | – | n/a (nothing auto-decided) | yes / no | no |
+| **post-hoc bounded gate** | frozen logistic score | 5.0% | no cut met the bound | 0.0% | 0.0% | – | n/a: nothing auto-decided | no (G8.unstable) |
+| frozen rule (record) | | | | | 100.0% | 7.3% | no bound was promised | |
 
-With a 95% bound at n = 100 fit items, a 5.0% budget needs a long error-free run on one side; where no cut qualifies, the honest gate escalates everything. judgeCalibration rejects calibration on the test split for: direct noul isSpam (intercept 1.64 ± 1.60 excludes 0 (miscalibrated in the large)). The frozen logistic score itself passed on test, so its cost cut stands; the raw direct-question probability should not be read as a probability.
+A 95% bound on error ≤ 5.0% (default: a wrongly hidden comment silences a real person) found no cut on the 100 fit readings: proving an error rate that low needs a long error-free run on one side. So the bounded gate auto-decides nothing and every item goes to a person. That is the honest answer at this sample size: the frozen gate's coverage came with no promise about its error.
+
+**Calibration:** frozen logistic score: no evidence against calibration on the test readings (weak evidence at n = 150, not proof). G9 PASS: calibrated by audited evaluators (n=150)
 
 ## Where it fails
 - Spam that looks like a reaction: "CONGRASULATION I LIVE SO MUCH" followed by a news link (t088), or a rant with no ask in it (t052, t130). The narrow questions read these literally, and literally they don't promote anything.

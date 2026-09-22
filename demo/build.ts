@@ -11,6 +11,7 @@ import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { DOMAINS, load, type Loaded } from '../cookbooks/_shared/load.ts';
 import { STORIES, type Story } from '../cookbooks/_shared/stories.ts';
+import { bounded, calibrationNote, gateRows, suiteSummary } from '../cookbooks/_shared/present.ts';
 import { execFileSync } from 'node:child_process';
 
 const OUT = import.meta.dirname;
@@ -125,6 +126,15 @@ td.num{text-align:right;font-family:var(--mono);font-size:12.5px}
 .fails li{max-width:72ch}
 .foot{font-size:12.5px;color:var(--muted);border-top:1px solid var(--rule);padding-top:16px;display:flex;flex-direction:column;gap:6px}
 nav.crumbs{font-size:13px}
+p,li{overflow-wrap:break-word}
+.wrap>*,.card,.meta>div,.q>*{min-width:0}
+.licence{display:flex;flex-direction:column;gap:6px;border:1px solid var(--rule);border-left-width:4px;border-radius:8px;padding:12px 16px;background:var(--surface);font-size:14px}
+.licence.open{border-left-color:var(--good)} .licence.caution{border-left-color:var(--hold)} .licence.restricted{border-left-color:var(--bad)}
+.lic{font:500 11.5px/1.2 var(--mono);padding:4px 7px;border-radius:4px;border:1px solid var(--rule);width:max-content;max-width:100%}
+.lic.caution{color:var(--hold);border-color:currentColor} .lic.restricted{color:var(--bad);border-color:currentColor}
+.suite{display:flex;flex-direction:column;gap:8px}
+.suite-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-size:14px}
+table.gates td.why{white-space:normal;min-width:260px}
 @media (max-width:560px){
   .bar{grid-template-columns:minmax(0,1fr) 52px}.bar .track{grid-column:1/-1;grid-row:2}
   .nfj{grid-template-columns:1fr}.nfj>div:nth-child(odd){border-bottom:0;padding-bottom:0}
@@ -227,7 +237,9 @@ function examples(L: Loaded): { html: string } {
   const seen = new Set<string>();
   const right = L.items.filter(i => i.auto && i.pred === i.label).filter(i => { const k = String(i.label); if (seen.has(k)) return false; seen.add(k); return true; });
   const pick = [...right.slice(0, 4), ...held.slice(0, 2), ...wrong.slice(0, 3)];
-  const state = (s: unknown) => typeof s === 'string' ? esc(s) : Object.entries(s as Record<string, unknown>).map(([k, v]) => { const t = String(v); return `<b>${esc(k)}:</b> ${esc(t.length > 420 ? t.slice(0, 420) + '…' : t)}`; }).join('<br>');
+  const S = STORIES[L.id], cap = S.quoteChars ?? 420;
+  const state = (s: unknown, id: string) => S.paraphrase?.[id] ? `<b>paraphrased (the data may not be redistributed):</b> ${esc(S.paraphrase[id])}`
+    : typeof s === 'string' ? esc(s) : Object.entries(s as Record<string, unknown>).map(([k, v]) => { const t = String(v); return `<b>${esc(k)}:</b> ${esc(t.length > cap ? t.slice(0, cap) + '…' : t)}`; }).join('<br>');
   const answer = (id: string, a: any) => {
     if (a.type === 'noul') return `<div class="a${id === L.target ? ' target' : ''}"><span>${esc(id)}</span><div class="t"><span style="width:${(a.p * 100).toFixed(0)}%"></span></div><span class="p">${a.p.toFixed(2)}</span></div>`;
     if (a.type === 'choice') {
@@ -242,7 +254,7 @@ function examples(L: Loaded): { html: string } {
     return `<article class="card" data-kind="${kind}"><div class="top"><span class="mono">${esc(i.id)}</span><span class="outcome">
       <span class="chip">label ${esc(String(i.label))}</span>
       <span class="chip ${kind === 'wrong' ? 'no' : kind === 'held' ? 'hold' : 'ok'}">Jev ${esc(String(i.pred))}${i.auto ? '' : ' · held'}</span></span></div>
-      <div class="state">${state(i.state)}</div>
+      <div class="state">${state(i.state, i.id)}</div>
       <div class="ans">${Object.entries(i.answers).map(([id, a]) => answer(id, a)).join('')}</div>
       <div class="outcome muted"><span class="chip ${same(i.baseline, i.label) ? 'ok' : 'no'}">keywords ${esc(String(i.baseline))}</span><span class="chip ${same(i.strong, i.label) ? 'ok' : 'no'}">naive Bayes ${esc(String(i.strong))}</span>${L.kind === 'binary' ? `<span class="chip">score ${i.score}</span>` : `<span class="chip">confidence ${i.confidence}</span>`}</div></article>`;
   }).join('');
@@ -251,9 +263,30 @@ function examples(L: Loaded): { html: string } {
 
 const TABS_JS = `document.querySelectorAll('[data-tabs]').forEach(function(bar){var cards=document.querySelectorAll('#examples .card');bar.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;bar.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});var k=b.getAttribute('data-k');cards.forEach(function(c){c.hidden=!(k==='all'||c.getAttribute('data-kind')===k)})})});`;
 
-function selectiveNote(L: Loaded): string {
-  const rows = L.selective.map(g => `<tr><td>${esc(g.score)}</td><td class="num">${g.fitted.acceptAtOrAbove ?? '–'}${'rejectAtOrBelow' in g.fitted ? ` / ${g.fitted.rejectAtOrBelow ?? '–'}` : ''}</td><td class="num">${pct(g.test.coverage)}</td><td class="num">${g.test.coverage ? pct(g.test.errorRate) : '–'}</td><td>${g.test.coverage ? (g.test.held ? '<span class="sig-jev">held</span>' : '<span class="sig-base">broken</span>') : '<span class="sig-none">nothing auto-decided</span>'}</td><td>${g.calibrationTest.calibrated ? 'yes' : '<span class="sig-base">no</span>'}</td></tr>`).join('');
-  return `<h3>Re-checked with kit/threshold.ts (post-hoc, no new calls)</h3><p class="muted" style="font-size:13.5px">fitSelective re-fits the gate on the fit answers with a 95% upper bound on auto-decided error, then it is applied once to test. judgeCalibration asks whether the score can be read as a probability.</p><div class="tablewrap"><table><thead><tr><th>score</th><th>accept ≥ / reject ≤</th><th>test coverage</th><th>test error</th><th>bound</th><th>calibrated on test</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+function licenceBox(S: Story): string {
+  const x = S.licence;
+  return `<aside class="licence ${x.tone}" aria-label="Data licence"><span class="eyebrow">Data licence</span><p><b>${esc(x.terms)}.</b> ${esc(x.use)}</p><p class="muted">Verified: ${esc(x.verified)}</p></aside>`;
+}
+
+function suiteBanner(L: Loaded): string {
+  const u = suiteSummary(L);
+  const cls = (v: string) => (v === 'ACCEPT' ? 'win' : 'lose');
+  return `<div class="suite"><span class="eyebrow">Standard gate suite</span><div class="suite-row"><span class="pill ${cls(u.verdict)}">${esc(u.verdict)}</span><span>declared headline (vs keyword lists)${u.refusing.length ? `: refused by ${esc(u.refusing.join(', '))}` : ''}${u.codes.length ? ` · <span class="mono">${esc(u.codes.join(', '))}</span>` : ''}</span></div>
+    <div class="suite-row"><span class="pill ${cls(u.posthocVerdict)}">${esc(u.posthocVerdict)}</span><span>post-hoc headline (vs naive Bayes)${u.posthocCodes.length ? ` · <span class="mono">${esc(u.posthocCodes.join(', '))}</span>` : ''}</span></div></div>`;
+}
+
+function gatesSection(L: Loaded): string {
+  const mark: Record<string, string> = { PASS: 'ok', REFUSE: 'no', WARN: 'hold', SKIP: '' };
+  const rows = gateRows(L).map(r => `<tr><td class="mono">${esc(r.id)}</td><td><span class="chip ${mark[r.verdict]}">${esc(r.verdict)}</span>${r.code ? ` <span class="mono muted">${esc(r.code)}</span>` : ''}</td><td class="why">${esc(r.why)}</td></tr>`).join('');
+  const u = suiteSummary(L), bg = bounded(L);
+  return `<section><h2>Gates</h2><p class="muted">kit/standard-gate.ts on the saved readings (no new calls). G5–G7 test the declared headline, the frozen rule against the keyword lists, with the true labels as strata.</p>
+    <div class="tablewrap"><table class="gates"><thead><tr><th>gate</th><th>verdict</th><th>why</th></tr></thead><tbody>${rows}</tbody></table></div>
+    <p><b>Post-hoc headline</b> (frozen rule vs naive Bayes): ${esc(u.posthocVerdict)}${u.posthocWhy ? `. ${esc(u.posthocWhy)}` : '.'}</p>
+    <h3>Bounded gate (post-hoc, kit/threshold.ts)</h3>
+    <div class="meta"><div><span class="eyebrow">frozen gate (record)</span><span>${esc(bg.record)}; no error bound was promised</span></div>
+      <div><span class="eyebrow">bounded gate, fitted on fit</span><span class="mono">${esc(bg.cuts)} · budget ${(bg.maxError * 100).toFixed(0)}%</span></div>
+      <div><span class="eyebrow">on test</span><span class="mono">acts on ${(bg.testCoverage * 100).toFixed(1)}% · ${bg.held === null ? 'nothing auto-decided' : `error ${(bg.testError * 100).toFixed(1)}% · bound ${bg.held ? 'held' : 'broke'}`}${bg.unstable ? ' · cut unstable' : ''}</span></div></div>
+    <p>${esc(bg.text)}</p><p class="muted" style="font-size:13.5px">Calibration: ${esc(calibrationNote(L))}</p></section>`;
 }
 
 // ---------------------------------------------------------------- domain page
@@ -265,6 +298,8 @@ function domainPage(L: Loaded): string {
   const body = `
   <nav class="crumbs"><a href="index.html">← All six domains</a></nav>
   <header class="head"><span class="eyebrow">${esc(S.area)} · Jev cookbook</span><h1>${esc(S.title)}</h1><p class="lede">${esc(S.oneLine)}</p></header>
+  ${licenceBox(S)}
+  ${suiteBanner(L)}
   <div class="verdict"><span class="pill ${verdictClass(V.label)}">${esc(V.label)}</span><p>${md(V.text)}</p></div>
   <section><h2>The job</h2><p>${esc(S.problem)}</p>
     <div class="meta"><div><span class="eyebrow">data</span><span><a href="${esc(S.dataset.url)}">${esc(S.dataset.name)}</a></span></div>
@@ -274,7 +309,8 @@ function domainPage(L: Loaded): string {
     <h3>What the quality pass changed</h3><ul class="changes">${S.changes.map(c => `<li>${md(c)}</li>`).join('')}</ul></section>
   <section><h2>Not for Jev</h2><p class="muted">Judgements this set deliberately does not ask, and what does them instead.</p><div class="nfj">${S.notForJev.map(([a, b]) => `<div>${md(a)}</div><div>${md(b)}</div>`).join('')}</div></section>
   <section><h2>Scoreboard</h2><p class="muted">${L.decision.n} held-out test items, asked once. Accuracy counts every item (an unanswered item would count as wrong). Paired exact McNemar on the same items.</p>${scoreboard(L)}</section>
-  <section><h2>The operating point</h2><p>${md(S.thresholdWhy(L))}</p>${selectiveNote(L)}<p class="muted" style="font-size:13.5px">Why this budget: ${md(L.kind === 'binary' ? `${L.frozen.threshold.why} ${L.frozen.band.why}` : L.frozen.gate.why)}</p>${strip(L)}</section>
+  <section><h2>The operating point</h2><p>${md(S.thresholdWhy(L))}</p><p class="muted" style="font-size:13.5px">Why this budget: ${md(L.kind === 'binary' ? `${L.frozen.threshold.why} ${L.frozen.band.why}` : L.frozen.gate.why)}</p>${strip(L)}</section>
+  ${gatesSection(L)}
   <section id="examples"><h2>Real items, real answers</h2><p class="muted">Test items with every typed answer Jev returned. Picked by rule: the first correct item per label, then held and wrong ones, in id order.</p>
     <div class="tabs" data-tabs><button type="button" aria-pressed="true" data-k="all">All</button><button type="button" aria-pressed="false" data-k="right">Right (${counts.right})</button><button type="button" aria-pressed="false" data-k="held">Held (${counts.held})</button><button type="button" aria-pressed="false" data-k="wrong">Wrong (${counts.wrong})</button></div>
     <div class="cards">${ex.html}</div></section>
@@ -296,7 +332,8 @@ function indexPage(all: Loaded[]): string {
       <div class="mini"><div class="bar"><div>Jev</div><div class="track"><div class="fill" style="width:${(f.jevAccuracy * 100).toFixed(1)}%;background:var(--jev)"></div></div><div class="v">${pct(f.jevAccuracy)}</div></div>
       <div class="bar"><div>Keywords</div><div class="track"><div class="fill" style="width:${(f.baselineAccuracy * 100).toFixed(1)}%;background:var(--base)"></div></div><div class="v">${pct(f.baselineAccuracy)}</div></div>
       <div class="bar"><div>Naive Bayes</div><div class="track"><div class="fill" style="width:${(L.strong.forced.accuracyB * 100).toFixed(1)}%;background:var(--nb)"></div></div><div class="v">${pct(L.strong.forced.accuracyB)}</div></div></div>
-      <span class="mono muted" style="font-size:12px">n=${L.decision.n} · gate acts on ${pct(L.decision.gated.coverage)} at ${pct(L.decision.gated.autoAccuracy)} · ${esc(S.dataset.licence)}</span></a>`;
+      <span class="mono muted" style="font-size:12px">n=${L.decision.n} · gates ${esc(suiteSummary(L).verdict)}${suiteSummary(L).codes.length ? ` (${esc(suiteSummary(L).codes.join(', '))})` : ''} · vs naive Bayes ${esc(suiteSummary(L).posthocVerdict)} · bounded gate acts on ${pct(bounded(L).testCoverage)}</span>
+      <span class="lic ${S.licence.tone}">${esc(S.licence.terms)}</span></a>`;
   }).join('');
   const body = `
   <header class="head"><span class="eyebrow">Jev cookbooks · public data · ${all.length} domains</span><h1>Typed Decisions, Tested</h1>

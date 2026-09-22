@@ -8,16 +8,21 @@
  * re-fits anything. The domain's rule.ts says what to fit and why:
  *
  *   binary  features (noul ids, or "choiceId=option" for that option's probability) → L2 logistic regression on the
- *           fit split → a decision threshold (cost ratio or target precision) → an escalate band around it, the widest
- *           auto-decided region whose FIT error stays ≤ maxAutoError.
+ *           fit split → a decision cut (cost: kit/threshold.ts costThreshold, with judgeCalibration recorded beside it;
+ *           or a target precision) → an escalate band from kit/threshold.ts fitSelective (95% bound on error ≤ maxAutoError).
  *   choice  the decision is Jev's pick on one choice question; the gate is TypeSafe's documented confidence,
- *           (k·peak − 1)/(k − 1), cut at the lowest value whose FIT error on auto-accepted items is ≤ maxAutoError.
+ *           (k·peak − 1)/(k − 1), cut by kit/threshold.ts fitSelective (accept side only) at ≤ maxAutoError.
+ *
+ * The six rule.frozen.json files committed at f109b05 were fitted by the RETIRED point-error band and cut that this
+ * file used to contain (see git history); `test` mode still applies them exactly as frozen. Any new fit goes through
+ * kit/threshold.ts. The post-hoc bounded gates for those six live in results/gates.json (cookbooks/_shared/gates.ts).
  *
  * Comparisons use the kit's single paired test (kit/stats.ts: exact McNemar + seeded bootstrap).
  */
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { paired } from '../../kit/stats.ts';
+import { costThreshold, fitSelective, judgeCalibration } from '../../kit/threshold.ts';
 import type { Answer } from '../../kit/ask.ts';
 import type { Label, Spec } from '../../kit/spec.ts';
 
@@ -96,43 +101,14 @@ type Pt = { s: number; y: boolean };
 function chooseThreshold(pts: Pt[], t: Extract<Rule, { kind: 'binary' }>['threshold']): { t: number; how: string } {
   const cands = [...new Set([0.5, ...pts.map(p => p.s)])].sort((a, b) => a - b);
   if (t.method === 'cost') {
-    let best = { t: 0.5, cost: Infinity };
-    for (const c of cands) {
-      const cost = pts.reduce((s, p) => s + (p.s >= c && !p.y ? t.fpCost : 0) + (p.s < c && p.y ? t.fnCost : 0), 0);
-      if (cost < best.cost - 1e-9 || (Math.abs(cost - best.cost) < 1e-9 && Math.abs(c - 0.5) < Math.abs(best.t - 0.5))) best = { t: c, cost };
-    }
-    return { t: best.t, how: `minimises ${t.fpCost}·FP + ${t.fnCost}·FN on the fit split (fit cost ${best.cost})` };
+    const cut = costThreshold(t.fpCost, t.fnCost);
+    return { t: cut, how: `kit/threshold.ts costThreshold(${t.fpCost}, ${t.fnCost}) = cFP/(cFP+cFN); valid only on calibrated scores (judgeCalibration recorded)` };
   }
   for (const c of cands) {
     const pos = pts.filter(p => p.s >= c);
     if (pos.length >= 5 && pos.filter(p => p.y).length / pos.length >= t.min) return { t: c, how: `lowest cut with fit precision ≥ ${t.min} (≥ 5 flagged)` };
   }
   return { t: cands[cands.length - 1], how: `no cut reached fit precision ${t.min}; highest score used` };
-}
-
-/** Widest band [lo, hi) around t, escalated; auto-decided fit items (s < lo → negative, s ≥ hi → positive) keep error ≤ max. */
-function chooseBand(pts: Pt[], t: number, max: number): { lo: number; hi: number; fitCoverage: number; fitAutoError: number } {
-  const los = [...new Set([t, ...pts.map(p => p.s).filter(s => s < t)])];
-  const his = [...new Set([t, ...pts.map(p => p.s).filter(s => s > t)])];
-  let best = { lo: t, hi: t, fitCoverage: -1, fitAutoError: 1 };
-  for (const lo of los) for (const hi of his) {
-    const auto = pts.filter(p => p.s < lo || p.s >= hi);
-    const err = auto.filter(p => (p.s >= hi) !== p.y).length / (auto.length || 1);
-    const cov = auto.length / pts.length;
-    if (err <= max && (cov > best.fitCoverage || (cov === best.fitCoverage && hi - lo < best.hi - best.lo))) best = { lo, hi, fitCoverage: cov, fitAutoError: err };
-  }
-  if (best.fitCoverage < 0) best = { lo: -1, hi: 2, fitCoverage: 0, fitAutoError: 0 };   // scores live in (0, 1): nothing is auto-decided
-  return best;
-}
-
-function chooseConfidenceCut(pts: { conf: number; ok: boolean }[], max: number): { cut: number; fitCoverage: number; fitAutoError: number } {
-  const cands = [...new Set(pts.map(p => p.conf))].sort((a, b) => a - b);
-  for (const c of cands) {
-    const auto = pts.filter(p => p.conf >= c);
-    const err = auto.filter(p => !p.ok).length / auto.length;
-    if (err <= max) return { cut: c, fitCoverage: auto.length / pts.length, fitAutoError: err };
-  }
-  return { cut: 2, fitCoverage: 0, fitAutoError: 0 };   // confidence ≤ 1: nothing is auto-accepted
 }
 
 // ---------------------------------------------------------------- fit
@@ -152,19 +128,22 @@ if (mode === 'fit') {
     const { w, b } = fitLogistic(X, y);
     const pts: Pt[] = rows.map((r, i) => ({ s: sigmoid(b + X[i].reduce((s, v, j) => s + v * w[j], 0)), y: y[i] === 1 }));
     const th = chooseThreshold(pts, rule.threshold);
-    const band = chooseBand(pts, th.t, rule.escalate.maxAutoError);
+    const sel = fitSelective(pts.map(p => p.s), pts.map(p => p.y), rule.escalate.maxAutoError);
+    const band = { lo: sel.lo === null ? -1 : sel.lo + 1e-12, hi: sel.hi ?? 2, fitCoverage: sel.fit.coverage, fitAutoError: sel.fit.acceptN + sel.fit.rejectN ? (sel.fit.acceptErrors + sel.fit.rejectErrors) / (sel.fit.acceptN + sel.fit.rejectN) : 0 };
+    const calibration = judgeCalibration(pts.map(p => p.s), pts.map(p => p.y));
     const fitAcc = pts.filter(p => (p.s >= th.t) === p.y).length / pts.length;
     frozen = {
       kind: 'binary', target: rule.target, fittedOn: { result: resultArg, n: rows.length, unanswered: result.items.length - rows.length },
       features: rule.features, weights: Object.fromEntries(rule.features.map((f, j) => [f, r3(w[j])])), bias: r3(b), lambda: 1,
-      threshold: { t: r3(th.t), how: th.how, why: rule.threshold.why },
+      threshold: { t: r3(th.t), how: th.how, why: rule.threshold.why, calibrationOnFit: { calibrated: calibration.calibrated, reasons: calibration.reasons } },
       band: { lo: r3(band.lo), hi: r3(band.hi), maxAutoError: rule.escalate.maxAutoError, why: rule.escalate.why, fitCoverage: r3(band.fitCoverage), fitAutoError: r3(band.fitAutoError) },
       fitAccuracy: r3(fitAcc),
       _exact: { w, b, t: th.t, lo: band.lo, hi: band.hi },
     };
   } else {
     const pts = rows.map(r => { const a = r.answers![rule.target]; if (a.type !== 'choice') throw new Error(`${rule.target} is not a choice`); return { conf: choiceConfidence(a.probabilities), ok: a.choice === labelOf(r.id) }; });
-    const g = chooseConfidenceCut(pts, rule.escalate.maxAutoError);
+    const sel = fitSelective(pts.map(p => p.conf), pts.map(p => p.ok), rule.escalate.maxAutoError);
+    const g = { cut: sel.hi ?? 2, fitCoverage: sel.fit.acceptN / sel.fit.n, fitAutoError: sel.fit.acceptN ? sel.fit.acceptErrors / sel.fit.acceptN : 0 };
     frozen = {
       kind: 'choice', target: rule.target, fittedOn: { result: resultArg, n: rows.length, unanswered: result.items.length - rows.length },
       gate: { confidenceAtLeast: g.cut <= 1 ? r3(g.cut) : null, maxAutoError: rule.escalate.maxAutoError, why: rule.escalate.why, fitCoverage: r3(g.fitCoverage), fitAutoError: r3(g.fitAutoError) },

@@ -16,6 +16,12 @@ export type Story = {
   verdict: (L: Loaded) => { label: Verdict; text: string };
   fails: (L: Loaded) => string[];
   limits: string[];
+  /** Licence box shown at the top of the README and page. `verified` = where the claim was checked (the source, not a mirror). */
+  licence: { terms: string; verified: string; use: string; tone: 'open' | 'caution' | 'restricted' };
+  /** When set, example cards show these paraphrases instead of the record text (data that must not be redistributed). */
+  paraphrase?: Record<string, string>;
+  /** When set, example cards quote at most this many characters of each text field (copyleft data: quote minimally). */
+  quoteChars?: number;
 };
 
 const pct = (x: number) => `${(x * 100).toFixed(1)}%`;
@@ -55,6 +61,7 @@ export const STORIES: Record<DomainId, Story> = {
       `The escalate band came out empty: at ${pct(L.frozen.fitAccuracy)} fit accuracy the rule already met the 5% error budget everywhere, so nothing was held back. On test, the rule's errors all went through automatically.`,
     ],
     limits: ['Five music videos from 2013–2015; modern comment spam (crypto, bots replying to bots) is not in it.', 'Balanced 50/50 sample; real comment sections are mostly not spam, so precision at live rates will be lower.', 'A 3:1 cost ratio is a moderation convention, not a measured cost.'],
+    licence: { terms: 'CC BY 4.0', verified: 'UCI dataset page (archive.ics.uci.edu/dataset/380), checked 2026-09-22', use: 'Share and adapt with attribution: Alberto, Lochter & Almeida (2015), UCI Machine Learning Repository. Comments are public posts; author names were dropped.', tone: 'open' },
   },
   'intent-routing': {
     title: 'Assistant Intent Router', area: 'Customer support',
@@ -83,6 +90,7 @@ export const STORIES: Record<DomainId, Story> = {
       `The confidence gate never fired: the lowest confidence that met the 5% error budget on fit (${L.frozen.gate.confidenceAtLeast}) was below every test answer, so all ${L.decision.n} went through, including the ${L.decision.n - Math.round(L.decision.forced.jevAccuracy * L.decision.n)} errors. On this data Jev is either confident or wrong-and-confident, which is P5: it does not abstain unless you give it somewhere to put the no-answer.`,
     ],
     limits: ['12 items per area in test: per-area numbers are anecdotes.', 'Crowd-written utterances, short and clean; real traffic is messier.', 'Area descriptions list the dataset\'s own intents, which helps any reader, human or model.'],
+    licence: { terms: 'CC BY 3.0 Unported', verified: 'LICENSE file in github.com/clinc/oos-eval, checked 2026-09-22', use: 'Share and adapt with attribution: Larson et al. (2019), CLINC150. Utterances are crowd-written, not personal messages.', tone: 'open' },
   },
   'review-triage': {
     title: 'Review Complaint Triage', area: 'E-commerce',
@@ -114,6 +122,7 @@ export const STORIES: Record<DomainId, Story> = {
       `The escalate band held back ${L.decision.gated.escalated} of ${L.decision.n} for a human; accuracy on the rest was ${pct(L.decision.gated.autoAccuracy!)}, inside the 10% budget.`,
     ],
     limits: ['Balanced 50/50 sample; live traffic is about 18% not-recommended, so live precision will be lower than here.', 'One retailer, clothing only, English, around 2018.', 'The label is self-reported and noisy for 3-star reviews.'],
+    licence: { terms: 'CC0 1.0 (public domain)', verified: 'Kaggle dataset API for nicapotato/womens-ecommerce-clothing-reviews, checked 2026-09-22 (the data was fetched from a SHA-1-checked mirror of the same file)', use: 'No restrictions. Attribution given as a courtesy. Reviewer ages and ids were dropped.', tone: 'open' },
   },
   'contract-clauses': {
     title: 'Contract Clause Sorter', area: 'Legal',
@@ -142,12 +151,13 @@ export const STORIES: Record<DomainId, Story> = {
       `Termination vs other: "the term of this Agreement shall commence ... and end August 6, 2025" (t140) and a survival clause (t107) mention termination without being about ending the agreement. Both fell below the gate and were escalated.`,
     ],
     limits: ['14 items per type in test: per-type numbers are anecdotes.', 'Labels are drafters\' headings, not a lawyer\'s reading.', 'Commercial contracts filed with the SEC; consumer or non-US contracts differ.'],
+    licence: { terms: 'CC BY 4.0 per the LexGLUE dataset card metadata', verified: 'huggingface.co/datasets/coastalcph/lex_glue card (the LexGLUE authors\' own distribution), checked 2026-09-22. Its prose licence section is blank, and no separate licence for the original LEDGAR release was found.', use: 'Attribute LexGLUE and LEDGAR. The provision text comes from public SEC EDGAR filings. Treat the licence as the card states it, with that caveat.', tone: 'caution' },
   },
   'job-postings': {
     title: 'Job Ad Fraud Screen', area: 'HR / trust & safety',
     oneLine: 'Catch fake job ads before applicants send money or ID.',
     problem: 'A job board wants to remove fraudulent postings (fake vacancies that harvest fees, ID or unpaid work) without taking down real employers\' ads.',
-    dataset: { name: 'EMSCAD, Employment Scam Aegean Dataset (Vidros et al., 2017)', url: 'https://huggingface.co/datasets/victor/real-or-fake-fake-jobposting-prediction', licence: 'CC0 per the HF and Kaggle mirrors', licenceNote: 'The authors\' site (emscad.samos.aegean.gr) calls it "publicly available" and states no licence. Treat the licence as unconfirmed by the rights holder before publishing widely.', citation: 'S. Vidros, C. Kolias, G. Kambourakis, L. Akoglu. "Automatic Detection of Online Recruitment Frauds." Future Internet 9(1):6, 2017.' },
+    dataset: { name: 'EMSCAD, Employment Scam Aegean Dataset (Vidros et al., 2017)', url: 'https://doi.org/10.3390/fi9010006', licence: 'no licence stated by the authors: do not redistribute', licenceNote: 'Fetched from a pinned third-party mirror (see prepare.ts); the mirror\'s CC0 tag is not the authors\' and is not relied on.', citation: 'S. Vidros, C. Kolias, G. Kambourakis, L. Akoglu. "Automatic Detection of Online Recruitment Frauds." Future Internet 9(1):6, 2017.' },
     stateNote: '{ title, location, employment_type, company_profile, description, requirements, benefits }, cut to about 350 words. Contacts are masked. Structured fields (logo, salary, screening questions) are left to code.',
     roles: {
       asksForPaymentOrDetails: 'true → fraud. A fee, a starter kit, bank or ID details requested in the text.',
@@ -173,6 +183,16 @@ export const STORIES: Record<DomainId, Story> = {
       `The gate could only auto-decide ${pct(L.decision.gated.coverage)} of test ads within the 5% budget; everything else would go to a human.`,
     ],
     limits: ['Ads from 2012–2014; today\'s scams (crypto, messaging-app recruiting) are under-represented.', 'Sample is 30% fraud against about 5% in the corpus.', 'The fraud labels are one annotator group\'s judgement.', 'Descriptions are truncated; a payment request late in a long ad is invisible.'],
+    licence: { terms: 'No licence stated by the authors', verified: 'The authors\' site (emscad.samos.aegean.gr) calls the data "publicly available" and states no licence (earlier check, 2019 Wayback capture; the site was unreachable on 2026-09-22). The CC0 tag appears only on third-party mirrors and is not relied on.', use: 'Do not redistribute the data. This page shows aggregate results and short paraphrased examples only. The data files in this cookbook\'s directory (spec.json, items.meta.json) contain ad text: keep them out of any public copy of the repository.', tone: 'restricted' },
+    paraphrase: {
+      t013: 'A game-developer vacancy at a named mobile casino-games studio in Athens. The ad describes the studio and lists concrete duties (game design, interface, networking, server work).',
+      t032: 'A "part-timers for cash pay" ad in Sydney: work from home for 30–60 minutes a day, hundreds of dollars a day promised, no experience needed, and a "visit here" link. No company is named.',
+      t001: 'An Agile delivery-manager vacancy in London at a named European IT consultancy. It describes the project team and asks for a degree and Agile experience.',
+      t002: 'A web/UX designer vacancy at a named web-design agency in Gateshead. It describes the role and asks for a degree and three years of experience.',
+      t003: 'A part-time "data entry" ad in California whose text actually describes an insurance-claims support role (reviewing and processing claims), with ordinary requirements. There is no company profile, and nothing asks for money.',
+      t006: 'A teach-English-abroad ad from a placement service: "play with kids, get paid", a monthly salary in Asia, housing and airfare covered, and a named recruiter to contact through a link.',
+      t009: 'An adult webcam-modelling agency recruiting models for "high paying" work. It describes the agency at length and lists eligibility requirements.',
+    },
   },
   'issue-triage': {
     title: 'GitHub Issue Labeller', area: 'Developer tools',
@@ -202,5 +222,7 @@ export const STORIES: Record<DomainId, Story> = {
       `The gate auto-labelled ${pct(L.decision.gated.coverage)} at ${pct(L.decision.gated.autoAccuracy!)} accuracy and left the rest for a human.`,
     ],
     limits: ['Maintainer labels are noisy; the ceiling is well below 100%.', 'Balanced 50/50/50 sample; real trackers are mostly bugs.', 'The prefix of one competition file; a handful of repositories dominate.'],
+    licence: { terms: 'AGPL-3.0', verified: 'LICENSE file in github.com/nlbse2023/issue-report-classification, checked 2026-09-22', use: 'Quote minimally and attribute: Kallis et al. (2023), NLBSE\'23 Tool Competition. Issue text is public GitHub content by its authors; usernames and links were masked. Example cards here quote at most the title and the first 160 characters of the body.', tone: 'caution' },
+    quoteChars: 160,
   },
 };

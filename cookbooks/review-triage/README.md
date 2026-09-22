@@ -2,6 +2,11 @@
 
 > Flag the reviews a customer-care agent should read today.
 
+> **Licence: CC0 1.0 (public domain).** No restrictions. Attribution given as a courtesy. Reviewer ages and ids were dropped.  
+> *Verified:* Kaggle dataset API for nicapotato/womens-ecommerce-clothing-reviews, checked 2026-09-22 (the data was fetched from a SHA-1-checked mirror of the same file)
+
+**Gate suite (kit/standard-gate.ts): REFUSE** (refused by G9-calibration-audited; G8.unstable, G9.uncalibrated) · warnings: G8-threshold-fitted-and-held · post-hoc headline vs naive Bayes: **ACCEPT**. Details: [results/gates.json](results/gates.json) and the Gates section below.
+
 **Verdict: Jev better.** 92.7% against 52.7% for the fit-only keyword lists (p = 1.3e-15). Those lists were close to useless: they flagged almost everything. The fairer comparison is the post-hoc naive Bayes trained on 2000 reviews: 85.3%, still significantly behind (p = 0.019). The gain is on happy reviews with a gripe in them, which Jev correctly left alone (89.3% vs 77.3%).
 
 Page: [demo/review-triage.html](../../demo/review-triage.html) · detailed data notes: [NOTES.md](NOTES.md)
@@ -87,15 +92,35 @@ Sources: [results/test.json](results/test.json) (kit), [results/decision-test.js
 
 The naive Bayes was added after the test run, because the declared keyword lists (fitted on 100 items) were near chance in several domains. It does not alter the declared comparison (the keyword row above); it answers "would a cheap model with far more labels have done as well?", and where that changes the practical verdict (job-postings), the verdict line says so.
 
-## Thresholds re-checked with kit/threshold.ts (post-hoc)
-kit/threshold.ts (feat/op-consist @ 756bdef) arrived after this rule was frozen and scored. [results/selective-posthoc.json](results/selective-posthoc.json) re-fits the gate with `fitSelective` on the fit answers (95% Clopper-Pearson upper bound on auto-decided error ≤ the same budget), applies it once to the test answers, and runs `judgeCalibration` on both splits. No Jev calls; the frozen rule above stays the result of record.
+## Gates
+Standard suite from [results/gates.json](results/gates.json) (`cookbooks/_shared/gates.ts`, no Jev calls). G5–G7 test the **declared** headline: the frozen rule vs the fit-only keyword lists, with true labels as strata (they partition the headline; Holm-corrected).
 
-| score gated | budget | fitted cuts (fit) | fit coverage | test coverage | test error (CP95 upper) | bound held | calibrated? fit / test | cuts stable (bootstrap) |
+| gate | verdict | why |
+|---|---|---|
+| G1-spec-valid | PASS | spec is valid |
+| G2-privacy | PASS | 0 hits in 150 states |
+| G3-text-disjoint | PASS | fit 100 / test 150, 0 overlap by id or text |
+| G4-coverage | PASS | coverage 100.0% ≥ 95% |
+| G5-policy-predeclared | PASS | the scoring policy was fixed before the holdout existed: passed |
+| G6-paired-test | PASS | the headline is an exact paired test (McNemar) with n ≥ 8: passed |
+| G7-strata-consistent | PASS | every stratum large enough to judge agrees with the pooled headline: passed |
+| G8-threshold-fitted-and-held | WARN (G8.unstable) | POST-HOC bounded gate on frozen logistic score: bound held, but the cut is unstable under resampling (bootstrapCuts) |
+| G9-calibration-audited | REFUSE (G9.uncalibrated) | cost threshold on uncalibrated p: Spiegelhalter rejects calibration (z=-3.33, p=0.00085); slope 2.04 ± 0.88 excludes 1 (<1 overconfident, >1 underconfident). Recalibrate (isotonic) on the fit split, or use a selective gate |
+| G10-tree-consistent | SKIP | no question tree declared for this context |
+
+**Post-hoc headline** (frozen rule vs naive Bayes): suite **ACCEPT**.
+
+### Bounded gate (POST-HOC, kit/threshold.ts)
+The method was chosen after the test run: `fitSelective` on the fit readings, `applyGate` once on the test readings, `bootstrapCuts` for stability. The frozen rule stays the record beside it.
+
+| | score | budget | cuts (fitted on fit) | fit coverage | test coverage | test error (95% upper) | bound held | stable |
 |---|---|---|---|---|---|---|---|---|
-| frozen logistic score | 10.0% | no accept cut, reject ≤ 0.272 | 33.0% | 36.0% | 0.0% (5.4%) | yes | yes / no | no |
-| direct noul wouldNotRecommend | 10.0% | accept ≥ 0.82, reject ≤ 0.26 | 69.0% | 78.0% | 1.7% (5.3%) | yes | yes / no | no |
+| **post-hoc bounded gate** | frozen logistic score | 10.0% | reject ≤ 0.272 | 33.0% | 36.0% | 0.0% (5.4%) | yes | no (G8.unstable) |
+| frozen rule (record) | | | | | 95.3% | 7.0% | no bound was promised | |
 
-With a 95% bound at n = 100 fit items, a 10.0% budget needs a long error-free run on one side; where no cut qualifies, the honest gate escalates everything. judgeCalibration rejects calibration on the test split for: frozen logistic score (Spiegelhalter rejects calibration (z=-3.33, p=0.00085)); direct noul wouldNotRecommend (Spiegelhalter rejects calibration (z=-2.83, p=0.0047)). The frozen cost cut assumes a calibrated score, so it is not justified by calibration here; prefer the selective gate. (A logistic score looks calibrated on the fit items it was fitted to, by construction.)
+A 95% bound on error ≤ 10.0% (a wrong call costs an agent a minute or delays a reply; no safety or money decision (rule.ts)) gave reject ≤ 0.272 on the fit readings. On test it auto-decided 36.0% with 0.0% error (95% upper bound 5.4%): the promise held.
+
+**Calibration:** frozen logistic score: calibration rejected on the test readings (Spiegelhalter rejects calibration (z=-3.33, p=0.00085)). G9 REFUSE: cost threshold on uncalibrated p: Spiegelhalter rejects calibration (z=-3.33, p=0.00085); slope 2.04 ± 0.88 excludes 1 (<1 overconfident, >1 underconfident). Recalibrate (isotonic) on the fit split, or use a selective gate
 
 ## Where it fails
 - Unhappy reviews that open with praise: "I like this top. I received a ton of compliments..." then "not as high-quality as I expected" (t019), and "I love the fit of these pants" before a dye disaster (t021). likesItem fires, and it carries the largest weight in the rule (-2.541).

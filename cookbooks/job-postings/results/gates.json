@@ -1,0 +1,477 @@
+{
+  "domain": "job-postings",
+  "generatedFrom": [
+    "spec.json",
+    "results/fit.json",
+    "results/test.json",
+    "results/decision-test.json",
+    "baseline.strong.json",
+    "rule.frozen.json"
+  ],
+  "suite": {
+    "contract": 1,
+    "verdict": "ACCEPT",
+    "refusing": [],
+    "warnings": [
+      "G8-threshold-fitted-and-held"
+    ],
+    "codes": [
+      "G8.unstable"
+    ],
+    "settings": {
+      "alpha": 0.05,
+      "minStratum": 8,
+      "minDiscordant": 8,
+      "seenShareLimit": 0.2
+    },
+    "results": [
+      {
+        "id": "G1-spec-valid",
+        "stage": "preflight",
+        "verdict": "PASS",
+        "why": "spec is valid",
+        "evidence": {}
+      },
+      {
+        "id": "G2-privacy",
+        "stage": "preflight",
+        "verdict": "PASS",
+        "why": "0 hits in 150 states",
+        "evidence": {}
+      },
+      {
+        "id": "G3-text-disjoint",
+        "stage": "preflight",
+        "verdict": "PASS",
+        "why": "fit 100 / test 150, 0 overlap by id or text",
+        "evidence": {
+          "fit": 100,
+          "test": 150,
+          "idOverlap": 0,
+          "textOverlap": 0,
+          "seenShare": 0
+        }
+      },
+      {
+        "id": "G4-coverage",
+        "stage": "run",
+        "verdict": "PASS",
+        "why": "coverage 100.0% ≥ 95%",
+        "evidence": {
+          "coverage": 1,
+          "minCoverage": 0.95
+        }
+      },
+      {
+        "id": "G5-policy-predeclared",
+        "stage": "claim",
+        "verdict": "PASS",
+        "why": "the scoring policy was fixed before the holdout existed: passed",
+        "evidence": {
+          "legacyEdge": "E3-policy-predeclared",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          }
+        }
+      },
+      {
+        "id": "G6-paired-test",
+        "stage": "claim",
+        "verdict": "PASS",
+        "why": "the headline is an exact paired test (McNemar) with n ≥ 8: passed",
+        "evidence": {
+          "legacyEdge": "E4-paired-test",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          },
+          "headline": {
+            "name": "all",
+            "n": 150,
+            "b": 6,
+            "c": 10,
+            "p": 0.4544982910156252
+          },
+          "claim": "no_difference",
+          "test": "exact McNemar"
+        }
+      },
+      {
+        "id": "G7-strata-consistent",
+        "stage": "claim",
+        "verdict": "PASS",
+        "why": "every stratum large enough to judge agrees with the pooled headline: passed",
+        "evidence": {
+          "legacyEdge": "E5-strata-consistent",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          },
+          "systems": [
+            "jev",
+            "keywords"
+          ],
+          "correction": "holm",
+          "headline": {
+            "name": "all",
+            "n": 150,
+            "b": 6,
+            "c": 10,
+            "p": 0.4544982910156252,
+            "direction": "no_difference"
+          },
+          "strata": [
+            {
+              "name": "label=false",
+              "n": 105,
+              "b": 1,
+              "c": 2,
+              "p": 1,
+              "direction": "too_small"
+            },
+            {
+              "name": "label=true",
+              "n": 45,
+              "b": 5,
+              "c": 8,
+              "p": 0.5810546875000012,
+              "direction": "no_difference"
+            }
+          ],
+          "scope": "all"
+        }
+      },
+      {
+        "id": "G8-threshold-fitted-and-held",
+        "stage": "claim",
+        "verdict": "WARN",
+        "why": "POST-HOC bounded gate on frozen logistic score: bound held, but the cut is unstable under resampling (bootstrapCuts) — no cut met the bound on the fit split, so this gate auto-decides nothing (everything escalates)",
+        "code": "G8.unstable",
+        "evidence": {
+          "name": "POST-HOC bounded gate on frozen logistic score",
+          "hi": null,
+          "lo": null,
+          "maxError": 0.05,
+          "test": {
+            "n": 150,
+            "coverage": 0,
+            "accepted": 0,
+            "acceptErrors": 0,
+            "rejected": 0,
+            "rejectErrors": 0,
+            "errorRate": 0,
+            "errorUpper95": 1,
+            "held": true
+          }
+        }
+      },
+      {
+        "id": "G9-calibration-audited",
+        "stage": "claim",
+        "verdict": "SKIP",
+        "why": "the frozen cut is a target-precision cut, not a cost threshold on calibrated p; the post-hoc gate is selective",
+        "evidence": {}
+      },
+      {
+        "id": "G10-tree-consistent",
+        "stage": "claim",
+        "verdict": "SKIP",
+        "why": "no question tree declared for this context",
+        "evidence": {}
+      }
+    ]
+  },
+  "posthocHeadlineVsNaiveBayes": {
+    "what": "G5–G7 on the post-hoc headline (frozen rule vs naive Bayes on 717–2,000 labelled rows)",
+    "suite": {
+      "contract": 1,
+      "verdict": "ACCEPT",
+      "refusing": [],
+      "warnings": [],
+      "codes": [],
+      "settings": {
+        "alpha": 0.05,
+        "minStratum": 8,
+        "minDiscordant": 8,
+        "seenShareLimit": 0.2
+      },
+      "results": [
+        {
+          "id": "G5-policy-predeclared",
+          "stage": "claim",
+          "verdict": "PASS",
+          "why": "the scoring policy was fixed before the holdout existed: passed",
+          "evidence": {
+            "legacyEdge": "E3-policy-predeclared",
+            "settings": {
+              "alpha": 0.05,
+              "minStratum": 8,
+              "minDiscordant": 8,
+              "seenShareLimit": 0.2
+            }
+          }
+        },
+        {
+          "id": "G6-paired-test",
+          "stage": "claim",
+          "verdict": "PASS",
+          "why": "the headline is an exact paired test (McNemar) with n ≥ 8: passed",
+          "evidence": {
+            "legacyEdge": "E4-paired-test",
+            "settings": {
+              "alpha": 0.05,
+              "minStratum": 8,
+              "minDiscordant": 8,
+              "seenShareLimit": 0.2
+            },
+            "headline": {
+              "name": "all",
+              "n": 150,
+              "b": 3,
+              "c": 27,
+              "p": 0.000008430331945419335
+            },
+            "claim": "naive_bayes_better",
+            "test": "exact McNemar"
+          }
+        },
+        {
+          "id": "G7-strata-consistent",
+          "stage": "claim",
+          "verdict": "PASS",
+          "why": "every stratum large enough to judge agrees with the pooled headline: passed",
+          "evidence": {
+            "legacyEdge": "E5-strata-consistent",
+            "settings": {
+              "alpha": 0.05,
+              "minStratum": 8,
+              "minDiscordant": 8,
+              "seenShareLimit": 0.2
+            },
+            "systems": [
+              "jev",
+              "naive_bayes"
+            ],
+            "correction": "holm",
+            "headline": {
+              "name": "all",
+              "n": 150,
+              "b": 3,
+              "c": 27,
+              "p": 0.000008430331945419335,
+              "direction": "b_better"
+            },
+            "strata": [
+              {
+                "name": "label=false",
+                "n": 105,
+                "b": 2,
+                "c": 2,
+                "p": 1,
+                "direction": "too_small"
+              },
+              {
+                "name": "label=true",
+                "n": 45,
+                "b": 1,
+                "c": 25,
+                "p": 8.046627044677756e-7,
+                "direction": "b_better"
+              }
+            ],
+            "scope": "all"
+          }
+        }
+      ]
+    },
+    "report": {
+      "seed": "job-postings-test",
+      "claim": "naive_bayes_better",
+      "policy": "frozen rule (rule.frozen.json), committed before the test run",
+      "headline": {
+        "name": "all",
+        "n": 150,
+        "b": 3,
+        "c": 27,
+        "p": 0.000008430331945419335
+      },
+      "strata": [
+        {
+          "name": "label=false",
+          "n": 105,
+          "b": 2,
+          "c": 2,
+          "p": 1,
+          "direction": "too_small"
+        },
+        {
+          "name": "label=true",
+          "n": 45,
+          "b": 1,
+          "c": 25,
+          "p": 8.046627044677756e-7,
+          "direction": "naive_bayes_better"
+        }
+      ],
+      "settings": {
+        "alpha": 0.05,
+        "minStratum": 8,
+        "minDiscordant": 8,
+        "seenShareLimit": 0.2
+      },
+      "systems": {
+        "a": "jev",
+        "b": "naive_bayes"
+      },
+      "caveat": "Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.",
+      "verdict": "ACCEPT",
+      "claimScope": "all",
+      "failingEdges": [],
+      "findings": [
+        "the headline's naive_bayes_better is significant within: label=true"
+      ]
+    }
+  },
+  "declaredClaim": {
+    "seed": "job-postings-test",
+    "claim": "no_difference",
+    "policy": "frozen rule (rule.frozen.json), committed before the test run",
+    "headline": {
+      "name": "all",
+      "n": 150,
+      "b": 6,
+      "c": 10,
+      "p": 0.4544982910156252
+    },
+    "strata": [
+      {
+        "name": "label=false",
+        "n": 105,
+        "b": 1,
+        "c": 2,
+        "p": 1,
+        "direction": "too_small"
+      },
+      {
+        "name": "label=true",
+        "n": 45,
+        "b": 5,
+        "c": 8,
+        "p": 0.5810546875000012,
+        "direction": "no_difference"
+      }
+    ],
+    "settings": {
+      "alpha": 0.05,
+      "minStratum": 8,
+      "minDiscordant": 8,
+      "seenShareLimit": 0.2
+    },
+    "systems": {
+      "a": "jev",
+      "b": "keywords"
+    },
+    "caveat": "Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.",
+    "verdict": "ACCEPT",
+    "claimScope": "all",
+    "failingEdges": [],
+    "findings": []
+  },
+  "boundedGate": {
+    "posthoc": true,
+    "what": "kit/threshold.ts fitSelective on FIT readings; applyGate once on TEST readings; chosen after the test run",
+    "score": "frozen logistic score",
+    "maxError": 0.05,
+    "maxErrorWhy": "default: a false fraud flag takes down a real employer's ad",
+    "fitted": {
+      "hi": null,
+      "lo": null,
+      "maxError": 0.05,
+      "fit": {
+        "n": 100,
+        "acceptN": 0,
+        "acceptErrors": 0,
+        "acceptErrUpper": 1,
+        "rejectN": 0,
+        "rejectErrors": 0,
+        "rejectErrUpper": 1,
+        "coverage": 0
+      }
+    },
+    "test": {
+      "n": 150,
+      "coverage": 0,
+      "accepted": 0,
+      "acceptErrors": 0,
+      "rejected": 0,
+      "rejectErrors": 0,
+      "errorRate": 0,
+      "errorUpper95": 1,
+      "held": true
+    },
+    "stability": {
+      "draws": 200,
+      "hi": {
+        "p05": null,
+        "p50": null,
+        "p95": null
+      },
+      "lo": {
+        "p05": null,
+        "p50": null,
+        "p95": null
+      },
+      "hiNeverFits": 1,
+      "loNeverFits": 1,
+      "unstable": true
+    },
+    "calibrationTest": {
+      "n": 150,
+      "ece": 0.1255602376961047,
+      "eceCI95": [
+        0.07623635089142812,
+        0.19006212114572327
+      ],
+      "brier": 0.15804364670197668,
+      "slope": 2.1224560647319213,
+      "intercept": 1.3076179748880103,
+      "spiegelhalterZ": -0.9193484247193646,
+      "spiegelhalterP": 0.3579133129546328,
+      "calibrated": false,
+      "reasons": [
+        "slope 2.12 ± 0.88 excludes 1 (<1 overconfident, >1 underconfident)",
+        "intercept 1.31 ± 1.02 excludes 0 (miscalibrated in the large)"
+      ]
+    },
+    "calibrationFit": {
+      "n": 100,
+      "ece": 0.06612167631088557,
+      "eceCI95": [
+        0.053751563857946515,
+        0.16237772353369503
+      ],
+      "brier": 0.16765408763151018,
+      "slope": 1.487971621023498,
+      "intercept": 0.3746734583576254,
+      "spiegelhalterZ": -0.8993541653938462,
+      "spiegelhalterP": 0.3684639857849228,
+      "calibrated": true,
+      "reasons": []
+    },
+    "frozenRuleOfRecord": {
+      "cut": 0.553,
+      "band": [
+        0.163,
+        0.669
+      ],
+      "how": "retired point-error band (decide.ts at f109b05)"
+    }
+  }
+}

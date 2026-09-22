@@ -1,0 +1,760 @@
+{
+  "domain": "intent-routing",
+  "generatedFrom": [
+    "spec.json",
+    "results/fit.json",
+    "results/test.json",
+    "results/decision-test.json",
+    "baseline.strong.json",
+    "rule.frozen.json"
+  ],
+  "suite": {
+    "contract": 1,
+    "verdict": "ACCEPT",
+    "refusing": [],
+    "warnings": [
+      "G8-threshold-fitted-and-held"
+    ],
+    "codes": [
+      "G8.unstable"
+    ],
+    "settings": {
+      "alpha": 0.05,
+      "minStratum": 8,
+      "minDiscordant": 8,
+      "seenShareLimit": 0.2
+    },
+    "results": [
+      {
+        "id": "G1-spec-valid",
+        "stage": "preflight",
+        "verdict": "PASS",
+        "why": "spec is valid",
+        "evidence": {}
+      },
+      {
+        "id": "G2-privacy",
+        "stage": "preflight",
+        "verdict": "PASS",
+        "why": "0 hits in 150 states",
+        "evidence": {}
+      },
+      {
+        "id": "G3-text-disjoint",
+        "stage": "preflight",
+        "verdict": "PASS",
+        "why": "fit 100 / test 150, 0 overlap by id or text",
+        "evidence": {
+          "fit": 100,
+          "test": 150,
+          "idOverlap": 0,
+          "textOverlap": 0,
+          "seenShare": 0
+        }
+      },
+      {
+        "id": "G4-coverage",
+        "stage": "run",
+        "verdict": "PASS",
+        "why": "coverage 100.0% ≥ 95%",
+        "evidence": {
+          "coverage": 1,
+          "minCoverage": 0.95
+        }
+      },
+      {
+        "id": "G5-policy-predeclared",
+        "stage": "claim",
+        "verdict": "PASS",
+        "why": "the scoring policy was fixed before the holdout existed: passed",
+        "evidence": {
+          "legacyEdge": "E3-policy-predeclared",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          }
+        }
+      },
+      {
+        "id": "G6-paired-test",
+        "stage": "claim",
+        "verdict": "PASS",
+        "why": "the headline is an exact paired test (McNemar) with n ≥ 8: passed",
+        "evidence": {
+          "legacyEdge": "E4-paired-test",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          },
+          "headline": {
+            "name": "all",
+            "n": 150,
+            "b": 94,
+            "c": 2,
+            "p": 1.1755920753966029e-25
+          },
+          "claim": "jev_better",
+          "test": "exact McNemar"
+        }
+      },
+      {
+        "id": "G7-strata-consistent",
+        "stage": "claim",
+        "verdict": "PASS",
+        "why": "every stratum large enough to judge agrees with the pooled headline: passed",
+        "evidence": {
+          "legacyEdge": "E5-strata-consistent",
+          "settings": {
+            "alpha": 0.05,
+            "minStratum": 8,
+            "minDiscordant": 8,
+            "seenShareLimit": 0.2
+          },
+          "systems": [
+            "jev",
+            "keywords"
+          ],
+          "correction": "holm",
+          "headline": {
+            "name": "all",
+            "n": 150,
+            "b": 94,
+            "c": 2,
+            "p": 1.1755920753966029e-25,
+            "direction": "a_better"
+          },
+          "strata": [
+            {
+              "name": "label=auto_and_commute",
+              "n": 12,
+              "b": 10,
+              "c": 0,
+              "p": 0.001953125,
+              "direction": "a_better"
+            },
+            {
+              "name": "label=meta",
+              "n": 12,
+              "b": 9,
+              "c": 0,
+              "p": 0.00390625,
+              "direction": "a_better"
+            },
+            {
+              "name": "label=none",
+              "n": 30,
+              "b": 7,
+              "c": 2,
+              "p": 0.17968750000000014,
+              "direction": "no_difference"
+            },
+            {
+              "name": "label=banking",
+              "n": 12,
+              "b": 3,
+              "c": 0,
+              "p": 0.25000000000000006,
+              "direction": "too_small"
+            },
+            {
+              "name": "label=kitchen_and_dining",
+              "n": 12,
+              "b": 10,
+              "c": 0,
+              "p": 0.001953125,
+              "direction": "a_better"
+            },
+            {
+              "name": "label=home",
+              "n": 12,
+              "b": 9,
+              "c": 0,
+              "p": 0.00390625,
+              "direction": "a_better"
+            },
+            {
+              "name": "label=travel",
+              "n": 12,
+              "b": 8,
+              "c": 0,
+              "p": 0.007812500000000002,
+              "direction": "a_better"
+            },
+            {
+              "name": "label=credit_cards",
+              "n": 12,
+              "b": 4,
+              "c": 0,
+              "p": 0.125,
+              "direction": "too_small"
+            },
+            {
+              "name": "label=small_talk",
+              "n": 12,
+              "b": 10,
+              "c": 0,
+              "p": 0.001953125,
+              "direction": "a_better"
+            },
+            {
+              "name": "label=work",
+              "n": 12,
+              "b": 12,
+              "c": 0,
+              "p": 0.0004882812500000003,
+              "direction": "a_better"
+            },
+            {
+              "name": "label=utility",
+              "n": 12,
+              "b": 12,
+              "c": 0,
+              "p": 0.0004882812500000003,
+              "direction": "a_better"
+            }
+          ],
+          "scope": "all"
+        }
+      },
+      {
+        "id": "G8-threshold-fitted-and-held",
+        "stage": "claim",
+        "verdict": "WARN",
+        "why": "POST-HOC bounded gate on confidence on domain (event: Jev correct): bound held, but the cut is unstable under resampling (bootstrapCuts)",
+        "code": "G8.unstable",
+        "evidence": {
+          "name": "POST-HOC bounded gate on confidence on domain (event: Jev correct)",
+          "hi": 0.967,
+          "lo": null,
+          "maxError": 0.05,
+          "test": {
+            "n": 150,
+            "coverage": 0.6666666666666666,
+            "accepted": 100,
+            "acceptErrors": 0,
+            "rejected": 0,
+            "rejectErrors": 0,
+            "errorRate": 0,
+            "errorUpper95": 0.029513049607039932,
+            "held": true
+          }
+        }
+      },
+      {
+        "id": "G9-calibration-audited",
+        "stage": "claim",
+        "verdict": "SKIP",
+        "why": "choice confidence gate; no cost threshold relies on calibrated probabilities",
+        "evidence": {}
+      },
+      {
+        "id": "G10-tree-consistent",
+        "stage": "claim",
+        "verdict": "SKIP",
+        "why": "no question tree declared for this context",
+        "evidence": {}
+      }
+    ]
+  },
+  "posthocHeadlineVsNaiveBayes": {
+    "what": "G5–G7 on the post-hoc headline (frozen rule vs naive Bayes on 717–2,000 labelled rows)",
+    "suite": {
+      "contract": 1,
+      "verdict": "ACCEPT",
+      "refusing": [],
+      "warnings": [],
+      "codes": [],
+      "settings": {
+        "alpha": 0.05,
+        "minStratum": 8,
+        "minDiscordant": 8,
+        "seenShareLimit": 0.2
+      },
+      "results": [
+        {
+          "id": "G5-policy-predeclared",
+          "stage": "claim",
+          "verdict": "PASS",
+          "why": "the scoring policy was fixed before the holdout existed: passed",
+          "evidence": {
+            "legacyEdge": "E3-policy-predeclared",
+            "settings": {
+              "alpha": 0.05,
+              "minStratum": 8,
+              "minDiscordant": 8,
+              "seenShareLimit": 0.2
+            }
+          }
+        },
+        {
+          "id": "G6-paired-test",
+          "stage": "claim",
+          "verdict": "PASS",
+          "why": "the headline is an exact paired test (McNemar) with n ≥ 8: passed",
+          "evidence": {
+            "legacyEdge": "E4-paired-test",
+            "settings": {
+              "alpha": 0.05,
+              "minStratum": 8,
+              "minDiscordant": 8,
+              "seenShareLimit": 0.2
+            },
+            "headline": {
+              "name": "all",
+              "n": 150,
+              "b": 36,
+              "c": 5,
+              "p": 7.8415723692159e-7
+            },
+            "claim": "jev_better",
+            "test": "exact McNemar"
+          }
+        },
+        {
+          "id": "G7-strata-consistent",
+          "stage": "claim",
+          "verdict": "PASS",
+          "why": "every stratum large enough to judge agrees with the pooled headline: passed",
+          "evidence": {
+            "legacyEdge": "E5-strata-consistent",
+            "settings": {
+              "alpha": 0.05,
+              "minStratum": 8,
+              "minDiscordant": 8,
+              "seenShareLimit": 0.2
+            },
+            "systems": [
+              "jev",
+              "naive_bayes"
+            ],
+            "correction": "holm",
+            "headline": {
+              "name": "all",
+              "n": 150,
+              "b": 36,
+              "c": 5,
+              "p": 7.8415723692159e-7,
+              "direction": "a_better"
+            },
+            "strata": [
+              {
+                "name": "label=auto_and_commute",
+                "n": 12,
+                "b": 1,
+                "c": 1,
+                "p": 1,
+                "direction": "too_small"
+              },
+              {
+                "name": "label=meta",
+                "n": 12,
+                "b": 2,
+                "c": 1,
+                "p": 1,
+                "direction": "too_small"
+              },
+              {
+                "name": "label=none",
+                "n": 30,
+                "b": 21,
+                "c": 0,
+                "p": 9.536743164062499e-7,
+                "direction": "a_better"
+              },
+              {
+                "name": "label=banking",
+                "n": 12,
+                "b": 1,
+                "c": 0,
+                "p": 1,
+                "direction": "too_small"
+              },
+              {
+                "name": "label=kitchen_and_dining",
+                "n": 12,
+                "b": 1,
+                "c": 0,
+                "p": 1,
+                "direction": "too_small"
+              },
+              {
+                "name": "label=home",
+                "n": 12,
+                "b": 2,
+                "c": 0,
+                "p": 0.5,
+                "direction": "too_small"
+              },
+              {
+                "name": "label=travel",
+                "n": 12,
+                "b": 1,
+                "c": 1,
+                "p": 1,
+                "direction": "too_small"
+              },
+              {
+                "name": "label=credit_cards",
+                "n": 12,
+                "b": 0,
+                "c": 0,
+                "p": 1,
+                "direction": "too_small"
+              },
+              {
+                "name": "label=small_talk",
+                "n": 12,
+                "b": 2,
+                "c": 2,
+                "p": 1,
+                "direction": "too_small"
+              },
+              {
+                "name": "label=work",
+                "n": 12,
+                "b": 3,
+                "c": 0,
+                "p": 0.25000000000000006,
+                "direction": "too_small"
+              },
+              {
+                "name": "label=utility",
+                "n": 12,
+                "b": 2,
+                "c": 0,
+                "p": 0.5,
+                "direction": "too_small"
+              }
+            ],
+            "scope": "all"
+          }
+        }
+      ]
+    },
+    "report": {
+      "seed": "intent-routing-test",
+      "claim": "jev_better",
+      "policy": "frozen rule (rule.frozen.json), committed before the test run",
+      "headline": {
+        "name": "all",
+        "n": 150,
+        "b": 36,
+        "c": 5,
+        "p": 7.8415723692159e-7
+      },
+      "strata": [
+        {
+          "name": "label=auto_and_commute",
+          "n": 12,
+          "b": 1,
+          "c": 1,
+          "p": 1,
+          "direction": "too_small"
+        },
+        {
+          "name": "label=meta",
+          "n": 12,
+          "b": 2,
+          "c": 1,
+          "p": 1,
+          "direction": "too_small"
+        },
+        {
+          "name": "label=none",
+          "n": 30,
+          "b": 21,
+          "c": 0,
+          "p": 9.536743164062499e-7,
+          "direction": "jev_better"
+        },
+        {
+          "name": "label=banking",
+          "n": 12,
+          "b": 1,
+          "c": 0,
+          "p": 1,
+          "direction": "too_small"
+        },
+        {
+          "name": "label=kitchen_and_dining",
+          "n": 12,
+          "b": 1,
+          "c": 0,
+          "p": 1,
+          "direction": "too_small"
+        },
+        {
+          "name": "label=home",
+          "n": 12,
+          "b": 2,
+          "c": 0,
+          "p": 0.5,
+          "direction": "too_small"
+        },
+        {
+          "name": "label=travel",
+          "n": 12,
+          "b": 1,
+          "c": 1,
+          "p": 1,
+          "direction": "too_small"
+        },
+        {
+          "name": "label=credit_cards",
+          "n": 12,
+          "b": 0,
+          "c": 0,
+          "p": 1,
+          "direction": "too_small"
+        },
+        {
+          "name": "label=small_talk",
+          "n": 12,
+          "b": 2,
+          "c": 2,
+          "p": 1,
+          "direction": "too_small"
+        },
+        {
+          "name": "label=work",
+          "n": 12,
+          "b": 3,
+          "c": 0,
+          "p": 0.25000000000000006,
+          "direction": "too_small"
+        },
+        {
+          "name": "label=utility",
+          "n": 12,
+          "b": 2,
+          "c": 0,
+          "p": 0.5,
+          "direction": "too_small"
+        }
+      ],
+      "settings": {
+        "alpha": 0.05,
+        "minStratum": 8,
+        "minDiscordant": 8,
+        "seenShareLimit": 0.2
+      },
+      "systems": {
+        "a": "jev",
+        "b": "naive_bayes"
+      },
+      "caveat": "Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.",
+      "verdict": "ACCEPT",
+      "claimScope": "all",
+      "failingEdges": [],
+      "findings": [
+        "the headline's jev_better is significant within: label=none"
+      ]
+    }
+  },
+  "declaredClaim": {
+    "seed": "intent-routing-test",
+    "claim": "jev_better",
+    "policy": "frozen rule (rule.frozen.json), committed before the test run",
+    "headline": {
+      "name": "all",
+      "n": 150,
+      "b": 94,
+      "c": 2,
+      "p": 1.1755920753966029e-25
+    },
+    "strata": [
+      {
+        "name": "label=auto_and_commute",
+        "n": 12,
+        "b": 10,
+        "c": 0,
+        "p": 0.001953125,
+        "direction": "jev_better"
+      },
+      {
+        "name": "label=meta",
+        "n": 12,
+        "b": 9,
+        "c": 0,
+        "p": 0.00390625,
+        "direction": "jev_better"
+      },
+      {
+        "name": "label=none",
+        "n": 30,
+        "b": 7,
+        "c": 2,
+        "p": 0.17968750000000014,
+        "direction": "no_difference"
+      },
+      {
+        "name": "label=banking",
+        "n": 12,
+        "b": 3,
+        "c": 0,
+        "p": 0.25000000000000006,
+        "direction": "too_small"
+      },
+      {
+        "name": "label=kitchen_and_dining",
+        "n": 12,
+        "b": 10,
+        "c": 0,
+        "p": 0.001953125,
+        "direction": "jev_better"
+      },
+      {
+        "name": "label=home",
+        "n": 12,
+        "b": 9,
+        "c": 0,
+        "p": 0.00390625,
+        "direction": "jev_better"
+      },
+      {
+        "name": "label=travel",
+        "n": 12,
+        "b": 8,
+        "c": 0,
+        "p": 0.007812500000000002,
+        "direction": "jev_better"
+      },
+      {
+        "name": "label=credit_cards",
+        "n": 12,
+        "b": 4,
+        "c": 0,
+        "p": 0.125,
+        "direction": "too_small"
+      },
+      {
+        "name": "label=small_talk",
+        "n": 12,
+        "b": 10,
+        "c": 0,
+        "p": 0.001953125,
+        "direction": "jev_better"
+      },
+      {
+        "name": "label=work",
+        "n": 12,
+        "b": 12,
+        "c": 0,
+        "p": 0.0004882812500000003,
+        "direction": "jev_better"
+      },
+      {
+        "name": "label=utility",
+        "n": 12,
+        "b": 12,
+        "c": 0,
+        "p": 0.0004882812500000003,
+        "direction": "jev_better"
+      }
+    ],
+    "settings": {
+      "alpha": 0.05,
+      "minStratum": 8,
+      "minDiscordant": 8,
+      "seenShareLimit": 0.2
+    },
+    "systems": {
+      "a": "jev",
+      "b": "keywords"
+    },
+    "caveat": "Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.",
+    "verdict": "ACCEPT",
+    "claimScope": "all",
+    "failingEdges": [],
+    "findings": [
+      "the headline's jev_better is significant within: label=auto_and_commute, label=meta, label=kitchen_and_dining, label=home, label=travel, label=small_talk, label=work, label=utility"
+    ]
+  },
+  "boundedGate": {
+    "posthoc": true,
+    "what": "kit/threshold.ts fitSelective on FIT readings; applyGate once on TEST readings; chosen after the test run",
+    "score": "confidence on domain (event: Jev correct)",
+    "maxError": 0.05,
+    "maxErrorWhy": "default: a wrong auto-route bounces the user",
+    "fitted": {
+      "hi": 0.967,
+      "lo": null,
+      "maxError": 0.05,
+      "fit": {
+        "n": 100,
+        "acceptN": 59,
+        "acceptErrors": 0,
+        "acceptErrUpper": 0.049507609888226944,
+        "rejectN": 0,
+        "rejectErrors": 0,
+        "rejectErrUpper": 1,
+        "coverage": 0.59
+      }
+    },
+    "test": {
+      "n": 150,
+      "coverage": 0.6666666666666666,
+      "accepted": 100,
+      "acceptErrors": 0,
+      "rejected": 0,
+      "rejectErrors": 0,
+      "errorRate": 0,
+      "errorUpper95": 0.029513049607039932,
+      "held": true
+    },
+    "stability": {
+      "draws": 200,
+      "hi": {
+        "p05": 0.49400000000000005,
+        "p50": 0.923,
+        "p95": 0.978
+      },
+      "lo": {
+        "p05": null,
+        "p50": null,
+        "p95": null
+      },
+      "hiNeverFits": 0.245,
+      "loNeverFits": 1,
+      "unstable": true
+    },
+    "calibrationTest": {
+      "n": 150,
+      "ece": 0.03289333333333345,
+      "eceCI95": [
+        0.020033333333333573,
+        0.06838666666666673
+      ],
+      "brier": 0.04510137333333336,
+      "slope": 1.0533746391034062,
+      "intercept": 0.5743279944990066,
+      "spiegelhalterZ": -1.2173016158192265,
+      "spiegelhalterP": 0.22348961298315118,
+      "calibrated": true,
+      "reasons": []
+    },
+    "calibrationFit": {
+      "n": 100,
+      "ece": 0.06639000000000025,
+      "eceCI95": [
+        0.04848000000000001,
+        0.10442999999999994
+      ],
+      "brier": 0.04188057000000003,
+      "slope": 0.9189526208840377,
+      "intercept": 0.8179067184041442,
+      "spiegelhalterZ": -1.1419483582926413,
+      "spiegelhalterP": 0.2534755958247965,
+      "calibrated": true,
+      "reasons": []
+    },
+    "frozenRuleOfRecord": {
+      "confidenceAtLeast": 0.362,
+      "how": "retired point-error cut (decide.ts at f109b05)"
+    }
+  }
+}
