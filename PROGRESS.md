@@ -37,3 +37,16 @@ Durable record of this session's state. Chat is ephemeral; this file is not. New
 
 ## HANDOFF
 **Next round starts from `handoffs/NEXT-ROUND.md`** (state, decisions for Manu, work queue Q1–Q11, kickoff prompt).
+
+## State 2026-09-22 (after merges)
+- **main = e4ef190**: feat/op-consist (kit core, tests 118, kit/threshold + audited calibration, standard gates contract v1 with G3 n-gram,
+  OC gate P34, bank.ts → 8 kit/modules contexts, registries through L46/P35) + feat/demos (6 cookbooks, pages, run logs) + leads
+  (feat/kit, feat/leads-blind, feat/leads-segment by b4f08e). Manu approved each merge in its own session.
+- **Decided:** one question-set format (kit/SCOPE.md, confirmed by Manu in both sessions); standard gates G1–G10 on every run.
+- **Tests never write tracked files** (JEV_RUNS_DIR). `npm test` 118/118.
+- **Open, for Manu:** keep job-postings spec.json/items.meta.json out of any public copy (unlicensed ad text); delete the redundant
+  branch keep/b61818e-kit-tests; the craft thread is still writing into ~/JEV-works-wt/leads-pipeline; feat/e3-blind-test unmerged;
+  weekly drift crontab not installed; JEV-works has no remote (publishing is Manu's call).
+- **Next (leads, b4f08e):** leads/questions.ts → kit/modules context; company-name check to code; the asksToBuy/offersToUs split;
+  a fresh blind pool D checked with G3 n-gram against pools A and C. Seeds + prereg are logged here before generation.
+
