@@ -51,7 +51,13 @@ export const REASON_CODES = [
 
 /** The statistical settings every suite report records, so a verdict can be reproduced. */
 export type SuiteSettings = { alpha: number; minStratum: number; minDiscordant: number; seenShareLimit: number };
-export const DEFAULT_SETTINGS: SuiteSettings = { alpha: 0.05, minStratum: 8, minDiscordant: 10, seenShareLimit: 0.2 };
+/**
+ * minDiscordant = 8 (I3). Power floor: with exact McNemar the smallest possible two-sided p is 2·0.5^(b+c), so b+c ≤ 5
+ * can NEVER reach p < 0.05 however lopsided the split. 8 (min p 0.0078) matches I3's "no verdict below 8 observations".
+ * G6 refuses a headline with b+c < minDiscordant (code G6.too-few-discordant): neither "different" nor "no difference"
+ * is evidence from that few disagreements.
+ */
+export const DEFAULT_SETTINGS: SuiteSettings = { alpha: 0.05, minStratum: 8, minDiscordant: 8, seenShareLimit: 0.2 };
 
 /** The catalogue: stable ids, what each checks, where it is implemented, and the lesson it encodes. */
 export const CATALOGUE: Record<GateId, { stage: Stage; checks: string; owner: 'core' | 'kit/gate'; source: string }> = {

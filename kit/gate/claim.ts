@@ -129,6 +129,10 @@ export function gate(i: GateInput, settings: Partial<GateConfig> = {}): GateRepo
   if (!i.policyDeclaredBeforeSeed) failingEdges.push({ edge: 'E3-policy-predeclared', code: 'G5.policy-after-seed', why: `policy ${i.policy} was chosen after this seed's results were seen` });
   // E4 is structural: the headline is a paired exact test by construction.
   if (i.headline.b + i.headline.c === 0) findings.push('E4: no discordant items; the two systems agree on every item');
+  // From fewer than minDiscordant disagreements, neither "different" nor "no difference" is evidence:
+  // exact McNemar's smallest two-sided p is 2·0.5^(b+c), so b+c ≤ 5 can never reach p < 0.05.
+  if (i.headline.b + i.headline.c < cfg.minDiscordant)
+    failingEdges.push({ edge: 'E4-paired-test', code: 'G6.too-few-discordant', why: `only ${i.headline.b + i.headline.c} discordant items (need ${cfg.minDiscordant}): the paired test cannot decide either way` });
   if (i.headline.n < cfg.minStratum) failingEdges.push({ edge: 'E4-paired-test', code: 'G6.no-paired-test', why: `headline n=${i.headline.n} is below ${cfg.minStratum} (I3): no verdict` });
 
   // E5: composed strata vs collapsed headline.

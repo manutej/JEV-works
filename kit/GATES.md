@@ -24,7 +24,7 @@ direction} plus the multiple-comparison correction). A dev/fit run reports `NOT-
 | **G3-text-disjoint** | preflight | test items overlap fit items by id **or normalised text** (accepted before the run = WARN) | core | L31, L40 |
 | **G4-coverage** | run | answered share < the minimum declared before the run (undeclared = WARN) | core | retro §9.2 |
 | **G5-policy-predeclared** | claim | the scoring policy was chosen after the holdout existed | kit/gate | L38 |
-| **G6-paired-test** | claim | the headline isn't an exact paired test with n ≥ 8 | kit/gate | I6, I3 |
+| **G6-paired-test** | claim | the headline isn't an exact paired test, or has fewer than 8 discordant pairs (`G6.too-few-discordant`; below 6 McNemar can never reach p < 0.05) | kit/gate | I6, I3 |
 | **G7-strata-consistent** | claim | a judgeable stratum contradicts the pooled headline | kit/gate | L41 |
 | **G8-threshold-fitted-and-held** | claim | a threshold is hand-set, or its promised error bound broke on held-out data (unstable cut = WARN) | core | kit/threshold.ts |
 | **G9-calibration-audited** | claim | a cost threshold relies on probabilities an audited evaluator doesn't call calibrated (n < 100 counts as not calibrated) | core | L42 |

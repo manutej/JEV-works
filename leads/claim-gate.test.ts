@@ -167,3 +167,16 @@ test('contract v1: every refusal carries a registered code of its own gate; G7 e
   assert.equal((g7.evidence as any).headline.direction, 'a_better');
   assert.equal(claimSuite(gate(clean)).settings.minDiscordant, 8, 'the report records the minDiscordant actually used');
 });
+
+test('G6: a headline with fewer than 8 discordant items is refused as undecidable, including zero', () => {
+  for (const [b, c] of [[5, 0], [3, 2], [0, 0]]) {
+    const cats = [{ name: 'rest', n: 600, b, c }];
+    const s = claimSuite(gate({ ...clean, headline: { name: 'all', n: 600, b, c }, categories: cats }));
+    const g6 = s.results.find(r => r.id === 'G6-paired-test')!;
+    assert.equal(g6.verdict, 'REFUSE', `b=${b} c=${c}`);
+    assert.equal(g6.code, 'G6.too-few-discordant');
+  }
+  // 8 discordant items is enough to decide (min two-sided p = 2·0.5^8 ≈ 0.0078).
+  const ok = claimSuite(gate({ ...clean, headline: { name: 'all', n: 600, b: 8, c: 0 }, categories: [{ name: 'rest', n: 600, b: 8, c: 0 }] }));
+  assert.notEqual(ok.results.find(r => r.id === 'G6-paired-test')!.verdict, 'REFUSE');
+});

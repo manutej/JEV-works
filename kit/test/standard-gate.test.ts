@@ -113,3 +113,10 @@ test('G7 evidence shape (StratumRow rows + correction) is a typed contract the c
   assert.equal((res.results[0].evidence as G7Evidence).strata[0].name, 'non_buyer');
 });
 
+test('minDiscordant default is 8 (I3), and below 6 discordant pairs McNemar can never reach p < 0.05', async () => {
+  const { mcnemarExact } = await import('../stats.ts');
+  assert.equal(suite([g4Coverage(1, 0.9)]).settings.minDiscordant, 8);
+  assert.ok(mcnemarExact(5, 0) > 0.05, 'b+c=5, all one side: p=0.0625, never significant');
+  assert.ok(mcnemarExact(6, 0) < 0.05, 'b+c=6 is the first count that can be significant');
+});
+
