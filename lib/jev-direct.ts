@@ -16,8 +16,7 @@ import type {
   Experimental_EvaluationModelV4CallOptions as CallOptions,
   Experimental_EvaluationModelV4Question as Question,
 } from '@ai-sdk/provider';
-
-const ENDPOINT = 'https://api.typesafe.ai/v1/systemone';
+import { ENDPOINT, PIN } from '../.jev/jev-core.ts';
 
 type WireAnswer =
   | { type: 'noul'; noul: number }
@@ -55,8 +54,9 @@ function fromWire(a: WireAnswer): Answer {
   }
 }
 
+/** Defaults to the contract pin. Pass another id only on purpose (e.g. `jev-latest` in program/drift.ts). */
 export function jevDirect(
-  modelId = 'jev-latest',
+  modelId: string = PIN,
   apiKey = process.env.TYPESAFE_API_KEY,
 ): EvaluationModelV4 {
   return {

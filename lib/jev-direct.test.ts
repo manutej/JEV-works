@@ -24,6 +24,14 @@ test('request: POST /v1/systemone, Bearer auth, pinned model, SDK boolean sent a
   assert.ok(!JSON.stringify(sent[0].body).includes('secret-key-123'));
 });
 
+test('default model is the contract pin; another id only when passed explicitly (drift measurement)', async () => {
+  const sent = stub({ model: 'jev-1.13.0', answers: { u: { type: 'noul', noul: 0.8 } } });
+  assert.equal(jevDirect(undefined, 'k').modelId, 'jev-1.13.0');
+  await jevDirect(undefined, 'k').doEvaluate({ state: 's', questions: { u: { type: 'boolean', instructions: 'i' } } });
+  assert.equal(sent[0].body.model, 'jev-1.13.0');
+  assert.equal(jevDirect('jev-latest', 'k').modelId, 'jev-latest');
+});
+
 test('response: noul → probability; score passes through; confidence kept in providerMetadata; usage mapped', async () => {
   stub({
     model: 'jev-1.13.0',

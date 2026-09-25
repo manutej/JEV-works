@@ -42,7 +42,7 @@ const NOISE_FLOOR = 0.11; // P4
 // ~16 states per question, "1 flip vs 0" fired on an A/A comparison (jev-latest resolved to the pin).
 const FLIP_EXCESS = 3;
 const PINNED = 'jev-1.13.0';
-const LATEST = 'jev-latest';
+const LATEST = 'jev-latest'; // jev:allow-unpinned drift measurement
 const RESULTS_DIR = new URL('./results/', import.meta.url).pathname;
 const QB_DIR = new URL('../question-bank/', import.meta.url).pathname;
 
