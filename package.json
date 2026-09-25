@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "triage": "node --env-file-if-exists=/Users/manu/jev-playground/.env.local triage/triage.ts",
-    "test": "node --test kit/kit.test.ts kit/test/*.test.ts lib/*.test.ts question-bank/*.test.ts leads/*.test.ts",
+    "test": "node --test kit/kit.test.ts kit/test/*.test.ts lib/*.test.ts question-bank/*.test.ts leads/*.test.ts extract/*.test.ts",
+    "test:extract": "node --test extract/*.test.ts",
     "test:kit": "node --test kit/kit.test.ts kit/test/*.test.ts"
   },
   "dependencies": {

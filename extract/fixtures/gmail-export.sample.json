@@ -1,0 +1,17 @@
+{
+  "note": "Synthetic export for tests. No real mail. Shape = what a read-only metadata export produces: thread ids, label ids, first subject and snippet, per-message sender/date/to-count. The extractor hashes ids and subjects and never copies subjects, snippets or senders into a row.",
+  "exported_at": "2026-09-25T12:00:00Z",
+  "self": ["owner@example.com"],
+  "labels": { "Label_21": "Cora/Payments", "Label_23": "Cora/Action", "Label_24": "Cora/Calendar", "Label_19": "Cora/Important Info", "Label_22": "Cora/Newsletter", "Label_17": "Cora/Promotion", "Label_30": "Cora/Keep In Inbox", "Label_29": "Cora/Timely", "Label_25": "Cora/Spam", "INBOX": "INBOX", "SENT": "SENT", "IMPORTANT": "IMPORTANT" },
+  "queries": [{ "query": "sample", "asked": 8, "got": 8 }],
+  "threads": [
+    { "threadId": "t1", "query": 1, "labelIds": ["INBOX", "Label_21", "IMPORTANT"], "subject": "Invoice 2291 overdue", "snippet": "Your September invoice is 12 days overdue.", "messages": [ { "sender": "billing@vendor.example", "date": "2026-09-10T09:00:00Z", "to": 1 }, { "sender": "owner@example.com", "date": "2026-09-11T14:00:00Z", "to": 1 } ], "preview_capped": false },
+    { "threadId": "t2", "query": 1, "labelIds": ["INBOX", "Label_24"], "subject": "Dry run Oct 2, can you confirm?", "snippet": "Are you free Oct 2 at 9?", "messages": [ { "sender": "coordinator@client.example", "date": "2026-09-12T10:00:00Z", "to": 1 }, { "sender": "owner@example.com", "date": "2026-09-12T11:30:00Z", "to": 1 } ], "preview_capped": false },
+    { "threadId": "t3", "query": 6, "labelIds": ["Label_22"], "subject": "Your weekly digest", "snippet": "Top stories this week", "messages": [ { "sender": "news@list.example", "date": "2026-09-15T06:00:00Z", "to": 1 } ], "preview_capped": false },
+    { "threadId": "t4", "query": 7, "labelIds": ["Label_17"], "subject": "40% off this weekend only", "snippet": "Sale ends Sunday", "messages": [ { "sender": "promo@shop.example", "date": "2026-09-14T06:00:00Z", "to": 1 } ], "preview_capped": false },
+    { "threadId": "t5", "query": 5, "labelIds": ["Label_19"], "subject": "Updated venue address for the workshop", "snippet": "Please note the room change", "messages": [ { "sender": "ops@venue.example", "date": "2026-08-20T06:00:00Z", "to": 3 } ], "preview_capped": false },
+    { "threadId": "t6", "query": 3, "labelIds": ["INBOX", "Label_23"], "subject": "Need your sign-off on the SOW", "snippet": "Attached is the revised SOW", "messages": [ { "sender": "pm@client.example", "date": "2026-09-01T06:00:00Z", "to": 1 } ], "preview_capped": false },
+    { "threadId": "t7", "query": 1, "labelIds": ["INBOX"], "subject": "Re: receipt for the cohort payment", "snippet": "Thanks, received.", "messages": [ { "sender": "owner@example.com", "date": "2026-09-03T06:00:00Z", "to": 1 }, { "sender": "finance@client.example", "date": "2026-09-04T06:00:00Z", "to": 1 }, { "sender": "owner@example.com", "date": "2026-09-09T06:00:00Z", "to": 1 } ], "preview_capped": false },
+    { "threadId": "t8", "query": 2, "labelIds": ["INBOX", "Label_21"], "subject": "Long thread", "snippet": "…", "messages": [ { "sender": "a@x.example", "date": "2026-09-01T06:00:00Z", "to": 1 }, { "sender": "b@x.example", "date": "2026-09-02T06:00:00Z", "to": 1 }, { "sender": "a@x.example", "date": "2026-09-03T06:00:00Z", "to": 1 }, { "sender": "b@x.example", "date": "2026-09-04T06:00:00Z", "to": 1 }, { "sender": "a@x.example", "date": "2026-09-05T06:00:00Z", "to": 1 } ], "preview_capped": true }
+  ]
+}

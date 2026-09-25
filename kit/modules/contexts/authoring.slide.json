@@ -1,0 +1,75 @@
+{
+  "name": "authoring.slide",
+  "description": "Per-slide checks while a deck is being built (HTML or PPTX). One slide at a time, from its title, body text, notes and whether it carries a figure. Produces: ship / revise / escalate per slide. Traces of what the author did next (shortened, split, added a figure, shipped) become implied labels for these questions (extract/trace-implied.ts). Drafted 2026-09-25 for the wiring batch.",
+  "artifact": {
+    "type": "one slide of a deck",
+    "stateFields": ["title", "body", "notes", "has_figure", "deck_purpose"]
+  },
+  "modules": [
+    {
+      "name": "slide-craft",
+      "purpose": "Whether one slide carries one claim, reads at a glance, and does not lean on the speaker.",
+      "questions": {
+        "oneClaimHeadline": {
+          "type": "noul",
+          "instructions": "Does the title state a claim, rather than name a topic?",
+          "criteria": { "true": "The title is a sentence someone could agree or disagree with.", "false": "The title is a label such as a noun phrase, a section name or a question." },
+          "polarity": "good-when-yes",
+          "reads": ["title"]
+        },
+        "bodyRepeatsTitle": {
+          "type": "noul",
+          "instructions": "Does the body text restate the title without adding anything to it?",
+          "criteria": { "true": "The body says the same thing as the title in other words.", "false": "The body adds evidence, an example, a step or a detail the title does not contain." },
+          "polarity": "bad-when-yes",
+          "reads": ["title", "body"]
+        },
+        "readableAtAGlance": {
+          "type": "noul",
+          "instructions": "Can the body text be read in a single glance while someone is speaking?",
+          "criteria": { "true": "A few short lines; nothing has to be studied.", "false": "Paragraphs, nested lists or dense sentences that need reading time." },
+          "polarity": "good-when-yes",
+          "reads": ["body"]
+        },
+        "needsSpeakerToMakeSense": {
+          "type": "noul",
+          "instructions": "Would a reader who sees only this slide, without the notes, be unable to tell what it is saying?",
+          "criteria": { "true": "The slide alone leaves the point unclear; the notes carry it.", "false": "The point is clear from the slide alone." },
+          "polarity": "bad-when-yes",
+          "reads": ["title", "body", "has_figure"]
+        },
+        "slideRole": {
+          "type": "choice",
+          "instructions": "What job does this slide do in the deck?",
+          "criteria": {
+            "claim": "States a point the deck is arguing.",
+            "evidence": "Shows data, an example or a demonstration that supports a point.",
+            "agenda": "Lists what is coming or where the audience is.",
+            "transition": "Marks a change of part with little content.",
+            "ask": "Requests a decision, an action or a next step from the audience.",
+            "unclear": "None of these fits."
+          },
+          "escapeOption": "unclear",
+          "polarity": "neutral",
+          "reads": ["title", "body", "deck_purpose"]
+        }
+      },
+      "compose": {
+        "positive": "the slide can ship as it is",
+        "rules": [
+          { "when": { "q": "bodyRepeatsTitle", "is": "yes" }, "then": false },
+          { "when": { "q": "readableAtAGlance", "is": "no" }, "then": false },
+          { "when": { "q": "needsSpeakerToMakeSense", "is": "yes" }, "then": false },
+          { "when": { "all": [ { "q": "oneClaimHeadline", "is": "yes" }, { "q": "readableAtAGlance", "is": "yes" } ] }, "then": true }
+        ],
+        "default": "escalate"
+      },
+      "notForJev": [
+        { "judgement": "Word, line and bullet counts, font size, overflow", "instead": "code over the slide text and the render (extract/trace metrics)" },
+        { "judgement": "Does the deck order argue, and is one accent used per deck?", "instead": "needs the whole deck; code over the sequence for accents, a text model for the argument" },
+        { "judgement": "Brand tokens and contrast", "instead": "token check and WCAG contrast in code" },
+        { "judgement": "Whether to ship the deck", "instead": "a named human (C10); the trace records the decision" }
+      ]
+    }
+  ]
+}

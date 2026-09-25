@@ -1,0 +1,74 @@
+{
+  "name": "authoring.html-page",
+  "description": "Per-section checks while an HTML page or course module is being built. One section at a time, from its heading and text plus counts computed in code. Produces: ship / revise / escalate per section. Traces of what the author did next (added an exercise, broke up a block, cut, shipped) become implied labels for these questions (extract/trace-implied.ts). Drafted 2026-09-25 for the wiring batch.",
+  "artifact": {
+    "type": "one section of an HTML page or course module",
+    "stateFields": ["heading", "text", "has_code_sample", "has_figure", "page_purpose"]
+  },
+  "modules": [
+    {
+      "name": "section-craft",
+      "purpose": "Whether one section promises what it delivers, defines what it introduces, gives the reader something to do, and is not a wall of text.",
+      "questions": {
+        "headingPromisesContent": {
+          "type": "noul",
+          "instructions": "Does the heading say what the reader will get from this section?",
+          "criteria": { "true": "The heading names the outcome, the question answered or the thing built.", "false": "The heading is generic, such as Overview, Details or Notes, or does not match the text." },
+          "polarity": "good-when-yes",
+          "reads": ["heading", "text"]
+        },
+        "definesItsTerms": {
+          "type": "noul",
+          "instructions": "Does this section explain every technical term it introduces?",
+          "criteria": { "true": "Each new term is defined or shown by example where it first appears.", "false": "At least one term is used as if already known." },
+          "polarity": "good-when-yes",
+          "reads": ["text"]
+        },
+        "hasExercise": {
+          "type": "noul",
+          "instructions": "Does this section ask the reader to do something themselves?",
+          "criteria": { "true": "An exercise, a try-it step, a question to answer or a task to run.", "false": "The reader only reads." },
+          "polarity": "good-when-yes",
+          "reads": ["text"]
+        },
+        "wallOfText": {
+          "type": "noul",
+          "instructions": "Is this section one unbroken block of prose with no list, figure, code sample or sub-heading?",
+          "criteria": { "true": "Continuous paragraphs only.", "false": "The text is broken up by at least one list, figure, code sample or sub-heading." },
+          "polarity": "bad-when-yes",
+          "reads": ["text", "has_code_sample", "has_figure"]
+        },
+        "sectionRole": {
+          "type": "choice",
+          "instructions": "What job does this section do on the page?",
+          "criteria": {
+            "teach": "Explains an idea or a mechanism.",
+            "example": "Shows a worked case.",
+            "exercise": "Asks the reader to do something.",
+            "reference": "Lists facts, options or an API for lookup.",
+            "navigation": "Orients the reader: contents, summary, what is next.",
+            "unclear": "None of these fits."
+          },
+          "escapeOption": "unclear",
+          "polarity": "neutral",
+          "reads": ["heading", "text", "page_purpose"]
+        }
+      },
+      "compose": {
+        "positive": "the section can ship as it is",
+        "rules": [
+          { "when": { "q": "wallOfText", "is": "yes" }, "then": false },
+          { "when": { "q": "definesItsTerms", "is": "no" }, "then": false },
+          { "when": { "all": [ { "q": "headingPromisesContent", "is": "yes" }, { "q": "definesItsTerms", "is": "yes" }, { "q": "wallOfText", "is": "no" } ] }, "then": true }
+        ],
+        "default": "escalate"
+      },
+      "notForJev": [
+        { "judgement": "Word counts, reading time, link validity, heading levels", "instead": "code over the DOM (extract/trace metrics)" },
+        { "judgement": "Contrast, focus order, phone-width overflow", "instead": "WCAG and layout checks in code or a headless browser" },
+        { "judgement": "Does this section follow from the previous one?", "instead": "needs the sequence; a text model with the neighbours, or the author" },
+        { "judgement": "Whether the page ships", "instead": "a named human (C10); the trace records the decision" }
+      ]
+    }
+  ]
+}
