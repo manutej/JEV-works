@@ -7,10 +7,11 @@
 
 Read this file first. Then `NETER.md` (what is true) and `LESSONS.md` (what we got wrong). Those two
 are the project; everything else is scaffolding around them.
+The cross-repo contract (model pin, key policy, gate names, θ, human gate) is `.jev/README.md` — vendored, do not edit.
 
 ## Nine rules that are not negotiable
 
-These are compressed from 22 lessons. Each one was learned by violating it.
+These were compressed from the first 22 lessons (`LESSONS.md` now holds 47, L1–L47). Each one was learned by violating it.
 
 1. **Ask only literal, single-state questions.** A question needing a comparison, a counterfactual,
    or reasoning across items will sit in the mid band forever. Measured: `neededForGoal` reached a
@@ -28,20 +29,27 @@ These are compressed from 22 lessons. Each one was learned by violating it.
    spacing and commensurability with probability. Averaging a cost sub-score with benefit
    sub-scores inverts the signal. Use `question-bank/colors.ts`; it fails the build on both.
    (P22, L17, L20)
-5. **Gate on entropy, not top probability — but measure the entropy range first.** On inputs with no
-   right answer it answers confidently anyway (p 0.82–0.91 on empty strings and emoji), and entropy
-   separated garbage from clean with a ~6× margin where top-probability failed. **However**: for
-   well-separated choice criteria it returns near-one-hot distributions, so corpus max entropy can be
-   ~0.24 and an `entropy > 0.9` gate never fires once. Report max entropy on your corpus before
-   relying on a gate, or it is dead code giving you no protection. Entropy also *ranks* ambiguity
-   well (ρ = −0.57 against labeller disagreement) while *thresholding* it badly. (P5, P6, P26, L23)
+5. **Entropy and top probability both flag garbage; entropy's edge is below the noise floor — and
+   measure the entropy range first.** On inputs with no right answer it answers confidently anyway
+   (p 0.82–0.91 on empty strings and emoji; P5). At n=214 (pre-registered, held-out half) entropy
+   separated garbage from clean at AUC 0.978 vs 0.952 for 1−top-p: a real edge (+0.026) but below
+   P4's noise floor, zero on a 2-option choice, growing only with option count. The earlier n=10
+   "~6× margin where top-probability failed" did not replicate (F2). Post-hoc only: at the
+   conventional top-p < 0.8 cut, top-p caught 59% of garbage vs 84% for entropy ≥ 0.30 at the same
+   clean cost — so a top-p gate must sit near 1 to work. For well-separated choice criteria it returns
+   near-one-hot distributions, so corpus max entropy can be ~0.24 and an `entropy > 0.9` gate never
+   fires once. Report max entropy on your corpus before relying on a gate, or it is dead code giving
+   you no protection. Entropy also *ranks* ambiguity well (ρ = −0.57 against labeller disagreement)
+   while *thresholding* it badly. (P5, P6, P26, L23)
 6. **Run a cheap baseline in every experiment.** A regex hit 91.7% on the leads task; the field's
    phishing regex hit 91.8% against 62.6% for one broad model question. Without a baseline you
    cannot tell whether the model was needed. (L6 context)
 7. **Never tune a threshold because a result disappointed.** Change the instrument or the question.
    Thresholds are fitted on data you set aside and are not reporting. (L6)
-8. **No two thresholds within 0.11 of each other.** That is the measured noise floor across
-   identical calls. Differences smaller than it are not differences. (P4)
+8. **No two thresholds within the noise floor of each other.** The floor is question-shaped (P4
+   addendum, A/A n=50): booleans and scores p95 ≤ 0.07, a flat 5-way choice reaches 0.15. The
+   original 0.11 was one choice question at n=20. Differences smaller than the floor for that
+   question's shape are not differences. (P4)
 9. **Verify observable behaviour after any change to a config, a name, or a field.** Three silent
    failures in one session: a config key in the wrong case, a package name that never existed, and
    a field rename that produced `NaN` → a confident wrong verdict. Permissive systems turn mistakes
@@ -51,8 +59,8 @@ These are compressed from 22 lessons. Each one was learned by violating it.
 
 | path | what it is |
 |---|---|
-| `NETER.md` | property registry — 24 properties, each with evidence and a status (measured here / corroborated / vendor claim / open) |
-| `LESSONS.md` | 22 lessons: what happened, why, and the rule. Attached to the files they govern |
+| `NETER.md` | property registry — 35 properties (P1–P35), each with evidence and a status (measured here / corroborated / vendor claim / open) |
+| `LESSONS.md` | 47 lessons (L1–L47): what happened, why, and the rule. Attached to the files they govern |
 | `program/PROGRAM.md` | the five-experiment programme, with hypotheses and falsification criteria written before any run |
 | `question-bank/bank.ts` | nine question sets by context. Each names its `notForJev` judgements and the code that replaces them |
 | `question-bank/colors.ts` | the composition algebra. `checkComposition` fails the build on an illegal coercion |
@@ -61,7 +69,7 @@ These are compressed from 22 lessons. Each one was learned by violating it.
 | `lib/telemetry.ts` | `RunLog` — announce before, stream to JSONL during, reconcile after |
 | `triage/` | context pruning: keep / drop / escalate over tool outputs. The reference working example |
 | `masked/find-targets.py` | finds categorical fields that can serve as labels. 23 usable targets found locally |
-| `leads/` | three-stage lead pipeline. Built, run once, **currently broken** — see below |
+| `leads/` | three-stage lead pipeline. Both diagnosed bugs fixed; see `leads/README.md` for status and limits |
 | `pass1/` | 100-question research-window scorer and its results |
 | `hekat/` | typed layer for HEKAT chains. `hotkeys.ts` declares colours per hotkey; `check-chain.ts` validates `[R→D→I]` chains via fp-ts `Either`. `FINDINGS.md` records why HEKAT itself is prose, not software |
 | `dashboard/build.py` | regenerates `dashboard/index.html` from result files. Idempotent |
@@ -120,8 +128,9 @@ python3 dashboard/build.py
 
 **Established by measurement:** batching is nearly free to ~32 questions then latency roughly
 doubles by 100; state scales sub-linearly to ~24k tokens then fails as an opaque HTTP 500 (count
-tokens yourself); the argmax is stable across identical calls but probabilities move ±0.11; it does
-not abstain; entropy is the usable uncertainty signal; naive prompt injection was resisted twice.
+tokens yourself); the argmax is stable across identical calls but probabilities move (p95 ≤ 0.07 on
+booleans/scores, up to 0.15 on a flat 5-way choice); it does not abstain; entropy and top-probability
+both flag garbage, entropy only marginally better; naive prompt injection was resisted twice.
 
 **The central open problem:** almost no labelled data exists locally. The one corpus that looked
 labelled carried only metadata a pipeline assigned to itself. So no accuracy claim is available for
@@ -130,9 +139,9 @@ already exists is a label — 23 such targets found) and **consensus distillatio
 model-diverse labellers). Masking is the only thing that can validate consensus, which is why the
 programme runs E1 before E2–E5.
 
-**Known broken:** `leads/` has two real bugs — a corpus name pool of 231 distinct names for 600
-leads, and a dedup fallback that merges on company name alone, which collapsed 516 leads against 60
-planted duplicates. The second would destroy a real lead list. Diagnosed, not fixed.
+**Leads:** the two diagnosed bugs — a corpus name pool of 231 distinct names for 600 leads, and a
+dedup fallback that merged on company name alone — are fixed (unique corpus names; dedup never merges
+on name alone), per `leads/README.md`. Its open limit: dedup recall on real resubmissions is unmeasured.
 
 ## The one thing to internalise
 

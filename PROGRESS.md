@@ -46,7 +46,7 @@ Durable record of this session's state. Chat is ephemeral; this file is not. New
 - **Tests never write tracked files** (JEV_RUNS_DIR). `npm test` 118/118.
 - **Open, for Manu:** keep job-postings spec.json/items.meta.json out of any public copy (unlicensed ad text); delete the redundant
   branch keep/b61818e-kit-tests; the craft thread is still writing into ~/JEV-works-wt/leads-pipeline; feat/e3-blind-test unmerged;
-  weekly drift crontab not installed; JEV-works has no remote (publishing is Manu's call).
+  weekly drift crontab not installed; JEV-works is on GitHub (`origin` = github.com/manutej/JEV-works).
 - **Next (leads, b4f08e):** leads/questions.ts → kit/modules context; company-name check to code; the asksToBuy/offersToUs split;
   a fresh blind pool D checked with G3 n-gram against pools A and C. Seeds + prereg are logged here before generation.
 

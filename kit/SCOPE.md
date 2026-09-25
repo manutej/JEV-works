@@ -86,5 +86,5 @@ A Context may declare `gates: GateId[]` to say which apply to it.
 
 1. Adopt "a question exists only in a Context file" as the lab rule.
 2. Who migrates `question-bank/`: the orchestrator, or this session with its approval.
-3. PRs: the repo is not on GitHub. Create `manutej/JEV-works` (private) and open PRs for feat/kit and
-   feat/leads-blind, or keep merging locally.
+3. PRs: the repo is on GitHub (`origin` = github.com/manutej/JEV-works). Open PRs for feat/kit and
+   feat/leads-blind there, or keep merging locally.

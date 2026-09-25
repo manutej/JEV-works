@@ -2,6 +2,9 @@
 
 Browser workbench: load a question set, edit questions, paste state, rerun Jev with `TYPESAFE_API_KEY`.
 
+**Status: the page (`bench/index.html`) is not in the repo yet.** Only `bench/proxy.mjs` is committed.
+This README describes the intended UI; the steps below that open or use the page do not work until it lands.
+
 The offline experiment tracker stays at `dashboard/index.html`. This page is the live loop.
 
 ## Run
@@ -17,6 +20,8 @@ python3 -m http.server 4173
 Open http://127.0.0.1:4173/bench/
 
 Paste the TypeSafe key. It lives in `sessionStorage` only. Use Forget when done.
+**This conflicts with the key policy in `.jev/README.md`: the key is never kept in browser storage.**
+Resolve that before the page is committed (e.g. have `proxy.mjs` read `TYPESAFE_API_KEY` from its environment instead of forwarding the browser's `Authorization` header).
 Leave the endpoint on `http://127.0.0.1:8787/v1/systemone`.
 
 ## Packs
