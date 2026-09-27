@@ -1,0 +1,171 @@
+{
+ "kind": "jev-calibration-report",
+ "generated_at": "2026-09-27T04:58:07.059Z",
+ "labels_dir": "runs/labels",
+ "rows": 136,
+ "excluded_ids": 8,
+ "prereg": {
+  "fit_cut": "2026-09-27T00:00:00Z",
+  "min_n": 8,
+  "mid": [
+   0.4,
+   0.6
+  ],
+  "choice_top": 0.6,
+  "max_error": 0.1,
+  "noise_band": {
+   "noul": 0.07,
+   "score": 0.07,
+   "choice": 0.15
+  },
+  "verdict": {
+   "safe": 0.85,
+   "marginal": 0.7
+  }
+ },
+ "drift": {
+  "status": "within band (31 answers)",
+  "ran_at": "2026-09-27T04:57:19.172Z",
+  "file": "2026-09-27.json",
+  "fixtures": 31,
+  "max_abs_delta": 0.06,
+  "band": {
+   "noul": 0.07,
+   "score": 0.07,
+   "choice": 0.15
+  },
+  "drifted": []
+ },
+ "cells": [
+  {
+   "pack": "works.kit.authoring-html-page",
+   "q_key": "definesItsTerms",
+   "primitive": "noul",
+   "n": {
+    "none": 21,
+    "hand": 0,
+    "implied": 0,
+    "hand_usable": 0,
+    "implied_usable": 0,
+    "both": 0
+   },
+   "agreement": {
+    "hand_vs_model": null,
+    "implied_vs_model": null,
+    "hand_vs_implied": null
+   },
+   "bands": {
+    "ends": 20,
+    "mid": 1,
+    "mid_share": 0.047619047619047616
+   },
+   "calibration": null,
+   "verdict": "INSUFFICIENT-DATA",
+   "why": "fewer than 8 usable labels (hand 0, implied 0)"
+  },
+  {
+   "pack": "works.kit.authoring-html-page",
+   "q_key": "hasExercise",
+   "primitive": "noul",
+   "n": {
+    "none": 21,
+    "hand": 0,
+    "implied": 0,
+    "hand_usable": 0,
+    "implied_usable": 0,
+    "both": 0
+   },
+   "agreement": {
+    "hand_vs_model": null,
+    "implied_vs_model": null,
+    "hand_vs_implied": null
+   },
+   "bands": {
+    "ends": 17,
+    "mid": 4,
+    "mid_share": 0.19047619047619047
+   },
+   "calibration": null,
+   "verdict": "INSUFFICIENT-DATA",
+   "why": "fewer than 8 usable labels (hand 0, implied 0)"
+  },
+  {
+   "pack": "works.kit.authoring-html-page",
+   "q_key": "headingPromisesContent",
+   "primitive": "noul",
+   "n": {
+    "none": 21,
+    "hand": 0,
+    "implied": 0,
+    "hand_usable": 0,
+    "implied_usable": 0,
+    "both": 0
+   },
+   "agreement": {
+    "hand_vs_model": null,
+    "implied_vs_model": null,
+    "hand_vs_implied": null
+   },
+   "bands": {
+    "ends": 15,
+    "mid": 6,
+    "mid_share": 0.2857142857142857
+   },
+   "calibration": null,
+   "verdict": "INSUFFICIENT-DATA",
+   "why": "fewer than 8 usable labels (hand 0, implied 0)"
+  },
+  {
+   "pack": "works.kit.authoring-html-page",
+   "q_key": "sectionRole",
+   "primitive": "choice",
+   "n": {
+    "none": 21,
+    "hand": 0,
+    "implied": 0,
+    "hand_usable": 0,
+    "implied_usable": 0,
+    "both": 0
+   },
+   "agreement": {
+    "hand_vs_model": null,
+    "implied_vs_model": null,
+    "hand_vs_implied": null
+   },
+   "bands": {
+    "ends": 19,
+    "mid": 2,
+    "mid_share": 0.09523809523809523
+   },
+   "calibration": null,
+   "verdict": "INSUFFICIENT-DATA",
+   "why": "fewer than 8 usable labels (hand 0, implied 0)"
+  },
+  {
+   "pack": "works.kit.authoring-html-page",
+   "q_key": "wallOfText",
+   "primitive": "noul",
+   "n": {
+    "none": 21,
+    "hand": 0,
+    "implied": 0,
+    "hand_usable": 0,
+    "implied_usable": 0,
+    "both": 0
+   },
+   "agreement": {
+    "hand_vs_model": null,
+    "implied_vs_model": null,
+    "hand_vs_implied": null
+   },
+   "bands": {
+    "ends": 20,
+    "mid": 1,
+    "mid_share": 0.047619047619047616
+   },
+   "calibration": null,
+   "verdict": "INSUFFICIENT-DATA",
+   "why": "fewer than 8 usable labels (hand 0, implied 0)"
+  }
+ ]
+}
