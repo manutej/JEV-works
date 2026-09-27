@@ -1,6 +1,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { PREREG, cells, latest } from './report.ts';
+import { PREREG, cells, fittedEntries, inForce, latest, writeThresholds } from './report.ts';
+import { mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
 
 const base = (o: Record<string, unknown>) => ({ schema_version: '0.1.0', ts: '2026-09-20T00:00:00Z', source: 'authoring', threadId: null, from_class: null, subject_hash: null, action: null, labels: [], model: 'jev-1.13.0', confidence: null, answers: null, routing_version: '0.2.0', row_id: 'r8', pack: 'works.kit.authoring-html-page', q_key: 'wallOfText', aggregate: false, primitive: 'noul', human_verdict: null, label_value: null, proxy: null, label_source: 'none', labeled_at: null, labeled_by: null, note: null, split: null, ...o });
 const none = (id: string, p: number, ts = '2026-09-20T00:00:00Z') => base({ id, model_answer: p, model_p: p, ts });
@@ -36,4 +39,26 @@ test('time split: labels after the fit cut are test, never fit', () => {
 test('latest per identity keeps the later labeled_at', () => {
   const a = hand('x', 0.9, 'agree'); const b = { ...hand('x', 0.9, 'disagree'), labeled_at: '2026-09-27T11:00:00Z' };
   const l = latest([a, b]); assert.equal(l.length, 1); assert.equal(l[0].human_verdict, 'disagree');
+});
+
+test('thresholds: fitted entries carry the PREREG §8 in_force flag; the writer touches only the fitted block', () => {
+  const rows = [] as any[];
+  for (let i = 0; i < 60; i++) { const p = i < 30 ? 0.95 : 0.05; rows.push(none('t' + i, p)); rows.push(hand('t' + i, p, 'agree')); } // 29 clean items per side is the least that bounds error at 0.10 (minItemsForBound)
+  const cs = cells(rows);
+  const es = fittedEntries(cs, '2026-09-27T12:00:00Z');
+  assert.equal(es.length, 1); assert.equal(es[0].primitive, 'noul'); assert.equal(es[0].source, 'hand'); assert.equal(es[0].fit_n, 60);
+  assert.ok(es[0].hi != null && es[0].lo != null, 'thirty clean labels a side fit both sides'); assert.equal(es[0].in_force, inForce(es[0]));
+  assert.equal(es[0].fitted_at, '2026-09-27T12:00:00Z'); assert.equal(es[0].fit_cut, PREREG.fit_cut);
+  assert.equal(inForce({ lo: null, hi: null, unstable: false, test: null }), false, 'no side: not in force');
+  assert.equal(inForce({ lo: 0.1, hi: 0.9, unstable: true, test: null }), false, 'unstable: not in force');
+  assert.equal(inForce({ lo: 0.1, hi: 0.9, unstable: false, test: { held: false } }), false, 'test not held: not in force');
+  assert.equal(inForce({ lo: 0.1, hi: null, unstable: false, test: { held: true } }), true);
+  const dir = mkdtempSync(path.join(process.env.SCRATCHPAD || tmpdir(), 'jev-thr-'));
+  const file = path.join(dir, 'thresholds.json');
+  writeFileSync(file, JSON.stringify({ kind: 'jev-thresholds', version: '0.1.0', declared: { noul: { lo: 0.15, hi: 0.85 }, choice: { top_min: 0.6 }, score: { top_min: 0.6 } }, overrides: { 'x|y': { lo: 0.2, hi: 0.8, provenance: 'test' } }, fitted: [{ pack: 'old', q_key: 'gone' }] }));
+  writeThresholds(file, cs, '2026-09-27T12:00:00Z');
+  const t = JSON.parse(readFileSync(file, 'utf8'));
+  assert.equal(t.fitted.length, 1); assert.equal(t.fitted[0].pack, 'works.kit.authoring-html-page'); assert.equal(t.fitted_written_by, 'JEV-works/calibrate/report.ts');
+  assert.deepEqual(t.overrides, { 'x|y': { lo: 0.2, hi: 0.8, provenance: 'test' } }); assert.equal(t.declared.noul.hi, 0.85);
+  writeFileSync(file, JSON.stringify({ kind: 'other' })); assert.throws(() => writeThresholds(file, cs), /not a jev-thresholds/);
 });

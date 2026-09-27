@@ -1,6 +1,6 @@
 # Calibration report
 
-Generated 2026-09-27T04:58:07.059Z from runs/labels (136 rows, 8 excluded ids: fixtures and samples). PREREG: time split at 2026-09-27T00:00:00Z, no verdict under 8 labels, mid band 0.4–0.6, selective gate max error 0.1, noise band noul/score 0.07 · choice 0.15 (declared, not measured here). Hand and implied labels are never pooled.
+Generated 2026-09-27T05:33:43.945Z from runs/labels (136 rows, 8 excluded ids: fixtures and samples). PREREG: time split at 2026-09-27T00:00:00Z, no verdict under 8 labels, mid band 0.4–0.6, selective gate max error 0.1, noise band noul/score 0.07 · choice 0.15 (declared, not measured here). Hand and implied labels are never pooled.
 
 | pack · question | none | hand | implied | hand↔model | implied↔model | hand↔implied | mid band | verdict |
 |---|---|---|---|---|---|---|---|---|

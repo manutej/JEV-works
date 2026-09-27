@@ -9,7 +9,8 @@
  * with its Clopper-Pearson bound, labeled *fitted*, and its outcome on the TEST split; the declared
  * noise band; and a drift stub that reads the latest re-ask of the frozen fixtures. PREREG rules:
  * time split at FIT_CUT, never shuffle; excluded ids (fixtures, samples) enter no number; no verdict
- * under MIN_N observations. Writes report.md and report.json; the Hub renders the JSON.
+ * under MIN_N observations. Writes report.md and report.json; the Hub renders the JSON. Also the only writer of the
+ * `fitted` block of jev-elder/hub/wiring/thresholds.json (--thresholds <file>), per PREREG §8; gate.mjs consumes it.
  */
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
@@ -99,6 +100,32 @@ export function driftStub(dir: string) {
   return { status: d.verdict ?? 'unknown', ran_at: d.ran_at, file: files[files.length - 1], fixtures: d.compared ?? d.fixtures?.length ?? 0, max_abs_delta: d.max_abs_delta, band: d.band, drifted: (d.fixtures ?? []).filter((f: any) => f.verdict !== 'within band').map((f: any) => `${f.fixture}:${f.q_key}`) };
 }
 
+/** PREREG §8, as code (mirrored in jev-elder/hub/wiring/gate.mjs, which refuses a file that disagrees). */
+export function inForce(e: { lo: number | null; hi: number | null; unstable: boolean | null; test: { held: boolean } | null }) {
+  if (e.lo == null && e.hi == null) return false;
+  if (e.unstable) return false;
+  if (e.test && !e.test.held) return false;
+  return true;
+}
+/** The `fitted` entries of hub/wiring/thresholds.json: one per cell whose gate was fitted. Nothing else writes them. */
+export function fittedEntries(cs: Cell[], fittedAt = new Date().toISOString()) {
+  return cs.filter((c) => c.calibration?.gate).map((c) => {
+    const k = c.calibration!, g = k.gate!;
+    const e = { pack: c.pack, q_key: c.q_key, primitive: 'noul' as const, source: k.source, lo: g.lo, hi: g.hi, fit_n: g.fit_n, coverage: g.coverage, error_upper95: g.error_upper95, max_error: PREREG.max_error, unstable: k.unstable ?? false, test: k.test, fit_cut: PREREG.fit_cut, fitted_at: fittedAt, in_force: false, why: '' };
+    e.in_force = inForce(e);
+    e.why = !e.in_force ? (e.lo == null && e.hi == null ? 'no side reaches the error bound' : e.unstable ? 'unstable under resampling' : 'test split did not hold') : `stable; ${e.test ? `held on ${e.test.n} test labels` : 'no test labels yet'}`;
+    return e;
+  });
+}
+/** Rewrites only `fitted` (and its provenance) in an existing thresholds file; `declared` and `overrides` are never touched. */
+export function writeThresholds(file: string, cs: Cell[], fittedAt = new Date().toISOString()) {
+  const t = JSON.parse(readFileSync(file, 'utf8'));
+  if (t.kind !== 'jev-thresholds') throw new Error(`${file} is not a jev-thresholds file`);
+  t.fitted = fittedEntries(cs, fittedAt); t.fitted_written_by = 'JEV-works/calibrate/report.ts'; t.fitted_written_at = fittedAt;
+  writeFileSync(file, JSON.stringify(t, null, 2) + '\n');
+  return t.fitted as ReturnType<typeof fittedEntries>;
+}
+
 export function render(cs: Cell[], meta: Record<string, unknown>, drift: ReturnType<typeof driftStub>) {
   const stamp = (v: Cell['verdict']) => ({ 'JEV-SAFE': '◆ JEV-SAFE', MARGINAL: '◐ MARGINAL', 'MOVE-TO-CODE': '⊘ MOVE-TO-CODE', 'NO-INFORMATION': '⊘ NO-INFORMATION', 'INSUFFICIENT-DATA': '± INSUFFICIENT-DATA' })[v];
   const lines = [
@@ -123,5 +150,7 @@ if (process.argv[1] && import.meta.url.endsWith(process.argv[1].split('/').pop()
   mkdirSync(out, { recursive: true });
   writeFileSync(path.join(out, 'report.md'), render(cs, meta, drift));
   writeFileSync(path.join(out, 'report.json'), JSON.stringify({ kind: 'jev-calibration-report', ...meta, drift, cells: cs }, null, 1) + '\n');
-  console.log(`report: ${cs.length} cells · verdicts ${JSON.stringify(cs.reduce((a: any, c) => ((a[c.verdict] = (a[c.verdict] ?? 0) + 1), a), {}))} → ${path.relative(root, out)}/report.{md,json}`);
+  const thr = flag('--thresholds', path.resolve(root, '../jev-elder/hub/wiring/thresholds.json'));
+  const fitted = existsSync(thr) ? writeThresholds(thr, cs, meta.generated_at) : null;
+  console.log(`report: ${cs.length} cells · verdicts ${JSON.stringify(cs.reduce((a: any, c) => ((a[c.verdict] = (a[c.verdict] ?? 0) + 1), a), {}))} → ${path.relative(root, out)}/report.{md,json}` + (fitted ? ` · thresholds: ${fitted.length} fitted (${fitted.filter((e) => e.in_force).length} in force) → ${path.relative(root, thr)}` : ' · thresholds: no file, not written'));
 }
