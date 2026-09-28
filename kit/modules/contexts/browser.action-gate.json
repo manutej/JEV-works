@@ -51,7 +51,7 @@
             "A shared resource others depend on.",
             "Money, a message that leaves, or data that cannot be pulled back."
           ],
-          "note": "Level indexing (0- or 1-based) is confirmed on the first live run before scoreAtLeast is trusted; until then the gate leans on the nouls."
+          "note": "Measured 2026-09-28 on jev-1.13.0: `score` is the EXPECTED level on a 0-based legend (e.g. 0.3 from p={0:0.72,1:0.27,3:0.01}), with per-level probabilities alongside. scoreAtLeast therefore compares a real number to a level index; 2.5 means 'the mass sits on the top two levels'. The gate still leans on the nouls."
         }
       },
       "compose": {

@@ -18,6 +18,23 @@ Model pin `jev-1.13.0`. This file says what exists, what is claimed, and what th
 
 States were built by jev-tape's own `labelDiff()` and `excerpt()` from `jev-tape/fixtures/vibium/*.json`, so what the kit measures is what the runtime sends.
 
+## First keyed run, 2026-09-28 (`jev-1.13.0 (direct)`)
+
+The four commands below were run once. Results in `kit/results/browser-*-2026-09-28.json` and `kit/results/meta-question-quality-answerability-2026-09-28.json`.
+
+| spec | n | p50 / p95 | label-free verdicts | on the labels |
+| --- | --- | --- | --- | --- |
+| action-gate | 43 | 186 / 240 ms | mutatesWorld JEV-SAFE (91% at ends), blastRadius JEV-SAFE (91%), reversible JEV-SAFE (72%), **spendsOrSends MARGINAL (40%)** | mutatesWorld 6/7, spendsOrSends 6/7 (n too small for McNemar) |
+| step-verify | 4 | 255 / 304 ms | INSUFFICIENT-DATA (< 8) | outcome 4/4, errorShown 4/4, blocked 3/4 |
+| login-verify | 3 | 269 ms | INSUFFICIENT-DATA (< 8) | signedInSignsShown 3/3, credentialErrorShown 3/3, interstitial 3/3, **loginFormGone 2/3** (0.64 on the closed-flash page) |
+| vet (meta) | 7 questions | 241 / 270 ms | needsOtherRecords and twoQuestionsInOne sit mid-band (29% at ends) on our own questions | no labels |
+
+Cost of all four: about $0.002. `score` answers are the expected level on a 0-based legend, with per-level probabilities alongside.
+
+Live loop (jev-tape `npm run vibium` against `scripts/fixture-site.mjs`): the Login submit gated **escalate** on two different pages (mutatesWorld 0.79–0.81, reversible 0.39). A sign-in does change server state, so that is a fair answer to the question as worded; by rule 7 the threshold stays. The operator's compose applied the click and `login-verify` returned **true** in 503 ms. Second run: gate served from the tape, 0 POSTs for it.
+
+What the numbers say to do next: `spendsOrSends` needs rewording or an escape (it is the least literal of the four and it sits mid-band on 60% of targets); `loginFormGone` should read `labelsRemoved` only, since "the text no longer asks for a password" pulled it toward the middle on a page whose flash still mentioned login; and the routine-commit decision (Login on an allowlisted host) belongs to the operator's `Policy`, not to a threshold.
+
 ## What is claimed, and what is not
 
 Claimed: the loop shape and its POST budget (twin-tested), the question shapes (M1–M7 lint), and that every relational judgement in a browser step has a named code replacement (`notForJev`). Not claimed: any accuracy, coverage, or that `auto` is safe. `n` is 43 gate targets (7 labelled) and 4 pairs. G4 and G6 will refuse any headline from this, correctly.

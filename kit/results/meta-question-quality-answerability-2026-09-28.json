@@ -1,0 +1,238 @@
+{
+  "kit": 1,
+  "spec": "meta-question-quality-answerability",
+  "specPath": "/tmp/claude-0/-home-user/ac0b3fa3-2298-585d-8a3d-5e9f78a4160a/scratchpad/specs/vet.json",
+  "model": "jev-1.13.0 (direct)",
+  "answeredBy": [
+    "jev-1.13.0"
+  ],
+  "startedAt": "2026-09-28T08:15:26.983Z",
+  "wallMs": 514,
+  "calls": 7,
+  "coverage": 1,
+  "privacyScan": "passed",
+  "disjointness": null,
+  "gate": {
+    "minCoverage": null,
+    "verdict": "none"
+  },
+  "gates": {
+    "contract": 1,
+    "verdict": "ACCEPT",
+    "refusing": [],
+    "warnings": [
+      "G4-coverage"
+    ],
+    "codes": [
+      "G4.undeclared"
+    ],
+    "settings": {
+      "alpha": 0.05,
+      "minStratum": 8,
+      "minDiscordant": 8,
+      "seenShareLimit": 0.2
+    },
+    "results": [
+      {
+        "id": "G1-spec-valid",
+        "stage": "preflight",
+        "verdict": "PASS",
+        "why": "spec is valid",
+        "evidence": {}
+      },
+      {
+        "id": "G2-privacy",
+        "stage": "preflight",
+        "verdict": "PASS",
+        "why": "0 hits in 7 states",
+        "evidence": {}
+      },
+      {
+        "id": "G3-text-disjoint",
+        "stage": "preflight",
+        "verdict": "SKIP",
+        "why": "no fit/test split declared: nothing to be disjoint from (label-free or single-split run)",
+        "evidence": {}
+      },
+      {
+        "id": "G4-coverage",
+        "stage": "run",
+        "verdict": "WARN",
+        "why": "coverage 100.0% but no minimum was declared before the run",
+        "code": "G4.undeclared",
+        "evidence": {
+          "coverage": 1
+        }
+      }
+    ]
+  },
+  "quality": [
+    {
+      "question": "asksForJudgementOfDegree",
+      "kind": "boolean",
+      "meanConf": 0.9199999999999999,
+      "atEnds": 1,
+      "spread": 0.010690449676496976,
+      "verdict": "INSUFFICIENT-DATA"
+    },
+    {
+      "question": "needsOtherRecords",
+      "kind": "boolean",
+      "meanConf": 0.49714285714285705,
+      "atEnds": 0.2857142857142857,
+      "spread": 0.10669429914193053,
+      "verdict": "INSUFFICIENT-DATA"
+    },
+    {
+      "question": "twoQuestionsInOne",
+      "kind": "boolean",
+      "meanConf": 0.42857142857142855,
+      "atEnds": 0.2857142857142857,
+      "spread": 0.25421347288434254,
+      "verdict": "INSUFFICIENT-DATA"
+    }
+  ],
+  "scorecards": [],
+  "items": [
+    {
+      "id": "step-verify.outcome",
+      "answers": {
+        "needsOtherRecords": {
+          "type": "noul",
+          "p": 0.26
+        },
+        "asksForJudgementOfDegree": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "twoQuestionsInOne": {
+          "type": "noul",
+          "p": 0.46
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 286,
+      "correct": {}
+    },
+    {
+      "id": "step-verify.errorShown",
+      "answers": {
+        "needsOtherRecords": {
+          "type": "noul",
+          "p": 0.16
+        },
+        "asksForJudgementOfDegree": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "twoQuestionsInOne": {
+          "type": "noul",
+          "p": 0.16
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 241,
+      "correct": {}
+    },
+    {
+      "id": "step-verify.blocked",
+      "answers": {
+        "needsOtherRecords": {
+          "type": "noul",
+          "p": 0.45
+        },
+        "asksForJudgementOfDegree": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "twoQuestionsInOne": {
+          "type": "noul",
+          "p": 0.32
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 269,
+      "correct": {}
+    },
+    {
+      "id": "login-verify.signedInSignsShown",
+      "answers": {
+        "needsOtherRecords": {
+          "type": "noul",
+          "p": 0.14
+        },
+        "asksForJudgementOfDegree": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "twoQuestionsInOne": {
+          "type": "noul",
+          "p": 0.57
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 248,
+      "correct": {}
+    },
+    {
+      "id": "login-verify.loginFormGone",
+      "answers": {
+        "needsOtherRecords": {
+          "type": "noul",
+          "p": 0.28
+        },
+        "asksForJudgementOfDegree": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "twoQuestionsInOne": {
+          "type": "noul",
+          "p": 0.9
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 188,
+      "correct": {}
+    },
+    {
+      "id": "login-verify.credentialErrorShown",
+      "answers": {
+        "needsOtherRecords": {
+          "type": "noul",
+          "p": 0.14
+        },
+        "asksForJudgementOfDegree": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "twoQuestionsInOne": {
+          "type": "noul",
+          "p": 0.58
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 199,
+      "correct": {}
+    },
+    {
+      "id": "login-verify.interstitial",
+      "answers": {
+        "needsOtherRecords": {
+          "type": "noul",
+          "p": 0.33
+        },
+        "asksForJudgementOfDegree": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "twoQuestionsInOne": {
+          "type": "noul",
+          "p": 0.89
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 165,
+      "correct": {}
+    }
+  ]
+}

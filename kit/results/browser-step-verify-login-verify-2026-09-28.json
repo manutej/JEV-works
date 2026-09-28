@@ -1,0 +1,318 @@
+{
+  "kit": 1,
+  "spec": "browser-step-verify-login-verify",
+  "specPath": "/tmp/claude-0/-home-user/ac0b3fa3-2298-585d-8a3d-5e9f78a4160a/scratchpad/specs/login.json",
+  "model": "jev-1.13.0 (direct)",
+  "answeredBy": [
+    "jev-1.13.0"
+  ],
+  "startedAt": "2026-09-28T08:15:26.247Z",
+  "wallMs": 504,
+  "calls": 3,
+  "coverage": 1,
+  "privacyScan": "passed",
+  "disjointness": null,
+  "gate": {
+    "minCoverage": null,
+    "verdict": "none"
+  },
+  "gates": {
+    "contract": 1,
+    "verdict": "ACCEPT",
+    "refusing": [],
+    "warnings": [
+      "G4-coverage"
+    ],
+    "codes": [
+      "G4.undeclared"
+    ],
+    "settings": {
+      "alpha": 0.05,
+      "minStratum": 8,
+      "minDiscordant": 8,
+      "seenShareLimit": 0.2
+    },
+    "results": [
+      {
+        "id": "G1-spec-valid",
+        "stage": "preflight",
+        "verdict": "PASS",
+        "why": "spec is valid",
+        "evidence": {}
+      },
+      {
+        "id": "G2-privacy",
+        "stage": "preflight",
+        "verdict": "PASS",
+        "why": "0 hits in 3 states",
+        "evidence": {}
+      },
+      {
+        "id": "G3-text-disjoint",
+        "stage": "preflight",
+        "verdict": "SKIP",
+        "why": "no fit/test split declared: nothing to be disjoint from (label-free or single-split run)",
+        "evidence": {}
+      },
+      {
+        "id": "G4-coverage",
+        "stage": "run",
+        "verdict": "WARN",
+        "why": "coverage 100.0% but no minimum was declared before the run",
+        "code": "G4.undeclared",
+        "evidence": {
+          "coverage": 1
+        }
+      }
+    ]
+  },
+  "quality": [
+    {
+      "question": "signedInSignsShown",
+      "kind": "boolean",
+      "meanConf": 0.9466666666666667,
+      "atEnds": 1,
+      "spread": 0.445495978283381,
+      "verdict": "INSUFFICIENT-DATA"
+    },
+    {
+      "question": "credentialErrorShown",
+      "kind": "boolean",
+      "meanConf": 0.9533333333333333,
+      "atEnds": 1,
+      "spread": 0.4478342947514801,
+      "verdict": "INSUFFICIENT-DATA"
+    },
+    {
+      "question": "interstitial",
+      "kind": "choice",
+      "meanConf": 1,
+      "atEnds": 1,
+      "spread": 0.2,
+      "keysUsed": 1,
+      "optionCount": 5,
+      "entropyMax": 0,
+      "entropyMean": 0,
+      "verdict": "INSUFFICIENT-DATA"
+    },
+    {
+      "question": "loginFormGone",
+      "kind": "boolean",
+      "meanConf": 0.7266666666666666,
+      "atEnds": 0.6666666666666666,
+      "spread": 0.3930224760324359,
+      "verdict": "INSUFFICIENT-DATA"
+    }
+  ],
+  "scorecards": [
+    {
+      "question": "signedInSignsShown",
+      "n": 3,
+      "coverage": 1,
+      "accuracy": 1,
+      "majority": {
+        "label": true,
+        "fittedOn": "scored items (in-sample)",
+        "accuracy": 0.6666666666666666,
+        "vsJev": {
+          "n": 3,
+          "accuracyA": 1,
+          "accuracyB": 0.6666666666666666,
+          "b": 1,
+          "c": 0,
+          "p": 1,
+          "different": false,
+          "deltaCI95": [
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "question": "loginFormGone",
+      "n": 3,
+      "coverage": 1,
+      "accuracy": 0.6666666666666666,
+      "majority": {
+        "label": false,
+        "fittedOn": "scored items (in-sample)",
+        "accuracy": 0.6666666666666666,
+        "vsJev": {
+          "n": 3,
+          "accuracyA": 0.6666666666666666,
+          "accuracyB": 0.6666666666666666,
+          "b": 1,
+          "c": 1,
+          "p": 1,
+          "different": false,
+          "deltaCI95": [
+            -1,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "question": "credentialErrorShown",
+      "n": 3,
+      "coverage": 1,
+      "accuracy": 1,
+      "majority": {
+        "label": false,
+        "fittedOn": "scored items (in-sample)",
+        "accuracy": 0.6666666666666666,
+        "vsJev": {
+          "n": 3,
+          "accuracyA": 1,
+          "accuracyB": 0.6666666666666666,
+          "b": 1,
+          "c": 0,
+          "p": 1,
+          "different": false,
+          "deltaCI95": [
+            0,
+            1
+          ]
+        }
+      }
+    },
+    {
+      "question": "interstitial",
+      "n": 3,
+      "coverage": 1,
+      "accuracy": 1,
+      "majority": {
+        "label": "none",
+        "fittedOn": "scored items (in-sample)",
+        "accuracy": 1,
+        "vsJev": {
+          "n": 3,
+          "accuracyA": 1,
+          "accuracyB": 1,
+          "b": 0,
+          "c": 0,
+          "p": 1,
+          "different": false,
+          "deltaCI95": [
+            0,
+            0
+          ]
+        }
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "login-ok",
+      "answers": {
+        "signedInSignsShown": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "loginFormGone": {
+          "type": "noul",
+          "p": 0.98
+        },
+        "credentialErrorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "interstitial": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "password_expired": 0,
+            "one_time_code": 0,
+            "none": 1,
+            "cookie_banner": 0,
+            "captcha": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 481,
+      "correct": {
+        "signedInSignsShown": true,
+        "loginFormGone": true,
+        "credentialErrorShown": true,
+        "interstitial": true
+      }
+    },
+    {
+      "id": "login-bad",
+      "answers": {
+        "signedInSignsShown": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "loginFormGone": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "credentialErrorShown": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "interstitial": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "one_time_code": 0,
+            "cookie_banner": 0,
+            "captcha": 0,
+            "none": 1,
+            "password_expired": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 239,
+      "correct": {
+        "signedInSignsShown": true,
+        "loginFormGone": true,
+        "credentialErrorShown": true,
+        "interstitial": true
+      }
+    },
+    {
+      "id": "logout-missed",
+      "answers": {
+        "signedInSignsShown": {
+          "type": "noul",
+          "p": 0.97
+        },
+        "loginFormGone": {
+          "type": "noul",
+          "p": 0.64
+        },
+        "credentialErrorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "interstitial": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "captcha": 0,
+            "none": 1,
+            "password_expired": 0,
+            "one_time_code": 0,
+            "cookie_banner": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 269,
+      "correct": {
+        "signedInSignsShown": true,
+        "loginFormGone": false,
+        "credentialErrorShown": true,
+        "interstitial": true
+      }
+    }
+  ]
+}
