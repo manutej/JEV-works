@@ -1,0 +1,57 @@
+{
+  "name": "intent-routing",
+  "target": "domain",
+  "kind": "choice",
+  "gate": {
+    "hi": 0.967,
+    "lo": null,
+    "maxError": 0.05,
+    "fit": {
+      "n": 100,
+      "acceptN": 59,
+      "acceptErrors": 0,
+      "acceptErrUpper": 0.049507609888226944,
+      "rejectN": 0,
+      "rejectErrors": 0,
+      "rejectErrUpper": 1,
+      "coverage": 0.59
+    }
+  },
+  "unstable": true,
+  "bootstrap": {
+    "draws": 200,
+    "hi": {
+      "p05": 0.49400000000000005,
+      "p50": 0.923,
+      "p95": 0.978
+    },
+    "lo": {
+      "p05": null,
+      "p50": null,
+      "p95": null
+    },
+    "hiNeverFits": 0.245,
+    "loNeverFits": 1,
+    "unstable": true
+  },
+  "budget": {
+    "effect": "reversible",
+    "blast": "low",
+    "maxError": 0.05,
+    "why": "a draft, a tag, a queue move: undone in one command that has been rehearsed. 5% is the cookbooks' maxAutoError; minItemsForBound(0.05) = 59 correct auto-decisions per side before any cut can be fitted"
+  },
+  "effect": {
+    "effect": "reversible",
+    "blast": "low"
+  },
+  "envelope": "validate-first",
+  "fittedOn": {
+    "n": 100,
+    "unanswered": 0,
+    "accuracy": 0.95,
+    "answeredBy": [
+      "jev-1.13.0"
+    ]
+  },
+  "frozenAt": "2026-09-28T09:07:54.834Z"
+}

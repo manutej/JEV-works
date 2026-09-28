@@ -1,0 +1,57 @@
+{
+  "name": "youtube-spam",
+  "target": "isSpam",
+  "kind": "noul",
+  "gate": {
+    "hi": 0.86,
+    "lo": null,
+    "maxError": 0.05,
+    "fit": {
+      "n": 100,
+      "acceptN": 82,
+      "acceptErrors": 0,
+      "acceptErrUpper": 0.03587403171067116,
+      "rejectN": 0,
+      "rejectErrors": 0,
+      "rejectErrUpper": 1,
+      "coverage": 0.82
+    }
+  },
+  "unstable": true,
+  "bootstrap": {
+    "draws": 200,
+    "hi": {
+      "p05": 0.74,
+      "p50": 0.86,
+      "p95": 0.88
+    },
+    "lo": {
+      "p05": null,
+      "p50": null,
+      "p95": null
+    },
+    "hiNeverFits": 0,
+    "loNeverFits": 1,
+    "unstable": true
+  },
+  "budget": {
+    "effect": "reversible",
+    "blast": "low",
+    "maxError": 0.05,
+    "why": "a draft, a tag, a queue move: undone in one command that has been rehearsed. 5% is the cookbooks' maxAutoError; minItemsForBound(0.05) = 59 correct auto-decisions per side before any cut can be fitted"
+  },
+  "effect": {
+    "effect": "reversible",
+    "blast": "low"
+  },
+  "envelope": "validate-first",
+  "fittedOn": {
+    "n": 100,
+    "unanswered": 0,
+    "accuracy": 0.92,
+    "answeredBy": [
+      "jev-1.13.0"
+    ]
+  },
+  "frozenAt": "2026-09-28T09:07:55.089Z"
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "f011",
+    "q": 0.5,
+    "verdict": true,
+    "label": true,
+    "correct": true
+  },
+  {
+    "id": "f007",
+    "q": 0.51,
+    "verdict": true,
+    "label": true,
+    "correct": true
+  },
+  {
+    "id": "f010",
+    "q": 0.52,
+    "verdict": true,
+    "label": false,
+    "correct": false
+  },
+  {
+    "id": "f076",
+    "q": 0.53,
+    "verdict": true,
+    "label": false,
+    "correct": false
+  },
+  {
+    "id": "f067",
+    "q": 0.56,
+    "verdict": false,
+    "label": true,
+    "correct": false
+  },
+  {
+    "id": "f097",
+    "q": 0.56,
+    "verdict": true,
+    "label": true,
+    "correct": true
+  },
+  {
+    "id": "f058",
+    "q": 0.5700000000000001,
+    "verdict": false,
+    "label": true,
+    "correct": false
+  },
+  {
+    "id": "f081",
+    "q": 0.6799999999999999,
+    "verdict": false,
+    "label": true,
+    "correct": false
+  },
+  {
+    "id": "f012",
+    "q": 0.69,
+    "verdict": false,
+    "label": true,
+    "correct": false
+  },
+  {
+    "id": "f016",
+    "q": 0.74,
+    "verdict": true,
+    "label": true,
+    "correct": true
+  }
+]

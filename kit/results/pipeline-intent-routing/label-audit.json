@@ -1,0 +1,72 @@
+[
+  {
+    "id": "f021",
+    "q": 0.362,
+    "verdict": true,
+    "label": "travel",
+    "correct": false
+  },
+  {
+    "id": "f097",
+    "q": 0.362,
+    "verdict": true,
+    "label": "credit_cards",
+    "correct": false
+  },
+  {
+    "id": "f032",
+    "q": 0.49400000000000005,
+    "verdict": true,
+    "label": "credit_cards",
+    "correct": true
+  },
+  {
+    "id": "f040",
+    "q": 0.527,
+    "verdict": true,
+    "label": "banking",
+    "correct": true
+  },
+  {
+    "id": "f049",
+    "q": 0.527,
+    "verdict": true,
+    "label": "home",
+    "correct": true
+  },
+  {
+    "id": "f083",
+    "q": 0.5820000000000001,
+    "verdict": true,
+    "label": "travel",
+    "correct": true
+  },
+  {
+    "id": "f075",
+    "q": 0.648,
+    "verdict": true,
+    "label": "credit_cards",
+    "correct": true
+  },
+  {
+    "id": "f082",
+    "q": 0.6699999999999999,
+    "verdict": true,
+    "label": "credit_cards",
+    "correct": false
+  },
+  {
+    "id": "f068",
+    "q": 0.725,
+    "verdict": true,
+    "label": "home",
+    "correct": true
+  },
+  {
+    "id": "f057",
+    "q": 0.736,
+    "verdict": true,
+    "label": "credit_cards",
+    "correct": true
+  }
+]

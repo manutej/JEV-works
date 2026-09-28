@@ -1,0 +1,235 @@
+{
+  "name": "intent-routing",
+  "target": "domain",
+  "kind": "choice",
+  "anchor": {
+    "n": 100,
+    "unanswered": 0,
+    "accuracy": 0.95,
+    "errorAuroc": 0.8673684210526316,
+    "perStratum": {
+      "oos_train": {
+        "n": 20,
+        "accuracy": 1,
+        "errorAuroc": null
+      },
+      "train": {
+        "n": 80,
+        "accuracy": 0.9375,
+        "errorAuroc": 0.8413333333333334
+      }
+    },
+    "labelAudit": [
+      {
+        "id": "f021",
+        "q": 0.362,
+        "verdict": true,
+        "label": "travel",
+        "correct": false
+      },
+      {
+        "id": "f097",
+        "q": 0.362,
+        "verdict": true,
+        "label": "credit_cards",
+        "correct": false
+      },
+      {
+        "id": "f032",
+        "q": 0.49400000000000005,
+        "verdict": true,
+        "label": "credit_cards",
+        "correct": true
+      },
+      {
+        "id": "f040",
+        "q": 0.527,
+        "verdict": true,
+        "label": "banking",
+        "correct": true
+      },
+      {
+        "id": "f049",
+        "q": 0.527,
+        "verdict": true,
+        "label": "home",
+        "correct": true
+      },
+      {
+        "id": "f083",
+        "q": 0.5820000000000001,
+        "verdict": true,
+        "label": "travel",
+        "correct": true
+      },
+      {
+        "id": "f075",
+        "q": 0.648,
+        "verdict": true,
+        "label": "credit_cards",
+        "correct": true
+      },
+      {
+        "id": "f082",
+        "q": 0.6699999999999999,
+        "verdict": true,
+        "label": "credit_cards",
+        "correct": false
+      },
+      {
+        "id": "f068",
+        "q": 0.725,
+        "verdict": true,
+        "label": "home",
+        "correct": true
+      },
+      {
+        "id": "f057",
+        "q": 0.736,
+        "verdict": true,
+        "label": "credit_cards",
+        "correct": true
+      }
+    ],
+    "reading": "AUROC 0.867: confidence orders the errors (arXiv:2609.26550 in-envelope 0.86–0.92)"
+  },
+  "frozen": {
+    "name": "intent-routing",
+    "target": "domain",
+    "kind": "choice",
+    "gate": {
+      "hi": 0.967,
+      "lo": null,
+      "maxError": 0.05,
+      "fit": {
+        "n": 100,
+        "acceptN": 59,
+        "acceptErrors": 0,
+        "acceptErrUpper": 0.049507609888226944,
+        "rejectN": 0,
+        "rejectErrors": 0,
+        "rejectErrUpper": 1,
+        "coverage": 0.59
+      }
+    },
+    "unstable": true,
+    "bootstrap": {
+      "draws": 200,
+      "hi": {
+        "p05": 0.49400000000000005,
+        "p50": 0.923,
+        "p95": 0.978
+      },
+      "lo": {
+        "p05": null,
+        "p50": null,
+        "p95": null
+      },
+      "hiNeverFits": 0.245,
+      "loNeverFits": 1,
+      "unstable": true
+    },
+    "budget": {
+      "effect": "reversible",
+      "blast": "low",
+      "maxError": 0.05,
+      "why": "a draft, a tag, a queue move: undone in one command that has been rehearsed. 5% is the cookbooks' maxAutoError; minItemsForBound(0.05) = 59 correct auto-decisions per side before any cut can be fitted"
+    },
+    "effect": {
+      "effect": "reversible",
+      "blast": "low"
+    },
+    "envelope": "validate-first",
+    "fittedOn": {
+      "n": 100,
+      "unanswered": 0,
+      "accuracy": 0.95,
+      "answeredBy": [
+        "jev-1.13.0"
+      ]
+    },
+    "frozenAt": "2026-09-28T09:07:54.834Z"
+  },
+  "test": {
+    "n": 150,
+    "coverage": 1,
+    "outcome": {
+      "n": 150,
+      "coverage": 0.6666666666666666,
+      "accepted": 100,
+      "acceptErrors": 0,
+      "rejected": 0,
+      "rejectErrors": 0,
+      "errorRate": 0,
+      "errorUpper95": 0.029513049607039932,
+      "held": true
+    },
+    "accuracyAll": 0.9466666666666667,
+    "accuracyAccepted": 1,
+    "acceptedShare": 0.6666666666666666
+  },
+  "gates": {
+    "contract": 1,
+    "verdict": "ACCEPT",
+    "refusing": [],
+    "warnings": [
+      "G8-threshold-fitted-and-held"
+    ],
+    "codes": [
+      "G8.unstable"
+    ],
+    "settings": {
+      "alpha": 0.05,
+      "minStratum": 8,
+      "minDiscordant": 8,
+      "seenShareLimit": 0.2
+    },
+    "results": [
+      {
+        "id": "G4-coverage",
+        "stage": "run",
+        "verdict": "PASS",
+        "why": "coverage 100.0% ≥ 95%",
+        "evidence": {
+          "coverage": 1,
+          "minCoverage": 0.95
+        }
+      },
+      {
+        "id": "G8-threshold-fitted-and-held",
+        "stage": "claim",
+        "verdict": "WARN",
+        "why": "domain accept cut: bound held, but the cut is unstable under resampling (bootstrapCuts)",
+        "code": "G8.unstable",
+        "evidence": {
+          "name": "domain accept cut",
+          "hi": 0.967,
+          "lo": null,
+          "maxError": 0.05,
+          "test": {
+            "n": 150,
+            "coverage": 0.6666666666666666,
+            "accepted": 100,
+            "acceptErrors": 0,
+            "rejected": 0,
+            "rejectErrors": 0,
+            "errorRate": 0,
+            "errorUpper95": 0.029513049607039932,
+            "held": true
+          }
+        }
+      },
+      {
+        "id": "G9-calibration-audited",
+        "stage": "claim",
+        "verdict": "SKIP",
+        "why": "no cost threshold relies on calibrated probabilities",
+        "evidence": {}
+      }
+    ]
+  },
+  "routes": {
+    "auto": 100,
+    "review": 50
+  }
+}

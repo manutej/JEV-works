@@ -1,0 +1,251 @@
+{
+  "name": "youtube-spam",
+  "target": "isSpam",
+  "kind": "noul",
+  "anchor": {
+    "n": 100,
+    "unanswered": 0,
+    "accuracy": 0.92,
+    "errorAuroc": 0.9558423913043478,
+    "perStratum": {
+      "Youtube04-Eminem.csv": {
+        "n": 21,
+        "accuracy": 0.9523809523809523,
+        "errorAuroc": 1
+      },
+      "Youtube03-LMFAO.csv": {
+        "n": 19,
+        "accuracy": 0.9473684210526315,
+        "errorAuroc": 0.9444444444444444
+      },
+      "Youtube02-KatyPerry.csv": {
+        "n": 24,
+        "accuracy": 0.875,
+        "errorAuroc": 0.9682539682539683
+      },
+      "Youtube01-Psy.csv": {
+        "n": 25,
+        "accuracy": 0.96,
+        "errorAuroc": 0.9583333333333334
+      },
+      "Youtube05-Shakira.csv": {
+        "n": 11,
+        "accuracy": 0.8181818181818182,
+        "errorAuroc": 1
+      }
+    },
+    "labelAudit": [
+      {
+        "id": "f011",
+        "q": 0.5,
+        "verdict": true,
+        "label": true,
+        "correct": true
+      },
+      {
+        "id": "f007",
+        "q": 0.51,
+        "verdict": true,
+        "label": true,
+        "correct": true
+      },
+      {
+        "id": "f010",
+        "q": 0.52,
+        "verdict": true,
+        "label": false,
+        "correct": false
+      },
+      {
+        "id": "f076",
+        "q": 0.53,
+        "verdict": true,
+        "label": false,
+        "correct": false
+      },
+      {
+        "id": "f067",
+        "q": 0.56,
+        "verdict": false,
+        "label": true,
+        "correct": false
+      },
+      {
+        "id": "f097",
+        "q": 0.56,
+        "verdict": true,
+        "label": true,
+        "correct": true
+      },
+      {
+        "id": "f058",
+        "q": 0.5700000000000001,
+        "verdict": false,
+        "label": true,
+        "correct": false
+      },
+      {
+        "id": "f081",
+        "q": 0.6799999999999999,
+        "verdict": false,
+        "label": true,
+        "correct": false
+      },
+      {
+        "id": "f012",
+        "q": 0.69,
+        "verdict": false,
+        "label": true,
+        "correct": false
+      },
+      {
+        "id": "f016",
+        "q": 0.74,
+        "verdict": true,
+        "label": true,
+        "correct": true
+      }
+    ],
+    "reading": "AUROC 0.956: confidence orders the errors (arXiv:2609.26550 in-envelope 0.86–0.92)"
+  },
+  "frozen": {
+    "name": "youtube-spam",
+    "target": "isSpam",
+    "kind": "noul",
+    "gate": {
+      "hi": 0.86,
+      "lo": null,
+      "maxError": 0.05,
+      "fit": {
+        "n": 100,
+        "acceptN": 82,
+        "acceptErrors": 0,
+        "acceptErrUpper": 0.03587403171067116,
+        "rejectN": 0,
+        "rejectErrors": 0,
+        "rejectErrUpper": 1,
+        "coverage": 0.82
+      }
+    },
+    "unstable": true,
+    "bootstrap": {
+      "draws": 200,
+      "hi": {
+        "p05": 0.74,
+        "p50": 0.86,
+        "p95": 0.88
+      },
+      "lo": {
+        "p05": null,
+        "p50": null,
+        "p95": null
+      },
+      "hiNeverFits": 0,
+      "loNeverFits": 1,
+      "unstable": true
+    },
+    "budget": {
+      "effect": "reversible",
+      "blast": "low",
+      "maxError": 0.05,
+      "why": "a draft, a tag, a queue move: undone in one command that has been rehearsed. 5% is the cookbooks' maxAutoError; minItemsForBound(0.05) = 59 correct auto-decisions per side before any cut can be fitted"
+    },
+    "effect": {
+      "effect": "reversible",
+      "blast": "low"
+    },
+    "envelope": "validate-first",
+    "fittedOn": {
+      "n": 100,
+      "unanswered": 0,
+      "accuracy": 0.92,
+      "answeredBy": [
+        "jev-1.13.0"
+      ]
+    },
+    "frozenAt": "2026-09-28T09:07:55.089Z"
+  },
+  "test": {
+    "n": 150,
+    "coverage": 1,
+    "outcome": {
+      "n": 150,
+      "coverage": 0.7933333333333333,
+      "accepted": 119,
+      "acceptErrors": 2,
+      "rejected": 0,
+      "rejectErrors": 0,
+      "errorRate": 0.01680672268907563,
+      "errorUpper95": 0.05195894540588871,
+      "held": true
+    },
+    "accuracyAll": 0.9333333333333333,
+    "accuracyAccepted": 0.9831932773109243,
+    "acceptedShare": 0.7933333333333333
+  },
+  "gates": {
+    "contract": 1,
+    "verdict": "ACCEPT",
+    "refusing": [],
+    "warnings": [
+      "G8-threshold-fitted-and-held"
+    ],
+    "codes": [
+      "G8.unstable"
+    ],
+    "settings": {
+      "alpha": 0.05,
+      "minStratum": 8,
+      "minDiscordant": 8,
+      "seenShareLimit": 0.2
+    },
+    "results": [
+      {
+        "id": "G4-coverage",
+        "stage": "run",
+        "verdict": "PASS",
+        "why": "coverage 100.0% ≥ 95%",
+        "evidence": {
+          "coverage": 1,
+          "minCoverage": 0.95
+        }
+      },
+      {
+        "id": "G8-threshold-fitted-and-held",
+        "stage": "claim",
+        "verdict": "WARN",
+        "why": "isSpam accept cut: bound held, but the cut is unstable under resampling (bootstrapCuts)",
+        "code": "G8.unstable",
+        "evidence": {
+          "name": "isSpam accept cut",
+          "hi": 0.86,
+          "lo": null,
+          "maxError": 0.05,
+          "test": {
+            "n": 150,
+            "coverage": 0.7933333333333333,
+            "accepted": 119,
+            "acceptErrors": 2,
+            "rejected": 0,
+            "rejectErrors": 0,
+            "errorRate": 0.01680672268907563,
+            "errorUpper95": 0.05195894540588871,
+            "held": true
+          }
+        }
+      },
+      {
+        "id": "G9-calibration-audited",
+        "stage": "claim",
+        "verdict": "SKIP",
+        "why": "no cost threshold relies on calibrated probabilities",
+        "evidence": {}
+      }
+    ]
+  },
+  "routes": {
+    "auto": 50,
+    "block": 69,
+    "review": 31
+  }
+}

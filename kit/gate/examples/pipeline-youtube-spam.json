@@ -1,0 +1,14 @@
+{
+  "name": "youtube-spam",
+  "target": "isSpam",
+  "fit": "../../../cookbooks/youtube-spam/results/fit.json",
+  "test": "../../../cookbooks/youtube-spam/results/test.json",
+  "items": "../../../cookbooks/youtube-spam/items.meta.json",
+  "effect": { "effect": "reversible", "blast": "low" },
+  "budgets": "effect-budgets.example.json",
+  "envelope": "validate-first",
+  "minCoverage": 0.95,
+  "auditShare": 0.1,
+  "stratumField": "source",
+  "out": "../../results/pipeline-youtube-spam"
+}
