@@ -68,6 +68,10 @@ question is then cost and latency, not capability.
 Fit every threshold on the fit split, never by hand (**G8**): a selective gate with a Clopper-Pearson error bound (`fitSelective`),
 or a cost cut only on probabilities an audited evaluator calls calibrated (**G9**). Apply it frozen to held-out data once and
 report whether the promised bound held. Escalating everything is an honest answer when the anchor is too small (L44).
+What a fitted cut may *do* is decided one step later: `kit/gate/route.ts` turns the verdict into an Ormus route (`auto / review /
+block / escalate_human`) under the action's effect class (reversible × blast) and an error budget declared per class before the data;
+`auto` rides only on a cut that was fitted, held, and is within budget. The doctrine and the cross-repo vocabulary map are in
+jev-elder `fusion/DECISION-CALIBRATION.md`.
 
 ## Q7 · The claim (anchored)
 Any claim ("Jev qualifies for domain D at error ≤ e on scope S") passes the standard suite: G1–G10, strata consistent with the

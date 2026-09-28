@@ -1,0 +1,14 @@
+[
+  {
+    "effect": "advisory",
+    "blast": "low",
+    "maxError": 0.2,
+    "why": "a label or a suggestion nobody acts on unread; chosen so a reviewer sees at most one wrong hint in five"
+  },
+  {
+    "effect": "reversible",
+    "blast": "low",
+    "maxError": 0.05,
+    "why": "a draft, a tag, a queue move: undone in one command that has been rehearsed. 5% is the cookbooks' maxAutoError; minItemsForBound(0.05) = 59 correct auto-decisions per side before any cut can be fitted"
+  }
+]

@@ -65,6 +65,7 @@ Every run passes the same named gates, G1–G10 (`kit/GATES.md`, `kit/standard-g
 | `standard-gate.ts` | the gate contract, catalogue G1–G10, core gates, `suite` | yes |
 | `threshold.ts` | fitted thresholds, calibration evaluators and their audit | yes |
 | `gate/` | decision rules, scoring policies, splits and leakage refusal, claim gate (E1–E5). **Owned by the leads session** | |
+| `gate/route.ts` | verdict + effect class + gate provenance + declared budgets → Ormus route `auto / review / block / escalate_human`; `auto` only on a fitted, held cut within budget; ledger line shape | yes |
 
 ## Rules it enforces, so you don't have to remember them
 Pinned model and `answeredBy` recorded (L36) · coverage beside accuracy (retro §9.2) · paired tests for accuracy gaps (I6) · holdout disjointness at text level (L31, L40) · never overwrite a result (D4) · privacy before any external call.
