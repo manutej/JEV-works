@@ -6,7 +6,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { checkBudgets, faceValue, ledgerEntry, route, type Budget, type GateProvenance } from './route.ts';
+import { alignedPairProbability, checkBudgets, faceValue, ledgerEntry, route, type Budget, type GateProvenance } from './route.ts';
 import { decide, type Answer, type Decision } from './decide.ts';
 import { applyGate, fitSelective, type Gate, type GateOutcome } from '../threshold.ts';
 import { rng } from '../stats.ts';
@@ -84,11 +84,11 @@ test('an unstable cut still routes auto, but the warning travels with it (as G8 
   assert.deepEqual(res.warnings, ['route.unstable']);
 });
 
-test('advisory effect: hand-set or unheld cuts are allowed and marked, never silent', () => {
-  assert.equal(route(true, ADVISORY, HAND, BUDGETS).route, 'auto');
-  assert.deepEqual(route(true, ADVISORY, HAND, BUDGETS).warnings, ['route.hand-set']);
-  assert.deepEqual(route(true, ADVISORY, { fittedOn: 'fit-split', gate: goodGate }, BUDGETS).warnings, ['route.not-applied']);
-  assert.deepEqual(route(true, ADVISORY, HELD, BUDGETS).warnings, []);
+test('advisory effect: hand-set or unheld cuts are allowed and marked, never silent (envelope use)', () => {
+  assert.equal(route(true, ADVISORY, HAND, BUDGETS, 'use').route, 'auto');
+  assert.deepEqual(route(true, ADVISORY, HAND, BUDGETS, 'use').warnings, ['route.hand-set']);
+  assert.deepEqual(route(true, ADVISORY, { fittedOn: 'fit-split', gate: goodGate }, BUDGETS, 'use').warnings, ['route.not-applied']);
+  assert.deepEqual(route(true, ADVISORY, HELD, BUDGETS, 'use').warnings, []);
 });
 
 test('budgets: every row typed and explained; no budget can buy auto for the human classes', () => {
@@ -133,4 +133,34 @@ test('ledger: a line carries the model, the snapshot, the gate and the route; it
   assert.throws(() => ledgerEntry({ stateId: 's-1', answeredBy: '', questions: ['q'], verdict: true, routed, effectClass: REV_LOW, prov: HAND }), /answeredBy/);
   assert.throws(() => ledgerEntry({ stateId: '', answeredBy: 'jev-1.13.0', questions: ['q'], verdict: true, routed, effectClass: REV_LOW, prov: HAND }), /stateId/);
   assert.equal(ledgerEntry({ stateId: 's', answeredBy: 'jev-1.13.0', questions: ['q'], verdict: false, routed: route(false, REV_LOW, HAND), effectClass: REV_LOW, prov: HAND }).gate.fittedOn, 'hand-set');
+});
+
+test('envelope: not-supported parks for a person and escalate hands to a stronger judge, whatever the verdict or gate', () => {
+  for (const v of [true, false, 'escalate'] as const) {
+    const ns = route(v, REV_LOW, HELD, BUDGETS, 'not-supported');
+    assert.equal(ns.route, 'escalate_human');
+    assert.equal(ns.code, 'route.envelope-unsupported');
+    const es = route(v, REV_LOW, HELD, BUDGETS, 'escalate');
+    assert.equal(es.route, 'review');
+    assert.equal(es.code, 'route.envelope-escalate');
+  }
+  // the human classes still come first
+  assert.equal(route(true, { effect: 'irreversible', blast: 'low' }, HELD, BUDGETS, 'escalate').code, 'route.irreversible');
+});
+
+test('envelope: validate-first (the default) only marks advisory autos; a fitted, held cut is the local validation', () => {
+  assert.deepEqual(route(true, ADVISORY, HAND, BUDGETS).warnings, ['route.hand-set', 'route.envelope-unvalidated']);
+  assert.deepEqual(route(true, ADVISORY, HAND, BUDGETS, 'use').warnings, ['route.hand-set']);
+  assert.deepEqual(route(true, ADVISORY, HELD, BUDGETS).warnings, []);
+  assert.equal(route(true, REV_LOW, HELD, BUDGETS).route, 'auto');
+  assert.equal(route(true, REV_LOW, HELD, BUDGETS, 'use').route, 'auto');
+});
+
+test('pairwise: both orders averaged; consistent orders keep the number, contradictory orders land on 0.5; invalid defers', () => {
+  assert.ok(Math.abs(alignedPairProbability(0.9, 0.1)! - 0.9) < 1e-12);
+  assert.ok(Math.abs(alignedPairProbability(0.9, 0.9)! - 0.5) < 1e-12);
+  assert.ok(Math.abs(alignedPairProbability(0.8, 0.4)! - 0.7) < 1e-12);
+  assert.equal(alignedPairProbability(undefined, 0.3), undefined);
+  assert.equal(alignedPairProbability(0.3, undefined), undefined);
+  assert.throws(() => alignedPairProbability(1.2, 0.1), /\[0, 1\]/);
 });

@@ -41,9 +41,22 @@ export type GateProvenance =
   | { fittedOn: 'hand-set'; note?: string }
   | { fittedOn: 'fit-split'; gate: Gate; outcome?: GateOutcome; unstable?: boolean };
 
+/**
+ * The workload envelope, from QUALIFY Q5, in the vocabulary of arXiv:2609.26550 Table 2 (JEV-as-a-Judge, CMU, 2026):
+ *   use            this kind of decision sits within a few points of the strongest judge tested; confidence orders the errors
+ *   validate-first no local anchor yet; the envelope is borrowed, not measured here
+ *   escalate       the kind of decision where Jev trails by 10-20 points (checking a derivation, resisting an elaborate wrong
+ *                  answer): a stronger judge decides, whatever Jev's confidence
+ *   not-supported  no tested judge beats chance (reference-free prose), and confidence carries no information (AUROC ~0.5):
+ *                  a person decides
+ * Declared per Context, never inferred from one run.
+ */
+export type Envelope = 'use' | 'validate-first' | 'escalate' | 'not-supported';
+
 /** Stable reason codes for a route that is not the verdict's face value. Route codes, not gate codes: they are not in REASON_CODES. */
 export const ROUTE_CODES = [
   'route.irreversible', 'route.high-blast',
+  'route.envelope-unsupported', 'route.envelope-escalate', 'route.envelope-unvalidated',
   'route.hand-set', 'route.bound-broken', 'route.not-applied', 'route.unstable',
   'route.budget-undeclared', 'route.budget-exceeded',
 ] as const;
@@ -73,27 +86,34 @@ const r = (route: Route, faceValueRoute: Route, why: string, code?: RouteCode, w
  *
  * Order of rules (the first that applies decides; later ones only add warnings):
  *   1. irreversible effect or high blast: true/escalate → escalate_human, false → block. Nothing here is automated.
- *   2. verdict false → block; verdict escalate → review. Neither claims an error rate, so neither needs a gate.
- *   3. verdict true, advisory effect → auto; a hand-set or unheld cut is a warning, not a demotion (Ormus tension 1).
- *   4. verdict true, reversible + low blast → auto only if: a budget is declared for the class, the cut was fitted on
+ *   2. envelope not-supported → escalate_human for any verdict (no judge is competent and confidence is uninformative);
+ *      envelope escalate → review for any verdict (a stronger judge decides). Confidence does not enter.
+ *   3. verdict false → block; verdict escalate → review. Neither claims an error rate, so neither needs a gate.
+ *   4. verdict true, advisory effect → auto; a hand-set or unheld cut is a warning, not a demotion (Ormus tension 1);
+ *      so is a borrowed envelope (validate-first) on such a cut.
+ *   5. verdict true, reversible + low blast → auto only if: a budget is declared for the class, the cut was fitted on
  *      the fit split, its bound held on held-out data, and that bound is ≤ the budget. Otherwise review, with the
  *      code naming what is missing. An unstable cut (bootstrapCuts) routes auto with a warning, as G8 warns.
+ *      A fitted, held cut IS the local validation, so validate-first adds nothing here.
  */
-export function route(verdict: Verdict, cls: EffectClass, prov: GateProvenance, budgets: readonly Budget[] = []): Routed {
+export function route(verdict: Verdict, cls: EffectClass, prov: GateProvenance, budgets: readonly Budget[] = [], envelope: Envelope = 'validate-first'): Routed {
   const fv = faceValue(verdict);
   if (cls.effect === 'irreversible' || cls.blast === 'high') {
     const code: RouteCode = cls.effect === 'irreversible' ? 'route.irreversible' : 'route.high-blast';
     if (verdict === false) return r('block', fv, `${describe(cls)}: verdict false, nothing happens; a human may still reopen it`, code);
     return r('escalate_human', fv, `${describe(cls)}: a human stands at this boundary whatever the number (A4, C10)`, code);
   }
+  if (envelope === 'not-supported') return r('escalate_human', fv, 'workload not supported: no tested judge beats chance here and confidence carries no information, so a person decides', 'route.envelope-unsupported');
+  if (envelope === 'escalate') return r('review', fv, 'workload in the escalate envelope: a stronger judge decides whatever the confidence (derivations, style-adversarial answers)', 'route.envelope-escalate');
   if (verdict === false) return r('block', fv, 'verdict false: not doing the action claims no error rate');
   if (verdict === 'escalate') return r('review', fv, 'verdict escalate: the middle goes to review');
 
   // verdict === true from here on
   if (cls.effect === 'advisory') {
-    if (prov.fittedOn === 'hand-set') return r('auto', fv, 'advisory effect on a hand-set cut: allowed, marked (being wrong costs nothing irreversible)', undefined, ['route.hand-set']);
-    if (!prov.outcome) return r('auto', fv, 'advisory effect on a fitted cut never applied to held-out data: allowed, marked', undefined, ['route.not-applied']);
-    if (!prov.outcome.held) return r('auto', fv, 'advisory effect on a cut whose bound broke on held-out data: allowed, marked', undefined, ['route.bound-broken']);
+    const borrowed: RouteCode[] = envelope === 'validate-first' ? ['route.envelope-unvalidated'] : [];
+    if (prov.fittedOn === 'hand-set') return r('auto', fv, 'advisory effect on a hand-set cut: allowed, marked (being wrong costs nothing irreversible)', undefined, ['route.hand-set', ...borrowed]);
+    if (!prov.outcome) return r('auto', fv, 'advisory effect on a fitted cut never applied to held-out data: allowed, marked', undefined, ['route.not-applied', ...borrowed]);
+    if (!prov.outcome.held) return r('auto', fv, 'advisory effect on a cut whose bound broke on held-out data: allowed, marked', undefined, ['route.bound-broken', ...borrowed]);
     return r('auto', fv, 'advisory effect on a fitted, held cut', undefined, prov.unstable ? ['route.unstable'] : []);
   }
 
@@ -108,6 +128,19 @@ export function route(verdict: Verdict, cls: EffectClass, prov: GateProvenance, 
 }
 
 const describe = (c: EffectClass) => `${c.effect} effect, ${c.blast} blast`;
+
+/**
+ * Pairwise Choice (A vs B) is judged in BOTH candidate orders and the aligned probability of A is averaged before any
+ * gate reads it: p̄(A) = ½ [ p1(A,B) + 1 − p1(B,A) ], where p1 is the probability of the first-shown candidate.
+ * arXiv:2609.26550 §6–7: reversing the order flipped 3.25% of RewardBench and 11.14% of JudgeBench decisions, several
+ * times the A/A resampling noise (program/DRIFT.md: 1–2% flips), and its frozen policies gate on this average only.
+ * An invalid answer in either order has no probability, so the caller defers (undefined in → undefined out).
+ */
+export function alignedPairProbability(p1AB: number | undefined, p1BA: number | undefined): number | undefined {
+  if (p1AB === undefined || p1BA === undefined) return undefined;
+  for (const p of [p1AB, p1BA]) if (!(p >= 0 && p <= 1)) throw new Error(`alignedPairProbability: probabilities must be in [0, 1], got ${p}`);
+  return 0.5 * (p1AB + (1 - p1BA));
+}
 const pct = (x: number) => `${(x * 100).toFixed(1)}%`;
 
 /** Validate a budgets file: every row typed, maxError in (0, 1), `why` present, one row per class. All errors at once. */

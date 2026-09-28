@@ -32,6 +32,9 @@ disagreeing edge names the bad question or the wrong combining rule, **without a
 and were localised). Run the label-free quality report too: questions that never become decisive go to code (`kit/run.ts`).
 Gates: **G10** (tree consistent). REFUSE means *fix the tree*, not *ship with caveats*.
 Caveat: consistency ≠ correctness. A tree can be consistently wrong (P34, L43).
+Pairwise questions (A vs B, any shortlist or rank step): ask **both candidate orders** and gate on the averaged aligned
+probability (`kit/gate/route.ts` `alignedPairProbability`); order reversal flipped 3–11% of decisions in arXiv:2609.26550,
+several times the A/A noise, and an invalid answer in either order defers.
 
 ## Q3 · Buy the smallest anchor (moves unanchored → anchored)
 Ground truth is bought, not assumed. Size it **before** collecting anything:
@@ -39,7 +42,13 @@ Ground truth is bought, not assumed. Size it **before** collecting anything:
 - For a comparison: enough items for ≥ 8 discordant pairs (G6), which usually means 150+.
 - For calibration: ≥ 100 held-out items, or the audited evaluator says "too few" (L42).
 Draw the anchor from the domain's real stream, stratified, and **over-sample where the label-free signals disagree** (Q2
-failing edges, high entropy): that is where the labels buy the most. Keep it disjoint from everything used to write the questions
+failing edges, high entropy): that is where the labels buy the most. **Audit the labels on the low-confidence stratum first**: in
+arXiv:2609.26550 the items Jev was unsure about on HaluEval were mostly the mislabeled ones (24 of 26 shared "misses" carried labels
+the evidence did not support), so a cut fitted there is fitted on label noise.
+Before fitting anything, report the **error-detection AUROC** of confidence against correctness on the anchor (`program/stats.ts`
+`auc`, positive = error, score = 1 − q), overall and on the adversarial stratum. In the paper it was 0.74–0.92 where the cascade
+worked and 0.518 on reference-free prose, where mean max-probability was still 0.90 and no threshold helped. Near 0.5 the domain is
+`not-supported` (route: a person), not a threshold problem; `fitSelective` will find no cut and that is the right answer. Keep it disjoint from everything used to write the questions
 (**G3**: id, text and 8-word runs, L31/L40/L45).
 
 ## Q4 · Evaluate the evaluators (the panel is audited, not trusted)
@@ -63,6 +72,11 @@ and with a cheap non-LLM baseline. Paired exact McNemar, Holm across domains, co
 **robustness / contamination probe** for public benchmarks: paraphrase the inputs, and relabel the options to neutral codes. A
 large drop means memorised surface or label names, not reading. A domain where a general LLM ties Jev is still useful; the
 question is then cost and latency, not capability.
+Record the outcome as the Context's **envelope** (`kit/gate/route.ts` `Envelope`: `use | validate-first | escalate | not-supported`,
+the vocabulary of arXiv:2609.26550 Table 2). Its measured shape for jev-1.13.0 on public judging work: within three points of the
+strongest judge on ordinary preference, evidence-grounded factuality and final-answer adjudication (`use`); 10–20 points behind on
+checking a multi-step derivation or resisting a more elaborately written wrong answer (`escalate`, whatever the confidence); near
+chance for every judge on reference-free prose (`not-supported`). The envelope routes before confidence does.
 
 ## Q6 · Thresholds by method (anchored)
 Fit every threshold on the fit split, never by hand (**G8**): a selective gate with a Clopper-Pearson error bound (`fitSelective`),
