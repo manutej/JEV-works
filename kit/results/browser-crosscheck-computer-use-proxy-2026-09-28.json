@@ -1,0 +1,242 @@
+{
+ "at": "2026-09-28",
+ "note": "Claude computer use itself was not available in this session (no computer-use tools). Proxy: one Sonnet agent per row reads the page screenshot (780x493 headless viewport, captured by Vibium) and judges the claim from the image alone. Blind run: images copied to p1..p8 under a deterministic shuffle into a directory holding only images; the prompt carried the image path and the claim only. The first launch was not blind (file names carried -false; the rows file with expectations sat beside the images) and is kept only for comparison.",
+ "jevModel": "jev-1.13.0",
+ "checkModel": "xai/grok-4.6",
+ "rows": [
+  {
+   "id": "npm-react",
+   "claim": "This is the npm registry page for the package named react",
+   "expect": "passed",
+   "jev": {
+    "ms": 309,
+    "verdict": "inconclusive",
+    "ok": false,
+    "rule": 1,
+    "inputTokens": 820
+   },
+   "check": {
+    "ms": 141701,
+    "verdict": "failed",
+    "ok": false,
+    "summary": "The current page is a Cloudflare bot-verification interstitial, not the npm registry listing for the react package. The URL path is /package/react, but the rend"
+   },
+   "sonnetScreenshotBlind": {
+    "blindName": "p7",
+    "verdict": "failed",
+    "readAndDecideMs": 2512,
+    "agentWallMs": 8871
+   },
+   "sonnetScreenshotNonBlind": {
+    "verdict": "inconclusive",
+    "readAndDecideMs": 2621
+   }
+  },
+  {
+   "id": "rfc2324",
+   "claim": "This page is about RFC 2324, the Hyper Text Coffee Pot Control Protocol",
+   "expect": "passed",
+   "jev": {
+    "ms": 248,
+    "verdict": "passed",
+    "ok": true,
+    "rule": 3,
+    "inputTokens": 1857
+   },
+   "check": {
+    "ms": 25198,
+    "verdict": "passed",
+    "ok": true,
+    "summary": "The current page is the RFC Editor document for RFC 2324, titled Hyper Text Coffee Pot Control Protocol (HTCPCP/1.0). The URL, page title, main heading, and bod"
+   },
+   "sonnetScreenshotBlind": {
+    "blindName": "p8",
+    "verdict": "passed",
+    "readAndDecideMs": 2148,
+    "agentWallMs": 9543
+   },
+   "sonnetScreenshotNonBlind": {
+    "verdict": "passed",
+    "readAndDecideMs": 2295
+   }
+  },
+  {
+   "id": "wiki-lisp",
+   "claim": "This is the Wikipedia article on the Common Lisp programming language",
+   "expect": "passed",
+   "jev": {
+    "ms": 250,
+    "verdict": "passed",
+    "ok": true,
+    "rule": 3,
+    "inputTokens": 1922
+   },
+   "check": {
+    "ms": 40976,
+    "verdict": "passed",
+    "ok": true,
+    "summary": "The current page is the English Wikipedia article on Common Lisp: the URL is https://en.wikipedia.org/wiki/Common_Lisp, the main heading is “Common Lisp”, and t"
+   },
+   "sonnetScreenshotBlind": {
+    "blindName": "p4",
+    "verdict": "passed",
+    "readAndDecideMs": 2805,
+    "agentWallMs": 9217
+   },
+   "sonnetScreenshotNonBlind": {
+    "verdict": "passed",
+    "readAndDecideMs": 2284
+   }
+  },
+  {
+   "id": "mdn-flex",
+   "claim": "This MDN page documents CSS flexible box layout",
+   "expect": "passed",
+   "jev": {
+    "ms": 277,
+    "verdict": "passed",
+    "ok": true,
+    "rule": 3,
+    "inputTokens": 1663
+   },
+   "check": {
+    "ms": 17352,
+    "verdict": "passed",
+    "ok": true,
+    "summary": "The current MDN page is documentation for CSS flexible box layout: its URL is /docs/Web/CSS/Guides/Flexible_box_layout, the h1 is “CSS flexible box layout”, and"
+   },
+   "sonnetScreenshotBlind": {
+    "blindName": "p3",
+    "verdict": "passed",
+    "readAndDecideMs": 2673,
+    "agentWallMs": 9631
+   },
+   "sonnetScreenshotNonBlind": {
+    "verdict": "passed",
+    "readAndDecideMs": 2851
+   }
+  },
+  {
+   "id": "wiki-ada-false",
+   "claim": "This article says Ada Lovelace invented JavaScript",
+   "expect": "failed",
+   "jev": {
+    "ms": 241,
+    "verdict": "inconclusive",
+    "ok": false,
+    "rule": "default",
+    "inputTokens": 1935
+   },
+   "check": {
+    "ms": 53328,
+    "verdict": "failed",
+    "ok": true,
+    "summary": "The Wikipedia article on Ada Lovelace does not say she invented JavaScript. It describes her 19th-century work on Babbage’s analytical engine and related comput"
+   },
+   "sonnetScreenshotBlind": {
+    "blindName": "p2",
+    "verdict": "failed",
+    "readAndDecideMs": 3125,
+    "agentWallMs": 9235
+   },
+   "sonnetScreenshotNonBlind": {
+    "verdict": "failed",
+    "readAndDecideMs": 2611
+   }
+  },
+  {
+   "id": "gh-linux",
+   "claim": "This is the GitHub repository page for torvalds/linux",
+   "expect": "passed",
+   "jev": {
+    "ms": 219,
+    "verdict": "passed",
+    "ok": true,
+    "rule": 3,
+    "inputTokens": 2020
+   },
+   "check": {
+    "ms": 15815,
+    "verdict": "passed",
+    "ok": true,
+    "summary": "The current page is the public GitHub repository for torvalds/linux (Linux kernel source tree). The URL, owner/repo header, about text, and file listing all mat"
+   },
+   "sonnetScreenshotBlind": {
+    "blindName": "p5",
+    "verdict": "passed",
+    "readAndDecideMs": 2781,
+    "agentWallMs": 8468
+   },
+   "sonnetScreenshotNonBlind": {
+    "verdict": "passed",
+    "readAndDecideMs": 2400
+   }
+  },
+  {
+   "id": "wiki-python-false",
+   "claim": "This article says Python was created by Linus Torvalds",
+   "expect": "failed",
+   "jev": {
+    "ms": 246,
+    "verdict": "failed",
+    "ok": true,
+    "rule": 2,
+    "inputTokens": 1913
+   },
+   "check": {
+    "ms": 45784,
+    "verdict": "failed",
+    "ok": true,
+    "summary": "The Wikipedia article on Python (programming language) attributes the language to Guido van Rossum, not Linus Torvalds. The infobox lists “Designed by Guido van"
+   },
+   "sonnetScreenshotBlind": {
+    "blindName": "p6",
+    "verdict": "failed",
+    "readAndDecideMs": 2876,
+    "agentWallMs": 9004
+   },
+   "sonnetScreenshotNonBlind": {
+    "verdict": "failed",
+    "readAndDecideMs": 2679
+   }
+  },
+  {
+   "id": "hn",
+   "claim": "The Hacker News front page is showing a list of stories with points and comments",
+   "expect": "passed",
+   "jev": {
+    "ms": 236,
+    "verdict": "passed",
+    "ok": true,
+    "rule": 3,
+    "inputTokens": 1854
+   },
+   "check": {
+    "ms": 18234,
+    "verdict": "passed",
+    "ok": true,
+    "summary": "The Hacker News front page at https://news.ycombinator.com/ displays a numbered list of stories, each with a points count and a comments (or discuss) link."
+   },
+   "sonnetScreenshotBlind": {
+    "blindName": "p1",
+    "verdict": "passed",
+    "readAndDecideMs": 4089,
+    "agentWallMs": 10863
+   },
+   "sonnetScreenshotNonBlind": {
+    "verdict": "passed",
+    "readAndDecideMs": 2533
+   }
+  }
+ ],
+ "summary": {
+  "jevMedianMs": 248,
+  "checkMedianMs": 40976,
+  "sonnetBlindReadDecideMedianMs": 2793,
+  "sonnetBlindAgentWallMedianMs": 9226,
+  "jevRight": "6/8 decided, 6/6 right, 2 escalate",
+  "checkRight": "7/8",
+  "sonnetBlindRight": "7/8 vs catalog; the miss is the Cloudflare-walled npm page, where the screenshot shows no npm page (judge right about the image, catalog label assumes the page loaded)",
+  "sonnetNonBlindRight": "7/8 with the same row inconclusive"
+ }
+}
