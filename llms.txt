@@ -66,6 +66,7 @@ These are compressed from 22 lessons. Each one was learned by violating it.
 | `hekat/` | typed layer for HEKAT chains. `hotkeys.ts` declares colours per hotkey; `check-chain.ts` validates `[R→D→I]` chains via fp-ts `Either`. `FINDINGS.md` records why HEKAT itself is prose, not software |
 | `dashboard/build.py` | regenerates `dashboard/index.html` from result files. Idempotent |
 | `runs/*.jsonl` | one line per item from every instrumented run. `tail -f` these |
+| `kit/gate/route.ts`, `kit/gate/pipeline.ts` | routing (auto / review / block / escalate_human) and the fused calibration workflow. The agent-facing explanation of the whole process, with diagrams and the CMU paper in plain terms, is jev-elder `fusion/README.md` |
 
 ## Running anything
 
