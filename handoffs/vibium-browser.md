@@ -1,0 +1,41 @@
+# Handoff — Jev in front of a browser (Vibium)
+
+Date 2026-09-28. Status: **contexts drafted and linted, runtime twins green in jev-tape, nothing measured live yet.**
+Model pin `jev-1.13.0`. This file says what exists, what is claimed, and what the next keyed session must run.
+
+## What exists
+
+| Where | What |
+| --- | --- |
+| `kit/modules/contexts/browser.action-gate.json` | May this commit verb (click, press Enter, upload…) run now? 3 nouls + 1 score over one page snapshot. Escape-less by design (nouls); compose leans on the nouls until score indexing is confirmed live. |
+| `kit/modules/contexts/browser.step-verify.json` | Did the page do what the step said? Module `step-verify` (claim vs evidence, choice with escape `unsupported`) and module `login-verify` (four literal leaves from the operator interview). |
+| `kit/modules/items/browser-gate.items.json` | 43 clickable targets from six recorded pages (31 of them IANA nav links); 7 carry `mutatesWorld` / `spendsOrSends` labels where the truth is certain. |
+| `kit/modules/items/browser-verify.items.json` | 4 before→after pairs with a claim, labelled for `step-verify`. |
+| `kit/modules/items/browser-login.items.json` | 3 of those pairs labelled for `login-verify`. |
+| `handoffs/vibium/interview-login-verify.md` | The operadic-interview answer sheet that produced `login-verify`. Passes `treelint.py` (1 documented star delegation). |
+| `handoffs/vibium/toq-login-verify.yaml` | The same tree in `.toq` shape for the OC gate. Not frozen, not in `SLUGS`: promote only after it is answered on a real corpus. |
+| jev-tape `src/vibium/`, `packs/`, `spec/SURFACES-VIBIUM.md` | The runtime: verb classes → speed paths, ≤ 2 POSTs per applied step, replay tape, redaction, C10 park. |
+
+States were built by jev-tape's own `labelDiff()` and `excerpt()` from `jev-tape/fixtures/vibium/*.json`, so what the kit measures is what the runtime sends.
+
+## What is claimed, and what is not
+
+Claimed: the loop shape and its POST budget (twin-tested), the question shapes (M1–M7 lint), and that every relational judgement in a browser step has a named code replacement (`notForJev`). Not claimed: any accuracy, coverage, or that `auto` is safe. `n` is 43 gate targets (7 labelled) and 4 pairs. G4 and G6 will refuse any headline from this, correctly.
+
+## Next keyed session, in order (kit/QUALIFY.md Q1–Q3)
+
+```bash
+cd ~/JEV-works && source ~/.zshrc
+node kit/modules/cli.ts vet  kit/modules/contexts/browser.step-verify.json /tmp/vet.json && node kit/run.ts /tmp/vet.json          # Jev vets the questions themselves
+node kit/modules/cli.ts spec kit/modules/contexts/browser.action-gate.json  action-gate  kit/modules/items/browser-gate.items.json   /tmp/gate.json   && node kit/run.ts /tmp/gate.json
+node kit/modules/cli.ts spec kit/modules/contexts/browser.step-verify.json  step-verify  kit/modules/items/browser-verify.items.json /tmp/verify.json && node kit/run.ts /tmp/verify.json
+node kit/modules/cli.ts spec kit/modules/contexts/browser.step-verify.json  login-verify kit/modules/items/browser-login.items.json  /tmp/login.json  && node kit/run.ts /tmp/login.json
+```
+
+Read, per question: atEnds and spread (label-free), then correctness on the few labels. Expect `outcome` to be the weakest: it compares a claim with evidence, which is the least literal question in the set (P21). If it comes back MOVE-TO-CODE, `step-verify` keeps `errorShown` and `blocked` only and non-literal claims go to `vibium check`. Record the score level indexing the first live gate answer shows and fix the `blastRadius` rules accordingly.
+
+Then grow the corpus: `cd ~/jev-tape && npm run vibium -- … --corpus states.json` appends every snapshot of a live flow. Over-sample where the collapses of `toq-login-verify.yaml` disagree (Q3). Buy the anchor from that stream, not from these four pairs.
+
+## Rails that bind here
+
+C5: Jev never computes the URL change, the diff, a count, or a retry; those are in code and the state carries their result as a value. C10: pay / send / delete targets park before any POST. P5: every choice has an escape option. L1: no gate on a conjunction of confidences; the compose rules use single-end conditions. L22: the runtime's `loadPack` fails closed on a drifted copy; the kit's lint is the same rule set.

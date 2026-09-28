@@ -1,0 +1,68 @@
+[
+  {
+    "id": "login-ok",
+    "state": {
+      "claim": "the user is signed in and sees the secure area",
+      "beforeUrl": "https://the-internet.herokuapp.com/login",
+      "afterUrl": "https://the-internet.herokuapp.com/secure",
+      "urlChanged": "yes",
+      "title": "The Internet",
+      "textExcerpt": "You logged into a secure area!\n×\nSecure Area\nWelcome to the Secure Area. When you are done click logout below.\nLogout\nPowered by Elemental Selenium",
+      "labelsAdded": [
+        "[a] \"×\"",
+        "[a] \"Logout\""
+      ],
+      "labelsRemoved": [
+        "[input type=\"text\"] name=\"username\"",
+        "[input type=\"password\"] name=\"password\"",
+        "[button type=\"submit\"] \"Login\""
+      ]
+    },
+    "labels": {
+      "signedInSignsShown": true,
+      "loginFormGone": true,
+      "credentialErrorShown": false,
+      "interstitial": "none"
+    }
+  },
+  {
+    "id": "login-bad",
+    "state": {
+      "claim": "the user is signed in and sees the secure area",
+      "beforeUrl": "https://the-internet.herokuapp.com/login",
+      "afterUrl": "https://the-internet.herokuapp.com/login",
+      "urlChanged": "no",
+      "title": "The Internet",
+      "textExcerpt": "Your password is invalid!\n×\nLogin Page\nThis is where you can log into the secure area. Enter tomsmith for the username and SuperSecretPassword! for the password. If the information is wrong you should see error messages.\nUsername\nPassword\n Login\nPowered by Elemental Selenium",
+      "labelsAdded": [
+        "[a] \"×\""
+      ],
+      "labelsRemoved": []
+    },
+    "labels": {
+      "signedInSignsShown": false,
+      "loginFormGone": false,
+      "credentialErrorShown": true,
+      "interstitial": "none"
+    }
+  },
+  {
+    "id": "logout-missed",
+    "state": {
+      "claim": "the user has logged out and sees the login form",
+      "beforeUrl": "https://the-internet.herokuapp.com/secure",
+      "afterUrl": "https://the-internet.herokuapp.com/secure",
+      "urlChanged": "no",
+      "title": "The Internet",
+      "textExcerpt": "You logged into a secure area!\n×\nSecure Area\nWelcome to the Secure Area. When you are done click logout below.\nLogout\nPowered by Elemental Selenium",
+      "labelsAdded": [],
+      "labelsRemoved": []
+    },
+    "labels": {
+      "signedInSignsShown": true,
+      "loginFormGone": false,
+      "credentialErrorShown": false,
+      "interstitial": "none"
+    }
+  }
+]
