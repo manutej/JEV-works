@@ -3,7 +3,16 @@
   "description": "After a commit verb ran: did the page do what the step said it would? Claim-verify lane (jev-tape lane 2) over one post-action snapshot plus a code-computed label diff. Replaces a 20–150 s `vibium check` model loop with one ~130 ms POST for literal claims; non-literal claims escalate to Check. Canonical copy: JEV-works kit/modules/contexts/browser.step-verify.json. Status: drafted; login-verify derived from handoffs/vibium/interview-login-verify.md; neither measured yet.",
   "artifact": {
     "type": "post-action browser snapshot with a claim",
-    "stateFields": ["claim", "beforeUrl", "afterUrl", "urlChanged", "title", "textExcerpt", "labelsAdded", "labelsRemoved"]
+    "stateFields": [
+      "claim",
+      "beforeUrl",
+      "afterUrl",
+      "urlChanged",
+      "title",
+      "textExcerpt",
+      "labelsAdded",
+      "labelsRemoved"
+    ]
   },
   "modules": [
     {
@@ -13,19 +22,31 @@
         "outcome": {
           "type": "choice",
           "polarity": "neutral",
-          "reads": ["claim", "afterUrl", "urlChanged", "title", "textExcerpt", "labelsAdded", "labelsRemoved"],
+          "reads": [
+            "claim",
+            "afterUrl",
+            "urlChanged",
+            "title",
+            "textExcerpt",
+            "labelsAdded",
+            "labelsRemoved"
+          ],
           "escapeOption": "unsupported",
           "instructions": "Which of these does the page evidence say about the claim?",
           "criteria": {
             "verified": "The page text, title, address, or newly present elements state what the claim says.",
             "contradicted": "The page states the opposite of the claim, or shows the state the claim says has ended.",
             "unsupported": "The evidence neither confirms nor denies the claim."
-          }
+          },
+          "note": "A selected option is a verdict only when the distribution is peaked. Measured 2026-09-28: Wikipedia Special:Search after Enter gave verified 0.48 / unsupported 0.28 / contradicted 0.24 (normalised entropy ~0.94) and the old rule accepted it; real verified answers on eight pages sat at 0.93–0.97 (entropy < 0.3). Rule 0 escalates above 0.6 (L23: measure the range before trusting an entropy gate; this one is measured on both sides)."
         },
         "errorShown": {
           "type": "noul",
           "polarity": "bad-when-yes",
-          "reads": ["textExcerpt", "labelsAdded"],
+          "reads": [
+            "textExcerpt",
+            "labelsAdded"
+          ],
           "instructions": "Does the page show an error or failure message about what was just attempted?",
           "criteria": {
             "true": "The text states that something is invalid, failed, was rejected, is not allowed, or must be tried again.",
@@ -35,7 +56,11 @@
         "blocked": {
           "type": "choice",
           "polarity": "neutral",
-          "reads": ["textExcerpt", "labelsAdded", "title"],
+          "reads": [
+            "textExcerpt",
+            "labelsAdded",
+            "title"
+          ],
           "escapeOption": "none",
           "instructions": "Which stop, if any, is the page showing instead of the expected result?",
           "criteria": {
@@ -50,21 +75,83 @@
       },
       "compose": {
         "positive": "the step's expectation holds on the page",
-        "thresholds": { "yes": 0.85, "no": 0.15 },
+        "thresholds": {
+          "yes": 0.85,
+          "no": 0.15
+        },
         "rules": [
-          { "when": { "q": "errorShown", "is": "yes" }, "then": false },
-          { "when": { "q": "blocked", "choiceIn": ["one_time_code", "captcha", "login_wall", "error_page"] }, "then": "escalate" },
-          { "when": { "q": "outcome", "choice": "contradicted" }, "then": false },
-          { "when": { "all": [ { "q": "outcome", "choice": "verified" }, { "q": "errorShown", "is": "no" } ] }, "then": true }
+          {
+            "when": {
+              "q": "outcome",
+              "entropyAbove": 0.6
+            },
+            "then": "escalate"
+          },
+          {
+            "when": {
+              "q": "errorShown",
+              "is": "yes"
+            },
+            "then": false
+          },
+          {
+            "when": {
+              "q": "blocked",
+              "choiceIn": [
+                "one_time_code",
+                "captcha",
+                "login_wall",
+                "error_page"
+              ]
+            },
+            "then": "escalate"
+          },
+          {
+            "when": {
+              "q": "outcome",
+              "choice": "contradicted"
+            },
+            "then": false
+          },
+          {
+            "when": {
+              "all": [
+                {
+                  "q": "outcome",
+                  "choice": "verified"
+                },
+                {
+                  "q": "errorShown",
+                  "is": "no"
+                }
+              ]
+            },
+            "then": true
+          }
         ],
         "default": "escalate"
       },
       "notForJev": [
-        { "judgement": "Did the address change, and to what?", "instead": "String compare in code; sent as urlChanged and afterUrl so the judge reads it instead of computing it." },
-        { "judgement": "Which elements appeared or disappeared?", "instead": "labelDiff() in code over the two maps, ignoring ref numbers (vibium diff map is positional and re-numbers on any insert)." },
-        { "judgement": "Has the page finished loading?", "instead": "vibium wait load / wait url / wait text in code, before the snapshot." },
-        { "judgement": "Is the claim about something not on the page (a cookie, an email, a database row)?", "instead": "vibium eval / cookies in code, or vibium check; this pack reads the page only." },
-        { "judgement": "Should this failure be retried?", "instead": "Session state and the operator's retry policy in code; a second submit is never the judge's call." }
+        {
+          "judgement": "Did the address change, and to what?",
+          "instead": "String compare in code; sent as urlChanged and afterUrl so the judge reads it instead of computing it."
+        },
+        {
+          "judgement": "Which elements appeared or disappeared?",
+          "instead": "labelDiff() in code over the two maps, ignoring ref numbers (vibium diff map is positional and re-numbers on any insert)."
+        },
+        {
+          "judgement": "Has the page finished loading?",
+          "instead": "vibium wait load / wait url / wait text in code, before the snapshot."
+        },
+        {
+          "judgement": "Is the claim about something not on the page (a cookie, an email, a database row)?",
+          "instead": "vibium eval / cookies in code, or vibium check; this pack reads the page only."
+        },
+        {
+          "judgement": "Should this failure be retried?",
+          "instead": "Session state and the operator's retry policy in code; a second submit is never the judge's call."
+        }
       ]
     },
     {
@@ -74,7 +161,10 @@
         "signedInSignsShown": {
           "type": "noul",
           "polarity": "good-when-yes",
-          "reads": ["textExcerpt", "labelsAdded"],
+          "reads": [
+            "textExcerpt",
+            "labelsAdded"
+          ],
           "instructions": "Does the page show a sign that a person is signed in, such as a greeting by name, a secure-area message, an account or profile menu, or a sign-out control?",
           "criteria": {
             "true": "The text or the new elements include a greeting by name, a signed-in or secure-area message, an account menu, or a logout / sign-out control.",
@@ -84,7 +174,10 @@
         "loginFormGone": {
           "type": "noul",
           "polarity": "good-when-yes",
-          "reads": ["labelsRemoved", "textExcerpt"],
+          "reads": [
+            "labelsRemoved",
+            "textExcerpt"
+          ],
           "instructions": "Have the password field and the sign-in button gone from the page?",
           "criteria": {
             "true": "The removed elements include a password field or a sign-in button, and the text no longer asks for a password.",
@@ -94,7 +187,9 @@
         "credentialErrorShown": {
           "type": "noul",
           "polarity": "bad-when-yes",
-          "reads": ["textExcerpt"],
+          "reads": [
+            "textExcerpt"
+          ],
           "instructions": "Does the page show an error about the credentials, such as wrong password, unknown account, locked account, or try again?",
           "criteria": {
             "true": "The text states that the password, username, or account was rejected or locked.",
@@ -104,7 +199,10 @@
         "interstitial": {
           "type": "choice",
           "polarity": "neutral",
-          "reads": ["textExcerpt", "labelsAdded"],
+          "reads": [
+            "textExcerpt",
+            "labelsAdded"
+          ],
           "escapeOption": "none",
           "instructions": "Which stop is the page showing that is neither the signed-in page nor a credential error?",
           "criteria": {
@@ -118,21 +216,83 @@
       },
       "compose": {
         "positive": "the sign-in landed and the next step may run",
-        "thresholds": { "yes": 0.85, "no": 0.15 },
+        "thresholds": {
+          "yes": 0.85,
+          "no": 0.15
+        },
         "rules": [
-          { "when": { "q": "credentialErrorShown", "is": "yes" }, "then": false },
-          { "when": { "q": "interstitial", "choiceIn": ["one_time_code", "captcha", "password_expired"] }, "then": "escalate" },
-          { "when": { "all": [ { "q": "signedInSignsShown", "is": "yes" }, { "q": "loginFormGone", "is": "yes" } ] }, "then": true },
-          { "when": { "all": [ { "q": "signedInSignsShown", "is": "no" }, { "q": "loginFormGone", "is": "no" } ] }, "then": false }
+          {
+            "when": {
+              "q": "credentialErrorShown",
+              "is": "yes"
+            },
+            "then": false
+          },
+          {
+            "when": {
+              "q": "interstitial",
+              "choiceIn": [
+                "one_time_code",
+                "captcha",
+                "password_expired"
+              ]
+            },
+            "then": "escalate"
+          },
+          {
+            "when": {
+              "all": [
+                {
+                  "q": "signedInSignsShown",
+                  "is": "yes"
+                },
+                {
+                  "q": "loginFormGone",
+                  "is": "yes"
+                }
+              ]
+            },
+            "then": true
+          },
+          {
+            "when": {
+              "all": [
+                {
+                  "q": "signedInSignsShown",
+                  "is": "no"
+                },
+                {
+                  "q": "loginFormGone",
+                  "is": "no"
+                }
+              ]
+            },
+            "then": false
+          }
         ],
         "default": "escalate"
       },
       "notForJev": [
-        { "judgement": "Did the address change to the expected landed page? (interview Q1.3, Q3.1)", "instead": "Exact or regex match on afterUrl in code, before any model call." },
-        { "judgement": "Was a session cookie set? (Q3.3)", "instead": "vibium cookies in code, compared to the expected name." },
-        { "judgement": "How long has the page been settling? (Q5)", "instead": "A timer in code with the operator's budget; on timeout, escalate, never ask the model whether it is slow." },
-        { "judgement": "Is the next step a purchase, a send, or a delete? (Q4)", "instead": "Policy.humanGate in code: those steps park for a human verdict even on GREEN." },
-        { "judgement": "Has this sign-in been retried already? (Q5.3)", "instead": "Session state in code; a second submit is never decided by the model." }
+        {
+          "judgement": "Did the address change to the expected landed page? (interview Q1.3, Q3.1)",
+          "instead": "Exact or regex match on afterUrl in code, before any model call."
+        },
+        {
+          "judgement": "Was a session cookie set? (Q3.3)",
+          "instead": "vibium cookies in code, compared to the expected name."
+        },
+        {
+          "judgement": "How long has the page been settling? (Q5)",
+          "instead": "A timer in code with the operator's budget; on timeout, escalate, never ask the model whether it is slow."
+        },
+        {
+          "judgement": "Is the next step a purchase, a send, or a delete? (Q4)",
+          "instead": "Policy.humanGate in code: those steps park for a human verdict even on GREEN."
+        },
+        {
+          "judgement": "Has this sign-in been retried already? (Q5.3)",
+          "instead": "Session state in code; a second submit is never decided by the model."
+        }
       ]
     }
   ]
