@@ -3,6 +3,8 @@
 Date 2026-09-28. Status: **contexts drafted and linted, runtime twins green in jev-tape, nothing measured live yet.**
 Model pin `jev-1.13.0`. This file says what exists, what is claimed, and what the next keyed session must run.
 
+For the Vibium team: jev-tape `docs/HANDOFF-VIBIUM-TEAM.md` is the executive summary with the full file index across both repos, and `docs/vibium-team-brief.html` is the same brief as a page (published: https://claude.ai/artifact/WbfHE1ZKWmNGeR92iyx2d6).
+
 ## What exists
 
 | Where | What |
