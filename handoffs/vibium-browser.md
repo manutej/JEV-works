@@ -51,6 +51,10 @@ NO-INFORMATION on the two supporting questions is a corpus gap, not a question d
 
 Caveats that keep this an estimate: the claims were written with the pages known (L31, in-sample), the false claims are mostly wrong-subject claims (easy), thresholds are hand-set (G8 would refuse), and there is no fit/test split (G3 skipped). The next run needs claims written blind by a second author from a scope brief (L47), a hash split, and rows with actions so the gate gets the same sample size.
 
+## Next: ten agents, recordings, and calibration (designed 2026-09-28, not launched)
+
+jev-tape `docs/PARALLEL-SPEND.md` and `scripts/workflow-parallel-corpus.js`: ten Sonnet drivers over `fixtures/vibium/catalog-100.json` (140 rows, 70 pages, 18 kinds) with per-row Vibium recordings and Grok fallback on Jev escalates; ten Haiku labellers read each recording's last screenshot and answer the claim from the image alone; `scripts/calibrate.ts` scores Jev's probabilities (Brier, reliability bins, per-kind ends accuracy) against rows where the catalog label and the screenshot label agree, and lists disagreements as findings. Recording smoke passed (zips with actions and screenshots) and already found one wrong catalog label. The launch waits on the operator's answers to `handoffs/vibium/interview-use-cases.md`, which reorder the catalog. The verify context gained `contentType` in its state (lint-clean).
+
 ## What is claimed, and what is not
 
 Claimed: the loop shape and its POST budget (twin-tested), the question shapes (M1–M7 lint), and that every relational judgement in a browser step has a named code replacement (`notForJev`). Not claimed: any accuracy, coverage, or that `auto` is safe. `n` is 43 gate targets (7 labelled) and 4 pairs. G4 and G6 will refuse any headline from this, correctly.

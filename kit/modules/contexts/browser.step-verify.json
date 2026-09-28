@@ -9,6 +9,7 @@
       "afterUrl",
       "urlChanged",
       "title",
+      "contentType",
       "textExcerpt",
       "labelsAdded",
       "labelsRemoved"
@@ -29,12 +30,13 @@
             "title",
             "textExcerpt",
             "labelsAdded",
-            "labelsRemoved"
+            "labelsRemoved",
+            "contentType"
           ],
           "escapeOption": "unsupported",
           "instructions": "Which of these does the page evidence say about the claim?",
           "criteria": {
-            "verified": "The page text, title, address, or newly present elements state what the claim says.",
+            "verified": "The page text, title, address, content type, or newly present elements state what the claim says.",
             "contradicted": "The page states the opposite of the claim, or shows the state the claim says has ended.",
             "unsupported": "The evidence neither confirms nor denies the claim."
           },
@@ -59,7 +61,8 @@
           "reads": [
             "textExcerpt",
             "labelsAdded",
-            "title"
+            "title",
+            "contentType"
           ],
           "escapeOption": "none",
           "instructions": "Which stop, if any, is the page showing instead of the expected result?",
