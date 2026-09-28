@@ -35,6 +35,22 @@ Live loop (jev-tape `npm run vibium` against `scripts/fixture-site.mjs`): the Lo
 
 What the numbers say to do next: `spendsOrSends` needs rewording or an escape (it is the least literal of the four and it sits mid-band on 60% of targets); `loginFormGone` should read `labelsRemoved` only, since "the text no longer asks for a password" pulled it toward the middle on a page whose flash still mentioned login; and the routine-commit decision (Login on an allowlisted host) belongs to the operator's `Policy`, not to a threshold.
 
+## The larger sample: 74 labelled pages, 3 parallel workers (2026-09-28)
+
+jev-tape `npm run corpus` ran 80 catalog rows (40 public pages × true and false claim) through three parallel Vibium sessions, each making its own Jev calls, in 88 s. 74 settled; 6 were stopped in code (PyPI bot check, gnu.org 429 under parallel load). Items: `kit/modules/items/browser-verify.corpus-2026-09-28.items.json`. Results: `kit/results/browser-step-verify-corpus-2026-09-28.json`.
+
+| question | kind | at ends | verdict | on labels |
+| --- | --- | --- | --- | --- |
+| outcome | choice | 82% | **JEV-SAFE** | **98.6%** (73/74) vs majority 50%; McNemar b=36 c=0, p = 2.9e-11; coverage 100% ≥ declared 90% |
+| errorShown | noul | 100% | NO-INFORMATION | unlabelled; answered false every time |
+| blocked | choice | 97% | NO-INFORMATION | unlabelled; answered none every time |
+
+The runtime's own verdicts on the same run: 73 decided, 73 right, 0 wrong, 1 escalate (entropy rule 0 fired on the WCAG quick reference at 0.78). Jev p50 170–178 ms under three-way parallel load.
+
+NO-INFORMATION on the two supporting questions is a corpus gap, not a question defect: this catalog holds only normal pages. On the eight-page bench `blocked` was the question that caught the Cloudflare wall. Add 404 / 500 / login-wall / consent rows before judging them.
+
+Caveats that keep this an estimate: the claims were written with the pages known (L31, in-sample), the false claims are mostly wrong-subject claims (easy), thresholds are hand-set (G8 would refuse), and there is no fit/test split (G3 skipped). The next run needs claims written blind by a second author from a scope brief (L47), a hash split, and rows with actions so the gate gets the same sample size.
+
 ## What is claimed, and what is not
 
 Claimed: the loop shape and its POST budget (twin-tested), the question shapes (M1–M7 lint), and that every relational judgement in a browser step has a named code replacement (`notForJev`). Not claimed: any accuracy, coverage, or that `auto` is safe. `n` is 43 gate targets (7 labelled) and 4 pairs. G4 and G6 will refuse any headline from this, correctly.
