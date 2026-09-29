@@ -1,0 +1,2 @@
+{ "version": "v4", "stage1": "decisions/stage1.v2.json", "stage2": "decisions/stage2.v4.json", "segment": "band-lookup",
+  "note": "stage 1: company name is a code fact, senderWroteASentence only rejects; stage 2: a pitch TO us (offersToUs yes, asksToBuy not yes) is not a lead" }

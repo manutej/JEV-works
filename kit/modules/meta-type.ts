@@ -16,7 +16,12 @@ import { checkDecision } from '../gate/load.ts';
 import type { Decision } from '../gate/decide.ts';
 
 export type Polarity = 'good-when-yes' | 'bad-when-yes' | 'higher-is-better' | 'lower-is-better' | 'neutral';
-export type Atom = Question & { polarity: Polarity; reads: string[]; escapeOption?: string; note?: string };
+/**
+ * `lintExceptions` waives a named rule for this atom only, with a reason a reviewer can check,
+ * e.g. { "M2-literal": "asks whether THIS message compares us; not a comparison across records" }.
+ * A waived rule still reports, as a warning that quotes the reason. Never waives M1 (validity).
+ */
+export type Atom = Question & { polarity: Polarity; reads: string[]; escapeOption?: string; note?: string; lintExceptions?: Record<string, string> };
 export type Module = {
   name: string;
   purpose: string;
@@ -46,11 +51,15 @@ const POLARITY_BY_TYPE: Record<Question['type'], Polarity[]> = {
 
 export function lintAtom(id: string, a: Atom, artifactFields: readonly string[], at: string, nonLiteral = DEFAULT_NON_LITERAL): Finding[] {
   const f: Finding[] = [];
-  const err = (rule: string, message: string) => f.push({ rule, severity: 'error', at, message });
+  const waived = (rule: string) => rule !== 'M1-typed' && typeof a.lintExceptions?.[rule] === 'string' && a.lintExceptions[rule].trim().length > 0;
+  const err = (rule: string, message: string) =>
+    f.push(waived(rule)
+      ? { rule, severity: 'warn', at, message: `waived (${a.lintExceptions![rule]}): ${message}` }
+      : { rule, severity: 'error', at, message });
   const warn = (rule: string, message: string) => f.push({ rule, severity: 'warn', at, message });
 
   // M1: the core's own validator, on a one-question spec, so there is one definition of "valid question".
-  const { polarity, reads, escapeOption, note, ...question } = a;
+  const { polarity, reads, escapeOption, note, lintExceptions, ...question } = a;
   for (const p of coreProblems({ name: 'meta-type-probe', questions: { [id]: question }, items: [{ id: 'probe', state: {} }] }))
     if (!p.startsWith('items')) err('M1-typed', p.replace(/^questions\.[^:.]*[.:]?\s*/, ''));
 

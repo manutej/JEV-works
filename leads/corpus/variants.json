@@ -22,5 +22,31 @@
       "runWords": 8,
       "why": "both blind authors are the same model; 5 pool C templates share 8-word runs with dev pool A (C.buyer[0] ~ A.buyer[0]). Text-only rule, fixed before any pool C lead was generated."
     }
+  },
+  "bd": {
+    "kind": "blind",
+    "templates": "blind/templates-d.json",
+    "pool": "D",
+    "note": "HOLDOUT pool for config v4: authored blind with an originality instruction, after pools A-C",
+    "excludeRunsFrom": [
+      {
+        "templates": "blind/templates.json",
+        "pool": "A",
+        "runWords": 8,
+        "why": "text-only rule fixed before any pool D lead exists: drop templates sharing 8-word runs with any pool already seen (A tuned on, B and C results inspected)"
+      },
+      {
+        "templates": "blind/templates.json",
+        "pool": "B",
+        "runWords": 8,
+        "why": "text-only rule fixed before any pool D lead exists: drop templates sharing 8-word runs with any pool already seen (A tuned on, B and C results inspected)"
+      },
+      {
+        "templates": "blind/templates-c.json",
+        "pool": "C",
+        "runWords": 8,
+        "why": "text-only rule fixed before any pool D lead exists: drop templates sharing 8-word runs with any pool already seen (A tuned on, B and C results inspected)"
+      }
+    ]
   }
 }

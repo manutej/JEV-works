@@ -16,6 +16,7 @@ informationDensity           score    0.730     66%     0.199   JEV-SAFE
 isRealBusiness               boolean  0.469     3%      0.142   MOVE-TO-CODE
 
 ── STAGE2_QUALIFICATION (451 calls) ──
+not asked in this run (no verdict): asksToBuy, offersToUs
 question                       kind     meanConf  atEnds  spread  verdict 
 ─────────────────────────────  ───────  ────────  ──────  ──────  ────────
 isDecisionMaker                boolean  0.832     96%     0.402   JEV-SAFE
@@ -156,6 +157,8 @@ gates: REFUSE (refused by G4-coverage)
   ✓ G5-policy-predeclared          PASS   the scoring policy was fixed before the holdout existed: passed
   ✓ G6-paired-test                 PASS   the headline is an exact paired test (McNemar) with n ≥ 8: passed
   ! G7-strata-consistent           WARN   E5: hidden-stratum: headline shows no difference but stratum clean_in_icp (n=180) shows regex_better (p=4.55e-13, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested); E5: hidden-stratum: headline shows no difference but stratum non_buyer (n=120) shows jev_better (p=1.16e-10, Holm-significant); the pooled null hides it (outside the claim scope: reported, not tested)
+lint exceptions in the questions asked (1):
+  sales.mentionsCompetitorComparison M2-literal: asks whether THIS message compares the product to a competitor; one record answers it, no cross-record comparison
 
 per-category qualified accuracy, jev vs regex (AccAll counts escalations as wrong; AccOwn is on own verdicts only):
 category        n    jevCoverage  jevAccAll  jevAccOwn  regexAccAll

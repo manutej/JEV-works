@@ -158,6 +158,16 @@ export function gate(i: GateInput, settings: Partial<GateConfig> = {}): GateRepo
   });
   // Findings are informational, so they cover EVERY stratum (in scope or not): a pooled null that hides
   // opposite effects must be visible even when those strata cannot refute the claim.
+  // A positive headline can hide an opposite, significant stratum outside the scope too (bd8101: novel_wording
+  // ACCEPT-shaped headline, buyers regex-better at p 6e-8, previously unreported). Reported, never refusing.
+  if (claim !== NO_DIFFERENCE) {
+    const outside = strata.filter(s => s.direction !== 'too_small' && !inScope.includes(s));
+    const sigOut = holm(outside.map(s => s.p), cfg.alpha);
+    outside.forEach((s, k) => {
+      if (sigOut[k] && s.direction !== NO_DIFFERENCE && s.direction !== claim)
+        findings.push(`E5: hidden-stratum: headline says ${claim} but stratum ${s.name} (n=${s.n}) shows ${s.direction} (p=${s.p.toPrecision(3)}, Holm-significant) (outside the claim scope: reported, not tested)`);
+    });
+  }
   if (claim === NO_DIFFERENCE) {
     const all = strata.filter(s => s.direction !== 'too_small');
     const sigAll = holm(all.map(s => s.p), cfg.alpha);

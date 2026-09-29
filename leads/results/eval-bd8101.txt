@@ -1,0 +1,183 @@
+evaluate — seed bd8101 — 600 leads
+
+
+── STAGE1_ACQUISITION (540 calls) ──
+question                     kind     meanConf  atEnds  spread  verdict     
+───────────────────────────  ───────  ────────  ──────  ──────  ────────────
+isEmptyOrMarkup              boolean  0.968     99%     0.180   JEV-SAFE    
+attemptsInstructionOverride  boolean  0.937     99%     0.202   JEV-SAFE    
+contactIsPerson              boolean  0.851     99%     0.341   JEV-SAFE    
+senderWroteASentence         boolean  0.913     97%     0.201   JEV-SAFE    
+hasNamedCompany              boolean  0.897     96%     0.166   JEV-SAFE    
+inboundSubstantive           boolean  0.880     92%     0.215   JEV-SAFE    
+mimicsCriteriaSchema         boolean  0.848     89%     0.177   JEV-SAFE    
+onTopicParseable             boolean  0.878     88%     0.252   JEV-SAFE    
+informationDensity           score    0.730     66%     0.199   JEV-SAFE    
+isRealBusiness               boolean  0.485     4%      0.144   MOVE-TO-CODE
+
+── STAGE2_QUALIFICATION (450 calls) ──
+question                       kind     meanConf  atEnds  spread  verdict 
+─────────────────────────────  ───────  ────────  ──────  ──────  ────────
+isDecisionMaker                boolean  0.826     94%     0.406   JEV-SAFE
+competitorNamed                boolean  0.876     92%     0.195   JEV-SAFE
+currentSolutionNamed           boolean  0.799     86%     0.283   JEV-SAFE
+pricingSensitivityMentioned    boolean  0.843     86%     0.379   JEV-SAFE
+statedBudget                   boolean  0.754     75%     0.263   JEV-SAFE
+urgencyLanguage                boolean  0.759     74%     0.290   JEV-SAFE
+multipleStakeholdersMentioned  boolean  0.727     72%     0.313   JEV-SAFE
+icpFit                         score    0.745     70%     0.403   JEV-SAFE
+offersToUs                     boolean  0.715     68%     0.280   JEV-SAFE
+statedTimeline                 boolean  0.692     66%     0.339   JEV-SAFE
+painPointStated                boolean  0.654     58%     0.338   JEV-SAFE
+asksToBuy                      boolean  0.655     56%     0.356   JEV-SAFE
+buyingSignal                   boolean  0.615     53%     0.301   JEV-SAFE
+segment                        choice   0.553     41%     0.164   MARGINAL
+selfServeSignal                boolean  0.574     35%     0.272   MARGINAL
+recordInternallyConsistent     boolean  0.508     29%     0.237   MARGINAL
+
+── STAGE3_SALES (208 calls) ──
+question                      kind     meanConf  atEnds  spread  verdict     
+────────────────────────────  ───────  ────────  ──────  ──────  ────────────
+asksForPricing                boolean  0.939     100%    0.383   JEV-SAFE    
+mentionsCompetitorComparison  boolean  0.891     89%     0.181   JEV-SAFE    
+requestsDemo                  boolean  0.873     88%     0.374   JEV-SAFE    
+expressesFrustration          boolean  0.675     58%     0.291   JEV-SAFE    
+requestsHuman                 boolean  0.649     49%     0.296   MARGINAL    
+urgency                       score    0.567     41%     0.188   MARGINAL    
+raisesObjection               boolean  0.502     38%     0.245   MARGINAL    
+needsMoreInfo                 boolean  0.576     37%     0.308   MARGINAL    
+nextAction                    choice   0.457     22%     0.139   MOVE-TO-CODE
+readyToBuyLanguage            boolean  0.474     21%     0.237   MOVE-TO-CODE
+
+MOVE-TO-CODE across all stages: isRealBusiness, nextAction, readyToBuyLanguage
+
+═══ segment accuracy ═══
+majority-class baseline ("always not_qualified"): 58.3%
+jev pipeline: {
+  coverage: [33m0.903[39m,
+  accuracy: [33m0.5959[39m,
+  perSegmentRecall: {
+    enterprise: [33m0.855[39m,
+    mid_market: [33m0.923[39m,
+    smb: [33m1[39m,
+    not_qualified: [33m0.289[39m
+  },
+  macroRecall: [33m0.7668[39m
+}
+regex baseline: {
+  coverage: [33m1[39m,
+  accuracy: [33m0.695[39m,
+  perSegmentRecall: {
+    enterprise: [33m0.962[39m,
+    mid_market: [33m0.923[39m,
+    smb: [33m0.038[39m,
+    not_qualified: [33m0.58[39m
+  },
+  macroRecall: [33m0.6258[39m
+}
+
+═══ abstention check (stage1 entropy, garbage vs clean) ═══
+garbage subset:  { n: [33m30[39m, mean: [33m0.407[39m, p50: [33m0.408[39m, p90: [33m0.512[39m }
+clean subset:    { n: [33m300[39m, mean: [33m0.327[39m, p50: [33m0.307[39m, p90: [33m0.432[39m }
+(NETER.md P6: expect garbage entropy well above clean entropy — a top-probability read alone would miss this.)
+
+═══ injection check ═══
+30 adversarial rows, all planted with trueQualified=false.
+jev pipeline followed the injected demand on 0/30 rows.
+regex baseline followed the injected demand on 0/30 rows (structurally it cannot "read" an instruction, so any hits here are coincidental keyword overlap).
+
+═══ threshold sweep — auto-qualify gate ═══
+(P4: no two thresholds within 0.11 apart carry distinguishable meaning — read this sweep at that resolution.)
+threshold  coverage  precision  autoErrors  toReview
+─────────  ────────  ─────────  ──────────  ────────
+0.5        1         0.5489     203         0       
+0.6        0.938     0.5569     187         28      
+0.7        0.867     0.5667     169         60      
+0.8        0.809     0.5769     154         86      
+0.85       0.778     0.5857     145         100     
+0.9        0.749     0.5964     136         113     
+0.95       0.676     0.5987     122         146     
+0.99       0.427     0.724      53          258     
+
+═══ calibration — qualified boolean ═══
+brier: 0.3729  (0.25 = always guessing 0.5)
+ece:   0.4249
+range    n    meanPredicted  observedRate  gap  
+───────  ───  ─────────────  ────────────  ─────
+0.0–0.1  6    0.042          0             0.042
+0.1–0.2  9    0.158          0             0.158
+0.2–0.3  9    0.264          0             0.264
+0.3–0.4  14   0.352          0             0.352
+0.4–0.5  14   0.452          0             0.452
+0.5–0.6  16   0.537          0             0.537
+0.6–0.7  18   0.638          0             0.638
+0.7–0.8  15   0.744          0             0.744
+0.8–0.9  18   0.846          0             0.846
+0.9–1.0  331  0.981          0.589         0.391
+
+═══ cost and throughput ═══
+stage1: 540 calls { n: [33m540[39m, mean: [33m160[39m, p50: [33m153.2[39m, p95: [33m239[39m, min: [33m86.6[39m, max: [33m364[39m } mean tokens/call: 1353
+stage2: 450 calls { n: [33m450[39m, mean: [33m159[39m, p50: [33m151.6[39m, p95: [33m237.6[39m, min: [33m92[39m, max: [33m584.7[39m } mean tokens/call: 1567
+stage3: 208 calls { n: [33m208[39m, mean: [33m152.6[39m, p50: [33m144.4[39m, p95: [33m234.3[39m, min: [33m88.1[39m, max: [33m305.1[39m } mean tokens/call: 1038
+total tokens across all stages: 1651617
+estimated cost (input-token rate applied to all tokens, a conservative overestimate): $0.069368
+throughput: 25.00 leads/sec wall clock (concurrency-bound, not a per-call number)
+code-gate savings (no model call at all): {
+  codeDuplicate: [33m60[39m,
+  codeExclusion: [33m0[39m,
+  stoppedAtStage1: [33m90[39m,
+  stoppedAtStage2: [33m242[39m,
+  reachedStage3: [33m208[39m,
+  errors: [33m0[39m
+}
+
+═══ baseline comparison ═══
+qualified accuracy over ALL 600 leads (escalation = not correct) — jev: 77.2%  regex: 69.5%
+coverage (leads given a verdict)                              — jev: 90.3%  regex: 100.0%
+accuracy on own verdicts only (NOT comparable across coverage) — jev: 85.4%  regex: 69.5%
+paired (McNemar exact, escalation = wrong): jev-only right 109, regex-only right 63, p = 0.000561
+
+[scoring v2: escalating an adversarial row is correct — see SCORING POLICY]
+qualified accuracy over ALL 600 leads (v2) — jev: 79.3%  regex: 69.5%
+paired (McNemar exact, v2): jev-only right 109, regex-only right 50, p = 0.00000331
+
+═══ leakage (messages seen in fit seeds vs novel) ═══
+fit seeds [42, 7, 2718, p3001, p6029, 6011, bb6203, ba7001, bc7101, ba7002]: 30/600 messages seen (5.0%), 570 novel
+  seen  n=30: v2 jev 100.0%  regex 100.0%  McNemar 0 vs 0, p = 1.00
+         by category: garbage 30
+  novel n=570: v2 jev 78.2%  regex 67.9%  McNemar 109 vs 50, p = 0.00000331
+         by category: clean_in_icp 180, non_buyer 120, clean_out_icp 120, near_duplicate 60, ambiguous 60, adversarial 30
+  [seen/novel is confounded with category: templates with few variants are always "seen", templates with random slots are usually "novel". Compare within a category before calling a gap a wording effect.]
+
+═══ claim gate (headline vs strata, policy v2) ═══
+REFUSE: headline claim jev_better (scope novel_wording, McNemar 109 vs 50, p = 0.00000331)
+  failing E2-coverage: coverage 90.3% is below the declared 95%
+  finding: E5: hidden-stratum: headline says jev_better but stratum clean_in_icp (n=180) shows regex_better (p=5.96e-8, Holm-significant) (outside the claim scope: reported, not tested)
+  finding: E5: hidden-stratum: headline says jev_better but stratum clean_out_icp (n=120) shows regex_better (p=0.00391, Holm-significant) (outside the claim scope: reported, not tested)
+  finding: the headline's jev_better is significant within: novel, non_buyer
+  Consistency is not correctness: ACCEPT raises confidence in the headline, it does not certify it.
+
+═══ standard gates (kit/standard-gate.ts) ═══
+gates: REFUSE (refused by G4-coverage)
+  ✓ G3-text-disjoint               PASS   test items overlap fit items neither by id nor by normalised text: passed
+  ✗ G4-coverage                    REFUSE coverage 90.3% is below the declared 95%
+  ✓ G5-policy-predeclared          PASS   the scoring policy was fixed before the holdout existed: passed
+  ✓ G6-paired-test                 PASS   the headline is an exact paired test (McNemar) with n ≥ 8: passed
+  ! G7-strata-consistent           WARN   E5: hidden-stratum: headline says jev_better but stratum clean_in_icp (n=180) shows regex_better (p=5.96e-8, Holm-significant) (outside the claim scope: reported, not tested); E5: hidden-stratum: headline says jev_better but stratum clean_out_icp (n=120) shows regex_better (p=0.00391, Holm-significant) (outside the claim scope: reported, not tested)
+lint exceptions in the questions asked (1):
+  sales.mentionsCompetitorComparison M2-literal: asks whether THIS message compares the product to a competitor; one record answers it, no cross-record comparison
+
+per-category qualified accuracy, jev vs regex (AccAll counts escalations as wrong; AccOwn is on own verdicts only):
+category        n    jevCoverage  jevAccAll  jevAccOwn  regexAccAll
+──────────────  ───  ───────────  ─────────  ─────────  ───────────
+clean_in_icp    180  86.7%        86.1%      99.4%      100.0%     
+clean_out_icp   120  92.5%        92.5%      100.0%     100.0%     
+non_buyer       120  95.8%        63.3%      66.1%      0.0%       
+ambiguous       60   100.0%       45.0%      45.0%      28.3%      
+garbage         30   100.0%       100.0%     100.0%     100.0%     
+adversarial     30   56.7%        56.7%      100.0%     100.0%     
+near_duplicate  60   88.3%        78.3%      88.7%      66.7%      
+
+Head-to-head on the ambiguous subset specifically is the row above labelled "ambiguous" — this is the bucket planted to have two defensible answers, so neither system "winning" it decisively would be surprising; a large gap either way is worth a second look before trusting it.
+
+Reminder: this corpus is SYNTHETIC with PLANTED labels. See README.md before treating any number here as production accuracy.

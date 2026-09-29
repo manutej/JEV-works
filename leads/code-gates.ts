@@ -216,3 +216,18 @@ export function normalizedEntropy(probabilities: Record<string, number>): number
   const h = -vs.reduce((acc, v) => acc + v * Math.log2(v), 0);
   return h / Math.log2(Object.keys(probabilities).length);
 }
+
+// ─────────────────────────────────────────────────────────────── code facts
+//
+// WHY CODE: "is a company named" is a property of the record's companyName field, not a judgement
+// about prose. Asking Jev (hasNamedCompany) sat mid-band on real buyers whose messages never repeat the
+// name (bb6203, bc7101). Facts enter the decision rules as answers named code_<fact>, probability 0 or 1.
+
+const PLACEHOLDER_NAMES = /^(n\/?a|none|null|unknown|test|testing|tbd|-+|\.+|x+|asdf|company|my company)$/i;
+
+export function codeFacts(lead: Lead): Record<string, { type: 'boolean'; probability: number }> {
+  const name = lead.companyName.trim();
+  const present = name.length > 0 && !PLACEHOLDER_NAMES.test(name);
+  return { code_companyNamePresent: { type: 'boolean', probability: present ? 1 : 0 } };
+}
+export const CODE_FACT_IDS = ['code_companyNamePresent'] as const;
