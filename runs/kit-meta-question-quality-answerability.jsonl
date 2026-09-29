@@ -1,0 +1,7 @@
+{"id":"step-verify.outcome","verdict":"answered","ms":285.943722,"inputTokens":571}
+{"id":"step-verify.errorShown","verdict":"answered","ms":240.86307999999997,"inputTokens":549}
+{"id":"login-verify.signedInSignsShown","verdict":"answered","ms":247.641754,"inputTokens":579}
+{"id":"step-verify.blocked","verdict":"answered","ms":269.48645600000003,"inputTokens":632}
+{"id":"login-verify.interstitial","verdict":"answered","ms":165.13780700000007,"inputTokens":606}
+{"id":"login-verify.loginFormGone","verdict":"answered","ms":188.243521,"inputTokens":553}
+{"id":"login-verify.credentialErrorShown","verdict":"answered","ms":199.247386,"inputTokens":551}

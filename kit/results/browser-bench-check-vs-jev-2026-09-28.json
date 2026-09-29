@@ -1,0 +1,415 @@
+{
+  "summary": {
+    "rows": 8,
+    "model": "jev-1.13.0",
+    "checkModel": "xai/grok-4.6",
+    "jevMedianMs": 248,
+    "checkMedianMs": 40976,
+    "medianRatio": 163.9,
+    "jevRight": "6/8",
+    "checkRight": "7/8"
+  },
+  "results": [
+    {
+      "url": "https://www.npmjs.com/package/react",
+      "claim": "This is the npm registry page for the package named react",
+      "expect": "passed",
+      "navMs": 2527,
+      "snapMs": 128,
+      "jev": {
+        "ms": 309,
+        "verdict": "inconclusive",
+        "ok": false,
+        "rule": 1,
+        "inputTokens": 820
+      },
+      "check": {
+        "ms": 141701,
+        "verdict": "failed",
+        "ok": false,
+        "summary": "The current page is a Cloudflare bot-verification interstitial, not the npm registry listing for the react package. The URL path is /package/react, but the rend"
+      },
+      "ratio": 458.6,
+      "jevAnswers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "unsupported",
+          "confidence": 0.55,
+          "probabilities": {
+            "verified": 0.02,
+            "contradicted": 0.28,
+            "unsupported": 0.7
+          }
+        },
+        "errorShown": {
+          "type": "noul",
+          "noul": 0.05
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "captcha",
+          "confidence": 0.96,
+          "probabilities": {
+            "none": 0.03,
+            "cookie_banner": 0,
+            "one_time_code": 0,
+            "error_page": 0,
+            "login_wall": 0,
+            "captcha": 0.97
+          }
+        }
+      }
+    },
+    {
+      "url": "https://www.rfc-editor.org/info/rfc2324/",
+      "claim": "This page is about RFC 2324, the Hyper Text Coffee Pot Control Protocol",
+      "expect": "passed",
+      "navMs": 1940,
+      "snapMs": 73,
+      "jev": {
+        "ms": 248,
+        "verdict": "passed",
+        "ok": true,
+        "rule": 3,
+        "inputTokens": 1857
+      },
+      "check": {
+        "ms": 25198,
+        "verdict": "passed",
+        "ok": true,
+        "summary": "The current page is the RFC Editor document for RFC 2324, titled Hyper Text Coffee Pot Control Protocol (HTCPCP/1.0). The URL, page title, main heading, and bod"
+      },
+      "ratio": 101.6,
+      "jevAnswers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "confidence": 0.98,
+          "probabilities": {
+            "verified": 0.99,
+            "unsupported": 0,
+            "contradicted": 0.01
+          }
+        },
+        "errorShown": {
+          "type": "noul",
+          "noul": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "confidence": 1,
+          "probabilities": {
+            "login_wall": 0,
+            "none": 1,
+            "error_page": 0,
+            "captcha": 0,
+            "cookie_banner": 0,
+            "one_time_code": 0
+          }
+        }
+      }
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Common_Lisp",
+      "claim": "This is the Wikipedia article on the Common Lisp programming language",
+      "expect": "passed",
+      "navMs": 1500,
+      "snapMs": 193,
+      "jev": {
+        "ms": 250,
+        "verdict": "passed",
+        "ok": true,
+        "rule": 3,
+        "inputTokens": 1922
+      },
+      "check": {
+        "ms": 40976,
+        "verdict": "passed",
+        "ok": true,
+        "summary": "The current page is the English Wikipedia article on Common Lisp: the URL is https://en.wikipedia.org/wiki/Common_Lisp, the main heading is “Common Lisp”, and t"
+      },
+      "ratio": 163.9,
+      "jevAnswers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "confidence": 0.97,
+          "probabilities": {
+            "contradicted": 0.01,
+            "verified": 0.99,
+            "unsupported": 0
+          }
+        },
+        "errorShown": {
+          "type": "noul",
+          "noul": 0.03
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "confidence": 0.99,
+          "probabilities": {
+            "login_wall": 0,
+            "error_page": 0,
+            "captcha": 0,
+            "cookie_banner": 0,
+            "one_time_code": 0,
+            "none": 1
+          }
+        }
+      }
+    },
+    {
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Flexible_box_layout",
+      "claim": "This MDN page documents CSS flexible box layout",
+      "expect": "passed",
+      "navMs": 3624,
+      "snapMs": 79,
+      "jev": {
+        "ms": 277,
+        "verdict": "passed",
+        "ok": true,
+        "rule": 3,
+        "inputTokens": 1663
+      },
+      "check": {
+        "ms": 17352,
+        "verdict": "passed",
+        "ok": true,
+        "summary": "The current MDN page is documentation for CSS flexible box layout: its URL is /docs/Web/CSS/Guides/Flexible_box_layout, the h1 is “CSS flexible box layout”, and"
+      },
+      "ratio": 62.6,
+      "jevAnswers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "confidence": 1,
+          "probabilities": {
+            "unsupported": 0,
+            "verified": 1,
+            "contradicted": 0
+          }
+        },
+        "errorShown": {
+          "type": "noul",
+          "noul": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "confidence": 1,
+          "probabilities": {
+            "login_wall": 0,
+            "error_page": 0,
+            "one_time_code": 0,
+            "captcha": 0,
+            "none": 1,
+            "cookie_banner": 0
+          }
+        }
+      }
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Ada_Lovelace",
+      "claim": "This article says Ada Lovelace invented JavaScript",
+      "expect": "failed",
+      "navMs": 1344,
+      "snapMs": 261,
+      "jev": {
+        "ms": 241,
+        "verdict": "inconclusive",
+        "ok": false,
+        "rule": "default",
+        "inputTokens": 1935
+      },
+      "check": {
+        "ms": 53328,
+        "verdict": "failed",
+        "ok": true,
+        "summary": "The Wikipedia article on Ada Lovelace does not say she invented JavaScript. It describes her 19th-century work on Babbage’s analytical engine and related comput"
+      },
+      "ratio": 221.3,
+      "jevAnswers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "unsupported",
+          "confidence": 0.59,
+          "probabilities": {
+            "contradicted": 0.27,
+            "unsupported": 0.73,
+            "verified": 0
+          }
+        },
+        "errorShown": {
+          "type": "noul",
+          "noul": 0.04
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "confidence": 0.99,
+          "probabilities": {
+            "error_page": 0,
+            "login_wall": 0.01,
+            "cookie_banner": 0,
+            "captcha": 0,
+            "one_time_code": 0,
+            "none": 0.99
+          }
+        }
+      }
+    },
+    {
+      "url": "https://github.com/torvalds/linux",
+      "claim": "This is the GitHub repository page for torvalds/linux",
+      "expect": "passed",
+      "navMs": 3745,
+      "snapMs": 98,
+      "jev": {
+        "ms": 219,
+        "verdict": "passed",
+        "ok": true,
+        "rule": 3,
+        "inputTokens": 2020
+      },
+      "check": {
+        "ms": 15815,
+        "verdict": "passed",
+        "ok": true,
+        "summary": "The current page is the public GitHub repository for torvalds/linux (Linux kernel source tree). The URL, owner/repo header, about text, and file listing all mat"
+      },
+      "ratio": 72.2,
+      "jevAnswers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "confidence": 1,
+          "probabilities": {
+            "unsupported": 0,
+            "verified": 1,
+            "contradicted": 0
+          }
+        },
+        "errorShown": {
+          "type": "noul",
+          "noul": 0.06
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "confidence": 0.96,
+          "probabilities": {
+            "login_wall": 0.04,
+            "captcha": 0,
+            "cookie_banner": 0,
+            "none": 0.96,
+            "one_time_code": 0,
+            "error_page": 0
+          }
+        }
+      }
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Python_(programming_language)",
+      "claim": "This article says Python was created by Linus Torvalds",
+      "expect": "failed",
+      "navMs": 1344,
+      "snapMs": 311,
+      "jev": {
+        "ms": 246,
+        "verdict": "failed",
+        "ok": true,
+        "rule": 2,
+        "inputTokens": 1913
+      },
+      "check": {
+        "ms": 45784,
+        "verdict": "failed",
+        "ok": true,
+        "summary": "The Wikipedia article on Python (programming language) attributes the language to Guido van Rossum, not Linus Torvalds. The infobox lists “Designed by Guido van"
+      },
+      "ratio": 186.1,
+      "jevAnswers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "confidence": 1,
+          "probabilities": {
+            "contradicted": 1,
+            "unsupported": 0,
+            "verified": 0
+          }
+        },
+        "errorShown": {
+          "type": "noul",
+          "noul": 0.23
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "confidence": 0.99,
+          "probabilities": {
+            "login_wall": 0.01,
+            "one_time_code": 0,
+            "error_page": 0,
+            "cookie_banner": 0,
+            "captcha": 0,
+            "none": 0.99
+          }
+        }
+      }
+    },
+    {
+      "url": "https://news.ycombinator.com/",
+      "claim": "The Hacker News front page is showing a list of stories with points and comments",
+      "expect": "passed",
+      "navMs": 1502,
+      "snapMs": 84,
+      "jev": {
+        "ms": 236,
+        "verdict": "passed",
+        "ok": true,
+        "rule": 3,
+        "inputTokens": 1854
+      },
+      "check": {
+        "ms": 18234,
+        "verdict": "passed",
+        "ok": true,
+        "summary": "The Hacker News front page at https://news.ycombinator.com/ displays a numbered list of stories, each with a points count and a comments (or discuss) link."
+      },
+      "ratio": 77.3,
+      "jevAnswers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "confidence": 0.94,
+          "probabilities": {
+            "contradicted": 0.01,
+            "unsupported": 0.03,
+            "verified": 0.96
+          }
+        },
+        "errorShown": {
+          "type": "noul",
+          "noul": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "confidence": 1,
+          "probabilities": {
+            "none": 1,
+            "one_time_code": 0,
+            "cookie_banner": 0,
+            "captcha": 0,
+            "error_page": 0,
+            "login_wall": 0
+          }
+        }
+      }
+    }
+  ],
+  "at": "2026-09-28T08:41:52.130Z"
+}

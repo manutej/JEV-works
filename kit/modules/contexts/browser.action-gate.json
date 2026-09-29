@@ -1,0 +1,76 @@
+{
+  "name": "browser.action-gate",
+  "description": "Before a commit verb (click, press Enter, upload, eval…) runs in a Vibium session: may it run now? Specialises JEV-works TOOL_GATE (41% fewer prompts over 1,013 real calls, 0 unsafe auto-approvals of 94) to one browser action over one page snapshot. Canonical copy: JEV-works kit/modules/contexts/browser.action-gate.json. Status: drafted, not yet measured on a browser corpus.",
+  "artifact": {
+    "type": "pending browser action over one page snapshot",
+    "stateFields": ["url", "title", "action", "target", "textExcerpt"]
+  },
+  "modules": [
+    {
+      "name": "action-gate",
+      "purpose": "Route one commit action to auto / escalate / refuse from what the page and the target element say, before it runs.",
+      "questions": {
+        "mutatesWorld": {
+          "type": "noul",
+          "polarity": "bad-when-yes",
+          "reads": ["action", "target", "textExcerpt"],
+          "instructions": "Would this action change anything beyond the browser tab, such as submitting data, changing a record, sending a message, paying, or deleting?",
+          "criteria": {
+            "true": "The target submits, saves, sends, pays, deletes, or otherwise changes something the page describes as stored or sent.",
+            "false": "It only navigates, opens, expands, filters, or reveals within the tab."
+          }
+        },
+        "reversible": {
+          "type": "noul",
+          "polarity": "good-when-yes",
+          "reads": ["action", "target", "textExcerpt"],
+          "instructions": "If this action turns out to be wrong, does the page offer a way to undo it without losing anything?",
+          "criteria": {
+            "true": "The page shows an undo, cancel, edit, or draft path, or the action only opens or navigates.",
+            "false": "The page describes the action as final, or no undo path is visible."
+          }
+        },
+        "spendsOrSends": {
+          "type": "noul",
+          "polarity": "bad-when-yes",
+          "reads": ["action", "target", "textExcerpt"],
+          "instructions": "Does this action spend money or send data to a party outside this page?",
+          "criteria": {
+            "true": "The target or the surrounding text is about paying, ordering, sending, sharing, or publishing.",
+            "false": "Nothing is paid, sent, shared, or published."
+          }
+        },
+        "blastRadius": {
+          "type": "score",
+          "polarity": "lower-is-better",
+          "reads": ["action", "target", "textExcerpt"],
+          "instructions": "How much is affected if this action does the wrong thing?",
+          "criteria": [
+            "Only what is on screen in this tab.",
+            "One record or one form on this site.",
+            "A shared resource others depend on.",
+            "Money, a message that leaves, or data that cannot be pulled back."
+          ],
+          "note": "Measured 2026-09-28 on jev-1.13.0: `score` is the EXPECTED level on a 0-based legend (e.g. 0.3 from p={0:0.72,1:0.27,3:0.01}), with per-level probabilities alongside. scoreAtLeast therefore compares a real number to a level index; 2.5 means 'the mass sits on the top two levels'. The gate still leans on the nouls."
+        }
+      },
+      "compose": {
+        "positive": "the action may run now without a person",
+        "thresholds": { "yes": 0.85, "no": 0.15 },
+        "rules": [
+          { "when": { "all": [ { "q": "spendsOrSends", "is": "yes" }, { "q": "reversible", "is": "no" } ] }, "then": false },
+          { "when": { "q": "mutatesWorld", "is": "no" }, "then": true },
+          { "when": { "all": [ { "q": "mutatesWorld", "is": "yes" }, { "q": "spendsOrSends", "is": "no" }, { "q": "reversible", "is": "yes" } ] }, "then": true }
+        ],
+        "default": "escalate"
+      },
+      "notForJev": [
+        { "judgement": "Is this host on the allowlist?", "instead": "Exact host match in code (Policy.allowHosts), before the snapshot is even taken." },
+        { "judgement": "Is the @ref still valid?", "instead": "resolveRef() against the current map in code; a stale ref throws and the caller re-maps." },
+        { "judgement": "Is this a payment, send, or delete?", "instead": "Policy.humanGate regex on the target label in code: C10 parks it for a person before any POST." },
+        { "judgement": "Did the operator already approve this kind of action in this session?", "instead": "Session state lookup in code." },
+        { "judgement": "Is the typed value safe to show the judge?", "instead": "describeAction() redacts fill/type values and any password field in code; the judge never sees them." }
+      ]
+    }
+  ]
+}

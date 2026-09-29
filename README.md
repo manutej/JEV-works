@@ -163,3 +163,7 @@ verified, it says so rather than asserting softly.
 
 This is not fastidiousness for its own sake. A confident-looking number is the default output of a
 broken measurement — every defect listed above produced one first.
+
+## Browser surface (Jev × Vibium)
+
+The browser contexts, items and results live under `kit/modules/contexts/browser.*`, `kit/modules/items/browser-*` and `kit/results/browser-*`; the lab handoff is `handoffs/vibium-browser.md`. The entry point for the whole surface, with the annotated file tree, is `HANDOFF.md` in manutej/jev-tape.

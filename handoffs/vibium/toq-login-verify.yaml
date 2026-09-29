@@ -1,0 +1,25 @@
+# ToQ: did the sign-in land. Authored 2026-09-28 from interview-login-verify.md, before any OC call.
+slug: login-verify
+answer_space: {root: bool, equivalence: bool-exact-at-0.5}   # all edges are colored bool; p >= 0.5 -> true
+state: "{url, title, textExcerpt, mapDiff, action}  (one post-click Vibium snapshot; never the credentials)"
+root:
+  id: R
+  text: "Did the sign-in land on the signed-in page with nothing blocking the session, so that the next step may run?"
+  compose: M1 AND M2
+  children:
+    - id: M1
+      text: "Is the signed-in page showing in place of the login form?"
+      compose: L1 AND L2
+      children:
+        - {id: L1, text: "Does the page show a sign that a person is signed in, such as a greeting by name, an account or profile menu, or a sign-out control?"}
+        - {id: L2, text: "Have the password field and the sign-in button gone from the page?"}
+    - id: M2
+      text: "Is the page free of anything that blocks the session from continuing?"
+      compose: L3 AND L4
+      children:
+        - {id: L3, text: "Is the page free of any error about the credentials, such as wrong password, unknown account, or locked account?"}
+        - {id: L4, text: "Is the page free of any extra stop, such as a one-time code prompt, a captcha, or an expired-password prompt?"}
+compose_witness: "landed <=> (signed-in page replaced the form) AND (no error and no extra stop); a stuck or fooled sign-in fails M1 (form still there) or M2 (a stop is showing)."
+high_risk_edge: M2-R   # L4 lists several stops in one leaf; the least literal leaf
+labels: none yet; buy the anchor from recorded Vibium snapshots, over-sampling items where the collapses disagree
+total_collapse_verified: true

@@ -1,0 +1,2865 @@
+{
+  "kit": 1,
+  "spec": "browser-step-verify-corpus",
+  "specPath": "/tmp/claude-0/-home-user/ac0b3fa3-2298-585d-8a3d-5e9f78a4160a/scratchpad/specs/corpus.json",
+  "model": "jev-1.13.0 (direct)",
+  "answeredBy": [
+    "jev-1.13.0"
+  ],
+  "startedAt": "2026-09-28T18:58:23.391Z",
+  "wallMs": 3455,
+  "calls": 74,
+  "coverage": 1,
+  "privacyScan": "passed",
+  "disjointness": null,
+  "gate": {
+    "minCoverage": 0.9,
+    "verdict": "PASS"
+  },
+  "gates": {
+    "contract": 1,
+    "verdict": "ACCEPT",
+    "refusing": [],
+    "warnings": [],
+    "codes": [],
+    "settings": {
+      "alpha": 0.05,
+      "minStratum": 8,
+      "minDiscordant": 8,
+      "seenShareLimit": 0.2
+    },
+    "results": [
+      {
+        "id": "G1-spec-valid",
+        "stage": "preflight",
+        "verdict": "PASS",
+        "why": "spec is valid",
+        "evidence": {}
+      },
+      {
+        "id": "G2-privacy",
+        "stage": "preflight",
+        "verdict": "PASS",
+        "why": "0 hits in 74 states",
+        "evidence": {}
+      },
+      {
+        "id": "G3-text-disjoint",
+        "stage": "preflight",
+        "verdict": "SKIP",
+        "why": "no fit/test split declared: nothing to be disjoint from (label-free or single-split run)",
+        "evidence": {}
+      },
+      {
+        "id": "G4-coverage",
+        "stage": "run",
+        "verdict": "PASS",
+        "why": "coverage 100.0% ≥ 90%",
+        "evidence": {
+          "coverage": 1,
+          "minCoverage": 0.9
+        }
+      }
+    ]
+  },
+  "quality": [
+    {
+      "question": "errorShown",
+      "kind": "boolean",
+      "meanConf": 0.9467567567567566,
+      "atEnds": 1,
+      "spread": 0.010939270570453342,
+      "verdict": "NO-INFORMATION"
+    },
+    {
+      "question": "blocked",
+      "kind": "choice",
+      "meanConf": 0.979444715132344,
+      "atEnds": 0.972972972972973,
+      "spread": 0.16666666666666666,
+      "keysUsed": 1,
+      "optionCount": 6,
+      "entropyMax": 0.21564652673780538,
+      "entropyMean": 0.0206,
+      "verdict": "NO-INFORMATION"
+    },
+    {
+      "question": "outcome",
+      "kind": "choice",
+      "meanConf": 0.8989080737114186,
+      "atEnds": 0.8243243243243243,
+      "spread": 0.6666666666666666,
+      "keysUsed": 2,
+      "optionCount": 3,
+      "entropyMax": 0.7714693465119087,
+      "entropyMean": 0.1011,
+      "verdict": "JEV-SAFE"
+    }
+  ],
+  "scorecards": [
+    {
+      "question": "outcome",
+      "n": 74,
+      "coverage": 1,
+      "accuracy": 0.9864864864864865,
+      "majority": {
+        "label": "contradicted",
+        "fittedOn": "scored items (in-sample)",
+        "accuracy": 0.5,
+        "vsJev": {
+          "n": 74,
+          "accuracyA": 0.9864864864864865,
+          "accuracyB": 0.5,
+          "b": 36,
+          "c": 0,
+          "p": 2.91e-11,
+          "different": true,
+          "deltaCI95": [
+            0.3783783783783784,
+            0.6081081081081081
+          ]
+        }
+      }
+    }
+  ],
+  "items": [
+    {
+      "id": "wiki-lisp-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "verified": 0,
+            "contradicted": 1,
+            "unsupported": 0
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "login_wall": 0,
+            "one_time_code": 0,
+            "captcha": 0,
+            "none": 1,
+            "error_page": 0,
+            "cookie_banner": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 319,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "wiki-lisp",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "unsupported": 0,
+            "contradicted": 0,
+            "verified": 1
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "captcha": 0,
+            "none": 1,
+            "error_page": 0,
+            "login_wall": 0,
+            "one_time_code": 0,
+            "cookie_banner": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 311,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "wiki-noether",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "contradicted": 0,
+            "verified": 1,
+            "unsupported": 0
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "cookie_banner": 0,
+            "error_page": 0,
+            "login_wall": 0,
+            "captcha": 0,
+            "none": 1,
+            "one_time_code": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 280,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "wiki-noether-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "unsupported": 0,
+            "contradicted": 1,
+            "verified": 0
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "one_time_code": 0,
+            "none": 1,
+            "login_wall": 0,
+            "error_page": 0,
+            "cookie_banner": 0,
+            "captcha": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 237,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "wiki-turing",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "unsupported": 0,
+            "verified": 0.97,
+            "contradicted": 0.03
+          },
+          "entropy": 0.12264760695797416
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "one_time_code": 0,
+            "error_page": 0,
+            "none": 1,
+            "cookie_banner": 0,
+            "login_wall": 0,
+            "captcha": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 206,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "wiki-turing-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "contradicted": 1,
+            "unsupported": 0,
+            "verified": 0
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "one_time_code": 0,
+            "none": 0.99,
+            "captcha": 0,
+            "cookie_banner": 0,
+            "login_wall": 0.01,
+            "error_page": 0
+          },
+          "entropy": 0.03125505142661505
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 180,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "wiki-rust",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "verified": 0.98,
+            "unsupported": 0,
+            "contradicted": 0.02
+          },
+          "entropy": 0.08923904665092416
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "login_wall": 0,
+            "none": 1,
+            "captcha": 0,
+            "error_page": 0,
+            "one_time_code": 0,
+            "cookie_banner": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 175,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "wiki-periodic",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "verified": 0.98,
+            "unsupported": 0,
+            "contradicted": 0.02
+          },
+          "entropy": 0.08923904665092416
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "none": 1,
+            "error_page": 0,
+            "cookie_banner": 0,
+            "login_wall": 0,
+            "one_time_code": 0,
+            "captcha": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 177,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "wiki-periodic-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "unsupported": 0.01,
+            "verified": 0.01,
+            "contradicted": 0.98
+          },
+          "entropy": 0.10185764172235331
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "login_wall": 0,
+            "none": 1,
+            "error_page": 0,
+            "captcha": 0,
+            "cookie_banner": 0,
+            "one_time_code": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 181,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "wiki-rust-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "unsupported": 0.03,
+            "verified": 0.01,
+            "contradicted": 0.96
+          },
+          "entropy": 0.17334373143577356
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "none": 1,
+            "login_wall": 0,
+            "one_time_code": 0,
+            "captcha": 0,
+            "cookie_banner": 0,
+            "error_page": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 189,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "mdn-fetch",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "verified": 1,
+            "unsupported": 0,
+            "contradicted": 0
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "captcha": 0,
+            "cookie_banner": 0,
+            "login_wall": 0,
+            "one_time_code": 0,
+            "error_page": 0,
+            "none": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 170,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "mdn-fetch-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "unsupported": 0.09,
+            "contradicted": 0.91,
+            "verified": 0
+          },
+          "entropy": 0.2753817941216336
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "one_time_code": 0,
+            "captcha": 0,
+            "login_wall": 0,
+            "cookie_banner": 0,
+            "none": 1,
+            "error_page": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 272,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "mdn-map-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "contradicted": 1,
+            "verified": 0,
+            "unsupported": 0
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "login_wall": 0,
+            "error_page": 0,
+            "captcha": 0,
+            "cookie_banner": 0,
+            "one_time_code": 0,
+            "none": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 158,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "mdn-flex",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "contradicted": 0.01,
+            "unsupported": 0,
+            "verified": 0.99
+          },
+          "entropy": 0.05097479332107252
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "cookie_banner": 0,
+            "captcha": 0,
+            "login_wall": 0,
+            "one_time_code": 0,
+            "none": 1,
+            "error_page": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 207,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "mdn-map",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "unsupported": 0,
+            "verified": 1,
+            "contradicted": 0
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "login_wall": 0,
+            "cookie_banner": 0,
+            "error_page": 0,
+            "captcha": 0,
+            "none": 1,
+            "one_time_code": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 168,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "mdn-flex-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "contradicted": 0.98,
+            "verified": 0,
+            "unsupported": 0.02
+          },
+          "entropy": 0.08923904665092416
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "cookie_banner": 0,
+            "none": 1,
+            "login_wall": 0,
+            "one_time_code": 0,
+            "captcha": 0,
+            "error_page": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 164,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "rfc2324",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "verified": 0.98,
+            "unsupported": 0,
+            "contradicted": 0.02
+          },
+          "entropy": 0.08923904665092416
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "cookie_banner": 0,
+            "error_page": 0,
+            "one_time_code": 0,
+            "login_wall": 0,
+            "none": 1,
+            "captcha": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 184,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "rfc2324-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "verified": 0,
+            "contradicted": 0.98,
+            "unsupported": 0.02
+          },
+          "entropy": 0.08923904665092416
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "cookie_banner": 0,
+            "captcha": 0,
+            "none": 0.99,
+            "error_page": 0.01,
+            "login_wall": 0,
+            "one_time_code": 0
+          },
+          "entropy": 0.03125505142661505
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 166,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "rfc791",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "contradicted": 0.02,
+            "unsupported": 0,
+            "verified": 0.98
+          },
+          "entropy": 0.08923904665092416
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "error_page": 0,
+            "captcha": 0,
+            "login_wall": 0,
+            "one_time_code": 0,
+            "cookie_banner": 0,
+            "none": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 165,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "rfc791-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "verified": 0.01,
+            "unsupported": 0.02,
+            "contradicted": 0.97
+          },
+          "entropy": 0.14002901188654504
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "login_wall": 0,
+            "error_page": 0,
+            "none": 1,
+            "captcha": 0,
+            "cookie_banner": 0,
+            "one_time_code": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 182,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "rfc9110",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "unsupported": 0,
+            "contradicted": 0.01,
+            "verified": 0.99
+          },
+          "entropy": 0.05097479332107252
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "one_time_code": 0,
+            "captcha": 0,
+            "login_wall": 0,
+            "error_page": 0,
+            "cookie_banner": 0,
+            "none": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 151,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "rfc9110-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "contradicted": 1,
+            "verified": 0,
+            "unsupported": 0
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "one_time_code": 0,
+            "captcha": 0,
+            "none": 1,
+            "error_page": 0,
+            "cookie_banner": 0,
+            "login_wall": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 159,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "gh-linux",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "unsupported": 0,
+            "contradicted": 0,
+            "verified": 1
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "none": 0.97,
+            "error_page": 0,
+            "login_wall": 0.03,
+            "captcha": 0,
+            "one_time_code": 0,
+            "cookie_banner": 0
+          },
+          "entropy": 0.07520103590568315
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 213,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "gh-vscode-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "contradicted": 1,
+            "unsupported": 0,
+            "verified": 0
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "cookie_banner": 0,
+            "captcha": 0,
+            "error_page": 0.01,
+            "none": 0.97,
+            "login_wall": 0.02,
+            "one_time_code": 0
+          },
+          "entropy": 0.08585839554395608
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 182,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "gh-go",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "contradicted": 0.01,
+            "verified": 0.99,
+            "unsupported": 0
+          },
+          "entropy": 0.05097479332107252
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "none": 0.97,
+            "captcha": 0,
+            "one_time_code": 0,
+            "login_wall": 0.03,
+            "error_page": 0,
+            "cookie_banner": 0
+          },
+          "entropy": 0.07520103590568315
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 150,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "gh-linux-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "verified": 0,
+            "contradicted": 1,
+            "unsupported": 0
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.06
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "cookie_banner": 0,
+            "one_time_code": 0,
+            "captcha": 0,
+            "none": 0.98,
+            "error_page": 0,
+            "login_wall": 0.02
+          },
+          "entropy": 0.054716670939079934
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 198,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "gh-go-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "verified": 0.02,
+            "unsupported": 0.04,
+            "contradicted": 0.94
+          },
+          "entropy": 0.24135755200750125
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "captcha": 0,
+            "error_page": 0,
+            "login_wall": 0.03,
+            "one_time_code": 0,
+            "none": 0.97,
+            "cookie_banner": 0
+          },
+          "entropy": 0.07520103590568315
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 156,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "gh-vscode",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "verified": 1,
+            "contradicted": 0,
+            "unsupported": 0
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.07
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "cookie_banner": 0,
+            "login_wall": 0.03,
+            "error_page": 0,
+            "one_time_code": 0,
+            "none": 0.97,
+            "captcha": 0
+          },
+          "entropy": 0.07520103590568315
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 171,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "hn-front",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "verified": 0.99,
+            "unsupported": 0.01,
+            "contradicted": 0
+          },
+          "entropy": 0.05097479332107252
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "error_page": 0,
+            "captcha": 0,
+            "login_wall": 0,
+            "none": 1,
+            "one_time_code": 0,
+            "cookie_banner": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 164,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "hn-front-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "contradicted": 0.88,
+            "unsupported": 0.11,
+            "verified": 0.01
+          },
+          "entropy": 0.3653202438924249
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "none": 0.94,
+            "one_time_code": 0,
+            "cookie_banner": 0,
+            "captcha": 0,
+            "login_wall": 0.06,
+            "error_page": 0
+          },
+          "entropy": 0.1266729861895967
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 175,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "hn-newest",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "unsupported": 0,
+            "contradicted": 0.01,
+            "verified": 0.99
+          },
+          "entropy": 0.05097479332107252
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "none": 1,
+            "cookie_banner": 0,
+            "login_wall": 0,
+            "captcha": 0,
+            "one_time_code": 0,
+            "error_page": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 149,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "hn-newest-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "contradicted": 0.86,
+            "verified": 0,
+            "unsupported": 0.14
+          },
+          "entropy": 0.36861364945670827
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "cookie_banner": 0,
+            "none": 1,
+            "login_wall": 0,
+            "captcha": 0,
+            "error_page": 0,
+            "one_time_code": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 164,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "arxiv-list",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "verified": 0.98,
+            "contradicted": 0.01,
+            "unsupported": 0.01
+          },
+          "entropy": 0.1018576417223533
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "error_page": 0,
+            "none": 1,
+            "login_wall": 0,
+            "cookie_banner": 0,
+            "captcha": 0,
+            "one_time_code": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 159,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "arxiv-list-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "unsupported": 0.01,
+            "contradicted": 0.99,
+            "verified": 0
+          },
+          "entropy": 0.05097479332107252
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "none": 1,
+            "cookie_banner": 0,
+            "one_time_code": 0,
+            "login_wall": 0,
+            "error_page": 0,
+            "captcha": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 179,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "arxiv-dots",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "unsupported": 0,
+            "verified": 1,
+            "contradicted": 0
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "cookie_banner": 0,
+            "error_page": 0,
+            "login_wall": 0,
+            "one_time_code": 0,
+            "none": 1,
+            "captcha": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 193,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "arxiv-dots-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "verified": 0.03,
+            "unsupported": 0,
+            "contradicted": 0.97
+          },
+          "entropy": 0.12264760695797416
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "one_time_code": 0,
+            "error_page": 0,
+            "none": 1,
+            "login_wall": 0,
+            "cookie_banner": 0,
+            "captcha": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 169,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "w3-wcag-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "verified": 0,
+            "unsupported": 0.05,
+            "contradicted": 0.95
+          },
+          "entropy": 0.1806963615767855
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "error_page": 0,
+            "none": 1,
+            "login_wall": 0,
+            "captcha": 0,
+            "one_time_code": 0,
+            "cookie_banner": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 177,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "w3-wcag",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "contradicted": 0.59,
+            "unsupported": 0.06,
+            "verified": 0.35
+          },
+          "entropy": 0.7714693465119087
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "captcha": 0,
+            "error_page": 0.01,
+            "none": 0.99,
+            "one_time_code": 0,
+            "login_wall": 0,
+            "cookie_banner": 0
+          },
+          "entropy": 0.03125505142661505
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 178,
+      "correct": {
+        "outcome": false
+      }
+    },
+    {
+      "id": "python-home",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "verified": 1,
+            "contradicted": 0,
+            "unsupported": 0
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "captcha": 0,
+            "cookie_banner": 0,
+            "error_page": 0,
+            "one_time_code": 0,
+            "none": 1,
+            "login_wall": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 160,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "python-home-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "contradicted": 0.99,
+            "verified": 0.01,
+            "unsupported": 0
+          },
+          "entropy": 0.05097479332107252
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "login_wall": 0,
+            "none": 1,
+            "one_time_code": 0,
+            "cookie_banner": 0,
+            "captcha": 0,
+            "error_page": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 182,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "python-asyncio",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "unsupported": 0,
+            "contradicted": 0,
+            "verified": 1
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "captcha": 0,
+            "none": 1,
+            "login_wall": 0,
+            "error_page": 0,
+            "one_time_code": 0,
+            "cookie_banner": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 172,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "python-asyncio-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "verified": 0,
+            "unsupported": 0.01,
+            "contradicted": 0.99
+          },
+          "entropy": 0.05097479332107252
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "none": 1,
+            "one_time_code": 0,
+            "cookie_banner": 0,
+            "error_page": 0,
+            "login_wall": 0,
+            "captcha": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 154,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "node-home",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "contradicted": 0,
+            "unsupported": 0,
+            "verified": 1
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "error_page": 0,
+            "captcha": 0,
+            "login_wall": 0,
+            "one_time_code": 0,
+            "none": 1,
+            "cookie_banner": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 186,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "go-doc-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "contradicted": 0.99,
+            "unsupported": 0,
+            "verified": 0.01
+          },
+          "entropy": 0.05097479332107252
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "error_page": 0,
+            "none": 1,
+            "cookie_banner": 0,
+            "login_wall": 0,
+            "one_time_code": 0,
+            "captcha": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 149,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "go-doc",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "verified": 0.98,
+            "contradicted": 0.02,
+            "unsupported": 0
+          },
+          "entropy": 0.08923904665092416
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "login_wall": 0,
+            "captcha": 0,
+            "none": 1,
+            "one_time_code": 0,
+            "error_page": 0,
+            "cookie_banner": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 162,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "node-home-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "contradicted": 0.99,
+            "verified": 0.01,
+            "unsupported": 0
+          },
+          "entropy": 0.05097479332107252
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "login_wall": 0,
+            "error_page": 0,
+            "cookie_banner": 0,
+            "captcha": 0,
+            "one_time_code": 0,
+            "none": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 190,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "rust-home",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "unsupported": 0,
+            "contradicted": 0.01,
+            "verified": 0.99
+          },
+          "entropy": 0.05097479332107252
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "one_time_code": 0,
+            "captcha": 0,
+            "none": 1,
+            "cookie_banner": 0,
+            "error_page": 0,
+            "login_wall": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 147,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "rust-home-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "verified": 0,
+            "contradicted": 0.96,
+            "unsupported": 0.04
+          },
+          "entropy": 0.15286935115005695
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "login_wall": 0,
+            "captcha": 0,
+            "cookie_banner": 0,
+            "one_time_code": 0,
+            "error_page": 0,
+            "none": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 154,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "kernel",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "unsupported": 0,
+            "contradicted": 0,
+            "verified": 1
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "one_time_code": 0,
+            "captcha": 0,
+            "login_wall": 0,
+            "cookie_banner": 0,
+            "none": 1,
+            "error_page": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 248,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "kernel-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "contradicted": 0.99,
+            "verified": 0,
+            "unsupported": 0.01
+          },
+          "entropy": 0.05097479332107252
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "captcha": 0,
+            "error_page": 0,
+            "none": 1,
+            "one_time_code": 0,
+            "login_wall": 0,
+            "cookie_banner": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 196,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "httpbin-html",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "unsupported": 0.04,
+            "contradicted": 0.04,
+            "verified": 0.92
+          },
+          "entropy": 0.3042211976516049
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "error_page": 0.02,
+            "cookie_banner": 0,
+            "none": 0.98,
+            "login_wall": 0,
+            "one_time_code": 0,
+            "captcha": 0
+          },
+          "entropy": 0.054716670939079934
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 233,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "httpbin-html-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "contradicted": 0.99,
+            "unsupported": 0.01,
+            "verified": 0
+          },
+          "entropy": 0.05097479332107252
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "captcha": 0,
+            "error_page": 0.01,
+            "none": 0.99,
+            "one_time_code": 0,
+            "login_wall": 0,
+            "cookie_banner": 0
+          },
+          "entropy": 0.03125505142661505
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 146,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "debian",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "unsupported": 0,
+            "verified": 1,
+            "contradicted": 0
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "login_wall": 0,
+            "none": 1,
+            "captcha": 0,
+            "one_time_code": 0,
+            "cookie_banner": 0,
+            "error_page": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 164,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "debian-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "unsupported": 0,
+            "contradicted": 0.99,
+            "verified": 0.01
+          },
+          "entropy": 0.05097479332107252
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "none": 1,
+            "error_page": 0,
+            "login_wall": 0,
+            "captcha": 0,
+            "one_time_code": 0,
+            "cookie_banner": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 159,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "httpbin-form-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "unsupported": 0.02,
+            "verified": 0,
+            "contradicted": 0.98
+          },
+          "entropy": 0.08923904665092416
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "none": 0.99,
+            "login_wall": 0,
+            "captcha": 0,
+            "one_time_code": 0,
+            "cookie_banner": 0,
+            "error_page": 0.01
+          },
+          "entropy": 0.03125505142661505
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 145,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "httpbin-form",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "contradicted": 0.01,
+            "verified": 0.98,
+            "unsupported": 0.01
+          },
+          "entropy": 0.1018576417223533
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "login_wall": 0,
+            "error_page": 0,
+            "one_time_code": 0,
+            "cookie_banner": 0,
+            "captcha": 0,
+            "none": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 140,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "wiki-search",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "contradicted": 0.02,
+            "verified": 0.98,
+            "unsupported": 0
+          },
+          "entropy": 0.08923904665092416
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "one_time_code": 0,
+            "captcha": 0,
+            "login_wall": 0,
+            "error_page": 0,
+            "none": 1,
+            "cookie_banner": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 176,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "wiki-search-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "verified": 0,
+            "contradicted": 0.8,
+            "unsupported": 0.2
+          },
+          "entropy": 0.4554859150035953
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "error_page": 0.01,
+            "none": 0.98,
+            "login_wall": 0.01,
+            "cookie_banner": 0,
+            "captcha": 0,
+            "one_time_code": 0
+          },
+          "entropy": 0.062453727083770755
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 181,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "iana",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "unsupported": 0,
+            "verified": 1,
+            "contradicted": 0
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "login_wall": 0,
+            "one_time_code": 0,
+            "cookie_banner": 0,
+            "none": 0.99,
+            "captcha": 0,
+            "error_page": 0.01
+          },
+          "entropy": 0.03125505142661505
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 222,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "example",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "contradicted": 0,
+            "unsupported": 0,
+            "verified": 1
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.04
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "captcha": 0,
+            "one_time_code": 0,
+            "cookie_banner": 0,
+            "none": 0.95,
+            "error_page": 0.05,
+            "login_wall": 0
+          },
+          "entropy": 0.11079346684373827
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 153,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "example-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "unsupported": 0.02,
+            "verified": 0,
+            "contradicted": 0.98
+          },
+          "entropy": 0.08923904665092416
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "cookie_banner": 0,
+            "none": 0.97,
+            "captcha": 0,
+            "one_time_code": 0,
+            "login_wall": 0.02,
+            "error_page": 0.01
+          },
+          "entropy": 0.08585839554395608
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 169,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "iana-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "verified": 0.01,
+            "contradicted": 0.78,
+            "unsupported": 0.21
+          },
+          "entropy": 0.5166404882803555
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.05
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "error_page": 0.01,
+            "none": 0.99,
+            "login_wall": 0,
+            "cookie_banner": 0,
+            "one_time_code": 0,
+            "captcha": 0
+          },
+          "entropy": 0.03125505142661505
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 155,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "ietf-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "contradicted": 1,
+            "verified": 0,
+            "unsupported": 0
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "one_time_code": 0,
+            "none": 1,
+            "login_wall": 0,
+            "captcha": 0,
+            "cookie_banner": 0,
+            "error_page": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 156,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "ietf",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "unsupported": 0,
+            "verified": 0.98,
+            "contradicted": 0.02
+          },
+          "entropy": 0.08923904665092416
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "cookie_banner": 0,
+            "none": 1,
+            "captcha": 0,
+            "one_time_code": 0,
+            "login_wall": 0,
+            "error_page": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 167,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "apache",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "unsupported": 0,
+            "contradicted": 0,
+            "verified": 1
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "one_time_code": 0,
+            "login_wall": 0,
+            "captcha": 0,
+            "cookie_banner": 0,
+            "none": 1,
+            "error_page": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 239,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "quotes",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "contradicted": 0,
+            "verified": 1,
+            "unsupported": 0
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "cookie_banner": 0,
+            "none": 0.87,
+            "login_wall": 0.13,
+            "captcha": 0,
+            "error_page": 0,
+            "one_time_code": 0
+          },
+          "entropy": 0.21564652673780538
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 168,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "apache-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "verified": 0,
+            "unsupported": 0,
+            "contradicted": 1
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "captcha": 0,
+            "one_time_code": 0,
+            "cookie_banner": 0,
+            "none": 1,
+            "error_page": 0,
+            "login_wall": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 182,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "quotes-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "unsupported": 0.28,
+            "contradicted": 0.72,
+            "verified": 0
+          },
+          "entropy": 0.5397293690992069
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "captcha": 0,
+            "none": 0.88,
+            "error_page": 0,
+            "login_wall": 0.12,
+            "one_time_code": 0,
+            "cookie_banner": 0
+          },
+          "entropy": 0.2047847367765229
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 163,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "books",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "contradicted": 0,
+            "unsupported": 0,
+            "verified": 1
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "cookie_banner": 0,
+            "one_time_code": 0,
+            "captcha": 0,
+            "login_wall": 0,
+            "none": 1,
+            "error_page": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 155,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "books-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "contradicted": 0.83,
+            "verified": 0,
+            "unsupported": 0.17
+          },
+          "entropy": 0.4149655139758604
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "captcha": 0,
+            "one_time_code": 0,
+            "login_wall": 0,
+            "error_page": 0,
+            "none": 1,
+            "cookie_banner": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 147,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "bbc",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "contradicted": 0.02,
+            "verified": 0.98,
+            "unsupported": 0
+          },
+          "entropy": 0.08923904665092416
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "cookie_banner": 0,
+            "error_page": 0,
+            "login_wall": 0,
+            "one_time_code": 0,
+            "captcha": 0,
+            "none": 1
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 170,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "weather",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "verified",
+          "probabilities": {
+            "contradicted": 0,
+            "unsupported": 0,
+            "verified": 1
+          },
+          "entropy": 0
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "cookie_banner": 0,
+            "captcha": 0,
+            "error_page": 0,
+            "none": 1,
+            "login_wall": 0,
+            "one_time_code": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 209,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "weather-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "unsupported": 0.03,
+            "contradicted": 0.97,
+            "verified": 0
+          },
+          "entropy": 0.12264760695797416
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.02
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "one_time_code": 0,
+            "login_wall": 0,
+            "none": 1,
+            "cookie_banner": 0,
+            "error_page": 0,
+            "captcha": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 164,
+      "correct": {
+        "outcome": true
+      }
+    },
+    {
+      "id": "bbc-f",
+      "answers": {
+        "outcome": {
+          "type": "choice",
+          "choice": "contradicted",
+          "probabilities": {
+            "contradicted": 0.97,
+            "unsupported": 0.03,
+            "verified": 0
+          },
+          "entropy": 0.12264760695797416
+        },
+        "errorShown": {
+          "type": "noul",
+          "p": 0.03
+        },
+        "blocked": {
+          "type": "choice",
+          "choice": "none",
+          "probabilities": {
+            "one_time_code": 0,
+            "none": 1,
+            "captcha": 0,
+            "cookie_banner": 0,
+            "login_wall": 0,
+            "error_page": 0
+          },
+          "entropy": 0
+        }
+      },
+      "answeredBy": "jev-1.13.0",
+      "ms": 154,
+      "correct": {
+        "outcome": true
+      }
+    }
+  ]
+}

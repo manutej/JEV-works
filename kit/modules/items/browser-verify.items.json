@@ -1,0 +1,117 @@
+[
+  {
+    "id": "login-ok",
+    "state": {
+      "claim": "the user is signed in and sees the secure area",
+      "beforeUrl": "https://the-internet.herokuapp.com/login",
+      "afterUrl": "https://the-internet.herokuapp.com/secure",
+      "urlChanged": "yes",
+      "title": "The Internet",
+      "textExcerpt": "You logged into a secure area!\n×\nSecure Area\nWelcome to the Secure Area. When you are done click logout below.\nLogout\nPowered by Elemental Selenium",
+      "labelsAdded": [
+        "[a] \"×\"",
+        "[a] \"Logout\""
+      ],
+      "labelsRemoved": [
+        "[input type=\"text\"] name=\"username\"",
+        "[input type=\"password\"] name=\"password\"",
+        "[button type=\"submit\"] \"Login\""
+      ]
+    },
+    "labels": {
+      "outcome": "verified",
+      "errorShown": false,
+      "blocked": "none"
+    }
+  },
+  {
+    "id": "login-bad",
+    "state": {
+      "claim": "the user is signed in and sees the secure area",
+      "beforeUrl": "https://the-internet.herokuapp.com/login",
+      "afterUrl": "https://the-internet.herokuapp.com/login",
+      "urlChanged": "no",
+      "title": "The Internet",
+      "textExcerpt": "Your password is invalid!\n×\nLogin Page\nThis is where you can log into the secure area. Enter tomsmith for the username and SuperSecretPassword! for the password. If the information is wrong you should see error messages.\nUsername\nPassword\n Login\nPowered by Elemental Selenium",
+      "labelsAdded": [
+        "[a] \"×\""
+      ],
+      "labelsRemoved": []
+    },
+    "labels": {
+      "outcome": "contradicted",
+      "errorShown": true,
+      "blocked": "none"
+    }
+  },
+  {
+    "id": "example-nav",
+    "state": {
+      "claim": "the IANA example domains help page opened",
+      "beforeUrl": "https://example.com/",
+      "afterUrl": "https://www.iana.org/help/example-domains",
+      "urlChanged": "yes",
+      "title": "Example Domains",
+      "textExcerpt": "Domains\nProtocols\nNumbers\nAbout\nInstructions and Guides\nExample Domains\n\nA number of domains such as example.com and example.org are maintained for documentation purposes. These domains may be used as illustrative examples in documents without prior coordination with us. They are not available for registration or transfer.\n\nWe provide a web service on the example domain hosts to provide basic information on the purpose of the domain. These web services are provided as best effort, but are not designed to support production applications. We strongly recommend you do not design applications that require the example domains to have operating HTTP service.\n\nFurther Reading\nIANA-managed Reserved Domains\nSpecial-Use Domain Names (RFC 6761)\nReserved Top Level DNS Names (RFC 2606)\nLast revised yesterday.\nDomain Names \nRoot Zone Registry\n.INT Registry\n.ARPA Registry\nIDN Repository\n\nNumber Resources \nNumber Registries\nRIR Allocation Data\nAbuse Information\n\nProtocols \nProtocol Registries\nTime Zone Database\n\nAbout Us \nNews\nPerformance\nThe Organization\nArchive\nContact Us\n\nThe IANA functions coordinate the Internet’s globally unique identifiers, and are provided by Public Technical Identifiers, an affiliate of ICANN.\n\nPrivacy Policy\nTerms of Service",
+      "labelsAdded": [
+        "[a]",
+        "[a] \"Domains\"",
+        "[a] \"Protocols\"",
+        "[a] \"Protocols\"",
+        "[a] \"Numbers\"",
+        "[a] \"About\"",
+        "[a] \"Instructions and Guides\"",
+        "[a] \"IANA-managed Reserved Domains\"",
+        "[a] \"Special-Use Domain Names\"",
+        "[a] \"Reserved Top Level DNS Names\"",
+        "[a] \"Domain Names\"",
+        "[a] \"Root Zone Registry\"",
+        "[a] \".INT Registry\"",
+        "[a] \".ARPA Registry\"",
+        "[a] \"IDN Repository\"",
+        "[a] \"Number Resources\"",
+        "[a] \"Number Registries\"",
+        "[a] \"RIR Allocation Data\"",
+        "[a] \"Abuse Information\"",
+        "[a] \"Protocol Registries\"",
+        "[a] \"Time Zone Database\"",
+        "[a] \"About Us\"",
+        "[a] \"News\"",
+        "[a] \"Performance\"",
+        "[a] \"The Organization\"",
+        "[a] \"Archive\"",
+        "[a] \"Contact Us\"",
+        "[a] \"Public Technical Identifiers\"",
+        "[a] \"ICANN\"",
+        "[a] \"Privacy Policy\"",
+        "[a] \"Terms of Service\""
+      ],
+      "labelsRemoved": [
+        "[a] \"Learn more\""
+      ]
+    },
+    "labels": {
+      "outcome": "verified",
+      "errorShown": false,
+      "blocked": "none"
+    }
+  },
+  {
+    "id": "logout-missed",
+    "state": {
+      "claim": "the user has logged out and sees the login form",
+      "beforeUrl": "https://the-internet.herokuapp.com/secure",
+      "afterUrl": "https://the-internet.herokuapp.com/secure",
+      "urlChanged": "no",
+      "title": "The Internet",
+      "textExcerpt": "You logged into a secure area!\n×\nSecure Area\nWelcome to the Secure Area. When you are done click logout below.\nLogout\nPowered by Elemental Selenium",
+      "labelsAdded": [],
+      "labelsRemoved": []
+    },
+    "labels": {
+      "outcome": "contradicted",
+      "errorShown": false,
+      "blocked": "none"
+    }
+  }
+]
