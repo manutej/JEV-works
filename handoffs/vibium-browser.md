@@ -1,7 +1,28 @@
 # Handoff — Jev in front of a browser (Vibium)
 
-Date 2026-09-28. Status: **contexts drafted and linted, runtime twins green in jev-tape, nothing measured live yet.**
-Model pin `jev-1.13.0`. This file says what exists, what is claimed, and what the next keyed session must run.
+Dates 2026-09-28 and 2026-09-29. Status: **measured twice: 15 experiments, 248 rows in the registry, repeat runs identical for Jev (8/8 bench, 74/74 corpus).**
+Model pin `jev-1.13.0`. Entry point for the whole surface: jev-tape `HANDOFF.md` (reading order by audience, annotated file tree). This file is the lab side: what exists here, what is claimed, and what the next keyed session must run.
+
+## The browser files in this repo
+
+```
+kit/modules/contexts/browser.action-gate.json      the gate questions (canonical; jev-tape/packs is the runtime copy)
+kit/modules/contexts/browser.step-verify.json      the verify and login-verify questions (canonical)
+kit/modules/items/browser-gate.items.json          43 gate targets, 7 labelled
+kit/modules/items/browser-verify.items.json        4 verify pairs
+kit/modules/items/browser-login.items.json         3 login pairs
+kit/modules/items/browser-verify.corpus-2026-09-28.items.json   74 corpus items with states
+kit/results/browser-action-gate-action-gate-2026-09-28.json     E1
+kit/results/browser-step-verify-step-verify-2026-09-28.json     E2
+kit/results/browser-step-verify-login-verify-2026-09-28.json    E3
+kit/results/browser-bench-check-vs-jev-2026-09-28.json          E5 (and E11 columns)
+kit/results/browser-step-verify-corpus-2026-09-28.json          E9
+kit/results/browser-crosscheck-computer-use-proxy-2026-09-28.json   E11, E12
+handoffs/vibium-browser.md                          this file
+handoffs/vibium/interview-login-verify.md           how the login task became a pack (operadic interview)
+handoffs/vibium/toq-login-verify.yaml               the same tree for the OC gate
+handoffs/vibium/interview-use-cases.md              which use cases to measure at scale; ★ questions unanswered
+```
 
 Source of truth for every measured number: jev-tape `results/registry.json`, protocol in jev-tape `docs/SOURCE-OF-TRUTH.md`; the kit results in `kit/results/browser-*` are its raw layer and are never edited after a run. New results from other sessions go through jev-tape `results/incoming/`.
 
